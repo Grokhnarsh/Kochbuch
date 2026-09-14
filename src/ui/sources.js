@@ -12,6 +12,7 @@ const KIND_LABEL = {
   buch: 'Gemeinfreies Kochbuch',
   wiki: 'Wiki-Projekt',
   api: 'Offene Schnittstelle',
+  datensatz: 'Offener Datensatz',
   import: 'Eigener Import',
 };
 

@@ -7,21 +7,55 @@
       "chapter": "Rezepte nach Land / Italien",
       "cuisine": "Italienisch",
       "category": "Hauptgericht",
-      "meals": ["mittag", "abend"],
-      "diet": ["vegetarisch", "vegan"],
+      "meals": [
+        "mittag",
+        "abend"
+      ],
+      "diet": [
+        "vegetarisch",
+        "vegan"
+      ],
       "servings": 4,
       "prep": 5,
       "cook": 15,
       "difficulty": 1,
       "kcal": 520,
-      "tags": ["schnell", "günstig", "15-Minuten"],
+      "tags": [
+        "schnell",
+        "günstig",
+        "15-Minuten"
+      ],
       "ingredients": [
-        {"a": 400, "u": "g", "n": "Spaghetti"},
-        {"a": 6, "u": "Zehe", "n": "Knoblauch"},
-        {"a": 100, "u": "ml", "n": "Olivenöl"},
-        {"a": 2, "u": "Stk", "n": "Chilischoten"},
-        {"a": 1, "u": "Bund", "n": "Petersilie"},
-        {"a": 1, "u": "TL", "n": "Salz"}
+        {
+          "a": 400,
+          "u": "g",
+          "n": "Spaghetti"
+        },
+        {
+          "a": 6,
+          "u": "Zehe",
+          "n": "Knoblauch"
+        },
+        {
+          "a": 100,
+          "u": "ml",
+          "n": "Olivenöl"
+        },
+        {
+          "a": 2,
+          "u": "Stk",
+          "n": "Chilischoten"
+        },
+        {
+          "a": 1,
+          "u": "Bund",
+          "n": "Petersilie"
+        },
+        {
+          "a": 1,
+          "u": "TL",
+          "n": "Salz"
+        }
       ],
       "steps": [
         "Spaghetti in reichlich Salzwasser bissfest kochen, eine Tasse Kochwasser aufheben.",
@@ -38,26 +72,79 @@
       "chapter": "Rezepte nach Art / Eintopf",
       "cuisine": "Mexikanisch",
       "category": "Hauptgericht",
-      "meals": ["mittag", "abend"],
-      "diet": ["glutenfrei"],
+      "meals": [
+        "mittag",
+        "abend"
+      ],
+      "diet": [
+        "glutenfrei"
+      ],
       "servings": 6,
       "prep": 20,
       "cook": 60,
       "difficulty": 1,
       "kcal": 480,
-      "tags": ["Vorkochen", "Eintopf", "Party"],
+      "tags": [
+        "Vorkochen",
+        "Eintopf",
+        "Feier"
+      ],
       "ingredients": [
-        {"a": 700, "u": "g", "n": "Rinderhack"},
-        {"a": 2, "u": "Stk", "n": "Zwiebeln"},
-        {"a": 3, "u": "Zehe", "n": "Knoblauch"},
-        {"a": 2, "u": "Stk", "n": "Paprikaschoten"},
-        {"a": 800, "u": "g", "n": "Tomaten, gehackt"},
-        {"a": 400, "u": "g", "n": "Kidneybohnen, Dose"},
-        {"a": 300, "u": "g", "n": "Mais, Dose"},
-        {"a": 2, "u": "EL", "n": "Tomatenmark"},
-        {"a": 2, "u": "TL", "n": "Kreuzkümmel, gemahlen"},
-        {"a": 1, "u": "TL", "n": "Chilipulver"},
-        {"a": 1, "u": "TL", "n": "Salz"}
+        {
+          "a": 700,
+          "u": "g",
+          "n": "Rinderhack"
+        },
+        {
+          "a": 2,
+          "u": "Stk",
+          "n": "Zwiebeln"
+        },
+        {
+          "a": 3,
+          "u": "Zehe",
+          "n": "Knoblauch"
+        },
+        {
+          "a": 2,
+          "u": "Stk",
+          "n": "Paprikaschoten"
+        },
+        {
+          "a": 800,
+          "u": "g",
+          "n": "Tomaten, gehackt"
+        },
+        {
+          "a": 400,
+          "u": "g",
+          "n": "Kidneybohnen, Dose"
+        },
+        {
+          "a": 300,
+          "u": "g",
+          "n": "Mais, Dose"
+        },
+        {
+          "a": 2,
+          "u": "EL",
+          "n": "Tomatenmark"
+        },
+        {
+          "a": 2,
+          "u": "TL",
+          "n": "Kreuzkümmel, gemahlen"
+        },
+        {
+          "a": 1,
+          "u": "TL",
+          "n": "Chilipulver"
+        },
+        {
+          "a": 1,
+          "u": "TL",
+          "n": "Salz"
+        }
       ],
       "steps": [
         "Hack krümelig und kräftig braun anbraten.",
@@ -75,25 +162,75 @@
       "chapter": "Rezepte nach Land / Israel",
       "cuisine": "Orientalisch",
       "category": "Hauptgericht",
-      "meals": ["fruehstueck", "abend"],
-      "diet": ["vegetarisch", "glutenfrei"],
+      "meals": [
+        "fruehstueck",
+        "abend"
+      ],
+      "diet": [
+        "vegetarisch",
+        "glutenfrei"
+      ],
       "servings": 4,
       "prep": 10,
       "cook": 25,
       "difficulty": 1,
       "kcal": 320,
-      "tags": ["schnell", "Ein-Pfannen-Gericht", "Eier"],
+      "tags": [
+        "schnell",
+        "Ein-Pfannen-Gericht",
+        "Eier"
+      ],
       "ingredients": [
-        {"a": 2, "u": "Stk", "n": "Paprikaschoten"},
-        {"a": 1, "u": "Stk", "n": "Zwiebel"},
-        {"a": 3, "u": "Zehe", "n": "Knoblauch"},
-        {"a": 800, "u": "g", "n": "Tomaten, gehackt"},
-        {"a": 8, "u": "Stk", "n": "Eier"},
-        {"a": 3, "u": "EL", "n": "Olivenöl"},
-        {"a": 2, "u": "TL", "n": "Paprikapulver, edelsüß"},
-        {"a": 1, "u": "TL", "n": "Kreuzkümmel, gemahlen"},
-        {"a": 1, "u": "Bund", "n": "Petersilie"},
-        {"a": 100, "u": "g", "n": "Feta"}
+        {
+          "a": 2,
+          "u": "Stk",
+          "n": "Paprikaschoten"
+        },
+        {
+          "a": 1,
+          "u": "Stk",
+          "n": "Zwiebel"
+        },
+        {
+          "a": 3,
+          "u": "Zehe",
+          "n": "Knoblauch"
+        },
+        {
+          "a": 800,
+          "u": "g",
+          "n": "Tomaten, gehackt"
+        },
+        {
+          "a": 8,
+          "u": "Stk",
+          "n": "Eier"
+        },
+        {
+          "a": 3,
+          "u": "EL",
+          "n": "Olivenöl"
+        },
+        {
+          "a": 2,
+          "u": "TL",
+          "n": "Paprikapulver, edelsüß"
+        },
+        {
+          "a": 1,
+          "u": "TL",
+          "n": "Kreuzkümmel, gemahlen"
+        },
+        {
+          "a": 1,
+          "u": "Bund",
+          "n": "Petersilie"
+        },
+        {
+          "a": 100,
+          "u": "g",
+          "n": "Feta"
+        }
       ],
       "steps": [
         "Paprika und Zwiebel in Streifen schneiden und im Öl zehn Minuten weich dünsten.",
@@ -111,26 +248,81 @@
       "chapter": "Rezepte nach Land / Indien",
       "cuisine": "Indisch",
       "category": "Hauptgericht",
-      "meals": ["mittag", "abend"],
-      "diet": ["vegetarisch", "vegan", "glutenfrei"],
+      "meals": [
+        "mittag",
+        "abend"
+      ],
+      "diet": [
+        "vegetarisch",
+        "vegan",
+        "glutenfrei"
+      ],
       "servings": 4,
       "prep": 10,
       "cook": 25,
       "difficulty": 1,
       "kcal": 390,
-      "tags": ["schnell", "günstig", "Vorkochen"],
+      "tags": [
+        "schnell",
+        "günstig",
+        "Vorkochen"
+      ],
       "ingredients": [
-        {"a": 300, "u": "g", "n": "rote Linsen"},
-        {"a": 1, "u": "Stk", "n": "Zwiebel"},
-        {"a": 3, "u": "Zehe", "n": "Knoblauch"},
-        {"a": 20, "u": "g", "n": "Ingwer"},
-        {"a": 400, "u": "ml", "n": "Kokosmilch"},
-        {"a": 600, "u": "ml", "n": "Gemüsebrühe"},
-        {"a": 2, "u": "TL", "n": "Kurkuma"},
-        {"a": 2, "u": "TL", "n": "Kreuzkümmel, gemahlen"},
-        {"a": 1, "u": "TL", "n": "Senfsamen"},
-        {"a": 3, "u": "EL", "n": "Rapsöl"},
-        {"a": 1, "u": "Stk", "n": "Limette"}
+        {
+          "a": 300,
+          "u": "g",
+          "n": "rote Linsen"
+        },
+        {
+          "a": 1,
+          "u": "Stk",
+          "n": "Zwiebel"
+        },
+        {
+          "a": 3,
+          "u": "Zehe",
+          "n": "Knoblauch"
+        },
+        {
+          "a": 20,
+          "u": "g",
+          "n": "Ingwer"
+        },
+        {
+          "a": 400,
+          "u": "ml",
+          "n": "Kokosmilch"
+        },
+        {
+          "a": 600,
+          "u": "ml",
+          "n": "Gemüsebrühe"
+        },
+        {
+          "a": 2,
+          "u": "TL",
+          "n": "Kurkuma"
+        },
+        {
+          "a": 2,
+          "u": "TL",
+          "n": "Kreuzkümmel, gemahlen"
+        },
+        {
+          "a": 1,
+          "u": "TL",
+          "n": "Senfsamen"
+        },
+        {
+          "a": 3,
+          "u": "EL",
+          "n": "Rapsöl"
+        },
+        {
+          "a": 1,
+          "u": "Stk",
+          "n": "Limette"
+        }
       ],
       "steps": [
         "Senfsamen im heißen Öl aufplatzen lassen.",
@@ -147,23 +339,63 @@
       "chapter": "Rezepte nach Land / Deutschland",
       "cuisine": "Deutsch",
       "category": "Hauptgericht",
-      "meals": ["mittag", "abend"],
-      "diet": ["vegetarisch"],
+      "meals": [
+        "mittag",
+        "abend"
+      ],
+      "diet": [
+        "vegetarisch"
+      ],
       "servings": 4,
       "prep": 30,
       "cook": 25,
       "difficulty": 2,
       "kcal": 680,
-      "tags": ["Käse", "Klassiker"],
+      "tags": [
+        "Käse",
+        "Klassiker"
+      ],
       "ingredients": [
-        {"a": 400, "u": "g", "n": "Weizenmehl Type 405"},
-        {"a": 4, "u": "Stk", "n": "Eier"},
-        {"a": 150, "u": "ml", "n": "Wasser"},
-        {"a": 1, "u": "TL", "n": "Salz"},
-        {"a": 300, "u": "g", "n": "Bergkäse"},
-        {"a": 3, "u": "Stk", "n": "Zwiebeln"},
-        {"a": 60, "u": "g", "n": "Butter"},
-        {"a": 1, "u": "Bund", "n": "Schnittlauch"}
+        {
+          "a": 400,
+          "u": "g",
+          "n": "Weizenmehl Type 405"
+        },
+        {
+          "a": 4,
+          "u": "Stk",
+          "n": "Eier"
+        },
+        {
+          "a": 150,
+          "u": "ml",
+          "n": "Wasser"
+        },
+        {
+          "a": 1,
+          "u": "TL",
+          "n": "Salz"
+        },
+        {
+          "a": 300,
+          "u": "g",
+          "n": "Bergkäse"
+        },
+        {
+          "a": 3,
+          "u": "Stk",
+          "n": "Zwiebeln"
+        },
+        {
+          "a": 60,
+          "u": "g",
+          "n": "Butter"
+        },
+        {
+          "a": 1,
+          "u": "Bund",
+          "n": "Schnittlauch"
+        }
       ],
       "steps": [
         "Mehl, Eier, Wasser und Salz kräftig schlagen, bis der Teig Blasen wirft.",
@@ -181,25 +413,76 @@
       "chapter": "Rezepte nach Art / Vegetarisch",
       "cuisine": "Indisch",
       "category": "Hauptgericht",
-      "meals": ["mittag", "abend"],
-      "diet": ["vegetarisch", "vegan", "glutenfrei"],
+      "meals": [
+        "mittag",
+        "abend"
+      ],
+      "diet": [
+        "vegetarisch",
+        "vegan",
+        "glutenfrei"
+      ],
       "servings": 4,
       "prep": 20,
       "cook": 25,
       "difficulty": 1,
       "kcal": 420,
-      "tags": ["schnell", "Vorkochen", "Gemüse"],
+      "tags": [
+        "schnell",
+        "Vorkochen",
+        "Gemüse"
+      ],
       "ingredients": [
-        {"a": 400, "u": "g", "n": "Kichererbsen, Dose"},
-        {"a": 300, "u": "g", "n": "Süßkartoffeln"},
-        {"a": 200, "u": "g", "n": "Blumenkohl"},
-        {"a": 150, "u": "g", "n": "Blattspinat"},
-        {"a": 1, "u": "Stk", "n": "Zwiebel"},
-        {"a": 400, "u": "ml", "n": "Kokosmilch"},
-        {"a": 3, "u": "EL", "n": "Currypaste"},
-        {"a": 2, "u": "EL", "n": "Rapsöl"},
-        {"a": 200, "u": "ml", "n": "Gemüsebrühe"},
-        {"a": 1, "u": "Stk", "n": "Limette"}
+        {
+          "a": 400,
+          "u": "g",
+          "n": "Kichererbsen, Dose"
+        },
+        {
+          "a": 300,
+          "u": "g",
+          "n": "Süßkartoffeln"
+        },
+        {
+          "a": 200,
+          "u": "g",
+          "n": "Blumenkohl"
+        },
+        {
+          "a": 150,
+          "u": "g",
+          "n": "Blattspinat"
+        },
+        {
+          "a": 1,
+          "u": "Stk",
+          "n": "Zwiebel"
+        },
+        {
+          "a": 400,
+          "u": "ml",
+          "n": "Kokosmilch"
+        },
+        {
+          "a": 3,
+          "u": "EL",
+          "n": "Currypaste"
+        },
+        {
+          "a": 2,
+          "u": "EL",
+          "n": "Rapsöl"
+        },
+        {
+          "a": 200,
+          "u": "ml",
+          "n": "Gemüsebrühe"
+        },
+        {
+          "a": 1,
+          "u": "Stk",
+          "n": "Limette"
+        }
       ],
       "steps": [
         "Zwiebelwürfel im Öl andünsten und die Currypaste eine Minute mitrösten.",
@@ -217,23 +500,60 @@
       "chapter": "Rezepte nach Land / Frankreich",
       "cuisine": "Französisch",
       "category": "Hauptgericht",
-      "meals": ["abend"],
+      "meals": [
+        "abend"
+      ],
       "diet": [],
       "servings": 4,
       "prep": 25,
       "cook": 15,
       "difficulty": 2,
       "kcal": 540,
-      "tags": ["Ofen", "Party"],
+      "tags": [
+        "Ofen",
+        "Feier"
+      ],
       "ingredients": [
-        {"a": 300, "u": "g", "n": "Weizenmehl Type 550"},
-        {"a": 160, "u": "ml", "n": "Wasser"},
-        {"a": 3, "u": "EL", "n": "Olivenöl"},
-        {"a": 1, "u": "TL", "n": "Salz"},
-        {"a": 200, "u": "g", "n": "Schmand"},
-        {"a": 150, "u": "g", "n": "Speckwürfel"},
-        {"a": 2, "u": "Stk", "n": "Zwiebeln"},
-        {"a": 1, "u": "Prise", "n": "Muskatnuss"}
+        {
+          "a": 300,
+          "u": "g",
+          "n": "Weizenmehl Type 550"
+        },
+        {
+          "a": 160,
+          "u": "ml",
+          "n": "Wasser"
+        },
+        {
+          "a": 3,
+          "u": "EL",
+          "n": "Olivenöl"
+        },
+        {
+          "a": 1,
+          "u": "TL",
+          "n": "Salz"
+        },
+        {
+          "a": 200,
+          "u": "g",
+          "n": "Schmand"
+        },
+        {
+          "a": 150,
+          "u": "g",
+          "n": "Speckwürfel"
+        },
+        {
+          "a": 2,
+          "u": "Stk",
+          "n": "Zwiebeln"
+        },
+        {
+          "a": 1,
+          "u": "Prise",
+          "n": "Muskatnuss"
+        }
       ],
       "steps": [
         "Mehl, Wasser, Öl und Salz zu einem glatten Teig kneten und dreißig Minuten ruhen lassen.",
@@ -251,20 +571,48 @@
       "chapter": "Grundrezepte",
       "cuisine": "Italienisch",
       "category": "Grundrezept",
-      "meals": ["abend"],
-      "diet": ["vegetarisch", "vegan"],
+      "meals": [
+        "abend"
+      ],
+      "diet": [
+        "vegetarisch",
+        "vegan"
+      ],
       "servings": 4,
       "prep": 20,
       "cook": 10,
       "difficulty": 2,
       "kcal": 380,
-      "tags": ["Grundrezept", "Vorbereiten"],
+      "tags": [
+        "Grundrezept",
+        "Vorbereiten"
+      ],
       "ingredients": [
-        {"a": 500, "u": "g", "n": "Pizzamehl Type 00"},
-        {"a": 325, "u": "ml", "n": "Wasser, kalt"},
-        {"a": 3, "u": "g", "n": "frische Hefe"},
-        {"a": 12, "u": "g", "n": "Salz"},
-        {"a": 2, "u": "EL", "n": "Olivenöl"}
+        {
+          "a": 500,
+          "u": "g",
+          "n": "Pizzamehl Type 00"
+        },
+        {
+          "a": 325,
+          "u": "ml",
+          "n": "Wasser, kalt"
+        },
+        {
+          "a": 3,
+          "u": "g",
+          "n": "frische Hefe"
+        },
+        {
+          "a": 12,
+          "u": "g",
+          "n": "Salz"
+        },
+        {
+          "a": 2,
+          "u": "EL",
+          "n": "Olivenöl"
+        }
       ],
       "steps": [
         "Hefe im kalten Wasser auflösen und mit dem Mehl zu einem groben Teig mischen.",
@@ -282,24 +630,71 @@
       "chapter": "Rezepte nach Art / Vegetarisch",
       "cuisine": "Mediterran",
       "category": "Beilage",
-      "meals": ["mittag", "abend"],
-      "diet": ["vegetarisch", "vegan", "glutenfrei"],
+      "meals": [
+        "mittag",
+        "abend"
+      ],
+      "diet": [
+        "vegetarisch",
+        "vegan",
+        "glutenfrei"
+      ],
       "servings": 4,
       "prep": 15,
       "cook": 40,
       "difficulty": 1,
       "kcal": 240,
-      "tags": ["Ofen", "Meal Prep", "Gemüse"],
+      "tags": [
+        "Ofen",
+        "Vorkochen",
+        "Gemüse"
+      ],
       "ingredients": [
-        {"a": 500, "u": "g", "n": "Kartoffeln"},
-        {"a": 2, "u": "Stk", "n": "Zucchini"},
-        {"a": 2, "u": "Stk", "n": "Paprikaschoten"},
-        {"a": 1, "u": "Stk", "n": "Aubergine"},
-        {"a": 2, "u": "Stk", "n": "rote Zwiebeln"},
-        {"a": 6, "u": "EL", "n": "Olivenöl"},
-        {"a": 2, "u": "TL", "n": "Kräuter der Provence"},
-        {"a": 1, "u": "TL", "n": "Salz"},
-        {"a": 4, "u": "Zehe", "n": "Knoblauch"}
+        {
+          "a": 500,
+          "u": "g",
+          "n": "Kartoffeln"
+        },
+        {
+          "a": 2,
+          "u": "Stk",
+          "n": "Zucchini"
+        },
+        {
+          "a": 2,
+          "u": "Stk",
+          "n": "Paprikaschoten"
+        },
+        {
+          "a": 1,
+          "u": "Stk",
+          "n": "Aubergine"
+        },
+        {
+          "a": 2,
+          "u": "Stk",
+          "n": "rote Zwiebeln"
+        },
+        {
+          "a": 6,
+          "u": "EL",
+          "n": "Olivenöl"
+        },
+        {
+          "a": 2,
+          "u": "TL",
+          "n": "Kräuter der Provence"
+        },
+        {
+          "a": 1,
+          "u": "TL",
+          "n": "Salz"
+        },
+        {
+          "a": 4,
+          "u": "Zehe",
+          "n": "Knoblauch"
+        }
       ],
       "steps": [
         "Gemüse in gleich große Stücke schneiden, damit alles gleichmäßig gart.",
@@ -316,23 +711,66 @@
       "chapter": "Rezepte nach Land / Libanon",
       "cuisine": "Orientalisch",
       "category": "Vorspeise",
-      "meals": ["abend", "snack"],
-      "diet": ["vegetarisch", "vegan", "glutenfrei"],
+      "meals": [
+        "abend",
+        "snack"
+      ],
+      "diet": [
+        "vegetarisch",
+        "vegan",
+        "glutenfrei"
+      ],
       "servings": 6,
       "prep": 15,
       "cook": 0,
       "difficulty": 1,
       "kcal": 220,
-      "tags": ["schnell", "Meal Prep", "kalt"],
+      "tags": [
+        "schnell",
+        "Vorkochen",
+        "kalt"
+      ],
       "ingredients": [
-        {"a": 800, "u": "g", "n": "Kichererbsen, Dose"},
-        {"a": 120, "u": "g", "n": "Tahin"},
-        {"a": 2, "u": "Stk", "n": "Zitronen"},
-        {"a": 2, "u": "Zehe", "n": "Knoblauch"},
-        {"a": 1, "u": "TL", "n": "Kreuzkümmel, gemahlen"},
-        {"a": 60, "u": "ml", "n": "Olivenöl"},
-        {"a": 80, "u": "ml", "n": "Eiswasser"},
-        {"a": 1, "u": "TL", "n": "Salz"}
+        {
+          "a": 800,
+          "u": "g",
+          "n": "Kichererbsen, Dose"
+        },
+        {
+          "a": 120,
+          "u": "g",
+          "n": "Tahin"
+        },
+        {
+          "a": 2,
+          "u": "Stk",
+          "n": "Zitronen"
+        },
+        {
+          "a": 2,
+          "u": "Zehe",
+          "n": "Knoblauch"
+        },
+        {
+          "a": 1,
+          "u": "TL",
+          "n": "Kreuzkümmel, gemahlen"
+        },
+        {
+          "a": 60,
+          "u": "ml",
+          "n": "Olivenöl"
+        },
+        {
+          "a": 80,
+          "u": "ml",
+          "n": "Eiswasser"
+        },
+        {
+          "a": 1,
+          "u": "TL",
+          "n": "Salz"
+        }
       ],
       "steps": [
         "Kichererbsen abspülen; für besonders feines Hummus die Häutchen abreiben.",
@@ -349,24 +787,69 @@
       "chapter": "Rezepte nach Land / Libanon",
       "cuisine": "Orientalisch",
       "category": "Hauptgericht",
-      "meals": ["mittag", "abend"],
-      "diet": ["vegetarisch", "vegan"],
+      "meals": [
+        "mittag",
+        "abend"
+      ],
+      "diet": [
+        "vegetarisch",
+        "vegan"
+      ],
       "servings": 4,
       "prep": 30,
       "cook": 20,
       "difficulty": 2,
       "kcal": 450,
-      "tags": ["Frittieren", "Vorbereiten"],
+      "tags": [
+        "Frittieren",
+        "Vorbereiten"
+      ],
       "ingredients": [
-        {"a": 400, "u": "g", "n": "Kichererbsen, getrocknet"},
-        {"a": 1, "u": "Stk", "n": "Zwiebel"},
-        {"a": 4, "u": "Zehe", "n": "Knoblauch"},
-        {"a": 1, "u": "Bund", "n": "Petersilie"},
-        {"a": 1, "u": "Bund", "n": "Koriandergrün"},
-        {"a": 2, "u": "TL", "n": "Kreuzkümmel, gemahlen"},
-        {"a": 1, "u": "TL", "n": "Backpulver"},
-        {"a": 1, "u": "l", "n": "Frittieröl"},
-        {"a": 1, "u": "TL", "n": "Salz"}
+        {
+          "a": 400,
+          "u": "g",
+          "n": "Kichererbsen, getrocknet"
+        },
+        {
+          "a": 1,
+          "u": "Stk",
+          "n": "Zwiebel"
+        },
+        {
+          "a": 4,
+          "u": "Zehe",
+          "n": "Knoblauch"
+        },
+        {
+          "a": 1,
+          "u": "Bund",
+          "n": "Petersilie"
+        },
+        {
+          "a": 1,
+          "u": "Bund",
+          "n": "Koriandergrün"
+        },
+        {
+          "a": 2,
+          "u": "TL",
+          "n": "Kreuzkümmel, gemahlen"
+        },
+        {
+          "a": 1,
+          "u": "TL",
+          "n": "Backpulver"
+        },
+        {
+          "a": 1,
+          "u": "l",
+          "n": "Frittieröl"
+        },
+        {
+          "a": 1,
+          "u": "TL",
+          "n": "Salz"
+        }
       ],
       "steps": [
         "Kichererbsen vierundzwanzig Stunden einweichen und gut abtropfen lassen; keinesfalls kochen.",
@@ -384,22 +867,59 @@
       "chapter": "Rezepte nach Land / Griechenland",
       "cuisine": "Griechisch",
       "category": "Vorspeise",
-      "meals": ["abend", "snack"],
-      "diet": ["vegetarisch", "glutenfrei"],
+      "meals": [
+        "abend",
+        "snack"
+      ],
+      "diet": [
+        "vegetarisch",
+        "glutenfrei"
+      ],
       "servings": 6,
       "prep": 15,
       "cook": 0,
       "difficulty": 1,
       "kcal": 120,
-      "tags": ["schnell", "kalt"],
+      "tags": [
+        "schnell",
+        "kalt"
+      ],
       "ingredients": [
-        {"a": 500, "u": "g", "n": "griechischer Joghurt"},
-        {"a": 1, "u": "Stk", "n": "Salatgurke"},
-        {"a": 3, "u": "Zehe", "n": "Knoblauch"},
-        {"a": 3, "u": "EL", "n": "Olivenöl"},
-        {"a": 1, "u": "EL", "n": "Weinessig"},
-        {"a": 1, "u": "TL", "n": "Salz"},
-        {"a": 1, "u": "Bund", "n": "Dill"}
+        {
+          "a": 500,
+          "u": "g",
+          "n": "griechischer Joghurt"
+        },
+        {
+          "a": 1,
+          "u": "Stk",
+          "n": "Salatgurke"
+        },
+        {
+          "a": 3,
+          "u": "Zehe",
+          "n": "Knoblauch"
+        },
+        {
+          "a": 3,
+          "u": "EL",
+          "n": "Olivenöl"
+        },
+        {
+          "a": 1,
+          "u": "EL",
+          "n": "Weinessig"
+        },
+        {
+          "a": 1,
+          "u": "TL",
+          "n": "Salz"
+        },
+        {
+          "a": 1,
+          "u": "Bund",
+          "n": "Dill"
+        }
       ],
       "steps": [
         "Gurke grob raspeln, salzen und zwanzig Minuten stehen lassen.",
@@ -416,24 +936,70 @@
       "chapter": "Rezepte nach Land / Griechenland",
       "cuisine": "Griechisch",
       "category": "Vorspeise",
-      "meals": ["mittag", "abend"],
-      "diet": ["vegetarisch", "glutenfrei"],
+      "meals": [
+        "mittag",
+        "abend"
+      ],
+      "diet": [
+        "vegetarisch",
+        "glutenfrei"
+      ],
       "servings": 4,
       "prep": 15,
       "cook": 0,
       "difficulty": 1,
       "kcal": 280,
-      "tags": ["schnell", "Sommer", "kalt"],
+      "tags": [
+        "schnell",
+        "Sommer",
+        "kalt"
+      ],
       "ingredients": [
-        {"a": 600, "u": "g", "n": "Tomaten"},
-        {"a": 1, "u": "Stk", "n": "Salatgurke"},
-        {"a": 1, "u": "Stk", "n": "rote Zwiebel"},
-        {"a": 1, "u": "Stk", "n": "grüne Paprika"},
-        {"a": 200, "u": "g", "n": "Feta"},
-        {"a": 100, "u": "g", "n": "Kalamata-Oliven"},
-        {"a": 6, "u": "EL", "n": "Olivenöl"},
-        {"a": 2, "u": "TL", "n": "Oregano, getrocknet"},
-        {"a": 1, "u": "TL", "n": "Salz"}
+        {
+          "a": 600,
+          "u": "g",
+          "n": "Tomaten"
+        },
+        {
+          "a": 1,
+          "u": "Stk",
+          "n": "Salatgurke"
+        },
+        {
+          "a": 1,
+          "u": "Stk",
+          "n": "rote Zwiebel"
+        },
+        {
+          "a": 1,
+          "u": "Stk",
+          "n": "grüne Paprika"
+        },
+        {
+          "a": 200,
+          "u": "g",
+          "n": "Feta"
+        },
+        {
+          "a": 100,
+          "u": "g",
+          "n": "Kalamata-Oliven"
+        },
+        {
+          "a": 6,
+          "u": "EL",
+          "n": "Olivenöl"
+        },
+        {
+          "a": 2,
+          "u": "TL",
+          "n": "Oregano, getrocknet"
+        },
+        {
+          "a": 1,
+          "u": "TL",
+          "n": "Salz"
+        }
       ],
       "steps": [
         "Tomaten in Spalten, Gurke in dicke Halbmonde schneiden.",
@@ -446,26 +1012,62 @@
     },
     {
       "id": "wb-porridge",
-      "title": "Porridge mit Apfel und Zimt",
+      "title": "Haferbrei mit Apfel und Zimt",
       "chapter": "Rezepte nach Art / Frühstück",
       "cuisine": "Britisch",
       "category": "Hauptgericht",
-      "meals": ["fruehstueck"],
-      "diet": ["vegetarisch"],
+      "meals": [
+        "fruehstueck"
+      ],
+      "diet": [
+        "vegetarisch"
+      ],
       "servings": 2,
       "prep": 5,
       "cook": 10,
       "difficulty": 1,
       "kcal": 340,
-      "tags": ["schnell", "Frühstück", "günstig"],
+      "tags": [
+        "schnell",
+        "Frühstück",
+        "günstig"
+      ],
       "ingredients": [
-        {"a": 100, "u": "g", "n": "Haferflocken"},
-        {"a": 400, "u": "ml", "n": "Milch"},
-        {"a": 1, "u": "Prise", "n": "Salz"},
-        {"a": 1, "u": "Stk", "n": "Apfel"},
-        {"a": 1, "u": "TL", "n": "Zimt"},
-        {"a": 2, "u": "EL", "n": "Honig"},
-        {"a": 30, "u": "g", "n": "Walnüsse"}
+        {
+          "a": 100,
+          "u": "g",
+          "n": "Haferflocken"
+        },
+        {
+          "a": 400,
+          "u": "ml",
+          "n": "Milch"
+        },
+        {
+          "a": 1,
+          "u": "Prise",
+          "n": "Salz"
+        },
+        {
+          "a": 1,
+          "u": "Stk",
+          "n": "Apfel"
+        },
+        {
+          "a": 1,
+          "u": "TL",
+          "n": "Zimt"
+        },
+        {
+          "a": 2,
+          "u": "EL",
+          "n": "Honig"
+        },
+        {
+          "a": 30,
+          "u": "g",
+          "n": "Walnüsse"
+        }
       ],
       "steps": [
         "Haferflocken mit Milch und Salz aufsetzen.",
@@ -477,26 +1079,63 @@
     },
     {
       "id": "wb-overnight-oats",
-      "title": "Overnight Oats",
+      "title": "Übernacht-Haferflocken",
       "chapter": "Rezepte nach Art / Frühstück",
       "cuisine": "International",
       "category": "Hauptgericht",
-      "meals": ["fruehstueck", "snack"],
-      "diet": ["vegetarisch"],
+      "meals": [
+        "fruehstueck",
+        "snack"
+      ],
+      "diet": [
+        "vegetarisch"
+      ],
       "servings": 2,
       "prep": 10,
       "cook": 0,
       "difficulty": 1,
       "kcal": 380,
-      "tags": ["Meal Prep", "Vorbereiten", "schnell"],
+      "tags": [
+        "Vorkochen",
+        "Vorbereiten",
+        "schnell"
+      ],
       "ingredients": [
-        {"a": 120, "u": "g", "n": "Haferflocken"},
-        {"a": 300, "u": "ml", "n": "Milch"},
-        {"a": 150, "u": "g", "n": "Joghurt"},
-        {"a": 2, "u": "EL", "n": "Chiasamen"},
-        {"a": 2, "u": "EL", "n": "Ahornsirup"},
-        {"a": 200, "u": "g", "n": "Beeren"},
-        {"a": 30, "u": "g", "n": "Mandeln"}
+        {
+          "a": 120,
+          "u": "g",
+          "n": "Haferflocken"
+        },
+        {
+          "a": 300,
+          "u": "ml",
+          "n": "Milch"
+        },
+        {
+          "a": 150,
+          "u": "g",
+          "n": "Joghurt"
+        },
+        {
+          "a": 2,
+          "u": "EL",
+          "n": "Chiasamen"
+        },
+        {
+          "a": 2,
+          "u": "EL",
+          "n": "Ahornsirup"
+        },
+        {
+          "a": 200,
+          "u": "g",
+          "n": "Beeren"
+        },
+        {
+          "a": 30,
+          "u": "g",
+          "n": "Mandeln"
+        }
       ],
       "steps": [
         "Haferflocken, Milch, Joghurt, Chiasamen und Sirup verrühren.",
@@ -512,21 +1151,55 @@
       "chapter": "Rezepte nach Land / Deutschland",
       "cuisine": "Deutsch",
       "category": "Beilage",
-      "meals": ["mittag", "abend"],
-      "diet": ["vegetarisch", "vegan", "glutenfrei"],
+      "meals": [
+        "mittag",
+        "abend"
+      ],
+      "diet": [
+        "vegetarisch",
+        "vegan",
+        "glutenfrei"
+      ],
       "servings": 4,
       "prep": 15,
       "cook": 25,
       "difficulty": 2,
       "kcal": 310,
-      "tags": ["Resteverwertung", "günstig"],
+      "tags": [
+        "Resteverwertung",
+        "günstig"
+      ],
       "ingredients": [
-        {"a": 1000, "u": "g", "n": "festkochende Kartoffeln"},
-        {"a": 2, "u": "Stk", "n": "Zwiebeln"},
-        {"a": 4, "u": "EL", "n": "Rapsöl"},
-        {"a": 1, "u": "TL", "n": "Salz"},
-        {"a": 1, "u": "TL", "n": "Kümmel, ganz"},
-        {"a": 1, "u": "Bund", "n": "Petersilie"}
+        {
+          "a": 1000,
+          "u": "g",
+          "n": "festkochende Kartoffeln"
+        },
+        {
+          "a": 2,
+          "u": "Stk",
+          "n": "Zwiebeln"
+        },
+        {
+          "a": 4,
+          "u": "EL",
+          "n": "Rapsöl"
+        },
+        {
+          "a": 1,
+          "u": "TL",
+          "n": "Salz"
+        },
+        {
+          "a": 1,
+          "u": "TL",
+          "n": "Kümmel, ganz"
+        },
+        {
+          "a": 1,
+          "u": "Bund",
+          "n": "Petersilie"
+        }
       ],
       "steps": [
         "Kartoffeln am Vortag kochen, kalt stellen und in Scheiben schneiden.",
@@ -544,22 +1217,61 @@
       "chapter": "Grundrezepte",
       "cuisine": "Italienisch",
       "category": "Grundrezept",
-      "meals": ["mittag", "abend"],
-      "diet": ["vegetarisch", "vegan", "glutenfrei"],
+      "meals": [
+        "mittag",
+        "abend"
+      ],
+      "diet": [
+        "vegetarisch",
+        "vegan",
+        "glutenfrei"
+      ],
       "servings": 6,
       "prep": 10,
       "cook": 35,
       "difficulty": 1,
       "kcal": 110,
-      "tags": ["Grundrezept", "Vorkochen", "günstig"],
+      "tags": [
+        "Grundrezept",
+        "Vorkochen",
+        "günstig"
+      ],
       "ingredients": [
-        {"a": 800, "u": "g", "n": "Tomaten, gehackt"},
-        {"a": 1, "u": "Stk", "n": "Zwiebel"},
-        {"a": 3, "u": "Zehe", "n": "Knoblauch"},
-        {"a": 5, "u": "EL", "n": "Olivenöl"},
-        {"a": 1, "u": "TL", "n": "Zucker"},
-        {"a": 1, "u": "TL", "n": "Salz"},
-        {"a": 1, "u": "Bund", "n": "Basilikum"}
+        {
+          "a": 800,
+          "u": "g",
+          "n": "Tomaten, gehackt"
+        },
+        {
+          "a": 1,
+          "u": "Stk",
+          "n": "Zwiebel"
+        },
+        {
+          "a": 3,
+          "u": "Zehe",
+          "n": "Knoblauch"
+        },
+        {
+          "a": 5,
+          "u": "EL",
+          "n": "Olivenöl"
+        },
+        {
+          "a": 1,
+          "u": "TL",
+          "n": "Zucker"
+        },
+        {
+          "a": 1,
+          "u": "TL",
+          "n": "Salz"
+        },
+        {
+          "a": 1,
+          "u": "Bund",
+          "n": "Basilikum"
+        }
       ],
       "steps": [
         "Zwiebel und Knoblauch im Öl sanft glasig dünsten, ohne Farbe zu nehmen.",
@@ -576,22 +1288,59 @@
       "chapter": "Grundrezepte",
       "cuisine": "Italienisch",
       "category": "Grundrezept",
-      "meals": ["mittag", "abend"],
-      "diet": ["vegetarisch", "glutenfrei"],
+      "meals": [
+        "mittag",
+        "abend"
+      ],
+      "diet": [
+        "vegetarisch",
+        "glutenfrei"
+      ],
       "servings": 4,
       "prep": 15,
       "cook": 0,
       "difficulty": 1,
       "kcal": 380,
-      "tags": ["schnell", "Grundrezept"],
+      "tags": [
+        "schnell",
+        "Grundrezept"
+      ],
       "ingredients": [
-        {"a": 80, "u": "g", "n": "Basilikum"},
-        {"a": 50, "u": "g", "n": "Pinienkerne"},
-        {"a": 60, "u": "g", "n": "Parmesan"},
-        {"a": 30, "u": "g", "n": "Pecorino"},
-        {"a": 2, "u": "Zehe", "n": "Knoblauch"},
-        {"a": 120, "u": "ml", "n": "Olivenöl"},
-        {"a": 1, "u": "Prise", "n": "Salz"}
+        {
+          "a": 80,
+          "u": "g",
+          "n": "Basilikum"
+        },
+        {
+          "a": 50,
+          "u": "g",
+          "n": "Pinienkerne"
+        },
+        {
+          "a": 60,
+          "u": "g",
+          "n": "Parmesan"
+        },
+        {
+          "a": 30,
+          "u": "g",
+          "n": "Pecorino"
+        },
+        {
+          "a": 2,
+          "u": "Zehe",
+          "n": "Knoblauch"
+        },
+        {
+          "a": 120,
+          "u": "ml",
+          "n": "Olivenöl"
+        },
+        {
+          "a": 1,
+          "u": "Prise",
+          "n": "Salz"
+        }
       ],
       "steps": [
         "Pinienkerne ohne Fett hell rösten und abkühlen lassen.",
@@ -608,24 +1357,71 @@
       "chapter": "Rezepte nach Land / Frankreich",
       "cuisine": "Französisch",
       "category": "Hauptgericht",
-      "meals": ["mittag", "abend"],
-      "diet": ["vegetarisch", "vegan", "glutenfrei"],
+      "meals": [
+        "mittag",
+        "abend"
+      ],
+      "diet": [
+        "vegetarisch",
+        "vegan",
+        "glutenfrei"
+      ],
       "servings": 4,
       "prep": 25,
       "cook": 45,
       "difficulty": 2,
       "kcal": 260,
-      "tags": ["Gemüse", "Sommer", "Vorkochen"],
+      "tags": [
+        "Gemüse",
+        "Sommer",
+        "Vorkochen"
+      ],
       "ingredients": [
-        {"a": 2, "u": "Stk", "n": "Auberginen"},
-        {"a": 3, "u": "Stk", "n": "Zucchini"},
-        {"a": 2, "u": "Stk", "n": "Paprikaschoten"},
-        {"a": 600, "u": "g", "n": "Tomaten"},
-        {"a": 2, "u": "Stk", "n": "Zwiebeln"},
-        {"a": 4, "u": "Zehe", "n": "Knoblauch"},
-        {"a": 8, "u": "EL", "n": "Olivenöl"},
-        {"a": 2, "u": "Zweig", "n": "Thymian"},
-        {"a": 1, "u": "TL", "n": "Salz"}
+        {
+          "a": 2,
+          "u": "Stk",
+          "n": "Auberginen"
+        },
+        {
+          "a": 3,
+          "u": "Stk",
+          "n": "Zucchini"
+        },
+        {
+          "a": 2,
+          "u": "Stk",
+          "n": "Paprikaschoten"
+        },
+        {
+          "a": 600,
+          "u": "g",
+          "n": "Tomaten"
+        },
+        {
+          "a": 2,
+          "u": "Stk",
+          "n": "Zwiebeln"
+        },
+        {
+          "a": 4,
+          "u": "Zehe",
+          "n": "Knoblauch"
+        },
+        {
+          "a": 8,
+          "u": "EL",
+          "n": "Olivenöl"
+        },
+        {
+          "a": 2,
+          "u": "Zweig",
+          "n": "Thymian"
+        },
+        {
+          "a": 1,
+          "u": "TL",
+          "n": "Salz"
+        }
       ],
       "steps": [
         "Jede Gemüsesorte getrennt in Öl anbraten, so behält sie ihren eigenen Geschmack.",
@@ -643,24 +1439,66 @@
       "chapter": "Rezepte nach Land / Frankreich",
       "cuisine": "Französisch",
       "category": "Hauptgericht",
-      "meals": ["mittag", "abend"],
+      "meals": [
+        "mittag",
+        "abend"
+      ],
       "diet": [],
       "servings": 8,
       "prep": 35,
       "cook": 45,
       "difficulty": 2,
       "kcal": 520,
-      "tags": ["Ofen", "Party"],
+      "tags": [
+        "Ofen",
+        "Feier"
+      ],
       "ingredients": [
-        {"a": 250, "u": "g", "n": "Weizenmehl Type 405"},
-        {"a": 125, "u": "g", "n": "Butter"},
-        {"a": 1, "u": "Stk", "n": "Ei"},
-        {"a": 1, "u": "TL", "n": "Salz"},
-        {"a": 200, "u": "g", "n": "Speckwürfel"},
-        {"a": 4, "u": "Stk", "n": "Eier"},
-        {"a": 300, "u": "ml", "n": "Sahne"},
-        {"a": 150, "u": "g", "n": "Gruyère"},
-        {"a": 1, "u": "Prise", "n": "Muskatnuss"}
+        {
+          "a": 250,
+          "u": "g",
+          "n": "Weizenmehl Type 405"
+        },
+        {
+          "a": 125,
+          "u": "g",
+          "n": "Butter"
+        },
+        {
+          "a": 1,
+          "u": "Stk",
+          "n": "Ei"
+        },
+        {
+          "a": 1,
+          "u": "TL",
+          "n": "Salz"
+        },
+        {
+          "a": 200,
+          "u": "g",
+          "n": "Speckwürfel"
+        },
+        {
+          "a": 4,
+          "u": "Stk",
+          "n": "Eier"
+        },
+        {
+          "a": 300,
+          "u": "ml",
+          "n": "Sahne"
+        },
+        {
+          "a": 150,
+          "u": "g",
+          "n": "Gruyère"
+        },
+        {
+          "a": 1,
+          "u": "Prise",
+          "n": "Muskatnuss"
+        }
       ],
       "steps": [
         "Mehl, kalte Butter, Ei und Salz rasch zu einem Mürbteig verkneten und eine Stunde kühlen.",
@@ -678,24 +1516,70 @@
       "chapter": "Rezepte nach Art / Salate",
       "cuisine": "Orientalisch",
       "category": "Vorspeise",
-      "meals": ["mittag", "snack"],
-      "diet": ["vegetarisch", "vegan"],
+      "meals": [
+        "mittag",
+        "snack"
+      ],
+      "diet": [
+        "vegetarisch",
+        "vegan"
+      ],
       "servings": 4,
       "prep": 20,
       "cook": 5,
       "difficulty": 1,
       "kcal": 350,
-      "tags": ["Meal Prep", "schnell", "kalt"],
+      "tags": [
+        "Vorkochen",
+        "schnell",
+        "kalt"
+      ],
       "ingredients": [
-        {"a": 250, "u": "g", "n": "Couscous"},
-        {"a": 300, "u": "ml", "n": "Gemüsebrühe"},
-        {"a": 300, "u": "g", "n": "Tomaten"},
-        {"a": 1, "u": "Stk", "n": "Salatgurke"},
-        {"a": 1, "u": "Bund", "n": "Petersilie"},
-        {"a": 1, "u": "Bund", "n": "Minze"},
-        {"a": 2, "u": "Stk", "n": "Zitronen"},
-        {"a": 6, "u": "EL", "n": "Olivenöl"},
-        {"a": 1, "u": "TL", "n": "Salz"}
+        {
+          "a": 250,
+          "u": "g",
+          "n": "Couscous"
+        },
+        {
+          "a": 300,
+          "u": "ml",
+          "n": "Gemüsebrühe"
+        },
+        {
+          "a": 300,
+          "u": "g",
+          "n": "Tomaten"
+        },
+        {
+          "a": 1,
+          "u": "Stk",
+          "n": "Salatgurke"
+        },
+        {
+          "a": 1,
+          "u": "Bund",
+          "n": "Petersilie"
+        },
+        {
+          "a": 1,
+          "u": "Bund",
+          "n": "Minze"
+        },
+        {
+          "a": 2,
+          "u": "Stk",
+          "n": "Zitronen"
+        },
+        {
+          "a": 6,
+          "u": "EL",
+          "n": "Olivenöl"
+        },
+        {
+          "a": 1,
+          "u": "TL",
+          "n": "Salz"
+        }
       ],
       "steps": [
         "Couscous mit kochender Brühe übergießen und zugedeckt zehn Minuten quellen lassen.",
@@ -712,20 +1596,49 @@
       "chapter": "Grundrezepte",
       "cuisine": "International",
       "category": "Hauptgericht",
-      "meals": ["fruehstueck"],
-      "diet": ["vegetarisch", "glutenfrei"],
+      "meals": [
+        "fruehstueck"
+      ],
+      "diet": [
+        "vegetarisch",
+        "glutenfrei"
+      ],
       "servings": 2,
       "prep": 5,
       "cook": 8,
       "difficulty": 1,
       "kcal": 290,
-      "tags": ["schnell", "Frühstück", "15-Minuten"],
+      "tags": [
+        "schnell",
+        "Frühstück",
+        "15-Minuten"
+      ],
       "ingredients": [
-        {"a": 6, "u": "Stk", "n": "Eier"},
-        {"a": 30, "u": "g", "n": "Butter"},
-        {"a": 2, "u": "EL", "n": "Sahne"},
-        {"a": 1, "u": "TL", "n": "Salz"},
-        {"a": 1, "u": "Bund", "n": "Schnittlauch"}
+        {
+          "a": 6,
+          "u": "Stk",
+          "n": "Eier"
+        },
+        {
+          "a": 30,
+          "u": "g",
+          "n": "Butter"
+        },
+        {
+          "a": 2,
+          "u": "EL",
+          "n": "Sahne"
+        },
+        {
+          "a": 1,
+          "u": "TL",
+          "n": "Salz"
+        },
+        {
+          "a": 1,
+          "u": "Bund",
+          "n": "Schnittlauch"
+        }
       ],
       "steps": [
         "Eier mit Sahne verquirlen, aber noch nicht salzen.",
@@ -742,24 +1655,71 @@
       "chapter": "Grundrezepte",
       "cuisine": "International",
       "category": "Grundrezept",
-      "meals": ["mittag", "abend"],
-      "diet": ["vegetarisch", "vegan", "glutenfrei"],
+      "meals": [
+        "mittag",
+        "abend"
+      ],
+      "diet": [
+        "vegetarisch",
+        "vegan",
+        "glutenfrei"
+      ],
       "servings": 8,
       "prep": 15,
       "cook": 60,
       "difficulty": 1,
       "kcal": 30,
-      "tags": ["Grundrezept", "Resteverwertung", "Vorkochen"],
+      "tags": [
+        "Grundrezept",
+        "Resteverwertung",
+        "Vorkochen"
+      ],
       "ingredients": [
-        {"a": 3, "u": "Stk", "n": "Möhren"},
-        {"a": 1, "u": "Stk", "n": "Sellerieknolle"},
-        {"a": 2, "u": "Stk", "n": "Stangen Lauch"},
-        {"a": 2, "u": "Stk", "n": "Zwiebeln"},
-        {"a": 1, "u": "Bund", "n": "Petersilie"},
-        {"a": 2.5, "u": "l", "n": "Wasser"},
-        {"a": 2, "u": "Stk", "n": "Lorbeerblätter"},
-        {"a": 1, "u": "TL", "n": "Pfefferkörner"},
-        {"a": 2, "u": "TL", "n": "Salz"}
+        {
+          "a": 3,
+          "u": "Stk",
+          "n": "Möhren"
+        },
+        {
+          "a": 1,
+          "u": "Stk",
+          "n": "Sellerieknolle"
+        },
+        {
+          "a": 2,
+          "u": "Stk",
+          "n": "Stangen Lauch"
+        },
+        {
+          "a": 2,
+          "u": "Stk",
+          "n": "Zwiebeln"
+        },
+        {
+          "a": 1,
+          "u": "Bund",
+          "n": "Petersilie"
+        },
+        {
+          "a": 2.5,
+          "u": "l",
+          "n": "Wasser"
+        },
+        {
+          "a": 2,
+          "u": "Stk",
+          "n": "Lorbeerblätter"
+        },
+        {
+          "a": 1,
+          "u": "TL",
+          "n": "Pfefferkörner"
+        },
+        {
+          "a": 2,
+          "u": "TL",
+          "n": "Salz"
+        }
       ],
       "steps": [
         "Zwiebeln halbieren und ohne Fett in der Pfanne dunkel rösten, das gibt Farbe und Tiefe.",
@@ -772,29 +1732,79 @@
     },
     {
       "id": "wb-bowl-buddha",
-      "title": "Bunte Getreide-Bowl",
+      "title": "Bunte Getreideschüssel",
       "chapter": "Rezepte nach Art / Vegetarisch",
       "cuisine": "International",
       "category": "Hauptgericht",
-      "meals": ["mittag", "abend"],
-      "diet": ["vegetarisch", "vegan"],
+      "meals": [
+        "mittag",
+        "abend"
+      ],
+      "diet": [
+        "vegetarisch",
+        "vegan"
+      ],
       "servings": 4,
       "prep": 25,
       "cook": 30,
       "difficulty": 1,
       "kcal": 470,
-      "tags": ["Meal Prep", "Gemüse", "Vorbereiten"],
+      "tags": [
+        "Vorkochen",
+        "Gemüse",
+        "Vorbereiten"
+      ],
       "ingredients": [
-        {"a": 250, "u": "g", "n": "Quinoa"},
-        {"a": 400, "u": "g", "n": "Kichererbsen, Dose"},
-        {"a": 400, "u": "g", "n": "Süßkartoffeln"},
-        {"a": 200, "u": "g", "n": "Rotkohl"},
-        {"a": 1, "u": "Stk", "n": "Avocado"},
-        {"a": 4, "u": "EL", "n": "Tahin"},
-        {"a": 1, "u": "Stk", "n": "Zitrone"},
-        {"a": 4, "u": "EL", "n": "Olivenöl"},
-        {"a": 2, "u": "TL", "n": "Paprikapulver, edelsüß"},
-        {"a": 1, "u": "TL", "n": "Salz"}
+        {
+          "a": 250,
+          "u": "g",
+          "n": "Quinoa"
+        },
+        {
+          "a": 400,
+          "u": "g",
+          "n": "Kichererbsen, Dose"
+        },
+        {
+          "a": 400,
+          "u": "g",
+          "n": "Süßkartoffeln"
+        },
+        {
+          "a": 200,
+          "u": "g",
+          "n": "Rotkohl"
+        },
+        {
+          "a": 1,
+          "u": "Stk",
+          "n": "Avocado"
+        },
+        {
+          "a": 4,
+          "u": "EL",
+          "n": "Tahin"
+        },
+        {
+          "a": 1,
+          "u": "Stk",
+          "n": "Zitrone"
+        },
+        {
+          "a": 4,
+          "u": "EL",
+          "n": "Olivenöl"
+        },
+        {
+          "a": 2,
+          "u": "TL",
+          "n": "Paprikapulver, edelsüß"
+        },
+        {
+          "a": 1,
+          "u": "TL",
+          "n": "Salz"
+        }
       ],
       "steps": [
         "Quinoa nach Packungsangabe garen und auskühlen lassen.",
@@ -812,25 +1822,76 @@
       "chapter": "Rezepte nach Art / Eintopf",
       "cuisine": "Deutsch",
       "category": "Suppe",
-      "meals": ["mittag", "abend"],
-      "diet": ["vegetarisch", "vegan", "glutenfrei"],
+      "meals": [
+        "mittag",
+        "abend"
+      ],
+      "diet": [
+        "vegetarisch",
+        "vegan",
+        "glutenfrei"
+      ],
       "servings": 4,
       "prep": 20,
       "cook": 35,
       "difficulty": 1,
       "kcal": 300,
-      "tags": ["Eintopf", "Vorkochen", "günstig"],
+      "tags": [
+        "Eintopf",
+        "Vorkochen",
+        "günstig"
+      ],
       "ingredients": [
-        {"a": 500, "u": "g", "n": "Kartoffeln"},
-        {"a": 300, "u": "g", "n": "Champignons"},
-        {"a": 3, "u": "Stk", "n": "Paprikaschoten"},
-        {"a": 400, "u": "g", "n": "Zwiebeln"},
-        {"a": 3, "u": "EL", "n": "Rapsöl"},
-        {"a": 2, "u": "EL", "n": "Paprikapulver, edelsüß"},
-        {"a": 2, "u": "EL", "n": "Tomatenmark"},
-        {"a": 1, "u": "l", "n": "Gemüsebrühe"},
-        {"a": 1, "u": "TL", "n": "Kümmel, gemahlen"},
-        {"a": 2, "u": "EL", "n": "Weinessig"}
+        {
+          "a": 500,
+          "u": "g",
+          "n": "Kartoffeln"
+        },
+        {
+          "a": 300,
+          "u": "g",
+          "n": "Champignons"
+        },
+        {
+          "a": 3,
+          "u": "Stk",
+          "n": "Paprikaschoten"
+        },
+        {
+          "a": 400,
+          "u": "g",
+          "n": "Zwiebeln"
+        },
+        {
+          "a": 3,
+          "u": "EL",
+          "n": "Rapsöl"
+        },
+        {
+          "a": 2,
+          "u": "EL",
+          "n": "Paprikapulver, edelsüß"
+        },
+        {
+          "a": 2,
+          "u": "EL",
+          "n": "Tomatenmark"
+        },
+        {
+          "a": 1,
+          "u": "l",
+          "n": "Gemüsebrühe"
+        },
+        {
+          "a": 1,
+          "u": "TL",
+          "n": "Kümmel, gemahlen"
+        },
+        {
+          "a": 2,
+          "u": "EL",
+          "n": "Weinessig"
+        }
       ],
       "steps": [
         "Zwiebeln fein schneiden und im Öl fünfzehn Minuten goldbraun rösten.",

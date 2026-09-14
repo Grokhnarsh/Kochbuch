@@ -21,7 +21,7 @@ const recipes = books.flatMap(({ doc }) =>
 );
 
 const MEALS = new Set(['fruehstueck', 'mittag', 'abend', 'snack']);
-const DIETS = new Set(['vegetarisch', 'vegan', 'glutenfrei', 'laktosefrei']);
+const DIETS = new Set(['vegetarisch', 'vegan', 'glutenfrei', 'laktosefrei', 'pescetarisch']);
 
 test('jede Quelle nennt Lizenz und Fundstelle', () => {
   assert.ok(sources.length >= 10, 'zu wenige Quellen registriert');
@@ -71,7 +71,10 @@ test('jedes Rezept ist vollstaendig und plausibel', () => {
       assert.ok(typeof i.u === 'string', `${wo}: Einheit fehlt bei ${i.n}`);
     }
 
-    assert.ok(r.steps.length >= 3, `${wo}: zu wenige Zubereitungsschritte`);
+    // Zwei Schritte reichen: ein Pesto ist mit "alles mixen, abschmecken"
+    // vollständig beschrieben. Die Schwelle soll kaputte Importe fangen,
+    // keine knapp gefassten Rezepte.
+    assert.ok(r.steps.length >= 2, `${wo}: zu wenige Zubereitungsschritte`);
     for (const s of r.steps) assert.ok(s.length > 10, `${wo}: Schritt zu kurz: "${s}"`);
   }
 });
@@ -80,6 +83,24 @@ test('vegane Rezepte sind auch als vegetarisch gefuehrt', () => {
   for (const r of recipes) {
     if ((r.diet || []).includes('vegan')) {
       assert.ok((r.diet || []).includes('vegetarisch'), `${r.id}: vegan, aber nicht vegetarisch`);
+    }
+  }
+});
+
+/**
+ * Die App ist durchgehend deutschsprachig. Englische Funktionswörter in
+ * Titeln, Kapiteln oder Schlagwörtern sind ein verlässliches Zeichen
+ * dafür, dass unübersetzter Text hereingerutscht ist.
+ */
+test('Titel, Kapitel und Schlagwoerter sind deutsch', () => {
+  const marker = /(^|\s)(the|and|of|with|for|from|made|baked|roast|boiled|fried)(\s|$)/i;
+
+  for (const r of recipes) {
+    for (const [feld, wert] of [['Titel', r.title], ['Kapitel', r.chapter]]) {
+      assert.ok(!marker.test(wert), `${r.id}: englisches Wort im ${feld} — "${wert}"`);
+    }
+    for (const tag of r.tags || []) {
+      assert.ok(!marker.test(tag), `${r.id}: englisches Schlagwort — "${tag}"`);
     }
   }
 });

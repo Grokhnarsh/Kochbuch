@@ -15,8 +15,9 @@ import farmer from './books/farmer-1896.json';
 import beeton from './books/beeton-1861.json';
 import glasse from './books/glasse-1747.json';
 import wikibooks from './books/wikibooks-de.json';
+import kochwiki from './books/kochwiki.json';
 
-const BOOKS = [davidis, prato, artusi, farmer, beeton, glasse, wikibooks];
+const BOOKS = [davidis, prato, artusi, farmer, beeton, glasse, wikibooks, kochwiki];
 
 /** Alle registrierten Quellen, Buecher wie APIs. */
 export const sources = sourcesDoc.sources;
@@ -24,12 +25,12 @@ export const sources = sourcesDoc.sources;
 /** Quellen-Lookup nach id. */
 export const sourceById = new Map(sources.map((s) => [s.id, s]));
 
-/** Die vier Mahlzeiten-Slots eines Tages, in Reihenfolge des Plans. */
+/** Die vier Mahlzeiten eines Tages, in Reihenfolge des Plans. */
 export const MEALS = [
   { id: 'fruehstueck', label: 'Frühstück', short: 'Früh' },
   { id: 'mittag', label: 'Mittag', short: 'Mittag' },
   { id: 'abend', label: 'Abend', short: 'Abend' },
-  { id: 'snack', label: 'Snack', short: 'Snack' },
+  { id: 'snack', label: 'Imbiss', short: 'Imbiss' },
 ];
 
 export const DAYS = [

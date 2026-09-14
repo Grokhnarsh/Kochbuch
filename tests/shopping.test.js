@@ -76,6 +76,21 @@ test('Abteilungen ordnen Zutaten dem Einkaufsweg zu', () => {
   assert.equal(aisleFor('Einhornstaub'), 'Sonstiges');
 });
 
+test('zusammengesetzte Woerter landen in der richtigen Abteilung', () => {
+  // Diese Faelle sind schon zweimal gekippt: "Milchreis" ist Reis, keine
+  // Molkerei; "Weizenmehl" ist Mehl, kein Ei; "Olivenoel" ist Oel, keine
+  // Olive. Es gewinnt jeweils das laengste passende Stichwort.
+  assert.equal(aisleFor('Milchreis'), 'Vorrat & Trockenware');
+  assert.equal(aisleFor('Weizenmehl Type 405'), 'Vorrat & Trockenware');
+  assert.equal(aisleFor('Olivenöl'), 'Gewürze & Öle');
+  assert.equal(aisleFor('Kokosmilch'), 'Vorrat & Trockenware');
+  assert.equal(aisleFor('Eiswasser'), 'Getränke');
+  assert.equal(aisleFor('Gemahlener Koriander'), 'Gewürze & Öle');
+  assert.equal(aisleFor('Koriander'), 'Obst & Gemüse');
+  assert.equal(aisleFor('Paprikapulver'), 'Gewürze & Öle');
+  assert.equal(aisleFor('Paprikaschoten'), 'Obst & Gemüse');
+});
+
 test('Einheiten rechnen sauber hin und zurueck', () => {
   assert.deepEqual(toBase(1.5, 'kg'), { amount: 1500, unit: 'g' });
   assert.deepEqual(fromBase(1500, 'g'), { amount: 1.5, unit: 'kg' });

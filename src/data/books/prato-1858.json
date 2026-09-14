@@ -7,22 +7,56 @@
       "chapter": "Vom Kalbfleisch",
       "cuisine": "Österreichisch",
       "category": "Hauptgericht",
-      "meals": ["mittag", "abend"],
+      "meals": [
+        "mittag",
+        "abend"
+      ],
       "diet": [],
       "servings": 4,
       "prep": 20,
       "cook": 15,
       "difficulty": 2,
       "kcal": 610,
-      "tags": ["Klassiker", "Panieren"],
+      "tags": [
+        "Klassiker",
+        "Panieren"
+      ],
       "ingredients": [
-        {"a": 4, "u": "Stk", "n": "Kalbsschnitzel"},
-        {"a": 100, "u": "g", "n": "Weizenmehl Type 405"},
-        {"a": 3, "u": "Stk", "n": "Eier"},
-        {"a": 200, "u": "g", "n": "Semmelbrösel"},
-        {"a": 300, "u": "g", "n": "Butterschmalz"},
-        {"a": 1, "u": "Stk", "n": "Zitrone"},
-        {"a": 1, "u": "TL", "n": "Salz"}
+        {
+          "a": 4,
+          "u": "Stk",
+          "n": "Kalbsschnitzel"
+        },
+        {
+          "a": 100,
+          "u": "g",
+          "n": "Weizenmehl Type 405"
+        },
+        {
+          "a": 3,
+          "u": "Stk",
+          "n": "Eier"
+        },
+        {
+          "a": 200,
+          "u": "g",
+          "n": "Semmelbrösel"
+        },
+        {
+          "a": 300,
+          "u": "g",
+          "n": "Butterschmalz"
+        },
+        {
+          "a": 1,
+          "u": "Stk",
+          "n": "Zitrone"
+        },
+        {
+          "a": 1,
+          "u": "TL",
+          "n": "Salz"
+        }
       ],
       "steps": [
         "Schnitzel auf fünf Millimeter dünn klopfen und beidseitig salzen.",
@@ -40,25 +74,71 @@
       "chapter": "Vom Rindfleisch",
       "cuisine": "Österreichisch",
       "category": "Hauptgericht",
-      "meals": ["mittag", "abend"],
+      "meals": [
+        "mittag",
+        "abend"
+      ],
       "diet": [],
       "servings": 4,
       "prep": 20,
       "cook": 150,
       "difficulty": 2,
       "kcal": 520,
-      "tags": ["Schmoren", "Vorkochen"],
+      "tags": [
+        "Schmoren",
+        "Vorkochen"
+      ],
       "ingredients": [
-        {"a": 800, "u": "g", "n": "Rindfleisch aus der Wade"},
-        {"a": 800, "u": "g", "n": "Zwiebeln"},
-        {"a": 3, "u": "EL", "n": "Paprikapulver, edelsüß"},
-        {"a": 3, "u": "EL", "n": "Butterschmalz"},
-        {"a": 1, "u": "EL", "n": "Tomatenmark"},
-        {"a": 2, "u": "EL", "n": "Weinessig"},
-        {"a": 500, "u": "ml", "n": "Rinderbrühe"},
-        {"a": 1, "u": "TL", "n": "Kümmel, gemahlen"},
-        {"a": 2, "u": "Zehe", "n": "Knoblauch"},
-        {"a": 1, "u": "TL", "n": "Salz"}
+        {
+          "a": 800,
+          "u": "g",
+          "n": "Rindfleisch aus der Wade"
+        },
+        {
+          "a": 800,
+          "u": "g",
+          "n": "Zwiebeln"
+        },
+        {
+          "a": 3,
+          "u": "EL",
+          "n": "Paprikapulver, edelsüß"
+        },
+        {
+          "a": 3,
+          "u": "EL",
+          "n": "Butterschmalz"
+        },
+        {
+          "a": 1,
+          "u": "EL",
+          "n": "Tomatenmark"
+        },
+        {
+          "a": 2,
+          "u": "EL",
+          "n": "Weinessig"
+        },
+        {
+          "a": 500,
+          "u": "ml",
+          "n": "Rinderbrühe"
+        },
+        {
+          "a": 1,
+          "u": "TL",
+          "n": "Kümmel, gemahlen"
+        },
+        {
+          "a": 2,
+          "u": "Zehe",
+          "n": "Knoblauch"
+        },
+        {
+          "a": 1,
+          "u": "TL",
+          "n": "Salz"
+        }
       ],
       "steps": [
         "Zwiebeln fein schneiden und im Schmalz zwanzig Minuten goldbraun rösten.",
@@ -76,25 +156,70 @@
       "chapter": "Vom Rindfleisch",
       "cuisine": "Österreichisch",
       "category": "Hauptgericht",
-      "meals": ["mittag"],
+      "meals": [
+        "mittag"
+      ],
       "diet": [],
       "servings": 6,
       "prep": 25,
       "cook": 180,
       "difficulty": 2,
       "kcal": 480,
-      "tags": ["Kochen", "Sonntagsessen"],
+      "tags": [
+        "Kochen",
+        "Sonntagsessen"
+      ],
       "ingredients": [
-        {"a": 1500, "u": "g", "n": "Tafelspitz"},
-        {"a": 3, "u": "l", "n": "Wasser"},
-        {"a": 1, "u": "Stk", "n": "Suppengrün"},
-        {"a": 2, "u": "Stk", "n": "Zwiebeln"},
-        {"a": 10, "u": "Stk", "n": "Pfefferkörner"},
-        {"a": 2, "u": "Stk", "n": "Lorbeerblätter"},
-        {"a": 2, "u": "Stk", "n": "Brötchen vom Vortag"},
-        {"a": 200, "u": "ml", "n": "Sahne"},
-        {"a": 2, "u": "Bund", "n": "Schnittlauch"},
-        {"a": 2, "u": "TL", "n": "Salz"}
+        {
+          "a": 1500,
+          "u": "g",
+          "n": "Tafelspitz"
+        },
+        {
+          "a": 3,
+          "u": "l",
+          "n": "Wasser"
+        },
+        {
+          "a": 1,
+          "u": "Stk",
+          "n": "Suppengrün"
+        },
+        {
+          "a": 2,
+          "u": "Stk",
+          "n": "Zwiebeln"
+        },
+        {
+          "a": 10,
+          "u": "Stk",
+          "n": "Pfefferkörner"
+        },
+        {
+          "a": 2,
+          "u": "Stk",
+          "n": "Lorbeerblätter"
+        },
+        {
+          "a": 2,
+          "u": "Stk",
+          "n": "Brötchen vom Vortag"
+        },
+        {
+          "a": 200,
+          "u": "ml",
+          "n": "Sahne"
+        },
+        {
+          "a": 2,
+          "u": "Bund",
+          "n": "Schnittlauch"
+        },
+        {
+          "a": 2,
+          "u": "TL",
+          "n": "Salz"
+        }
       ],
       "steps": [
         "Zwiebelhälften ohne Fett in der Pfanne dunkel rösten.",
@@ -112,23 +237,63 @@
       "chapter": "Von den Mehlspeisen",
       "cuisine": "Österreichisch",
       "category": "Dessert",
-      "meals": ["mittag", "snack"],
-      "diet": ["vegetarisch"],
+      "meals": [
+        "mittag",
+        "snack"
+      ],
+      "diet": [
+        "vegetarisch"
+      ],
       "servings": 4,
       "prep": 15,
       "cook": 20,
       "difficulty": 2,
       "kcal": 470,
-      "tags": ["Süßspeise", "Kinder"],
+      "tags": [
+        "Süßspeise",
+        "Kinder"
+      ],
       "ingredients": [
-        {"a": 250, "u": "g", "n": "Weizenmehl Type 405"},
-        {"a": 400, "u": "ml", "n": "Milch"},
-        {"a": 5, "u": "Stk", "n": "Eier"},
-        {"a": 60, "u": "g", "n": "Zucker"},
-        {"a": 60, "u": "g", "n": "Butter"},
-        {"a": 60, "u": "g", "n": "Rosinen"},
-        {"a": 1, "u": "Prise", "n": "Salz"},
-        {"a": 30, "u": "g", "n": "Puderzucker"}
+        {
+          "a": 250,
+          "u": "g",
+          "n": "Weizenmehl Type 405"
+        },
+        {
+          "a": 400,
+          "u": "ml",
+          "n": "Milch"
+        },
+        {
+          "a": 5,
+          "u": "Stk",
+          "n": "Eier"
+        },
+        {
+          "a": 60,
+          "u": "g",
+          "n": "Zucker"
+        },
+        {
+          "a": 60,
+          "u": "g",
+          "n": "Butter"
+        },
+        {
+          "a": 60,
+          "u": "g",
+          "n": "Rosinen"
+        },
+        {
+          "a": 1,
+          "u": "Prise",
+          "n": "Salz"
+        },
+        {
+          "a": 30,
+          "u": "g",
+          "n": "Puderzucker"
+        }
       ],
       "steps": [
         "Eier trennen. Dotter mit Milch, Mehl und Salz glatt rühren.",
@@ -146,25 +311,72 @@
       "chapter": "Von den Mehlspeisen",
       "cuisine": "Österreichisch",
       "category": "Backen",
-      "meals": ["snack"],
-      "diet": ["vegetarisch"],
+      "meals": [
+        "snack"
+      ],
+      "diet": [
+        "vegetarisch"
+      ],
       "servings": 8,
       "prep": 45,
       "cook": 45,
       "difficulty": 3,
       "kcal": 340,
-      "tags": ["Strudel", "Apfel"],
+      "tags": [
+        "Strudel",
+        "Apfel"
+      ],
       "ingredients": [
-        {"a": 250, "u": "g", "n": "Weizenmehl Type 550"},
-        {"a": 125, "u": "ml", "n": "lauwarmes Wasser"},
-        {"a": 3, "u": "EL", "n": "Sonnenblumenöl"},
-        {"a": 1, "u": "Prise", "n": "Salz"},
-        {"a": 1200, "u": "g", "n": "säuerliche Äpfel"},
-        {"a": 100, "u": "g", "n": "Zucker"},
-        {"a": 2, "u": "TL", "n": "Zimt"},
-        {"a": 80, "u": "g", "n": "Rosinen"},
-        {"a": 80, "u": "g", "n": "Semmelbrösel"},
-        {"a": 100, "u": "g", "n": "Butter"}
+        {
+          "a": 250,
+          "u": "g",
+          "n": "Weizenmehl Type 550"
+        },
+        {
+          "a": 125,
+          "u": "ml",
+          "n": "lauwarmes Wasser"
+        },
+        {
+          "a": 3,
+          "u": "EL",
+          "n": "Sonnenblumenöl"
+        },
+        {
+          "a": 1,
+          "u": "Prise",
+          "n": "Salz"
+        },
+        {
+          "a": 1200,
+          "u": "g",
+          "n": "säuerliche Äpfel"
+        },
+        {
+          "a": 100,
+          "u": "g",
+          "n": "Zucker"
+        },
+        {
+          "a": 2,
+          "u": "TL",
+          "n": "Zimt"
+        },
+        {
+          "a": 80,
+          "u": "g",
+          "n": "Rosinen"
+        },
+        {
+          "a": 80,
+          "u": "g",
+          "n": "Semmelbrösel"
+        },
+        {
+          "a": 100,
+          "u": "g",
+          "n": "Butter"
+        }
       ],
       "steps": [
         "Mehl, Wasser, Öl und Salz zu einem glatten Teig kneten und dreißig Minuten warm ruhen lassen.",
@@ -182,23 +394,63 @@
       "chapter": "Von den Beilagen",
       "cuisine": "Österreichisch",
       "category": "Beilage",
-      "meals": ["mittag", "abend"],
-      "diet": ["vegetarisch"],
+      "meals": [
+        "mittag",
+        "abend"
+      ],
+      "diet": [
+        "vegetarisch"
+      ],
       "servings": 4,
       "prep": 25,
       "cook": 20,
       "difficulty": 2,
       "kcal": 260,
-      "tags": ["Resteverwertung", "Beilage"],
+      "tags": [
+        "Resteverwertung",
+        "Beilage"
+      ],
       "ingredients": [
-        {"a": 300, "u": "g", "n": "Knödelbrot"},
-        {"a": 300, "u": "ml", "n": "Milch"},
-        {"a": 3, "u": "Stk", "n": "Eier"},
-        {"a": 1, "u": "Stk", "n": "Zwiebel"},
-        {"a": 30, "u": "g", "n": "Butter"},
-        {"a": 1, "u": "Bund", "n": "Petersilie"},
-        {"a": 1, "u": "TL", "n": "Salz"},
-        {"a": 1, "u": "Prise", "n": "Muskatnuss"}
+        {
+          "a": 300,
+          "u": "g",
+          "n": "Knödelbrot"
+        },
+        {
+          "a": 300,
+          "u": "ml",
+          "n": "Milch"
+        },
+        {
+          "a": 3,
+          "u": "Stk",
+          "n": "Eier"
+        },
+        {
+          "a": 1,
+          "u": "Stk",
+          "n": "Zwiebel"
+        },
+        {
+          "a": 30,
+          "u": "g",
+          "n": "Butter"
+        },
+        {
+          "a": 1,
+          "u": "Bund",
+          "n": "Petersilie"
+        },
+        {
+          "a": 1,
+          "u": "TL",
+          "n": "Salz"
+        },
+        {
+          "a": 1,
+          "u": "Prise",
+          "n": "Muskatnuss"
+        }
       ],
       "steps": [
         "Knödelbrot mit heißer Milch übergießen und zwanzig Minuten ziehen lassen.",
@@ -215,22 +467,57 @@
       "chapter": "Von den Suppen",
       "cuisine": "Österreichisch",
       "category": "Suppe",
-      "meals": ["mittag"],
-      "diet": ["vegetarisch"],
+      "meals": [
+        "mittag"
+      ],
+      "diet": [
+        "vegetarisch"
+      ],
       "servings": 4,
       "prep": 15,
       "cook": 25,
       "difficulty": 2,
       "kcal": 210,
-      "tags": ["Suppeneinlage", "leicht"],
+      "tags": [
+        "Suppeneinlage",
+        "leicht"
+      ],
       "ingredients": [
-        {"a": 1.2, "u": "l", "n": "Rinderbrühe"},
-        {"a": 80, "u": "g", "n": "Hartweizengrieß"},
-        {"a": 60, "u": "g", "n": "Butter"},
-        {"a": 1, "u": "Stk", "n": "Ei"},
-        {"a": 1, "u": "Prise", "n": "Muskatnuss"},
-        {"a": 1, "u": "TL", "n": "Salz"},
-        {"a": 1, "u": "Bund", "n": "Schnittlauch"}
+        {
+          "a": 1.2,
+          "u": "l",
+          "n": "Rinderbrühe"
+        },
+        {
+          "a": 80,
+          "u": "g",
+          "n": "Hartweizengrieß"
+        },
+        {
+          "a": 60,
+          "u": "g",
+          "n": "Butter"
+        },
+        {
+          "a": 1,
+          "u": "Stk",
+          "n": "Ei"
+        },
+        {
+          "a": 1,
+          "u": "Prise",
+          "n": "Muskatnuss"
+        },
+        {
+          "a": 1,
+          "u": "TL",
+          "n": "Salz"
+        },
+        {
+          "a": 1,
+          "u": "Bund",
+          "n": "Schnittlauch"
+        }
       ],
       "steps": [
         "Weiche Butter mit Ei, Salz und Muskat schaumig rühren.",
@@ -247,22 +534,58 @@
       "chapter": "Von den Suppen",
       "cuisine": "Österreichisch",
       "category": "Suppe",
-      "meals": ["mittag", "abend"],
-      "diet": ["vegetarisch"],
+      "meals": [
+        "mittag",
+        "abend"
+      ],
+      "diet": [
+        "vegetarisch"
+      ],
       "servings": 4,
       "prep": 15,
       "cook": 15,
       "difficulty": 1,
       "kcal": 230,
-      "tags": ["schnell", "Suppeneinlage"],
+      "tags": [
+        "schnell",
+        "Suppeneinlage"
+      ],
       "ingredients": [
-        {"a": 1.2, "u": "l", "n": "Rinderbrühe"},
-        {"a": 125, "u": "g", "n": "Weizenmehl Type 405"},
-        {"a": 250, "u": "ml", "n": "Milch"},
-        {"a": 2, "u": "Stk", "n": "Eier"},
-        {"a": 1, "u": "Prise", "n": "Salz"},
-        {"a": 20, "u": "g", "n": "Butterschmalz"},
-        {"a": 1, "u": "Bund", "n": "Schnittlauch"}
+        {
+          "a": 1.2,
+          "u": "l",
+          "n": "Rinderbrühe"
+        },
+        {
+          "a": 125,
+          "u": "g",
+          "n": "Weizenmehl Type 405"
+        },
+        {
+          "a": 250,
+          "u": "ml",
+          "n": "Milch"
+        },
+        {
+          "a": 2,
+          "u": "Stk",
+          "n": "Eier"
+        },
+        {
+          "a": 1,
+          "u": "Prise",
+          "n": "Salz"
+        },
+        {
+          "a": 20,
+          "u": "g",
+          "n": "Butterschmalz"
+        },
+        {
+          "a": 1,
+          "u": "Bund",
+          "n": "Schnittlauch"
+        }
       ],
       "steps": [
         "Aus Mehl, Milch, Eiern und Salz einen dünnen Palatschinkenteig rühren.",
@@ -279,22 +602,55 @@
       "chapter": "Vom Rindfleisch",
       "cuisine": "Österreichisch",
       "category": "Hauptgericht",
-      "meals": ["mittag", "abend"],
+      "meals": [
+        "mittag",
+        "abend"
+      ],
       "diet": [],
       "servings": 4,
       "prep": 20,
       "cook": 25,
       "difficulty": 2,
       "kcal": 620,
-      "tags": ["Kurzgebraten"],
+      "tags": [
+        "Kurzgebraten"
+      ],
       "ingredients": [
-        {"a": 4, "u": "Stk", "n": "Rostbraten-Steaks"},
-        {"a": 500, "u": "g", "n": "Zwiebeln"},
-        {"a": 3, "u": "EL", "n": "Butterschmalz"},
-        {"a": 50, "u": "g", "n": "Weizenmehl Type 405"},
-        {"a": 300, "u": "ml", "n": "Rinderbrühe"},
-        {"a": 1, "u": "TL", "n": "Senf"},
-        {"a": 1, "u": "TL", "n": "Salz"}
+        {
+          "a": 4,
+          "u": "Stk",
+          "n": "Rostbraten-Steaks"
+        },
+        {
+          "a": 500,
+          "u": "g",
+          "n": "Zwiebeln"
+        },
+        {
+          "a": 3,
+          "u": "EL",
+          "n": "Butterschmalz"
+        },
+        {
+          "a": 50,
+          "u": "g",
+          "n": "Weizenmehl Type 405"
+        },
+        {
+          "a": 300,
+          "u": "ml",
+          "n": "Rinderbrühe"
+        },
+        {
+          "a": 1,
+          "u": "TL",
+          "n": "Senf"
+        },
+        {
+          "a": 1,
+          "u": "TL",
+          "n": "Salz"
+        }
       ],
       "steps": [
         "Fleischränder einschneiden, damit sich das Steak nicht wölbt, und salzen.",
@@ -311,24 +667,69 @@
       "chapter": "Von den Erdäpfeln",
       "cuisine": "Österreichisch",
       "category": "Hauptgericht",
-      "meals": ["mittag", "abend"],
-      "diet": ["vegetarisch", "vegan"],
+      "meals": [
+        "mittag",
+        "abend"
+      ],
+      "diet": [
+        "vegetarisch",
+        "vegan"
+      ],
       "servings": 4,
       "prep": 15,
       "cook": 35,
       "difficulty": 1,
       "kcal": 320,
-      "tags": ["günstig", "Eintopf"],
+      "tags": [
+        "günstig",
+        "Eintopf"
+      ],
       "ingredients": [
-        {"a": 1000, "u": "g", "n": "festkochende Kartoffeln"},
-        {"a": 400, "u": "g", "n": "Zwiebeln"},
-        {"a": 3, "u": "EL", "n": "Rapsöl"},
-        {"a": 2, "u": "EL", "n": "Paprikapulver, edelsüß"},
-        {"a": 1, "u": "EL", "n": "Tomatenmark"},
-        {"a": 700, "u": "ml", "n": "Gemüsebrühe"},
-        {"a": 1, "u": "TL", "n": "Kümmel, gemahlen"},
-        {"a": 1, "u": "EL", "n": "Weinessig"},
-        {"a": 1, "u": "TL", "n": "Salz"}
+        {
+          "a": 1000,
+          "u": "g",
+          "n": "festkochende Kartoffeln"
+        },
+        {
+          "a": 400,
+          "u": "g",
+          "n": "Zwiebeln"
+        },
+        {
+          "a": 3,
+          "u": "EL",
+          "n": "Rapsöl"
+        },
+        {
+          "a": 2,
+          "u": "EL",
+          "n": "Paprikapulver, edelsüß"
+        },
+        {
+          "a": 1,
+          "u": "EL",
+          "n": "Tomatenmark"
+        },
+        {
+          "a": 700,
+          "u": "ml",
+          "n": "Gemüsebrühe"
+        },
+        {
+          "a": 1,
+          "u": "TL",
+          "n": "Kümmel, gemahlen"
+        },
+        {
+          "a": 1,
+          "u": "EL",
+          "n": "Weinessig"
+        },
+        {
+          "a": 1,
+          "u": "TL",
+          "n": "Salz"
+        }
       ],
       "steps": [
         "Zwiebeln fein schneiden und im Öl goldbraun rösten.",
@@ -345,24 +746,68 @@
       "chapter": "Von den Mehlspeisen",
       "cuisine": "Österreichisch",
       "category": "Dessert",
-      "meals": ["mittag", "snack"],
-      "diet": ["vegetarisch"],
+      "meals": [
+        "mittag",
+        "snack"
+      ],
+      "diet": [
+        "vegetarisch"
+      ],
       "servings": 4,
       "prep": 35,
       "cook": 15,
       "difficulty": 3,
       "kcal": 420,
-      "tags": ["Sommer", "Süßspeise"],
+      "tags": [
+        "Sommer",
+        "Süßspeise"
+      ],
       "ingredients": [
-        {"a": 500, "u": "g", "n": "Kartoffeln, mehligkochend"},
-        {"a": 150, "u": "g", "n": "Weizenmehl Type 405"},
-        {"a": 50, "u": "g", "n": "Grieß"},
-        {"a": 1, "u": "Stk", "n": "Ei"},
-        {"a": 12, "u": "Stk", "n": "Marillen"},
-        {"a": 12, "u": "Stk", "n": "Würfelzucker"},
-        {"a": 100, "u": "g", "n": "Butter"},
-        {"a": 120, "u": "g", "n": "Semmelbrösel"},
-        {"a": 40, "u": "g", "n": "Puderzucker"}
+        {
+          "a": 500,
+          "u": "g",
+          "n": "Kartoffeln, mehligkochend"
+        },
+        {
+          "a": 150,
+          "u": "g",
+          "n": "Weizenmehl Type 405"
+        },
+        {
+          "a": 50,
+          "u": "g",
+          "n": "Grieß"
+        },
+        {
+          "a": 1,
+          "u": "Stk",
+          "n": "Ei"
+        },
+        {
+          "a": 12,
+          "u": "Stk",
+          "n": "Marillen"
+        },
+        {
+          "a": 12,
+          "u": "Stk",
+          "n": "Würfelzucker"
+        },
+        {
+          "a": 100,
+          "u": "g",
+          "n": "Butter"
+        },
+        {
+          "a": 120,
+          "u": "g",
+          "n": "Semmelbrösel"
+        },
+        {
+          "a": 40,
+          "u": "g",
+          "n": "Puderzucker"
+        }
       ],
       "steps": [
         "Kartoffeln kochen, pellen, pressen und auskühlen lassen.",
@@ -380,22 +825,57 @@
       "chapter": "Von den Mehlspeisen",
       "cuisine": "Österreichisch",
       "category": "Dessert",
-      "meals": ["snack"],
-      "diet": ["vegetarisch"],
+      "meals": [
+        "snack"
+      ],
+      "diet": [
+        "vegetarisch"
+      ],
       "servings": 3,
       "prep": 15,
       "cook": 12,
       "difficulty": 3,
       "kcal": 310,
-      "tags": ["Soufflé", "Süßspeise"],
+      "tags": [
+        "Soufflé",
+        "Süßspeise"
+      ],
       "ingredients": [
-        {"a": 6, "u": "Stk", "n": "Eier"},
-        {"a": 80, "u": "g", "n": "Zucker"},
-        {"a": 40, "u": "g", "n": "Weizenmehl Type 405"},
-        {"a": 1, "u": "Stk", "n": "Vanilleschote"},
-        {"a": 20, "u": "g", "n": "Butter"},
-        {"a": 100, "u": "ml", "n": "Milch"},
-        {"a": 20, "u": "g", "n": "Puderzucker"}
+        {
+          "a": 6,
+          "u": "Stk",
+          "n": "Eier"
+        },
+        {
+          "a": 80,
+          "u": "g",
+          "n": "Zucker"
+        },
+        {
+          "a": 40,
+          "u": "g",
+          "n": "Weizenmehl Type 405"
+        },
+        {
+          "a": 1,
+          "u": "Stk",
+          "n": "Vanilleschote"
+        },
+        {
+          "a": 20,
+          "u": "g",
+          "n": "Butter"
+        },
+        {
+          "a": 100,
+          "u": "ml",
+          "n": "Milch"
+        },
+        {
+          "a": 20,
+          "u": "g",
+          "n": "Puderzucker"
+        }
       ],
       "steps": [
         "Ofen auf 200 Grad vorheizen und eine Form mit Butter ausstreichen.",
@@ -413,23 +893,62 @@
       "chapter": "Vom Backwerk",
       "cuisine": "Österreichisch",
       "category": "Backen",
-      "meals": ["snack"],
-      "diet": ["vegetarisch"],
+      "meals": [
+        "snack"
+      ],
+      "diet": [
+        "vegetarisch"
+      ],
       "servings": 12,
       "prep": 30,
       "cook": 50,
       "difficulty": 2,
       "kcal": 350,
-      "tags": ["Mürbteig", "Weihnachten"],
+      "tags": [
+        "Mürbteig",
+        "Weihnachten"
+      ],
       "ingredients": [
-        {"a": 250, "u": "g", "n": "Weizenmehl Type 405"},
-        {"a": 200, "u": "g", "n": "Butter"},
-        {"a": 200, "u": "g", "n": "gemahlene Haselnüsse"},
-        {"a": 180, "u": "g", "n": "Zucker"},
-        {"a": 2, "u": "Stk", "n": "Eier"},
-        {"a": 2, "u": "TL", "n": "Zimt"},
-        {"a": 1, "u": "Prise", "n": "Nelken, gemahlen"},
-        {"a": 300, "u": "g", "n": "Johannisbeermarmelade"}
+        {
+          "a": 250,
+          "u": "g",
+          "n": "Weizenmehl Type 405"
+        },
+        {
+          "a": 200,
+          "u": "g",
+          "n": "Butter"
+        },
+        {
+          "a": 200,
+          "u": "g",
+          "n": "gemahlene Haselnüsse"
+        },
+        {
+          "a": 180,
+          "u": "g",
+          "n": "Zucker"
+        },
+        {
+          "a": 2,
+          "u": "Stk",
+          "n": "Eier"
+        },
+        {
+          "a": 2,
+          "u": "TL",
+          "n": "Zimt"
+        },
+        {
+          "a": 1,
+          "u": "Prise",
+          "n": "Nelken, gemahlen"
+        },
+        {
+          "a": 300,
+          "u": "g",
+          "n": "Johannisbeermarmelade"
+        }
       ],
       "steps": [
         "Alle Teigzutaten rasch zu einem Mürbteig verarbeiten und eine Stunde kühlen.",
@@ -446,23 +965,61 @@
       "chapter": "Vom Geflügel",
       "cuisine": "Österreichisch",
       "category": "Hauptgericht",
-      "meals": ["mittag", "abend"],
+      "meals": [
+        "mittag",
+        "abend"
+      ],
       "diet": [],
       "servings": 4,
       "prep": 25,
       "cook": 25,
       "difficulty": 2,
       "kcal": 580,
-      "tags": ["Panieren", "Klassiker"],
+      "tags": [
+        "Panieren",
+        "Klassiker"
+      ],
       "ingredients": [
-        {"a": 1200, "u": "g", "n": "Hähnchenteile"},
-        {"a": 100, "u": "g", "n": "Weizenmehl Type 405"},
-        {"a": 3, "u": "Stk", "n": "Eier"},
-        {"a": 200, "u": "g", "n": "Semmelbrösel"},
-        {"a": 500, "u": "g", "n": "Butterschmalz"},
-        {"a": 1, "u": "Stk", "n": "Zitrone"},
-        {"a": 1, "u": "Bund", "n": "Petersilie"},
-        {"a": 2, "u": "TL", "n": "Salz"}
+        {
+          "a": 1200,
+          "u": "g",
+          "n": "Hähnchenteile"
+        },
+        {
+          "a": 100,
+          "u": "g",
+          "n": "Weizenmehl Type 405"
+        },
+        {
+          "a": 3,
+          "u": "Stk",
+          "n": "Eier"
+        },
+        {
+          "a": 200,
+          "u": "g",
+          "n": "Semmelbrösel"
+        },
+        {
+          "a": 500,
+          "u": "g",
+          "n": "Butterschmalz"
+        },
+        {
+          "a": 1,
+          "u": "Stk",
+          "n": "Zitrone"
+        },
+        {
+          "a": 1,
+          "u": "Bund",
+          "n": "Petersilie"
+        },
+        {
+          "a": 2,
+          "u": "TL",
+          "n": "Salz"
+        }
       ],
       "steps": [
         "Hähnchenteile salzen und eine halbe Stunde ziehen lassen.",
@@ -479,23 +1036,63 @@
       "chapter": "Von den Mehlspeisen",
       "cuisine": "Österreichisch",
       "category": "Hauptgericht",
-      "meals": ["mittag", "abend"],
-      "diet": ["vegetarisch"],
+      "meals": [
+        "mittag",
+        "abend"
+      ],
+      "diet": [
+        "vegetarisch"
+      ],
       "servings": 4,
       "prep": 20,
       "cook": 40,
       "difficulty": 1,
       "kcal": 430,
-      "tags": ["günstig", "Nudeln"],
+      "tags": [
+        "günstig",
+        "Nudeln"
+      ],
       "ingredients": [
-        {"a": 1000, "u": "g", "n": "Weißkohl"},
-        {"a": 400, "u": "g", "n": "Fleckerl-Nudeln"},
-        {"a": 2, "u": "Stk", "n": "Zwiebeln"},
-        {"a": 3, "u": "EL", "n": "Schweineschmalz"},
-        {"a": 2, "u": "EL", "n": "Zucker"},
-        {"a": 1, "u": "TL", "n": "Kümmel, ganz"},
-        {"a": 1, "u": "TL", "n": "Salz"},
-        {"a": 1, "u": "TL", "n": "Pfeffer, schwarz"}
+        {
+          "a": 1000,
+          "u": "g",
+          "n": "Weißkohl"
+        },
+        {
+          "a": 400,
+          "u": "g",
+          "n": "Fleckerl-Nudeln"
+        },
+        {
+          "a": 2,
+          "u": "Stk",
+          "n": "Zwiebeln"
+        },
+        {
+          "a": 3,
+          "u": "EL",
+          "n": "Schweineschmalz"
+        },
+        {
+          "a": 2,
+          "u": "EL",
+          "n": "Zucker"
+        },
+        {
+          "a": 1,
+          "u": "TL",
+          "n": "Kümmel, ganz"
+        },
+        {
+          "a": 1,
+          "u": "TL",
+          "n": "Salz"
+        },
+        {
+          "a": 1,
+          "u": "TL",
+          "n": "Pfeffer, schwarz"
+        }
       ],
       "steps": [
         "Kohl fein hobeln, salzen und zwanzig Minuten stehen lassen, dann ausdrücken.",
@@ -512,23 +1109,62 @@
       "chapter": "Vom Backwerk",
       "cuisine": "Österreichisch",
       "category": "Dessert",
-      "meals": ["snack"],
-      "diet": ["vegetarisch"],
+      "meals": [
+        "snack"
+      ],
+      "diet": [
+        "vegetarisch"
+      ],
       "servings": 8,
       "prep": 40,
       "cook": 35,
       "difficulty": 2,
       "kcal": 380,
-      "tags": ["Hefeteig", "Süßspeise"],
+      "tags": [
+        "Hefeteig",
+        "Süßspeise"
+      ],
       "ingredients": [
-        {"a": 500, "u": "g", "n": "Weizenmehl Type 405"},
-        {"a": 250, "u": "ml", "n": "Milch"},
-        {"a": 21, "u": "g", "n": "frische Hefe"},
-        {"a": 80, "u": "g", "n": "Zucker"},
-        {"a": 80, "u": "g", "n": "Butter"},
-        {"a": 2, "u": "Stk", "n": "Eier"},
-        {"a": 200, "u": "g", "n": "Powidl"},
-        {"a": 500, "u": "ml", "n": "Vanillesauce"}
+        {
+          "a": 500,
+          "u": "g",
+          "n": "Weizenmehl Type 405"
+        },
+        {
+          "a": 250,
+          "u": "ml",
+          "n": "Milch"
+        },
+        {
+          "a": 21,
+          "u": "g",
+          "n": "frische Hefe"
+        },
+        {
+          "a": 80,
+          "u": "g",
+          "n": "Zucker"
+        },
+        {
+          "a": 80,
+          "u": "g",
+          "n": "Butter"
+        },
+        {
+          "a": 2,
+          "u": "Stk",
+          "n": "Eier"
+        },
+        {
+          "a": 200,
+          "u": "g",
+          "n": "Powidl"
+        },
+        {
+          "a": 500,
+          "u": "ml",
+          "n": "Vanillesauce"
+        }
       ],
       "steps": [
         "Aus Mehl, lauwarmer Milch, Hefe, Zucker, Butter und Eiern einen weichen Germteig kneten.",
@@ -546,24 +1182,66 @@
       "chapter": "Vom Schweinefleisch",
       "cuisine": "Österreichisch",
       "category": "Hauptgericht",
-      "meals": ["mittag", "abend"],
+      "meals": [
+        "mittag",
+        "abend"
+      ],
       "diet": [],
       "servings": 4,
       "prep": 20,
       "cook": 45,
       "difficulty": 1,
       "kcal": 560,
-      "tags": ["Eintopf", "Ein-Topf"],
+      "tags": [
+        "Eintopf",
+        "Ein-Topf"
+      ],
       "ingredients": [
-        {"a": 600, "u": "g", "n": "Schweineschulter"},
-        {"a": 300, "u": "g", "n": "Rundkornreis"},
-        {"a": 2, "u": "Stk", "n": "Zwiebeln"},
-        {"a": 2, "u": "Stk", "n": "Paprikaschoten"},
-        {"a": 3, "u": "EL", "n": "Butterschmalz"},
-        {"a": 2, "u": "EL", "n": "Paprikapulver, edelsüß"},
-        {"a": 700, "u": "ml", "n": "Fleischbrühe"},
-        {"a": 60, "u": "g", "n": "Parmesan"},
-        {"a": 1, "u": "TL", "n": "Salz"}
+        {
+          "a": 600,
+          "u": "g",
+          "n": "Schweineschulter"
+        },
+        {
+          "a": 300,
+          "u": "g",
+          "n": "Rundkornreis"
+        },
+        {
+          "a": 2,
+          "u": "Stk",
+          "n": "Zwiebeln"
+        },
+        {
+          "a": 2,
+          "u": "Stk",
+          "n": "Paprikaschoten"
+        },
+        {
+          "a": 3,
+          "u": "EL",
+          "n": "Butterschmalz"
+        },
+        {
+          "a": 2,
+          "u": "EL",
+          "n": "Paprikapulver, edelsüß"
+        },
+        {
+          "a": 700,
+          "u": "ml",
+          "n": "Fleischbrühe"
+        },
+        {
+          "a": 60,
+          "u": "g",
+          "n": "Parmesan"
+        },
+        {
+          "a": 1,
+          "u": "TL",
+          "n": "Salz"
+        }
       ],
       "steps": [
         "Fleisch würfeln und im Schmalz kräftig anbraten.",
@@ -580,23 +1258,62 @@
       "chapter": "Von den Mehlspeisen",
       "cuisine": "Österreichisch",
       "category": "Dessert",
-      "meals": ["snack"],
-      "diet": ["vegetarisch"],
+      "meals": [
+        "snack"
+      ],
+      "diet": [
+        "vegetarisch"
+      ],
       "servings": 8,
       "prep": 30,
       "cook": 45,
       "difficulty": 2,
       "kcal": 360,
-      "tags": ["Strudel", "Quark"],
+      "tags": [
+        "Strudel",
+        "Quark"
+      ],
       "ingredients": [
-        {"a": 250, "u": "g", "n": "Strudelteig"},
-        {"a": 500, "u": "g", "n": "Magerquark"},
-        {"a": 100, "u": "g", "n": "Zucker"},
-        {"a": 3, "u": "Stk", "n": "Eier"},
-        {"a": 100, "u": "g", "n": "Butter"},
-        {"a": 60, "u": "g", "n": "Rosinen"},
-        {"a": 1, "u": "Stk", "n": "Zitrone"},
-        {"a": 200, "u": "ml", "n": "Sahne"}
+        {
+          "a": 250,
+          "u": "g",
+          "n": "Strudelteig"
+        },
+        {
+          "a": 500,
+          "u": "g",
+          "n": "Magerquark"
+        },
+        {
+          "a": 100,
+          "u": "g",
+          "n": "Zucker"
+        },
+        {
+          "a": 3,
+          "u": "Stk",
+          "n": "Eier"
+        },
+        {
+          "a": 100,
+          "u": "g",
+          "n": "Butter"
+        },
+        {
+          "a": 60,
+          "u": "g",
+          "n": "Rosinen"
+        },
+        {
+          "a": 1,
+          "u": "Stk",
+          "n": "Zitrone"
+        },
+        {
+          "a": 200,
+          "u": "ml",
+          "n": "Sahne"
+        }
       ],
       "steps": [
         "Butter mit Zucker schaumig rühren, Dotter einzeln zugeben.",
@@ -613,22 +1330,58 @@
       "chapter": "Von den Mehlspeisen",
       "cuisine": "Österreichisch",
       "category": "Dessert",
-      "meals": ["fruehstueck", "snack"],
-      "diet": ["vegetarisch"],
+      "meals": [
+        "fruehstueck",
+        "snack"
+      ],
+      "diet": [
+        "vegetarisch"
+      ],
       "servings": 4,
       "prep": 5,
       "cook": 15,
       "difficulty": 1,
       "kcal": 280,
-      "tags": ["schnell", "Kinder"],
+      "tags": [
+        "schnell",
+        "Kinder"
+      ],
       "ingredients": [
-        {"a": 750, "u": "ml", "n": "Milch"},
-        {"a": 120, "u": "g", "n": "Hartweizengrieß"},
-        {"a": 40, "u": "g", "n": "Zucker"},
-        {"a": 20, "u": "g", "n": "Butter"},
-        {"a": 1, "u": "Prise", "n": "Salz"},
-        {"a": 1, "u": "Stk", "n": "Vanilleschote"},
-        {"a": 2, "u": "TL", "n": "Zimt"}
+        {
+          "a": 750,
+          "u": "ml",
+          "n": "Milch"
+        },
+        {
+          "a": 120,
+          "u": "g",
+          "n": "Hartweizengrieß"
+        },
+        {
+          "a": 40,
+          "u": "g",
+          "n": "Zucker"
+        },
+        {
+          "a": 20,
+          "u": "g",
+          "n": "Butter"
+        },
+        {
+          "a": 1,
+          "u": "Prise",
+          "n": "Salz"
+        },
+        {
+          "a": 1,
+          "u": "Stk",
+          "n": "Vanilleschote"
+        },
+        {
+          "a": 2,
+          "u": "TL",
+          "n": "Zimt"
+        }
       ],
       "steps": [
         "Milch mit Butter, Zucker, Salz und Vanille aufkochen.",
@@ -644,23 +1397,63 @@
       "chapter": "Von den Mehlspeisen",
       "cuisine": "Österreichisch",
       "category": "Dessert",
-      "meals": ["mittag", "snack"],
-      "diet": ["vegetarisch"],
+      "meals": [
+        "mittag",
+        "snack"
+      ],
+      "diet": [
+        "vegetarisch"
+      ],
       "servings": 4,
       "prep": 35,
       "cook": 12,
       "difficulty": 2,
       "kcal": 390,
-      "tags": ["Süßspeise", "Kartoffelteig"],
+      "tags": [
+        "Süßspeise",
+        "Kartoffelteig"
+      ],
       "ingredients": [
-        {"a": 500, "u": "g", "n": "Kartoffeln, mehligkochend"},
-        {"a": 150, "u": "g", "n": "Weizenmehl Type 405"},
-        {"a": 1, "u": "Stk", "n": "Ei"},
-        {"a": 1, "u": "Prise", "n": "Salz"},
-        {"a": 200, "u": "g", "n": "Powidl"},
-        {"a": 100, "u": "g", "n": "Butter"},
-        {"a": 100, "u": "g", "n": "Semmelbrösel"},
-        {"a": 30, "u": "g", "n": "Puderzucker"}
+        {
+          "a": 500,
+          "u": "g",
+          "n": "Kartoffeln, mehligkochend"
+        },
+        {
+          "a": 150,
+          "u": "g",
+          "n": "Weizenmehl Type 405"
+        },
+        {
+          "a": 1,
+          "u": "Stk",
+          "n": "Ei"
+        },
+        {
+          "a": 1,
+          "u": "Prise",
+          "n": "Salz"
+        },
+        {
+          "a": 200,
+          "u": "g",
+          "n": "Powidl"
+        },
+        {
+          "a": 100,
+          "u": "g",
+          "n": "Butter"
+        },
+        {
+          "a": 100,
+          "u": "g",
+          "n": "Semmelbrösel"
+        },
+        {
+          "a": 30,
+          "u": "g",
+          "n": "Puderzucker"
+        }
       ],
       "steps": [
         "Gekochte, gepresste Kartoffeln mit Mehl, Ei und Salz zu einem Teig verarbeiten.",

@@ -4,26 +4,67 @@
     {
       "id": "artusi-risotto-milanese",
       "title": "Risotto alla Milanese",
-      "chapter": "Minestre asciutte",
+      "chapter": "Nudel- und Reisgerichte",
       "cuisine": "Italienisch",
       "category": "Hauptgericht",
-      "meals": ["mittag", "abend"],
-      "diet": ["vegetarisch", "glutenfrei"],
+      "meals": [
+        "mittag",
+        "abend"
+      ],
+      "diet": [
+        "vegetarisch",
+        "glutenfrei"
+      ],
       "servings": 4,
       "prep": 10,
       "cook": 25,
       "difficulty": 2,
       "kcal": 480,
-      "tags": ["Safran", "Klassiker"],
+      "tags": [
+        "Safran",
+        "Klassiker"
+      ],
       "ingredients": [
-        {"a": 320, "u": "g", "n": "Risottoreis"},
-        {"a": 1.2, "u": "l", "n": "Gemüsebrühe"},
-        {"a": 1, "u": "Stk", "n": "Zwiebel"},
-        {"a": 80, "u": "g", "n": "Butter"},
-        {"a": 150, "u": "ml", "n": "Weißwein"},
-        {"a": 1, "u": "Prise", "n": "Safranfäden"},
-        {"a": 80, "u": "g", "n": "Parmesan"},
-        {"a": 1, "u": "TL", "n": "Salz"}
+        {
+          "a": 320,
+          "u": "g",
+          "n": "Risottoreis"
+        },
+        {
+          "a": 1.2,
+          "u": "l",
+          "n": "Gemüsebrühe"
+        },
+        {
+          "a": 1,
+          "u": "Stk",
+          "n": "Zwiebel"
+        },
+        {
+          "a": 80,
+          "u": "g",
+          "n": "Butter"
+        },
+        {
+          "a": 150,
+          "u": "ml",
+          "n": "Weißwein"
+        },
+        {
+          "a": 1,
+          "u": "Prise",
+          "n": "Safranfäden"
+        },
+        {
+          "a": 80,
+          "u": "g",
+          "n": "Parmesan"
+        },
+        {
+          "a": 1,
+          "u": "TL",
+          "n": "Salz"
+        }
       ],
       "steps": [
         "Brühe heiß halten und den Safran darin einweichen.",
@@ -38,29 +79,82 @@
     {
       "id": "artusi-minestrone",
       "title": "Minestrone",
-      "chapter": "Minestre in brodo",
+      "chapter": "Suppen",
       "cuisine": "Italienisch",
       "category": "Suppe",
-      "meals": ["mittag", "abend"],
-      "diet": ["vegetarisch", "vegan"],
+      "meals": [
+        "mittag",
+        "abend"
+      ],
+      "diet": [
+        "vegetarisch",
+        "vegan"
+      ],
       "servings": 6,
       "prep": 25,
       "cook": 50,
       "difficulty": 1,
       "kcal": 300,
-      "tags": ["Gemüse", "Vorkochen"],
+      "tags": [
+        "Gemüse",
+        "Vorkochen"
+      ],
       "ingredients": [
-        {"a": 2, "u": "Stk", "n": "Möhren"},
-        {"a": 2, "u": "Stk", "n": "Stangen Sellerie"},
-        {"a": 1, "u": "Stk", "n": "Zwiebel"},
-        {"a": 2, "u": "Stk", "n": "Zucchini"},
-        {"a": 200, "u": "g", "n": "grüne Bohnen"},
-        {"a": 400, "u": "g", "n": "weiße Bohnen, Dose"},
-        {"a": 400, "u": "g", "n": "Tomaten, gehackt"},
-        {"a": 150, "u": "g", "n": "kurze Nudeln"},
-        {"a": 4, "u": "EL", "n": "Olivenöl"},
-        {"a": 1.5, "u": "l", "n": "Gemüsebrühe"},
-        {"a": 1, "u": "TL", "n": "Salz"}
+        {
+          "a": 2,
+          "u": "Stk",
+          "n": "Möhren"
+        },
+        {
+          "a": 2,
+          "u": "Stk",
+          "n": "Stangen Sellerie"
+        },
+        {
+          "a": 1,
+          "u": "Stk",
+          "n": "Zwiebel"
+        },
+        {
+          "a": 2,
+          "u": "Stk",
+          "n": "Zucchini"
+        },
+        {
+          "a": 200,
+          "u": "g",
+          "n": "grüne Bohnen"
+        },
+        {
+          "a": 400,
+          "u": "g",
+          "n": "weiße Bohnen, Dose"
+        },
+        {
+          "a": 400,
+          "u": "g",
+          "n": "Tomaten, gehackt"
+        },
+        {
+          "a": 150,
+          "u": "g",
+          "n": "kurze Nudeln"
+        },
+        {
+          "a": 4,
+          "u": "EL",
+          "n": "Olivenöl"
+        },
+        {
+          "a": 1.5,
+          "u": "l",
+          "n": "Gemüsebrühe"
+        },
+        {
+          "a": 1,
+          "u": "TL",
+          "n": "Salz"
+        }
       ],
       "steps": [
         "Zwiebel, Möhre und Sellerie fein würfeln und im Öl zehn Minuten sanft anschwitzen.",
@@ -75,29 +169,80 @@
     {
       "id": "artusi-ragu-bolognese",
       "title": "Ragù alla Bolognese",
-      "chapter": "Salse",
+      "chapter": "Saucen",
       "cuisine": "Italienisch",
       "category": "Grundrezept",
-      "meals": ["mittag", "abend"],
+      "meals": [
+        "mittag",
+        "abend"
+      ],
       "diet": [],
       "servings": 6,
       "prep": 20,
       "cook": 180,
       "difficulty": 2,
       "kcal": 420,
-      "tags": ["Sauce", "Vorkochen", "Schmoren"],
+      "tags": [
+        "Sauce",
+        "Vorkochen",
+        "Schmoren"
+      ],
       "ingredients": [
-        {"a": 600, "u": "g", "n": "Rinderhack"},
-        {"a": 150, "u": "g", "n": "Pancetta"},
-        {"a": 1, "u": "Stk", "n": "Zwiebel"},
-        {"a": 1, "u": "Stk", "n": "Möhre"},
-        {"a": 1, "u": "Stk", "n": "Stange Sellerie"},
-        {"a": 200, "u": "ml", "n": "Weißwein"},
-        {"a": 400, "u": "g", "n": "Tomaten, passiert"},
-        {"a": 300, "u": "ml", "n": "Fleischbrühe"},
-        {"a": 200, "u": "ml", "n": "Milch"},
-        {"a": 3, "u": "EL", "n": "Olivenöl"},
-        {"a": 1, "u": "TL", "n": "Salz"}
+        {
+          "a": 600,
+          "u": "g",
+          "n": "Rinderhack"
+        },
+        {
+          "a": 150,
+          "u": "g",
+          "n": "Pancetta"
+        },
+        {
+          "a": 1,
+          "u": "Stk",
+          "n": "Zwiebel"
+        },
+        {
+          "a": 1,
+          "u": "Stk",
+          "n": "Möhre"
+        },
+        {
+          "a": 1,
+          "u": "Stk",
+          "n": "Stange Sellerie"
+        },
+        {
+          "a": 200,
+          "u": "ml",
+          "n": "Weißwein"
+        },
+        {
+          "a": 400,
+          "u": "g",
+          "n": "Tomaten, passiert"
+        },
+        {
+          "a": 300,
+          "u": "ml",
+          "n": "Fleischbrühe"
+        },
+        {
+          "a": 200,
+          "u": "ml",
+          "n": "Milch"
+        },
+        {
+          "a": 3,
+          "u": "EL",
+          "n": "Olivenöl"
+        },
+        {
+          "a": 1,
+          "u": "TL",
+          "n": "Salz"
+        }
       ],
       "steps": [
         "Soffritto aus fein gewürfelter Zwiebel, Möhre und Sellerie im Öl zehn Minuten weich dünsten.",
@@ -112,28 +257,77 @@
     {
       "id": "artusi-pasta-e-fagioli",
       "title": "Pasta e fagioli",
-      "chapter": "Minestre in brodo",
+      "chapter": "Suppen",
       "cuisine": "Italienisch",
       "category": "Suppe",
-      "meals": ["mittag", "abend"],
-      "diet": ["vegetarisch", "vegan"],
+      "meals": [
+        "mittag",
+        "abend"
+      ],
+      "diet": [
+        "vegetarisch",
+        "vegan"
+      ],
       "servings": 4,
       "prep": 15,
       "cook": 40,
       "difficulty": 1,
       "kcal": 430,
-      "tags": ["günstig", "Eintopf"],
+      "tags": [
+        "günstig",
+        "Eintopf"
+      ],
       "ingredients": [
-        {"a": 400, "u": "g", "n": "Borlottibohnen, Dose"},
-        {"a": 200, "u": "g", "n": "kurze Nudeln"},
-        {"a": 1, "u": "Stk", "n": "Zwiebel"},
-        {"a": 1, "u": "Stk", "n": "Möhre"},
-        {"a": 2, "u": "Zehe", "n": "Knoblauch"},
-        {"a": 2, "u": "EL", "n": "Tomatenmark"},
-        {"a": 1, "u": "l", "n": "Gemüsebrühe"},
-        {"a": 4, "u": "EL", "n": "Olivenöl"},
-        {"a": 1, "u": "Zweig", "n": "Rosmarin"},
-        {"a": 1, "u": "TL", "n": "Salz"}
+        {
+          "a": 400,
+          "u": "g",
+          "n": "Borlottibohnen, Dose"
+        },
+        {
+          "a": 200,
+          "u": "g",
+          "n": "kurze Nudeln"
+        },
+        {
+          "a": 1,
+          "u": "Stk",
+          "n": "Zwiebel"
+        },
+        {
+          "a": 1,
+          "u": "Stk",
+          "n": "Möhre"
+        },
+        {
+          "a": 2,
+          "u": "Zehe",
+          "n": "Knoblauch"
+        },
+        {
+          "a": 2,
+          "u": "EL",
+          "n": "Tomatenmark"
+        },
+        {
+          "a": 1,
+          "u": "l",
+          "n": "Gemüsebrühe"
+        },
+        {
+          "a": 4,
+          "u": "EL",
+          "n": "Olivenöl"
+        },
+        {
+          "a": 1,
+          "u": "Zweig",
+          "n": "Rosmarin"
+        },
+        {
+          "a": 1,
+          "u": "TL",
+          "n": "Salz"
+        }
       ],
       "steps": [
         "Zwiebel, Möhre und Knoblauch im Öl anschwitzen, Rosmarin zugeben.",
@@ -147,27 +341,71 @@
     {
       "id": "artusi-pollo-cacciatora",
       "title": "Pollo alla cacciatora",
-      "chapter": "Umido",
+      "chapter": "Schmorgerichte",
       "cuisine": "Italienisch",
       "category": "Hauptgericht",
-      "meals": ["mittag", "abend"],
-      "diet": ["glutenfrei"],
+      "meals": [
+        "mittag",
+        "abend"
+      ],
+      "diet": [
+        "glutenfrei"
+      ],
       "servings": 4,
       "prep": 20,
       "cook": 50,
       "difficulty": 2,
       "kcal": 520,
-      "tags": ["Schmoren", "Ein-Topf"],
+      "tags": [
+        "Schmoren",
+        "Ein-Topf"
+      ],
       "ingredients": [
-        {"a": 1200, "u": "g", "n": "Hähnchenteile"},
-        {"a": 1, "u": "Stk", "n": "Zwiebel"},
-        {"a": 3, "u": "Zehe", "n": "Knoblauch"},
-        {"a": 200, "u": "ml", "n": "Weißwein"},
-        {"a": 400, "u": "g", "n": "Tomaten, gehackt"},
-        {"a": 100, "u": "g", "n": "schwarze Oliven"},
-        {"a": 4, "u": "EL", "n": "Olivenöl"},
-        {"a": 2, "u": "Zweig", "n": "Rosmarin"},
-        {"a": 1, "u": "TL", "n": "Salz"}
+        {
+          "a": 1200,
+          "u": "g",
+          "n": "Hähnchenteile"
+        },
+        {
+          "a": 1,
+          "u": "Stk",
+          "n": "Zwiebel"
+        },
+        {
+          "a": 3,
+          "u": "Zehe",
+          "n": "Knoblauch"
+        },
+        {
+          "a": 200,
+          "u": "ml",
+          "n": "Weißwein"
+        },
+        {
+          "a": 400,
+          "u": "g",
+          "n": "Tomaten, gehackt"
+        },
+        {
+          "a": 100,
+          "u": "g",
+          "n": "schwarze Oliven"
+        },
+        {
+          "a": 4,
+          "u": "EL",
+          "n": "Olivenöl"
+        },
+        {
+          "a": 2,
+          "u": "Zweig",
+          "n": "Rosmarin"
+        },
+        {
+          "a": 1,
+          "u": "TL",
+          "n": "Salz"
+        }
       ],
       "steps": [
         "Hähnchenteile salzen und im Öl rundum goldbraun braten, herausnehmen.",
@@ -181,25 +419,61 @@
     {
       "id": "artusi-gnocchi-patate",
       "title": "Gnocchi di patate",
-      "chapter": "Minestre asciutte",
+      "chapter": "Nudel- und Reisgerichte",
       "cuisine": "Italienisch",
       "category": "Hauptgericht",
-      "meals": ["mittag", "abend"],
-      "diet": ["vegetarisch"],
+      "meals": [
+        "mittag",
+        "abend"
+      ],
+      "diet": [
+        "vegetarisch"
+      ],
       "servings": 4,
       "prep": 40,
       "cook": 10,
       "difficulty": 3,
       "kcal": 410,
-      "tags": ["Teigwaren", "Kartoffel"],
+      "tags": [
+        "Teigwaren",
+        "Kartoffel"
+      ],
       "ingredients": [
-        {"a": 1000, "u": "g", "n": "Kartoffeln, mehligkochend"},
-        {"a": 250, "u": "g", "n": "Weizenmehl Type 405"},
-        {"a": 1, "u": "Stk", "n": "Ei"},
-        {"a": 1, "u": "TL", "n": "Salz"},
-        {"a": 80, "u": "g", "n": "Butter"},
-        {"a": 1, "u": "Bund", "n": "Salbei"},
-        {"a": 60, "u": "g", "n": "Parmesan"}
+        {
+          "a": 1000,
+          "u": "g",
+          "n": "Kartoffeln, mehligkochend"
+        },
+        {
+          "a": 250,
+          "u": "g",
+          "n": "Weizenmehl Type 405"
+        },
+        {
+          "a": 1,
+          "u": "Stk",
+          "n": "Ei"
+        },
+        {
+          "a": 1,
+          "u": "TL",
+          "n": "Salz"
+        },
+        {
+          "a": 80,
+          "u": "g",
+          "n": "Butter"
+        },
+        {
+          "a": 1,
+          "u": "Bund",
+          "n": "Salbei"
+        },
+        {
+          "a": 60,
+          "u": "g",
+          "n": "Parmesan"
+        }
       ],
       "steps": [
         "Kartoffeln in der Schale garen, pellen und heiß durch die Presse drücken.",
@@ -213,24 +487,53 @@
     {
       "id": "artusi-cotoletta-milanese",
       "title": "Cotoletta alla Milanese",
-      "chapter": "Fritto",
+      "chapter": "Ausgebackenes",
       "cuisine": "Italienisch",
       "category": "Hauptgericht",
-      "meals": ["mittag", "abend"],
+      "meals": [
+        "mittag",
+        "abend"
+      ],
       "diet": [],
       "servings": 4,
       "prep": 20,
       "cook": 15,
       "difficulty": 2,
       "kcal": 590,
-      "tags": ["Panieren"],
+      "tags": [
+        "Panieren"
+      ],
       "ingredients": [
-        {"a": 4, "u": "Stk", "n": "Kalbskoteletts"},
-        {"a": 3, "u": "Stk", "n": "Eier"},
-        {"a": 200, "u": "g", "n": "Semmelbrösel"},
-        {"a": 150, "u": "g", "n": "Butter"},
-        {"a": 1, "u": "Stk", "n": "Zitrone"},
-        {"a": 1, "u": "TL", "n": "Salz"}
+        {
+          "a": 4,
+          "u": "Stk",
+          "n": "Kalbskoteletts"
+        },
+        {
+          "a": 3,
+          "u": "Stk",
+          "n": "Eier"
+        },
+        {
+          "a": 200,
+          "u": "g",
+          "n": "Semmelbrösel"
+        },
+        {
+          "a": 150,
+          "u": "g",
+          "n": "Butter"
+        },
+        {
+          "a": 1,
+          "u": "Stk",
+          "n": "Zitrone"
+        },
+        {
+          "a": 1,
+          "u": "TL",
+          "n": "Salz"
+        }
       ],
       "steps": [
         "Koteletts leicht flach klopfen und salzen.",
@@ -244,24 +547,57 @@
     {
       "id": "artusi-frittata-erbe",
       "title": "Frittata mit Kräutern",
-      "chapter": "Uova",
+      "chapter": "Eierspeisen",
       "cuisine": "Italienisch",
       "category": "Hauptgericht",
-      "meals": ["fruehstueck", "abend"],
-      "diet": ["vegetarisch", "glutenfrei"],
+      "meals": [
+        "fruehstueck",
+        "abend"
+      ],
+      "diet": [
+        "vegetarisch",
+        "glutenfrei"
+      ],
       "servings": 4,
       "prep": 10,
       "cook": 15,
       "difficulty": 1,
       "kcal": 290,
-      "tags": ["schnell", "Eier"],
+      "tags": [
+        "schnell",
+        "Eier"
+      ],
       "ingredients": [
-        {"a": 8, "u": "Stk", "n": "Eier"},
-        {"a": 60, "u": "g", "n": "Parmesan"},
-        {"a": 1, "u": "Bund", "n": "Petersilie"},
-        {"a": 1, "u": "Bund", "n": "Basilikum"},
-        {"a": 3, "u": "EL", "n": "Olivenöl"},
-        {"a": 1, "u": "TL", "n": "Salz"}
+        {
+          "a": 8,
+          "u": "Stk",
+          "n": "Eier"
+        },
+        {
+          "a": 60,
+          "u": "g",
+          "n": "Parmesan"
+        },
+        {
+          "a": 1,
+          "u": "Bund",
+          "n": "Petersilie"
+        },
+        {
+          "a": 1,
+          "u": "Bund",
+          "n": "Basilikum"
+        },
+        {
+          "a": 3,
+          "u": "EL",
+          "n": "Olivenöl"
+        },
+        {
+          "a": 1,
+          "u": "TL",
+          "n": "Salz"
+        }
       ],
       "steps": [
         "Eier mit Parmesan, gehackten Kräutern, Salz und Pfeffer verquirlen.",
@@ -275,26 +611,68 @@
     {
       "id": "artusi-peperonata",
       "title": "Peperonata",
-      "chapter": "Erbaggi e legumi",
+      "chapter": "Gemüse und Hülsenfrüchte",
       "cuisine": "Italienisch",
       "category": "Beilage",
-      "meals": ["mittag", "abend"],
-      "diet": ["vegetarisch", "vegan", "glutenfrei"],
+      "meals": [
+        "mittag",
+        "abend"
+      ],
+      "diet": [
+        "vegetarisch",
+        "vegan",
+        "glutenfrei"
+      ],
       "servings": 4,
       "prep": 15,
       "cook": 35,
       "difficulty": 1,
       "kcal": 190,
-      "tags": ["Gemüse", "Sommer"],
+      "tags": [
+        "Gemüse",
+        "Sommer"
+      ],
       "ingredients": [
-        {"a": 800, "u": "g", "n": "Paprikaschoten"},
-        {"a": 400, "u": "g", "n": "Tomaten"},
-        {"a": 2, "u": "Stk", "n": "Zwiebeln"},
-        {"a": 2, "u": "Zehe", "n": "Knoblauch"},
-        {"a": 5, "u": "EL", "n": "Olivenöl"},
-        {"a": 2, "u": "EL", "n": "Weinessig"},
-        {"a": 1, "u": "TL", "n": "Salz"},
-        {"a": 1, "u": "Bund", "n": "Basilikum"}
+        {
+          "a": 800,
+          "u": "g",
+          "n": "Paprikaschoten"
+        },
+        {
+          "a": 400,
+          "u": "g",
+          "n": "Tomaten"
+        },
+        {
+          "a": 2,
+          "u": "Stk",
+          "n": "Zwiebeln"
+        },
+        {
+          "a": 2,
+          "u": "Zehe",
+          "n": "Knoblauch"
+        },
+        {
+          "a": 5,
+          "u": "EL",
+          "n": "Olivenöl"
+        },
+        {
+          "a": 2,
+          "u": "EL",
+          "n": "Weinessig"
+        },
+        {
+          "a": 1,
+          "u": "TL",
+          "n": "Salz"
+        },
+        {
+          "a": 1,
+          "u": "Bund",
+          "n": "Basilikum"
+        }
       ],
       "steps": [
         "Paprika in breite Streifen, Zwiebeln in Spalten schneiden.",
@@ -308,26 +686,65 @@
     {
       "id": "artusi-zuppa-inglese",
       "title": "Zuppa Inglese",
-      "chapter": "Dolci al cucchiaio",
+      "chapter": "Löffeldesserts",
       "cuisine": "Italienisch",
       "category": "Dessert",
-      "meals": ["snack"],
-      "diet": ["vegetarisch"],
+      "meals": [
+        "snack"
+      ],
+      "diet": [
+        "vegetarisch"
+      ],
       "servings": 6,
       "prep": 30,
       "cook": 15,
       "difficulty": 2,
       "kcal": 380,
-      "tags": ["Schichtdessert", "Vorbereiten"],
+      "tags": [
+        "Schichtdessert",
+        "Vorbereiten"
+      ],
       "ingredients": [
-        {"a": 500, "u": "ml", "n": "Milch"},
-        {"a": 5, "u": "Stk", "n": "Eigelb"},
-        {"a": 120, "u": "g", "n": "Zucker"},
-        {"a": 50, "u": "g", "n": "Speisestärke"},
-        {"a": 1, "u": "Stk", "n": "Vanilleschote"},
-        {"a": 250, "u": "g", "n": "Löffelbiskuits"},
-        {"a": 150, "u": "ml", "n": "Alchermes oder Kirschsaft"},
-        {"a": 50, "u": "g", "n": "Kakaopulver"}
+        {
+          "a": 500,
+          "u": "ml",
+          "n": "Milch"
+        },
+        {
+          "a": 5,
+          "u": "Stk",
+          "n": "Eigelb"
+        },
+        {
+          "a": 120,
+          "u": "g",
+          "n": "Zucker"
+        },
+        {
+          "a": 50,
+          "u": "g",
+          "n": "Speisestärke"
+        },
+        {
+          "a": 1,
+          "u": "Stk",
+          "n": "Vanilleschote"
+        },
+        {
+          "a": 250,
+          "u": "g",
+          "n": "Löffelbiskuits"
+        },
+        {
+          "a": 150,
+          "u": "ml",
+          "n": "Alchermes oder Kirschsaft"
+        },
+        {
+          "a": 50,
+          "u": "g",
+          "n": "Kakaopulver"
+        }
       ],
       "steps": [
         "Milch mit Vanille erhitzen.",
@@ -341,28 +758,74 @@
     {
       "id": "artusi-cacciucco",
       "title": "Cacciucco – toskanische Fischsuppe",
-      "chapter": "Minestre in brodo",
+      "chapter": "Suppen",
       "cuisine": "Italienisch",
       "category": "Suppe",
-      "meals": ["mittag", "abend"],
+      "meals": [
+        "mittag",
+        "abend"
+      ],
       "diet": [],
       "servings": 4,
       "prep": 30,
       "cook": 40,
       "difficulty": 3,
       "kcal": 450,
-      "tags": ["Fisch", "Festessen"],
+      "tags": [
+        "Fisch",
+        "Festessen"
+      ],
       "ingredients": [
-        {"a": 800, "u": "g", "n": "gemischter Fisch, filetiert"},
-        {"a": 300, "u": "g", "n": "Muscheln"},
-        {"a": 200, "u": "g", "n": "Tintenfischringe"},
-        {"a": 1, "u": "Stk", "n": "Zwiebel"},
-        {"a": 3, "u": "Zehe", "n": "Knoblauch"},
-        {"a": 200, "u": "ml", "n": "Rotwein"},
-        {"a": 400, "u": "g", "n": "Tomaten, gehackt"},
-        {"a": 5, "u": "EL", "n": "Olivenöl"},
-        {"a": 1, "u": "Stk", "n": "Chilischote"},
-        {"a": 4, "u": "Scheibe", "n": "Weißbrot"}
+        {
+          "a": 800,
+          "u": "g",
+          "n": "gemischter Fisch, filetiert"
+        },
+        {
+          "a": 300,
+          "u": "g",
+          "n": "Muscheln"
+        },
+        {
+          "a": 200,
+          "u": "g",
+          "n": "Tintenfischringe"
+        },
+        {
+          "a": 1,
+          "u": "Stk",
+          "n": "Zwiebel"
+        },
+        {
+          "a": 3,
+          "u": "Zehe",
+          "n": "Knoblauch"
+        },
+        {
+          "a": 200,
+          "u": "ml",
+          "n": "Rotwein"
+        },
+        {
+          "a": 400,
+          "u": "g",
+          "n": "Tomaten, gehackt"
+        },
+        {
+          "a": 5,
+          "u": "EL",
+          "n": "Olivenöl"
+        },
+        {
+          "a": 1,
+          "u": "Stk",
+          "n": "Chilischote"
+        },
+        {
+          "a": 4,
+          "u": "Scheibe",
+          "n": "Weißbrot"
+        }
       ],
       "steps": [
         "Zwiebel, Knoblauch und Chili im Öl anschwitzen.",
@@ -377,26 +840,64 @@
     {
       "id": "artusi-crostini-fegatini",
       "title": "Crostini toscani",
-      "chapter": "Antipasti",
+      "chapter": "Vorspeisen",
       "cuisine": "Italienisch",
       "category": "Vorspeise",
-      "meals": ["abend", "snack"],
+      "meals": [
+        "abend",
+        "snack"
+      ],
       "diet": [],
       "servings": 6,
       "prep": 15,
       "cook": 25,
       "difficulty": 2,
       "kcal": 220,
-      "tags": ["Antipasto", "Party"],
+      "tags": [
+        "Vorspeise",
+        "Feier"
+      ],
       "ingredients": [
-        {"a": 400, "u": "g", "n": "Hähnchenleber"},
-        {"a": 1, "u": "Stk", "n": "Zwiebel"},
-        {"a": 3, "u": "EL", "n": "Olivenöl"},
-        {"a": 100, "u": "ml", "n": "Vin Santo oder Weißwein"},
-        {"a": 2, "u": "EL", "n": "Kapern"},
-        {"a": 4, "u": "Stk", "n": "Sardellenfilets"},
-        {"a": 30, "u": "g", "n": "Butter"},
-        {"a": 1, "u": "Stk", "n": "Baguette"}
+        {
+          "a": 400,
+          "u": "g",
+          "n": "Hähnchenleber"
+        },
+        {
+          "a": 1,
+          "u": "Stk",
+          "n": "Zwiebel"
+        },
+        {
+          "a": 3,
+          "u": "EL",
+          "n": "Olivenöl"
+        },
+        {
+          "a": 100,
+          "u": "ml",
+          "n": "Vin Santo oder Weißwein"
+        },
+        {
+          "a": 2,
+          "u": "EL",
+          "n": "Kapern"
+        },
+        {
+          "a": 4,
+          "u": "Stk",
+          "n": "Sardellenfilets"
+        },
+        {
+          "a": 30,
+          "u": "g",
+          "n": "Butter"
+        },
+        {
+          "a": 1,
+          "u": "Stk",
+          "n": "Baguette"
+        }
       ],
       "steps": [
         "Zwiebelwürfel im Öl weich dünsten.",
@@ -410,24 +911,58 @@
     {
       "id": "artusi-fagioli-uccelletto",
       "title": "Fagioli all'uccelletto",
-      "chapter": "Erbaggi e legumi",
+      "chapter": "Gemüse und Hülsenfrüchte",
       "cuisine": "Italienisch",
       "category": "Beilage",
-      "meals": ["mittag", "abend"],
-      "diet": ["vegetarisch", "vegan", "glutenfrei"],
+      "meals": [
+        "mittag",
+        "abend"
+      ],
+      "diet": [
+        "vegetarisch",
+        "vegan",
+        "glutenfrei"
+      ],
       "servings": 4,
       "prep": 10,
       "cook": 25,
       "difficulty": 1,
       "kcal": 260,
-      "tags": ["Bohnen", "schnell"],
+      "tags": [
+        "Bohnen",
+        "schnell"
+      ],
       "ingredients": [
-        {"a": 800, "u": "g", "n": "weiße Bohnen, Dose"},
-        {"a": 400, "u": "g", "n": "Tomaten, gehackt"},
-        {"a": 3, "u": "Zehe", "n": "Knoblauch"},
-        {"a": 5, "u": "EL", "n": "Olivenöl"},
-        {"a": 6, "u": "Blatt", "n": "Salbei"},
-        {"a": 1, "u": "TL", "n": "Salz"}
+        {
+          "a": 800,
+          "u": "g",
+          "n": "weiße Bohnen, Dose"
+        },
+        {
+          "a": 400,
+          "u": "g",
+          "n": "Tomaten, gehackt"
+        },
+        {
+          "a": 3,
+          "u": "Zehe",
+          "n": "Knoblauch"
+        },
+        {
+          "a": 5,
+          "u": "EL",
+          "n": "Olivenöl"
+        },
+        {
+          "a": 6,
+          "u": "Blatt",
+          "n": "Salbei"
+        },
+        {
+          "a": 1,
+          "u": "TL",
+          "n": "Salz"
+        }
       ],
       "steps": [
         "Knoblauch und Salbei im Olivenöl sanft aromatisieren, ohne sie zu bräunen.",
@@ -441,24 +976,55 @@
     {
       "id": "artusi-pasta-frolla",
       "title": "Pasta frolla – Mürbteig",
-      "chapter": "Paste e pasticci",
+      "chapter": "Teige und Pasteten",
       "cuisine": "Italienisch",
       "category": "Grundrezept",
-      "meals": ["snack"],
-      "diet": ["vegetarisch"],
+      "meals": [
+        "snack"
+      ],
+      "diet": [
+        "vegetarisch"
+      ],
       "servings": 8,
       "prep": 15,
       "cook": 0,
       "difficulty": 1,
       "kcal": 300,
-      "tags": ["Grundrezept", "Backen"],
+      "tags": [
+        "Grundrezept",
+        "Backen"
+      ],
       "ingredients": [
-        {"a": 300, "u": "g", "n": "Weizenmehl Type 405"},
-        {"a": 150, "u": "g", "n": "Butter"},
-        {"a": 120, "u": "g", "n": "Zucker"},
-        {"a": 2, "u": "Stk", "n": "Eigelb"},
-        {"a": 1, "u": "Prise", "n": "Salz"},
-        {"a": 1, "u": "Stk", "n": "Zitrone"}
+        {
+          "a": 300,
+          "u": "g",
+          "n": "Weizenmehl Type 405"
+        },
+        {
+          "a": 150,
+          "u": "g",
+          "n": "Butter"
+        },
+        {
+          "a": 120,
+          "u": "g",
+          "n": "Zucker"
+        },
+        {
+          "a": 2,
+          "u": "Stk",
+          "n": "Eigelb"
+        },
+        {
+          "a": 1,
+          "u": "Prise",
+          "n": "Salz"
+        },
+        {
+          "a": 1,
+          "u": "Stk",
+          "n": "Zitrone"
+        }
       ],
       "steps": [
         "Mehl mit kalter Butter zu Krümeln verreiben.",
@@ -472,26 +1038,65 @@
     {
       "id": "artusi-torta-margherita",
       "title": "Torta Margherita",
-      "chapter": "Dolci",
+      "chapter": "Süßspeisen",
       "cuisine": "Italienisch",
       "category": "Backen",
-      "meals": ["snack"],
-      "diet": ["vegetarisch"],
+      "meals": [
+        "snack"
+      ],
+      "diet": [
+        "vegetarisch"
+      ],
       "servings": 10,
       "prep": 20,
       "cook": 35,
       "difficulty": 2,
       "kcal": 270,
-      "tags": ["Kuchen", "leicht"],
+      "tags": [
+        "Kuchen",
+        "leicht"
+      ],
       "ingredients": [
-        {"a": 4, "u": "Stk", "n": "Eier"},
-        {"a": 150, "u": "g", "n": "Zucker"},
-        {"a": 100, "u": "g", "n": "Kartoffelstärke"},
-        {"a": 80, "u": "g", "n": "Weizenmehl Type 405"},
-        {"a": 100, "u": "g", "n": "Butter"},
-        {"a": 1, "u": "Stk", "n": "Zitrone"},
-        {"a": 1, "u": "Pck", "n": "Backpulver"},
-        {"a": 30, "u": "g", "n": "Puderzucker"}
+        {
+          "a": 4,
+          "u": "Stk",
+          "n": "Eier"
+        },
+        {
+          "a": 150,
+          "u": "g",
+          "n": "Zucker"
+        },
+        {
+          "a": 100,
+          "u": "g",
+          "n": "Kartoffelstärke"
+        },
+        {
+          "a": 80,
+          "u": "g",
+          "n": "Weizenmehl Type 405"
+        },
+        {
+          "a": 100,
+          "u": "g",
+          "n": "Butter"
+        },
+        {
+          "a": 1,
+          "u": "Stk",
+          "n": "Zitrone"
+        },
+        {
+          "a": 1,
+          "u": "Pck",
+          "n": "Backpulver"
+        },
+        {
+          "a": 30,
+          "u": "g",
+          "n": "Puderzucker"
+        }
       ],
       "steps": [
         "Eier mit Zucker zehn Minuten sehr schaumig schlagen.",
@@ -505,26 +1110,68 @@
     {
       "id": "artusi-panzanella",
       "title": "Panzanella",
-      "chapter": "Insalate",
+      "chapter": "Salate",
       "cuisine": "Italienisch",
       "category": "Vorspeise",
-      "meals": ["mittag", "abend"],
-      "diet": ["vegetarisch", "vegan"],
+      "meals": [
+        "mittag",
+        "abend"
+      ],
+      "diet": [
+        "vegetarisch",
+        "vegan"
+      ],
       "servings": 4,
       "prep": 20,
       "cook": 0,
       "difficulty": 1,
       "kcal": 280,
-      "tags": ["Sommer", "Resteverwertung", "kalt"],
+      "tags": [
+        "Sommer",
+        "Resteverwertung",
+        "kalt"
+      ],
       "ingredients": [
-        {"a": 300, "u": "g", "n": "Weißbrot vom Vortag"},
-        {"a": 600, "u": "g", "n": "Tomaten"},
-        {"a": 1, "u": "Stk", "n": "Salatgurke"},
-        {"a": 1, "u": "Stk", "n": "rote Zwiebel"},
-        {"a": 6, "u": "EL", "n": "Olivenöl"},
-        {"a": 3, "u": "EL", "n": "Rotweinessig"},
-        {"a": 1, "u": "Bund", "n": "Basilikum"},
-        {"a": 1, "u": "TL", "n": "Salz"}
+        {
+          "a": 300,
+          "u": "g",
+          "n": "Weißbrot vom Vortag"
+        },
+        {
+          "a": 600,
+          "u": "g",
+          "n": "Tomaten"
+        },
+        {
+          "a": 1,
+          "u": "Stk",
+          "n": "Salatgurke"
+        },
+        {
+          "a": 1,
+          "u": "Stk",
+          "n": "rote Zwiebel"
+        },
+        {
+          "a": 6,
+          "u": "EL",
+          "n": "Olivenöl"
+        },
+        {
+          "a": 3,
+          "u": "EL",
+          "n": "Rotweinessig"
+        },
+        {
+          "a": 1,
+          "u": "Bund",
+          "n": "Basilikum"
+        },
+        {
+          "a": 1,
+          "u": "TL",
+          "n": "Salz"
+        }
       ],
       "steps": [
         "Brot in Wasser kurz einweichen und kräftig ausdrücken, dann zerzupfen.",
@@ -538,27 +1185,69 @@
     {
       "id": "artusi-baccala-in-umido",
       "title": "Stockfisch in Tomatensauce",
-      "chapter": "Pesce",
+      "chapter": "Fisch",
       "cuisine": "Italienisch",
       "category": "Hauptgericht",
-      "meals": ["mittag", "abend"],
+      "meals": [
+        "mittag",
+        "abend"
+      ],
       "diet": [],
       "servings": 4,
       "prep": 20,
       "cook": 35,
       "difficulty": 2,
       "kcal": 380,
-      "tags": ["Fisch", "Schmoren"],
+      "tags": [
+        "Fisch",
+        "Schmoren"
+      ],
       "ingredients": [
-        {"a": 800, "u": "g", "n": "Kabeljaufilet"},
-        {"a": 500, "u": "g", "n": "Tomaten, gehackt"},
-        {"a": 1, "u": "Stk", "n": "Zwiebel"},
-        {"a": 3, "u": "Zehe", "n": "Knoblauch"},
-        {"a": 100, "u": "g", "n": "schwarze Oliven"},
-        {"a": 2, "u": "EL", "n": "Kapern"},
-        {"a": 5, "u": "EL", "n": "Olivenöl"},
-        {"a": 1, "u": "Bund", "n": "Petersilie"},
-        {"a": 1, "u": "TL", "n": "Salz"}
+        {
+          "a": 800,
+          "u": "g",
+          "n": "Kabeljaufilet"
+        },
+        {
+          "a": 500,
+          "u": "g",
+          "n": "Tomaten, gehackt"
+        },
+        {
+          "a": 1,
+          "u": "Stk",
+          "n": "Zwiebel"
+        },
+        {
+          "a": 3,
+          "u": "Zehe",
+          "n": "Knoblauch"
+        },
+        {
+          "a": 100,
+          "u": "g",
+          "n": "schwarze Oliven"
+        },
+        {
+          "a": 2,
+          "u": "EL",
+          "n": "Kapern"
+        },
+        {
+          "a": 5,
+          "u": "EL",
+          "n": "Olivenöl"
+        },
+        {
+          "a": 1,
+          "u": "Bund",
+          "n": "Petersilie"
+        },
+        {
+          "a": 1,
+          "u": "TL",
+          "n": "Salz"
+        }
       ],
       "steps": [
         "Zwiebel und Knoblauch im Öl glasig dünsten.",
@@ -572,24 +1261,55 @@
     {
       "id": "artusi-passatelli",
       "title": "Passatelli in Brodo",
-      "chapter": "Minestre in brodo",
+      "chapter": "Suppen",
       "cuisine": "Italienisch",
       "category": "Suppe",
-      "meals": ["mittag"],
-      "diet": ["vegetarisch"],
+      "meals": [
+        "mittag"
+      ],
+      "diet": [
+        "vegetarisch"
+      ],
       "servings": 4,
       "prep": 15,
       "cook": 10,
       "difficulty": 2,
       "kcal": 320,
-      "tags": ["Suppeneinlage", "schnell"],
+      "tags": [
+        "Suppeneinlage",
+        "schnell"
+      ],
       "ingredients": [
-        {"a": 1.2, "u": "l", "n": "Fleischbrühe"},
-        {"a": 150, "u": "g", "n": "Semmelbrösel"},
-        {"a": 150, "u": "g", "n": "Parmesan"},
-        {"a": 3, "u": "Stk", "n": "Eier"},
-        {"a": 1, "u": "Prise", "n": "Muskatnuss"},
-        {"a": 1, "u": "Stk", "n": "Zitrone"}
+        {
+          "a": 1.2,
+          "u": "l",
+          "n": "Fleischbrühe"
+        },
+        {
+          "a": 150,
+          "u": "g",
+          "n": "Semmelbrösel"
+        },
+        {
+          "a": 150,
+          "u": "g",
+          "n": "Parmesan"
+        },
+        {
+          "a": 3,
+          "u": "Stk",
+          "n": "Eier"
+        },
+        {
+          "a": 1,
+          "u": "Prise",
+          "n": "Muskatnuss"
+        },
+        {
+          "a": 1,
+          "u": "Stk",
+          "n": "Zitrone"
+        }
       ],
       "steps": [
         "Brösel, geriebenen Parmesan, Eier, Muskat und Zitronenschale zu einem festen Teig kneten.",
@@ -603,26 +1323,66 @@
     {
       "id": "artusi-tortelli-ricotta",
       "title": "Tortelli mit Ricotta und Spinat",
-      "chapter": "Minestre asciutte",
+      "chapter": "Nudel- und Reisgerichte",
       "cuisine": "Italienisch",
       "category": "Hauptgericht",
-      "meals": ["mittag", "abend"],
-      "diet": ["vegetarisch"],
+      "meals": [
+        "mittag",
+        "abend"
+      ],
+      "diet": [
+        "vegetarisch"
+      ],
       "servings": 4,
       "prep": 60,
       "cook": 5,
       "difficulty": 3,
       "kcal": 520,
-      "tags": ["Pasta", "Festessen"],
+      "tags": [
+        "Nudeln",
+        "Festessen"
+      ],
       "ingredients": [
-        {"a": 300, "u": "g", "n": "Hartweizenmehl"},
-        {"a": 3, "u": "Stk", "n": "Eier"},
-        {"a": 400, "u": "g", "n": "Ricotta"},
-        {"a": 300, "u": "g", "n": "Blattspinat"},
-        {"a": 80, "u": "g", "n": "Parmesan"},
-        {"a": 1, "u": "Prise", "n": "Muskatnuss"},
-        {"a": 80, "u": "g", "n": "Butter"},
-        {"a": 1, "u": "Bund", "n": "Salbei"}
+        {
+          "a": 300,
+          "u": "g",
+          "n": "Hartweizenmehl"
+        },
+        {
+          "a": 3,
+          "u": "Stk",
+          "n": "Eier"
+        },
+        {
+          "a": 400,
+          "u": "g",
+          "n": "Ricotta"
+        },
+        {
+          "a": 300,
+          "u": "g",
+          "n": "Blattspinat"
+        },
+        {
+          "a": 80,
+          "u": "g",
+          "n": "Parmesan"
+        },
+        {
+          "a": 1,
+          "u": "Prise",
+          "n": "Muskatnuss"
+        },
+        {
+          "a": 80,
+          "u": "g",
+          "n": "Butter"
+        },
+        {
+          "a": 1,
+          "u": "Bund",
+          "n": "Salbei"
+        }
       ],
       "steps": [
         "Mehl und Eier zu einem glatten Nudelteig kneten und eine Stunde ruhen lassen.",
@@ -637,24 +1397,56 @@
     {
       "id": "artusi-gelato-crema",
       "title": "Crema-Eis",
-      "chapter": "Gelati",
+      "chapter": "Eis",
       "cuisine": "Italienisch",
       "category": "Dessert",
-      "meals": ["snack"],
-      "diet": ["vegetarisch", "glutenfrei"],
+      "meals": [
+        "snack"
+      ],
+      "diet": [
+        "vegetarisch",
+        "glutenfrei"
+      ],
       "servings": 6,
       "prep": 25,
       "cook": 10,
       "difficulty": 2,
       "kcal": 290,
-      "tags": ["Eis", "Sommer"],
+      "tags": [
+        "Eis",
+        "Sommer"
+      ],
       "ingredients": [
-        {"a": 500, "u": "ml", "n": "Milch"},
-        {"a": 250, "u": "ml", "n": "Sahne"},
-        {"a": 6, "u": "Stk", "n": "Eigelb"},
-        {"a": 150, "u": "g", "n": "Zucker"},
-        {"a": 1, "u": "Stk", "n": "Vanilleschote"},
-        {"a": 1, "u": "Stk", "n": "Zitrone"}
+        {
+          "a": 500,
+          "u": "ml",
+          "n": "Milch"
+        },
+        {
+          "a": 250,
+          "u": "ml",
+          "n": "Sahne"
+        },
+        {
+          "a": 6,
+          "u": "Stk",
+          "n": "Eigelb"
+        },
+        {
+          "a": 150,
+          "u": "g",
+          "n": "Zucker"
+        },
+        {
+          "a": 1,
+          "u": "Stk",
+          "n": "Vanilleschote"
+        },
+        {
+          "a": 1,
+          "u": "Stk",
+          "n": "Zitrone"
+        }
       ],
       "steps": [
         "Milch und Sahne mit Vanille und Zitronenschale erhitzen.",

@@ -3,27 +3,67 @@
   "recipes": [
     {
       "id": "farmer-boston-brown-bread",
-      "title": "Boston Brown Bread",
-      "chapter": "Bread and Bread Making",
+      "title": "Bostoner Vollkornbrot",
+      "chapter": "Brot und Brotbacken",
       "cuisine": "Amerikanisch",
       "category": "Backen",
-      "meals": ["fruehstueck", "snack"],
-      "diet": ["vegetarisch"],
+      "meals": [
+        "fruehstueck",
+        "snack"
+      ],
+      "diet": [
+        "vegetarisch"
+      ],
       "servings": 8,
       "prep": 20,
       "cook": 180,
       "difficulty": 2,
       "kcal": 220,
-      "tags": ["Dampfgaren", "Vollkorn"],
+      "tags": [
+        "Dampfgaren",
+        "Vollkorn"
+      ],
       "ingredients": [
-        {"a": 150, "u": "g", "n": "Roggenmehl"},
-        {"a": 150, "u": "g", "n": "Maismehl"},
-        {"a": 150, "u": "g", "n": "Weizenvollkornmehl"},
-        {"a": 180, "u": "ml", "n": "Melasse"},
-        {"a": 500, "u": "ml", "n": "Buttermilch"},
-        {"a": 2, "u": "TL", "n": "Natron"},
-        {"a": 1, "u": "TL", "n": "Salz"},
-        {"a": 100, "u": "g", "n": "Rosinen"}
+        {
+          "a": 150,
+          "u": "g",
+          "n": "Roggenmehl"
+        },
+        {
+          "a": 150,
+          "u": "g",
+          "n": "Maismehl"
+        },
+        {
+          "a": 150,
+          "u": "g",
+          "n": "Weizenvollkornmehl"
+        },
+        {
+          "a": 180,
+          "u": "ml",
+          "n": "Melasse"
+        },
+        {
+          "a": 500,
+          "u": "ml",
+          "n": "Buttermilch"
+        },
+        {
+          "a": 2,
+          "u": "TL",
+          "n": "Natron"
+        },
+        {
+          "a": 1,
+          "u": "TL",
+          "n": "Salz"
+        },
+        {
+          "a": 100,
+          "u": "g",
+          "n": "Rosinen"
+        }
       ],
       "steps": [
         "Alle trockenen Zutaten gründlich mischen.",
@@ -37,28 +77,72 @@
     },
     {
       "id": "farmer-corn-chowder",
-      "title": "Corn Chowder",
-      "chapter": "Soups",
+      "title": "Maiscremesuppe",
+      "chapter": "Suppen",
       "cuisine": "Amerikanisch",
       "category": "Suppe",
-      "meals": ["mittag", "abend"],
-      "diet": ["vegetarisch"],
+      "meals": [
+        "mittag",
+        "abend"
+      ],
+      "diet": [
+        "vegetarisch"
+      ],
       "servings": 4,
       "prep": 15,
       "cook": 30,
       "difficulty": 1,
       "kcal": 380,
-      "tags": ["cremig", "Ein-Topf"],
+      "tags": [
+        "cremig",
+        "Ein-Topf"
+      ],
       "ingredients": [
-        {"a": 500, "u": "g", "n": "Maiskörner"},
-        {"a": 500, "u": "g", "n": "Kartoffeln"},
-        {"a": 1, "u": "Stk", "n": "Zwiebel"},
-        {"a": 40, "u": "g", "n": "Butter"},
-        {"a": 600, "u": "ml", "n": "Milch"},
-        {"a": 400, "u": "ml", "n": "Gemüsebrühe"},
-        {"a": 2, "u": "EL", "n": "Mehl"},
-        {"a": 1, "u": "TL", "n": "Salz"},
-        {"a": 1, "u": "Bund", "n": "Schnittlauch"}
+        {
+          "a": 500,
+          "u": "g",
+          "n": "Maiskörner"
+        },
+        {
+          "a": 500,
+          "u": "g",
+          "n": "Kartoffeln"
+        },
+        {
+          "a": 1,
+          "u": "Stk",
+          "n": "Zwiebel"
+        },
+        {
+          "a": 40,
+          "u": "g",
+          "n": "Butter"
+        },
+        {
+          "a": 600,
+          "u": "ml",
+          "n": "Milch"
+        },
+        {
+          "a": 400,
+          "u": "ml",
+          "n": "Gemüsebrühe"
+        },
+        {
+          "a": 2,
+          "u": "EL",
+          "n": "Mehl"
+        },
+        {
+          "a": 1,
+          "u": "TL",
+          "n": "Salz"
+        },
+        {
+          "a": 1,
+          "u": "Bund",
+          "n": "Schnittlauch"
+        }
       ],
       "steps": [
         "Zwiebelwürfel in Butter glasig dünsten und mit Mehl bestäuben.",
@@ -72,27 +156,67 @@
     },
     {
       "id": "farmer-cream-tomato-soup",
-      "title": "Cream of Tomato Soup",
-      "chapter": "Soups",
+      "title": "Tomatencremesuppe",
+      "chapter": "Suppen",
       "cuisine": "Amerikanisch",
       "category": "Suppe",
-      "meals": ["mittag", "abend"],
-      "diet": ["vegetarisch"],
+      "meals": [
+        "mittag",
+        "abend"
+      ],
+      "diet": [
+        "vegetarisch"
+      ],
       "servings": 4,
       "prep": 10,
       "cook": 25,
       "difficulty": 1,
       "kcal": 260,
-      "tags": ["schnell", "cremig"],
+      "tags": [
+        "schnell",
+        "cremig"
+      ],
       "ingredients": [
-        {"a": 800, "u": "g", "n": "Tomaten, gehackt"},
-        {"a": 1, "u": "Stk", "n": "Zwiebel"},
-        {"a": 40, "u": "g", "n": "Butter"},
-        {"a": 30, "u": "g", "n": "Mehl"},
-        {"a": 500, "u": "ml", "n": "Milch"},
-        {"a": 1, "u": "Prise", "n": "Natron"},
-        {"a": 1, "u": "TL", "n": "Zucker"},
-        {"a": 1, "u": "TL", "n": "Salz"}
+        {
+          "a": 800,
+          "u": "g",
+          "n": "Tomaten, gehackt"
+        },
+        {
+          "a": 1,
+          "u": "Stk",
+          "n": "Zwiebel"
+        },
+        {
+          "a": 40,
+          "u": "g",
+          "n": "Butter"
+        },
+        {
+          "a": 30,
+          "u": "g",
+          "n": "Mehl"
+        },
+        {
+          "a": 500,
+          "u": "ml",
+          "n": "Milch"
+        },
+        {
+          "a": 1,
+          "u": "Prise",
+          "n": "Natron"
+        },
+        {
+          "a": 1,
+          "u": "TL",
+          "n": "Zucker"
+        },
+        {
+          "a": 1,
+          "u": "TL",
+          "n": "Salz"
+        }
       ],
       "steps": [
         "Tomaten mit Zwiebel fünfzehn Minuten kochen und passieren.",
@@ -105,26 +229,63 @@
     },
     {
       "id": "farmer-baked-beans",
-      "title": "Boston Baked Beans",
-      "chapter": "Vegetables",
+      "title": "Bostoner Ofenbohnen",
+      "chapter": "Gemüse",
       "cuisine": "Amerikanisch",
       "category": "Hauptgericht",
-      "meals": ["mittag", "abend"],
-      "diet": ["vegetarisch"],
+      "meals": [
+        "mittag",
+        "abend"
+      ],
+      "diet": [
+        "vegetarisch"
+      ],
       "servings": 6,
       "prep": 20,
       "cook": 300,
       "difficulty": 2,
       "kcal": 420,
-      "tags": ["Ofen", "Vorkochen", "günstig"],
+      "tags": [
+        "Ofen",
+        "Vorkochen",
+        "günstig"
+      ],
       "ingredients": [
-        {"a": 500, "u": "g", "n": "weiße Bohnen, getrocknet"},
-        {"a": 1, "u": "Stk", "n": "Zwiebel"},
-        {"a": 120, "u": "ml", "n": "Melasse"},
-        {"a": 2, "u": "EL", "n": "Senf"},
-        {"a": 2, "u": "TL", "n": "Salz"},
-        {"a": 2, "u": "EL", "n": "brauner Zucker"},
-        {"a": 40, "u": "g", "n": "Butter"}
+        {
+          "a": 500,
+          "u": "g",
+          "n": "weiße Bohnen, getrocknet"
+        },
+        {
+          "a": 1,
+          "u": "Stk",
+          "n": "Zwiebel"
+        },
+        {
+          "a": 120,
+          "u": "ml",
+          "n": "Melasse"
+        },
+        {
+          "a": 2,
+          "u": "EL",
+          "n": "Senf"
+        },
+        {
+          "a": 2,
+          "u": "TL",
+          "n": "Salz"
+        },
+        {
+          "a": 2,
+          "u": "EL",
+          "n": "brauner Zucker"
+        },
+        {
+          "a": 40,
+          "u": "g",
+          "n": "Butter"
+        }
       ],
       "steps": [
         "Bohnen über Nacht einweichen, abgießen und in frischem Wasser eine halbe Stunde vorkochen.",
@@ -138,24 +299,52 @@
     },
     {
       "id": "farmer-popovers",
-      "title": "Popovers",
-      "chapter": "Batters",
+      "title": "Hohle Ofenbrötchen",
+      "chapter": "Rührteige",
       "cuisine": "Amerikanisch",
       "category": "Backen",
-      "meals": ["fruehstueck", "snack"],
-      "diet": ["vegetarisch"],
+      "meals": [
+        "fruehstueck",
+        "snack"
+      ],
+      "diet": [
+        "vegetarisch"
+      ],
       "servings": 6,
       "prep": 10,
       "cook": 35,
       "difficulty": 2,
       "kcal": 160,
-      "tags": ["schnell", "Ofen"],
+      "tags": [
+        "schnell",
+        "Ofen"
+      ],
       "ingredients": [
-        {"a": 125, "u": "g", "n": "Weizenmehl Type 405"},
-        {"a": 250, "u": "ml", "n": "Milch"},
-        {"a": 2, "u": "Stk", "n": "Eier"},
-        {"a": 1, "u": "Prise", "n": "Salz"},
-        {"a": 20, "u": "g", "n": "Butter"}
+        {
+          "a": 125,
+          "u": "g",
+          "n": "Weizenmehl Type 405"
+        },
+        {
+          "a": 250,
+          "u": "ml",
+          "n": "Milch"
+        },
+        {
+          "a": 2,
+          "u": "Stk",
+          "n": "Eier"
+        },
+        {
+          "a": 1,
+          "u": "Prise",
+          "n": "Salz"
+        },
+        {
+          "a": 20,
+          "u": "g",
+          "n": "Butter"
+        }
       ],
       "steps": [
         "Alle Zutaten zu einem glatten, dünnflüssigen Teig verschlagen.",
@@ -168,26 +357,61 @@
     },
     {
       "id": "farmer-indian-pudding",
-      "title": "Indian Pudding",
-      "chapter": "Puddings",
+      "title": "Maisgrießpudding",
+      "chapter": "Aufläufe und Puddings",
       "cuisine": "Amerikanisch",
       "category": "Dessert",
-      "meals": ["snack"],
-      "diet": ["vegetarisch"],
+      "meals": [
+        "snack"
+      ],
+      "diet": [
+        "vegetarisch"
+      ],
       "servings": 6,
       "prep": 15,
       "cook": 150,
       "difficulty": 1,
       "kcal": 290,
-      "tags": ["Ofen", "Winter"],
+      "tags": [
+        "Ofen",
+        "Winter"
+      ],
       "ingredients": [
-        {"a": 1, "u": "l", "n": "Milch"},
-        {"a": 80, "u": "g", "n": "Maisgrieß"},
-        {"a": 150, "u": "ml", "n": "Melasse"},
-        {"a": 50, "u": "g", "n": "Butter"},
-        {"a": 1, "u": "TL", "n": "Ingwer, gemahlen"},
-        {"a": 1, "u": "TL", "n": "Zimt"},
-        {"a": 1, "u": "TL", "n": "Salz"}
+        {
+          "a": 1,
+          "u": "l",
+          "n": "Milch"
+        },
+        {
+          "a": 80,
+          "u": "g",
+          "n": "Maisgrieß"
+        },
+        {
+          "a": 150,
+          "u": "ml",
+          "n": "Melasse"
+        },
+        {
+          "a": 50,
+          "u": "g",
+          "n": "Butter"
+        },
+        {
+          "a": 1,
+          "u": "TL",
+          "n": "Ingwer, gemahlen"
+        },
+        {
+          "a": 1,
+          "u": "TL",
+          "n": "Zimt"
+        },
+        {
+          "a": 1,
+          "u": "TL",
+          "n": "Salz"
+        }
       ],
       "steps": [
         "Zwei Drittel der Milch erhitzen und den Maisgrieß unter Rühren einrieseln lassen.",
@@ -200,28 +424,71 @@
     },
     {
       "id": "farmer-apple-pie",
-      "title": "Apple Pie",
-      "chapter": "Pastry",
+      "title": "Gedeckter Apfelkuchen",
+      "chapter": "Kuchen und Pasteten",
       "cuisine": "Amerikanisch",
       "category": "Backen",
-      "meals": ["snack"],
-      "diet": ["vegetarisch"],
+      "meals": [
+        "snack"
+      ],
+      "diet": [
+        "vegetarisch"
+      ],
       "servings": 8,
       "prep": 40,
       "cook": 50,
       "difficulty": 2,
       "kcal": 380,
-      "tags": ["Klassiker", "Apfel"],
+      "tags": [
+        "Klassiker",
+        "Apfel"
+      ],
       "ingredients": [
-        {"a": 350, "u": "g", "n": "Weizenmehl Type 405"},
-        {"a": 200, "u": "g", "n": "Butter"},
-        {"a": 1, "u": "TL", "n": "Salz"},
-        {"a": 80, "u": "ml", "n": "Eiswasser"},
-        {"a": 1200, "u": "g", "n": "säuerliche Äpfel"},
-        {"a": 120, "u": "g", "n": "Zucker"},
-        {"a": 2, "u": "TL", "n": "Zimt"},
-        {"a": 2, "u": "EL", "n": "Speisestärke"},
-        {"a": 1, "u": "EL", "n": "Zitronensaft"}
+        {
+          "a": 350,
+          "u": "g",
+          "n": "Weizenmehl Type 405"
+        },
+        {
+          "a": 200,
+          "u": "g",
+          "n": "Butter"
+        },
+        {
+          "a": 1,
+          "u": "TL",
+          "n": "Salz"
+        },
+        {
+          "a": 80,
+          "u": "ml",
+          "n": "Eiswasser"
+        },
+        {
+          "a": 1200,
+          "u": "g",
+          "n": "säuerliche Äpfel"
+        },
+        {
+          "a": 120,
+          "u": "g",
+          "n": "Zucker"
+        },
+        {
+          "a": 2,
+          "u": "TL",
+          "n": "Zimt"
+        },
+        {
+          "a": 2,
+          "u": "EL",
+          "n": "Speisestärke"
+        },
+        {
+          "a": 1,
+          "u": "EL",
+          "n": "Zitronensaft"
+        }
       ],
       "steps": [
         "Mehl, Salz und kalte Butterwürfel zu groben Krümeln verreiben.",
@@ -235,27 +502,67 @@
     },
     {
       "id": "farmer-blueberry-muffins",
-      "title": "Blueberry Muffins",
-      "chapter": "Batters",
+      "title": "Heidelbeer-Küchlein",
+      "chapter": "Rührteige",
       "cuisine": "Amerikanisch",
       "category": "Backen",
-      "meals": ["fruehstueck", "snack"],
-      "diet": ["vegetarisch"],
+      "meals": [
+        "fruehstueck",
+        "snack"
+      ],
+      "diet": [
+        "vegetarisch"
+      ],
       "servings": 12,
       "prep": 15,
       "cook": 25,
       "difficulty": 1,
       "kcal": 210,
-      "tags": ["schnell", "Frühstück"],
+      "tags": [
+        "schnell",
+        "Frühstück"
+      ],
       "ingredients": [
-        {"a": 300, "u": "g", "n": "Weizenmehl Type 405"},
-        {"a": 120, "u": "g", "n": "Zucker"},
-        {"a": 1, "u": "Pck", "n": "Backpulver"},
-        {"a": 1, "u": "Prise", "n": "Salz"},
-        {"a": 250, "u": "ml", "n": "Milch"},
-        {"a": 80, "u": "g", "n": "Butter"},
-        {"a": 2, "u": "Stk", "n": "Eier"},
-        {"a": 250, "u": "g", "n": "Heidelbeeren"}
+        {
+          "a": 300,
+          "u": "g",
+          "n": "Weizenmehl Type 405"
+        },
+        {
+          "a": 120,
+          "u": "g",
+          "n": "Zucker"
+        },
+        {
+          "a": 1,
+          "u": "Pck",
+          "n": "Backpulver"
+        },
+        {
+          "a": 1,
+          "u": "Prise",
+          "n": "Salz"
+        },
+        {
+          "a": 250,
+          "u": "ml",
+          "n": "Milch"
+        },
+        {
+          "a": 80,
+          "u": "g",
+          "n": "Butter"
+        },
+        {
+          "a": 2,
+          "u": "Stk",
+          "n": "Eier"
+        },
+        {
+          "a": 250,
+          "u": "g",
+          "n": "Heidelbeeren"
+        }
       ],
       "steps": [
         "Trockene und flüssige Zutaten getrennt mischen.",
@@ -268,27 +575,67 @@
     },
     {
       "id": "farmer-macaroni-cheese",
-      "title": "Macaroni and Cheese",
-      "chapter": "Cereals and Pastes",
+      "title": "Makkaroni mit Käse",
+      "chapter": "Getreide und Teigwaren",
       "cuisine": "Amerikanisch",
       "category": "Hauptgericht",
-      "meals": ["mittag", "abend"],
-      "diet": ["vegetarisch"],
+      "meals": [
+        "mittag",
+        "abend"
+      ],
+      "diet": [
+        "vegetarisch"
+      ],
       "servings": 4,
       "prep": 15,
       "cook": 30,
       "difficulty": 1,
       "kcal": 620,
-      "tags": ["Ofen", "Kinder"],
+      "tags": [
+        "Ofen",
+        "Kinder"
+      ],
       "ingredients": [
-        {"a": 400, "u": "g", "n": "Makkaroni"},
-        {"a": 50, "u": "g", "n": "Butter"},
-        {"a": 50, "u": "g", "n": "Mehl"},
-        {"a": 700, "u": "ml", "n": "Milch"},
-        {"a": 250, "u": "g", "n": "Cheddar"},
-        {"a": 1, "u": "TL", "n": "Senf"},
-        {"a": 1, "u": "Prise", "n": "Muskatnuss"},
-        {"a": 50, "u": "g", "n": "Semmelbrösel"}
+        {
+          "a": 400,
+          "u": "g",
+          "n": "Makkaroni"
+        },
+        {
+          "a": 50,
+          "u": "g",
+          "n": "Butter"
+        },
+        {
+          "a": 50,
+          "u": "g",
+          "n": "Mehl"
+        },
+        {
+          "a": 700,
+          "u": "ml",
+          "n": "Milch"
+        },
+        {
+          "a": 250,
+          "u": "g",
+          "n": "Cheddar"
+        },
+        {
+          "a": 1,
+          "u": "TL",
+          "n": "Senf"
+        },
+        {
+          "a": 1,
+          "u": "Prise",
+          "n": "Muskatnuss"
+        },
+        {
+          "a": 50,
+          "u": "g",
+          "n": "Semmelbrösel"
+        }
       ],
       "steps": [
         "Nudeln sehr bissfest kochen, sie garen im Ofen nach.",
@@ -301,26 +648,62 @@
     },
     {
       "id": "farmer-scalloped-potatoes",
-      "title": "Scalloped Potatoes",
-      "chapter": "Vegetables",
+      "title": "Kartoffelgratin",
+      "chapter": "Gemüse",
       "cuisine": "Amerikanisch",
       "category": "Beilage",
-      "meals": ["mittag", "abend"],
-      "diet": ["vegetarisch"],
+      "meals": [
+        "mittag",
+        "abend"
+      ],
+      "diet": [
+        "vegetarisch"
+      ],
       "servings": 6,
       "prep": 20,
       "cook": 70,
       "difficulty": 1,
       "kcal": 330,
-      "tags": ["Ofen", "Gratin"],
+      "tags": [
+        "Ofen",
+        "Gratin"
+      ],
       "ingredients": [
-        {"a": 1200, "u": "g", "n": "festkochende Kartoffeln"},
-        {"a": 1, "u": "Stk", "n": "Zwiebel"},
-        {"a": 50, "u": "g", "n": "Butter"},
-        {"a": 40, "u": "g", "n": "Mehl"},
-        {"a": 700, "u": "ml", "n": "Milch"},
-        {"a": 1, "u": "TL", "n": "Salz"},
-        {"a": 1, "u": "Prise", "n": "Muskatnuss"}
+        {
+          "a": 1200,
+          "u": "g",
+          "n": "festkochende Kartoffeln"
+        },
+        {
+          "a": 1,
+          "u": "Stk",
+          "n": "Zwiebel"
+        },
+        {
+          "a": 50,
+          "u": "g",
+          "n": "Butter"
+        },
+        {
+          "a": 40,
+          "u": "g",
+          "n": "Mehl"
+        },
+        {
+          "a": 700,
+          "u": "ml",
+          "n": "Milch"
+        },
+        {
+          "a": 1,
+          "u": "TL",
+          "n": "Salz"
+        },
+        {
+          "a": 1,
+          "u": "Prise",
+          "n": "Muskatnuss"
+        }
       ],
       "steps": [
         "Kartoffeln in dünne Scheiben hobeln, Zwiebel fein schneiden.",
@@ -333,27 +716,67 @@
     },
     {
       "id": "farmer-griddle-cakes",
-      "title": "Griddle Cakes",
-      "chapter": "Batters",
+      "title": "Amerikanische Pfannkuchen",
+      "chapter": "Rührteige",
       "cuisine": "Amerikanisch",
       "category": "Hauptgericht",
-      "meals": ["fruehstueck"],
-      "diet": ["vegetarisch"],
+      "meals": [
+        "fruehstueck"
+      ],
+      "diet": [
+        "vegetarisch"
+      ],
       "servings": 4,
       "prep": 10,
       "cook": 15,
       "difficulty": 1,
       "kcal": 340,
-      "tags": ["schnell", "Frühstück", "Kinder"],
+      "tags": [
+        "schnell",
+        "Frühstück",
+        "Kinder"
+      ],
       "ingredients": [
-        {"a": 300, "u": "g", "n": "Weizenmehl Type 405"},
-        {"a": 400, "u": "ml", "n": "Buttermilch"},
-        {"a": 2, "u": "Stk", "n": "Eier"},
-        {"a": 2, "u": "TL", "n": "Backpulver"},
-        {"a": 1, "u": "TL", "n": "Natron"},
-        {"a": 2, "u": "EL", "n": "Zucker"},
-        {"a": 40, "u": "g", "n": "Butter"},
-        {"a": 1, "u": "Prise", "n": "Salz"}
+        {
+          "a": 300,
+          "u": "g",
+          "n": "Weizenmehl Type 405"
+        },
+        {
+          "a": 400,
+          "u": "ml",
+          "n": "Buttermilch"
+        },
+        {
+          "a": 2,
+          "u": "Stk",
+          "n": "Eier"
+        },
+        {
+          "a": 2,
+          "u": "TL",
+          "n": "Backpulver"
+        },
+        {
+          "a": 1,
+          "u": "TL",
+          "n": "Natron"
+        },
+        {
+          "a": 2,
+          "u": "EL",
+          "n": "Zucker"
+        },
+        {
+          "a": 40,
+          "u": "g",
+          "n": "Butter"
+        },
+        {
+          "a": 1,
+          "u": "Prise",
+          "n": "Salz"
+        }
       ],
       "steps": [
         "Trockene Zutaten mischen.",
@@ -366,28 +789,70 @@
     },
     {
       "id": "farmer-fish-chowder",
-      "title": "Fish Chowder",
-      "chapter": "Soups",
+      "title": "Fischcremesuppe",
+      "chapter": "Suppen",
       "cuisine": "Amerikanisch",
       "category": "Suppe",
-      "meals": ["mittag", "abend"],
+      "meals": [
+        "mittag",
+        "abend"
+      ],
       "diet": [],
       "servings": 4,
       "prep": 20,
       "cook": 30,
       "difficulty": 2,
       "kcal": 430,
-      "tags": ["Fisch", "cremig"],
+      "tags": [
+        "Fisch",
+        "cremig"
+      ],
       "ingredients": [
-        {"a": 700, "u": "g", "n": "Kabeljaufilet"},
-        {"a": 600, "u": "g", "n": "Kartoffeln"},
-        {"a": 2, "u": "Stk", "n": "Zwiebeln"},
-        {"a": 40, "u": "g", "n": "Butter"},
-        {"a": 600, "u": "ml", "n": "Milch"},
-        {"a": 400, "u": "ml", "n": "Fischfond"},
-        {"a": 2, "u": "Stk", "n": "Lorbeerblätter"},
-        {"a": 1, "u": "TL", "n": "Salz"},
-        {"a": 1, "u": "Bund", "n": "Petersilie"}
+        {
+          "a": 700,
+          "u": "g",
+          "n": "Kabeljaufilet"
+        },
+        {
+          "a": 600,
+          "u": "g",
+          "n": "Kartoffeln"
+        },
+        {
+          "a": 2,
+          "u": "Stk",
+          "n": "Zwiebeln"
+        },
+        {
+          "a": 40,
+          "u": "g",
+          "n": "Butter"
+        },
+        {
+          "a": 600,
+          "u": "ml",
+          "n": "Milch"
+        },
+        {
+          "a": 400,
+          "u": "ml",
+          "n": "Fischfond"
+        },
+        {
+          "a": 2,
+          "u": "Stk",
+          "n": "Lorbeerblätter"
+        },
+        {
+          "a": 1,
+          "u": "TL",
+          "n": "Salz"
+        },
+        {
+          "a": 1,
+          "u": "Bund",
+          "n": "Petersilie"
+        }
       ],
       "steps": [
         "Zwiebelwürfel in Butter glasig dünsten.",
@@ -400,27 +865,67 @@
     },
     {
       "id": "farmer-corn-bread",
-      "title": "Corn Bread",
-      "chapter": "Bread and Bread Making",
+      "title": "Maisbrot",
+      "chapter": "Brot und Brotbacken",
       "cuisine": "Amerikanisch",
       "category": "Backen",
-      "meals": ["fruehstueck", "abend"],
-      "diet": ["vegetarisch"],
+      "meals": [
+        "fruehstueck",
+        "abend"
+      ],
+      "diet": [
+        "vegetarisch"
+      ],
       "servings": 8,
       "prep": 10,
       "cook": 30,
       "difficulty": 1,
       "kcal": 230,
-      "tags": ["schnell", "Beilage"],
+      "tags": [
+        "schnell",
+        "Beilage"
+      ],
       "ingredients": [
-        {"a": 250, "u": "g", "n": "Maisgrieß"},
-        {"a": 150, "u": "g", "n": "Weizenmehl Type 405"},
-        {"a": 1, "u": "Pck", "n": "Backpulver"},
-        {"a": 1, "u": "TL", "n": "Salz"},
-        {"a": 400, "u": "ml", "n": "Buttermilch"},
-        {"a": 2, "u": "Stk", "n": "Eier"},
-        {"a": 60, "u": "g", "n": "Butter"},
-        {"a": 2, "u": "EL", "n": "Zucker"}
+        {
+          "a": 250,
+          "u": "g",
+          "n": "Maisgrieß"
+        },
+        {
+          "a": 150,
+          "u": "g",
+          "n": "Weizenmehl Type 405"
+        },
+        {
+          "a": 1,
+          "u": "Pck",
+          "n": "Backpulver"
+        },
+        {
+          "a": 1,
+          "u": "TL",
+          "n": "Salz"
+        },
+        {
+          "a": 400,
+          "u": "ml",
+          "n": "Buttermilch"
+        },
+        {
+          "a": 2,
+          "u": "Stk",
+          "n": "Eier"
+        },
+        {
+          "a": 60,
+          "u": "g",
+          "n": "Butter"
+        },
+        {
+          "a": 2,
+          "u": "EL",
+          "n": "Zucker"
+        }
       ],
       "steps": [
         "Eine gusseiserne Pfanne mit Butter im Ofen bei 220 Grad vorheizen.",
@@ -433,28 +938,70 @@
     },
     {
       "id": "farmer-chicken-croquettes",
-      "title": "Chicken Croquettes",
-      "chapter": "Entrees",
+      "title": "Hähnchenkroketten",
+      "chapter": "Zwischengerichte",
       "cuisine": "Amerikanisch",
       "category": "Hauptgericht",
-      "meals": ["mittag", "abend"],
+      "meals": [
+        "mittag",
+        "abend"
+      ],
       "diet": [],
       "servings": 4,
       "prep": 40,
       "cook": 15,
       "difficulty": 3,
       "kcal": 520,
-      "tags": ["Resteverwertung", "Frittieren"],
+      "tags": [
+        "Resteverwertung",
+        "Frittieren"
+      ],
       "ingredients": [
-        {"a": 500, "u": "g", "n": "gegartes Hähnchenfleisch"},
-        {"a": 60, "u": "g", "n": "Butter"},
-        {"a": 60, "u": "g", "n": "Mehl"},
-        {"a": 400, "u": "ml", "n": "Milch"},
-        {"a": 2, "u": "Stk", "n": "Eier"},
-        {"a": 150, "u": "g", "n": "Semmelbrösel"},
-        {"a": 1, "u": "Bund", "n": "Petersilie"},
-        {"a": 500, "u": "ml", "n": "Frittieröl"},
-        {"a": 1, "u": "TL", "n": "Salz"}
+        {
+          "a": 500,
+          "u": "g",
+          "n": "gegartes Hähnchenfleisch"
+        },
+        {
+          "a": 60,
+          "u": "g",
+          "n": "Butter"
+        },
+        {
+          "a": 60,
+          "u": "g",
+          "n": "Mehl"
+        },
+        {
+          "a": 400,
+          "u": "ml",
+          "n": "Milch"
+        },
+        {
+          "a": 2,
+          "u": "Stk",
+          "n": "Eier"
+        },
+        {
+          "a": 150,
+          "u": "g",
+          "n": "Semmelbrösel"
+        },
+        {
+          "a": 1,
+          "u": "Bund",
+          "n": "Petersilie"
+        },
+        {
+          "a": 500,
+          "u": "ml",
+          "n": "Frittieröl"
+        },
+        {
+          "a": 1,
+          "u": "TL",
+          "n": "Salz"
+        }
       ],
       "steps": [
         "Aus Butter, Mehl und Milch eine sehr dicke Bechamel kochen.",
@@ -467,28 +1014,71 @@
     },
     {
       "id": "farmer-gingerbread",
-      "title": "Soft Gingerbread",
-      "chapter": "Cakes",
+      "title": "Saftiger Lebkuchen",
+      "chapter": "Kuchen",
       "cuisine": "Amerikanisch",
       "category": "Backen",
-      "meals": ["snack"],
-      "diet": ["vegetarisch"],
+      "meals": [
+        "snack"
+      ],
+      "diet": [
+        "vegetarisch"
+      ],
       "servings": 12,
       "prep": 15,
       "cook": 35,
       "difficulty": 1,
       "kcal": 250,
-      "tags": ["Gewürzkuchen", "Winter"],
+      "tags": [
+        "Gewürzkuchen",
+        "Winter"
+      ],
       "ingredients": [
-        {"a": 300, "u": "g", "n": "Weizenmehl Type 405"},
-        {"a": 200, "u": "ml", "n": "Melasse"},
-        {"a": 120, "u": "g", "n": "Butter"},
-        {"a": 100, "u": "g", "n": "brauner Zucker"},
-        {"a": 2, "u": "Stk", "n": "Eier"},
-        {"a": 250, "u": "ml", "n": "heißes Wasser"},
-        {"a": 2, "u": "TL", "n": "Natron"},
-        {"a": 2, "u": "TL", "n": "Ingwer, gemahlen"},
-        {"a": 1, "u": "TL", "n": "Zimt"}
+        {
+          "a": 300,
+          "u": "g",
+          "n": "Weizenmehl Type 405"
+        },
+        {
+          "a": 200,
+          "u": "ml",
+          "n": "Melasse"
+        },
+        {
+          "a": 120,
+          "u": "g",
+          "n": "Butter"
+        },
+        {
+          "a": 100,
+          "u": "g",
+          "n": "brauner Zucker"
+        },
+        {
+          "a": 2,
+          "u": "Stk",
+          "n": "Eier"
+        },
+        {
+          "a": 250,
+          "u": "ml",
+          "n": "heißes Wasser"
+        },
+        {
+          "a": 2,
+          "u": "TL",
+          "n": "Natron"
+        },
+        {
+          "a": 2,
+          "u": "TL",
+          "n": "Ingwer, gemahlen"
+        },
+        {
+          "a": 1,
+          "u": "TL",
+          "n": "Zimt"
+        }
       ],
       "steps": [
         "Butter mit Zucker und Melasse cremig rühren, Eier einzeln zugeben.",
@@ -501,26 +1091,62 @@
     },
     {
       "id": "farmer-waffles",
-      "title": "Waffles",
-      "chapter": "Batters",
+      "title": "Waffeln",
+      "chapter": "Rührteige",
       "cuisine": "Amerikanisch",
       "category": "Dessert",
-      "meals": ["fruehstueck", "snack"],
-      "diet": ["vegetarisch"],
+      "meals": [
+        "fruehstueck",
+        "snack"
+      ],
+      "diet": [
+        "vegetarisch"
+      ],
       "servings": 6,
       "prep": 15,
       "cook": 20,
       "difficulty": 1,
       "kcal": 320,
-      "tags": ["Frühstück", "Kinder"],
+      "tags": [
+        "Frühstück",
+        "Kinder"
+      ],
       "ingredients": [
-        {"a": 300, "u": "g", "n": "Weizenmehl Type 405"},
-        {"a": 400, "u": "ml", "n": "Milch"},
-        {"a": 3, "u": "Stk", "n": "Eier"},
-        {"a": 100, "u": "g", "n": "Butter"},
-        {"a": 2, "u": "TL", "n": "Backpulver"},
-        {"a": 2, "u": "EL", "n": "Zucker"},
-        {"a": 1, "u": "Prise", "n": "Salz"}
+        {
+          "a": 300,
+          "u": "g",
+          "n": "Weizenmehl Type 405"
+        },
+        {
+          "a": 400,
+          "u": "ml",
+          "n": "Milch"
+        },
+        {
+          "a": 3,
+          "u": "Stk",
+          "n": "Eier"
+        },
+        {
+          "a": 100,
+          "u": "g",
+          "n": "Butter"
+        },
+        {
+          "a": 2,
+          "u": "TL",
+          "n": "Backpulver"
+        },
+        {
+          "a": 2,
+          "u": "EL",
+          "n": "Zucker"
+        },
+        {
+          "a": 1,
+          "u": "Prise",
+          "n": "Salz"
+        }
       ],
       "steps": [
         "Eier trennen, Eiweiß steif schlagen.",
@@ -533,27 +1159,69 @@
     },
     {
       "id": "farmer-cole-slaw",
-      "title": "Cole Slaw",
-      "chapter": "Salads",
+      "title": "Amerikanischer Krautsalat",
+      "chapter": "Salate",
       "cuisine": "Amerikanisch",
       "category": "Beilage",
-      "meals": ["mittag", "abend"],
-      "diet": ["vegetarisch", "glutenfrei"],
+      "meals": [
+        "mittag",
+        "abend"
+      ],
+      "diet": [
+        "vegetarisch",
+        "glutenfrei"
+      ],
       "servings": 6,
       "prep": 20,
       "cook": 0,
       "difficulty": 1,
       "kcal": 170,
-      "tags": ["kalt", "schnell", "Vorkochen"],
+      "tags": [
+        "kalt",
+        "schnell",
+        "Vorkochen"
+      ],
       "ingredients": [
-        {"a": 800, "u": "g", "n": "Weißkohl"},
-        {"a": 2, "u": "Stk", "n": "Möhren"},
-        {"a": 150, "u": "g", "n": "Mayonnaise"},
-        {"a": 100, "u": "g", "n": "Schmand"},
-        {"a": 3, "u": "EL", "n": "Apfelessig"},
-        {"a": 2, "u": "EL", "n": "Zucker"},
-        {"a": 1, "u": "TL", "n": "Senf"},
-        {"a": 1, "u": "TL", "n": "Salz"}
+        {
+          "a": 800,
+          "u": "g",
+          "n": "Weißkohl"
+        },
+        {
+          "a": 2,
+          "u": "Stk",
+          "n": "Möhren"
+        },
+        {
+          "a": 150,
+          "u": "g",
+          "n": "Mayonnaise"
+        },
+        {
+          "a": 100,
+          "u": "g",
+          "n": "Schmand"
+        },
+        {
+          "a": 3,
+          "u": "EL",
+          "n": "Apfelessig"
+        },
+        {
+          "a": 2,
+          "u": "EL",
+          "n": "Zucker"
+        },
+        {
+          "a": 1,
+          "u": "TL",
+          "n": "Senf"
+        },
+        {
+          "a": 1,
+          "u": "TL",
+          "n": "Salz"
+        }
       ],
       "steps": [
         "Kohl sehr fein hobeln, Möhren grob raspeln.",
@@ -566,26 +1234,62 @@
     },
     {
       "id": "farmer-rice-pudding",
-      "title": "Baked Rice Pudding",
-      "chapter": "Puddings",
+      "title": "Milchreisauflauf",
+      "chapter": "Aufläufe und Puddings",
       "cuisine": "Amerikanisch",
       "category": "Dessert",
-      "meals": ["snack"],
-      "diet": ["vegetarisch", "glutenfrei"],
+      "meals": [
+        "snack"
+      ],
+      "diet": [
+        "vegetarisch",
+        "glutenfrei"
+      ],
       "servings": 6,
       "prep": 10,
       "cook": 120,
       "difficulty": 1,
       "kcal": 260,
-      "tags": ["Ofen", "Kinder"],
+      "tags": [
+        "Ofen",
+        "Kinder"
+      ],
       "ingredients": [
-        {"a": 120, "u": "g", "n": "Rundkornreis"},
-        {"a": 1, "u": "l", "n": "Milch"},
-        {"a": 100, "u": "g", "n": "Zucker"},
-        {"a": 1, "u": "Prise", "n": "Salz"},
-        {"a": 1, "u": "TL", "n": "Muskatnuss"},
-        {"a": 80, "u": "g", "n": "Rosinen"},
-        {"a": 30, "u": "g", "n": "Butter"}
+        {
+          "a": 120,
+          "u": "g",
+          "n": "Rundkornreis"
+        },
+        {
+          "a": 1,
+          "u": "l",
+          "n": "Milch"
+        },
+        {
+          "a": 100,
+          "u": "g",
+          "n": "Zucker"
+        },
+        {
+          "a": 1,
+          "u": "Prise",
+          "n": "Salz"
+        },
+        {
+          "a": 1,
+          "u": "TL",
+          "n": "Muskatnuss"
+        },
+        {
+          "a": 80,
+          "u": "g",
+          "n": "Rosinen"
+        },
+        {
+          "a": 30,
+          "u": "g",
+          "n": "Butter"
+        }
       ],
       "steps": [
         "Alle Zutaten in eine gefettete Auflaufform geben und verrühren.",
@@ -598,26 +1302,63 @@
     },
     {
       "id": "farmer-hash",
-      "title": "Red Flannel Hash",
-      "chapter": "Warmed-over Dishes",
+      "title": "Rote-Bete-Kartoffelpfanne",
+      "chapter": "Resteküche",
       "cuisine": "Amerikanisch",
       "category": "Hauptgericht",
-      "meals": ["fruehstueck", "abend"],
-      "diet": ["vegetarisch", "glutenfrei"],
+      "meals": [
+        "fruehstueck",
+        "abend"
+      ],
+      "diet": [
+        "vegetarisch",
+        "glutenfrei"
+      ],
       "servings": 4,
       "prep": 15,
       "cook": 25,
       "difficulty": 1,
       "kcal": 340,
-      "tags": ["Resteverwertung", "schnell"],
+      "tags": [
+        "Resteverwertung",
+        "schnell"
+      ],
       "ingredients": [
-        {"a": 600, "u": "g", "n": "Kartoffeln, gekocht"},
-        {"a": 400, "u": "g", "n": "Rote Bete, gegart"},
-        {"a": 1, "u": "Stk", "n": "Zwiebel"},
-        {"a": 40, "u": "g", "n": "Butter"},
-        {"a": 100, "u": "ml", "n": "Sahne"},
-        {"a": 1, "u": "TL", "n": "Salz"},
-        {"a": 4, "u": "Stk", "n": "Eier"}
+        {
+          "a": 600,
+          "u": "g",
+          "n": "Kartoffeln, gekocht"
+        },
+        {
+          "a": 400,
+          "u": "g",
+          "n": "Rote Bete, gegart"
+        },
+        {
+          "a": 1,
+          "u": "Stk",
+          "n": "Zwiebel"
+        },
+        {
+          "a": 40,
+          "u": "g",
+          "n": "Butter"
+        },
+        {
+          "a": 100,
+          "u": "ml",
+          "n": "Sahne"
+        },
+        {
+          "a": 1,
+          "u": "TL",
+          "n": "Salz"
+        },
+        {
+          "a": 4,
+          "u": "Stk",
+          "n": "Eier"
+        }
       ],
       "steps": [
         "Kartoffeln und Rote Bete grob würfeln.",
@@ -630,28 +1371,71 @@
     },
     {
       "id": "farmer-lemon-pie",
-      "title": "Lemon Meringue Pie",
-      "chapter": "Pastry",
+      "title": "Zitronenkuchen mit Baiser",
+      "chapter": "Kuchen und Pasteten",
       "cuisine": "Amerikanisch",
       "category": "Backen",
-      "meals": ["snack"],
-      "diet": ["vegetarisch"],
+      "meals": [
+        "snack"
+      ],
+      "diet": [
+        "vegetarisch"
+      ],
       "servings": 8,
       "prep": 40,
       "cook": 40,
       "difficulty": 3,
       "kcal": 360,
-      "tags": ["Zitrone", "Baiser"],
+      "tags": [
+        "Zitrone",
+        "Baiser"
+      ],
       "ingredients": [
-        {"a": 250, "u": "g", "n": "Weizenmehl Type 405"},
-        {"a": 150, "u": "g", "n": "Butter"},
-        {"a": 60, "u": "ml", "n": "Eiswasser"},
-        {"a": 4, "u": "Stk", "n": "Zitronen"},
-        {"a": 250, "u": "g", "n": "Zucker"},
-        {"a": 50, "u": "g", "n": "Speisestärke"},
-        {"a": 4, "u": "Stk", "n": "Eier"},
-        {"a": 350, "u": "ml", "n": "Wasser"},
-        {"a": 1, "u": "Prise", "n": "Salz"}
+        {
+          "a": 250,
+          "u": "g",
+          "n": "Weizenmehl Type 405"
+        },
+        {
+          "a": 150,
+          "u": "g",
+          "n": "Butter"
+        },
+        {
+          "a": 60,
+          "u": "ml",
+          "n": "Eiswasser"
+        },
+        {
+          "a": 4,
+          "u": "Stk",
+          "n": "Zitronen"
+        },
+        {
+          "a": 250,
+          "u": "g",
+          "n": "Zucker"
+        },
+        {
+          "a": 50,
+          "u": "g",
+          "n": "Speisestärke"
+        },
+        {
+          "a": 4,
+          "u": "Stk",
+          "n": "Eier"
+        },
+        {
+          "a": 350,
+          "u": "ml",
+          "n": "Wasser"
+        },
+        {
+          "a": 1,
+          "u": "Prise",
+          "n": "Salz"
+        }
       ],
       "steps": [
         "Aus Mehl, Butter, Salz und Eiswasser einen Mürbteig kneten und kühlen.",

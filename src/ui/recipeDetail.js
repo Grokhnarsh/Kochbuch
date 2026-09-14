@@ -108,7 +108,7 @@ export function openRecipe(recipe, slot = null, onPlace = null) {
         closeModal();
       });
 
-      const hint = el('span', null, 'Oder die Karte direkt auf einen Slot ziehen.');
+      const hint = el('span', null, 'Oder die Karte direkt auf ein Feld ziehen.');
       hint.style.color = 'var(--ink-faint)';
       hint.style.fontSize = '12.5px';
 
@@ -121,7 +121,7 @@ export function openRecipe(recipe, slot = null, onPlace = null) {
   openModal({ title: recipe.title, subtitle, body, footer: foot, wide: true });
 }
 
-/** Oeffnet das Rezept, das in einem Slot liegt. */
+/** Oeffnet das Rezept, das in einem Feld liegt. */
 export function openSlot(slot) {
   const entry = store.entry(slot.day, slot.meal);
   if (!entry) return;

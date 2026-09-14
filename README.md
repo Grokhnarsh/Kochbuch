@@ -2,9 +2,11 @@
 
 Ein Wochen-Essensplaner in Form eines Stundenplans: sieben Tageszeilen, vier
 Mahlzeitenspalten, Gerichte in den Feldern, verschiebbar mit der Maus.
-Dazu eine Bibliothek mit 140 Rezepten aus gemeinfreien Kochbüchern, eine
-Einkaufsliste, die sich aus dem Plan selbst zusammenrechnet, und der Weg von
-dort in den REWE-Onlineshop.
+Dazu eine Bibliothek mit 560 Rezepten aus gemeinfreien Kochbüchern und offen
+lizenzierten Wikis, eine Einkaufsliste, die sich aus dem Plan selbst
+zusammenrechnet, und der Weg von dort in den REWE-Onlineshop.
+
+Die App ist durchgehend deutschsprachig — Oberfläche wie Rezepte.
 
 ```bash
 npm install
@@ -40,9 +42,9 @@ Fläche verschiebt, ein Doppelklick stellt den Ausschnitt wieder her.
 ## Woher die Rezepte stammen
 
 Alle mitgelieferten Rezepte gehen auf gemeinfreie Kochbücher und offen
-lizenzierte Projekte zurück. Sie sind behutsam modernisiert — metrische Mengen,
-heutige Gartemperaturen, zeitgemäße Sprache —, die Herkunft steht an jedem
-Rezept und im Quellenverzeichnis der App.
+lizenzierte Projekte zurück. Die historischen sind behutsam modernisiert —
+metrische Mengen, heutige Gartemperaturen, zeitgemäße Sprache —, die Herkunft
+steht an jedem Rezept und im Quellenverzeichnis der App.
 
 | Quelle | Jahr | Lizenz | Rezepte |
 | --- | --- | --- | --- |
@@ -53,22 +55,30 @@ Rezept und im Quellenverzeichnis der App.
 | [Fannie Farmer, *Boston Cooking-School Cook Book*](https://www.gutenberg.org/ebooks/65061) | 1896 | Public Domain | 20 |
 | [Hannah Glasse, *The Art of Cookery*](https://archive.org/details/artofcookermade00glas) | 1747 | Public Domain | 15 |
 | [Wikibooks Kochbuch](https://de.wikibooks.org/wiki/Kochbuch) | laufend | CC BY-SA 3.0 | 25 |
+| [Koch-Wiki](https://www.kochwiki.org/) | laufend | CC BY-SA | 420 |
 
 ### Live nachladen
 
-Unter **Quellen → Live nachladen** holt die App weitere Rezepte dazu. Beide
-Schnittstellen senden `access-control-allow-origin: *`, funktionieren also
-direkt aus dem Browser:
+Unter **Quellen → Live nachladen** holt die App weitere Rezepte dazu. Angeboten
+werden bewusst nur deutschsprachige Quellen; beide senden
+`access-control-allow-origin: *` und funktionieren direkt aus dem Browser:
 
-- **[TheMealDB](https://www.themealdb.com/)** — rund 790 internationale
-  Rezepte, frei mit Namensnennung. Der Bestand wird über das Verzeichnis nach
-  Anfangsbuchstaben geholt, nicht über den Küchenfilter: der deckt in der
-  freien Stufe nur einen Teil ab, unter „German" liegt dort nichts.
-  Angelsächsische Mengen werden beim Einlesen metrisch umgerechnet, damit die
-  Einkaufsliste sie zusammenfassen kann.
+- **[Koch-Wiki](https://www.kochwiki.org/)** (CC BY-SA) — rund 9000 deutsche
+  Rezepte. Seiten mit englischem Titel bleiben außen vor, damit die App
+  einsprachig bleibt. Bruchvorlagen wie `{{B|1|2}}` werden in Mengen
+  übersetzt statt gestrichen, sehr knappe Schritte an den vorigen angehängt
+  statt verworfen.
 - **[Wikibooks-Kochbuch](https://de.wikibooks.org/wiki/Kochbuch)** (CC BY-SA 3.0)
   über die MediaWiki-API. Bewusst gedrosselt und seriell: Wikimedia
   beantwortet Stoßlasten mit 429.
+
+Zwei weitere Quellen sind angebunden, liefern aber nur englische Texte und
+bleiben deshalb dem Import-Werkzeug auf der Kommandozeile vorbehalten:
+[TheMealDB](https://www.themealdb.com/) (rund 790 Rezepte, frei mit
+Namensnennung) und der [UniTools-Datensatz](https://theunitools.com/) (501
+Gerichte aus 127 Ländern, CC BY-SA 4.0). Angelsächsische Mengen (`tsp`, `lb`,
+`oz`) rechnet der Importer dabei metrisch um, damit die Einkaufsliste sie
+zusammenfassen kann.
 
 Dazu kommen [Gutendex](https://gutendex.com/) zum Auffinden weiterer
 gemeinfreier Kochbücher, [Open Food Facts](https://world.openfoodfacts.org/)
@@ -109,6 +119,8 @@ npm run import -- --file gespeicherte-seite.html --url https://...
 npm run import -- --themealdb alle        # gesamter Bestand, rund 790 Rezepte
 npm run import -- --themealdb Italian     # nur eine Küche
 npm run import -- --wikibooks 25
+npm run import -- --kochwiki 400
+npm run import -- --unitools
 npm run import -- --gutendex cookery
 ```
 
@@ -160,13 +172,15 @@ auf.
 ## Tests
 
 ```bash
-npm test           # 31 Modultests: Mengen, Einkaufsliste, Import, Korpus
+npm test           # 33 Modultests: Mengen, Einkaufsliste, Import, Korpus
 npm run test:browser   # Rauchtest in Chromium gegen die gebaute App
 ```
 
 Die Modultests prüfen unter anderem, dass das Korpus vollständig ist, dass
 Mengen über Einheitengrenzen korrekt summiert werden, dass imperiale Einheiten
-metrisch ankommen und dass Zutaten in der richtigen Abteilung landen. Der Browsertest fährt die App hoch, plant eine
+metrisch ankommen, dass Zutaten in der richtigen Abteilung landen — auch bei
+Zusammensetzungen wie „Milchreis" oder „Olivenöl" — und dass kein englischer
+Text in Titel, Kapitel oder Schlagwörter zurückkehrt. Der Browsertest fährt die App hoch, plant eine
 Woche, zieht eine Karte mit der Maus in einen anderen Slot und prüft
 Einkaufsliste und Shop-Übergabe.
 

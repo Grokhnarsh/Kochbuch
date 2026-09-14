@@ -4,25 +4,61 @@
     {
       "id": "glasse-onion-soup",
       "title": "Zwiebelsuppe nach englischer Art",
-      "chapter": "Of Soops and Broths",
+      "chapter": "Von Suppen und Brühen",
       "cuisine": "Britisch",
       "category": "Suppe",
-      "meals": ["mittag", "abend"],
-      "diet": ["vegetarisch"],
+      "meals": [
+        "mittag",
+        "abend"
+      ],
+      "diet": [
+        "vegetarisch"
+      ],
       "servings": 4,
       "prep": 15,
       "cook": 60,
       "difficulty": 1,
       "kcal": 320,
-      "tags": ["günstig", "Winter"],
+      "tags": [
+        "günstig",
+        "Winter"
+      ],
       "ingredients": [
-        {"a": 1000, "u": "g", "n": "Zwiebeln"},
-        {"a": 60, "u": "g", "n": "Butter"},
-        {"a": 1.2, "u": "l", "n": "Gemüsebrühe"},
-        {"a": 4, "u": "Scheibe", "n": "Weißbrot"},
-        {"a": 150, "u": "g", "n": "Bergkäse"},
-        {"a": 1, "u": "TL", "n": "Salz"},
-        {"a": 1, "u": "Prise", "n": "Muskatnuss"}
+        {
+          "a": 1000,
+          "u": "g",
+          "n": "Zwiebeln"
+        },
+        {
+          "a": 60,
+          "u": "g",
+          "n": "Butter"
+        },
+        {
+          "a": 1.2,
+          "u": "l",
+          "n": "Gemüsebrühe"
+        },
+        {
+          "a": 4,
+          "u": "Scheibe",
+          "n": "Weißbrot"
+        },
+        {
+          "a": 150,
+          "u": "g",
+          "n": "Bergkäse"
+        },
+        {
+          "a": 1,
+          "u": "TL",
+          "n": "Salz"
+        },
+        {
+          "a": 1,
+          "u": "Prise",
+          "n": "Muskatnuss"
+        }
       ],
       "steps": [
         "Zwiebeln in feine Ringe schneiden.",
@@ -35,29 +71,77 @@
     },
     {
       "id": "glasse-currey-indian-way",
-      "title": "Currey the Indian Way",
-      "chapter": "Of Made Dishes",
+      "title": "Curry nach indischer Art",
+      "chapter": "Von zusammengesetzten Gerichten",
       "cuisine": "Britisch",
       "category": "Hauptgericht",
-      "meals": ["mittag", "abend"],
-      "diet": ["glutenfrei"],
+      "meals": [
+        "mittag",
+        "abend"
+      ],
+      "diet": [
+        "glutenfrei"
+      ],
       "servings": 4,
       "prep": 20,
       "cook": 45,
       "difficulty": 2,
       "kcal": 480,
-      "tags": ["Curry", "Historisch"],
+      "tags": [
+        "Curry",
+        "Historisch"
+      ],
       "ingredients": [
-        {"a": 1000, "u": "g", "n": "Hähnchenteile"},
-        {"a": 3, "u": "Stk", "n": "Zwiebeln"},
-        {"a": 2, "u": "TL", "n": "Koriandersamen, gemahlen"},
-        {"a": 2, "u": "TL", "n": "Kurkuma"},
-        {"a": 1, "u": "TL", "n": "Pfeffer, schwarz"},
-        {"a": 3, "u": "EL", "n": "Butterschmalz"},
-        {"a": 400, "u": "ml", "n": "Hühnerbrühe"},
-        {"a": 200, "u": "ml", "n": "Sahne"},
-        {"a": 2, "u": "EL", "n": "Zitronensaft"},
-        {"a": 1, "u": "TL", "n": "Salz"}
+        {
+          "a": 1000,
+          "u": "g",
+          "n": "Hähnchenteile"
+        },
+        {
+          "a": 3,
+          "u": "Stk",
+          "n": "Zwiebeln"
+        },
+        {
+          "a": 2,
+          "u": "TL",
+          "n": "Koriandersamen, gemahlen"
+        },
+        {
+          "a": 2,
+          "u": "TL",
+          "n": "Kurkuma"
+        },
+        {
+          "a": 1,
+          "u": "TL",
+          "n": "Pfeffer, schwarz"
+        },
+        {
+          "a": 3,
+          "u": "EL",
+          "n": "Butterschmalz"
+        },
+        {
+          "a": 400,
+          "u": "ml",
+          "n": "Hühnerbrühe"
+        },
+        {
+          "a": 200,
+          "u": "ml",
+          "n": "Sahne"
+        },
+        {
+          "a": 2,
+          "u": "EL",
+          "n": "Zitronensaft"
+        },
+        {
+          "a": 1,
+          "u": "TL",
+          "n": "Salz"
+        }
       ],
       "steps": [
         "Zwiebelscheiben im Schmalz zwanzig Minuten hellbraun rösten.",
@@ -72,27 +156,69 @@
     {
       "id": "glasse-haricot-mutton",
       "title": "Lammragout mit Wurzelgemüse",
-      "chapter": "Of Made Dishes",
+      "chapter": "Von zusammengesetzten Gerichten",
       "cuisine": "Britisch",
       "category": "Hauptgericht",
-      "meals": ["mittag", "abend"],
+      "meals": [
+        "mittag",
+        "abend"
+      ],
       "diet": [],
       "servings": 4,
       "prep": 25,
       "cook": 105,
       "difficulty": 2,
       "kcal": 560,
-      "tags": ["Schmoren", "Winter"],
+      "tags": [
+        "Schmoren",
+        "Winter"
+      ],
       "ingredients": [
-        {"a": 900, "u": "g", "n": "Lammschulter"},
-        {"a": 4, "u": "Stk", "n": "Möhren"},
-        {"a": 2, "u": "Stk", "n": "Steckrüben"},
-        {"a": 2, "u": "Stk", "n": "Zwiebeln"},
-        {"a": 3, "u": "EL", "n": "Butterschmalz"},
-        {"a": 30, "u": "g", "n": "Mehl"},
-        {"a": 700, "u": "ml", "n": "Lammbrühe"},
-        {"a": 2, "u": "Zweig", "n": "Thymian"},
-        {"a": 1, "u": "TL", "n": "Salz"}
+        {
+          "a": 900,
+          "u": "g",
+          "n": "Lammschulter"
+        },
+        {
+          "a": 4,
+          "u": "Stk",
+          "n": "Möhren"
+        },
+        {
+          "a": 2,
+          "u": "Stk",
+          "n": "Steckrüben"
+        },
+        {
+          "a": 2,
+          "u": "Stk",
+          "n": "Zwiebeln"
+        },
+        {
+          "a": 3,
+          "u": "EL",
+          "n": "Butterschmalz"
+        },
+        {
+          "a": 30,
+          "u": "g",
+          "n": "Mehl"
+        },
+        {
+          "a": 700,
+          "u": "ml",
+          "n": "Lammbrühe"
+        },
+        {
+          "a": 2,
+          "u": "Zweig",
+          "n": "Thymian"
+        },
+        {
+          "a": 1,
+          "u": "TL",
+          "n": "Salz"
+        }
       ],
       "steps": [
         "Fleischwürfel im Schmalz kräftig anbraten.",
@@ -107,26 +233,66 @@
     {
       "id": "glasse-mushroom-fricassee",
       "title": "Champignon-Frikassee",
-      "chapter": "Of Made Dishes",
+      "chapter": "Von zusammengesetzten Gerichten",
       "cuisine": "Britisch",
       "category": "Hauptgericht",
-      "meals": ["mittag", "abend"],
-      "diet": ["vegetarisch"],
+      "meals": [
+        "mittag",
+        "abend"
+      ],
+      "diet": [
+        "vegetarisch"
+      ],
       "servings": 4,
       "prep": 15,
       "cook": 20,
       "difficulty": 1,
       "kcal": 300,
-      "tags": ["schnell", "Pilze"],
+      "tags": [
+        "schnell",
+        "Pilze"
+      ],
       "ingredients": [
-        {"a": 800, "u": "g", "n": "Champignons"},
-        {"a": 50, "u": "g", "n": "Butter"},
-        {"a": 20, "u": "g", "n": "Mehl"},
-        {"a": 250, "u": "ml", "n": "Sahne"},
-        {"a": 2, "u": "Stk", "n": "Eigelb"},
-        {"a": 1, "u": "Stk", "n": "Zitrone"},
-        {"a": 1, "u": "Prise", "n": "Muskatnuss"},
-        {"a": 1, "u": "TL", "n": "Salz"}
+        {
+          "a": 800,
+          "u": "g",
+          "n": "Champignons"
+        },
+        {
+          "a": 50,
+          "u": "g",
+          "n": "Butter"
+        },
+        {
+          "a": 20,
+          "u": "g",
+          "n": "Mehl"
+        },
+        {
+          "a": 250,
+          "u": "ml",
+          "n": "Sahne"
+        },
+        {
+          "a": 2,
+          "u": "Stk",
+          "n": "Eigelb"
+        },
+        {
+          "a": 1,
+          "u": "Stk",
+          "n": "Zitrone"
+        },
+        {
+          "a": 1,
+          "u": "Prise",
+          "n": "Muskatnuss"
+        },
+        {
+          "a": 1,
+          "u": "TL",
+          "n": "Salz"
+        }
       ],
       "steps": [
         "Champignons vierteln und in heißer Butter kräftig anbraten, bis die Flüssigkeit verdampft ist.",
@@ -139,26 +305,61 @@
     },
     {
       "id": "glasse-seed-cake",
-      "title": "Seed Cake",
-      "chapter": "Of Cakes",
+      "title": "Kümmelkuchen",
+      "chapter": "Vom Kuchen",
       "cuisine": "Britisch",
       "category": "Backen",
-      "meals": ["snack"],
-      "diet": ["vegetarisch"],
+      "meals": [
+        "snack"
+      ],
+      "diet": [
+        "vegetarisch"
+      ],
       "servings": 12,
       "prep": 20,
       "cook": 60,
       "difficulty": 2,
       "kcal": 330,
-      "tags": ["Historisch", "Teatime"],
+      "tags": [
+        "Historisch",
+        "Nachmittagstee"
+      ],
       "ingredients": [
-        {"a": 300, "u": "g", "n": "Weizenmehl Type 405"},
-        {"a": 250, "u": "g", "n": "Butter"},
-        {"a": 250, "u": "g", "n": "Zucker"},
-        {"a": 5, "u": "Stk", "n": "Eier"},
-        {"a": 3, "u": "EL", "n": "Kümmel, ganz"},
-        {"a": 1, "u": "TL", "n": "Backpulver"},
-        {"a": 3, "u": "EL", "n": "Brandy"}
+        {
+          "a": 300,
+          "u": "g",
+          "n": "Weizenmehl Type 405"
+        },
+        {
+          "a": 250,
+          "u": "g",
+          "n": "Butter"
+        },
+        {
+          "a": 250,
+          "u": "g",
+          "n": "Zucker"
+        },
+        {
+          "a": 5,
+          "u": "Stk",
+          "n": "Eier"
+        },
+        {
+          "a": 3,
+          "u": "EL",
+          "n": "Kümmel, ganz"
+        },
+        {
+          "a": 1,
+          "u": "TL",
+          "n": "Backpulver"
+        },
+        {
+          "a": 3,
+          "u": "EL",
+          "n": "Brandy"
+        }
       ],
       "steps": [
         "Butter und Zucker sehr schaumig rühren.",
@@ -171,24 +372,53 @@
     },
     {
       "id": "glasse-syllabub",
-      "title": "Syllabub",
-      "chapter": "Of Creams",
+      "title": "Weinschaumcreme",
+      "chapter": "Von den Cremes",
       "cuisine": "Britisch",
       "category": "Dessert",
-      "meals": ["snack"],
-      "diet": ["vegetarisch", "glutenfrei"],
+      "meals": [
+        "snack"
+      ],
+      "diet": [
+        "vegetarisch",
+        "glutenfrei"
+      ],
       "servings": 6,
       "prep": 15,
       "cook": 0,
       "difficulty": 1,
       "kcal": 290,
-      "tags": ["Historisch", "kalt", "schnell"],
+      "tags": [
+        "Historisch",
+        "kalt",
+        "schnell"
+      ],
       "ingredients": [
-        {"a": 500, "u": "ml", "n": "Sahne"},
-        {"a": 150, "u": "ml", "n": "Weißwein"},
-        {"a": 2, "u": "Stk", "n": "Zitronen"},
-        {"a": 100, "u": "g", "n": "Zucker"},
-        {"a": 1, "u": "Prise", "n": "Muskatnuss"}
+        {
+          "a": 500,
+          "u": "ml",
+          "n": "Sahne"
+        },
+        {
+          "a": 150,
+          "u": "ml",
+          "n": "Weißwein"
+        },
+        {
+          "a": 2,
+          "u": "Stk",
+          "n": "Zitronen"
+        },
+        {
+          "a": 100,
+          "u": "g",
+          "n": "Zucker"
+        },
+        {
+          "a": 1,
+          "u": "Prise",
+          "n": "Muskatnuss"
+        }
       ],
       "steps": [
         "Zitronenschale abreiben und Saft auspressen.",
@@ -201,23 +431,47 @@
     },
     {
       "id": "glasse-gooseberry-fool",
-      "title": "Gooseberry Fool",
-      "chapter": "Of Creams",
+      "title": "Stachelbeercreme",
+      "chapter": "Von den Cremes",
       "cuisine": "Britisch",
       "category": "Dessert",
-      "meals": ["snack"],
-      "diet": ["vegetarisch", "glutenfrei"],
+      "meals": [
+        "snack"
+      ],
+      "diet": [
+        "vegetarisch",
+        "glutenfrei"
+      ],
       "servings": 4,
       "prep": 15,
       "cook": 15,
       "difficulty": 1,
       "kcal": 260,
-      "tags": ["Sommer", "schnell"],
+      "tags": [
+        "Sommer",
+        "schnell"
+      ],
       "ingredients": [
-        {"a": 600, "u": "g", "n": "Stachelbeeren"},
-        {"a": 120, "u": "g", "n": "Zucker"},
-        {"a": 400, "u": "ml", "n": "Sahne"},
-        {"a": 1, "u": "TL", "n": "Vanilleextrakt"}
+        {
+          "a": 600,
+          "u": "g",
+          "n": "Stachelbeeren"
+        },
+        {
+          "a": 120,
+          "u": "g",
+          "n": "Zucker"
+        },
+        {
+          "a": 400,
+          "u": "ml",
+          "n": "Sahne"
+        },
+        {
+          "a": 1,
+          "u": "TL",
+          "n": "Vanilleextrakt"
+        }
       ],
       "steps": [
         "Stachelbeeren mit Zucker und zwei Esslöffeln Wasser weich kochen.",
@@ -231,26 +485,65 @@
     {
       "id": "glasse-apple-fritters",
       "title": "Apfelküchlein",
-      "chapter": "Of Fritters",
+      "chapter": "Vom Ausgebackenen",
       "cuisine": "Britisch",
       "category": "Dessert",
-      "meals": ["snack"],
-      "diet": ["vegetarisch"],
+      "meals": [
+        "snack"
+      ],
+      "diet": [
+        "vegetarisch"
+      ],
       "servings": 4,
       "prep": 20,
       "cook": 15,
       "difficulty": 2,
       "kcal": 380,
-      "tags": ["Frittieren", "Apfel"],
+      "tags": [
+        "Frittieren",
+        "Apfel"
+      ],
       "ingredients": [
-        {"a": 4, "u": "Stk", "n": "Äpfel"},
-        {"a": 200, "u": "g", "n": "Weizenmehl Type 405"},
-        {"a": 250, "u": "ml", "n": "Bier"},
-        {"a": 2, "u": "Stk", "n": "Eier"},
-        {"a": 1, "u": "Prise", "n": "Salz"},
-        {"a": 500, "u": "ml", "n": "Frittieröl"},
-        {"a": 60, "u": "g", "n": "Zucker"},
-        {"a": 2, "u": "TL", "n": "Zimt"}
+        {
+          "a": 4,
+          "u": "Stk",
+          "n": "Äpfel"
+        },
+        {
+          "a": 200,
+          "u": "g",
+          "n": "Weizenmehl Type 405"
+        },
+        {
+          "a": 250,
+          "u": "ml",
+          "n": "Bier"
+        },
+        {
+          "a": 2,
+          "u": "Stk",
+          "n": "Eier"
+        },
+        {
+          "a": 1,
+          "u": "Prise",
+          "n": "Salz"
+        },
+        {
+          "a": 500,
+          "u": "ml",
+          "n": "Frittieröl"
+        },
+        {
+          "a": 60,
+          "u": "g",
+          "n": "Zucker"
+        },
+        {
+          "a": 2,
+          "u": "TL",
+          "n": "Zimt"
+        }
       ],
       "steps": [
         "Mehl, Bier, Eigelb und Salz zu einem glatten Teig rühren und dreißig Minuten ruhen lassen.",
@@ -264,25 +557,63 @@
     {
       "id": "glasse-pickled-red-cabbage",
       "title": "Eingelegter Rotkohl",
-      "chapter": "Of Pickling",
+      "chapter": "Vom Einlegen",
       "cuisine": "Britisch",
       "category": "Beilage",
-      "meals": ["mittag", "abend"],
-      "diet": ["vegetarisch", "vegan", "glutenfrei"],
+      "meals": [
+        "mittag",
+        "abend"
+      ],
+      "diet": [
+        "vegetarisch",
+        "vegan",
+        "glutenfrei"
+      ],
       "servings": 12,
       "prep": 25,
       "cook": 10,
       "difficulty": 1,
       "kcal": 45,
-      "tags": ["Vorrat", "kalt"],
+      "tags": [
+        "Vorrat",
+        "kalt"
+      ],
       "ingredients": [
-        {"a": 1000, "u": "g", "n": "Rotkohl"},
-        {"a": 3, "u": "EL", "n": "Salz"},
-        {"a": 700, "u": "ml", "n": "Rotweinessig"},
-        {"a": 100, "u": "g", "n": "Zucker"},
-        {"a": 2, "u": "TL", "n": "Pfefferkörner"},
-        {"a": 4, "u": "Stk", "n": "Lorbeerblätter"},
-        {"a": 1, "u": "TL", "n": "Nelken"}
+        {
+          "a": 1000,
+          "u": "g",
+          "n": "Rotkohl"
+        },
+        {
+          "a": 3,
+          "u": "EL",
+          "n": "Salz"
+        },
+        {
+          "a": 700,
+          "u": "ml",
+          "n": "Rotweinessig"
+        },
+        {
+          "a": 100,
+          "u": "g",
+          "n": "Zucker"
+        },
+        {
+          "a": 2,
+          "u": "TL",
+          "n": "Pfefferkörner"
+        },
+        {
+          "a": 4,
+          "u": "Stk",
+          "n": "Lorbeerblätter"
+        },
+        {
+          "a": 1,
+          "u": "TL",
+          "n": "Nelken"
+        }
       ],
       "steps": [
         "Rotkohl fein hobeln, mit Salz mischen und über Nacht Wasser ziehen lassen.",
@@ -295,29 +626,76 @@
     },
     {
       "id": "glasse-salmagundi",
-      "title": "Salmagundi",
-      "chapter": "Of Salads",
+      "title": "Bunter Salatteller",
+      "chapter": "Von den Salaten",
       "cuisine": "Britisch",
       "category": "Vorspeise",
-      "meals": ["mittag", "abend"],
+      "meals": [
+        "mittag",
+        "abend"
+      ],
       "diet": [],
       "servings": 6,
       "prep": 30,
       "cook": 10,
       "difficulty": 2,
       "kcal": 340,
-      "tags": ["kalt", "Party", "Resteverwertung"],
+      "tags": [
+        "kalt",
+        "Feier",
+        "Resteverwertung"
+      ],
       "ingredients": [
-        {"a": 400, "u": "g", "n": "gegartes Hähnchenfleisch"},
-        {"a": 6, "u": "Stk", "n": "Eier"},
-        {"a": 200, "u": "g", "n": "Blattsalat"},
-        {"a": 8, "u": "Stk", "n": "Sardellenfilets"},
-        {"a": 150, "u": "g", "n": "Weintrauben"},
-        {"a": 1, "u": "Stk", "n": "rote Zwiebel"},
-        {"a": 100, "u": "g", "n": "eingelegte Rote Bete"},
-        {"a": 6, "u": "EL", "n": "Olivenöl"},
-        {"a": 3, "u": "EL", "n": "Weinessig"},
-        {"a": 1, "u": "TL", "n": "Salz"}
+        {
+          "a": 400,
+          "u": "g",
+          "n": "gegartes Hähnchenfleisch"
+        },
+        {
+          "a": 6,
+          "u": "Stk",
+          "n": "Eier"
+        },
+        {
+          "a": 200,
+          "u": "g",
+          "n": "Blattsalat"
+        },
+        {
+          "a": 8,
+          "u": "Stk",
+          "n": "Sardellenfilets"
+        },
+        {
+          "a": 150,
+          "u": "g",
+          "n": "Weintrauben"
+        },
+        {
+          "a": 1,
+          "u": "Stk",
+          "n": "rote Zwiebel"
+        },
+        {
+          "a": 100,
+          "u": "g",
+          "n": "eingelegte Rote Bete"
+        },
+        {
+          "a": 6,
+          "u": "EL",
+          "n": "Olivenöl"
+        },
+        {
+          "a": 3,
+          "u": "EL",
+          "n": "Weinessig"
+        },
+        {
+          "a": 1,
+          "u": "TL",
+          "n": "Salz"
+        }
       ],
       "steps": [
         "Eier hart kochen, abschrecken und vierteln.",
@@ -331,26 +709,67 @@
     {
       "id": "glasse-pease-soup",
       "title": "Erbsensuppe nach alter englischer Art",
-      "chapter": "Of Soops and Broths",
+      "chapter": "Von Suppen und Brühen",
       "cuisine": "Britisch",
       "category": "Suppe",
-      "meals": ["mittag", "abend"],
-      "diet": ["vegetarisch", "vegan"],
+      "meals": [
+        "mittag",
+        "abend"
+      ],
+      "diet": [
+        "vegetarisch",
+        "vegan"
+      ],
       "servings": 6,
       "prep": 15,
       "cook": 90,
       "difficulty": 1,
       "kcal": 330,
-      "tags": ["günstig", "Eintopf"],
+      "tags": [
+        "günstig",
+        "Eintopf"
+      ],
       "ingredients": [
-        {"a": 400, "u": "g", "n": "getrocknete Schälerbsen"},
-        {"a": 2, "u": "l", "n": "Gemüsebrühe"},
-        {"a": 2, "u": "Stk", "n": "Zwiebeln"},
-        {"a": 2, "u": "Stk", "n": "Stangen Sellerie"},
-        {"a": 1, "u": "Bund", "n": "Minze"},
-        {"a": 40, "u": "g", "n": "Butter"},
-        {"a": 1, "u": "TL", "n": "Salz"},
-        {"a": 4, "u": "Scheibe", "n": "Weißbrot"}
+        {
+          "a": 400,
+          "u": "g",
+          "n": "getrocknete Schälerbsen"
+        },
+        {
+          "a": 2,
+          "u": "l",
+          "n": "Gemüsebrühe"
+        },
+        {
+          "a": 2,
+          "u": "Stk",
+          "n": "Zwiebeln"
+        },
+        {
+          "a": 2,
+          "u": "Stk",
+          "n": "Stangen Sellerie"
+        },
+        {
+          "a": 1,
+          "u": "Bund",
+          "n": "Minze"
+        },
+        {
+          "a": 40,
+          "u": "g",
+          "n": "Butter"
+        },
+        {
+          "a": 1,
+          "u": "TL",
+          "n": "Salz"
+        },
+        {
+          "a": 4,
+          "u": "Scheibe",
+          "n": "Weißbrot"
+        }
       ],
       "steps": [
         "Erbsen abspülen und mit Brühe, Zwiebeln und Sellerie aufsetzen.",
@@ -363,27 +782,67 @@
     },
     {
       "id": "glasse-potato-pudding",
-      "title": "Potato Pudding",
-      "chapter": "Of Puddings",
+      "title": "Süßer Kartoffelauflauf",
+      "chapter": "Von den Puddings",
       "cuisine": "Britisch",
       "category": "Dessert",
-      "meals": ["snack"],
-      "diet": ["vegetarisch", "glutenfrei"],
+      "meals": [
+        "snack"
+      ],
+      "diet": [
+        "vegetarisch",
+        "glutenfrei"
+      ],
       "servings": 8,
       "prep": 25,
       "cook": 50,
       "difficulty": 2,
       "kcal": 300,
-      "tags": ["Historisch", "Ofen"],
+      "tags": [
+        "Historisch",
+        "Ofen"
+      ],
       "ingredients": [
-        {"a": 700, "u": "g", "n": "Kartoffeln, mehligkochend"},
-        {"a": 150, "u": "g", "n": "Butter"},
-        {"a": 150, "u": "g", "n": "Zucker"},
-        {"a": 5, "u": "Stk", "n": "Eier"},
-        {"a": 200, "u": "ml", "n": "Sahne"},
-        {"a": 1, "u": "Stk", "n": "Zitrone"},
-        {"a": 3, "u": "EL", "n": "Brandy"},
-        {"a": 1, "u": "Prise", "n": "Muskatnuss"}
+        {
+          "a": 700,
+          "u": "g",
+          "n": "Kartoffeln, mehligkochend"
+        },
+        {
+          "a": 150,
+          "u": "g",
+          "n": "Butter"
+        },
+        {
+          "a": 150,
+          "u": "g",
+          "n": "Zucker"
+        },
+        {
+          "a": 5,
+          "u": "Stk",
+          "n": "Eier"
+        },
+        {
+          "a": 200,
+          "u": "ml",
+          "n": "Sahne"
+        },
+        {
+          "a": 1,
+          "u": "Stk",
+          "n": "Zitrone"
+        },
+        {
+          "a": 3,
+          "u": "EL",
+          "n": "Brandy"
+        },
+        {
+          "a": 1,
+          "u": "Prise",
+          "n": "Muskatnuss"
+        }
       ],
       "steps": [
         "Kartoffeln garen, pellen und heiß durch die Presse drücken.",
@@ -397,25 +856,59 @@
     {
       "id": "glasse-fried-fish-batter",
       "title": "Ausgebackener Fisch im Bierteig",
-      "chapter": "Of Fish",
+      "chapter": "Vom Fisch",
       "cuisine": "Britisch",
       "category": "Hauptgericht",
-      "meals": ["mittag", "abend"],
+      "meals": [
+        "mittag",
+        "abend"
+      ],
       "diet": [],
       "servings": 4,
       "prep": 20,
       "cook": 20,
       "difficulty": 2,
       "kcal": 620,
-      "tags": ["Frittieren", "Fisch"],
+      "tags": [
+        "Frittieren",
+        "Fisch"
+      ],
       "ingredients": [
-        {"a": 800, "u": "g", "n": "Kabeljaufilet"},
-        {"a": 250, "u": "g", "n": "Weizenmehl Type 405"},
-        {"a": 330, "u": "ml", "n": "Bier, kalt"},
-        {"a": 1, "u": "TL", "n": "Backpulver"},
-        {"a": 1, "u": "TL", "n": "Salz"},
-        {"a": 1, "u": "l", "n": "Frittieröl"},
-        {"a": 1, "u": "Stk", "n": "Zitrone"}
+        {
+          "a": 800,
+          "u": "g",
+          "n": "Kabeljaufilet"
+        },
+        {
+          "a": 250,
+          "u": "g",
+          "n": "Weizenmehl Type 405"
+        },
+        {
+          "a": 330,
+          "u": "ml",
+          "n": "Bier, kalt"
+        },
+        {
+          "a": 1,
+          "u": "TL",
+          "n": "Backpulver"
+        },
+        {
+          "a": 1,
+          "u": "TL",
+          "n": "Salz"
+        },
+        {
+          "a": 1,
+          "u": "l",
+          "n": "Frittieröl"
+        },
+        {
+          "a": 1,
+          "u": "Stk",
+          "n": "Zitrone"
+        }
       ],
       "steps": [
         "Fisch in portionsgroße Stücke schneiden, trocken tupfen und salzen.",
@@ -428,29 +921,77 @@
     },
     {
       "id": "glasse-hot-cross-buns",
-      "title": "Hot Cross Buns",
-      "chapter": "Of Bread",
+      "title": "Kreuzbrötchen zu Ostern",
+      "chapter": "Vom Brot",
       "cuisine": "Britisch",
       "category": "Backen",
-      "meals": ["fruehstueck", "snack"],
-      "diet": ["vegetarisch"],
+      "meals": [
+        "fruehstueck",
+        "snack"
+      ],
+      "diet": [
+        "vegetarisch"
+      ],
       "servings": 12,
       "prep": 40,
       "cook": 25,
       "difficulty": 2,
       "kcal": 250,
-      "tags": ["Hefeteig", "Ostern"],
+      "tags": [
+        "Hefeteig",
+        "Ostern"
+      ],
       "ingredients": [
-        {"a": 500, "u": "g", "n": "Weizenmehl Type 550"},
-        {"a": 280, "u": "ml", "n": "Milch"},
-        {"a": 21, "u": "g", "n": "frische Hefe"},
-        {"a": 70, "u": "g", "n": "Zucker"},
-        {"a": 60, "u": "g", "n": "Butter"},
-        {"a": 1, "u": "Stk", "n": "Ei"},
-        {"a": 150, "u": "g", "n": "Rosinen"},
-        {"a": 2, "u": "TL", "n": "Lebkuchengewürz"},
-        {"a": 50, "u": "g", "n": "Weizenmehl Type 405"},
-        {"a": 3, "u": "EL", "n": "Aprikosenmarmelade"}
+        {
+          "a": 500,
+          "u": "g",
+          "n": "Weizenmehl Type 550"
+        },
+        {
+          "a": 280,
+          "u": "ml",
+          "n": "Milch"
+        },
+        {
+          "a": 21,
+          "u": "g",
+          "n": "frische Hefe"
+        },
+        {
+          "a": 70,
+          "u": "g",
+          "n": "Zucker"
+        },
+        {
+          "a": 60,
+          "u": "g",
+          "n": "Butter"
+        },
+        {
+          "a": 1,
+          "u": "Stk",
+          "n": "Ei"
+        },
+        {
+          "a": 150,
+          "u": "g",
+          "n": "Rosinen"
+        },
+        {
+          "a": 2,
+          "u": "TL",
+          "n": "Lebkuchengewürz"
+        },
+        {
+          "a": 50,
+          "u": "g",
+          "n": "Weizenmehl Type 405"
+        },
+        {
+          "a": 3,
+          "u": "EL",
+          "n": "Aprikosenmarmelade"
+        }
       ],
       "steps": [
         "Hefe in lauwarmer Milch auflösen und mit Mehl, Zucker, Butter, Ei und Gewürz zu einem Teig kneten.",
@@ -464,28 +1005,71 @@
     },
     {
       "id": "glasse-cheesecake",
-      "title": "Englischer Cheesecake",
-      "chapter": "Of Cheesecakes",
+      "title": "Englischer Käsekuchen",
+      "chapter": "Von den Käsekuchen",
       "cuisine": "Britisch",
       "category": "Backen",
-      "meals": ["snack"],
-      "diet": ["vegetarisch"],
+      "meals": [
+        "snack"
+      ],
+      "diet": [
+        "vegetarisch"
+      ],
       "servings": 10,
       "prep": 30,
       "cook": 45,
       "difficulty": 2,
       "kcal": 390,
-      "tags": ["Historisch", "Quark"],
+      "tags": [
+        "Historisch",
+        "Quark"
+      ],
       "ingredients": [
-        {"a": 250, "u": "g", "n": "Weizenmehl Type 405"},
-        {"a": 150, "u": "g", "n": "Butter"},
-        {"a": 60, "u": "ml", "n": "Eiswasser"},
-        {"a": 500, "u": "g", "n": "Quark"},
-        {"a": 150, "u": "g", "n": "Zucker"},
-        {"a": 4, "u": "Stk", "n": "Eier"},
-        {"a": 100, "u": "g", "n": "Korinthen"},
-        {"a": 1, "u": "Stk", "n": "Zitrone"},
-        {"a": 1, "u": "Prise", "n": "Muskatnuss"}
+        {
+          "a": 250,
+          "u": "g",
+          "n": "Weizenmehl Type 405"
+        },
+        {
+          "a": 150,
+          "u": "g",
+          "n": "Butter"
+        },
+        {
+          "a": 60,
+          "u": "ml",
+          "n": "Eiswasser"
+        },
+        {
+          "a": 500,
+          "u": "g",
+          "n": "Quark"
+        },
+        {
+          "a": 150,
+          "u": "g",
+          "n": "Zucker"
+        },
+        {
+          "a": 4,
+          "u": "Stk",
+          "n": "Eier"
+        },
+        {
+          "a": 100,
+          "u": "g",
+          "n": "Korinthen"
+        },
+        {
+          "a": 1,
+          "u": "Stk",
+          "n": "Zitrone"
+        },
+        {
+          "a": 1,
+          "u": "Prise",
+          "n": "Muskatnuss"
+        }
       ],
       "steps": [
         "Aus Mehl, Butter und Eiswasser einen Mürbteig kneten und eine Stunde kühlen.",

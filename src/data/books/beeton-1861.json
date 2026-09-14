@@ -3,29 +3,76 @@
   "recipes": [
     {
       "id": "beeton-shepherds-pie",
-      "title": "Cottage Pie",
-      "chapter": "Cold Meat Cookery",
+      "title": "Hackfleischauflauf mit Kartoffelhaube",
+      "chapter": "Resteküche",
       "cuisine": "Britisch",
       "category": "Hauptgericht",
-      "meals": ["mittag", "abend"],
+      "meals": [
+        "mittag",
+        "abend"
+      ],
       "diet": [],
       "servings": 4,
       "prep": 30,
       "cook": 45,
       "difficulty": 2,
       "kcal": 610,
-      "tags": ["Ofen", "Vorkochen", "Kinder"],
+      "tags": [
+        "Ofen",
+        "Vorkochen",
+        "Kinder"
+      ],
       "ingredients": [
-        {"a": 600, "u": "g", "n": "Rinderhack"},
-        {"a": 2, "u": "Stk", "n": "Zwiebeln"},
-        {"a": 2, "u": "Stk", "n": "Möhren"},
-        {"a": 2, "u": "EL", "n": "Tomatenmark"},
-        {"a": 400, "u": "ml", "n": "Rinderbrühe"},
-        {"a": 2, "u": "EL", "n": "Worcestershiresauce"},
-        {"a": 1000, "u": "g", "n": "mehligkochende Kartoffeln"},
-        {"a": 100, "u": "ml", "n": "Milch"},
-        {"a": 60, "u": "g", "n": "Butter"},
-        {"a": 1, "u": "TL", "n": "Salz"}
+        {
+          "a": 600,
+          "u": "g",
+          "n": "Rinderhack"
+        },
+        {
+          "a": 2,
+          "u": "Stk",
+          "n": "Zwiebeln"
+        },
+        {
+          "a": 2,
+          "u": "Stk",
+          "n": "Möhren"
+        },
+        {
+          "a": 2,
+          "u": "EL",
+          "n": "Tomatenmark"
+        },
+        {
+          "a": 400,
+          "u": "ml",
+          "n": "Rinderbrühe"
+        },
+        {
+          "a": 2,
+          "u": "EL",
+          "n": "Worcestershiresauce"
+        },
+        {
+          "a": 1000,
+          "u": "g",
+          "n": "mehligkochende Kartoffeln"
+        },
+        {
+          "a": 100,
+          "u": "ml",
+          "n": "Milch"
+        },
+        {
+          "a": 60,
+          "u": "g",
+          "n": "Butter"
+        },
+        {
+          "a": 1,
+          "u": "TL",
+          "n": "Salz"
+        }
       ],
       "steps": [
         "Hack krümelig braun anbraten, Zwiebel- und Möhrenwürfel zugeben.",
@@ -39,28 +86,71 @@
     },
     {
       "id": "beeton-scotch-broth",
-      "title": "Scotch Broth",
-      "chapter": "Soups",
+      "title": "Schottische Lammsuppe",
+      "chapter": "Suppen",
       "cuisine": "Britisch",
       "category": "Suppe",
-      "meals": ["mittag", "abend"],
+      "meals": [
+        "mittag",
+        "abend"
+      ],
       "diet": [],
       "servings": 6,
       "prep": 20,
       "cook": 120,
       "difficulty": 1,
       "kcal": 380,
-      "tags": ["Eintopf", "Winter", "Vorkochen"],
+      "tags": [
+        "Eintopf",
+        "Winter",
+        "Vorkochen"
+      ],
       "ingredients": [
-        {"a": 800, "u": "g", "n": "Lammschulter"},
-        {"a": 150, "u": "g", "n": "Perlgraupen"},
-        {"a": 2, "u": "l", "n": "Wasser"},
-        {"a": 3, "u": "Stk", "n": "Möhren"},
-        {"a": 1, "u": "Stk", "n": "Steckrübe"},
-        {"a": 2, "u": "Stk", "n": "Stangen Lauch"},
-        {"a": 1, "u": "Stk", "n": "Zwiebel"},
-        {"a": 1, "u": "Bund", "n": "Petersilie"},
-        {"a": 2, "u": "TL", "n": "Salz"}
+        {
+          "a": 800,
+          "u": "g",
+          "n": "Lammschulter"
+        },
+        {
+          "a": 150,
+          "u": "g",
+          "n": "Perlgraupen"
+        },
+        {
+          "a": 2,
+          "u": "l",
+          "n": "Wasser"
+        },
+        {
+          "a": 3,
+          "u": "Stk",
+          "n": "Möhren"
+        },
+        {
+          "a": 1,
+          "u": "Stk",
+          "n": "Steckrübe"
+        },
+        {
+          "a": 2,
+          "u": "Stk",
+          "n": "Stangen Lauch"
+        },
+        {
+          "a": 1,
+          "u": "Stk",
+          "n": "Zwiebel"
+        },
+        {
+          "a": 1,
+          "u": "Bund",
+          "n": "Petersilie"
+        },
+        {
+          "a": 2,
+          "u": "TL",
+          "n": "Salz"
+        }
       ],
       "steps": [
         "Fleisch mit kaltem Wasser aufsetzen, aufkochen und sorgfältig abschäumen.",
@@ -73,27 +163,64 @@
     },
     {
       "id": "beeton-roast-beef-yorkshire",
-      "title": "Roast Beef mit Yorkshire Pudding",
-      "chapter": "Beef",
+      "title": "Rinderbraten mit Yorkshire-Pudding",
+      "chapter": "Rindfleisch",
       "cuisine": "Britisch",
       "category": "Hauptgericht",
-      "meals": ["mittag"],
+      "meals": [
+        "mittag"
+      ],
       "diet": [],
       "servings": 6,
       "prep": 25,
       "cook": 90,
       "difficulty": 3,
       "kcal": 720,
-      "tags": ["Sonntagsessen", "Ofen"],
+      "tags": [
+        "Sonntagsessen",
+        "Ofen"
+      ],
       "ingredients": [
-        {"a": 1500, "u": "g", "n": "Roastbeef"},
-        {"a": 2, "u": "EL", "n": "Senf"},
-        {"a": 2, "u": "TL", "n": "Salz"},
-        {"a": 150, "u": "g", "n": "Weizenmehl Type 405"},
-        {"a": 3, "u": "Stk", "n": "Eier"},
-        {"a": 250, "u": "ml", "n": "Milch"},
-        {"a": 4, "u": "EL", "n": "Rinderfett oder Öl"},
-        {"a": 400, "u": "ml", "n": "Rinderbrühe"}
+        {
+          "a": 1500,
+          "u": "g",
+          "n": "Roastbeef"
+        },
+        {
+          "a": 2,
+          "u": "EL",
+          "n": "Senf"
+        },
+        {
+          "a": 2,
+          "u": "TL",
+          "n": "Salz"
+        },
+        {
+          "a": 150,
+          "u": "g",
+          "n": "Weizenmehl Type 405"
+        },
+        {
+          "a": 3,
+          "u": "Stk",
+          "n": "Eier"
+        },
+        {
+          "a": 250,
+          "u": "ml",
+          "n": "Milch"
+        },
+        {
+          "a": 4,
+          "u": "EL",
+          "n": "Rinderfett oder Öl"
+        },
+        {
+          "a": 400,
+          "u": "ml",
+          "n": "Rinderbrühe"
+        }
       ],
       "steps": [
         "Fleisch eine Stunde vorher aus dem Kühlschrank nehmen, salzen und mit Senf einreiben.",
@@ -107,29 +234,75 @@
     },
     {
       "id": "beeton-mulligatawny",
-      "title": "Mulligatawny Soup",
-      "chapter": "Soups",
+      "title": "Currysuppe nach indischer Art",
+      "chapter": "Suppen",
       "cuisine": "Britisch",
       "category": "Suppe",
-      "meals": ["mittag", "abend"],
+      "meals": [
+        "mittag",
+        "abend"
+      ],
       "diet": [],
       "servings": 4,
       "prep": 20,
       "cook": 45,
       "difficulty": 2,
       "kcal": 400,
-      "tags": ["Curry", "cremig"],
+      "tags": [
+        "Curry",
+        "cremig"
+      ],
       "ingredients": [
-        {"a": 500, "u": "g", "n": "Hähnchenschenkel"},
-        {"a": 2, "u": "Stk", "n": "Zwiebeln"},
-        {"a": 2, "u": "Stk", "n": "Möhren"},
-        {"a": 1, "u": "Stk", "n": "Apfel"},
-        {"a": 2, "u": "EL", "n": "Currypulver"},
-        {"a": 100, "u": "g", "n": "rote Linsen"},
-        {"a": 1.2, "u": "l", "n": "Hühnerbrühe"},
-        {"a": 200, "u": "ml", "n": "Kokosmilch"},
-        {"a": 3, "u": "EL", "n": "Butter"},
-        {"a": 1, "u": "TL", "n": "Salz"}
+        {
+          "a": 500,
+          "u": "g",
+          "n": "Hähnchenschenkel"
+        },
+        {
+          "a": 2,
+          "u": "Stk",
+          "n": "Zwiebeln"
+        },
+        {
+          "a": 2,
+          "u": "Stk",
+          "n": "Möhren"
+        },
+        {
+          "a": 1,
+          "u": "Stk",
+          "n": "Apfel"
+        },
+        {
+          "a": 2,
+          "u": "EL",
+          "n": "Currypulver"
+        },
+        {
+          "a": 100,
+          "u": "g",
+          "n": "rote Linsen"
+        },
+        {
+          "a": 1.2,
+          "u": "l",
+          "n": "Hühnerbrühe"
+        },
+        {
+          "a": 200,
+          "u": "ml",
+          "n": "Kokosmilch"
+        },
+        {
+          "a": 3,
+          "u": "EL",
+          "n": "Butter"
+        },
+        {
+          "a": 1,
+          "u": "TL",
+          "n": "Salz"
+        }
       ],
       "steps": [
         "Hähnchen in Butter anbraten und herausnehmen.",
@@ -143,27 +316,65 @@
     },
     {
       "id": "beeton-kedgeree",
-      "title": "Kedgeree",
-      "chapter": "Fish",
+      "title": "Reispfanne mit Räucherfisch",
+      "chapter": "Fisch",
       "cuisine": "Britisch",
       "category": "Hauptgericht",
-      "meals": ["fruehstueck", "abend"],
+      "meals": [
+        "fruehstueck",
+        "abend"
+      ],
       "diet": [],
       "servings": 4,
       "prep": 15,
       "cook": 30,
       "difficulty": 2,
       "kcal": 480,
-      "tags": ["Fisch", "Frühstück"],
+      "tags": [
+        "Fisch",
+        "Frühstück"
+      ],
       "ingredients": [
-        {"a": 500, "u": "g", "n": "geräucherter Schellfisch"},
-        {"a": 300, "u": "g", "n": "Basmatireis"},
-        {"a": 4, "u": "Stk", "n": "Eier"},
-        {"a": 1, "u": "Stk", "n": "Zwiebel"},
-        {"a": 2, "u": "TL", "n": "Currypulver"},
-        {"a": 60, "u": "g", "n": "Butter"},
-        {"a": 1, "u": "Bund", "n": "Petersilie"},
-        {"a": 1, "u": "Stk", "n": "Zitrone"}
+        {
+          "a": 500,
+          "u": "g",
+          "n": "geräucherter Schellfisch"
+        },
+        {
+          "a": 300,
+          "u": "g",
+          "n": "Basmatireis"
+        },
+        {
+          "a": 4,
+          "u": "Stk",
+          "n": "Eier"
+        },
+        {
+          "a": 1,
+          "u": "Stk",
+          "n": "Zwiebel"
+        },
+        {
+          "a": 2,
+          "u": "TL",
+          "n": "Currypulver"
+        },
+        {
+          "a": 60,
+          "u": "g",
+          "n": "Butter"
+        },
+        {
+          "a": 1,
+          "u": "Bund",
+          "n": "Petersilie"
+        },
+        {
+          "a": 1,
+          "u": "Stk",
+          "n": "Zitrone"
+        }
       ],
       "steps": [
         "Fisch in Milch oder Wasser zehn Minuten pochieren, häuten und in Stücke zerteilen.",
@@ -177,26 +388,60 @@
     },
     {
       "id": "beeton-toad-in-the-hole",
-      "title": "Toad in the Hole",
-      "chapter": "Batter Puddings",
+      "title": "Bratwürste im Ofenteig",
+      "chapter": "Teigaufläufe",
       "cuisine": "Britisch",
       "category": "Hauptgericht",
-      "meals": ["mittag", "abend"],
+      "meals": [
+        "mittag",
+        "abend"
+      ],
       "diet": [],
       "servings": 4,
       "prep": 15,
       "cook": 40,
       "difficulty": 2,
       "kcal": 590,
-      "tags": ["Ofen", "Kinder"],
+      "tags": [
+        "Ofen",
+        "Kinder"
+      ],
       "ingredients": [
-        {"a": 8, "u": "Stk", "n": "Bratwürste"},
-        {"a": 200, "u": "g", "n": "Weizenmehl Type 405"},
-        {"a": 4, "u": "Stk", "n": "Eier"},
-        {"a": 300, "u": "ml", "n": "Milch"},
-        {"a": 4, "u": "EL", "n": "Rapsöl"},
-        {"a": 1, "u": "TL", "n": "Salz"},
-        {"a": 2, "u": "Zweig", "n": "Thymian"}
+        {
+          "a": 8,
+          "u": "Stk",
+          "n": "Bratwürste"
+        },
+        {
+          "a": 200,
+          "u": "g",
+          "n": "Weizenmehl Type 405"
+        },
+        {
+          "a": 4,
+          "u": "Stk",
+          "n": "Eier"
+        },
+        {
+          "a": 300,
+          "u": "ml",
+          "n": "Milch"
+        },
+        {
+          "a": 4,
+          "u": "EL",
+          "n": "Rapsöl"
+        },
+        {
+          "a": 1,
+          "u": "TL",
+          "n": "Salz"
+        },
+        {
+          "a": 2,
+          "u": "Zweig",
+          "n": "Thymian"
+        }
       ],
       "steps": [
         "Mehl, Eier, Milch und Salz zu einem glatten Teig verrühren und dreißig Minuten ruhen lassen.",
@@ -209,28 +454,70 @@
     },
     {
       "id": "beeton-fish-pie",
-      "title": "Fish Pie",
-      "chapter": "Fish",
+      "title": "Fischauflauf",
+      "chapter": "Fisch",
       "cuisine": "Britisch",
       "category": "Hauptgericht",
-      "meals": ["mittag", "abend"],
+      "meals": [
+        "mittag",
+        "abend"
+      ],
       "diet": [],
       "servings": 4,
       "prep": 35,
       "cook": 35,
       "difficulty": 2,
       "kcal": 560,
-      "tags": ["Ofen", "Fisch"],
+      "tags": [
+        "Ofen",
+        "Fisch"
+      ],
       "ingredients": [
-        {"a": 700, "u": "g", "n": "gemischtes Fischfilet"},
-        {"a": 900, "u": "g", "n": "mehligkochende Kartoffeln"},
-        {"a": 600, "u": "ml", "n": "Milch"},
-        {"a": 60, "u": "g", "n": "Butter"},
-        {"a": 50, "u": "g", "n": "Mehl"},
-        {"a": 150, "u": "g", "n": "Erbsen"},
-        {"a": 3, "u": "Stk", "n": "Eier"},
-        {"a": 1, "u": "Bund", "n": "Petersilie"},
-        {"a": 1, "u": "TL", "n": "Salz"}
+        {
+          "a": 700,
+          "u": "g",
+          "n": "gemischtes Fischfilet"
+        },
+        {
+          "a": 900,
+          "u": "g",
+          "n": "mehligkochende Kartoffeln"
+        },
+        {
+          "a": 600,
+          "u": "ml",
+          "n": "Milch"
+        },
+        {
+          "a": 60,
+          "u": "g",
+          "n": "Butter"
+        },
+        {
+          "a": 50,
+          "u": "g",
+          "n": "Mehl"
+        },
+        {
+          "a": 150,
+          "u": "g",
+          "n": "Erbsen"
+        },
+        {
+          "a": 3,
+          "u": "Stk",
+          "n": "Eier"
+        },
+        {
+          "a": 1,
+          "u": "Bund",
+          "n": "Petersilie"
+        },
+        {
+          "a": 1,
+          "u": "TL",
+          "n": "Salz"
+        }
       ],
       "steps": [
         "Fisch in der Milch acht Minuten sanft pochieren und herausheben, Milch auffangen.",
@@ -243,25 +530,59 @@
     },
     {
       "id": "beeton-bubble-and-squeak",
-      "title": "Bubble and Squeak",
-      "chapter": "Cold Meat Cookery",
+      "title": "Kartoffel-Kohl-Pfanne",
+      "chapter": "Resteküche",
       "cuisine": "Britisch",
       "category": "Hauptgericht",
-      "meals": ["fruehstueck", "abend"],
-      "diet": ["vegetarisch", "glutenfrei"],
+      "meals": [
+        "fruehstueck",
+        "abend"
+      ],
+      "diet": [
+        "vegetarisch",
+        "glutenfrei"
+      ],
       "servings": 4,
       "prep": 15,
       "cook": 25,
       "difficulty": 1,
       "kcal": 310,
-      "tags": ["Resteverwertung", "schnell", "günstig"],
+      "tags": [
+        "Resteverwertung",
+        "schnell",
+        "günstig"
+      ],
       "ingredients": [
-        {"a": 700, "u": "g", "n": "Kartoffeln, gekocht"},
-        {"a": 400, "u": "g", "n": "Kohl, gegart"},
-        {"a": 1, "u": "Stk", "n": "Zwiebel"},
-        {"a": 50, "u": "g", "n": "Butter"},
-        {"a": 1, "u": "TL", "n": "Salz"},
-        {"a": 1, "u": "TL", "n": "Pfeffer, schwarz"}
+        {
+          "a": 700,
+          "u": "g",
+          "n": "Kartoffeln, gekocht"
+        },
+        {
+          "a": 400,
+          "u": "g",
+          "n": "Kohl, gegart"
+        },
+        {
+          "a": 1,
+          "u": "Stk",
+          "n": "Zwiebel"
+        },
+        {
+          "a": 50,
+          "u": "g",
+          "n": "Butter"
+        },
+        {
+          "a": 1,
+          "u": "TL",
+          "n": "Salz"
+        },
+        {
+          "a": 1,
+          "u": "TL",
+          "n": "Pfeffer, schwarz"
+        }
       ],
       "steps": [
         "Kartoffeln grob zerdrücken, Kohl klein schneiden.",
@@ -274,26 +595,62 @@
     },
     {
       "id": "beeton-scones",
-      "title": "Scones",
-      "chapter": "Bread, Biscuits and Cakes",
+      "title": "Teebrötchen",
+      "chapter": "Brot, Gebäck und Kuchen",
       "cuisine": "Britisch",
       "category": "Backen",
-      "meals": ["fruehstueck", "snack"],
-      "diet": ["vegetarisch"],
+      "meals": [
+        "fruehstueck",
+        "snack"
+      ],
+      "diet": [
+        "vegetarisch"
+      ],
       "servings": 8,
       "prep": 15,
       "cook": 15,
       "difficulty": 1,
       "kcal": 240,
-      "tags": ["schnell", "Teatime"],
+      "tags": [
+        "schnell",
+        "Nachmittagstee"
+      ],
       "ingredients": [
-        {"a": 350, "u": "g", "n": "Weizenmehl Type 405"},
-        {"a": 1, "u": "Pck", "n": "Backpulver"},
-        {"a": 80, "u": "g", "n": "Butter"},
-        {"a": 50, "u": "g", "n": "Zucker"},
-        {"a": 180, "u": "ml", "n": "Milch"},
-        {"a": 1, "u": "Stk", "n": "Ei"},
-        {"a": 1, "u": "Prise", "n": "Salz"}
+        {
+          "a": 350,
+          "u": "g",
+          "n": "Weizenmehl Type 405"
+        },
+        {
+          "a": 1,
+          "u": "Pck",
+          "n": "Backpulver"
+        },
+        {
+          "a": 80,
+          "u": "g",
+          "n": "Butter"
+        },
+        {
+          "a": 50,
+          "u": "g",
+          "n": "Zucker"
+        },
+        {
+          "a": 180,
+          "u": "ml",
+          "n": "Milch"
+        },
+        {
+          "a": 1,
+          "u": "Stk",
+          "n": "Ei"
+        },
+        {
+          "a": 1,
+          "u": "Prise",
+          "n": "Salz"
+        }
       ],
       "steps": [
         "Mehl, Backpulver und kalte Butter zu Krümeln verreiben.",
@@ -306,28 +663,71 @@
     },
     {
       "id": "beeton-trifle",
-      "title": "Trifle",
-      "chapter": "Creams and Jellies",
+      "title": "Englisches Schichtdessert",
+      "chapter": "Cremes und Gelees",
       "cuisine": "Britisch",
       "category": "Dessert",
-      "meals": ["snack"],
-      "diet": ["vegetarisch"],
+      "meals": [
+        "snack"
+      ],
+      "diet": [
+        "vegetarisch"
+      ],
       "servings": 8,
       "prep": 35,
       "cook": 10,
       "difficulty": 2,
       "kcal": 390,
-      "tags": ["Schichtdessert", "Festessen"],
+      "tags": [
+        "Schichtdessert",
+        "Festessen"
+      ],
       "ingredients": [
-        {"a": 250, "u": "g", "n": "Löffelbiskuits"},
-        {"a": 150, "u": "ml", "n": "Sherry oder Orangensaft"},
-        {"a": 400, "u": "g", "n": "Beeren"},
-        {"a": 600, "u": "ml", "n": "Milch"},
-        {"a": 5, "u": "Stk", "n": "Eigelb"},
-        {"a": 100, "u": "g", "n": "Zucker"},
-        {"a": 30, "u": "g", "n": "Speisestärke"},
-        {"a": 400, "u": "ml", "n": "Sahne"},
-        {"a": 50, "u": "g", "n": "Mandelblättchen"}
+        {
+          "a": 250,
+          "u": "g",
+          "n": "Löffelbiskuits"
+        },
+        {
+          "a": 150,
+          "u": "ml",
+          "n": "Sherry oder Orangensaft"
+        },
+        {
+          "a": 400,
+          "u": "g",
+          "n": "Beeren"
+        },
+        {
+          "a": 600,
+          "u": "ml",
+          "n": "Milch"
+        },
+        {
+          "a": 5,
+          "u": "Stk",
+          "n": "Eigelb"
+        },
+        {
+          "a": 100,
+          "u": "g",
+          "n": "Zucker"
+        },
+        {
+          "a": 30,
+          "u": "g",
+          "n": "Speisestärke"
+        },
+        {
+          "a": 400,
+          "u": "ml",
+          "n": "Sahne"
+        },
+        {
+          "a": 50,
+          "u": "g",
+          "n": "Mandelblättchen"
+        }
       ],
       "steps": [
         "Aus Milch, Eigelb, Zucker und Stärke eine Vanillecreme kochen und abkühlen lassen.",
@@ -340,26 +740,62 @@
     },
     {
       "id": "beeton-bread-sauce",
-      "title": "Bread Sauce",
-      "chapter": "Sauces",
+      "title": "Brotsauce",
+      "chapter": "Saucen",
       "cuisine": "Britisch",
       "category": "Grundrezept",
-      "meals": ["mittag", "abend"],
-      "diet": ["vegetarisch"],
+      "meals": [
+        "mittag",
+        "abend"
+      ],
+      "diet": [
+        "vegetarisch"
+      ],
       "servings": 6,
       "prep": 5,
       "cook": 20,
       "difficulty": 1,
       "kcal": 120,
-      "tags": ["Sauce", "Weihnachten"],
+      "tags": [
+        "Sauce",
+        "Weihnachten"
+      ],
       "ingredients": [
-        {"a": 500, "u": "ml", "n": "Milch"},
-        {"a": 1, "u": "Stk", "n": "Zwiebel"},
-        {"a": 6, "u": "Stk", "n": "Nelken"},
-        {"a": 2, "u": "Stk", "n": "Lorbeerblätter"},
-        {"a": 120, "u": "g", "n": "Weißbrotbrösel"},
-        {"a": 40, "u": "g", "n": "Butter"},
-        {"a": 1, "u": "Prise", "n": "Muskatnuss"}
+        {
+          "a": 500,
+          "u": "ml",
+          "n": "Milch"
+        },
+        {
+          "a": 1,
+          "u": "Stk",
+          "n": "Zwiebel"
+        },
+        {
+          "a": 6,
+          "u": "Stk",
+          "n": "Nelken"
+        },
+        {
+          "a": 2,
+          "u": "Stk",
+          "n": "Lorbeerblätter"
+        },
+        {
+          "a": 120,
+          "u": "g",
+          "n": "Weißbrotbrösel"
+        },
+        {
+          "a": 40,
+          "u": "g",
+          "n": "Butter"
+        },
+        {
+          "a": 1,
+          "u": "Prise",
+          "n": "Muskatnuss"
+        }
       ],
       "steps": [
         "Zwiebel mit Nelken und Lorbeer spicken und in der Milch zwanzig Minuten ziehen lassen.",
@@ -372,27 +808,67 @@
     },
     {
       "id": "beeton-pea-soup",
-      "title": "Green Pea Soup",
-      "chapter": "Soups",
+      "title": "Grüne Erbsensuppe",
+      "chapter": "Suppen",
       "cuisine": "Britisch",
       "category": "Suppe",
-      "meals": ["mittag", "abend"],
-      "diet": ["vegetarisch"],
+      "meals": [
+        "mittag",
+        "abend"
+      ],
+      "diet": [
+        "vegetarisch"
+      ],
       "servings": 4,
       "prep": 10,
       "cook": 20,
       "difficulty": 1,
       "kcal": 240,
-      "tags": ["schnell", "Frühling"],
+      "tags": [
+        "schnell",
+        "Frühling"
+      ],
       "ingredients": [
-        {"a": 700, "u": "g", "n": "Erbsen, tiefgekühlt"},
-        {"a": 1, "u": "Stk", "n": "Zwiebel"},
-        {"a": 1, "u": "Stk", "n": "Kartoffel"},
-        {"a": 1, "u": "l", "n": "Gemüsebrühe"},
-        {"a": 40, "u": "g", "n": "Butter"},
-        {"a": 100, "u": "ml", "n": "Sahne"},
-        {"a": 1, "u": "Bund", "n": "Minze"},
-        {"a": 1, "u": "TL", "n": "Salz"}
+        {
+          "a": 700,
+          "u": "g",
+          "n": "Erbsen, tiefgekühlt"
+        },
+        {
+          "a": 1,
+          "u": "Stk",
+          "n": "Zwiebel"
+        },
+        {
+          "a": 1,
+          "u": "Stk",
+          "n": "Kartoffel"
+        },
+        {
+          "a": 1,
+          "u": "l",
+          "n": "Gemüsebrühe"
+        },
+        {
+          "a": 40,
+          "u": "g",
+          "n": "Butter"
+        },
+        {
+          "a": 100,
+          "u": "ml",
+          "n": "Sahne"
+        },
+        {
+          "a": 1,
+          "u": "Bund",
+          "n": "Minze"
+        },
+        {
+          "a": 1,
+          "u": "TL",
+          "n": "Salz"
+        }
       ],
       "steps": [
         "Zwiebel in Butter glasig dünsten, Kartoffelwürfel zugeben.",
@@ -405,25 +881,56 @@
     },
     {
       "id": "beeton-apple-charlotte",
-      "title": "Apple Charlotte",
-      "chapter": "Puddings",
+      "title": "Apfelauflauf im Brotmantel",
+      "chapter": "Aufläufe und Puddings",
       "cuisine": "Britisch",
       "category": "Dessert",
-      "meals": ["snack"],
-      "diet": ["vegetarisch"],
+      "meals": [
+        "snack"
+      ],
+      "diet": [
+        "vegetarisch"
+      ],
       "servings": 6,
       "prep": 25,
       "cook": 45,
       "difficulty": 2,
       "kcal": 330,
-      "tags": ["Ofen", "Apfel"],
+      "tags": [
+        "Ofen",
+        "Apfel"
+      ],
       "ingredients": [
-        {"a": 1200, "u": "g", "n": "säuerliche Äpfel"},
-        {"a": 120, "u": "g", "n": "Zucker"},
-        {"a": 1, "u": "Stk", "n": "Zitrone"},
-        {"a": 12, "u": "Scheibe", "n": "Toastbrot"},
-        {"a": 150, "u": "g", "n": "Butter"},
-        {"a": 1, "u": "TL", "n": "Zimt"}
+        {
+          "a": 1200,
+          "u": "g",
+          "n": "säuerliche Äpfel"
+        },
+        {
+          "a": 120,
+          "u": "g",
+          "n": "Zucker"
+        },
+        {
+          "a": 1,
+          "u": "Stk",
+          "n": "Zitrone"
+        },
+        {
+          "a": 12,
+          "u": "Scheibe",
+          "n": "Toastbrot"
+        },
+        {
+          "a": 150,
+          "u": "g",
+          "n": "Butter"
+        },
+        {
+          "a": 1,
+          "u": "TL",
+          "n": "Zimt"
+        }
       ],
       "steps": [
         "Äpfel schälen, würfeln und mit Zucker und Zitronensaft zu dickem Mus einkochen, bis kaum Flüssigkeit bleibt.",
@@ -437,26 +944,62 @@
     },
     {
       "id": "beeton-welsh-rarebit",
-      "title": "Welsh Rarebit",
-      "chapter": "Savouries",
+      "title": "Überbackenes Käsebrot",
+      "chapter": "Pikante Kleinigkeiten",
       "cuisine": "Britisch",
       "category": "Vorspeise",
-      "meals": ["abend", "snack"],
-      "diet": ["vegetarisch"],
+      "meals": [
+        "abend",
+        "snack"
+      ],
+      "diet": [
+        "vegetarisch"
+      ],
       "servings": 4,
       "prep": 10,
       "cook": 10,
       "difficulty": 1,
       "kcal": 380,
-      "tags": ["schnell", "Käse"],
+      "tags": [
+        "schnell",
+        "Käse"
+      ],
       "ingredients": [
-        {"a": 8, "u": "Scheibe", "n": "Sauerteigbrot"},
-        {"a": 300, "u": "g", "n": "Cheddar"},
-        {"a": 40, "u": "g", "n": "Butter"},
-        {"a": 20, "u": "g", "n": "Mehl"},
-        {"a": 150, "u": "ml", "n": "dunkles Bier"},
-        {"a": 2, "u": "TL", "n": "Senf"},
-        {"a": 1, "u": "EL", "n": "Worcestershiresauce"}
+        {
+          "a": 8,
+          "u": "Scheibe",
+          "n": "Sauerteigbrot"
+        },
+        {
+          "a": 300,
+          "u": "g",
+          "n": "Cheddar"
+        },
+        {
+          "a": 40,
+          "u": "g",
+          "n": "Butter"
+        },
+        {
+          "a": 20,
+          "u": "g",
+          "n": "Mehl"
+        },
+        {
+          "a": 150,
+          "u": "ml",
+          "n": "dunkles Bier"
+        },
+        {
+          "a": 2,
+          "u": "TL",
+          "n": "Senf"
+        },
+        {
+          "a": 1,
+          "u": "EL",
+          "n": "Worcestershiresauce"
+        }
       ],
       "steps": [
         "Butter und Mehl verrühren, mit Bier ablöschen und glatt kochen.",
@@ -469,29 +1012,75 @@
     },
     {
       "id": "beeton-oxtail-soup",
-      "title": "Oxtail Soup",
-      "chapter": "Soups",
+      "title": "Ochsenschwanzsuppe",
+      "chapter": "Suppen",
       "cuisine": "Britisch",
       "category": "Suppe",
-      "meals": ["mittag", "abend"],
+      "meals": [
+        "mittag",
+        "abend"
+      ],
       "diet": [],
       "servings": 6,
       "prep": 25,
       "cook": 210,
       "difficulty": 2,
       "kcal": 420,
-      "tags": ["Schmoren", "Winter"],
+      "tags": [
+        "Schmoren",
+        "Winter"
+      ],
       "ingredients": [
-        {"a": 1500, "u": "g", "n": "Ochsenschwanz"},
-        {"a": 2, "u": "Stk", "n": "Zwiebeln"},
-        {"a": 3, "u": "Stk", "n": "Möhren"},
-        {"a": 2, "u": "Stk", "n": "Stangen Sellerie"},
-        {"a": 2, "u": "EL", "n": "Tomatenmark"},
-        {"a": 250, "u": "ml", "n": "Rotwein"},
-        {"a": 2.5, "u": "l", "n": "Rinderbrühe"},
-        {"a": 3, "u": "EL", "n": "Rapsöl"},
-        {"a": 2, "u": "Stk", "n": "Lorbeerblätter"},
-        {"a": 2, "u": "TL", "n": "Salz"}
+        {
+          "a": 1500,
+          "u": "g",
+          "n": "Ochsenschwanz"
+        },
+        {
+          "a": 2,
+          "u": "Stk",
+          "n": "Zwiebeln"
+        },
+        {
+          "a": 3,
+          "u": "Stk",
+          "n": "Möhren"
+        },
+        {
+          "a": 2,
+          "u": "Stk",
+          "n": "Stangen Sellerie"
+        },
+        {
+          "a": 2,
+          "u": "EL",
+          "n": "Tomatenmark"
+        },
+        {
+          "a": 250,
+          "u": "ml",
+          "n": "Rotwein"
+        },
+        {
+          "a": 2.5,
+          "u": "l",
+          "n": "Rinderbrühe"
+        },
+        {
+          "a": 3,
+          "u": "EL",
+          "n": "Rapsöl"
+        },
+        {
+          "a": 2,
+          "u": "Stk",
+          "n": "Lorbeerblätter"
+        },
+        {
+          "a": 2,
+          "u": "TL",
+          "n": "Salz"
+        }
       ],
       "steps": [
         "Ochsenschwanzstücke im Öl rundum sehr dunkel anbraten und herausnehmen.",
@@ -505,27 +1094,66 @@
     },
     {
       "id": "beeton-victoria-sponge",
-      "title": "Victoria Sponge Cake",
-      "chapter": "Cakes",
+      "title": "Viktoria-Biskuittorte",
+      "chapter": "Kuchen",
       "cuisine": "Britisch",
       "category": "Backen",
-      "meals": ["snack"],
-      "diet": ["vegetarisch"],
+      "meals": [
+        "snack"
+      ],
+      "diet": [
+        "vegetarisch"
+      ],
       "servings": 10,
       "prep": 20,
       "cook": 25,
       "difficulty": 1,
       "kcal": 380,
-      "tags": ["Teatime", "Klassiker"],
+      "tags": [
+        "Nachmittagstee",
+        "Klassiker"
+      ],
       "ingredients": [
-        {"a": 225, "u": "g", "n": "Butter"},
-        {"a": 225, "u": "g", "n": "Zucker"},
-        {"a": 225, "u": "g", "n": "Weizenmehl Type 405"},
-        {"a": 4, "u": "Stk", "n": "Eier"},
-        {"a": 2, "u": "TL", "n": "Backpulver"},
-        {"a": 200, "u": "g", "n": "Erdbeermarmelade"},
-        {"a": 300, "u": "ml", "n": "Sahne"},
-        {"a": 30, "u": "g", "n": "Puderzucker"}
+        {
+          "a": 225,
+          "u": "g",
+          "n": "Butter"
+        },
+        {
+          "a": 225,
+          "u": "g",
+          "n": "Zucker"
+        },
+        {
+          "a": 225,
+          "u": "g",
+          "n": "Weizenmehl Type 405"
+        },
+        {
+          "a": 4,
+          "u": "Stk",
+          "n": "Eier"
+        },
+        {
+          "a": 2,
+          "u": "TL",
+          "n": "Backpulver"
+        },
+        {
+          "a": 200,
+          "u": "g",
+          "n": "Erdbeermarmelade"
+        },
+        {
+          "a": 300,
+          "u": "ml",
+          "n": "Sahne"
+        },
+        {
+          "a": 30,
+          "u": "g",
+          "n": "Puderzucker"
+        }
       ],
       "steps": [
         "Butter und Zucker sehr hell und schaumig aufschlagen.",
@@ -539,24 +1167,54 @@
     },
     {
       "id": "beeton-mint-sauce",
-      "title": "Mint Sauce",
-      "chapter": "Sauces",
+      "title": "Minzsauce",
+      "chapter": "Saucen",
       "cuisine": "Britisch",
       "category": "Grundrezept",
-      "meals": ["mittag", "abend"],
-      "diet": ["vegetarisch", "vegan", "glutenfrei"],
+      "meals": [
+        "mittag",
+        "abend"
+      ],
+      "diet": [
+        "vegetarisch",
+        "vegan",
+        "glutenfrei"
+      ],
       "servings": 6,
       "prep": 10,
       "cook": 0,
       "difficulty": 1,
       "kcal": 40,
-      "tags": ["Sauce", "schnell"],
+      "tags": [
+        "Sauce",
+        "schnell"
+      ],
       "ingredients": [
-        {"a": 2, "u": "Bund", "n": "Minze"},
-        {"a": 4, "u": "EL", "n": "Weinessig"},
-        {"a": 2, "u": "EL", "n": "Zucker"},
-        {"a": 3, "u": "EL", "n": "heißes Wasser"},
-        {"a": 1, "u": "Prise", "n": "Salz"}
+        {
+          "a": 2,
+          "u": "Bund",
+          "n": "Minze"
+        },
+        {
+          "a": 4,
+          "u": "EL",
+          "n": "Weinessig"
+        },
+        {
+          "a": 2,
+          "u": "EL",
+          "n": "Zucker"
+        },
+        {
+          "a": 3,
+          "u": "EL",
+          "n": "heißes Wasser"
+        },
+        {
+          "a": 1,
+          "u": "Prise",
+          "n": "Salz"
+        }
       ],
       "steps": [
         "Minzblätter sehr fein hacken.",
@@ -568,25 +1226,57 @@
     },
     {
       "id": "beeton-baked-custard",
-      "title": "Baked Custard",
-      "chapter": "Creams",
+      "title": "Eiercreme aus dem Ofen",
+      "chapter": "Cremes",
       "cuisine": "Britisch",
       "category": "Dessert",
-      "meals": ["snack"],
-      "diet": ["vegetarisch", "glutenfrei"],
+      "meals": [
+        "snack"
+      ],
+      "diet": [
+        "vegetarisch",
+        "glutenfrei"
+      ],
       "servings": 6,
       "prep": 10,
       "cook": 45,
       "difficulty": 2,
       "kcal": 220,
-      "tags": ["Ofen", "Klassiker"],
+      "tags": [
+        "Ofen",
+        "Klassiker"
+      ],
       "ingredients": [
-        {"a": 600, "u": "ml", "n": "Milch"},
-        {"a": 200, "u": "ml", "n": "Sahne"},
-        {"a": 5, "u": "Stk", "n": "Eier"},
-        {"a": 100, "u": "g", "n": "Zucker"},
-        {"a": 1, "u": "Stk", "n": "Vanilleschote"},
-        {"a": 1, "u": "TL", "n": "Muskatnuss"}
+        {
+          "a": 600,
+          "u": "ml",
+          "n": "Milch"
+        },
+        {
+          "a": 200,
+          "u": "ml",
+          "n": "Sahne"
+        },
+        {
+          "a": 5,
+          "u": "Stk",
+          "n": "Eier"
+        },
+        {
+          "a": 100,
+          "u": "g",
+          "n": "Zucker"
+        },
+        {
+          "a": 1,
+          "u": "Stk",
+          "n": "Vanilleschote"
+        },
+        {
+          "a": 1,
+          "u": "TL",
+          "n": "Muskatnuss"
+        }
       ],
       "steps": [
         "Milch und Sahne mit Vanille erhitzen, nicht kochen.",
@@ -599,23 +1289,48 @@
     },
     {
       "id": "beeton-lemon-curd",
-      "title": "Lemon Curd",
-      "chapter": "Preserves",
+      "title": "Zitronenaufstrich",
+      "chapter": "Eingemachtes",
       "cuisine": "Britisch",
       "category": "Grundrezept",
-      "meals": ["fruehstueck", "snack"],
-      "diet": ["vegetarisch", "glutenfrei"],
+      "meals": [
+        "fruehstueck",
+        "snack"
+      ],
+      "diet": [
+        "vegetarisch",
+        "glutenfrei"
+      ],
       "servings": 12,
       "prep": 10,
       "cook": 20,
       "difficulty": 2,
       "kcal": 120,
-      "tags": ["Aufstrich", "Vorkochen"],
+      "tags": [
+        "Aufstrich",
+        "Vorkochen"
+      ],
       "ingredients": [
-        {"a": 4, "u": "Stk", "n": "Zitronen"},
-        {"a": 200, "u": "g", "n": "Zucker"},
-        {"a": 100, "u": "g", "n": "Butter"},
-        {"a": 4, "u": "Stk", "n": "Eier"}
+        {
+          "a": 4,
+          "u": "Stk",
+          "n": "Zitronen"
+        },
+        {
+          "a": 200,
+          "u": "g",
+          "n": "Zucker"
+        },
+        {
+          "a": 100,
+          "u": "g",
+          "n": "Butter"
+        },
+        {
+          "a": 4,
+          "u": "Stk",
+          "n": "Eier"
+        }
       ],
       "steps": [
         "Zitronenschale abreiben und Saft auspressen.",
@@ -628,29 +1343,77 @@
     },
     {
       "id": "beeton-plum-pudding",
-      "title": "Christmas Plum Pudding",
-      "chapter": "Puddings",
+      "title": "Englischer Früchtepudding",
+      "chapter": "Aufläufe und Puddings",
       "cuisine": "Britisch",
       "category": "Dessert",
-      "meals": ["snack"],
-      "diet": ["vegetarisch"],
+      "meals": [
+        "snack"
+      ],
+      "diet": [
+        "vegetarisch"
+      ],
       "servings": 10,
       "prep": 40,
       "cook": 360,
       "difficulty": 3,
       "kcal": 450,
-      "tags": ["Weihnachten", "Dampfgaren", "Vorkochen"],
+      "tags": [
+        "Weihnachten",
+        "Dampfgaren",
+        "Vorkochen"
+      ],
       "ingredients": [
-        {"a": 250, "u": "g", "n": "Rosinen"},
-        {"a": 250, "u": "g", "n": "Korinthen"},
-        {"a": 150, "u": "g", "n": "Orangeat und Zitronat"},
-        {"a": 200, "u": "g", "n": "Semmelbrösel"},
-        {"a": 150, "u": "g", "n": "Weizenmehl Type 405"},
-        {"a": 200, "u": "g", "n": "Butter"},
-        {"a": 200, "u": "g", "n": "brauner Zucker"},
-        {"a": 4, "u": "Stk", "n": "Eier"},
-        {"a": 150, "u": "ml", "n": "Brandy"},
-        {"a": 2, "u": "TL", "n": "Lebkuchengewürz"}
+        {
+          "a": 250,
+          "u": "g",
+          "n": "Rosinen"
+        },
+        {
+          "a": 250,
+          "u": "g",
+          "n": "Korinthen"
+        },
+        {
+          "a": 150,
+          "u": "g",
+          "n": "Orangeat und Zitronat"
+        },
+        {
+          "a": 200,
+          "u": "g",
+          "n": "Semmelbrösel"
+        },
+        {
+          "a": 150,
+          "u": "g",
+          "n": "Weizenmehl Type 405"
+        },
+        {
+          "a": 200,
+          "u": "g",
+          "n": "Butter"
+        },
+        {
+          "a": 200,
+          "u": "g",
+          "n": "brauner Zucker"
+        },
+        {
+          "a": 4,
+          "u": "Stk",
+          "n": "Eier"
+        },
+        {
+          "a": 150,
+          "u": "ml",
+          "n": "Brandy"
+        },
+        {
+          "a": 2,
+          "u": "TL",
+          "n": "Lebkuchengewürz"
+        }
       ],
       "steps": [
         "Alle Trockenfrüchte über Nacht im Brandy einweichen.",

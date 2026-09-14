@@ -93,6 +93,32 @@
       "accent": "#2F8F83"
     },
     {
+      "id": "unitools",
+      "kind": "datensatz",
+      "title": "UniTools Rezeptdatensatz",
+      "author": "UniTools",
+      "year": 2026,
+      "country": "International",
+      "license": "CC BY-SA 4.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0/deed.de",
+      "url": "https://theunitools.com/",
+      "via": "501 Gerichte aus 127 Ländern, englischsprachig — nur über das Import-Werkzeug",
+      "accent": "#2E6FB7"
+    },
+    {
+      "id": "kochwiki",
+      "kind": "wiki",
+      "title": "Koch-Wiki",
+      "author": "Koch-Wiki-Autorinnen und -Autoren",
+      "year": 2026,
+      "country": "Deutschland",
+      "license": "CC BY-SA",
+      "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0/de/",
+      "url": "https://www.kochwiki.org/",
+      "via": "rund 9000 Rezepte, MediaWiki-Schnittstelle",
+      "accent": "#8C4B9E"
+    },
+    {
       "id": "themealdb",
       "kind": "api",
       "title": "TheMealDB",
@@ -102,7 +128,7 @@
       "license": "Frei nutzbar mit Namensnennung",
       "licenseUrl": "https://www.themealdb.com/api.php",
       "url": "https://www.themealdb.com/",
-      "via": "REST-API, Testschluessel 1",
+      "via": "REST-Schnittstelle, englischsprachig — nur über das Import-Werkzeug",
       "accent": "#D4763C"
     },
     {

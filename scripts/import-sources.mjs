@@ -25,6 +25,8 @@ import { parseRecipeFromHtml } from '../src/sources/schemaorg.js';
 import * as themealdb from '../src/sources/themealdb.js';
 import * as wikibooks from '../src/sources/wikibooks.js';
 import * as gutendex from '../src/sources/gutendex.js';
+import * as kochwiki from '../src/sources/kochwiki.js';
+import * as unitools from '../src/sources/unitools.js';
 
 const OUT_PRIVATE = 'data/importiert';
 const OUT_OPEN = 'data/offene-quellen';
@@ -142,6 +144,39 @@ async function importWikibooks(limit) {
   if (args.bundle) await bundle('wikibooks-de', 'wikibooks-live', recipes);
 }
 
+async function importUnitools() {
+  const recipes = await unitools.fetchAll();
+  if (!recipes.length) throw new Error('Datensatz war leer.');
+
+  const out = await save(OUT_OPEN, 'unitools', {
+    sourceId: 'unitools',
+    license: 'CC BY-SA 4.0',
+    attribution: 'UniTools — theunitools.com',
+    fetchedAt: new Date().toISOString(),
+    recipes,
+  });
+  console.log(`✓ ${recipes.length} Rezepte aus dem UniTools-Datensatz`);
+  console.log(`  ${out}`);
+  if (args.bundle) await bundle('unitools', 'unitools', recipes);
+}
+
+async function importKochwiki(limit) {
+  const recipes = await kochwiki.fetchBatch(limit, (n, total) =>
+    process.stdout.write(`\r  ${n}/${total} Rezepte `));
+  process.stdout.write('\n');
+  if (!recipes.length) throw new Error('Keine verwertbaren Rezeptseiten gefunden.');
+
+  const out = await save(OUT_OPEN, 'kochwiki', {
+    sourceId: 'kochwiki',
+    license: 'CC BY-SA',
+    fetchedAt: new Date().toISOString(),
+    recipes,
+  });
+  console.log(`✓ ${recipes.length} Rezepte aus dem Koch-Wiki`);
+  console.log(`  ${out}`);
+  if (args.bundle) await bundle('kochwiki', 'kochwiki', recipes);
+}
+
 async function importGutendex(query) {
   const books = await gutendex.findCookbooks(query);
 
@@ -162,6 +197,10 @@ try {
     await importTheMealDB(typeof args.themealdb === 'string' ? args.themealdb : 'German');
   } else if (args.wikibooks) {
     await importWikibooks(typeof args.wikibooks === 'string' ? Number(args.wikibooks) : 20);
+  } else if (args.unitools) {
+    await importUnitools();
+  } else if (args.kochwiki) {
+    await importKochwiki(typeof args.kochwiki === 'string' ? Number(args.kochwiki) : 40);
   } else if (args.gutendex) {
     await importGutendex(typeof args.gutendex === 'string' ? args.gutendex : 'cookery');
   } else {
@@ -172,6 +211,8 @@ try {
   --themealdb alle       Gesamten TheMealDB-Bestand laden (rund 790 Rezepte)
   --themealdb <küche>    Nur eine Küche laden, z. B. Italian
   --wikibooks <anzahl>   Seiten aus dem Wikibooks-Kochbuch laden
+  --unitools             UniTools-Datensatz laden (501 Gerichte, CC BY-SA 4.0)
+  --kochwiki <anzahl>    Rezepte aus dem Koch-Wiki laden (CC BY-SA)
   --gutendex <suche>     Gemeinfreie Kochbücher bei Project Gutenberg suchen
   --bundle               Geladene Rezepte zusätzlich nach src/data/books/ schreiben
 

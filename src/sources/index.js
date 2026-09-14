@@ -7,24 +7,31 @@ import { SourceError, getText } from './http.js';
 import { parseRecipeFromHtml } from './schemaorg.js';
 import * as themealdb from './themealdb.js';
 import * as wikibooks from './wikibooks.js';
+import * as kochwiki from './kochwiki.js';
+import * as unitools from './unitools.js';
 import * as gutendex from './gutendex.js';
 import * as openfoodfacts from './openfoodfacts.js';
 
-export { themealdb, wikibooks, gutendex, openfoodfacts, SourceError };
+export { themealdb, wikibooks, kochwiki, unitools, gutendex, openfoodfacts, SourceError };
 
-/** Quellen, die sich auf Knopfdruck nachladen lassen. */
+/**
+ * Quellen, die sich in der App auf Knopfdruck nachladen lassen.
+ * Bewusst nur deutschsprachige: TheMealDB und der UniTools-Datensatz
+ * liefern ausschliesslich englische Texte und bleiben dem Import-Werkzeug
+ * auf der Kommandozeile vorbehalten.
+ */
 export const liveSources = [
-  {
-    id: 'themealdb',
-    label: 'TheMealDB',
-    hint: 'Rund 790 internationale Rezepte, frei mit Namensnennung',
-    run: (onProgress) => themealdb.fetchAll(onProgress),
-  },
   {
     id: 'wikibooks-de',
     label: 'Wikibooks Kochbuch',
     hint: 'Rezepte unter CC BY-SA 3.0, bewusst gedrosselt geladen',
     run: (onProgress) => wikibooks.fetchBatch(30, onProgress),
+  },
+  {
+    id: 'kochwiki',
+    label: 'Koch-Wiki',
+    hint: 'Deutschsprachige Rezepte unter CC BY-SA, gedrosselt geladen',
+    run: (onProgress) => kochwiki.fetchBatch(40, onProgress),
   },
 ];
 
