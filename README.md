@@ -171,6 +171,42 @@ npm run test:browser
 # abweichender Browser: CHROMIUM_PATH=/pfad/zu/chrome npm run test:browser
 ```
 
+## Abgleich mit Git
+
+Jede Änderung soll geprüft und gesichert sein, bevor sie liegen bleibt.
+Dafür greifen vier Dinge ineinander:
+
+**`npm run sync`** macht den ganzen Weg in einem Schritt: Modultests, Build,
+Commit, Push auf den aktuellen Branch. Ohne Argument leitet es die
+Commit-Nachricht aus den geänderten Pfaden ab.
+
+```bash
+npm run sync -- "Einkaufsliste nach Abteilungen sortiert"
+npm run sync
+```
+
+Schlägt eine Prüfung fehl, wird trotzdem **lokal committet** — keine Arbeit
+geht verloren —, der **Push bleibt aber aus**, damit der Branch auf der
+Gegenseite nie rot wird. Der nächste erfolgreiche Lauf schiebt beide Commits
+gemeinsam hoch. Auf `main` wird grundsätzlich nicht gepusht.
+
+**Git-Hooks** in `.githooks/` fangen manuelle Commits ab: `pre-commit` führt
+die Modultests aus, `pre-push` baut zusätzlich. Sie werden über
+`core.hooksPath` verankert und richten sich nach `npm install` von selbst ein.
+Umgehen lassen sie sich mit `--no-verify`; genau das nutzt das Sync-Werkzeug,
+weil es die Prüfungen selbst ausführt und anders entscheidet.
+
+**GitHub Actions** (`.github/workflows/ci.yml`) laufen bei jedem Push und
+jedem Pull Request: ein Job für Modultests und Build, ein zweiter für den
+Browser-Rauchtest in Chromium. Schlägt der Browsertest fehl, hängen die
+Bildschirmfotos als Artefakt am Lauf.
+
+**Claude Code** ist über `.claude/settings.json` daran gekoppelt: ein
+`SessionStart`-Hook installiert Abhängigkeiten und Git-Hooks, ein
+`Stop`-Hook ruft nach jedem Arbeitsschritt `npm run sync -- --auto` auf. Damit
+ist der Stand nach jedem Schritt geprüft und gesichert. Wer das nicht möchte,
+entfernt den `Stop`-Eintrag oder schaltet ihn über `/hooks` ab.
+
 ## Lizenz
 
 Der Quellcode steht unter MIT. Für die Rezeptdaten gelten die Lizenzen der
