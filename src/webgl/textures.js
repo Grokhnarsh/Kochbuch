@@ -1,15 +1,22 @@
 /**
- * Zeichnet alle Beschriftungen der Buehne auf 2D-Canvas und reicht sie
- * als Texturen an Three.js weiter. So bleibt die Typografie scharf und
- * die gesamte Darstellung liegt im WebGL-Kontext.
+ * Zeichnet die Zellen des Stundenplans auf 2D-Canvas und reicht sie als
+ * Texturen an Three.js weiter.
+ *
+ * Gestaltung wie ein gedruckter Plan: weißer Grund, schwarze Schrift,
+ * ruhige Flächen. Die Texturen sind bewusst deutlich größer als die
+ * Zelle auf dem Bildschirm, damit die Schrift scharf bleibt.
  */
 
 import * as THREE from 'three';
 
 const FONT = '"Inter", "Segoe UI", -apple-system, system-ui, sans-serif';
-const INK = '#14161b';
-const INK_SOFT = '#5d636e';
-const INK_FAINT = '#99a0ab';
+
+const INK = '#000000';
+const INK_SOFT = '#444444';
+const INK_FAINT = '#8a8a8a';
+const HEAD_FILL = '#f2f2f2';
+const TODAY_FILL = '#ffeee7';
+const TODAY_INK = '#b33b12';
 
 function makeCanvas(w, h) {
   const c = document.createElement('canvas');
@@ -22,23 +29,14 @@ function toTexture(canvas) {
   const t = new THREE.CanvasTexture(canvas);
   t.colorSpace = THREE.SRGBColorSpace;
   t.anisotropy = 8;
+  t.minFilter = THREE.LinearFilter;
   t.needsUpdate = true;
   return t;
 }
 
-function roundRect(ctx, x, y, w, h, r) {
-  ctx.beginPath();
-  ctx.moveTo(x + r, y);
-  ctx.arcTo(x + w, y, x + w, y + h, r);
-  ctx.arcTo(x + w, y + h, x, y + h, r);
-  ctx.arcTo(x, y + h, x, y, r);
-  ctx.arcTo(x, y, x + w, y, r);
-  ctx.closePath();
-}
-
-/** Bricht Text auf maximal `maxLines` Zeilen um und kuerzt mit Auslassung. */
+/** Bricht Text auf höchstens `maxLines` Zeilen um und kürzt mit Auslassung. */
 function wrapLines(ctx, text, maxWidth, maxLines) {
-  const words = text.split(' ');
+  const words = String(text).split(' ');
   const lines = [];
   let line = '';
 
@@ -66,10 +64,12 @@ function wrapLines(ctx, text, maxWidth, maxLines) {
   return lines;
 }
 
-/** Karte eines geplanten Rezepts. */
-export function recipeCardTexture(recipe, servings) {
-  const W = 620;
-  const H = 372;
+/* ---------------------------------------------------------------- Zellen */
+
+/** Belegte Zelle: Gericht mit Kennzahlen und Herkunft. */
+export function recipeCellTexture(recipe, servings) {
+  const W = 800;
+  const H = 353;
   const c = makeCanvas(W, H);
   const ctx = c.getContext('2d');
   const accent = recipe.source?.accent || '#f0653a';
@@ -77,136 +77,132 @@ export function recipeCardTexture(recipe, servings) {
   ctx.fillStyle = '#ffffff';
   ctx.fillRect(0, 0, W, H);
 
-  // Akzentstreifen der Quelle
+  // Farbmarke der Quelle am linken Rand
   ctx.fillStyle = accent;
-  ctx.fillRect(0, 0, 14, H);
+  ctx.fillRect(0, 0, 16, H);
 
-  // Sanfter Farbschimmer aus der Quellfarbe
-  const glow = ctx.createLinearGradient(14, 0, W * 0.75, H);
-  glow.addColorStop(0, `${accent}14`);
-  glow.addColorStop(1, '#ffffff00');
-  ctx.fillStyle = glow;
-  ctx.fillRect(14, 0, W - 14, H);
+  const padX = 40;
+  let y = 66;
 
-  const padX = 44;
-  let y = 62;
-
-  // Kategorie
-  ctx.font = `600 20px ${FONT}`;
+  ctx.font = `600 34px ${FONT}`;
   ctx.fillStyle = accent;
-  ctx.letterSpacing = '1.4px';
+  ctx.letterSpacing = '1.6px';
   ctx.fillText(recipe.category.toUpperCase(), padX, y);
   ctx.letterSpacing = '0px';
 
-  // Titel
-  y += 46;
-  ctx.font = `640 38px ${FONT}`;
+  y += 62;
+  ctx.font = `700 58px ${FONT}`;
   ctx.fillStyle = INK;
-  const titleLines = wrapLines(ctx, recipe.title, W - padX - 40, 2);
-  for (const line of titleLines) {
+  for (const line of wrapLines(ctx, recipe.title, W - padX - 34, 2)) {
     ctx.fillText(line, padX, y);
-    y += 45;
+    y += 64;
   }
 
-  // Kennzahlen
-  y = H - 96;
-  ctx.font = `500 23px ${FONT}`;
+  ctx.font = `500 40px ${FONT}`;
   ctx.fillStyle = INK_SOFT;
   const facts = [`${recipe.totalTime} Min.`, `${servings} Port.`];
   if (recipe.kcal) {
     facts.push(`${Math.round((recipe.kcal * servings) / (recipe.servings || 1))} kcal`);
   }
-  ctx.fillText(facts.join('   ·   '), padX, y);
-
-  // Quelle
-  y = H - 46;
-  ctx.font = `500 20px ${FONT}`;
-  ctx.fillStyle = INK_FAINT;
-  const src = recipe.source?.author || recipe.source?.title || '';
-  const srcLine = wrapLines(ctx, src, W - padX - 40, 1)[0] || '';
-  ctx.fillText(srcLine, padX, y);
-
-  return toTexture(c);
-}
-
-/** Leerer Slot mit gestricheltem Rahmen und Mahlzeitenhinweis. */
-export function slotTexture(label) {
-  const W = 620;
-  const H = 372;
-  const c = makeCanvas(W, H);
-  const ctx = c.getContext('2d');
-
-  ctx.clearRect(0, 0, W, H);
-  ctx.fillStyle = 'rgba(255,255,255,0.72)';
-  ctx.fillRect(0, 0, W, H);
-
-  ctx.setLineDash([13, 11]);
-  ctx.lineWidth = 3;
-  ctx.strokeStyle = 'rgba(20,22,27,0.22)';
-  roundRect(ctx, 18, 18, W - 36, H - 36, 26);
-  ctx.stroke();
-  ctx.setLineDash([]);
-
-  ctx.font = `500 26px ${FONT}`;
-  ctx.fillStyle = 'rgba(20,22,27,0.34)';
-  ctx.textAlign = 'center';
-  ctx.fillText(label, W / 2, H / 2 + 9);
-  ctx.textAlign = 'left';
-
-  return toTexture(c);
-}
-
-/** Zeilenkopf eines Wochentags: Name, Datum und Tagesenergie. */
-export function dayHeaderTexture(day, date, kcal, isToday) {
-  const W = 560;
-  const H = 220;
-  const c = makeCanvas(W, H);
-  const ctx = c.getContext('2d');
-  const right = W - 26;
-
-  ctx.clearRect(0, 0, W, H);
-
-  if (isToday) {
-    ctx.fillStyle = '#fff0ea';
-    roundRect(ctx, 10, 12, W - 20, H - 24, 30);
-    ctx.fill();
-  }
-
-  ctx.textAlign = 'right';
-
-  ctx.font = `660 60px ${FONT}`;
-  ctx.fillStyle = isToday ? '#c2431c' : INK;
-  ctx.fillText(day.label, right, 82);
+  ctx.fillText(facts.join('   ·   '), padX, H - 84);
 
   ctx.font = `500 34px ${FONT}`;
-  ctx.fillStyle = isToday ? '#c2431c' : INK_FAINT;
+  ctx.fillStyle = INK_FAINT;
+  const src = recipe.source?.author || recipe.source?.title || '';
+  ctx.fillText(wrapLines(ctx, src, W - padX - 34, 1)[0] || '', padX, H - 32);
+
+  return toTexture(c);
+}
+
+/** Freie Zelle: bleibt leer wie im gedruckten Plan, mit leisem Hinweis. */
+export function emptyCellTexture() {
+  const W = 800;
+  const H = 353;
+  const c = makeCanvas(W, H);
+  const ctx = c.getContext('2d');
+
+  ctx.fillStyle = '#ffffff';
+  ctx.fillRect(0, 0, W, H);
+
+  ctx.strokeStyle = '#d0d0d0';
+  ctx.lineWidth = 5;
+  ctx.lineCap = 'round';
+  ctx.beginPath();
+  ctx.moveTo(W / 2 - 26, H / 2);
+  ctx.lineTo(W / 2 + 26, H / 2);
+  ctx.moveTo(W / 2, H / 2 - 26);
+  ctx.lineTo(W / 2, H / 2 + 26);
+  ctx.stroke();
+
+  return toTexture(c);
+}
+
+/** Spaltenkopf: Name der Mahlzeit. */
+export function mealHeadTexture(meal) {
+  const W = 800;
+  const H = 226;
+  const c = makeCanvas(W, H);
+  const ctx = c.getContext('2d');
+
+  ctx.fillStyle = HEAD_FILL;
+  ctx.fillRect(0, 0, W, H);
+
+  ctx.textAlign = 'center';
+  ctx.font = `700 62px ${FONT}`;
+  ctx.fillStyle = INK;
+  ctx.letterSpacing = '2px';
+  ctx.fillText(meal.label.toUpperCase(), W / 2, H / 2 + 21);
+  ctx.letterSpacing = '0px';
+  ctx.textAlign = 'left';
+
+  return toTexture(c);
+}
+
+/** Zeilenkopf: Wochentag mit Datum und Tagesenergie. */
+export function dayHeadTexture(day, date, kcal, isToday) {
+  const W = 600;
+  const H = 375;
+  const c = makeCanvas(W, H);
+  const ctx = c.getContext('2d');
+
+  ctx.fillStyle = isToday ? TODAY_FILL : HEAD_FILL;
+  ctx.fillRect(0, 0, W, H);
+
+  ctx.textAlign = 'center';
+
+  ctx.font = `700 64px ${FONT}`;
+  ctx.fillStyle = isToday ? TODAY_INK : INK;
+  ctx.fillText(day.label, W / 2, 138);
+
+  ctx.font = `500 44px ${FONT}`;
+  ctx.fillStyle = isToday ? TODAY_INK : INK_SOFT;
   const d = `${String(date.getDate()).padStart(2, '0')}.${String(date.getMonth() + 1).padStart(2, '0')}.`;
-  ctx.fillText(d, right, 132);
+  ctx.fillText(d, W / 2, 202);
 
   if (kcal > 0) {
-    ctx.font = `600 30px ${FONT}`;
-    ctx.fillStyle = '#3f7d63';
-    ctx.fillText(`${Math.round(kcal)} kcal`, right, 184);
+    ctx.font = `600 40px ${FONT}`;
+    ctx.fillStyle = '#2f6b4f';
+    ctx.fillText(`${Math.round(kcal)} kcal`, W / 2, 274);
   }
 
   ctx.textAlign = 'left';
   return toTexture(c);
 }
 
-/** Spaltenkopf einer Mahlzeit ueber dem Raster. */
-export function mealLabelTexture(meal) {
-  const W = 460;
-  const H = 130;
+/** Eckfeld oben links: Kalenderwoche. */
+export function cornerTexture(label) {
+  const W = 600;
+  const H = 240;
   const c = makeCanvas(W, H);
   const ctx = c.getContext('2d');
 
-  ctx.clearRect(0, 0, W, H);
+  ctx.fillStyle = HEAD_FILL;
+  ctx.fillRect(0, 0, W, H);
+
   ctx.textAlign = 'center';
-  ctx.font = `640 46px ${FONT}`;
+  ctx.font = `700 52px ${FONT}`;
   ctx.fillStyle = INK_SOFT;
-  ctx.letterSpacing = '1px';
-  ctx.fillText(meal.label, W / 2, H / 2 + 16);
-  ctx.letterSpacing = '0px';
+  ctx.fillText(label, W / 2, H / 2 + 19);
   ctx.textAlign = 'left';
 
   return toTexture(c);

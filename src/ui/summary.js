@@ -17,12 +17,10 @@ export function renderSummary() {
   const s = store.stats();
 
   host.innerHTML = `
-    <h3>Diese Woche</h3>
-    <div class="summary-row"><span>Gerichte</span><b>${s.count} / ${s.totalSlots}</b></div>
-    <div class="summary-row"><span>Geplante Tage</span><b>${s.plannedDays} / 7</b></div>
-    <div class="summary-row"><span>Kochzeit</span><b>${minutesLabel(s.cookMinutes)}</b></div>
-    <div class="summary-row"><span>Ø kcal / Tag</span><b>${s.kcalAvg || '—'}</b></div>
-    <div class="summary-bar"><i style="width:${Math.round(s.fill * 100)}%"></i></div>
+    <span><b>${s.count}</b> von ${s.totalSlots} Feldern</span>
+    <span><b>${s.plannedDays}</b> von 7 Tagen</span>
+    <span>Kochzeit <b>${minutesLabel(s.cookMinutes)}</b></span>
+    <span>Ø <b>${s.kcalAvg || '—'}</b> kcal/Tag</span>
   `;
 }
 

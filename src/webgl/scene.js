@@ -1,42 +1,70 @@
 /**
- * WebGL-Buehne: Renderer, Kamera, Licht, Untergrund und Renderschleife.
- * Die Kamera rahmt das Board so, dass die Bibliothek links nichts verdeckt.
+ * WebGL-Bühne für den Stundenplan.
+ *
+ * Orthografische Draufsicht statt Perspektive: keine Fluchtpunkte, keine
+ * Kippung, keine Schatten. Das Raster erscheint flach und maßstabsgetreu,
+ * wie ein gedruckter Plan. Gerendert wird weiterhin über WebGL.
  */
 
 import * as THREE from 'three';
-import { OrbitControls } from 'three/examples/jsm/controls/OrbitControls.js';
 
-const BG = 0xf6f7f9;
+const BG = 0xffffff;
+const CAMERA_HEIGHT = 60;
 
-/** Weicher radialer Verlauf als Tischflaeche. */
-function groundTexture() {
-  const size = 1024;
-  const c = document.createElement('canvas');
-  c.width = size;
-  c.height = size;
-  const ctx = c.getContext('2d');
+/** Pan und Zoom für eine feste Draufsicht. */
+class FlatControls {
+  constructor(stage, canvas) {
+    this.stage = stage;
+    this.enabled = true;
+    this.dragging = null;
 
-  const g = ctx.createRadialGradient(size / 2, size * 0.42, size * 0.05, size / 2, size / 2, size * 0.62);
-  g.addColorStop(0, '#ffffff');
-  g.addColorStop(0.55, '#f7f8fa');
-  g.addColorStop(1, '#e9ecf1');
-  ctx.fillStyle = g;
-  ctx.fillRect(0, 0, size, size);
+    canvas.addEventListener('wheel', (e) => {
+      e.preventDefault();
+      stage.setZoom(stage.zoom * Math.exp(-e.deltaY * 0.0012));
+    }, { passive: false });
 
-  const t = new THREE.CanvasTexture(c);
-  t.colorSpace = THREE.SRGBColorSpace;
-  return t;
+    canvas.addEventListener('pointerdown', (e) => {
+      if (!this.enabled || e.button !== 0) return;
+      this.dragging = { x: e.clientX, y: e.clientY, id: e.pointerId };
+    });
+
+    canvas.addEventListener('pointermove', (e) => {
+      if (!this.dragging || !this.enabled) return;
+      const unit = stage.worldPerPixel();
+      stage.panBy(
+        -(e.clientX - this.dragging.x) * unit,
+        -(e.clientY - this.dragging.y) * unit,
+      );
+      this.dragging.x = e.clientX;
+      this.dragging.y = e.clientY;
+      canvas.style.cursor = 'grabbing';
+    });
+
+    const stop = () => {
+      this.dragging = null;
+      canvas.style.cursor = 'default';
+    };
+    canvas.addEventListener('pointerup', stop);
+    canvas.addEventListener('pointercancel', stop);
+    canvas.addEventListener('pointerleave', stop);
+  }
 }
 
 export class Stage {
   /**
    * @param {HTMLCanvasElement} canvas
-   * @param {{boardWidth:number, boardDepth:number}} frame Groesse, die sichtbar bleiben muss
+   * @param {{width:number, height:number}} frame Ausdehnung des Plans in Welteinheiten
    */
   constructor(canvas, frame) {
     this.frame = frame;
     this.canvas = canvas;
     this.tickers = new Set();
+
+    this.zoom = 1;
+    this.pan = { x: 0, z: 0 };
+    this.fitHeight = 12;
+    this.centreX = 0;
+    this.centreY = 0;
 
     this.renderer = new THREE.WebGLRenderer({
       canvas,
@@ -46,30 +74,16 @@ export class Stage {
     });
     this.renderer.setClearColor(BG, 1);
     this.renderer.outputColorSpace = THREE.SRGBColorSpace;
-    this.renderer.toneMapping = THREE.ACESFilmicToneMapping;
-    this.renderer.toneMappingExposure = 1.06;
-    this.renderer.shadowMap.enabled = true;
-    this.renderer.shadowMap.type = THREE.PCFSoftShadowMap;
 
     this.scene = new THREE.Scene();
-    this.scene.fog = new THREE.Fog(BG, 34, 62);
+    this.scene.background = new THREE.Color(BG);
 
-    this.camera = new THREE.PerspectiveCamera(36, 1, 0.1, 200);
-    this.camera.position.set(0, 13, 13);
+    // Draufsicht: Blick entlang -Y, Weltrichtung -Z zeigt nach oben.
+    this.camera = new THREE.OrthographicCamera(-1, 1, 1, -1, 0.1, 200);
+    this.camera.up.set(0, 0, -1);
+    this.camera.position.set(0, CAMERA_HEIGHT, 0);
 
-    this.controls = new OrbitControls(this.camera, canvas);
-    this.controls.enableDamping = true;
-    this.controls.dampingFactor = 0.075;
-    this.controls.enablePan = false;
-    this.controls.rotateSpeed = 0.42;
-    this.controls.zoomSpeed = 0.7;
-    this.controls.minPolarAngle = 0.18;
-    this.controls.maxPolarAngle = 1.12;
-    this.controls.minAzimuthAngle = -0.52;
-    this.controls.maxAzimuthAngle = 0.52;
-
-    this.#addLights();
-    this.#addGround();
+    this.controls = new FlatControls(this, canvas);
 
     this.resize();
     window.addEventListener('resize', () => this.resize());
@@ -78,73 +92,32 @@ export class Stage {
     this.renderer.setAnimationLoop(() => this.#tick());
   }
 
-  #addLights() {
-    this.scene.add(new THREE.HemisphereLight(0xffffff, 0xd9dee7, 1.25));
-    this.scene.add(new THREE.AmbientLight(0xffffff, 0.42));
-
-    const key = new THREE.DirectionalLight(0xffffff, 1.45);
-    key.position.set(7, 16, 9);
-    key.castShadow = true;
-    key.shadow.mapSize.set(2048, 2048);
-    key.shadow.radius = 4;
-    key.shadow.bias = -0.0012;
-    key.shadow.normalBias = 0.02;
-
-    const s = key.shadow.camera;
-    s.left = -16;
-    s.right = 16;
-    s.top = 14;
-    s.bottom = -14;
-    s.near = 1;
-    s.far = 44;
-    s.updateProjectionMatrix();
-    this.scene.add(key);
-
-    const fill = new THREE.DirectionalLight(0xfff4ec, 0.34);
-    fill.position.set(-9, 7, -6);
-    this.scene.add(fill);
+  /** Welteinheiten je Bildschirmpixel beim aktuellen Zoom. */
+  worldPerPixel() {
+    return this.fitHeight / this.zoom / this.renderer.domElement.clientHeight;
   }
 
-  #addGround() {
-    const geo = new THREE.PlaneGeometry(90, 90);
-    const mat = new THREE.MeshStandardMaterial({
-      map: groundTexture(),
-      roughness: 0.98,
-      metalness: 0,
-    });
-    const ground = new THREE.Mesh(geo, mat);
-    ground.rotation.x = -Math.PI / 2;
-    ground.position.y = -0.04;
-    ground.receiveShadow = true;
-    this.scene.add(ground);
+  setZoom(value) {
+    this.zoom = THREE.MathUtils.clamp(value, 0.55, 4);
+    this.#applyCamera();
   }
 
-  /** Wie viele Weltmeter ein Bildschirmpixel auf Boardhoehe abdeckt. */
-  #worldPerPixel() {
-    const dist = this.camera.position.distanceTo(this.controls.target);
-    const h = 2 * dist * Math.tan((this.camera.fov * Math.PI) / 360);
-    return h / this.renderer.domElement.clientHeight;
+  panBy(dx, dz) {
+    this.pan.x += dx;
+    this.pan.z += dz;
+    this.#applyCamera();
   }
 
-  /** Die acht Eckpunkte des Bereichs, der sichtbar bleiben muss. */
-  #frameCorners() {
-    const x = this.frame.boardWidth / 2;
-    const z = this.frame.boardDepth / 2;
-    const y = 0.7;
-    const out = [];
-    for (const sx of [-x, x]) {
-      for (const sz of [-z, z]) {
-        out.push(new THREE.Vector3(sx, 0, sz), new THREE.Vector3(sx, y, sz));
-      }
-    }
-    return out;
+  resetView() {
+    this.zoom = 1;
+    this.pan.x = 0;
+    this.pan.z = 0;
+    this.#applyCamera();
   }
 
   /**
-   * Setzt Kameradistanz und Blickziel so, dass das Board vollstaendig in
-   * dem Bereich liegt, den Bibliothek und Wochenbilanz frei lassen.
-   * Die Passung wird iterativ ermittelt, damit sie unabhaengig von
-   * Blickwinkel und Seitenverhaeltnis stimmt.
+   * Rahmt den Plan so, dass er vollständig in dem Bereich liegt, den
+   * Bibliothek und Wochenbilanz frei lassen.
    */
   resize() {
     const w = window.innerWidth;
@@ -152,58 +125,48 @@ export class Stage {
 
     this.renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
     this.renderer.setSize(w, h, false);
-    this.camera.aspect = w / h;
-    this.camera.updateProjectionMatrix();
 
     const compact = w < 900;
-    const padLeft = compact ? 16 : 386;   // Bibliothek
-    const padRight = compact ? 16 : 48;   // Wochenbilanz sitzt nur oben rechts
-    const padTop = 78;                    // Kopfzeile
-    const padBottom = compact ? 24 : 72;  // Hinweiszeile
+    const padLeft = compact ? 14 : 384;   // Bibliothek
+    const padRight = compact ? 14 : 40;   // die Wochenbilanz sitzt jetzt in der Kopfzeile
+    const padTop = 74;                    // Kopfzeile
+    const padBottom = compact ? 20 : 64;  // Hinweiszeile
 
-    const usableW = Math.max(280, w - padLeft - padRight);
-    const usableH = Math.max(240, h - padTop - padBottom);
+    const usableW = Math.max(260, w - padLeft - padRight);
+    const usableH = Math.max(220, h - padTop - padBottom);
 
-    // Mittelpunkt des freien Bereichs, in normalisierten Gerätekoordinaten
-    const centreX = ((padLeft + usableW / 2) / w) * 2 - 1;
-    const centreY = -(((padTop + usableH / 2) / h) * 2 - 1);
+    const aspect = w / h;
+    const byHeight = this.frame.height * (h / usableH);
+    const byWidth = (this.frame.width * (w / usableW)) / aspect;
+    this.fitHeight = Math.max(byHeight, byWidth) * 1.03;
 
-    const limitX = (usableW / w) * 0.97;
-    const limitY = (usableH / h) * 0.97;
+    // Mitte des freien Bereichs in normalisierten Gerätekoordinaten
+    this.centreX = ((padLeft + usableW / 2) / w) * 2 - 1;
+    this.centreY = -(((padTop + usableH / 2) / h) * 2 - 1);
 
-    const corners = this.#frameCorners();
-    const dir = new THREE.Vector3(0, 0.86, 0.51).normalize();
-    let dist = 20;
-
-    for (let i = 0; i < 8; i += 1) {
-      const wpp = (2 * dist * Math.tan((this.camera.fov * Math.PI) / 360)) / h;
-      const shiftX = (centreX * w) / 2 * wpp;
-
-      this.controls.target.set(-shiftX, 0, 0);
-      this.camera.position.copy(dir).multiplyScalar(dist).add(this.controls.target);
-      this.camera.lookAt(this.controls.target);
-      this.camera.updateMatrixWorld(true);
-
-      let maxX = 0;
-      let maxY = 0;
-      for (const corner of corners) {
-        const p = corner.clone().project(this.camera);
-        maxX = Math.max(maxX, Math.abs(p.x - centreX));
-        maxY = Math.max(maxY, Math.abs(p.y - centreY));
-      }
-
-      const scale = Math.max(maxX / limitX, maxY / limitY);
-      if (Math.abs(scale - 1) < 0.005) break;
-      dist = THREE.MathUtils.clamp(dist * scale, 9, 60);
-    }
-
-    this.controls.minDistance = dist * 0.55;
-    this.controls.maxDistance = dist * 1.8;
-    this.camera.updateProjectionMatrix();
-    this.controls.update();
+    this.#applyCamera();
   }
 
-  /** Registriert eine Funktion, die je Frame laeuft. */
+  #applyCamera() {
+    const w = window.innerWidth;
+    const h = window.innerHeight;
+    const viewH = this.fitHeight / this.zoom;
+    const viewW = viewH * (w / h);
+
+    this.camera.top = viewH / 2;
+    this.camera.bottom = -viewH / 2;
+    this.camera.left = -viewW / 2;
+    this.camera.right = viewW / 2;
+
+    const x = -this.centreX * (viewW / 2) + this.pan.x;
+    const z = this.centreY * (viewH / 2) + this.pan.z;
+
+    this.camera.position.set(x, CAMERA_HEIGHT, z);
+    this.camera.lookAt(x, 0, z);
+    this.camera.updateProjectionMatrix();
+  }
+
+  /** Registriert eine Funktion, die je Frame läuft. */
   onTick(fn) {
     this.tickers.add(fn);
     return () => this.tickers.delete(fn);
@@ -212,7 +175,6 @@ export class Stage {
   #tick() {
     const dt = Math.min(this.clock.getDelta(), 0.05);
     for (const fn of this.tickers) fn(dt);
-    this.controls.update();
     this.renderer.render(this.scene, this.camera);
   }
 }

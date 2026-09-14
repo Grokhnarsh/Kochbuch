@@ -1,10 +1,10 @@
 # Kochbuch
 
-Ein Wochen-Essensplaner, dessen Planungsfläche in WebGL läuft: sieben
-Tageszeilen, vier Mahlzeitenspalten, Rezepte als Karten, die man mit der Maus
-zwischen den Slots verschiebt. Dazu eine Bibliothek mit 140 Rezepten aus
-gemeinfreien Kochbüchern, eine Einkaufsliste, die sich aus dem Plan selbst
-zusammenrechnet, und der Weg von dort in den REWE-Onlineshop.
+Ein Wochen-Essensplaner in Form eines Stundenplans: sieben Tageszeilen, vier
+Mahlzeitenspalten, Gerichte in den Feldern, verschiebbar mit der Maus.
+Dazu eine Bibliothek mit 140 Rezepten aus gemeinfreien Kochbüchern, eine
+Einkaufsliste, die sich aus dem Plan selbst zusammenrechnet, und der Weg von
+dort in den REWE-Onlineshop.
 
 ```bash
 npm install
@@ -15,15 +15,22 @@ npm test          # Modultests
 
 ## Der Planer
 
-Die Bühne ist eine Three.js-Szene: abgerundete Karten mit echter Dicke und
-weichem Schatten, Beschriftungen als Canvas-Texturen, ein Untergrund mit
-sanftem Verlauf. Die Kamera rahmt das Raster bei jeder Fenstergröße neu ein
-und rechnet dabei den Platz heraus, den Bibliothek und Wochenbilanz belegen.
+Der Plan wird über WebGL gezeichnet (Three.js), sieht aber flach aus wie ein
+gedruckter Stundenplan: orthografische Draufsicht ohne Fluchtpunkte, weißer
+Grund, schwarzes Raster, keine Schatten. Die durchgehenden Linien entstehen
+aus einer dunklen Grundfläche, auf der die weißen Felder mit einem Spalt von
+Linienbreite liegen — dadurch sind alle Linien gleich stark, innen wie außen.
+Beschriftungen sind Canvas-Texturen in mehrfacher Auflösung, damit die Schrift
+scharf bleibt.
 
-- **Ziehen aus der Bibliothek** — eine Rezeptkarte auf einen Slot ziehen. Beim
-  Überfahren leuchtet der Zielslot auf.
-- **Verschieben im Plan** — Karten lassen sich zwischen Slots ziehen; ist das
-  Ziel belegt, tauschen die beiden Gerichte den Platz.
+Die Kamera rahmt das Raster bei jeder Fenstergröße neu ein und rechnet dabei
+den Platz heraus, den die Bibliothek belegt. Mausrad zoomt, Ziehen auf freier
+Fläche verschiebt, ein Doppelklick stellt den Ausschnitt wieder her.
+
+- **Ziehen aus der Bibliothek** — eine Rezeptkarte auf ein Feld ziehen. Beim
+  Überfahren färbt sich das Zielfeld ein.
+- **Verschieben im Plan** — Gerichte lassen sich zwischen Feldern ziehen; ist
+  das Ziel belegt, tauschen die beiden den Platz.
 - **Antippen** öffnet das Rezept mit Zutaten, Zubereitung und Quellenangabe.
   Die Portionszahl dort wirkt direkt auf Plan und Einkaufsliste.
 - **Woche füllen** belegt alle leeren Frühstücks-, Mittag- und Abendslots mit
@@ -136,7 +143,7 @@ src/
     books/         ein Kochbuch je Datei
   state/           Wochenplan, Kalenderrechnung, Mengenarithmetik,
                    Einkaufsliste, Abteilungszuordnung
-  webgl/           Szene, Planungsboard, Geometrie, Canvas-Texturen
+  webgl/           Szene, Stundenplan-Raster, Canvas-Texturen
   ui/              Bibliothek, Rezeptansicht, Einkaufsliste, Quellen
   sources/         Live-Adapter und schema.org-Importer
   shops/           Supermarkt-Anbindungen
