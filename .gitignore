@@ -1,0 +1,12 @@
+node_modules/
+dist/
+.vite/
+
+# Ergebnisse des Import-Werkzeugs. Der Pfad ist an die Wurzel gebunden,
+# damit das mitgelieferte Korpus unter src/data/ erhalten bleibt.
+# /data/importiert/ enthaelt Rezepte kommerzieller Portale: die Rechte am
+# Text liegen beim jeweiligen Anbieter, sie gehoeren nicht ins Repository.
+/data/
+
+.DS_Store
+*.log
