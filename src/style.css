@@ -322,10 +322,20 @@ a.ghost-btn { text-decoration: none; color: var(--ink); display: inline-block; }
 .tag.src { background: var(--accent-soft); color: var(--accent-ink); }
 
 .library-foot {
+  display: flex;
+  align-items: center;
+  gap: 10px;
   padding: 9px 16px 12px;
   border-top: 1px solid var(--line);
   font-size: 11px;
   color: var(--ink-faint);
+}
+
+.library-foot .ghost-btn {
+  margin-left: auto;
+  flex: none;
+  padding: 5px 10px;
+  font-size: 11.5px;
 }
 
 .empty-note {
@@ -597,21 +607,409 @@ a.ghost-btn { text-decoration: none; color: var(--ink); display: inline-block; }
   line-height: 1.6;
 }
 
-/* ------------------------------------------------------------- Responsiv */
+/* --------------------------------------------- Handy: Leisten und Blatt */
 
-@media (max-width: 900px) {
-  :root { --lib-w: min(330px, 86vw); }
-  .week-stats { display: none; }
-  .topbar { gap: 10px; padding: 0 12px; }
-  .topbar-actions .ghost-btn { display: none; }
-  .brand-text em { display: none; }
+/* Diese drei Bausteine erscheinen nur auf schmalen Geraeten. */
+.day-strip,
+.armed-bar,
+.phone-menu,
+.only-phone { display: none; }
+
+.library-count {
+  margin-left: auto;
+  font-size: 11.5px;
+  color: var(--ink-faint);
 }
 
-@media (max-width: 560px) {
-  .library { left: 8px; right: 8px; width: auto; bottom: 8px; }
-  .library.collapsed { transform: translateY(calc(100% - 52px)); }
-  .library.collapsed .library-toggle { position: static; transform: rotate(-90deg); }
+.sheet-grip { display: none; }
+
+/* ------------------------------------------------------------- Responsiv */
+
+@media (max-width: 1100px) and (min-width: 761px) {
+  :root { --lib-w: 320px; }
+  .week-stats { display: none; }
+}
+
+/* ---------------------------------------------------------------- Handy
+   Der Wochenplan zeigt hier einen Tag, die Bibliothek wird zum Blatt von
+   unten, und Rezepte werden angetippt statt gezogen — HTML-Drag gibt es
+   auf Beruehrungsgeraeten nicht. */
+
+@media (max-width: 760px) {
+  .topbar {
+    height: auto;
+    min-height: 54px;
+    flex-wrap: wrap;
+    gap: 8px;
+    padding: 8px 12px;
+    padding-top: max(8px, env(safe-area-inset-top));
+  }
+
+  .brand-mark { width: 26px; height: 26px; border-radius: 8px; }
+  .brand-text strong { font-size: 14px; }
+  .brand-text em { display: block; font-size: 10.5px; }
+
+  .week-nav { margin-left: auto; gap: 3px; }
+  .week-nav .ghost-btn { padding: 6px 9px; font-size: 12px; }
+  .week-stats { display: none; }
+
+  .topbar-actions { margin-left: 0; width: 100%; gap: 6px; }
+  .topbar-actions .ghost-btn { display: none; }
+  .topbar-actions .primary-btn { flex: 1; text-align: center; }
+  .only-phone { display: grid; }
+
+  /* Tagesleiste: ein Tag je Feld, der laufende hervorgehoben */
+  .day-strip {
+    position: fixed;
+    top: 104px;
+    left: 8px;
+    right: 8px;
+    display: flex;
+    gap: 4px;
+    z-index: 14;
+  }
+
+  .day-strip button {
+    flex: 1;
+    min-width: 0;
+    padding: 6px 0;
+    border: 1px solid var(--line);
+    border-radius: var(--r-sm);
+    background: var(--surface);
+    font-size: 12px;
+    font-weight: 560;
+    color: var(--ink-soft);
+    cursor: pointer;
+  }
+
+  .day-strip button[aria-current='true'] {
+    background: var(--ink);
+    border-color: var(--ink);
+    color: #fff;
+  }
+
+  .day-strip button .dot {
+    display: block;
+    width: 4px;
+    height: 4px;
+    margin: 3px auto 0;
+    border-radius: 50%;
+    background: var(--accent);
+  }
+
+  .day-strip button[aria-current='true'] .dot { background: #fff; }
+  .day-strip button.leer .dot { visibility: hidden; }
+
+  /* Bibliothek als Blatt von unten */
+  .library {
+    top: auto;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    width: auto;
+    height: 78svh;
+    border-radius: var(--r-lg) var(--r-lg) 0 0;
+    border-bottom: 0;
+    box-shadow: var(--shadow-3);
+    transform: translateY(calc(100% - 62px));
+  }
+
+  .library.offen { transform: translateY(0); }
+  .library.collapsed { transform: translateY(calc(100% - 62px)); }
+
+  .library-head {
+    position: relative;
+    padding: 16px 16px 10px;
+    cursor: pointer;
+  }
+
+  .sheet-grip {
+    display: block;
+    position: absolute;
+    top: 7px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 36px;
+    height: 4px;
+    border-radius: var(--r-pill);
+    background: var(--line-strong);
+  }
+
+  .library-toggle { display: none; }
+  .library.collapsed .library-toggle { display: none; }
+
+  .recipe-list { padding-bottom: max(12px, env(safe-area-inset-bottom)); }
+
+  /* Aufgenommenes Rezept: wartet auf das Feld */
+  .armed-bar {
+    position: fixed;
+    left: 8px;
+    right: 8px;
+    bottom: 70px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 10px 12px;
+    background: var(--ink);
+    color: #fff;
+    border-radius: var(--r-md);
+    box-shadow: var(--shadow-2);
+    z-index: 18;
+    font-size: 13px;
+  }
+
+  .armed-bar[hidden] { display: none; }
+
+  .armed-bar .text {
+    display: flex;
+    flex-direction: column;
+    min-width: 0;
+    line-height: 1.3;
+  }
+
+  .armed-bar .name {
+    font-weight: 600;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+
+  .armed-bar .was { font-size: 11.5px; color: rgba(255, 255, 255, 0.7); }
+
+  .armed-bar button {
+    flex: none;
+    margin-left: auto;
+    padding: 6px 11px;
+    border: 1px solid rgba(255, 255, 255, 0.35);
+    border-radius: var(--r-sm);
+    background: transparent;
+    color: #fff;
+    font-size: 12.5px;
+    cursor: pointer;
+  }
+
+  .armed-bar .schliessen {
+    margin-left: 0;
+    width: 30px;
+    padding: 6px 0;
+    font-size: 16px;
+    line-height: 1;
+  }
+
+  /* Ueberlaufmenue der Kopfzeile */
+  .phone-menu {
+    position: fixed;
+    top: 100px;
+    right: 10px;
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    padding: 8px;
+    background: var(--surface);
+    border: 1px solid var(--line);
+    border-radius: var(--r-md);
+    box-shadow: var(--shadow-2);
+    z-index: 25;
+  }
+
+  .phone-menu[hidden] { display: none; }
+  .phone-menu .ghost-btn { display: block; width: 100%; text-align: left; }
+
+  /* Modale als volle Blaetter */
+  .modal-root { padding: 0; align-items: flex-end; }
+
+  .modal {
+    width: 100%;
+    max-height: 92svh;
+    border-radius: var(--r-lg) var(--r-lg) 0 0;
+  }
+
+  .modal-head { padding: 16px 16px 12px; }
+  .modal-head h2 { font-size: 17px; }
+  .modal-body { padding: 14px 16px 18px; }
+  .modal-foot { padding: 12px 16px; padding-bottom: max(12px, env(safe-area-inset-bottom)); }
+  .detail-grid { grid-template-columns: 1fr; gap: 20px; }
+
+
   .hint { display: none; }
+}
+
+/* ------------------------------------------------------------------
+   Allergene
+   ------------------------------------------------------------------ */
+
+.allergen-row {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 6px;
+  margin: 8px 0 4px;
+}
+
+.allergen-lead {
+  font-size: 11px;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: var(--ink-faint);
+  margin-right: 2px;
+}
+
+.allergen-chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  padding: 4px 9px;
+  border-radius: var(--r-pill);
+  font-size: 12px;
+  font-weight: 550;
+  white-space: nowrap;
+  cursor: default;
+}
+
+/* Sicher erkannt: kraeftig. Moeglich: zurueckgenommen und gestrichelt,
+   damit der Unterschied auch ohne Text sichtbar ist. */
+.allergen-chip.ja {
+  background: var(--accent-soft);
+  color: var(--accent-ink);
+  border: 1px solid var(--accent-line);
+}
+
+.allergen-chip.moeglich {
+  background: var(--surface-sunk);
+  color: var(--ink-soft);
+  border: 1px dashed var(--line-strong);
+}
+
+.allergen-chip b { font-weight: 650; font-variant-numeric: tabular-nums; }
+
+.allergen-note {
+  margin: 8px 0 0;
+  font-size: 11.5px;
+  line-height: 1.45;
+  color: var(--ink-faint);
+}
+
+.card-allergens {
+  margin-left: auto;
+  font-size: 11px;
+  letter-spacing: -0.5px;
+  cursor: default;
+}
+
+.card-allergens .maybe { opacity: 0.4; }
+
+/* ------------------------------------------------------------------
+   Formular fuer eigene Rezepte
+   ------------------------------------------------------------------ */
+
+.recipe-form { display: flex; flex-direction: column; gap: 14px; }
+
+.form-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+
+.form-row .field { flex: 1 1 140px; }
+
+.field { display: flex; flex-direction: column; gap: 5px; min-width: 0; }
+
+.field-label {
+  font-size: 11px;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: var(--ink-faint);
+}
+
+.field-hint { font-size: 11.5px; color: var(--ink-faint); }
+
+.field input,
+.field select,
+.field textarea {
+  width: 100%;
+  padding: 9px 11px;
+  background: var(--surface-sunk);
+  border: 1px solid var(--line);
+  border-radius: var(--r-sm);
+  font-size: 13.5px;
+  transition: border-color 0.15s var(--ease), background 0.15s var(--ease);
+}
+
+.field textarea {
+  resize: vertical;
+  line-height: 1.55;
+  font-family: var(--font);
+}
+
+.field input:focus,
+.field select:focus,
+.field textarea:focus {
+  outline: none;
+  background: var(--surface);
+  border-color: var(--accent-line);
+}
+
+.check-row { display: flex; flex-wrap: wrap; gap: 6px; }
+
+.check {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 6px 11px;
+  background: var(--surface-sunk);
+  border: 1px solid var(--line);
+  border-radius: var(--r-pill);
+  font-size: 12.5px;
+  cursor: pointer;
+}
+
+.check:hover { border-color: var(--line-strong); }
+.check input { accent-color: var(--accent); cursor: pointer; }
+.check:has(input:checked) {
+  background: var(--accent-soft);
+  border-color: var(--accent-line);
+  color: var(--accent-ink);
+}
+
+.parse-preview {
+  padding: 0 14px 12px;
+  background: var(--surface-sunk);
+  border: 1px solid var(--line);
+  border-radius: var(--r-md);
+}
+
+.parse-preview:empty { display: none; }
+
+.parse-preview h4 {
+  margin: 14px 0 6px;
+  font-size: 11px;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: var(--ink-faint);
+}
+
+.parse-preview .ing-list li { border-bottom-color: var(--line); }
+
+.form-errors {
+  margin: 0;
+  padding: 10px 12px;
+  background: var(--accent-soft);
+  border: 1px solid var(--accent-line);
+  border-radius: var(--r-sm);
+  color: var(--accent-ink);
+  font-size: 12.5px;
+}
+
+.ghost-btn.danger { color: var(--accent-ink); }
+.ghost-btn.danger:hover { background: var(--accent-soft); border-color: var(--accent-line); }
+
+/* Steht bewusst hier und nicht im Handy-Block weiter oben: die Grundregel
+   fuer .form-row .field kommt in der Datei spaeter und wuerde sonst
+   gewinnen. In der Spalte gilt die Flex-Basis der Hoehe, nicht der Breite. */
+@media (max-width: 760px) {
+  .form-row { flex-direction: column; gap: 12px; }
+  .form-row .field { flex: none; }
+  .library-foot { flex-wrap: wrap; }
 }
 
 @media (prefers-reduced-motion: reduce) {

@@ -3,7 +3,8 @@
 Ein Wochen-Essensplaner in Form eines Stundenplans: sieben Tageszeilen, vier
 Mahlzeitenspalten, Gerichte in den Feldern, verschiebbar mit der Maus.
 Dazu eine Bibliothek mit 560 Rezepten aus gemeinfreien Kochbüchern und offen
-lizenzierten Wikis, eine Einkaufsliste, die sich aus dem Plan selbst
+lizenzierten Wikis, eigene Rezepte zum Selbstschreiben, Allergenangaben zu
+jedem Gericht, eine Einkaufsliste, die sich aus dem Plan selbst
 zusammenrechnet, und der Weg von dort in den REWE-Onlineshop.
 
 Die App ist durchgehend deutschsprachig — Oberfläche wie Rezepte.
@@ -38,6 +39,80 @@ Fläche verschiebt, ein Doppelklick stellt den Ausschnitt wieder her.
 - **Woche füllen** belegt alle leeren Frühstücks-, Mittag- und Abendslots mit
   passenden Rezepten, ohne innerhalb einer Woche zu wiederholen.
 - Der Plan liegt im `localStorage`, getrennt nach Kalenderwoche.
+
+## Auf dem Handy
+
+Unter 760 Pixel Breite schaltet die App auf eine Tagesansicht um: ein Tag,
+vier Mahlzeitenzeilen, hochkant. Die sieben Wochentage liegen als Leiste unter
+der Kopfzeile, ein Punkt zeigt, an welchen Tagen schon etwas geplant ist.
+Gewischt wird auch — nach links der nächste Tag, nach rechts der vorige.
+
+Gezogen wird auf dem Handy nichts, dafür sind Finger und Felder zu ungenau
+gegeneinander. Stattdessen nimmt ein Tipp in der Bibliothek das Rezept auf:
+eine Leiste am unteren Rand zeigt, was in der Hand liegt, der nächste Tipp auf
+ein Feld legt es ab. **Ansehen** führt von dort ins Rezept, **×** legt es
+wieder weg.
+
+Die Bibliothek wird zum Blatt, das vom unteren Rand heraufgezogen wird — ein
+Tipp auf den Griff öffnet und schließt sie, ein Tipp auf ein leeres Feld im
+Plan öffnet sie ebenfalls. Was in der Kopfzeile keinen Platz mehr findet,
+Woche füllen, Woche leeren und Quellen, liegt unter **⋯**.
+
+Die Beschriftungen werden für beide Ansichten getrennt gezeichnet: hochkant ist
+Höhe reichlich vorhanden und Breite knapp, quer genau umgekehrt. Eine
+gemeinsame Textur erschiene in einer der beiden verzerrt.
+
+## Allergene
+
+Zu jedem Rezept steht, welche der **vierzehn kennzeichnungspflichtigen
+Allergene** aus Anhang II der EU-Lebensmittelinformationsverordnung
+(1169/2011) darin vorkommen: in der Rezeptansicht ausgeschrieben, auf der
+Karte als Zeichenreihe, in der Einkaufsliste als Übersicht mit der Zahl der
+betroffenen Positionen. Der Filter **„ohne …“** blendet Rezepte aus, in denen
+ein bestimmtes Allergen steckt.
+
+Erkannt wird aus dem Zutatennamen, und zwar in zwei Stufen:
+
+- **Enthält** — die Zutat *ist* das Allergen oder trägt es zwingend:
+  Weizenmehl, Eigelb, Parmesan, Sardellen.
+- **Kann enthalten** — die Zutat trägt es häufig, aber nicht notwendig:
+  Brühwürfel (Sellerie, Weizen), Schokolade (Sojalecithin), Butterschmalz
+  (Milcheiweiß), Wein und Essig (Sulfite).
+
+Damit das trägt, gewinnt beim Suchen immer das längste passende Stichwort.
+Sonst wäre Sojamilch Milch, Muskatnuss eine Nuss, Erdnussbutter Butter und
+Hackfleisch vom Schwein ein Getränk mit Sulfiten. Umgekehrt müssen lange
+Grundwörter auch mitten im Wort gefunden werden, sonst bliebe „Ziegenkäserolle“
+unerkannt; bei kurzen Stichwörtern wäre genau das fatal, deshalb gilt es nur
+für eine ausgewählte Liste. Rund achtzig solcher Fälle stehen als Tests in
+`tests/allergene.test.js`.
+
+> **Wichtig:** Das Verfahren kennt nur, was im Rezept steht. Was ein
+> Fertigprodukt tatsächlich enthält, steht auf der Packung, nicht im
+> Rezepttext. Die Angaben sind deshalb eine Hilfe beim Aussortieren — bei
+> einer Allergie ersetzen sie das Etikett nicht. Genau dieser Satz steht auch
+> in der App an jeder Stelle, an der Allergene erscheinen.
+
+## Eigene Rezepte
+
+**+ Eigenes Rezept** am Fuß der Bibliothek öffnet ein Formular; auf dem Handy
+steht derselbe Punkt unter **⋯**. Zutaten und Zubereitung werden als Text
+eingegeben, eine Zeile je Zutat beziehungsweise Schritt — schneller getippt
+als ein Feldergitter und näher an dem, was in einem Kochbuch steht.
+
+Die Zeilen zerlegt derselbe Parser wie beim Import: „750 g Kartoffeln“,
+„1 Stange Lauch“, „etwas Majoran“. Darunter steht laufend mit, was dabei
+herauskommt, samt der erkannten Allergene — so sieht man beim Schreiben, ob
+eine Zeile richtig gelesen wurde.
+
+Gespeicherte Rezepte stehen als eigene Quelle in der Bibliothek, lassen sich
+in den Plan legen, fließen in die Einkaufsliste ein und sind über die
+Rezeptansicht wieder zu ändern oder zu löschen. Beim Löschen verschwinden sie
+auch aus allen Wochenplänen; sonst bliebe dort ein Eintrag ohne Rezept.
+
+Sie liegen im `localStorage` dieses Browsers — die App hat keinen Server, der
+sie aufbewahren könnte. Ein geleerter Browser oder ein anderes Gerät heißt
+also: weg. `state/eigene.js` bringt dafür `alsDatei()` und `ausDatei()` mit.
 
 ## Woher die Rezepte stammen
 
@@ -154,9 +229,11 @@ src/
   data/            Rezeptkorpus als JSON, Quellenregister, Suchindex
     books/         ein Kochbuch je Datei
   state/           Wochenplan, Kalenderrechnung, Mengenarithmetik,
-                   Einkaufsliste, Abteilungszuordnung
+                   Einkaufsliste, Abteilungszuordnung, Allergene,
+                   eigene Rezepte
   webgl/           Szene, Stundenplan-Raster, Canvas-Texturen
-  ui/              Bibliothek, Rezeptansicht, Einkaufsliste, Quellen
+  ui/              Bibliothek, Rezeptansicht, Rezeptformular,
+                   Einkaufsliste, Quellen
   sources/         Live-Adapter und schema.org-Importer
   shops/           Supermarkt-Anbindungen
 scripts/           Import-Werkzeug für die Kommandozeile
@@ -165,30 +242,39 @@ tests/             Modultests und ein Rauchtest im Browser
 
 Die Logik, die sich lohnt zu prüfen, liegt bewusst frei von App-Zustand:
 `state/shopping.js` verdichtet Einträge zu einer Liste, `state/week.js` rechnet
-Kalenderwochen, `sources/ingredients.js` zerlegt Zutatenzeilen,
-`sources/schemaorg.js` liest Rezeptseiten. Der Store ruft diese Funktionen nur
-auf.
+Kalenderwochen, `state/allergens.js` erkennt Allergene, `state/rezeptform.js`
+macht aus Formulareingaben ein Rezept, `sources/ingredients.js` zerlegt
+Zutatenzeilen, `sources/schemaorg.js` liest Rezeptseiten. Der Store ruft diese
+Funktionen nur auf. `state/matcher.js` liegt darunter: die Stichwortsuche im
+Zutatennamen, die Abteilungen und Allergene gemeinsam benutzen.
 
 ## Tests
 
 ```bash
-npm test           # 33 Modultests: Mengen, Einkaufsliste, Import, Korpus
+npm test               # 56 Modultests: Mengen, Einkaufsliste, Import,
+                       # Korpus, Allergene, eigene Rezepte
 npm run test:browser   # Rauchtest in Chromium gegen die gebaute App
+npm run test:handy     # derselbe Weg in Telefongröße, mit Berührung
 ```
 
 Die Modultests prüfen unter anderem, dass das Korpus vollständig ist, dass
 Mengen über Einheitengrenzen korrekt summiert werden, dass imperiale Einheiten
 metrisch ankommen, dass Zutaten in der richtigen Abteilung landen — auch bei
-Zusammensetzungen wie „Milchreis" oder „Olivenöl" — und dass kein englischer
-Text in Titel, Kapitel oder Schlagwörter zurückkehrt. Der Browsertest fährt die App hoch, plant eine
-Woche, zieht eine Karte mit der Maus in einen anderen Slot und prüft
-Einkaufsliste und Shop-Übergabe.
+Zusammensetzungen wie „Milchreis" oder „Olivenöl" —, dass die Allergenerkennung
+die Verwechslungen aushält, die ein bloßer Teilstring machen würde, dass ein
+leeres Formularfeld als fehlend und nicht als Null gilt, und dass kein
+englischer Text in Titel, Kapitel oder Schlagwörter zurückkehrt. Der
+Browsertest fährt die App hoch, plant eine Woche, zieht eine Karte mit der Maus
+in einen anderen Slot, prüft Einkaufsliste und Shop-Übergabe und schreibt zum
+Schluss ein eigenes Rezept. Der Handytest geht denselben Weg in einem Fenster
+von 390 × 844 Punkten, mit Berührung statt Maus.
 
 Für den Browsertest muss die gebaute App laufen:
 
 ```bash
 npm run build && npm run preview &
 npm run test:browser
+npm run test:handy
 # abweichender Browser: CHROMIUM_PATH=/pfad/zu/chrome npm run test:browser
 ```
 
@@ -218,9 +304,9 @@ Umgehen lassen sie sich mit `--no-verify`; genau das nutzt das Sync-Werkzeug,
 weil es die Prüfungen selbst ausführt und anders entscheidet.
 
 **GitHub Actions** (`.github/workflows/ci.yml`) laufen bei jedem Push und
-jedem Pull Request: ein Job für Modultests und Build, ein zweiter für den
-Browser-Rauchtest in Chromium. Schlägt der Browsertest fehl, hängen die
-Bildschirmfotos als Artefakt am Lauf.
+jedem Pull Request: ein Job für Modultests und Build, ein zweiter für die
+beiden Browsertests in Chromium — erst am Schreibtisch, dann am Telefon.
+Schlägt einer fehl, hängen die Bildschirmfotos als Artefakt am Lauf.
 
 **Claude Code** ist über `.claude/settings.json` daran gekoppelt: ein
 `SessionStart`-Hook installiert Abhängigkeiten und Git-Hooks, ein

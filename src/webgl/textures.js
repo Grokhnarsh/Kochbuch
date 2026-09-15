@@ -66,10 +66,13 @@ function wrapLines(ctx, text, maxWidth, maxLines) {
 
 /* ---------------------------------------------------------------- Zellen */
 
-/** Belegte Zelle: Gericht mit Kennzahlen und Herkunft. */
-export function recipeCellTexture(recipe, servings) {
+/**
+ * Belegte Zelle: Gericht mit Kennzahlen und Herkunft.
+ * Die kompakte Ansicht hat breitere, flachere Felder.
+ */
+export function recipeCellTexture(recipe, servings, compact = false) {
   const W = 800;
-  const H = 353;
+  const H = compact ? 383 : 353;
   const c = makeCanvas(W, H);
   const ctx = c.getContext('2d');
   const accent = recipe.source?.accent || '#f0653a';
@@ -82,42 +85,51 @@ export function recipeCellTexture(recipe, servings) {
   ctx.fillRect(0, 0, 16, H);
 
   const padX = 40;
-  let y = 66;
+  let y = compact ? 56 : 66;
 
-  ctx.font = `600 34px ${FONT}`;
+  ctx.font = `600 ${compact ? 30 : 34}px ${FONT}`;
   ctx.fillStyle = accent;
   ctx.letterSpacing = '1.6px';
   ctx.fillText(recipe.category.toUpperCase(), padX, y);
   ctx.letterSpacing = '0px';
 
-  y += 62;
-  ctx.font = `700 58px ${FONT}`;
+  y += compact ? 56 : 62;
+  ctx.font = `700 ${compact ? 52 : 58}px ${FONT}`;
   ctx.fillStyle = INK;
   for (const line of wrapLines(ctx, recipe.title, W - padX - 34, 2)) {
     ctx.fillText(line, padX, y);
-    y += 64;
+    y += compact ? 56 : 64;
   }
 
-  ctx.font = `500 40px ${FONT}`;
-  ctx.fillStyle = INK_SOFT;
-  const facts = [`${recipe.totalTime} Min.`, `${servings} Port.`];
+  // Fehlende Angaben werden weggelassen, nicht als Null gezeigt.
+  const facts = [];
+  if (recipe.totalTime > 0) facts.push(`${recipe.totalTime} Min.`);
+  facts.push(`${servings} ${recipe.yieldUnit || 'Port.'}`);
   if (recipe.kcal) {
     facts.push(`${Math.round((recipe.kcal * servings) / (recipe.servings || 1))} kcal`);
   }
-  ctx.fillText(facts.join('   ·   '), padX, H - 84);
 
-  ctx.font = `500 34px ${FONT}`;
+  // Hochkant laeuft der Text von oben durch, sonst klafft eine Luecke
+  // zwischen Titel und Kennzahlen. Im weiten Feld bleibt der Fuss unten.
+  const factsY = compact ? y + 12 : H - 84;
+  const srcY = compact ? y + 58 : H - 32;
+
+  ctx.font = `500 ${compact ? 36 : 40}px ${FONT}`;
+  ctx.fillStyle = INK_SOFT;
+  ctx.fillText(facts.join('   ·   '), padX, factsY);
+
+  ctx.font = `500 ${compact ? 32 : 34}px ${FONT}`;
   ctx.fillStyle = INK_FAINT;
   const src = recipe.source?.author || recipe.source?.title || '';
-  ctx.fillText(wrapLines(ctx, src, W - padX - 34, 1)[0] || '', padX, H - 32);
+  ctx.fillText(wrapLines(ctx, src, W - padX - 34, 1)[0] || '', padX, srcY);
 
   return toTexture(c);
 }
 
 /** Freie Zelle: bleibt leer wie im gedruckten Plan, mit leisem Hinweis. */
-export function emptyCellTexture() {
+export function emptyCellTexture(compact = false) {
   const W = 800;
-  const H = 353;
+  const H = compact ? 383 : 353;
   const c = makeCanvas(W, H);
   const ctx = c.getContext('2d');
 
@@ -138,9 +150,9 @@ export function emptyCellTexture() {
 }
 
 /** Spaltenkopf: Name der Mahlzeit. */
-export function mealHeadTexture(meal) {
-  const W = 800;
-  const H = 226;
+export function mealHeadTexture(meal, compact = false) {
+  const W = compact ? 300 : 800;
+  const H = compact ? 528 : 226;
   const c = makeCanvas(W, H);
   const ctx = c.getContext('2d');
 
@@ -148,41 +160,70 @@ export function mealHeadTexture(meal) {
   ctx.fillRect(0, 0, W, H);
 
   ctx.textAlign = 'center';
-  ctx.font = `700 62px ${FONT}`;
   ctx.fillStyle = INK;
-  ctx.letterSpacing = '2px';
-  ctx.fillText(meal.label.toUpperCase(), W / 2, H / 2 + 21);
-  ctx.letterSpacing = '0px';
-  ctx.textAlign = 'left';
 
+  if (compact) {
+    // Schmale Spalte: kein Versalsatz, notfalls zweizeilig.
+    ctx.font = `700 44px ${FONT}`;
+    const lines = wrapLines(ctx, meal.label, W - 26, 2);
+    let y = H / 2 - ((lines.length - 1) * 50) / 2 + 15;
+    for (const line of lines) {
+      ctx.fillText(line, W / 2, y);
+      y += 50;
+    }
+  } else {
+    ctx.font = `700 62px ${FONT}`;
+    ctx.letterSpacing = '2px';
+    ctx.fillText(meal.label.toUpperCase(), W / 2, H / 2 + 21);
+    ctx.letterSpacing = '0px';
+  }
+
+  ctx.textAlign = 'left';
   return toTexture(c);
 }
 
 /** Zeilenkopf: Wochentag mit Datum und Tagesenergie. */
-export function dayHeadTexture(day, date, kcal, isToday) {
-  const W = 600;
-  const H = 375;
+export function dayHeadTexture(day, date, kcal, isToday, compact = false) {
+  const W = compact ? 900 : 600;
+  const H = compact ? 169 : 375;
   const c = makeCanvas(W, H);
   const ctx = c.getContext('2d');
 
+  ctx.clearRect(0, 0, W, H);
   ctx.fillStyle = isToday ? TODAY_FILL : HEAD_FILL;
   ctx.fillRect(0, 0, W, H);
 
-  ctx.textAlign = 'center';
+  const ink = isToday ? TODAY_INK : INK;
+  const datum = `${String(date.getDate()).padStart(2, '0')}.${String(date.getMonth() + 1).padStart(2, '0')}.`;
 
-  ctx.font = `700 64px ${FONT}`;
-  ctx.fillStyle = isToday ? TODAY_INK : INK;
-  ctx.fillText(day.label, W / 2, 138);
+  if (compact) {
+    // Eine breite Kopfzeile: Name links, Datum und Energie rechts.
+    ctx.textAlign = 'left';
+    ctx.font = `700 64px ${FONT}`;
+    ctx.fillStyle = ink;
+    ctx.fillText(day.label, 34, 108);
 
-  ctx.font = `500 44px ${FONT}`;
-  ctx.fillStyle = isToday ? TODAY_INK : INK_SOFT;
-  const d = `${String(date.getDate()).padStart(2, '0')}.${String(date.getMonth() + 1).padStart(2, '0')}.`;
-  ctx.fillText(d, W / 2, 202);
+    ctx.textAlign = 'right';
+    ctx.font = `500 46px ${FONT}`;
+    ctx.fillStyle = isToday ? TODAY_INK : INK_SOFT;
+    ctx.fillText(kcal > 0 ? `${datum}   ·   ${Math.round(kcal)} kcal` : datum, W - 34, 108);
+  } else {
+    const right = W - 26;
+    ctx.textAlign = 'right';
 
-  if (kcal > 0) {
-    ctx.font = `600 40px ${FONT}`;
-    ctx.fillStyle = '#2f6b4f';
-    ctx.fillText(`${Math.round(kcal)} kcal`, W / 2, 274);
+    ctx.font = `660 60px ${FONT}`;
+    ctx.fillStyle = ink;
+    ctx.fillText(day.label, right, 82);
+
+    ctx.font = `500 34px ${FONT}`;
+    ctx.fillStyle = isToday ? TODAY_INK : INK_FAINT;
+    ctx.fillText(datum, right, 132);
+
+    if (kcal > 0) {
+      ctx.font = `600 30px ${FONT}`;
+      ctx.fillStyle = '#3f7d63';
+      ctx.fillText(`${Math.round(kcal)} kcal`, right, 184);
+    }
   }
 
   ctx.textAlign = 'left';

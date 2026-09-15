@@ -13,6 +13,7 @@ export { startOfWeek, weekKey, isoWeekNumber };
 
 const STORAGE_KEY = 'kochbuch.plan.v1';
 const IMPORT_KEY = 'kochbuch.imported.v1';
+const OWN_KEY = 'kochbuch.eigene.v1';
 
 function readStorage(key, fallback) {
   try {
@@ -214,6 +215,55 @@ class Store {
 
   saveImported(list) {
     writeStorage(IMPORT_KEY, list);
+  }
+
+  /**
+   * Selbst geschriebene Rezepte. Sie liegen wie alles andere im
+   * localStorage — es gibt keinen Server, der sie aufbewahren koennte —
+   * und sind deshalb an diesen Browser gebunden. Deswegen laesst sich
+   * die Sammlung als Datei sichern.
+   */
+  loadOwn() {
+    const list = readStorage(OWN_KEY, []);
+    return Array.isArray(list) ? list : [];
+  }
+
+  /** Legt ein eigenes Rezept an oder ersetzt das gleichnamige. */
+  saveOwn(recipe) {
+    const list = this.loadOwn().filter((r) => r.id !== recipe.id);
+    list.push(recipe);
+    writeStorage(OWN_KEY, list);
+    this.emit();
+    return recipe;
+  }
+
+  removeOwn(id) {
+    writeStorage(OWN_KEY, this.loadOwn().filter((r) => r.id !== id));
+    this.emit();
+  }
+
+  /**
+   * Nimmt ein Rezept aus allen Wochen heraus. Ohne das bliebe nach dem
+   * Loeschen ein Eintrag im Plan stehen, zu dem es kein Rezept gibt.
+   */
+  purgeRecipe(recipeId) {
+    let getroffen = false;
+    const plans = {};
+    for (const [woche, eintraege] of Object.entries(this.plans)) {
+      const rest = Object.fromEntries(
+        Object.entries(eintraege).filter(([, e]) => {
+          if (e.recipeId !== recipeId) return true;
+          getroffen = true;
+          return false;
+        }),
+      );
+      plans[woche] = rest;
+    }
+    if (getroffen) {
+      this.plans = plans;
+      this.persist();
+    }
+    return getroffen;
   }
 }
 

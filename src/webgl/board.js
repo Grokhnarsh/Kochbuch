@@ -1,14 +1,17 @@
 /**
  * Der Wochenplan als Stundenplan.
  *
- * Ein durchgehendes Raster: oben die Mahlzeiten als Spaltenköpfe, links
- * die Wochentage als Zeilenköpfe, dazwischen die Felder für die Gerichte.
+ * Zwei Ansichten aus demselben Raster:
+ *
+ *  - weit (Tablet, Rechner): oben die Mahlzeiten als Spaltenköpfe, links
+ *    die Wochentage als Zeilenköpfe, dazwischen die Felder.
+ *  - kompakt (Smartphone): ein Tag pro Bildschirm, die vier Mahlzeiten
+ *    untereinander. Ein Wochenraster mit 28 Feldern ist auf 390 Pixern
+ *    nicht mehr lesbar.
+ *
  * Die schwarzen Linien entstehen aus einer durchgehenden dunklen Fläche,
  * auf der die weißen Felder mit einem Spalt von Linienbreite liegen — so
  * sind alle Linien gleich stark, innen wie außen.
- *
- * Felder lassen sich mit dem Zeigegerät tauschen; aus der Bibliothek
- * kommen Gerichte per HTML-Drag herein.
  */
 
 import * as THREE from 'three';
@@ -22,73 +25,73 @@ import {
   cornerTexture,
 } from './textures.js';
 
-// Die Spaltenbreite ist so gewählt, dass das Seitenverhältnis des Rasters
-// dem freien Bildschirmbereich nahekommt — sonst bleibt seitlich Platz
-// ungenutzt, während die Höhe schon ausgereizt ist.
-const HEAD_W = 2.05;  // Breite der Tagesspalte
-const CELL_W = 2.90;  // Breite einer Mahlzeitenspalte
-const HEAD_H = 0.82;  // Höhe der Kopfzeile
-const CELL_H = 1.28;  // Höhe einer Tageszeile
-const LINE = 0.045;   // Stärke der Rasterlinien
-const FRAME_PAD = 0.07; // zusätzliche Stärke des Außenrahmens
+/** Ab dieser Breite passt das volle Wochenraster. */
+export const COMPACT_BREAKPOINT = 760;
 
-const GRID_W = HEAD_W + MEALS.length * CELL_W;
-const GRID_H = HEAD_H + DAYS.length * CELL_H;
+// Weite Ansicht
+const HEAD_W = 2.05;
+const CELL_W = 2.90;
+const HEAD_H = 0.82;
+const CELL_H = 1.28;
 
-/** Ausdehnung des Plans, die die Kamera rahmen muss. */
-export const FRAME = {
-  width: GRID_W + 2 * FRAME_PAD,
-  height: GRID_H + 2 * FRAME_PAD,
-};
+// Kompakte Ansicht: schmale Mahlzeitenspalte, breites Feld
+const C_LABEL_W = 1.25;
+const C_CELL_W = 4.60;
+const C_HEAD_H = 1.10;
+// Hohe Zeilen: hochkant ist Hoehe reichlich vorhanden, Breite knapp.
+const C_CELL_H = 2.20;
+
+const LINE = 0.045;
+const FRAME_PAD = 0.07;
 
 const Y_GRID = 0;
 const Y_CELL = 0.01;
 const Y_CARD = 0.02;
 const Y_DRAG = 0.05;
 
-const DRAG_THRESHOLD = 5; // Pixel, ab denen aus einem Klick ein Zug wird
+const DRAG_THRESHOLD = 5;   // Pixel, ab denen aus einem Tippen ein Zug wird
+const SWIPE_THRESHOLD = 55; // Pixel für den Tageswechsel per Wischen
 
-/** Linke Kante und Breite einer Spalte (0 = Tagesspalte). */
-function column(index) {
-  const left = -GRID_W / 2;
-  if (index === 0) return { left, width: HEAD_W };
-  return { left: left + HEAD_W + (index - 1) * CELL_W, width: CELL_W };
+/** Maße des Rasters für eine Ansicht. */
+function metrics(compact) {
+  if (compact) {
+    return {
+      cols: [C_LABEL_W, C_CELL_W],
+      rows: [C_HEAD_H, ...Array(MEALS.length).fill(C_CELL_H)],
+    };
+  }
+  return {
+    cols: [HEAD_W, ...Array(MEALS.length).fill(CELL_W)],
+    rows: [HEAD_H, ...Array(DAYS.length).fill(CELL_H)],
+  };
 }
 
-/** Obere Kante und Höhe einer Zeile (0 = Kopfzeile). */
-function row(index) {
-  const top = -GRID_H / 2;
-  if (index === 0) return { top, height: HEAD_H };
-  return { top: top + HEAD_H + (index - 1) * CELL_H, height: CELL_H };
+/** Linke Kante und Breite einer Spalte. */
+function span(sizes, index) {
+  const total = sizes.reduce((a, b) => a + b, 0);
+  let start = -total / 2;
+  for (let i = 0; i < index; i += 1) start += sizes[i];
+  return { start, size: sizes[index] };
 }
-
-const centreX = (col) => column(col).left + column(col).width / 2;
-const centreZ = (r) => row(r).top + row(r).height / 2;
-
-/** Feldmitte für Tag und Mahlzeit. */
-const slotX = (mealIndex) => centreX(mealIndex + 1);
-const slotZ = (day) => centreZ(day + 1);
 
 export class Board {
   /**
    * @param {import('./scene.js').Stage} stage
-   * @param {{onSelect?:Function, onDrop?:Function}} handlers
+   * @param {{onSelect?:Function, onDrop?:Function, onDayChange?:Function}} handlers
    */
   constructor(stage, handlers = {}) {
     this.stage = stage;
     this.handlers = handlers;
 
+    this.compact = window.innerWidth < COMPACT_BREAKPOINT;
+    this.day = Math.min(6, Math.max(0, (new Date().getDay() + 6) % 7));
+
     this.root = new THREE.Group();
-    this.cellGroup = new THREE.Group();
-    this.cardGroup = new THREE.Group();
-    this.root.add(this.cellGroup, this.cardGroup);
     stage.scene.add(this.root);
 
-    /** @type {Map<string, THREE.Mesh>} */
     this.cards = new Map();
-    /** @type {Map<string, THREE.Mesh>} */
     this.slots = new Map();
-    this.dayHeads = [];
+    this.dayHeads = new Map();
     this.corner = null;
 
     this.raycaster = new THREE.Raycaster();
@@ -98,87 +101,169 @@ export class Board {
     this.drag = null;
     this.hoverSlot = null;
     this.hoverCard = null;
+    this.armed = null; // per Antippen aufgenommenes Rezept
 
-    this.emptyTexture = emptyCellTexture();
+    // Die beiden Ansichten haben verschiedene Seitenverhaeltnisse; eine
+    // gemeinsame Textur wuerde in einer davon verzerrt erscheinen.
+    this.emptyTextures = { weit: emptyCellTexture(false), kompakt: emptyCellTexture(true) };
 
-    this.#buildGrid();
-    this.#buildHeads();
-    this.#buildSlots();
-
+    this.#build();
     this.unsubscribe = store.subscribe(() => this.sync());
     this.sync();
 
     this.#bindPointer();
     this.#bindExternalDrag();
     stage.onTick((dt) => this.#animate(dt));
+
+    window.addEventListener('resize', () => this.#checkBreakpoint());
+  }
+
+  /** Tage, die in der aktuellen Ansicht sichtbar sind. */
+  visibleDays() {
+    return this.compact ? [this.day] : DAYS.map((_, i) => i);
+  }
+
+  /** Ausdehnung des Rasters, die die Kamera rahmen muss. */
+  get emptyTexture() {
+    return this.compact ? this.emptyTextures.kompakt : this.emptyTextures.weit;
+  }
+
+  get frame() {
+    const m = metrics(this.compact);
+    return {
+      width: m.cols.reduce((a, b) => a + b, 0) + 2 * FRAME_PAD,
+      height: m.rows.reduce((a, b) => a + b, 0) + 2 * FRAME_PAD,
+    };
+  }
+
+  #checkBreakpoint() {
+    const compact = window.innerWidth < COMPACT_BREAKPOINT;
+    if (compact === this.compact) return;
+    this.compact = compact;
+    this.#rebuild();
+  }
+
+  /** Wechselt den angezeigten Tag in der kompakten Ansicht. */
+  showDay(index) {
+    const next = Math.min(DAYS.length - 1, Math.max(0, index));
+    if (!this.compact || next === this.day) return;
+    this.day = next;
+    this.#rebuild();
+    this.handlers.onDayChange?.(next);
+  }
+
+  #rebuild() {
+    this.#clear();
+    this.#build();
+    this.stage.setFrame(this.frame);
+    this.sync();
+    this.handlers.onDayChange?.(this.day);
+  }
+
+  #clear() {
+    for (const child of [...this.root.children]) {
+      this.root.remove(child);
+      child.geometry?.dispose();
+      child.material?.map?.dispose();
+      child.material?.dispose();
+    }
+    this.cards.clear();
+    this.slots.clear();
+    this.dayHeads.clear();
+    this._cardGeo = null;
   }
 
   // ------------------------------------------------------------ Aufbau
 
-  /** Dunkle Grundfläche; sie scheint als Raster zwischen den Feldern durch. */
-  #buildGrid() {
-    const mesh = new THREE.Mesh(
-      new THREE.PlaneGeometry(FRAME.width, FRAME.height),
+  #build() {
+    const m = metrics(this.compact);
+    this.metrics = m;
+
+    this.cellGroup = new THREE.Group();
+    this.cardGroup = new THREE.Group();
+    this.root.add(this.cellGroup, this.cardGroup);
+
+    const frame = this.frame;
+    const grid = new THREE.Mesh(
+      new THREE.PlaneGeometry(frame.width, frame.height),
       new THREE.MeshBasicMaterial({ color: 0x000000 }),
     );
-    mesh.rotation.x = -Math.PI / 2;
-    mesh.position.y = Y_GRID;
-    this.root.add(mesh);
+    grid.rotation.x = -Math.PI / 2;
+    grid.position.y = Y_GRID;
+    this.root.add(grid);
+
+    if (this.compact) this.#buildCompact();
+    else this.#buildWide();
   }
 
-  /** Weißes Feld in der Zelle, um eine Linienbreite eingerückt. */
-  #cell(colIndex, rowIndex, map, y = Y_CELL) {
-    const col = column(colIndex);
-    const r = row(rowIndex);
+  /** Mittelpunkt und Größe einer Zelle im Raster. */
+  #cellBox(col, row, colSpan = 1) {
+    const c = span(this.metrics.cols, col);
+    const r = span(this.metrics.rows, row);
+    let width = c.size;
+    for (let i = 1; i < colSpan; i += 1) width += this.metrics.cols[col + i];
+    return {
+      x: c.start + width / 2,
+      z: r.start + r.size / 2,
+      width,
+      height: r.size,
+    };
+  }
 
+  #cell(col, row, map, colSpan = 1) {
+    const box = this.#cellBox(col, row, colSpan);
     const mesh = new THREE.Mesh(
-      new THREE.PlaneGeometry(col.width - LINE, r.height - LINE),
+      new THREE.PlaneGeometry(box.width - LINE, box.height - LINE),
       new THREE.MeshBasicMaterial({ map, color: 0xffffff }),
     );
     mesh.rotation.x = -Math.PI / 2;
-    mesh.position.set(centreX(colIndex), y, centreZ(rowIndex));
+    mesh.position.set(box.x, Y_CELL, box.z);
+    this.cellGroup.add(mesh);
     return mesh;
   }
 
-  #buildHeads() {
+  #buildWide() {
     this.corner = this.#cell(0, 0, cornerTexture(''));
-    this.cellGroup.add(this.corner);
-
-    MEALS.forEach((meal, i) => {
-      this.cellGroup.add(this.#cell(i + 1, 0, mealHeadTexture(meal)));
-    });
+    MEALS.forEach((meal, i) => this.#cell(i + 1, 0, mealHeadTexture(meal)));
 
     DAYS.forEach((_, day) => {
-      const mesh = this.#cell(0, day + 1, null);
-      this.cellGroup.add(mesh);
-      this.dayHeads.push(mesh);
-    });
-  }
+      this.dayHeads.set(day, this.#cell(0, day + 1, null));
 
-  #buildSlots() {
-    for (let day = 0; day < DAYS.length; day += 1) {
       MEALS.forEach((meal, mealIndex) => {
         const mesh = this.#cell(mealIndex + 1, day + 1, this.emptyTexture);
         mesh.userData = { day, meal: meal.id, mealIndex };
-        this.cellGroup.add(mesh);
         this.slots.set(slotId(day, meal.id), mesh);
       });
-    }
+    });
+  }
+
+  #buildCompact() {
+    // Kopfzeile über die volle Breite: nur ein Tag ist sichtbar.
+    this.dayHeads.set(this.day, this.#cell(0, 0, null, 2));
+
+    MEALS.forEach((meal, i) => {
+      this.#cell(0, i + 1, mealHeadTexture(meal, true));
+
+      const mesh = this.#cell(1, i + 1, this.emptyTexture);
+      mesh.userData = { day: this.day, meal: meal.id, mealIndex: i };
+      this.slots.set(slotId(this.day, meal.id), mesh);
+    });
   }
 
   // ---------------------------------------------------- Abgleich mit Store
 
-  /** Bringt Felder und Köpfe auf den Stand des Wochenplans. */
   sync() {
     const week = store.week;
     const kcal = store.kcalPerDay();
     const today = new Date().setHours(0, 0, 0, 0);
 
-    this.corner.material.map?.dispose();
-    this.corner.material.map = cornerTexture(`KW ${isoWeekNumber(store.weekStart)}`);
-    this.corner.material.needsUpdate = true;
+    if (this.corner) {
+      this.corner.material.map?.dispose();
+      this.corner.material.map = cornerTexture(`KW ${isoWeekNumber(store.weekStart)}`);
+      this.corner.material.needsUpdate = true;
+    }
 
-    this.dayHeads.forEach((mesh, day) => {
+    for (const [day, mesh] of this.dayHeads) {
       const date = store.dateOf(day);
       mesh.material.map?.dispose();
       mesh.material.map = dayHeadTexture(
@@ -186,13 +271,14 @@ export class Board {
         date,
         kcal[day],
         date.setHours(0, 0, 0, 0) === today,
+        this.compact,
       );
       mesh.material.needsUpdate = true;
-    });
+    }
 
     const seen = new Set();
 
-    for (let day = 0; day < DAYS.length; day += 1) {
+    for (const day of this.visibleDays()) {
       MEALS.forEach((meal, mealIndex) => {
         const id = slotId(day, meal.id);
         const entry = week[id];
@@ -201,30 +287,35 @@ export class Board {
         const recipe = recipeById.get(entry.recipeId);
         if (!recipe) return;
 
+        const slot = this.slots.get(id);
+        if (!slot) return;
+
         seen.add(id);
         let card = this.cards.get(id);
 
         if (!card) {
-          card = this.#createCard();
+          card = this.#createCard(slot);
           this.cards.set(id, card);
           this.cardGroup.add(card);
-          card.position.set(slotX(mealIndex), Y_CARD, slotZ(day));
+          card.position.set(slot.position.x, Y_CARD, slot.position.z);
           card.scale.setScalar(0.9);
         }
 
-        const stamp = `${entry.recipeId}|${entry.servings}`;
+        const stamp = `${entry.recipeId}|${entry.servings}|${this.compact}`;
         if (card.userData.stamp !== stamp) {
           card.material.map?.dispose();
-          card.material.map = recipeCellTexture(recipe, entry.servings);
+          card.material.map = recipeCellTexture(recipe, entry.servings, this.compact);
           card.material.needsUpdate = true;
           card.userData.stamp = stamp;
         }
 
-        card.userData.day = day;
-        card.userData.meal = meal.id;
-        card.userData.mealIndex = mealIndex;
-        card.userData.recipeId = entry.recipeId;
-        card.userData.home = new THREE.Vector3(slotX(mealIndex), Y_CARD, slotZ(day));
+        Object.assign(card.userData, {
+          day,
+          meal: meal.id,
+          mealIndex,
+          recipeId: entry.recipeId,
+          home: new THREE.Vector3(slot.position.x, Y_CARD, slot.position.z),
+        });
 
         if (this.drag?.card !== card) card.userData.target = card.userData.home.clone();
       });
@@ -238,7 +329,6 @@ export class Board {
       this.cards.delete(id);
     }
 
-    // Felder können wandern, daher die Zuordnung neu aufbauen
     const remapped = new Map();
     for (const card of this.cards.values()) {
       remapped.set(slotId(card.userData.day, card.userData.meal), card);
@@ -246,9 +336,10 @@ export class Board {
     this.cards = remapped;
   }
 
-  #createCard() {
+  #createCard(slot) {
     if (!this._cardGeo) {
-      this._cardGeo = new THREE.PlaneGeometry(CELL_W - LINE, CELL_H - LINE);
+      const p = slot.geometry.parameters;
+      this._cardGeo = new THREE.PlaneGeometry(p.width, p.height);
     }
     const mesh = new THREE.Mesh(
       this._cardGeo,
@@ -281,18 +372,30 @@ export class Board {
     return hit ? hit.object : null;
   }
 
+  /** Nimmt ein Rezept auf; der nächste Tipp auf ein Feld legt es ab. */
+  arm(recipe) {
+    this.armed = recipe;
+    this.handlers.onArm?.(recipe);
+  }
+
+  disarm() {
+    if (!this.armed) return;
+    this.armed = null;
+    this.handlers.onArm?.(null);
+  }
+
   #bindPointer() {
     const el = this.stage.renderer.domElement;
 
     el.addEventListener('pointerdown', (e) => {
       if (e.button !== 0) return;
+      this.gesture = { x: e.clientX, y: e.clientY, time: Date.now() };
+
       this.#ndc(e);
       const hit = this.#intersect([...this.cards.values()]);
       if (!hit) return;
 
-      // Verschieben der Ansicht sofort stilllegen, sonst wandert der Plan mit.
       this.stage.controls.enabled = false;
-
       this.drag = {
         card: hit.object,
         from: { day: hit.object.userData.day, meal: hit.object.userData.meal },
@@ -328,16 +431,24 @@ export class Board {
         return;
       }
 
+      if (e.pointerType === 'touch') return;
       this.#ndc(e);
       const hit = this.#intersect([...this.cards.values()]);
       this.hoverCard = hit ? hit.object : null;
       if (!this.stage.controls.dragging) {
-        el.style.cursor = hit ? 'grab' : 'default';
+        el.style.cursor = hit || this.armed ? 'pointer' : 'default';
       }
     });
 
     const finish = (e) => {
-      if (!this.drag) return;
+      const gesture = this.gesture;
+      this.gesture = null;
+
+      if (!this.drag) {
+        this.#handleTap(e, gesture);
+        return;
+      }
+
       const { card, from, moved } = this.drag;
       this.drag = null;
       this.stage.controls.enabled = true;
@@ -361,16 +472,47 @@ export class Board {
     };
 
     el.addEventListener('pointerup', finish);
-    el.addEventListener('pointercancel', finish);
+    el.addEventListener('pointercancel', () => { this.gesture = null; });
 
-    // Doppelklick auf leere Fläche stellt Ausschnitt und Zoom wieder her.
     el.addEventListener('dblclick', (e) => {
       this.#ndc(e);
       if (!this.#intersect([...this.cards.values()])) this.stage.resetView();
     });
   }
 
-  /** Aufnahme von Gerichten, die aus der Bibliothek gezogen werden. */
+  /** Tippen auf freie Fläche: ablegen, Tag wechseln oder nichts. */
+  #handleTap(e, gesture) {
+    if (!gesture) return;
+
+    const dx = e.clientX - gesture.x;
+    const dy = e.clientY - gesture.y;
+
+    // Waagerechtes Wischen blättert in der kompakten Ansicht durch die Tage.
+    if (this.compact && Math.abs(dx) > SWIPE_THRESHOLD && Math.abs(dx) > Math.abs(dy) * 1.5) {
+      this.showDay(this.day + (dx < 0 ? 1 : -1));
+      return;
+    }
+
+    if (Math.hypot(dx, dy) > DRAG_THRESHOLD) return;
+
+    const slot = this.#slotAt(e);
+    if (!slot) {
+      this.disarm();
+      return;
+    }
+
+    if (this.armed) {
+      store.place(slot.userData.day, slot.userData.meal, this.armed.id);
+      this.disarm();
+      this.handlers.onDrop?.(this.armed);
+      return;
+    }
+
+    if (!store.entry(slot.userData.day, slot.userData.meal)) {
+      this.handlers.onEmptyTap?.({ day: slot.userData.day, meal: slot.userData.meal });
+    }
+  }
+
   #bindExternalDrag() {
     const el = this.stage.renderer.domElement;
 
@@ -397,18 +539,21 @@ export class Board {
     });
   }
 
-  /**
-   * Legt ein Gericht in das erste freie passende Feld; Rückfallebene für
-   * Zeigegeräte ohne Drag-Unterstützung.
-   */
+  /** Legt ein Gericht in das erste freie passende Feld. */
   placeInFirstFreeSlot(recipe) {
     const preferred = MEALS.filter((m) => (recipe.meals || []).includes(m.id));
     const order = preferred.length ? preferred : MEALS;
 
-    for (let day = 0; day < DAYS.length; day += 1) {
+    // In der Tagesansicht zuerst den sichtbaren Tag bedienen.
+    const days = this.compact
+      ? [this.day, ...DAYS.map((_, i) => i).filter((i) => i !== this.day)]
+      : DAYS.map((_, i) => i);
+
+    for (const day of days) {
       for (const meal of order) {
         if (!store.entry(day, meal.id)) {
           store.place(day, meal.id, recipe.id);
+          if (this.compact && day !== this.day) this.showDay(day);
           return { day, meal: meal.id };
         }
       }
@@ -419,7 +564,7 @@ export class Board {
   // ------------------------------------------------------------ Animation
 
   #animate(dt) {
-    const k = 1 - Math.exp(-16 * dt); // rahmenratenunabhängige Annäherung
+    const k = 1 - Math.exp(-16 * dt);
 
     for (const card of this.cards.values()) {
       const held = this.drag?.card === card;
@@ -432,9 +577,9 @@ export class Board {
       card.scale.set(s, s, s);
     }
 
-    // Zielfeld hell einfärben, solange etwas darüber schwebt
     for (const slot of this.slots.values()) {
-      const active = this.hoverSlot === slot;
+      const active = this.hoverSlot === slot
+        || (this.armed && !store.entry(slot.userData.day, slot.userData.meal));
       const target = active ? new THREE.Color(0xffe2d4) : new THREE.Color(0xffffff);
       slot.material.color.lerp(target, k);
     }

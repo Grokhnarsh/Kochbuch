@@ -10,6 +10,7 @@
     "preview": "vite preview --port 4173",
     "test": "node --test tests/*.test.js",
     "test:browser": "node tests/browser-smoke.mjs",
+    "test:handy": "node tests/browser-handy.mjs",
     "import": "node scripts/import-sources.mjs",
     "sync": "node scripts/sync.mjs",
     "prepare": "node scripts/install-hooks.mjs"

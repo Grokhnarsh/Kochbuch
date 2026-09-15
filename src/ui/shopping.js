@@ -9,7 +9,47 @@
 import { openModal, el } from './modal.js';
 import { store } from '../state/store.js';
 import { formatAmount } from '../state/units.js';
+import { allergensFor, allergenById, HINWEIS } from '../state/allergens.js';
 import { defaultShop } from '../shops/index.js';
+
+/**
+ * Welche Allergene in der ganzen Liste stecken, und in welchen
+ * Positionen. Wer fuer jemanden mit Allergie einkauft, will das vor
+ * dem Markt wissen, nicht im Regal.
+ */
+function allergenUebersicht(groups) {
+  const gefunden = new Map();
+
+  for (const g of groups) {
+    for (const item of g.items) {
+      for (const { id, level } of allergensFor(item.name)) {
+        const eintrag = gefunden.get(id) || { level: 'moeglich', positionen: [] };
+        if (level === 'ja') eintrag.level = 'ja';
+        eintrag.positionen.push(item.name);
+        gefunden.set(id, eintrag);
+      }
+    }
+  }
+
+  if (!gefunden.size) return '';
+
+  const chips = [...gefunden]
+    .sort((a, b) => b[1].positionen.length - a[1].positionen.length)
+    .map(([id, e]) => {
+      const a = allergenById.get(id);
+      return `<span class="allergen-chip ${e.level}" title="${e.positionen.join(', ')}">${
+        a.icon} ${a.short} <b>${e.positionen.length}</b></span>`;
+    })
+    .join('');
+
+  return `
+    <section class="shop-group">
+      <h3>Allergene in dieser Liste</h3>
+      <div class="allergen-row">${chips}</div>
+      <p class="allergen-note">${HINWEIS}</p>
+    </section>
+  `;
+}
 
 let view = 'liste';
 let cursor = 0;
@@ -64,6 +104,7 @@ function renderList(groups, body) {
       ${total} Positionen aus ${Object.keys(store.week).length} geplanten Gerichten,
       auf die eingestellten Portionen hochgerechnet. Noch offen: <strong>${open}</strong>.
     </p>
+    ${allergenUebersicht(groups)}
     ${groups.map((g) => `
       <section class="shop-group">
         <h3>${g.aisle}</h3>

@@ -14,9 +14,10 @@
       ],
       "diet": [],
       "servings": 4,
-      "prep": 20,
-      "cook": 30,
-      "difficulty": 2,
+      "yieldUnit": null,
+      "prep": 0,
+      "cook": 40,
+      "difficulty": 1,
       "kcal": 0,
       "tags": [
         "Koch-Wiki"
@@ -83,9 +84,10 @@
         "abend"
       ],
       "diet": [],
-      "servings": 4,
-      "prep": 20,
-      "cook": 30,
+      "servings": 1,
+      "yieldUnit": "Brot",
+      "prep": 0,
+      "cook": 0,
       "difficulty": 2,
       "kcal": 0,
       "tags": [
@@ -216,10 +218,11 @@
         "abend"
       ],
       "diet": [],
-      "servings": 4,
-      "prep": 20,
-      "cook": 30,
-      "difficulty": 2,
+      "servings": 2,
+      "yieldUnit": null,
+      "prep": 0,
+      "cook": 70,
+      "difficulty": 1,
       "kcal": 0,
       "tags": [
         "Koch-Wiki"
@@ -269,9 +272,10 @@
         "abend"
       ],
       "diet": [],
-      "servings": 4,
-      "prep": 20,
-      "cook": 30,
+      "servings": 75,
+      "yieldUnit": "Stück",
+      "prep": 25,
+      "cook": 45,
       "difficulty": 2,
       "kcal": 0,
       "tags": [
@@ -390,8 +394,9 @@
       ],
       "diet": [],
       "servings": 4,
-      "prep": 20,
-      "cook": 30,
+      "yieldUnit": null,
+      "prep": 0,
+      "cook": 40,
       "difficulty": 2,
       "kcal": 0,
       "tags": [
@@ -486,8 +491,9 @@
       ],
       "diet": [],
       "servings": 4,
-      "prep": 20,
-      "cook": 30,
+      "yieldUnit": null,
+      "prep": 0,
+      "cook": 75,
       "difficulty": 2,
       "kcal": 0,
       "tags": [
@@ -622,8 +628,9 @@
       ],
       "diet": [],
       "servings": 4,
-      "prep": 20,
-      "cook": 30,
+      "yieldUnit": null,
+      "prep": 0,
+      "cook": 120,
       "difficulty": 2,
       "kcal": 0,
       "tags": [
@@ -707,8 +714,9 @@
       ],
       "diet": [],
       "servings": 4,
-      "prep": 20,
-      "cook": 30,
+      "yieldUnit": null,
+      "prep": 0,
+      "cook": 15,
       "difficulty": 2,
       "kcal": 0,
       "tags": [
@@ -791,8 +799,9 @@
       ],
       "diet": [],
       "servings": 4,
-      "prep": 20,
-      "cook": 30,
+      "yieldUnit": null,
+      "prep": 0,
+      "cook": 40,
       "difficulty": 2,
       "kcal": 0,
       "tags": [
@@ -907,10 +916,11 @@
         "abend"
       ],
       "diet": [],
-      "servings": 4,
-      "prep": 20,
-      "cook": 30,
-      "difficulty": 2,
+      "servings": 6,
+      "yieldUnit": null,
+      "prep": 0,
+      "cook": 60,
+      "difficulty": 1,
       "kcal": 0,
       "tags": [
         "Koch-Wiki"
@@ -966,8 +976,9 @@
       ],
       "diet": [],
       "servings": 4,
-      "prep": 20,
-      "cook": 30,
+      "yieldUnit": null,
+      "prep": 30,
+      "cook": 15,
       "difficulty": 2,
       "kcal": 0,
       "tags": [
@@ -1052,10 +1063,11 @@
         "abend"
       ],
       "diet": [],
-      "servings": 4,
-      "prep": 20,
+      "servings": 6,
+      "yieldUnit": null,
+      "prep": 0,
       "cook": 30,
-      "difficulty": 2,
+      "difficulty": 1,
       "kcal": 0,
       "tags": [
         "Koch-Wiki"
@@ -1116,9 +1128,10 @@
         "abend"
       ],
       "diet": [],
-      "servings": 4,
-      "prep": 20,
-      "cook": 30,
+      "servings": 1,
+      "yieldUnit": null,
+      "prep": 5,
+      "cook": 0,
       "difficulty": 2,
       "kcal": 0,
       "tags": [
@@ -1181,10 +1194,11 @@
         "abend"
       ],
       "diet": [],
-      "servings": 4,
-      "prep": 20,
-      "cook": 30,
-      "difficulty": 2,
+      "servings": 1,
+      "yieldUnit": null,
+      "prep": 0,
+      "cook": 15,
+      "difficulty": 1,
       "kcal": 0,
       "tags": [
         "Koch-Wiki"
@@ -1228,9 +1242,10 @@
       ],
       "diet": [],
       "servings": 4,
-      "prep": 20,
+      "yieldUnit": null,
+      "prep": 0,
       "cook": 30,
-      "difficulty": 2,
+      "difficulty": 1,
       "kcal": 0,
       "tags": [
         "Koch-Wiki"
@@ -1295,9 +1310,10 @@
       ],
       "diet": [],
       "servings": 4,
-      "prep": 20,
-      "cook": 30,
-      "difficulty": 2,
+      "yieldUnit": null,
+      "prep": 0,
+      "cook": 15,
+      "difficulty": 1,
       "kcal": 0,
       "tags": [
         "Koch-Wiki"
@@ -1438,9 +1454,10 @@
       ],
       "diet": [],
       "servings": 4,
-      "prep": 20,
-      "cook": 30,
-      "difficulty": 2,
+      "yieldUnit": null,
+      "prep": 0,
+      "cook": 15,
+      "difficulty": 1,
       "kcal": 0,
       "tags": [
         "Koch-Wiki"
@@ -1566,8 +1583,9 @@
       ],
       "diet": [],
       "servings": 4,
-      "prep": 20,
-      "cook": 30,
+      "yieldUnit": null,
+      "prep": 0,
+      "cook": 40,
       "difficulty": 2,
       "kcal": 0,
       "tags": [
@@ -1694,9 +1712,10 @@
       ],
       "diet": [],
       "servings": 4,
-      "prep": 20,
+      "yieldUnit": null,
+      "prep": 0,
       "cook": 30,
-      "difficulty": 2,
+      "difficulty": 1,
       "kcal": 0,
       "tags": [
         "Koch-Wiki"
@@ -1782,9 +1801,10 @@
       ],
       "diet": [],
       "servings": 4,
-      "prep": 20,
+      "yieldUnit": null,
+      "prep": 0,
       "cook": 30,
-      "difficulty": 2,
+      "difficulty": 1,
       "kcal": 0,
       "tags": [
         "Koch-Wiki"
@@ -1841,10 +1861,11 @@
         "abend"
       ],
       "diet": [],
-      "servings": 4,
-      "prep": 20,
-      "cook": 30,
-      "difficulty": 2,
+      "servings": 5,
+      "yieldUnit": "Gläser",
+      "prep": 0,
+      "cook": 20,
+      "difficulty": 1,
       "kcal": 0,
       "tags": [
         "Koch-Wiki"
@@ -1895,9 +1916,10 @@
         "abend"
       ],
       "diet": [],
-      "servings": 4,
-      "prep": 20,
-      "cook": 30,
+      "servings": 6,
+      "yieldUnit": null,
+      "prep": 0,
+      "cook": 120,
       "difficulty": 2,
       "kcal": 0,
       "tags": [
@@ -1996,9 +2018,10 @@
       ],
       "diet": [],
       "servings": 4,
-      "prep": 20,
-      "cook": 30,
-      "difficulty": 2,
+      "yieldUnit": null,
+      "prep": 0,
+      "cook": 25,
+      "difficulty": 1,
       "kcal": 0,
       "tags": [
         "Koch-Wiki"
@@ -2068,9 +2091,10 @@
       ],
       "diet": [],
       "servings": 4,
-      "prep": 20,
+      "yieldUnit": null,
+      "prep": 0,
       "cook": 30,
-      "difficulty": 2,
+      "difficulty": 1,
       "kcal": 0,
       "tags": [
         "Koch-Wiki"
@@ -2142,8 +2166,9 @@
       ],
       "diet": [],
       "servings": 4,
-      "prep": 20,
-      "cook": 30,
+      "yieldUnit": null,
+      "prep": 0,
+      "cook": 20,
       "difficulty": 2,
       "kcal": 0,
       "tags": [
@@ -2215,10 +2240,11 @@
         "abend"
       ],
       "diet": [],
-      "servings": 4,
-      "prep": 20,
+      "servings": 50,
+      "yieldUnit": "Stück",
+      "prep": 0,
       "cook": 30,
-      "difficulty": 2,
+      "difficulty": 1,
       "kcal": 0,
       "tags": [
         "Koch-Wiki"
@@ -2301,10 +2327,11 @@
         "abend"
       ],
       "diet": [],
-      "servings": 4,
-      "prep": 20,
-      "cook": 30,
-      "difficulty": 2,
+      "servings": 1,
+      "yieldUnit": null,
+      "prep": 0,
+      "cook": 45,
+      "difficulty": 1,
       "kcal": 0,
       "tags": [
         "Koch-Wiki"
@@ -2400,9 +2427,10 @@
       ],
       "diet": [],
       "servings": 4,
-      "prep": 20,
-      "cook": 30,
-      "difficulty": 2,
+      "yieldUnit": null,
+      "prep": 0,
+      "cook": 20,
+      "difficulty": 1,
       "kcal": 0,
       "tags": [
         "Koch-Wiki"
@@ -2509,8 +2537,9 @@
       ],
       "diet": [],
       "servings": 4,
-      "prep": 20,
-      "cook": 30,
+      "yieldUnit": null,
+      "prep": 0,
+      "cook": 50,
       "difficulty": 2,
       "kcal": 0,
       "tags": [
@@ -2577,9 +2606,10 @@
       ],
       "diet": [],
       "servings": 4,
+      "yieldUnit": null,
       "prep": 20,
-      "cook": 30,
-      "difficulty": 2,
+      "cook": 0,
+      "difficulty": 1,
       "kcal": 0,
       "tags": [
         "Koch-Wiki"
@@ -2668,9 +2698,10 @@
         "abend"
       ],
       "diet": [],
-      "servings": 4,
-      "prep": 20,
-      "cook": 30,
+      "servings": 10,
+      "yieldUnit": "Pancakes",
+      "prep": 0,
+      "cook": 10,
       "difficulty": 2,
       "kcal": 0,
       "tags": [
@@ -2810,7 +2841,8 @@
       ],
       "diet": [],
       "servings": 4,
-      "prep": 20,
+      "yieldUnit": null,
+      "prep": 0,
       "cook": 30,
       "difficulty": 2,
       "kcal": 0,
@@ -2902,10 +2934,11 @@
         "abend"
       ],
       "diet": [],
-      "servings": 4,
-      "prep": 20,
+      "servings": 1,
+      "yieldUnit": null,
+      "prep": 0,
       "cook": 30,
-      "difficulty": 2,
+      "difficulty": 1,
       "kcal": 0,
       "tags": [
         "Koch-Wiki"
@@ -2971,10 +3004,11 @@
         "abend"
       ],
       "diet": [],
-      "servings": 4,
-      "prep": 20,
-      "cook": 30,
-      "difficulty": 2,
+      "servings": 2,
+      "yieldUnit": null,
+      "prep": 0,
+      "cook": 15,
+      "difficulty": 1,
       "kcal": 0,
       "tags": [
         "Koch-Wiki"
@@ -3038,9 +3072,10 @@
       ],
       "diet": [],
       "servings": 4,
-      "prep": 20,
-      "cook": 30,
-      "difficulty": 2,
+      "yieldUnit": null,
+      "prep": 0,
+      "cook": 20,
+      "difficulty": 1,
       "kcal": 0,
       "tags": [
         "Koch-Wiki"
@@ -3156,8 +3191,9 @@
       ],
       "diet": [],
       "servings": 4,
-      "prep": 20,
-      "cook": 30,
+      "yieldUnit": null,
+      "prep": 0,
+      "cook": 20,
       "difficulty": 2,
       "kcal": 0,
       "tags": [
@@ -3245,9 +3281,10 @@
         "abend"
       ],
       "diet": [],
-      "servings": 4,
-      "prep": 20,
-      "cook": 30,
+      "servings": 8,
+      "yieldUnit": "Tapas",
+      "prep": 0,
+      "cook": 60,
       "difficulty": 2,
       "kcal": 0,
       "tags": [
@@ -3368,9 +3405,10 @@
       ],
       "diet": [],
       "servings": 4,
-      "prep": 20,
-      "cook": 30,
-      "difficulty": 2,
+      "yieldUnit": null,
+      "prep": 0,
+      "cook": 10,
+      "difficulty": 1,
       "kcal": 0,
       "tags": [
         "Koch-Wiki"
@@ -3435,10 +3473,11 @@
         "abend"
       ],
       "diet": [],
-      "servings": 4,
-      "prep": 20,
+      "servings": 6,
+      "yieldUnit": null,
+      "prep": 0,
       "cook": 30,
-      "difficulty": 2,
+      "difficulty": 1,
       "kcal": 0,
       "tags": [
         "Koch-Wiki"
@@ -3518,8 +3557,9 @@
         "abend"
       ],
       "diet": [],
-      "servings": 4,
-      "prep": 20,
+      "servings": 6,
+      "yieldUnit": null,
+      "prep": 0,
       "cook": 30,
       "difficulty": 2,
       "kcal": 0,
@@ -3588,9 +3628,10 @@
       ],
       "diet": [],
       "servings": 4,
-      "prep": 20,
-      "cook": 30,
-      "difficulty": 2,
+      "yieldUnit": null,
+      "prep": 0,
+      "cook": 45,
+      "difficulty": 1,
       "kcal": 0,
       "tags": [
         "Koch-Wiki"
@@ -3644,9 +3685,10 @@
       ],
       "diet": [],
       "servings": 4,
-      "prep": 20,
+      "yieldUnit": null,
+      "prep": 0,
       "cook": 30,
-      "difficulty": 2,
+      "difficulty": 1,
       "kcal": 0,
       "tags": [
         "Koch-Wiki"
@@ -3702,9 +3744,10 @@
       ],
       "diet": [],
       "servings": 4,
-      "prep": 20,
-      "cook": 30,
-      "difficulty": 2,
+      "yieldUnit": null,
+      "prep": 0,
+      "cook": 60,
+      "difficulty": 1,
       "kcal": 0,
       "tags": [
         "Koch-Wiki"
@@ -3798,9 +3841,10 @@
         "abend"
       ],
       "diet": [],
-      "servings": 4,
-      "prep": 20,
-      "cook": 30,
+      "servings": 1,
+      "yieldUnit": "Blech",
+      "prep": 0,
+      "cook": 180,
       "difficulty": 2,
       "kcal": 0,
       "tags": [
@@ -3889,9 +3933,10 @@
         "abend"
       ],
       "diet": [],
-      "servings": 4,
-      "prep": 20,
-      "cook": 30,
+      "servings": 3,
+      "yieldUnit": null,
+      "prep": 0,
+      "cook": 60,
       "difficulty": 2,
       "kcal": 0,
       "tags": [
@@ -3960,10 +4005,11 @@
         "abend"
       ],
       "diet": [],
-      "servings": 4,
-      "prep": 20,
-      "cook": 30,
-      "difficulty": 2,
+      "servings": 250,
+      "yieldUnit": "ml",
+      "prep": 0,
+      "cook": 15,
+      "difficulty": 1,
       "kcal": 0,
       "tags": [
         "Koch-Wiki"
@@ -4018,8 +4064,9 @@
       ],
       "diet": [],
       "servings": 4,
-      "prep": 20,
-      "cook": 30,
+      "yieldUnit": null,
+      "prep": 0,
+      "cook": 40,
       "difficulty": 2,
       "kcal": 0,
       "tags": [
@@ -4120,10 +4167,11 @@
         "abend"
       ],
       "diet": [],
-      "servings": 4,
-      "prep": 20,
-      "cook": 30,
-      "difficulty": 2,
+      "servings": 2,
+      "yieldUnit": null,
+      "prep": 0,
+      "cook": 20,
+      "difficulty": 1,
       "kcal": 0,
       "tags": [
         "Koch-Wiki"
@@ -4190,10 +4238,11 @@
         "abend"
       ],
       "diet": [],
-      "servings": 4,
-      "prep": 20,
-      "cook": 30,
-      "difficulty": 2,
+      "servings": 2,
+      "yieldUnit": null,
+      "prep": 0,
+      "cook": 40,
+      "difficulty": 1,
       "kcal": 0,
       "tags": [
         "Koch-Wiki"
@@ -4276,8 +4325,9 @@
       ],
       "diet": [],
       "servings": 4,
-      "prep": 20,
-      "cook": 30,
+      "yieldUnit": null,
+      "prep": 0,
+      "cook": 20,
       "difficulty": 2,
       "kcal": 0,
       "tags": [
@@ -4365,10 +4415,11 @@
         "abend"
       ],
       "diet": [],
-      "servings": 4,
-      "prep": 20,
+      "servings": 1,
+      "yieldUnit": "Kuchen",
+      "prep": 0,
       "cook": 30,
-      "difficulty": 2,
+      "difficulty": 1,
       "kcal": 0,
       "tags": [
         "Koch-Wiki"
@@ -4505,10 +4556,11 @@
         "abend"
       ],
       "diet": [],
-      "servings": 4,
-      "prep": 20,
-      "cook": 30,
-      "difficulty": 2,
+      "servings": 2,
+      "yieldUnit": null,
+      "prep": 0,
+      "cook": 60,
+      "difficulty": 1,
       "kcal": 0,
       "tags": [
         "Koch-Wiki"
@@ -4583,9 +4635,10 @@
       ],
       "diet": [],
       "servings": 4,
-      "prep": 20,
-      "cook": 30,
-      "difficulty": 2,
+      "yieldUnit": null,
+      "prep": 0,
+      "cook": 20,
+      "difficulty": 1,
       "kcal": 0,
       "tags": [
         "Koch-Wiki"
@@ -4731,8 +4784,9 @@
       ],
       "diet": [],
       "servings": 4,
-      "prep": 20,
-      "cook": 30,
+      "yieldUnit": null,
+      "prep": 0,
+      "cook": 120,
       "difficulty": 2,
       "kcal": 0,
       "tags": [
@@ -4837,9 +4891,10 @@
         "abend"
       ],
       "diet": [],
-      "servings": 4,
-      "prep": 20,
-      "cook": 30,
+      "servings": 24,
+      "yieldUnit": "Plätzchen",
+      "prep": 15,
+      "cook": 180,
       "difficulty": 2,
       "kcal": 0,
       "tags": [
@@ -4968,9 +5023,10 @@
         "abend"
       ],
       "diet": [],
-      "servings": 4,
-      "prep": 20,
-      "cook": 30,
+      "servings": 1,
+      "yieldUnit": null,
+      "prep": 0,
+      "cook": 45,
       "difficulty": 2,
       "kcal": 0,
       "tags": [
@@ -5066,8 +5122,9 @@
       ],
       "diet": [],
       "servings": 4,
-      "prep": 20,
-      "cook": 30,
+      "yieldUnit": null,
+      "prep": 0,
+      "cook": 60,
       "difficulty": 2,
       "kcal": 0,
       "tags": [
@@ -5130,8 +5187,9 @@
       ],
       "diet": [],
       "servings": 4,
-      "prep": 20,
-      "cook": 30,
+      "yieldUnit": null,
+      "prep": 0,
+      "cook": 15,
       "difficulty": 2,
       "kcal": 0,
       "tags": [
@@ -5238,10 +5296,11 @@
         "abend"
       ],
       "diet": [],
-      "servings": 4,
-      "prep": 20,
-      "cook": 30,
-      "difficulty": 2,
+      "servings": 80,
+      "yieldUnit": "Stück",
+      "prep": 0,
+      "cook": 150,
+      "difficulty": 1,
       "kcal": 0,
       "tags": [
         "Koch-Wiki"
@@ -5347,10 +5406,11 @@
         "abend"
       ],
       "diet": [],
-      "servings": 4,
-      "prep": 20,
-      "cook": 30,
-      "difficulty": 2,
+      "servings": 1,
+      "yieldUnit": null,
+      "prep": 0,
+      "cook": 20,
+      "difficulty": 1,
       "kcal": 0,
       "tags": [
         "Koch-Wiki"
@@ -5409,10 +5469,11 @@
         "abend"
       ],
       "diet": [],
-      "servings": 4,
-      "prep": 20,
+      "servings": 2,
+      "yieldUnit": null,
+      "prep": 0,
       "cook": 30,
-      "difficulty": 2,
+      "difficulty": 1,
       "kcal": 0,
       "tags": [
         "Koch-Wiki"
@@ -5523,9 +5584,10 @@
       ],
       "diet": [],
       "servings": 4,
-      "prep": 20,
-      "cook": 30,
-      "difficulty": 2,
+      "yieldUnit": null,
+      "prep": 30,
+      "cook": 0,
+      "difficulty": 1,
       "kcal": 0,
       "tags": [
         "Koch-Wiki"
@@ -5632,10 +5694,11 @@
         "abend"
       ],
       "diet": [],
-      "servings": 4,
-      "prep": 20,
-      "cook": 30,
-      "difficulty": 2,
+      "servings": 5,
+      "yieldUnit": null,
+      "prep": 0,
+      "cook": 35,
+      "difficulty": 1,
       "kcal": 0,
       "tags": [
         "Koch-Wiki"
@@ -5710,10 +5773,11 @@
         "abend"
       ],
       "diet": [],
-      "servings": 4,
-      "prep": 20,
-      "cook": 30,
-      "difficulty": 2,
+      "servings": 1,
+      "yieldUnit": "Cherry",
+      "prep": 0,
+      "cook": 20,
+      "difficulty": 1,
       "kcal": 0,
       "tags": [
         "Koch-Wiki"
@@ -5866,9 +5930,10 @@
       ],
       "diet": [],
       "servings": 4,
-      "prep": 20,
-      "cook": 30,
-      "difficulty": 2,
+      "yieldUnit": null,
+      "prep": 0,
+      "cook": 35,
+      "difficulty": 1,
       "kcal": 0,
       "tags": [
         "Koch-Wiki"
@@ -5943,10 +6008,11 @@
         "abend"
       ],
       "diet": [],
-      "servings": 4,
-      "prep": 20,
-      "cook": 30,
-      "difficulty": 2,
+      "servings": 3,
+      "yieldUnit": null,
+      "prep": 0,
+      "cook": 20,
+      "difficulty": 1,
       "kcal": 0,
       "tags": [
         "Koch-Wiki"
@@ -6026,10 +6092,11 @@
         "abend"
       ],
       "diet": [],
-      "servings": 4,
-      "prep": 20,
-      "cook": 30,
-      "difficulty": 2,
+      "servings": 8,
+      "yieldUnit": "Stück",
+      "prep": 0,
+      "cook": 20,
+      "difficulty": 1,
       "kcal": 0,
       "tags": [
         "Koch-Wiki"
@@ -6099,9 +6166,10 @@
         "abend"
       ],
       "diet": [],
-      "servings": 4,
-      "prep": 20,
-      "cook": 30,
+      "servings": 12,
+      "yieldUnit": "Stück",
+      "prep": 0,
+      "cook": 45,
       "difficulty": 2,
       "kcal": 0,
       "tags": [
@@ -6227,9 +6295,10 @@
         "abend"
       ],
       "diet": [],
-      "servings": 4,
-      "prep": 20,
-      "cook": 30,
+      "servings": 40,
+      "yieldUnit": "Stück",
+      "prep": 0,
+      "cook": 20,
       "difficulty": 2,
       "kcal": 0,
       "tags": [
@@ -6316,9 +6385,10 @@
       ],
       "diet": [],
       "servings": 4,
-      "prep": 20,
-      "cook": 30,
-      "difficulty": 2,
+      "yieldUnit": null,
+      "prep": 0,
+      "cook": 45,
+      "difficulty": 1,
       "kcal": 0,
       "tags": [
         "Koch-Wiki"
@@ -6399,10 +6469,11 @@
         "abend"
       ],
       "diet": [],
-      "servings": 4,
-      "prep": 20,
-      "cook": 30,
-      "difficulty": 2,
+      "servings": 2,
+      "yieldUnit": "kg",
+      "prep": 0,
+      "cook": 120,
+      "difficulty": 1,
       "kcal": 0,
       "tags": [
         "Koch-Wiki"
@@ -6496,8 +6567,9 @@
       ],
       "diet": [],
       "servings": 4,
-      "prep": 20,
-      "cook": 30,
+      "yieldUnit": "Gläser",
+      "prep": 0,
+      "cook": 180,
       "difficulty": 2,
       "kcal": 0,
       "tags": [
@@ -6578,9 +6650,10 @@
       ],
       "diet": [],
       "servings": 4,
-      "prep": 20,
-      "cook": 30,
-      "difficulty": 2,
+      "yieldUnit": null,
+      "prep": 0,
+      "cook": 20,
+      "difficulty": 1,
       "kcal": 0,
       "tags": [
         "Koch-Wiki"
@@ -6643,9 +6716,10 @@
       ],
       "diet": [],
       "servings": 4,
-      "prep": 20,
-      "cook": 30,
-      "difficulty": 2,
+      "yieldUnit": "Gläser",
+      "prep": 0,
+      "cook": 20,
+      "difficulty": 1,
       "kcal": 0,
       "tags": [
         "Koch-Wiki"
@@ -6727,8 +6801,9 @@
       ],
       "diet": [],
       "servings": 4,
-      "prep": 20,
-      "cook": 30,
+      "yieldUnit": null,
+      "prep": 0,
+      "cook": 600,
       "difficulty": 2,
       "kcal": 0,
       "tags": [
@@ -6818,10 +6893,11 @@
         "abend"
       ],
       "diet": [],
-      "servings": 4,
-      "prep": 20,
+      "servings": 50,
+      "yieldUnit": "Stück",
+      "prep": 0,
       "cook": 30,
-      "difficulty": 2,
+      "difficulty": 1,
       "kcal": 0,
       "tags": [
         "Koch-Wiki"
@@ -6905,9 +6981,10 @@
         "abend"
       ],
       "diet": [],
-      "servings": 4,
-      "prep": 20,
-      "cook": 30,
+      "servings": 12,
+      "yieldUnit": null,
+      "prep": 0,
+      "cook": 40,
       "difficulty": 2,
       "kcal": 0,
       "tags": [
@@ -7005,10 +7082,11 @@
         "abend"
       ],
       "diet": [],
-      "servings": 4,
-      "prep": 20,
-      "cook": 30,
-      "difficulty": 2,
+      "servings": 12,
+      "yieldUnit": "Muffins",
+      "prep": 0,
+      "cook": 15,
+      "difficulty": 1,
       "kcal": 0,
       "tags": [
         "Koch-Wiki"
@@ -7084,10 +7162,11 @@
         "abend"
       ],
       "diet": [],
-      "servings": 4,
-      "prep": 20,
-      "cook": 30,
-      "difficulty": 2,
+      "servings": 5,
+      "yieldUnit": "Gläser",
+      "prep": 0,
+      "cook": 60,
+      "difficulty": 1,
       "kcal": 0,
       "tags": [
         "Koch-Wiki"
@@ -7141,8 +7220,9 @@
         "abend"
       ],
       "diet": [],
-      "servings": 4,
-      "prep": 20,
+      "servings": 12,
+      "yieldUnit": "Stück",
+      "prep": 0,
       "cook": 30,
       "difficulty": 2,
       "kcal": 0,
@@ -7235,10 +7315,11 @@
         "abend"
       ],
       "diet": [],
-      "servings": 4,
-      "prep": 20,
-      "cook": 30,
-      "difficulty": 2,
+      "servings": 5,
+      "yieldUnit": "Gläser",
+      "prep": 0,
+      "cook": 60,
+      "difficulty": 1,
       "kcal": 0,
       "tags": [
         "Koch-Wiki"
@@ -7293,9 +7374,10 @@
       ],
       "diet": [],
       "servings": 4,
-      "prep": 20,
-      "cook": 30,
-      "difficulty": 2,
+      "yieldUnit": null,
+      "prep": 0,
+      "cook": 20,
+      "difficulty": 1,
       "kcal": 0,
       "tags": [
         "Koch-Wiki"
@@ -7414,10 +7496,11 @@
         "abend"
       ],
       "diet": [],
-      "servings": 4,
-      "prep": 20,
-      "cook": 30,
-      "difficulty": 2,
+      "servings": 5,
+      "yieldUnit": "Gläser",
+      "prep": 0,
+      "cook": 60,
+      "difficulty": 1,
       "kcal": 0,
       "tags": [
         "Koch-Wiki"
@@ -7465,8 +7548,9 @@
       ],
       "diet": [],
       "servings": 4,
-      "prep": 20,
-      "cook": 30,
+      "yieldUnit": null,
+      "prep": 0,
+      "cook": 20,
       "difficulty": 2,
       "kcal": 0,
       "tags": [
@@ -7540,10 +7624,11 @@
         "abend"
       ],
       "diet": [],
-      "servings": 4,
-      "prep": 20,
-      "cook": 30,
-      "difficulty": 2,
+      "servings": 2,
+      "yieldUnit": null,
+      "prep": 0,
+      "cook": 15,
+      "difficulty": 1,
       "kcal": 0,
       "tags": [
         "Koch-Wiki"
@@ -7604,10 +7689,11 @@
         "abend"
       ],
       "diet": [],
-      "servings": 4,
-      "prep": 20,
-      "cook": 30,
-      "difficulty": 2,
+      "servings": 1,
+      "yieldUnit": "Tarte",
+      "prep": 0,
+      "cook": 240,
+      "difficulty": 1,
       "kcal": 0,
       "tags": [
         "Koch-Wiki"
@@ -7675,9 +7761,10 @@
       ],
       "diet": [],
       "servings": 4,
-      "prep": 20,
-      "cook": 30,
-      "difficulty": 2,
+      "yieldUnit": null,
+      "prep": 0,
+      "cook": 40,
+      "difficulty": 1,
       "kcal": 0,
       "tags": [
         "Koch-Wiki"
@@ -7768,9 +7855,10 @@
       ],
       "diet": [],
       "servings": 4,
-      "prep": 20,
+      "yieldUnit": null,
+      "prep": 0,
       "cook": 30,
-      "difficulty": 2,
+      "difficulty": 1,
       "kcal": 0,
       "tags": [
         "Koch-Wiki"
@@ -7836,10 +7924,11 @@
         "abend"
       ],
       "diet": [],
-      "servings": 4,
-      "prep": 20,
-      "cook": 30,
-      "difficulty": 2,
+      "servings": 10,
+      "yieldUnit": null,
+      "prep": 0,
+      "cook": 10,
+      "difficulty": 1,
       "kcal": 0,
       "tags": [
         "Koch-Wiki"
@@ -7919,9 +8008,10 @@
       ],
       "diet": [],
       "servings": 4,
-      "prep": 20,
-      "cook": 30,
-      "difficulty": 2,
+      "yieldUnit": null,
+      "prep": 0,
+      "cook": 15,
+      "difficulty": 1,
       "kcal": 0,
       "tags": [
         "Koch-Wiki"
@@ -7981,9 +8071,10 @@
       ],
       "diet": [],
       "servings": 4,
-      "prep": 20,
-      "cook": 30,
-      "difficulty": 2,
+      "yieldUnit": null,
+      "prep": 0,
+      "cook": 45,
+      "difficulty": 1,
       "kcal": 0,
       "tags": [
         "Koch-Wiki"
@@ -8066,9 +8157,10 @@
       ],
       "diet": [],
       "servings": 4,
-      "prep": 20,
-      "cook": 30,
-      "difficulty": 2,
+      "yieldUnit": null,
+      "prep": 0,
+      "cook": 25,
+      "difficulty": 1,
       "kcal": 0,
       "tags": [
         "Koch-Wiki"
@@ -8130,10 +8222,11 @@
         "abend"
       ],
       "diet": [],
-      "servings": 4,
-      "prep": 20,
-      "cook": 30,
-      "difficulty": 2,
+      "servings": 10,
+      "yieldUnit": null,
+      "prep": 180,
+      "cook": 0,
+      "difficulty": 1,
       "kcal": 0,
       "tags": [
         "Koch-Wiki"
@@ -8208,9 +8301,10 @@
       ],
       "diet": [],
       "servings": 4,
-      "prep": 20,
-      "cook": 30,
-      "difficulty": 2,
+      "yieldUnit": null,
+      "prep": 0,
+      "cook": 40,
+      "difficulty": 1,
       "kcal": 0,
       "tags": [
         "Koch-Wiki"
@@ -8269,8 +8363,9 @@
       ],
       "diet": [],
       "servings": 4,
-      "prep": 20,
-      "cook": 30,
+      "yieldUnit": null,
+      "prep": 0,
+      "cook": 180,
       "difficulty": 2,
       "kcal": 0,
       "tags": [
@@ -8360,10 +8455,11 @@
         "abend"
       ],
       "diet": [],
-      "servings": 4,
-      "prep": 20,
-      "cook": 30,
-      "difficulty": 2,
+      "servings": 120,
+      "yieldUnit": "Stück",
+      "prep": 0,
+      "cook": 35,
+      "difficulty": 1,
       "kcal": 0,
       "tags": [
         "Koch-Wiki"
@@ -8473,9 +8569,10 @@
         "abend"
       ],
       "diet": [],
-      "servings": 4,
-      "prep": 20,
-      "cook": 30,
+      "servings": 2,
+      "yieldUnit": "Brote",
+      "prep": 0,
+      "cook": 85,
       "difficulty": 2,
       "kcal": 0,
       "tags": [
@@ -8543,10 +8640,11 @@
         "abend"
       ],
       "diet": [],
-      "servings": 4,
-      "prep": 20,
-      "cook": 30,
-      "difficulty": 2,
+      "servings": 60,
+      "yieldUnit": "Stück",
+      "prep": 0,
+      "cook": 15,
+      "difficulty": 1,
       "kcal": 0,
       "tags": [
         "Koch-Wiki"
@@ -8620,10 +8718,11 @@
         "abend"
       ],
       "diet": [],
-      "servings": 4,
-      "prep": 20,
+      "servings": 1,
+      "yieldUnit": null,
+      "prep": 0,
       "cook": 30,
-      "difficulty": 2,
+      "difficulty": 1,
       "kcal": 0,
       "tags": [
         "Koch-Wiki"
@@ -8675,10 +8774,11 @@
         "abend"
       ],
       "diet": [],
-      "servings": 4,
-      "prep": 20,
-      "cook": 30,
-      "difficulty": 2,
+      "servings": 1,
+      "yieldUnit": null,
+      "prep": 0,
+      "cook": 25,
+      "difficulty": 1,
       "kcal": 0,
       "tags": [
         "Koch-Wiki"
@@ -8746,10 +8846,11 @@
         "abend"
       ],
       "diet": [],
-      "servings": 4,
-      "prep": 20,
-      "cook": 30,
-      "difficulty": 2,
+      "servings": 60,
+      "yieldUnit": "Stück",
+      "prep": 0,
+      "cook": 15,
+      "difficulty": 1,
       "kcal": 0,
       "tags": [
         "Koch-Wiki"
@@ -8820,10 +8921,11 @@
         "abend"
       ],
       "diet": [],
-      "servings": 4,
-      "prep": 20,
-      "cook": 30,
-      "difficulty": 2,
+      "servings": 45,
+      "yieldUnit": "Stück",
+      "prep": 0,
+      "cook": 15,
+      "difficulty": 1,
       "kcal": 0,
       "tags": [
         "Koch-Wiki"
@@ -8875,9 +8977,10 @@
         "abend"
       ],
       "diet": [],
-      "servings": 4,
-      "prep": 20,
-      "cook": 30,
+      "servings": 6,
+      "yieldUnit": null,
+      "prep": 0,
+      "cook": 65,
       "difficulty": 2,
       "kcal": 0,
       "tags": [
@@ -9029,9 +9132,10 @@
       ],
       "diet": [],
       "servings": 4,
-      "prep": 20,
-      "cook": 30,
-      "difficulty": 2,
+      "yieldUnit": null,
+      "prep": 0,
+      "cook": 20,
+      "difficulty": 1,
       "kcal": 0,
       "tags": [
         "Koch-Wiki"
@@ -9111,9 +9215,10 @@
       ],
       "diet": [],
       "servings": 4,
-      "prep": 20,
-      "cook": 30,
-      "difficulty": 2,
+      "yieldUnit": null,
+      "prep": 0,
+      "cook": 20,
+      "difficulty": 1,
       "kcal": 0,
       "tags": [
         "Koch-Wiki"
@@ -9234,9 +9339,10 @@
       ],
       "diet": [],
       "servings": 4,
-      "prep": 20,
-      "cook": 30,
-      "difficulty": 2,
+      "yieldUnit": null,
+      "prep": 0,
+      "cook": 15,
+      "difficulty": 1,
       "kcal": 0,
       "tags": [
         "Koch-Wiki"
@@ -9329,8 +9435,9 @@
       ],
       "diet": [],
       "servings": 4,
-      "prep": 20,
-      "cook": 30,
+      "yieldUnit": null,
+      "prep": 0,
+      "cook": 60,
       "difficulty": 2,
       "kcal": 0,
       "tags": [
@@ -9388,8 +9495,9 @@
       ],
       "diet": [],
       "servings": 4,
-      "prep": 20,
-      "cook": 30,
+      "yieldUnit": null,
+      "prep": 0,
+      "cook": 45,
       "difficulty": 2,
       "kcal": 0,
       "tags": [
@@ -9474,9 +9582,10 @@
       ],
       "diet": [],
       "servings": 4,
-      "prep": 20,
-      "cook": 30,
-      "difficulty": 2,
+      "yieldUnit": null,
+      "prep": 0,
+      "cook": 60,
+      "difficulty": 1,
       "kcal": 0,
       "tags": [
         "Koch-Wiki"
@@ -9544,10 +9653,11 @@
         "abend"
       ],
       "diet": [],
-      "servings": 4,
-      "prep": 20,
-      "cook": 30,
-      "difficulty": 2,
+      "servings": 6,
+      "yieldUnit": null,
+      "prep": 0,
+      "cook": 70,
+      "difficulty": 1,
       "kcal": 0,
       "tags": [
         "Koch-Wiki"
@@ -9626,9 +9736,10 @@
       ],
       "diet": [],
       "servings": 4,
-      "prep": 20,
-      "cook": 30,
-      "difficulty": 2,
+      "yieldUnit": null,
+      "prep": 0,
+      "cook": 75,
+      "difficulty": 1,
       "kcal": 0,
       "tags": [
         "Koch-Wiki"
@@ -9710,9 +9821,10 @@
       ],
       "diet": [],
       "servings": 4,
-      "prep": 20,
-      "cook": 30,
-      "difficulty": 2,
+      "yieldUnit": null,
+      "prep": 0,
+      "cook": 35,
+      "difficulty": 1,
       "kcal": 0,
       "tags": [
         "Koch-Wiki"
@@ -9792,9 +9904,10 @@
         "abend"
       ],
       "diet": [],
-      "servings": 4,
-      "prep": 20,
-      "cook": 30,
+      "servings": 3,
+      "yieldUnit": null,
+      "prep": 0,
+      "cook": 20,
       "difficulty": 2,
       "kcal": 0,
       "tags": [
@@ -9857,8 +9970,9 @@
       ],
       "diet": [],
       "servings": 4,
-      "prep": 20,
-      "cook": 30,
+      "yieldUnit": null,
+      "prep": 0,
+      "cook": 40,
       "difficulty": 2,
       "kcal": 0,
       "tags": [
@@ -9957,10 +10071,11 @@
         "abend"
       ],
       "diet": [],
-      "servings": 4,
-      "prep": 20,
-      "cook": 30,
-      "difficulty": 2,
+      "servings": 5,
+      "yieldUnit": null,
+      "prep": 0,
+      "cook": 15,
+      "difficulty": 1,
       "kcal": 0,
       "tags": [
         "Koch-Wiki"
@@ -10017,8 +10132,9 @@
       ],
       "diet": [],
       "servings": 4,
-      "prep": 20,
-      "cook": 30,
+      "yieldUnit": null,
+      "prep": 0,
+      "cook": 20,
       "difficulty": 2,
       "kcal": 0,
       "tags": [
@@ -10125,10 +10241,11 @@
         "abend"
       ],
       "diet": [],
-      "servings": 4,
-      "prep": 20,
-      "cook": 30,
-      "difficulty": 2,
+      "servings": 12,
+      "yieldUnit": "Muffins",
+      "prep": 0,
+      "cook": 20,
+      "difficulty": 1,
       "kcal": 0,
       "tags": [
         "Koch-Wiki"
@@ -10237,10 +10354,11 @@
         "abend"
       ],
       "diet": [],
-      "servings": 4,
-      "prep": 20,
-      "cook": 30,
-      "difficulty": 2,
+      "servings": 12,
+      "yieldUnit": "Stück",
+      "prep": 0,
+      "cook": 20,
+      "difficulty": 1,
       "kcal": 0,
       "tags": [
         "Koch-Wiki"
@@ -10342,9 +10460,10 @@
       ],
       "diet": [],
       "servings": 4,
-      "prep": 20,
+      "yieldUnit": null,
+      "prep": 0,
       "cook": 30,
-      "difficulty": 2,
+      "difficulty": 1,
       "kcal": 0,
       "tags": [
         "Koch-Wiki"
@@ -10407,10 +10526,11 @@
         "abend"
       ],
       "diet": [],
-      "servings": 4,
-      "prep": 20,
-      "cook": 30,
-      "difficulty": 2,
+      "servings": 1,
+      "yieldUnit": "Schüssel",
+      "prep": 0,
+      "cook": 15,
+      "difficulty": 1,
       "kcal": 0,
       "tags": [
         "Koch-Wiki"
@@ -10479,9 +10599,10 @@
       ],
       "diet": [],
       "servings": 4,
-      "prep": 20,
-      "cook": 30,
-      "difficulty": 2,
+      "yieldUnit": null,
+      "prep": 0,
+      "cook": 15,
+      "difficulty": 1,
       "kcal": 0,
       "tags": [
         "Koch-Wiki"
@@ -10539,10 +10660,11 @@
         "abend"
       ],
       "diet": [],
-      "servings": 4,
-      "prep": 20,
-      "cook": 30,
-      "difficulty": 2,
+      "servings": 2,
+      "yieldUnit": null,
+      "prep": 0,
+      "cook": 20,
+      "difficulty": 1,
       "kcal": 0,
       "tags": [
         "Koch-Wiki"
@@ -10668,9 +10790,10 @@
       ],
       "diet": [],
       "servings": 4,
-      "prep": 20,
-      "cook": 30,
-      "difficulty": 2,
+      "yieldUnit": null,
+      "prep": 0,
+      "cook": 15,
+      "difficulty": 1,
       "kcal": 0,
       "tags": [
         "Koch-Wiki"
@@ -10740,10 +10863,11 @@
         "abend"
       ],
       "diet": [],
-      "servings": 4,
-      "prep": 20,
-      "cook": 30,
-      "difficulty": 2,
+      "servings": 12,
+      "yieldUnit": "Muffins",
+      "prep": 0,
+      "cook": 20,
+      "difficulty": 1,
       "kcal": 0,
       "tags": [
         "Koch-Wiki"
@@ -10828,9 +10952,10 @@
       ],
       "diet": [],
       "servings": 4,
-      "prep": 20,
+      "yieldUnit": null,
+      "prep": 0,
       "cook": 30,
-      "difficulty": 2,
+      "difficulty": 1,
       "kcal": 0,
       "tags": [
         "Koch-Wiki"
@@ -10956,9 +11081,10 @@
         "abend"
       ],
       "diet": [],
-      "servings": 4,
-      "prep": 20,
-      "cook": 30,
+      "servings": 8,
+      "yieldUnit": "Apfelrosen",
+      "prep": 0,
+      "cook": 90,
       "difficulty": 2,
       "kcal": 0,
       "tags": [
@@ -11017,10 +11143,11 @@
         "abend"
       ],
       "diet": [],
-      "servings": 4,
-      "prep": 20,
-      "cook": 30,
-      "difficulty": 2,
+      "servings": 1,
+      "yieldUnit": "Kuchen",
+      "prep": 0,
+      "cook": 60,
+      "difficulty": 1,
       "kcal": 0,
       "tags": [
         "Koch-Wiki"
@@ -11122,9 +11249,10 @@
         "abend"
       ],
       "diet": [],
-      "servings": 4,
-      "prep": 20,
-      "cook": 30,
+      "servings": 10,
+      "yieldUnit": "Pprtiomen",
+      "prep": 0,
+      "cook": 85,
       "difficulty": 2,
       "kcal": 0,
       "tags": [
@@ -11229,9 +11357,10 @@
       ],
       "diet": [],
       "servings": 4,
-      "prep": 20,
-      "cook": 30,
-      "difficulty": 2,
+      "yieldUnit": null,
+      "prep": 0,
+      "cook": 45,
+      "difficulty": 1,
       "kcal": 0,
       "tags": [
         "Koch-Wiki"
@@ -11302,9 +11431,10 @@
         "abend"
       ],
       "diet": [],
-      "servings": 4,
-      "prep": 20,
-      "cook": 30,
+      "servings": 9,
+      "yieldUnit": "Schnitten",
+      "prep": 0,
+      "cook": 40,
       "difficulty": 2,
       "kcal": 0,
       "tags": [
@@ -11401,10 +11531,11 @@
         "abend"
       ],
       "diet": [],
-      "servings": 4,
-      "prep": 20,
-      "cook": 30,
-      "difficulty": 2,
+      "servings": 12,
+      "yieldUnit": null,
+      "prep": 0,
+      "cook": 40,
+      "difficulty": 1,
       "kcal": 0,
       "tags": [
         "Koch-Wiki"
@@ -11503,9 +11634,10 @@
       ],
       "diet": [],
       "servings": 4,
-      "prep": 20,
-      "cook": 30,
-      "difficulty": 2,
+      "yieldUnit": null,
+      "prep": 0,
+      "cook": 10,
+      "difficulty": 1,
       "kcal": 0,
       "tags": [
         "Koch-Wiki"
@@ -11602,9 +11734,10 @@
         "abend"
       ],
       "diet": [],
-      "servings": 4,
-      "prep": 20,
-      "cook": 30,
+      "servings": 2,
+      "yieldUnit": "Laibe",
+      "prep": 0,
+      "cook": 60,
       "difficulty": 2,
       "kcal": 0,
       "tags": [
@@ -11679,9 +11812,10 @@
         "abend"
       ],
       "diet": [],
-      "servings": 4,
-      "prep": 20,
-      "cook": 30,
+      "servings": 6,
+      "yieldUnit": null,
+      "prep": 0,
+      "cook": 15,
       "difficulty": 2,
       "kcal": 0,
       "tags": [
@@ -11743,10 +11877,11 @@
         "abend"
       ],
       "diet": [],
-      "servings": 4,
-      "prep": 20,
-      "cook": 30,
-      "difficulty": 2,
+      "servings": 5,
+      "yieldUnit": "Gläser",
+      "prep": 0,
+      "cook": 60,
+      "difficulty": 1,
       "kcal": 0,
       "tags": [
         "Koch-Wiki"
@@ -11805,10 +11940,11 @@
         "abend"
       ],
       "diet": [],
-      "servings": 4,
-      "prep": 20,
-      "cook": 30,
-      "difficulty": 2,
+      "servings": 5,
+      "yieldUnit": "Gläser",
+      "prep": 0,
+      "cook": 20,
+      "difficulty": 1,
       "kcal": 0,
       "tags": [
         "Koch-Wiki"
@@ -11863,9 +11999,10 @@
       ],
       "diet": [],
       "servings": 4,
-      "prep": 20,
-      "cook": 30,
-      "difficulty": 2,
+      "yieldUnit": null,
+      "prep": 0,
+      "cook": 25,
+      "difficulty": 1,
       "kcal": 0,
       "tags": [
         "Koch-Wiki"
@@ -11940,8 +12077,9 @@
       ],
       "diet": [],
       "servings": 4,
-      "prep": 20,
-      "cook": 30,
+      "yieldUnit": null,
+      "prep": 0,
+      "cook": 40,
       "difficulty": 2,
       "kcal": 0,
       "tags": [
@@ -12043,8 +12181,9 @@
       ],
       "diet": [],
       "servings": 4,
-      "prep": 20,
-      "cook": 30,
+      "yieldUnit": null,
+      "prep": 0,
+      "cook": 120,
       "difficulty": 2,
       "kcal": 0,
       "tags": [
@@ -12110,10 +12249,11 @@
         "abend"
       ],
       "diet": [],
-      "servings": 4,
-      "prep": 20,
-      "cook": 30,
-      "difficulty": 2,
+      "servings": 1,
+      "yieldUnit": null,
+      "prep": 0,
+      "cook": 45,
+      "difficulty": 1,
       "kcal": 0,
       "tags": [
         "Koch-Wiki"
@@ -12255,9 +12395,10 @@
       ],
       "diet": [],
       "servings": 4,
-      "prep": 20,
-      "cook": 30,
-      "difficulty": 2,
+      "yieldUnit": null,
+      "prep": 0,
+      "cook": 45,
+      "difficulty": 1,
       "kcal": 0,
       "tags": [
         "Koch-Wiki"
@@ -12314,10 +12455,11 @@
         "abend"
       ],
       "diet": [],
-      "servings": 4,
-      "prep": 20,
-      "cook": 30,
-      "difficulty": 2,
+      "servings": 12,
+      "yieldUnit": "Stück",
+      "prep": 0,
+      "cook": 45,
+      "difficulty": 1,
       "kcal": 0,
       "tags": [
         "Koch-Wiki"
@@ -12389,10 +12531,11 @@
         "abend"
       ],
       "diet": [],
-      "servings": 4,
-      "prep": 20,
-      "cook": 30,
-      "difficulty": 2,
+      "servings": 1,
+      "yieldUnit": "Blech",
+      "prep": 0,
+      "cook": 45,
+      "difficulty": 1,
       "kcal": 0,
       "tags": [
         "Koch-Wiki"
@@ -12462,9 +12605,10 @@
       ],
       "diet": [],
       "servings": 4,
+      "yieldUnit": null,
       "prep": 20,
-      "cook": 30,
-      "difficulty": 2,
+      "cook": 0,
+      "difficulty": 1,
       "kcal": 0,
       "tags": [
         "Koch-Wiki"
@@ -12550,8 +12694,9 @@
         "abend"
       ],
       "diet": [],
-      "servings": 4,
-      "prep": 20,
+      "servings": 1,
+      "yieldUnit": "Springform",
+      "prep": 0,
       "cook": 30,
       "difficulty": 2,
       "kcal": 0,
@@ -12670,9 +12815,10 @@
         "abend"
       ],
       "diet": [],
-      "servings": 4,
-      "prep": 20,
-      "cook": 30,
+      "servings": 10,
+      "yieldUnit": null,
+      "prep": 0,
+      "cook": 90,
       "difficulty": 2,
       "kcal": 0,
       "tags": [
@@ -12790,10 +12936,11 @@
         "abend"
       ],
       "diet": [],
-      "servings": 4,
-      "prep": 20,
-      "cook": 30,
-      "difficulty": 2,
+      "servings": 1,
+      "yieldUnit": "Apple",
+      "prep": 0,
+      "cook": 10,
+      "difficulty": 1,
       "kcal": 0,
       "tags": [
         "Koch-Wiki"
@@ -12834,10 +12981,11 @@
         "abend"
       ],
       "diet": [],
-      "servings": 4,
-      "prep": 20,
-      "cook": 30,
-      "difficulty": 2,
+      "servings": 5,
+      "yieldUnit": "Gläser",
+      "prep": 0,
+      "cook": 20,
+      "difficulty": 1,
       "kcal": 0,
       "tags": [
         "Koch-Wiki"
@@ -12893,8 +13041,9 @@
       ],
       "diet": [],
       "servings": 4,
-      "prep": 20,
-      "cook": 30,
+      "yieldUnit": null,
+      "prep": 0,
+      "cook": 45,
       "difficulty": 2,
       "kcal": 0,
       "tags": [
@@ -12944,10 +13093,11 @@
         "abend"
       ],
       "diet": [],
-      "servings": 4,
-      "prep": 20,
-      "cook": 30,
-      "difficulty": 2,
+      "servings": 1,
+      "yieldUnit": null,
+      "prep": 0,
+      "cook": 20,
+      "difficulty": 1,
       "kcal": 0,
       "tags": [
         "Koch-Wiki"
@@ -13010,10 +13160,11 @@
         "abend"
       ],
       "diet": [],
-      "servings": 4,
-      "prep": 20,
-      "cook": 30,
-      "difficulty": 2,
+      "servings": 2,
+      "yieldUnit": null,
+      "prep": 0,
+      "cook": 5,
+      "difficulty": 1,
       "kcal": 0,
       "tags": [
         "Koch-Wiki"
@@ -13090,8 +13241,9 @@
         "abend"
       ],
       "diet": [],
-      "servings": 4,
-      "prep": 20,
+      "servings": 1,
+      "yieldUnit": "Torte",
+      "prep": 0,
       "cook": 30,
       "difficulty": 2,
       "kcal": 0,
@@ -13193,8 +13345,9 @@
       ],
       "diet": [],
       "servings": 4,
-      "prep": 20,
-      "cook": 30,
+      "yieldUnit": null,
+      "prep": 10,
+      "cook": 0,
       "difficulty": 2,
       "kcal": 0,
       "tags": [
@@ -13338,8 +13491,9 @@
       ],
       "diet": [],
       "servings": 4,
-      "prep": 20,
-      "cook": 30,
+      "yieldUnit": null,
+      "prep": 0,
+      "cook": 300,
       "difficulty": 2,
       "kcal": 0,
       "tags": [
@@ -13399,10 +13553,11 @@
         "abend"
       ],
       "diet": [],
-      "servings": 4,
-      "prep": 20,
-      "cook": 30,
-      "difficulty": 2,
+      "servings": 8,
+      "yieldUnit": "Pfannkuchen",
+      "prep": 0,
+      "cook": 120,
+      "difficulty": 1,
       "kcal": 0,
       "tags": [
         "Koch-Wiki"
@@ -13452,9 +13607,10 @@
       ],
       "diet": [],
       "servings": 4,
-      "prep": 20,
-      "cook": 30,
-      "difficulty": 2,
+      "yieldUnit": null,
+      "prep": 0,
+      "cook": 25,
+      "difficulty": 1,
       "kcal": 0,
       "tags": [
         "Koch-Wiki"
@@ -13555,8 +13711,9 @@
       ],
       "diet": [],
       "servings": 4,
-      "prep": 20,
-      "cook": 30,
+      "yieldUnit": null,
+      "prep": 0,
+      "cook": 45,
       "difficulty": 2,
       "kcal": 0,
       "tags": [
@@ -13629,9 +13786,10 @@
       ],
       "diet": [],
       "servings": 4,
-      "prep": 20,
-      "cook": 30,
-      "difficulty": 2,
+      "yieldUnit": null,
+      "prep": 0,
+      "cook": 35,
+      "difficulty": 1,
       "kcal": 0,
       "tags": [
         "Koch-Wiki"
@@ -13722,10 +13880,11 @@
         "abend"
       ],
       "diet": [],
-      "servings": 4,
-      "prep": 20,
-      "cook": 30,
-      "difficulty": 2,
+      "servings": 12,
+      "yieldUnit": "Ringe",
+      "prep": 0,
+      "cook": 120,
+      "difficulty": 1,
       "kcal": 0,
       "tags": [
         "Koch-Wiki"
@@ -13802,10 +13961,11 @@
         "abend"
       ],
       "diet": [],
-      "servings": 4,
-      "prep": 20,
-      "cook": 30,
-      "difficulty": 2,
+      "servings": 1,
+      "yieldUnit": null,
+      "prep": 0,
+      "cook": 20,
+      "difficulty": 1,
       "kcal": 0,
       "tags": [
         "Koch-Wiki"
@@ -13896,9 +14056,10 @@
         "abend"
       ],
       "diet": [],
-      "servings": 4,
-      "prep": 20,
-      "cook": 30,
+      "servings": 6,
+      "yieldUnit": null,
+      "prep": 0,
+      "cook": 20,
       "difficulty": 2,
       "kcal": 0,
       "tags": [
@@ -13945,9 +14106,10 @@
         "abend"
       ],
       "diet": [],
-      "servings": 4,
-      "prep": 20,
-      "cook": 30,
+      "servings": 1,
+      "yieldUnit": "Springform",
+      "prep": 0,
+      "cook": 20,
       "difficulty": 2,
       "kcal": 0,
       "tags": [
@@ -14056,9 +14218,10 @@
       ],
       "diet": [],
       "servings": 4,
-      "prep": 20,
-      "cook": 30,
-      "difficulty": 2,
+      "yieldUnit": null,
+      "prep": 0,
+      "cook": 45,
+      "difficulty": 1,
       "kcal": 0,
       "tags": [
         "Koch-Wiki"
@@ -14133,9 +14296,10 @@
       ],
       "diet": [],
       "servings": 4,
-      "prep": 20,
-      "cook": 30,
-      "difficulty": 2,
+      "yieldUnit": null,
+      "prep": 0,
+      "cook": 180,
+      "difficulty": 1,
       "kcal": 0,
       "tags": [
         "Koch-Wiki"
@@ -14223,9 +14387,10 @@
       ],
       "diet": [],
       "servings": 4,
-      "prep": 20,
+      "yieldUnit": null,
+      "prep": 0,
       "cook": 30,
-      "difficulty": 2,
+      "difficulty": 1,
       "kcal": 0,
       "tags": [
         "Koch-Wiki"
@@ -14288,9 +14453,10 @@
         "abend"
       ],
       "diet": [],
-      "servings": 4,
-      "prep": 20,
-      "cook": 30,
+      "servings": 1,
+      "yieldUnit": "Springform",
+      "prep": 0,
+      "cook": 45,
       "difficulty": 2,
       "kcal": 0,
       "tags": [
@@ -14414,8 +14580,9 @@
       ],
       "diet": [],
       "servings": 4,
-      "prep": 20,
-      "cook": 30,
+      "yieldUnit": null,
+      "prep": 0,
+      "cook": 90,
       "difficulty": 2,
       "kcal": 0,
       "tags": [
@@ -14510,9 +14677,10 @@
       ],
       "diet": [],
       "servings": 4,
-      "prep": 20,
-      "cook": 30,
-      "difficulty": 2,
+      "yieldUnit": null,
+      "prep": 0,
+      "cook": 40,
+      "difficulty": 1,
       "kcal": 0,
       "tags": [
         "Koch-Wiki"
@@ -14592,10 +14760,11 @@
         "abend"
       ],
       "diet": [],
-      "servings": 4,
-      "prep": 20,
-      "cook": 30,
-      "difficulty": 2,
+      "servings": 12,
+      "yieldUnit": "Stücke",
+      "prep": 0,
+      "cook": 60,
+      "difficulty": 1,
       "kcal": 0,
       "tags": [
         "Koch-Wiki"
@@ -14699,10 +14868,11 @@
         "abend"
       ],
       "diet": [],
-      "servings": 4,
-      "prep": 20,
-      "cook": 30,
-      "difficulty": 2,
+      "servings": 12,
+      "yieldUnit": null,
+      "prep": 0,
+      "cook": 20,
+      "difficulty": 1,
       "kcal": 0,
       "tags": [
         "Koch-Wiki"
@@ -14793,9 +14963,10 @@
       ],
       "diet": [],
       "servings": 4,
-      "prep": 20,
-      "cook": 30,
-      "difficulty": 2,
+      "yieldUnit": null,
+      "prep": 0,
+      "cook": 15,
+      "difficulty": 1,
       "kcal": 0,
       "tags": [
         "Koch-Wiki"
@@ -14865,9 +15036,10 @@
       ],
       "diet": [],
       "servings": 4,
-      "prep": 20,
-      "cook": 30,
-      "difficulty": 2,
+      "yieldUnit": null,
+      "prep": 0,
+      "cook": 35,
+      "difficulty": 1,
       "kcal": 0,
       "tags": [
         "Koch-Wiki"
@@ -14962,8 +15134,9 @@
       ],
       "diet": [],
       "servings": 4,
-      "prep": 20,
-      "cook": 30,
+      "yieldUnit": null,
+      "prep": 0,
+      "cook": 40,
       "difficulty": 2,
       "kcal": 0,
       "tags": [
@@ -15068,9 +15241,10 @@
       ],
       "diet": [],
       "servings": 4,
-      "prep": 20,
-      "cook": 30,
-      "difficulty": 2,
+      "yieldUnit": null,
+      "prep": 0,
+      "cook": 35,
+      "difficulty": 1,
       "kcal": 0,
       "tags": [
         "Koch-Wiki"
@@ -15173,9 +15347,10 @@
       ],
       "diet": [],
       "servings": 4,
-      "prep": 20,
-      "cook": 30,
-      "difficulty": 2,
+      "yieldUnit": null,
+      "prep": 0,
+      "cook": 50,
+      "difficulty": 1,
       "kcal": 0,
       "tags": [
         "Koch-Wiki"
@@ -15287,10 +15462,11 @@
         "abend"
       ],
       "diet": [],
-      "servings": 4,
-      "prep": 20,
-      "cook": 30,
-      "difficulty": 2,
+      "servings": 6,
+      "yieldUnit": null,
+      "prep": 0,
+      "cook": 25,
+      "difficulty": 1,
       "kcal": 0,
       "tags": [
         "Koch-Wiki"
@@ -15391,9 +15567,10 @@
       ],
       "diet": [],
       "servings": 4,
-      "prep": 20,
-      "cook": 30,
-      "difficulty": 2,
+      "yieldUnit": null,
+      "prep": 0,
+      "cook": 20,
+      "difficulty": 1,
       "kcal": 0,
       "tags": [
         "Koch-Wiki"
@@ -15474,9 +15651,10 @@
         "abend"
       ],
       "diet": [],
-      "servings": 4,
-      "prep": 20,
-      "cook": 30,
+      "servings": 8,
+      "yieldUnit": null,
+      "prep": 0,
+      "cook": 60,
       "difficulty": 2,
       "kcal": 0,
       "tags": [
@@ -15580,9 +15758,10 @@
         "abend"
       ],
       "diet": [],
-      "servings": 4,
-      "prep": 20,
-      "cook": 30,
+      "servings": 1,
+      "yieldUnit": "Pie",
+      "prep": 30,
+      "cook": 60,
       "difficulty": 2,
       "kcal": 0,
       "tags": [
@@ -15699,8 +15878,9 @@
         "abend"
       ],
       "diet": [],
-      "servings": 4,
-      "prep": 20,
+      "servings": 6,
+      "yieldUnit": null,
+      "prep": 0,
       "cook": 30,
       "difficulty": 2,
       "kcal": 0,
@@ -15795,10 +15975,11 @@
         "abend"
       ],
       "diet": [],
-      "servings": 4,
-      "prep": 20,
-      "cook": 30,
-      "difficulty": 2,
+      "servings": 5,
+      "yieldUnit": "Gläser",
+      "prep": 0,
+      "cook": 60,
+      "difficulty": 1,
       "kcal": 0,
       "tags": [
         "Koch-Wiki"
@@ -15860,10 +16041,11 @@
         "abend"
       ],
       "diet": [],
-      "servings": 4,
-      "prep": 20,
+      "servings": 8,
+      "yieldUnit": null,
+      "prep": 0,
       "cook": 30,
-      "difficulty": 2,
+      "difficulty": 1,
       "kcal": 0,
       "tags": [
         "Koch-Wiki"
@@ -16007,10 +16189,11 @@
         "abend"
       ],
       "diet": [],
-      "servings": 4,
-      "prep": 20,
-      "cook": 30,
-      "difficulty": 2,
+      "servings": 5,
+      "yieldUnit": "Gläser",
+      "prep": 0,
+      "cook": 60,
+      "difficulty": 1,
       "kcal": 0,
       "tags": [
         "Koch-Wiki"
@@ -16064,10 +16247,11 @@
         "abend"
       ],
       "diet": [],
-      "servings": 4,
-      "prep": 20,
-      "cook": 30,
-      "difficulty": 2,
+      "servings": 5,
+      "yieldUnit": "Gläser",
+      "prep": 0,
+      "cook": 60,
+      "difficulty": 1,
       "kcal": 0,
       "tags": [
         "Koch-Wiki"
@@ -16122,10 +16306,11 @@
         "abend"
       ],
       "diet": [],
-      "servings": 4,
-      "prep": 20,
-      "cook": 30,
-      "difficulty": 2,
+      "servings": 5,
+      "yieldUnit": "Gläser",
+      "prep": 0,
+      "cook": 20,
+      "difficulty": 1,
       "kcal": 0,
       "tags": [
         "Koch-Wiki"
@@ -16199,10 +16384,11 @@
         "abend"
       ],
       "diet": [],
-      "servings": 4,
-      "prep": 20,
-      "cook": 30,
-      "difficulty": 2,
+      "servings": 5,
+      "yieldUnit": "Gläser",
+      "prep": 0,
+      "cook": 20,
+      "difficulty": 1,
       "kcal": 0,
       "tags": [
         "Koch-Wiki"
@@ -16250,9 +16436,10 @@
       ],
       "diet": [],
       "servings": 4,
-      "prep": 20,
-      "cook": 30,
-      "difficulty": 2,
+      "yieldUnit": null,
+      "prep": 0,
+      "cook": 20,
+      "difficulty": 1,
       "kcal": 0,
       "tags": [
         "Koch-Wiki"
@@ -16318,10 +16505,11 @@
         "abend"
       ],
       "diet": [],
-      "servings": 4,
-      "prep": 20,
-      "cook": 30,
-      "difficulty": 2,
+      "servings": 5,
+      "yieldUnit": "Gläser",
+      "prep": 0,
+      "cook": 60,
+      "difficulty": 1,
       "kcal": 0,
       "tags": [
         "Koch-Wiki"
@@ -16371,8 +16559,9 @@
       ],
       "diet": [],
       "servings": 4,
-      "prep": 20,
-      "cook": 30,
+      "yieldUnit": null,
+      "prep": 0,
+      "cook": 300,
       "difficulty": 2,
       "kcal": 0,
       "tags": [
@@ -16418,10 +16607,11 @@
         "abend"
       ],
       "diet": [],
-      "servings": 4,
-      "prep": 20,
-      "cook": 30,
-      "difficulty": 2,
+      "servings": 1,
+      "yieldUnit": "l",
+      "prep": 0,
+      "cook": 480,
+      "difficulty": 1,
       "kcal": 0,
       "tags": [
         "Koch-Wiki"
@@ -16472,9 +16662,10 @@
         "abend"
       ],
       "diet": [],
-      "servings": 4,
-      "prep": 20,
-      "cook": 30,
+      "servings": 6,
+      "yieldUnit": null,
+      "prep": 0,
+      "cook": 45,
       "difficulty": 2,
       "kcal": 0,
       "tags": [
@@ -16540,9 +16731,10 @@
         "abend"
       ],
       "diet": [],
-      "servings": 4,
-      "prep": 20,
-      "cook": 30,
+      "servings": 1,
+      "yieldUnit": "Tarte",
+      "prep": 0,
+      "cook": 480,
       "difficulty": 2,
       "kcal": 0,
       "tags": [
@@ -16627,10 +16819,11 @@
         "abend"
       ],
       "diet": [],
-      "servings": 4,
-      "prep": 20,
-      "cook": 30,
-      "difficulty": 2,
+      "servings": 1,
+      "yieldUnit": "Tarte",
+      "prep": 0,
+      "cook": 240,
+      "difficulty": 1,
       "kcal": 0,
       "tags": [
         "Koch-Wiki"
@@ -16706,9 +16899,10 @@
       ],
       "diet": [],
       "servings": 4,
-      "prep": 20,
-      "cook": 30,
-      "difficulty": 2,
+      "yieldUnit": null,
+      "prep": 0,
+      "cook": 90,
+      "difficulty": 1,
       "kcal": 0,
       "tags": [
         "Koch-Wiki"
@@ -16800,10 +16994,11 @@
         "abend"
       ],
       "diet": [],
-      "servings": 4,
-      "prep": 20,
-      "cook": 30,
-      "difficulty": 2,
+      "servings": 400,
+      "yieldUnit": "ml",
+      "prep": 0,
+      "cook": 10,
+      "difficulty": 1,
       "kcal": 0,
       "tags": [
         "Koch-Wiki"
@@ -16865,9 +17060,10 @@
       ],
       "diet": [],
       "servings": 4,
-      "prep": 20,
-      "cook": 30,
-      "difficulty": 2,
+      "yieldUnit": null,
+      "prep": 0,
+      "cook": 105,
+      "difficulty": 1,
       "kcal": 0,
       "tags": [
         "Koch-Wiki"
@@ -16976,10 +17172,11 @@
         "abend"
       ],
       "diet": [],
-      "servings": 4,
-      "prep": 20,
+      "servings": 6,
+      "yieldUnit": null,
+      "prep": 0,
       "cook": 30,
-      "difficulty": 2,
+      "difficulty": 1,
       "kcal": 0,
       "tags": [
         "Koch-Wiki"
@@ -17082,8 +17279,9 @@
       ],
       "diet": [],
       "servings": 4,
-      "prep": 20,
-      "cook": 30,
+      "yieldUnit": null,
+      "prep": 0,
+      "cook": 60,
       "difficulty": 2,
       "kcal": 0,
       "tags": [
@@ -17194,9 +17392,10 @@
       ],
       "diet": [],
       "servings": 4,
-      "prep": 20,
+      "yieldUnit": null,
+      "prep": 0,
       "cook": 30,
-      "difficulty": 2,
+      "difficulty": 1,
       "kcal": 0,
       "tags": [
         "Koch-Wiki"
@@ -17268,9 +17467,10 @@
         "abend"
       ],
       "diet": [],
-      "servings": 4,
-      "prep": 20,
-      "cook": 30,
+      "servings": 8,
+      "yieldUnit": "Stück",
+      "prep": 0,
+      "cook": 60,
       "difficulty": 2,
       "kcal": 0,
       "tags": [
@@ -17389,9 +17589,10 @@
         "abend"
       ],
       "diet": [],
-      "servings": 4,
-      "prep": 20,
-      "cook": 30,
+      "servings": 8,
+      "yieldUnit": null,
+      "prep": 0,
+      "cook": 20,
       "difficulty": 2,
       "kcal": 0,
       "tags": [
@@ -17509,9 +17710,10 @@
       ],
       "diet": [],
       "servings": 4,
-      "prep": 20,
-      "cook": 30,
-      "difficulty": 2,
+      "yieldUnit": null,
+      "prep": 0,
+      "cook": 40,
+      "difficulty": 1,
       "kcal": 0,
       "tags": [
         "Koch-Wiki"
@@ -17600,10 +17802,11 @@
         "abend"
       ],
       "diet": [],
-      "servings": 4,
-      "prep": 20,
-      "cook": 30,
-      "difficulty": 2,
+      "servings": 8,
+      "yieldUnit": "Arepas",
+      "prep": 0,
+      "cook": 20,
+      "difficulty": 1,
       "kcal": 0,
       "tags": [
         "Koch-Wiki"
@@ -17663,9 +17866,10 @@
         "abend"
       ],
       "diet": [],
-      "servings": 4,
-      "prep": 20,
-      "cook": 30,
+      "servings": 10,
+      "yieldUnit": null,
+      "prep": 0,
+      "cook": 120,
       "difficulty": 2,
       "kcal": 0,
       "tags": [
@@ -17713,9 +17917,10 @@
       ],
       "diet": [],
       "servings": 4,
-      "prep": 20,
-      "cook": 30,
-      "difficulty": 2,
+      "yieldUnit": null,
+      "prep": 0,
+      "cook": 20,
+      "difficulty": 1,
       "kcal": 0,
       "tags": [
         "Koch-Wiki"
@@ -17772,10 +17977,11 @@
         "abend"
       ],
       "diet": [],
-      "servings": 4,
-      "prep": 20,
-      "cook": 30,
-      "difficulty": 2,
+      "servings": 1,
+      "yieldUnit": null,
+      "prep": 0,
+      "cook": 15,
+      "difficulty": 1,
       "kcal": 0,
       "tags": [
         "Koch-Wiki"
@@ -17837,10 +18043,11 @@
         "abend"
       ],
       "diet": [],
-      "servings": 4,
-      "prep": 20,
-      "cook": 30,
-      "difficulty": 2,
+      "servings": 1,
+      "yieldUnit": "Stück",
+      "prep": 0,
+      "cook": 480,
+      "difficulty": 1,
       "kcal": 0,
       "tags": [
         "Koch-Wiki"
@@ -17928,10 +18135,11 @@
         "abend"
       ],
       "diet": [],
-      "servings": 4,
-      "prep": 20,
-      "cook": 30,
-      "difficulty": 2,
+      "servings": 1,
+      "yieldUnit": null,
+      "prep": 0,
+      "cook": 20,
+      "difficulty": 1,
       "kcal": 0,
       "tags": [
         "Koch-Wiki"
@@ -17978,9 +18186,10 @@
         "abend"
       ],
       "diet": [],
-      "servings": 4,
-      "prep": 20,
-      "cook": 30,
+      "servings": 6,
+      "yieldUnit": null,
+      "prep": 0,
+      "cook": 240,
       "difficulty": 2,
       "kcal": 0,
       "tags": [
@@ -18117,8 +18326,9 @@
       ],
       "diet": [],
       "servings": 4,
-      "prep": 20,
-      "cook": 30,
+      "yieldUnit": null,
+      "prep": 0,
+      "cook": 60,
       "difficulty": 2,
       "kcal": 0,
       "tags": [
@@ -18224,9 +18434,10 @@
         "abend"
       ],
       "diet": [],
-      "servings": 4,
-      "prep": 20,
-      "cook": 30,
+      "servings": 6,
+      "yieldUnit": null,
+      "prep": 0,
+      "cook": 50,
       "difficulty": 2,
       "kcal": 0,
       "tags": [
@@ -18322,8 +18533,9 @@
       ],
       "diet": [],
       "servings": 4,
-      "prep": 20,
-      "cook": 30,
+      "yieldUnit": null,
+      "prep": 0,
+      "cook": 80,
       "difficulty": 2,
       "kcal": 0,
       "tags": [
@@ -18451,8 +18663,9 @@
       ],
       "diet": [],
       "servings": 4,
-      "prep": 20,
-      "cook": 30,
+      "yieldUnit": null,
+      "prep": 0,
+      "cook": 100,
       "difficulty": 2,
       "kcal": 0,
       "tags": [
@@ -18555,9 +18768,10 @@
         "abend"
       ],
       "diet": [],
-      "servings": 4,
-      "prep": 20,
-      "cook": 30,
+      "servings": 6,
+      "yieldUnit": null,
+      "prep": 0,
+      "cook": 40,
       "difficulty": 2,
       "kcal": 0,
       "tags": [
@@ -18646,10 +18860,11 @@
         "abend"
       ],
       "diet": [],
-      "servings": 4,
-      "prep": 20,
-      "cook": 30,
-      "difficulty": 2,
+      "servings": 2,
+      "yieldUnit": null,
+      "prep": 0,
+      "cook": 45,
+      "difficulty": 1,
       "kcal": 0,
       "tags": [
         "Koch-Wiki"
@@ -18747,7 +18962,8 @@
       ],
       "diet": [],
       "servings": 4,
-      "prep": 20,
+      "yieldUnit": null,
+      "prep": 0,
       "cook": 30,
       "difficulty": 2,
       "kcal": 0,
@@ -18808,9 +19024,10 @@
       ],
       "diet": [],
       "servings": 4,
-      "prep": 20,
+      "yieldUnit": null,
+      "prep": 0,
       "cook": 30,
-      "difficulty": 2,
+      "difficulty": 1,
       "kcal": 0,
       "tags": [
         "Koch-Wiki"
@@ -18928,8 +19145,9 @@
       ],
       "diet": [],
       "servings": 4,
-      "prep": 20,
-      "cook": 30,
+      "yieldUnit": null,
+      "prep": 0,
+      "cook": 20,
       "difficulty": 2,
       "kcal": 0,
       "tags": [
@@ -19005,10 +19223,11 @@
         "abend"
       ],
       "diet": [],
-      "servings": 4,
-      "prep": 20,
-      "cook": 30,
-      "difficulty": 2,
+      "servings": 2,
+      "yieldUnit": null,
+      "prep": 0,
+      "cook": 0,
+      "difficulty": 1,
       "kcal": 0,
       "tags": [
         "Koch-Wiki"
@@ -19078,9 +19297,10 @@
         "abend"
       ],
       "diet": [],
-      "servings": 4,
-      "prep": 20,
-      "cook": 30,
+      "servings": 3,
+      "yieldUnit": null,
+      "prep": 0,
+      "cook": 25,
       "difficulty": 2,
       "kcal": 0,
       "tags": [
@@ -19160,10 +19380,11 @@
         "abend"
       ],
       "diet": [],
-      "servings": 4,
-      "prep": 20,
+      "servings": 250,
+      "yieldUnit": "ml",
+      "prep": 0,
       "cook": 30,
-      "difficulty": 2,
+      "difficulty": 1,
       "kcal": 0,
       "tags": [
         "Koch-Wiki"
@@ -19256,10 +19477,11 @@
         "abend"
       ],
       "diet": [],
-      "servings": 4,
-      "prep": 20,
+      "servings": 2,
+      "yieldUnit": null,
+      "prep": 0,
       "cook": 30,
-      "difficulty": 2,
+      "difficulty": 1,
       "kcal": 0,
       "tags": [
         "Koch-Wiki"
@@ -19365,8 +19587,9 @@
       ],
       "diet": [],
       "servings": 4,
-      "prep": 20,
-      "cook": 30,
+      "yieldUnit": null,
+      "prep": 0,
+      "cook": 60,
       "difficulty": 2,
       "kcal": 0,
       "tags": [
@@ -19471,9 +19694,10 @@
       ],
       "diet": [],
       "servings": 4,
-      "prep": 20,
-      "cook": 30,
-      "difficulty": 2,
+      "yieldUnit": null,
+      "prep": 0,
+      "cook": 20,
+      "difficulty": 1,
       "kcal": 0,
       "tags": [
         "Koch-Wiki"
@@ -19580,9 +19804,10 @@
       ],
       "diet": [],
       "servings": 4,
-      "prep": 20,
-      "cook": 30,
-      "difficulty": 2,
+      "yieldUnit": null,
+      "prep": 0,
+      "cook": 40,
+      "difficulty": 1,
       "kcal": 0,
       "tags": [
         "Koch-Wiki"
@@ -19698,9 +19923,10 @@
         "abend"
       ],
       "diet": [],
-      "servings": 4,
-      "prep": 20,
-      "cook": 30,
+      "servings": 6,
+      "yieldUnit": null,
+      "prep": 0,
+      "cook": 60,
       "difficulty": 2,
       "kcal": 0,
       "tags": [
@@ -19829,8 +20055,9 @@
       ],
       "diet": [],
       "servings": 4,
-      "prep": 20,
-      "cook": 30,
+      "yieldUnit": null,
+      "prep": 0,
+      "cook": 150,
       "difficulty": 2,
       "kcal": 0,
       "tags": [
@@ -19932,9 +20159,10 @@
       ],
       "diet": [],
       "servings": 4,
-      "prep": 20,
-      "cook": 30,
-      "difficulty": 2,
+      "yieldUnit": null,
+      "prep": 0,
+      "cook": 45,
+      "difficulty": 1,
       "kcal": 0,
       "tags": [
         "Koch-Wiki"
@@ -20054,7 +20282,8 @@
       ],
       "diet": [],
       "servings": 4,
-      "prep": 20,
+      "yieldUnit": null,
+      "prep": 0,
       "cook": 30,
       "difficulty": 2,
       "kcal": 0,
@@ -20147,10 +20376,11 @@
         "abend"
       ],
       "diet": [],
-      "servings": 4,
-      "prep": 20,
-      "cook": 30,
-      "difficulty": 2,
+      "servings": 2,
+      "yieldUnit": null,
+      "prep": 0,
+      "cook": 20,
+      "difficulty": 1,
       "kcal": 0,
       "tags": [
         "Koch-Wiki"
@@ -20223,9 +20453,10 @@
         "abend"
       ],
       "diet": [],
-      "servings": 4,
-      "prep": 20,
-      "cook": 30,
+      "servings": 6,
+      "yieldUnit": null,
+      "prep": 0,
+      "cook": 25,
       "difficulty": 2,
       "kcal": 0,
       "tags": [
@@ -20299,9 +20530,10 @@
       ],
       "diet": [],
       "servings": 4,
-      "prep": 20,
-      "cook": 30,
-      "difficulty": 2,
+      "yieldUnit": null,
+      "prep": 0,
+      "cook": 120,
+      "difficulty": 1,
       "kcal": 0,
       "tags": [
         "Koch-Wiki"
@@ -20416,8 +20648,9 @@
       ],
       "diet": [],
       "servings": 4,
-      "prep": 20,
-      "cook": 30,
+      "yieldUnit": null,
+      "prep": 0,
+      "cook": 25,
       "difficulty": 2,
       "kcal": 0,
       "tags": [
@@ -20484,10 +20717,11 @@
         "abend"
       ],
       "diet": [],
-      "servings": 4,
-      "prep": 20,
-      "cook": 30,
-      "difficulty": 2,
+      "servings": 6,
+      "yieldUnit": null,
+      "prep": 0,
+      "cook": 35,
+      "difficulty": 1,
       "kcal": 0,
       "tags": [
         "Koch-Wiki"
@@ -20577,8 +20811,9 @@
         "abend"
       ],
       "diet": [],
-      "servings": 4,
-      "prep": 20,
+      "servings": 3,
+      "yieldUnit": null,
+      "prep": 0,
       "cook": 30,
       "difficulty": 2,
       "kcal": 0,
@@ -20707,10 +20942,11 @@
         "abend"
       ],
       "diet": [],
-      "servings": 4,
-      "prep": 20,
-      "cook": 30,
-      "difficulty": 2,
+      "servings": 2,
+      "yieldUnit": null,
+      "prep": 0,
+      "cook": 25,
+      "difficulty": 1,
       "kcal": 0,
       "tags": [
         "Koch-Wiki"
@@ -20788,7 +21024,8 @@
       ],
       "diet": [],
       "servings": 4,
-      "prep": 20,
+      "yieldUnit": null,
+      "prep": 0,
       "cook": 30,
       "difficulty": 2,
       "kcal": 0,
@@ -20917,9 +21154,10 @@
       ],
       "diet": [],
       "servings": 4,
-      "prep": 20,
+      "yieldUnit": null,
+      "prep": 0,
       "cook": 30,
-      "difficulty": 2,
+      "difficulty": 1,
       "kcal": 0,
       "tags": [
         "Koch-Wiki"
@@ -21001,8 +21239,9 @@
       ],
       "diet": [],
       "servings": 4,
-      "prep": 20,
-      "cook": 30,
+      "yieldUnit": null,
+      "prep": 0,
+      "cook": 50,
       "difficulty": 2,
       "kcal": 0,
       "tags": [
@@ -21123,9 +21362,10 @@
       ],
       "diet": [],
       "servings": 4,
-      "prep": 20,
-      "cook": 30,
-      "difficulty": 2,
+      "yieldUnit": null,
+      "prep": 0,
+      "cook": 15,
+      "difficulty": 1,
       "kcal": 0,
       "tags": [
         "Koch-Wiki"
@@ -21248,9 +21488,10 @@
       ],
       "diet": [],
       "servings": 4,
-      "prep": 20,
-      "cook": 30,
-      "difficulty": 2,
+      "yieldUnit": null,
+      "prep": 0,
+      "cook": 20,
+      "difficulty": 1,
       "kcal": 0,
       "tags": [
         "Koch-Wiki"
@@ -21340,8 +21581,9 @@
       ],
       "diet": [],
       "servings": 4,
-      "prep": 20,
-      "cook": 30,
+      "yieldUnit": null,
+      "prep": 0,
+      "cook": 60,
       "difficulty": 2,
       "kcal": 0,
       "tags": [
@@ -21439,9 +21681,10 @@
       ],
       "diet": [],
       "servings": 4,
-      "prep": 20,
-      "cook": 30,
-      "difficulty": 2,
+      "yieldUnit": null,
+      "prep": 0,
+      "cook": 20,
+      "difficulty": 1,
       "kcal": 0,
       "tags": [
         "Koch-Wiki"
@@ -21524,7 +21767,8 @@
       ],
       "diet": [],
       "servings": 4,
-      "prep": 20,
+      "yieldUnit": null,
+      "prep": 0,
       "cook": 30,
       "difficulty": 2,
       "kcal": 0,
@@ -21630,9 +21874,10 @@
       ],
       "diet": [],
       "servings": 4,
-      "prep": 20,
-      "cook": 30,
-      "difficulty": 2,
+      "yieldUnit": null,
+      "prep": 0,
+      "cook": 60,
+      "difficulty": 1,
       "kcal": 0,
       "tags": [
         "Koch-Wiki"
@@ -21724,8 +21969,9 @@
       ],
       "diet": [],
       "servings": 4,
-      "prep": 20,
-      "cook": 30,
+      "yieldUnit": null,
+      "prep": 0,
+      "cook": 15,
       "difficulty": 2,
       "kcal": 0,
       "tags": [
@@ -21830,9 +22076,10 @@
       ],
       "diet": [],
       "servings": 4,
-      "prep": 20,
-      "cook": 30,
-      "difficulty": 2,
+      "yieldUnit": null,
+      "prep": 0,
+      "cook": 10,
+      "difficulty": 1,
       "kcal": 0,
       "tags": [
         "Koch-Wiki"
@@ -21921,9 +22168,10 @@
       ],
       "diet": [],
       "servings": 4,
-      "prep": 20,
+      "yieldUnit": null,
+      "prep": 0,
       "cook": 30,
-      "difficulty": 2,
+      "difficulty": 1,
       "kcal": 0,
       "tags": [
         "Koch-Wiki"
@@ -22012,9 +22260,10 @@
       ],
       "diet": [],
       "servings": 4,
-      "prep": 20,
-      "cook": 30,
-      "difficulty": 2,
+      "yieldUnit": null,
+      "prep": 0,
+      "cook": 100,
+      "difficulty": 1,
       "kcal": 0,
       "tags": [
         "Koch-Wiki"
@@ -22116,8 +22365,9 @@
       ],
       "diet": [],
       "servings": 4,
-      "prep": 20,
-      "cook": 30,
+      "yieldUnit": null,
+      "prep": 0,
+      "cook": 15,
       "difficulty": 2,
       "kcal": 0,
       "tags": [
@@ -22223,9 +22473,10 @@
       ],
       "diet": [],
       "servings": 4,
-      "prep": 20,
-      "cook": 30,
-      "difficulty": 2,
+      "yieldUnit": null,
+      "prep": 0,
+      "cook": 45,
+      "difficulty": 1,
       "kcal": 0,
       "tags": [
         "Koch-Wiki"
@@ -22342,9 +22593,10 @@
       ],
       "diet": [],
       "servings": 4,
-      "prep": 20,
-      "cook": 30,
-      "difficulty": 2,
+      "yieldUnit": null,
+      "prep": 0,
+      "cook": 15,
+      "difficulty": 1,
       "kcal": 0,
       "tags": [
         "Koch-Wiki"
@@ -22444,10 +22696,11 @@
         "abend"
       ],
       "diet": [],
-      "servings": 4,
-      "prep": 20,
-      "cook": 30,
-      "difficulty": 2,
+      "servings": 6,
+      "yieldUnit": null,
+      "prep": 0,
+      "cook": 50,
+      "difficulty": 1,
       "kcal": 0,
       "tags": [
         "Koch-Wiki"
@@ -22582,10 +22835,11 @@
         "abend"
       ],
       "diet": [],
-      "servings": 4,
-      "prep": 20,
-      "cook": 30,
-      "difficulty": 2,
+      "servings": 3,
+      "yieldUnit": null,
+      "prep": 0,
+      "cook": 40,
+      "difficulty": 1,
       "kcal": 0,
       "tags": [
         "Koch-Wiki"
@@ -22657,9 +22911,10 @@
         "abend"
       ],
       "diet": [],
-      "servings": 4,
-      "prep": 20,
-      "cook": 30,
+      "servings": 8,
+      "yieldUnit": null,
+      "prep": 0,
+      "cook": 100,
       "difficulty": 2,
       "kcal": 0,
       "tags": [
@@ -22773,8 +23028,9 @@
       ],
       "diet": [],
       "servings": 4,
-      "prep": 20,
-      "cook": 30,
+      "yieldUnit": null,
+      "prep": 0,
+      "cook": 50,
       "difficulty": 2,
       "kcal": 0,
       "tags": [
@@ -22877,9 +23133,10 @@
       ],
       "diet": [],
       "servings": 4,
-      "prep": 20,
+      "yieldUnit": null,
+      "prep": 0,
       "cook": 30,
-      "difficulty": 2,
+      "difficulty": 1,
       "kcal": 0,
       "tags": [
         "Koch-Wiki"
@@ -22965,8 +23222,9 @@
       ],
       "diet": [],
       "servings": 4,
-      "prep": 20,
-      "cook": 30,
+      "yieldUnit": null,
+      "prep": 0,
+      "cook": 60,
       "difficulty": 2,
       "kcal": 0,
       "tags": [
@@ -23059,8 +23317,9 @@
       ],
       "diet": [],
       "servings": 4,
-      "prep": 20,
-      "cook": 30,
+      "yieldUnit": null,
+      "prep": 0,
+      "cook": 60,
       "difficulty": 2,
       "kcal": 0,
       "tags": [
@@ -23150,10 +23409,11 @@
         "abend"
       ],
       "diet": [],
-      "servings": 4,
-      "prep": 20,
+      "servings": 1,
+      "yieldUnit": null,
+      "prep": 0,
       "cook": 30,
-      "difficulty": 2,
+      "difficulty": 1,
       "kcal": 0,
       "tags": [
         "Koch-Wiki"
@@ -23216,9 +23476,10 @@
       ],
       "diet": [],
       "servings": 4,
-      "prep": 20,
-      "cook": 30,
-      "difficulty": 2,
+      "yieldUnit": null,
+      "prep": 0,
+      "cook": 15,
+      "difficulty": 1,
       "kcal": 0,
       "tags": [
         "Koch-Wiki"
@@ -23298,10 +23559,11 @@
         "abend"
       ],
       "diet": [],
-      "servings": 4,
-      "prep": 20,
+      "servings": 1,
+      "yieldUnit": null,
+      "prep": 0,
       "cook": 30,
-      "difficulty": 2,
+      "difficulty": 1,
       "kcal": 0,
       "tags": [
         "Koch-Wiki"
@@ -23371,8 +23633,9 @@
       ],
       "diet": [],
       "servings": 4,
-      "prep": 20,
-      "cook": 30,
+      "yieldUnit": null,
+      "prep": 0,
+      "cook": 10,
       "difficulty": 2,
       "kcal": 0,
       "tags": [
@@ -23464,9 +23727,10 @@
       ],
       "diet": [],
       "servings": 4,
-      "prep": 20,
-      "cook": 30,
-      "difficulty": 2,
+      "yieldUnit": null,
+      "prep": 0,
+      "cook": 20,
+      "difficulty": 1,
       "kcal": 0,
       "tags": [
         "Koch-Wiki"
@@ -23538,9 +23802,10 @@
       ],
       "diet": [],
       "servings": 4,
-      "prep": 20,
+      "yieldUnit": null,
+      "prep": 0,
       "cook": 30,
-      "difficulty": 2,
+      "difficulty": 1,
       "kcal": 0,
       "tags": [
         "Koch-Wiki"
@@ -23624,9 +23889,10 @@
       ],
       "diet": [],
       "servings": 4,
-      "prep": 20,
-      "cook": 30,
-      "difficulty": 2,
+      "yieldUnit": null,
+      "prep": 0,
+      "cook": 50,
+      "difficulty": 1,
       "kcal": 0,
       "tags": [
         "Koch-Wiki"
@@ -23701,9 +23967,10 @@
       ],
       "diet": [],
       "servings": 4,
-      "prep": 20,
-      "cook": 30,
-      "difficulty": 2,
+      "yieldUnit": null,
+      "prep": 0,
+      "cook": 15,
+      "difficulty": 1,
       "kcal": 0,
       "tags": [
         "Koch-Wiki"
@@ -23838,7 +24105,8 @@
       ],
       "diet": [],
       "servings": 4,
-      "prep": 20,
+      "yieldUnit": null,
+      "prep": 0,
       "cook": 30,
       "difficulty": 2,
       "kcal": 0,
@@ -23905,10 +24173,11 @@
         "abend"
       ],
       "diet": [],
-      "servings": 4,
-      "prep": 20,
-      "cook": 30,
-      "difficulty": 2,
+      "servings": 2,
+      "yieldUnit": null,
+      "prep": 0,
+      "cook": 45,
+      "difficulty": 1,
       "kcal": 0,
       "tags": [
         "Koch-Wiki"
@@ -23977,10 +24246,11 @@
         "abend"
       ],
       "diet": [],
-      "servings": 4,
-      "prep": 20,
-      "cook": 30,
-      "difficulty": 2,
+      "servings": 10,
+      "yieldUnit": null,
+      "prep": 10,
+      "cook": 0,
+      "difficulty": 1,
       "kcal": 0,
       "tags": [
         "Koch-Wiki"
@@ -24032,9 +24302,10 @@
       ],
       "diet": [],
       "servings": 4,
-      "prep": 20,
+      "yieldUnit": null,
+      "prep": 0,
       "cook": 30,
-      "difficulty": 2,
+      "difficulty": 1,
       "kcal": 0,
       "tags": [
         "Koch-Wiki"
@@ -24132,9 +24403,10 @@
       ],
       "diet": [],
       "servings": 4,
-      "prep": 20,
-      "cook": 30,
-      "difficulty": 2,
+      "yieldUnit": null,
+      "prep": 0,
+      "cook": 90,
+      "difficulty": 1,
       "kcal": 0,
       "tags": [
         "Koch-Wiki"
@@ -24183,10 +24455,11 @@
         "abend"
       ],
       "diet": [],
-      "servings": 4,
-      "prep": 20,
-      "cook": 30,
-      "difficulty": 2,
+      "servings": 1,
+      "yieldUnit": null,
+      "prep": 0,
+      "cook": 10,
+      "difficulty": 1,
       "kcal": 0,
       "tags": [
         "Koch-Wiki"
@@ -24240,9 +24513,10 @@
       ],
       "diet": [],
       "servings": 4,
-      "prep": 20,
-      "cook": 30,
-      "difficulty": 2,
+      "yieldUnit": null,
+      "prep": 0,
+      "cook": 15,
+      "difficulty": 1,
       "kcal": 0,
       "tags": [
         "Koch-Wiki"
@@ -24345,9 +24619,10 @@
       ],
       "diet": [],
       "servings": 4,
-      "prep": 20,
+      "yieldUnit": null,
+      "prep": 0,
       "cook": 30,
-      "difficulty": 2,
+      "difficulty": 1,
       "kcal": 0,
       "tags": [
         "Koch-Wiki"
@@ -24403,9 +24678,10 @@
       ],
       "diet": [],
       "servings": 4,
-      "prep": 20,
-      "cook": 30,
-      "difficulty": 2,
+      "yieldUnit": null,
+      "prep": 0,
+      "cook": 15,
+      "difficulty": 1,
       "kcal": 0,
       "tags": [
         "Koch-Wiki"
@@ -24541,10 +24817,11 @@
         "abend"
       ],
       "diet": [],
-      "servings": 4,
-      "prep": 20,
+      "servings": 1,
+      "yieldUnit": null,
+      "prep": 0,
       "cook": 30,
-      "difficulty": 2,
+      "difficulty": 1,
       "kcal": 0,
       "tags": [
         "Koch-Wiki"
@@ -24600,10 +24877,11 @@
         "abend"
       ],
       "diet": [],
-      "servings": 4,
-      "prep": 20,
+      "servings": 20,
+      "yieldUnit": "Stück",
+      "prep": 0,
       "cook": 30,
-      "difficulty": 2,
+      "difficulty": 1,
       "kcal": 0,
       "tags": [
         "Koch-Wiki"
@@ -24677,9 +24955,10 @@
       ],
       "diet": [],
       "servings": 4,
-      "prep": 20,
+      "yieldUnit": null,
+      "prep": 0,
       "cook": 30,
-      "difficulty": 2,
+      "difficulty": 1,
       "kcal": 0,
       "tags": [
         "Koch-Wiki"
@@ -24754,7 +25033,8 @@
       ],
       "diet": [],
       "servings": 4,
-      "prep": 20,
+      "yieldUnit": null,
+      "prep": 0,
       "cook": 30,
       "difficulty": 2,
       "kcal": 0,
@@ -24852,10 +25132,11 @@
         "abend"
       ],
       "diet": [],
-      "servings": 4,
-      "prep": 20,
-      "cook": 30,
-      "difficulty": 2,
+      "servings": 2,
+      "yieldUnit": null,
+      "prep": 0,
+      "cook": 5,
+      "difficulty": 1,
       "kcal": 0,
       "tags": [
         "Koch-Wiki"
@@ -24903,10 +25184,11 @@
         "abend"
       ],
       "diet": [],
-      "servings": 4,
-      "prep": 20,
-      "cook": 30,
-      "difficulty": 2,
+      "servings": 2,
+      "yieldUnit": null,
+      "prep": 0,
+      "cook": 10,
+      "difficulty": 1,
       "kcal": 0,
       "tags": [
         "Koch-Wiki"
@@ -24971,9 +25253,10 @@
       ],
       "diet": [],
       "servings": 4,
-      "prep": 20,
-      "cook": 30,
-      "difficulty": 2,
+      "yieldUnit": null,
+      "prep": 0,
+      "cook": 0,
+      "difficulty": 1,
       "kcal": 0,
       "tags": [
         "Koch-Wiki"
@@ -25041,8 +25324,9 @@
       ],
       "diet": [],
       "servings": 4,
-      "prep": 20,
-      "cook": 30,
+      "yieldUnit": null,
+      "prep": 0,
+      "cook": 15,
       "difficulty": 2,
       "kcal": 0,
       "tags": [
@@ -25093,10 +25377,11 @@
         "abend"
       ],
       "diet": [],
-      "servings": 4,
-      "prep": 20,
-      "cook": 30,
-      "difficulty": 2,
+      "servings": 6,
+      "yieldUnit": null,
+      "prep": 0,
+      "cook": 20,
+      "difficulty": 1,
       "kcal": 0,
       "tags": [
         "Koch-Wiki"
@@ -25185,9 +25470,10 @@
       ],
       "diet": [],
       "servings": 4,
-      "prep": 20,
-      "cook": 30,
-      "difficulty": 2,
+      "yieldUnit": null,
+      "prep": 0,
+      "cook": 15,
+      "difficulty": 1,
       "kcal": 0,
       "tags": [
         "Koch-Wiki"
@@ -25266,10 +25552,11 @@
         "abend"
       ],
       "diet": [],
-      "servings": 4,
-      "prep": 20,
-      "cook": 30,
-      "difficulty": 2,
+      "servings": 2,
+      "yieldUnit": null,
+      "prep": 0,
+      "cook": 10,
+      "difficulty": 1,
       "kcal": 0,
       "tags": [
         "Koch-Wiki"
@@ -25333,9 +25620,10 @@
       ],
       "diet": [],
       "servings": 4,
-      "prep": 20,
-      "cook": 30,
-      "difficulty": 2,
+      "yieldUnit": null,
+      "prep": 0,
+      "cook": 45,
+      "difficulty": 1,
       "kcal": 0,
       "tags": [
         "Koch-Wiki"
@@ -25419,9 +25707,10 @@
       ],
       "diet": [],
       "servings": 4,
-      "prep": 20,
-      "cook": 30,
-      "difficulty": 2,
+      "yieldUnit": null,
+      "prep": 0,
+      "cook": 15,
+      "difficulty": 1,
       "kcal": 0,
       "tags": [
         "Koch-Wiki"
@@ -25482,9 +25771,10 @@
       ],
       "diet": [],
       "servings": 4,
-      "prep": 20,
-      "cook": 30,
-      "difficulty": 2,
+      "yieldUnit": null,
+      "prep": 0,
+      "cook": 20,
+      "difficulty": 1,
       "kcal": 0,
       "tags": [
         "Koch-Wiki"
@@ -25580,9 +25870,10 @@
       ],
       "diet": [],
       "servings": 4,
-      "prep": 20,
+      "yieldUnit": null,
+      "prep": 0,
       "cook": 30,
-      "difficulty": 2,
+      "difficulty": 1,
       "kcal": 0,
       "tags": [
         "Koch-Wiki"
@@ -25701,8 +25992,9 @@
       ],
       "diet": [],
       "servings": 4,
-      "prep": 20,
-      "cook": 30,
+      "yieldUnit": null,
+      "prep": 0,
+      "cook": 20,
       "difficulty": 2,
       "kcal": 0,
       "tags": [
@@ -25785,10 +26077,11 @@
         "abend"
       ],
       "diet": [],
-      "servings": 4,
-      "prep": 20,
-      "cook": 30,
-      "difficulty": 2,
+      "servings": 2,
+      "yieldUnit": null,
+      "prep": 0,
+      "cook": 25,
+      "difficulty": 1,
       "kcal": 0,
       "tags": [
         "Koch-Wiki"
@@ -25865,8 +26158,9 @@
       ],
       "diet": [],
       "servings": 4,
-      "prep": 20,
-      "cook": 30,
+      "yieldUnit": null,
+      "prep": 0,
+      "cook": 45,
       "difficulty": 2,
       "kcal": 0,
       "tags": [
@@ -25954,9 +26248,10 @@
       ],
       "diet": [],
       "servings": 4,
-      "prep": 20,
-      "cook": 30,
-      "difficulty": 2,
+      "yieldUnit": null,
+      "prep": 0,
+      "cook": 20,
+      "difficulty": 1,
       "kcal": 0,
       "tags": [
         "Koch-Wiki"
@@ -26058,9 +26353,10 @@
       ],
       "diet": [],
       "servings": 4,
-      "prep": 20,
-      "cook": 30,
-      "difficulty": 2,
+      "yieldUnit": null,
+      "prep": 0,
+      "cook": 15,
+      "difficulty": 1,
       "kcal": 0,
       "tags": [
         "Koch-Wiki"
@@ -26123,10 +26419,11 @@
         "abend"
       ],
       "diet": [],
-      "servings": 4,
-      "prep": 20,
-      "cook": 30,
-      "difficulty": 2,
+      "servings": 5,
+      "yieldUnit": null,
+      "prep": 0,
+      "cook": 15,
+      "difficulty": 1,
       "kcal": 0,
       "tags": [
         "Koch-Wiki"
@@ -26199,10 +26496,11 @@
         "abend"
       ],
       "diet": [],
-      "servings": 4,
-      "prep": 20,
-      "cook": 30,
-      "difficulty": 2,
+      "servings": 16,
+      "yieldUnit": null,
+      "prep": 0,
+      "cook": 25,
+      "difficulty": 1,
       "kcal": 0,
       "tags": [
         "Koch-Wiki"
@@ -26300,8 +26598,9 @@
         "abend"
       ],
       "diet": [],
-      "servings": 4,
-      "prep": 20,
+      "servings": 2,
+      "yieldUnit": null,
+      "prep": 0,
       "cook": 30,
       "difficulty": 2,
       "kcal": 0,
@@ -26404,9 +26703,10 @@
       ],
       "diet": [],
       "servings": 4,
-      "prep": 20,
-      "cook": 30,
-      "difficulty": 2,
+      "yieldUnit": null,
+      "prep": 0,
+      "cook": 75,
+      "difficulty": 1,
       "kcal": 0,
       "tags": [
         "Koch-Wiki"
@@ -26466,9 +26766,10 @@
       ],
       "diet": [],
       "servings": 4,
-      "prep": 20,
+      "yieldUnit": null,
+      "prep": 0,
       "cook": 30,
-      "difficulty": 2,
+      "difficulty": 1,
       "kcal": 0,
       "tags": [
         "Koch-Wiki"
@@ -26586,9 +26887,10 @@
       ],
       "diet": [],
       "servings": 4,
-      "prep": 20,
-      "cook": 30,
-      "difficulty": 2,
+      "yieldUnit": null,
+      "prep": 0,
+      "cook": 720,
+      "difficulty": 1,
       "kcal": 0,
       "tags": [
         "Koch-Wiki"
@@ -26757,9 +27059,10 @@
         "abend"
       ],
       "diet": [],
-      "servings": 4,
-      "prep": 20,
-      "cook": 30,
+      "servings": 65,
+      "yieldUnit": "Stück",
+      "prep": 0,
+      "cook": 60,
       "difficulty": 2,
       "kcal": 0,
       "tags": [
@@ -26859,8 +27162,9 @@
       ],
       "diet": [],
       "servings": 4,
-      "prep": 20,
-      "cook": 30,
+      "yieldUnit": null,
+      "prep": 0,
+      "cook": 20,
       "difficulty": 2,
       "kcal": 0,
       "tags": [
@@ -26920,9 +27224,10 @@
       ],
       "diet": [],
       "servings": 4,
-      "prep": 20,
-      "cook": 30,
-      "difficulty": 2,
+      "yieldUnit": null,
+      "prep": 0,
+      "cook": 60,
+      "difficulty": 1,
       "kcal": 0,
       "tags": [
         "Koch-Wiki"
@@ -27002,10 +27307,11 @@
         "abend"
       ],
       "diet": [],
-      "servings": 4,
-      "prep": 20,
-      "cook": 30,
-      "difficulty": 2,
+      "servings": 50,
+      "yieldUnit": "Backoblaten",
+      "prep": 0,
+      "cook": 20,
+      "difficulty": 1,
       "kcal": 0,
       "tags": [
         "Koch-Wiki"
@@ -27086,7 +27392,8 @@
       ],
       "diet": [],
       "servings": 4,
-      "prep": 20,
+      "yieldUnit": null,
+      "prep": 0,
       "cook": 30,
       "difficulty": 2,
       "kcal": 0,
@@ -27169,10 +27476,11 @@
         "abend"
       ],
       "diet": [],
-      "servings": 4,
-      "prep": 20,
-      "cook": 30,
-      "difficulty": 2,
+      "servings": 6,
+      "yieldUnit": null,
+      "prep": 0,
+      "cook": 20,
+      "difficulty": 1,
       "kcal": 0,
       "tags": [
         "Koch-Wiki"
@@ -27226,9 +27534,10 @@
       ],
       "diet": [],
       "servings": 4,
-      "prep": 20,
-      "cook": 30,
-      "difficulty": 2,
+      "yieldUnit": null,
+      "prep": 0,
+      "cook": 60,
+      "difficulty": 1,
       "kcal": 0,
       "tags": [
         "Koch-Wiki"
@@ -27336,9 +27645,10 @@
       ],
       "diet": [],
       "servings": 4,
+      "yieldUnit": null,
       "prep": 20,
-      "cook": 30,
-      "difficulty": 2,
+      "cook": 60,
+      "difficulty": 1,
       "kcal": 0,
       "tags": [
         "Koch-Wiki"
@@ -27423,10 +27733,11 @@
         "abend"
       ],
       "diet": [],
-      "servings": 4,
-      "prep": 20,
-      "cook": 30,
-      "difficulty": 2,
+      "servings": 8,
+      "yieldUnit": "Bagels",
+      "prep": 0,
+      "cook": 60,
+      "difficulty": 1,
       "kcal": 0,
       "tags": [
         "Koch-Wiki"
@@ -27501,9 +27812,10 @@
       ],
       "diet": [],
       "servings": 4,
-      "prep": 20,
+      "yieldUnit": null,
+      "prep": 0,
       "cook": 30,
-      "difficulty": 2,
+      "difficulty": 1,
       "kcal": 0,
       "tags": [
         "Koch-Wiki"
@@ -27553,8 +27865,9 @@
         "abend"
       ],
       "diet": [],
-      "servings": 4,
-      "prep": 20,
+      "servings": 3,
+      "yieldUnit": "Stück",
+      "prep": 0,
       "cook": 30,
       "difficulty": 2,
       "kcal": 0,
@@ -27620,8 +27933,9 @@
       ],
       "diet": [],
       "servings": 4,
-      "prep": 20,
-      "cook": 30,
+      "yieldUnit": "Baguettes",
+      "prep": 0,
+      "cook": 10,
       "difficulty": 2,
       "kcal": 0,
       "tags": [
@@ -27692,8 +28006,9 @@
       ],
       "diet": [],
       "servings": 4,
-      "prep": 20,
-      "cook": 30,
+      "yieldUnit": null,
+      "prep": 0,
+      "cook": 60,
       "difficulty": 2,
       "kcal": 0,
       "tags": [
@@ -27761,10 +28076,11 @@
         "abend"
       ],
       "diet": [],
-      "servings": 4,
-      "prep": 20,
-      "cook": 30,
-      "difficulty": 2,
+      "servings": 8,
+      "yieldUnit": "Tapas",
+      "prep": 0,
+      "cook": 25,
+      "difficulty": 1,
       "kcal": 0,
       "tags": [
         "Koch-Wiki"
@@ -27837,9 +28153,10 @@
       ],
       "diet": [],
       "servings": 4,
-      "prep": 20,
-      "cook": 30,
-      "difficulty": 2,
+      "yieldUnit": null,
+      "prep": 0,
+      "cook": 15,
+      "difficulty": 1,
       "kcal": 0,
       "tags": [
         "Koch-Wiki"
@@ -27951,10 +28268,11 @@
         "abend"
       ],
       "diet": [],
-      "servings": 4,
-      "prep": 20,
-      "cook": 30,
-      "difficulty": 2,
+      "servings": 1,
+      "yieldUnit": null,
+      "prep": 0,
+      "cook": 310,
+      "difficulty": 1,
       "kcal": 0,
       "tags": [
         "Koch-Wiki"
@@ -28008,10 +28326,11 @@
         "abend"
       ],
       "diet": [],
-      "servings": 4,
-      "prep": 20,
-      "cook": 30,
-      "difficulty": 2,
+      "servings": 1,
+      "yieldUnit": null,
+      "prep": 0,
+      "cook": 10,
+      "difficulty": 1,
       "kcal": 0,
       "tags": [
         "Koch-Wiki"
@@ -28105,9 +28424,10 @@
       ],
       "diet": [],
       "servings": 4,
-      "prep": 20,
+      "yieldUnit": null,
+      "prep": 0,
       "cook": 30,
-      "difficulty": 2,
+      "difficulty": 1,
       "kcal": 0,
       "tags": [
         "Koch-Wiki"
@@ -28175,9 +28495,10 @@
         "abend"
       ],
       "diet": [],
-      "servings": 4,
-      "prep": 20,
-      "cook": 30,
+      "servings": 12,
+      "yieldUnit": null,
+      "prep": 0,
+      "cook": 40,
       "difficulty": 2,
       "kcal": 0,
       "tags": [
@@ -28251,7 +28572,8 @@
       ],
       "diet": [],
       "servings": 4,
-      "prep": 20,
+      "yieldUnit": null,
+      "prep": 0,
       "cook": 30,
       "difficulty": 2,
       "kcal": 0,
@@ -28337,9 +28659,10 @@
       ],
       "diet": [],
       "servings": 4,
-      "prep": 20,
-      "cook": 30,
-      "difficulty": 2,
+      "yieldUnit": null,
+      "prep": 0,
+      "cook": 10,
+      "difficulty": 1,
       "kcal": 0,
       "tags": [
         "Koch-Wiki"
@@ -28407,10 +28730,11 @@
         "abend"
       ],
       "diet": [],
-      "servings": 4,
-      "prep": 20,
-      "cook": 30,
-      "difficulty": 2,
+      "servings": 1,
+      "yieldUnit": "Brot",
+      "prep": 0,
+      "cook": 120,
+      "difficulty": 1,
       "kcal": 0,
       "tags": [
         "Koch-Wiki"
@@ -28483,9 +28807,10 @@
       ],
       "diet": [],
       "servings": 4,
-      "prep": 20,
-      "cook": 30,
-      "difficulty": 2,
+      "yieldUnit": null,
+      "prep": 0,
+      "cook": 20,
+      "difficulty": 1,
       "kcal": 0,
       "tags": [
         "Koch-Wiki"
@@ -28552,10 +28877,11 @@
         "abend"
       ],
       "diet": [],
-      "servings": 4,
-      "prep": 20,
+      "servings": 3,
+      "yieldUnit": "Gläser",
+      "prep": 0,
       "cook": 30,
-      "difficulty": 2,
+      "difficulty": 1,
       "kcal": 0,
       "tags": [
         "Koch-Wiki"
@@ -28616,9 +28942,10 @@
       ],
       "diet": [],
       "servings": 4,
-      "prep": 20,
-      "cook": 30,
-      "difficulty": 2,
+      "yieldUnit": null,
+      "prep": 0,
+      "cook": 10,
+      "difficulty": 1,
       "kcal": 0,
       "tags": [
         "Koch-Wiki"
@@ -28662,8 +28989,9 @@
       ],
       "diet": [],
       "servings": 4,
-      "prep": 20,
-      "cook": 30,
+      "yieldUnit": null,
+      "prep": 0,
+      "cook": 10,
       "difficulty": 2,
       "kcal": 0,
       "tags": [
@@ -28804,7 +29132,8 @@
       ],
       "diet": [],
       "servings": 4,
-      "prep": 20,
+      "yieldUnit": null,
+      "prep": 0,
       "cook": 30,
       "difficulty": 2,
       "kcal": 0,
@@ -28910,7 +29239,8 @@
       ],
       "diet": [],
       "servings": 4,
-      "prep": 20,
+      "yieldUnit": null,
+      "prep": 0,
       "cook": 30,
       "difficulty": 2,
       "kcal": 0,
@@ -29007,9 +29337,10 @@
       ],
       "diet": [],
       "servings": 4,
-      "prep": 20,
-      "cook": 30,
-      "difficulty": 2,
+      "yieldUnit": null,
+      "prep": 0,
+      "cook": 35,
+      "difficulty": 1,
       "kcal": 0,
       "tags": [
         "Koch-Wiki"
@@ -29103,7 +29434,8 @@
       ],
       "diet": [],
       "servings": 4,
-      "prep": 20,
+      "yieldUnit": null,
+      "prep": 0,
       "cook": 30,
       "difficulty": 2,
       "kcal": 0,
@@ -29186,9 +29518,10 @@
       ],
       "diet": [],
       "servings": 4,
-      "prep": 20,
-      "cook": 30,
-      "difficulty": 2,
+      "yieldUnit": null,
+      "prep": 0,
+      "cook": 35,
+      "difficulty": 1,
       "kcal": 0,
       "tags": [
         "Koch-Wiki"
@@ -29268,9 +29601,10 @@
       ],
       "diet": [],
       "servings": 4,
-      "prep": 20,
-      "cook": 30,
-      "difficulty": 2,
+      "yieldUnit": null,
+      "prep": 0,
+      "cook": 60,
+      "difficulty": 1,
       "kcal": 0,
       "tags": [
         "Koch-Wiki"
@@ -29396,9 +29730,10 @@
       ],
       "diet": [],
       "servings": 4,
-      "prep": 20,
+      "yieldUnit": null,
+      "prep": 0,
       "cook": 30,
-      "difficulty": 2,
+      "difficulty": 1,
       "kcal": 0,
       "tags": [
         "Koch-Wiki"
@@ -29446,9 +29781,10 @@
       ],
       "diet": [],
       "servings": 4,
-      "prep": 20,
-      "cook": 30,
-      "difficulty": 2,
+      "yieldUnit": null,
+      "prep": 0,
+      "cook": 0,
+      "difficulty": 1,
       "kcal": 0,
       "tags": [
         "Koch-Wiki"
@@ -29509,10 +29845,11 @@
         "abend"
       ],
       "diet": [],
-      "servings": 4,
-      "prep": 20,
-      "cook": 30,
-      "difficulty": 2,
+      "servings": 12,
+      "yieldUnit": "Tapas",
+      "prep": 0,
+      "cook": 15,
+      "difficulty": 1,
       "kcal": 0,
       "tags": [
         "Koch-Wiki"
@@ -29574,9 +29911,10 @@
       ],
       "diet": [],
       "servings": 4,
-      "prep": 20,
-      "cook": 30,
-      "difficulty": 2,
+      "yieldUnit": null,
+      "prep": 15,
+      "cook": 120,
+      "difficulty": 1,
       "kcal": 0,
       "tags": [
         "Koch-Wiki"
@@ -29638,9 +29976,10 @@
         "abend"
       ],
       "diet": [],
-      "servings": 4,
-      "prep": 20,
-      "cook": 30,
+      "servings": 16,
+      "yieldUnit": "Muffins",
+      "prep": 0,
+      "cook": 45,
       "difficulty": 2,
       "kcal": 0,
       "tags": [
@@ -29746,9 +30085,10 @@
         "abend"
       ],
       "diet": [],
-      "servings": 4,
-      "prep": 20,
-      "cook": 30,
+      "servings": 1,
+      "yieldUnit": "liter",
+      "prep": 0,
+      "cook": 40,
       "difficulty": 2,
       "kcal": 0,
       "tags": [
@@ -29818,10 +30158,11 @@
         "abend"
       ],
       "diet": [],
-      "servings": 4,
-      "prep": 20,
-      "cook": 30,
-      "difficulty": 2,
+      "servings": 1,
+      "yieldUnit": "Rührkuchen",
+      "prep": 0,
+      "cook": 15,
+      "difficulty": 1,
       "kcal": 0,
       "tags": [
         "Koch-Wiki"
@@ -29915,9 +30256,10 @@
         "abend"
       ],
       "diet": [],
-      "servings": 4,
-      "prep": 20,
-      "cook": 30,
+      "servings": 6,
+      "yieldUnit": "Gläser",
+      "prep": 0,
+      "cook": 20,
       "difficulty": 2,
       "kcal": 0,
       "tags": [
@@ -29972,10 +30314,11 @@
         "abend"
       ],
       "diet": [],
-      "servings": 4,
-      "prep": 20,
+      "servings": 2,
+      "yieldUnit": null,
+      "prep": 0,
       "cook": 30,
-      "difficulty": 2,
+      "difficulty": 1,
       "kcal": 0,
       "tags": [
         "Koch-Wiki"
@@ -30049,10 +30392,11 @@
         "abend"
       ],
       "diet": [],
-      "servings": 4,
-      "prep": 20,
-      "cook": 30,
-      "difficulty": 2,
+      "servings": 1,
+      "yieldUnit": null,
+      "prep": 0,
+      "cook": 5,
+      "difficulty": 1,
       "kcal": 0,
       "tags": [
         "Koch-Wiki"
@@ -30100,9 +30444,10 @@
       ],
       "diet": [],
       "servings": 4,
-      "prep": 20,
-      "cook": 30,
-      "difficulty": 2,
+      "yieldUnit": null,
+      "prep": 0,
+      "cook": 180,
+      "difficulty": 1,
       "kcal": 0,
       "tags": [
         "Koch-Wiki"
@@ -30166,9 +30511,10 @@
       ],
       "diet": [],
       "servings": 4,
-      "prep": 20,
+      "yieldUnit": null,
+      "prep": 0,
       "cook": 30,
-      "difficulty": 2,
+      "difficulty": 1,
       "kcal": 0,
       "tags": [
         "Koch-Wiki"
@@ -30222,9 +30568,10 @@
       ],
       "diet": [],
       "servings": 4,
-      "prep": 20,
-      "cook": 30,
-      "difficulty": 2,
+      "yieldUnit": null,
+      "prep": 0,
+      "cook": 45,
+      "difficulty": 1,
       "kcal": 0,
       "tags": [
         "Koch-Wiki"
@@ -30301,9 +30648,10 @@
         "abend"
       ],
       "diet": [],
-      "servings": 4,
-      "prep": 20,
-      "cook": 30,
+      "servings": 1,
+      "yieldUnit": "liter",
+      "prep": 0,
+      "cook": 40,
       "difficulty": 2,
       "kcal": 0,
       "tags": [
@@ -30361,10 +30709,11 @@
         "abend"
       ],
       "diet": [],
-      "servings": 4,
-      "prep": 20,
-      "cook": 30,
-      "difficulty": 2,
+      "servings": 5,
+      "yieldUnit": "Gläser",
+      "prep": 0,
+      "cook": 10,
+      "difficulty": 1,
       "kcal": 0,
       "tags": [
         "Koch-Wiki"
@@ -30410,10 +30759,11 @@
         "abend"
       ],
       "diet": [],
-      "servings": 4,
-      "prep": 20,
-      "cook": 30,
-      "difficulty": 2,
+      "servings": 10,
+      "yieldUnit": null,
+      "prep": 0,
+      "cook": 20,
+      "difficulty": 1,
       "kcal": 0,
       "tags": [
         "Koch-Wiki"
@@ -30490,10 +30840,11 @@
         "abend"
       ],
       "diet": [],
-      "servings": 4,
-      "prep": 20,
-      "cook": 30,
-      "difficulty": 2,
+      "servings": 8,
+      "yieldUnit": "Gläser",
+      "prep": 0,
+      "cook": 20,
+      "difficulty": 1,
       "kcal": 0,
       "tags": [
         "Koch-Wiki"
@@ -30547,10 +30898,11 @@
         "abend"
       ],
       "diet": [],
-      "servings": 4,
-      "prep": 20,
-      "cook": 30,
-      "difficulty": 2,
+      "servings": 6,
+      "yieldUnit": "Gläser",
+      "prep": 0,
+      "cook": 20,
+      "difficulty": 1,
       "kcal": 0,
       "tags": [
         "Koch-Wiki"
@@ -30620,9 +30972,10 @@
       ],
       "diet": [],
       "servings": 4,
-      "prep": 20,
-      "cook": 30,
-      "difficulty": 2,
+      "yieldUnit": null,
+      "prep": 0,
+      "cook": 25,
+      "difficulty": 1,
       "kcal": 0,
       "tags": [
         "Koch-Wiki"
@@ -30684,9 +31037,10 @@
       ],
       "diet": [],
       "servings": 4,
-      "prep": 20,
-      "cook": 30,
-      "difficulty": 2,
+      "yieldUnit": null,
+      "prep": 0,
+      "cook": 15,
+      "difficulty": 1,
       "kcal": 0,
       "tags": [
         "Koch-Wiki"
@@ -30756,7 +31110,8 @@
       ],
       "diet": [],
       "servings": 4,
-      "prep": 20,
+      "yieldUnit": null,
+      "prep": 0,
       "cook": 30,
       "difficulty": 2,
       "kcal": 0,
@@ -30822,10 +31177,11 @@
         "abend"
       ],
       "diet": [],
-      "servings": 4,
-      "prep": 20,
-      "cook": 30,
-      "difficulty": 2,
+      "servings": 1,
+      "yieldUnit": "l",
+      "prep": 0,
+      "cook": 480,
+      "difficulty": 1,
       "kcal": 0,
       "tags": [
         "Koch-Wiki"
@@ -30873,7 +31229,8 @@
       ],
       "diet": [],
       "servings": 4,
-      "prep": 20,
+      "yieldUnit": null,
+      "prep": 0,
       "cook": 30,
       "difficulty": 2,
       "kcal": 0,
@@ -30999,9 +31356,10 @@
       ],
       "diet": [],
       "servings": 4,
-      "prep": 20,
-      "cook": 30,
-      "difficulty": 2,
+      "yieldUnit": null,
+      "prep": 0,
+      "cook": 45,
+      "difficulty": 1,
       "kcal": 0,
       "tags": [
         "Koch-Wiki"
@@ -31090,9 +31448,10 @@
       ],
       "diet": [],
       "servings": 4,
-      "prep": 20,
+      "yieldUnit": null,
+      "prep": 0,
       "cook": 30,
-      "difficulty": 2,
+      "difficulty": 1,
       "kcal": 0,
       "tags": [
         "Koch-Wiki"
@@ -31164,10 +31523,11 @@
         "abend"
       ],
       "diet": [],
-      "servings": 4,
-      "prep": 20,
-      "cook": 30,
-      "difficulty": 2,
+      "servings": 2,
+      "yieldUnit": null,
+      "prep": 0,
+      "cook": 15,
+      "difficulty": 1,
       "kcal": 0,
       "tags": [
         "Koch-Wiki"
@@ -31226,10 +31586,11 @@
         "abend"
       ],
       "diet": [],
-      "servings": 4,
-      "prep": 20,
+      "servings": 1,
+      "yieldUnit": null,
+      "prep": 0,
       "cook": 30,
-      "difficulty": 2,
+      "difficulty": 1,
       "kcal": 0,
       "tags": [
         "Koch-Wiki"
@@ -31314,9 +31675,10 @@
       ],
       "diet": [],
       "servings": 4,
-      "prep": 20,
-      "cook": 30,
-      "difficulty": 2,
+      "yieldUnit": null,
+      "prep": 0,
+      "cook": 45,
+      "difficulty": 1,
       "kcal": 0,
       "tags": [
         "Koch-Wiki"
@@ -31432,9 +31794,10 @@
         "abend"
       ],
       "diet": [],
-      "servings": 4,
-      "prep": 20,
-      "cook": 30,
+      "servings": 1,
+      "yieldUnit": null,
+      "prep": 0,
+      "cook": 60,
       "difficulty": 2,
       "kcal": 0,
       "tags": [
@@ -31505,9 +31868,10 @@
       ],
       "diet": [],
       "servings": 4,
-      "prep": 20,
-      "cook": 30,
-      "difficulty": 2,
+      "yieldUnit": null,
+      "prep": 0,
+      "cook": 60,
+      "difficulty": 1,
       "kcal": 0,
       "tags": [
         "Koch-Wiki"
@@ -31594,9 +31958,10 @@
         "abend"
       ],
       "diet": [],
-      "servings": 4,
-      "prep": 20,
-      "cook": 30,
+      "servings": 6,
+      "yieldUnit": null,
+      "prep": 0,
+      "cook": 120,
       "difficulty": 2,
       "kcal": 0,
       "tags": [
@@ -31709,8 +32074,9 @@
       ],
       "diet": [],
       "servings": 4,
-      "prep": 20,
-      "cook": 30,
+      "yieldUnit": null,
+      "prep": 0,
+      "cook": 45,
       "difficulty": 2,
       "kcal": 0,
       "tags": [
@@ -31812,9 +32178,10 @@
         "abend"
       ],
       "diet": [],
-      "servings": 4,
-      "prep": 20,
-      "cook": 30,
+      "servings": 1,
+      "yieldUnit": "Brot",
+      "prep": 25,
+      "cook": 35,
       "difficulty": 2,
       "kcal": 0,
       "tags": [
@@ -31928,9 +32295,10 @@
       ],
       "diet": [],
       "servings": 4,
-      "prep": 20,
+      "yieldUnit": null,
+      "prep": 0,
       "cook": 30,
-      "difficulty": 2,
+      "difficulty": 1,
       "kcal": 0,
       "tags": [
         "Koch-Wiki"
@@ -31990,8 +32358,9 @@
       ],
       "diet": [],
       "servings": 4,
-      "prep": 20,
-      "cook": 30,
+      "yieldUnit": null,
+      "prep": 0,
+      "cook": 20,
       "difficulty": 2,
       "kcal": 0,
       "tags": [
@@ -32085,9 +32454,10 @@
       ],
       "diet": [],
       "servings": 4,
-      "prep": 20,
-      "cook": 30,
-      "difficulty": 2,
+      "yieldUnit": null,
+      "prep": 0,
+      "cook": 90,
+      "difficulty": 1,
       "kcal": 0,
       "tags": [
         "Koch-Wiki"
@@ -32168,10 +32538,11 @@
         "abend"
       ],
       "diet": [],
-      "servings": 4,
-      "prep": 20,
-      "cook": 30,
-      "difficulty": 2,
+      "servings": 12,
+      "yieldUnit": null,
+      "prep": 0,
+      "cook": 45,
+      "difficulty": 1,
       "kcal": 0,
       "tags": [
         "Koch-Wiki"
@@ -32267,10 +32638,11 @@
         "abend"
       ],
       "diet": [],
-      "servings": 4,
-      "prep": 20,
-      "cook": 30,
-      "difficulty": 2,
+      "servings": 120,
+      "yieldUnit": "g",
+      "prep": 0,
+      "cook": 10,
+      "difficulty": 1,
       "kcal": 0,
       "tags": [
         "Koch-Wiki"
@@ -32331,9 +32703,10 @@
         "abend"
       ],
       "diet": [],
-      "servings": 4,
-      "prep": 20,
-      "cook": 30,
+      "servings": 45,
+      "yieldUnit": "Stück",
+      "prep": 0,
+      "cook": 70,
       "difficulty": 2,
       "kcal": 0,
       "tags": [
@@ -32402,8 +32775,9 @@
       ],
       "diet": [],
       "servings": 4,
-      "prep": 20,
-      "cook": 30,
+      "yieldUnit": null,
+      "prep": 0,
+      "cook": 60,
       "difficulty": 2,
       "kcal": 0,
       "tags": [
@@ -32552,9 +32926,10 @@
       ],
       "diet": [],
       "servings": 4,
-      "prep": 20,
-      "cook": 30,
-      "difficulty": 2,
+      "yieldUnit": null,
+      "prep": 0,
+      "cook": 10,
+      "difficulty": 1,
       "kcal": 0,
       "tags": [
         "Koch-Wiki"
@@ -32614,9 +32989,10 @@
       ],
       "diet": [],
       "servings": 4,
-      "prep": 20,
+      "yieldUnit": null,
+      "prep": 0,
       "cook": 30,
-      "difficulty": 2,
+      "difficulty": 1,
       "kcal": 0,
       "tags": [
         "Koch-Wiki"
@@ -32703,10 +33079,11 @@
         "abend"
       ],
       "diet": [],
-      "servings": 4,
-      "prep": 20,
-      "cook": 30,
-      "difficulty": 2,
+      "servings": 1,
+      "yieldUnit": null,
+      "prep": 0,
+      "cook": 25,
+      "difficulty": 1,
       "kcal": 0,
       "tags": [
         "Koch-Wiki"
@@ -32767,9 +33144,10 @@
       ],
       "diet": [],
       "servings": 4,
-      "prep": 20,
-      "cook": 30,
-      "difficulty": 2,
+      "yieldUnit": null,
+      "prep": 0,
+      "cook": 50,
+      "difficulty": 1,
       "kcal": 0,
       "tags": [
         "Koch-Wiki"
@@ -32839,10 +33217,11 @@
         "abend"
       ],
       "diet": [],
-      "servings": 4,
-      "prep": 20,
-      "cook": 30,
-      "difficulty": 2,
+      "servings": 1,
+      "yieldUnit": null,
+      "prep": 0,
+      "cook": 60,
+      "difficulty": 1,
       "kcal": 0,
       "tags": [
         "Koch-Wiki"
@@ -32898,9 +33277,10 @@
       ],
       "diet": [],
       "servings": 4,
-      "prep": 20,
-      "cook": 30,
-      "difficulty": 2,
+      "yieldUnit": null,
+      "prep": 0,
+      "cook": 10,
+      "difficulty": 1,
       "kcal": 0,
       "tags": [
         "Koch-Wiki"
@@ -32963,10 +33343,11 @@
         "abend"
       ],
       "diet": [],
-      "servings": 4,
-      "prep": 20,
+      "servings": 1,
+      "yieldUnit": null,
+      "prep": 0,
       "cook": 30,
-      "difficulty": 2,
+      "difficulty": 1,
       "kcal": 0,
       "tags": [
         "Koch-Wiki"
@@ -33020,8 +33401,9 @@
       ],
       "diet": [],
       "servings": 4,
-      "prep": 20,
-      "cook": 30,
+      "yieldUnit": null,
+      "prep": 0,
+      "cook": 20,
       "difficulty": 2,
       "kcal": 0,
       "tags": [
@@ -33085,10 +33467,11 @@
         "abend"
       ],
       "diet": [],
-      "servings": 4,
-      "prep": 20,
-      "cook": 30,
-      "difficulty": 2,
+      "servings": 20,
+      "yieldUnit": "Stück",
+      "prep": 0,
+      "cook": 20,
+      "difficulty": 1,
       "kcal": 0,
       "tags": [
         "Koch-Wiki"
@@ -33178,10 +33561,11 @@
         "abend"
       ],
       "diet": [],
-      "servings": 4,
-      "prep": 20,
-      "cook": 30,
-      "difficulty": 2,
+      "servings": 3,
+      "yieldUnit": null,
+      "prep": 0,
+      "cook": 20,
+      "difficulty": 1,
       "kcal": 0,
       "tags": [
         "Koch-Wiki"
@@ -33254,10 +33638,11 @@
         "abend"
       ],
       "diet": [],
-      "servings": 4,
-      "prep": 20,
-      "cook": 30,
-      "difficulty": 2,
+      "servings": 1,
+      "yieldUnit": null,
+      "prep": 0,
+      "cook": 25,
+      "difficulty": 1,
       "kcal": 0,
       "tags": [
         "Koch-Wiki"
@@ -33349,10 +33734,11 @@
         "abend"
       ],
       "diet": [],
-      "servings": 4,
-      "prep": 20,
-      "cook": 30,
-      "difficulty": 2,
+      "servings": 1,
+      "yieldUnit": null,
+      "prep": 0,
+      "cook": 25,
+      "difficulty": 1,
       "kcal": 0,
       "tags": [
         "Koch-Wiki"
@@ -33449,10 +33835,11 @@
         "abend"
       ],
       "diet": [],
-      "servings": 4,
-      "prep": 20,
-      "cook": 30,
-      "difficulty": 2,
+      "servings": 1,
+      "yieldUnit": null,
+      "prep": 0,
+      "cook": 20,
+      "difficulty": 1,
       "kcal": 0,
       "tags": [
         "Koch-Wiki"
@@ -33519,10 +33906,11 @@
         "abend"
       ],
       "diet": [],
-      "servings": 4,
-      "prep": 20,
-      "cook": 30,
-      "difficulty": 2,
+      "servings": 2,
+      "yieldUnit": null,
+      "prep": 0,
+      "cook": 15,
+      "difficulty": 1,
       "kcal": 0,
       "tags": [
         "Koch-Wiki"
@@ -33597,10 +33985,11 @@
         "abend"
       ],
       "diet": [],
-      "servings": 4,
-      "prep": 20,
-      "cook": 30,
-      "difficulty": 2,
+      "servings": 1,
+      "yieldUnit": "Fladen",
+      "prep": 30,
+      "cook": 0,
+      "difficulty": 1,
       "kcal": 0,
       "tags": [
         "Koch-Wiki"
@@ -33705,9 +34094,10 @@
       ],
       "diet": [],
       "servings": 4,
-      "prep": 20,
+      "yieldUnit": null,
+      "prep": 0,
       "cook": 30,
-      "difficulty": 2,
+      "difficulty": 1,
       "kcal": 0,
       "tags": [
         "Koch-Wiki"
@@ -33794,10 +34184,11 @@
         "abend"
       ],
       "diet": [],
-      "servings": 4,
-      "prep": 20,
-      "cook": 30,
-      "difficulty": 2,
+      "servings": 1,
+      "yieldUnit": null,
+      "prep": 0,
+      "cook": 15,
+      "difficulty": 1,
       "kcal": 0,
       "tags": [
         "Koch-Wiki"
@@ -33859,9 +34250,10 @@
       ],
       "diet": [],
       "servings": 4,
-      "prep": 20,
-      "cook": 30,
-      "difficulty": 2,
+      "yieldUnit": null,
+      "prep": 0,
+      "cook": 0,
+      "difficulty": 1,
       "kcal": 0,
       "tags": [
         "Koch-Wiki"
@@ -33971,10 +34363,11 @@
         "abend"
       ],
       "diet": [],
-      "servings": 4,
-      "prep": 20,
-      "cook": 30,
-      "difficulty": 2,
+      "servings": 1,
+      "yieldUnit": null,
+      "prep": 0,
+      "cook": 10,
+      "difficulty": 1,
       "kcal": 0,
       "tags": [
         "Koch-Wiki"
@@ -34046,8 +34439,9 @@
       ],
       "diet": [],
       "servings": 4,
-      "prep": 20,
-      "cook": 30,
+      "yieldUnit": null,
+      "prep": 0,
+      "cook": 40,
       "difficulty": 2,
       "kcal": 0,
       "tags": [
@@ -34124,10 +34518,11 @@
         "abend"
       ],
       "diet": [],
-      "servings": 4,
-      "prep": 20,
-      "cook": 30,
-      "difficulty": 2,
+      "servings": 1,
+      "yieldUnit": "Einweckgläser",
+      "prep": 0,
+      "cook": 20,
+      "difficulty": 1,
       "kcal": 0,
       "tags": [
         "Koch-Wiki"
@@ -34177,8 +34572,9 @@
       ],
       "diet": [],
       "servings": 4,
-      "prep": 20,
-      "cook": 30,
+      "yieldUnit": null,
+      "prep": 0,
+      "cook": 20,
       "difficulty": 2,
       "kcal": 0,
       "tags": [
@@ -34241,10 +34637,11 @@
         "abend"
       ],
       "diet": [],
-      "servings": 4,
-      "prep": 20,
-      "cook": 30,
-      "difficulty": 2,
+      "servings": 2,
+      "yieldUnit": null,
+      "prep": 0,
+      "cook": 25,
+      "difficulty": 1,
       "kcal": 0,
       "tags": [
         "Koch-Wiki"
@@ -34328,9 +34725,10 @@
       ],
       "diet": [],
       "servings": 4,
-      "prep": 20,
-      "cook": 30,
-      "difficulty": 2,
+      "yieldUnit": null,
+      "prep": 0,
+      "cook": 20,
+      "difficulty": 1,
       "kcal": 0,
       "tags": [
         "Koch-Wiki"
@@ -34396,9 +34794,10 @@
         "abend"
       ],
       "diet": [],
-      "servings": 4,
-      "prep": 20,
-      "cook": 30,
+      "servings": 1,
+      "yieldUnit": "Kuitkuchen",
+      "prep": 0,
+      "cook": 60,
       "difficulty": 2,
       "kcal": 0,
       "tags": [
@@ -34467,9 +34866,10 @@
       ],
       "diet": [],
       "servings": 4,
-      "prep": 20,
-      "cook": 30,
-      "difficulty": 2,
+      "yieldUnit": null,
+      "prep": 0,
+      "cook": 20,
+      "difficulty": 1,
       "kcal": 0,
       "tags": [
         "Koch-Wiki"
@@ -34553,9 +34953,10 @@
       ],
       "diet": [],
       "servings": 4,
-      "prep": 20,
+      "yieldUnit": null,
+      "prep": 0,
       "cook": 30,
-      "difficulty": 2,
+      "difficulty": 1,
       "kcal": 0,
       "tags": [
         "Koch-Wiki"
@@ -34640,9 +35041,10 @@
         "abend"
       ],
       "diet": [],
-      "servings": 4,
-      "prep": 20,
-      "cook": 30,
+      "servings": 8,
+      "yieldUnit": null,
+      "prep": 0,
+      "cook": 35,
       "difficulty": 2,
       "kcal": 0,
       "tags": [
@@ -34707,10 +35109,11 @@
         "abend"
       ],
       "diet": [],
-      "servings": 4,
-      "prep": 20,
+      "servings": 6,
+      "yieldUnit": null,
+      "prep": 0,
       "cook": 30,
-      "difficulty": 2,
+      "difficulty": 1,
       "kcal": 0,
       "tags": [
         "Koch-Wiki"
@@ -34802,9 +35205,10 @@
         "abend"
       ],
       "diet": [],
-      "servings": 4,
-      "prep": 20,
-      "cook": 30,
+      "servings": 1,
+      "yieldUnit": "Tarte",
+      "prep": 0,
+      "cook": 60,
       "difficulty": 2,
       "kcal": 0,
       "tags": [
@@ -34878,10 +35282,11 @@
         "abend"
       ],
       "diet": [],
-      "servings": 4,
-      "prep": 20,
-      "cook": 30,
-      "difficulty": 2,
+      "servings": 1,
+      "yieldUnit": "Tarte",
+      "prep": 0,
+      "cook": 20,
+      "difficulty": 1,
       "kcal": 0,
       "tags": [
         "Koch-Wiki"
@@ -34943,9 +35348,10 @@
         "abend"
       ],
       "diet": [],
-      "servings": 4,
-      "prep": 20,
-      "cook": 30,
+      "servings": 3,
+      "yieldUnit": null,
+      "prep": 0,
+      "cook": 25,
       "difficulty": 2,
       "kcal": 0,
       "tags": [
@@ -35026,8 +35432,9 @@
       ],
       "diet": [],
       "servings": 4,
-      "prep": 20,
-      "cook": 30,
+      "yieldUnit": null,
+      "prep": 0,
+      "cook": 25,
       "difficulty": 2,
       "kcal": 0,
       "tags": [
@@ -35096,8 +35503,9 @@
         "abend"
       ],
       "diet": [],
-      "servings": 4,
-      "prep": 20,
+      "servings": 50,
+      "yieldUnit": "Stück",
+      "prep": 0,
       "cook": 30,
       "difficulty": 2,
       "kcal": 0,
@@ -35203,9 +35611,10 @@
       ],
       "diet": [],
       "servings": 4,
-      "prep": 20,
-      "cook": 30,
-      "difficulty": 2,
+      "yieldUnit": null,
+      "prep": 0,
+      "cook": 20,
+      "difficulty": 1,
       "kcal": 0,
       "tags": [
         "Koch-Wiki"
@@ -35280,9 +35689,10 @@
       ],
       "diet": [],
       "servings": 4,
-      "prep": 20,
-      "cook": 30,
-      "difficulty": 2,
+      "yieldUnit": null,
+      "prep": 0,
+      "cook": 60,
+      "difficulty": 1,
       "kcal": 0,
       "tags": [
         "Koch-Wiki"
@@ -35346,9 +35756,10 @@
       ],
       "diet": [],
       "servings": 4,
-      "prep": 20,
-      "cook": 30,
-      "difficulty": 2,
+      "yieldUnit": null,
+      "prep": 0,
+      "cook": 15,
+      "difficulty": 1,
       "kcal": 0,
       "tags": [
         "Koch-Wiki"
@@ -35457,10 +35868,11 @@
         "abend"
       ],
       "diet": [],
-      "servings": 4,
-      "prep": 20,
-      "cook": 30,
-      "difficulty": 2,
+      "servings": 10,
+      "yieldUnit": null,
+      "prep": 0,
+      "cook": 300,
+      "difficulty": 1,
       "kcal": 0,
       "tags": [
         "Koch-Wiki"
@@ -35560,10 +35972,11 @@
         "abend"
       ],
       "diet": [],
-      "servings": 4,
-      "prep": 20,
-      "cook": 30,
-      "difficulty": 2,
+      "servings": 1,
+      "yieldUnit": null,
+      "prep": 0,
+      "cook": 300,
+      "difficulty": 1,
       "kcal": 0,
       "tags": [
         "Koch-Wiki"
@@ -35622,10 +36035,11 @@
         "abend"
       ],
       "diet": [],
-      "servings": 4,
-      "prep": 20,
-      "cook": 30,
-      "difficulty": 2,
+      "servings": 1,
+      "yieldUnit": null,
+      "prep": 0,
+      "cook": 10,
+      "difficulty": 1,
       "kcal": 0,
       "tags": [
         "Koch-Wiki"
@@ -35690,8 +36104,9 @@
       ],
       "diet": [],
       "servings": 4,
-      "prep": 20,
-      "cook": 30,
+      "yieldUnit": null,
+      "prep": 0,
+      "cook": 60,
       "difficulty": 2,
       "kcal": 0,
       "tags": [
@@ -35796,9 +36211,10 @@
       ],
       "diet": [],
       "servings": 4,
-      "prep": 20,
-      "cook": 30,
-      "difficulty": 2,
+      "yieldUnit": null,
+      "prep": 0,
+      "cook": 40,
+      "difficulty": 1,
       "kcal": 0,
       "tags": [
         "Koch-Wiki"
@@ -35875,9 +36291,10 @@
       ],
       "diet": [],
       "servings": 4,
-      "prep": 20,
-      "cook": 30,
-      "difficulty": 2,
+      "yieldUnit": null,
+      "prep": 0,
+      "cook": 90,
+      "difficulty": 1,
       "kcal": 0,
       "tags": [
         "Koch-Wiki"
@@ -35981,9 +36398,10 @@
         "abend"
       ],
       "diet": [],
-      "servings": 4,
-      "prep": 20,
-      "cook": 30,
+      "servings": 2,
+      "yieldUnit": "Backbleche",
+      "prep": 0,
+      "cook": 20,
       "difficulty": 2,
       "kcal": 0,
       "tags": [
@@ -36145,9 +36563,10 @@
       ],
       "diet": [],
       "servings": 4,
-      "prep": 20,
+      "yieldUnit": null,
+      "prep": 0,
       "cook": 30,
-      "difficulty": 2,
+      "difficulty": 1,
       "kcal": 0,
       "tags": [
         "Koch-Wiki"
@@ -36222,9 +36641,10 @@
       ],
       "diet": [],
       "servings": 4,
-      "prep": 20,
-      "cook": 30,
-      "difficulty": 2,
+      "yieldUnit": null,
+      "prep": 0,
+      "cook": 45,
+      "difficulty": 1,
       "kcal": 0,
       "tags": [
         "Koch-Wiki"

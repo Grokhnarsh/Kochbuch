@@ -32,13 +32,27 @@
       <button class="ghost-btn" id="btn-autofill" title="Leere Felder automatisch füllen">Woche füllen</button>
       <button class="ghost-btn" id="btn-clear" title="Alle Einträge der Woche löschen">Leeren</button>
       <button class="ghost-btn" id="btn-sources">Quellen</button>
+      <button class="icon-btn only-phone" id="btn-more" aria-label="Weitere Aktionen" aria-expanded="false">&#8943;</button>
       <button class="primary-btn" id="btn-shopping">Einkaufsliste</button>
     </div>
   </header>
 
+  <nav class="day-strip" id="day-strip" aria-label="Wochentag wählen"></nav>
+
+  <div class="armed-bar" id="armed-bar" hidden></div>
+
+  <div class="phone-menu" id="phone-menu" hidden>
+    <button class="ghost-btn" data-action="autofill">Woche füllen</button>
+    <button class="ghost-btn" data-action="clear">Woche leeren</button>
+    <button class="ghost-btn" data-action="newRecipe">Eigenes Rezept schreiben</button>
+    <button class="ghost-btn" data-action="sources">Quellen &amp; Lizenzen</button>
+  </div>
+
   <aside class="library" id="library" aria-label="Rezeptbibliothek">
-    <div class="library-head">
+    <div class="library-head" id="library-head">
+      <span class="sheet-grip" aria-hidden="true"></span>
       <h2>Bibliothek</h2>
+      <span class="library-count" id="library-count"></span>
       <button class="icon-btn library-toggle" id="library-toggle" aria-label="Bibliothek ein- oder ausklappen">&#8249;</button>
     </div>
 
@@ -50,6 +64,7 @@
       <select id="filter-source" aria-label="Quelle"><option value="">Alle Quellen</option></select>
       <select id="filter-category" aria-label="Kategorie"><option value="">Alle Kategorien</option></select>
       <select id="filter-diet" aria-label="Ernährung"><option value="">Alle Ernährungsformen</option></select>
+      <select id="filter-allergen" aria-label="Allergen ausschließen"><option value="">Ohne Allergen …</option></select>
       <select id="filter-time" aria-label="Maximale Zeit">
         <option value="">Beliebige Dauer</option>
         <option value="20">bis 20 Min.</option>
@@ -63,6 +78,7 @@
 
     <footer class="library-foot">
       <span id="corpus-note"></span>
+      <button class="ghost-btn" id="btn-new-recipe" title="Ein eigenes Rezept schreiben">+ Eigenes Rezept</button>
     </footer>
   </aside>
 

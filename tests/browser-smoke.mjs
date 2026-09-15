@@ -137,6 +137,69 @@ try {
   await shot(page, '06-quellen');
   await page.keyboard.press('Escape');
 
+  // --------------------------------------------------- Allergene
+
+  await page.fill('#search', 'Käsespätzle');
+  await page.waitForTimeout(400);
+  await page.locator('.recipe-card').first().click();
+  await page.waitForTimeout(400);
+  const allergene = await page.locator('.modal .allergen-chip').allTextContents();
+  check(
+    'Rezeptansicht nennt die Allergene',
+    allergene.some((t) => t.includes('Gluten')) && allergene.some((t) => t.includes('Milch')),
+    allergene.join(' '),
+  );
+  const hinweis = await page.locator('.modal .allergen-note').first().textContent();
+  check('dazu steht der Vorbehalt', /ohne Gewähr/.test(hinweis));
+  await shot(page, '07-allergene');
+  await page.keyboard.press('Escape');
+  await page.fill('#search', '');
+  await page.waitForTimeout(300);
+
+  const alle = await page.locator('.recipe-card').count();
+  await page.selectOption('#filter-allergen', 'milch');
+  await page.waitForTimeout(400);
+  const mitMilch = await page.evaluate(() =>
+    [...document.querySelectorAll('.card-allergens')]
+      .filter((n) => (n.title || '').includes('Milch')).length);
+  const ohne = await page.locator('.recipe-card').count();
+  check('Filter blendet Rezepte mit Milch aus', mitMilch === 0 && ohne < alle, `${ohne} von ${alle}`);
+  await page.selectOption('#filter-allergen', '');
+  await page.waitForTimeout(300);
+
+  // --------------------------------------------------- Eigenes Rezept
+
+  await page.click('#btn-new-recipe');
+  await page.waitForTimeout(400);
+  await page.fill('input[name="title"]', 'Rauchtest-Suppe');
+  await page.fill('textarea[name="ingredients"]', '500 g Kartoffeln\n200 ml Sahne\n2 EL Weizenmehl');
+  await page.waitForTimeout(400);
+  const vorschau = await page.locator('.parse-preview .allergen-chip').allTextContents();
+  check('das Formular zeigt die Allergene beim Tippen', vorschau.length >= 2, vorschau.join(' '));
+  await shot(page, '08-formular');
+
+  await page.fill('textarea[name="steps"]', 'Kartoffeln garen.\nAlles verrühren.');
+  await page.locator('.modal-foot .primary-btn').click();
+  await page.waitForTimeout(600);
+
+  const gespeichert = await page.evaluate(() =>
+    Boolean(window.kochbuch.recipeById.get('eigen-rauchtest-suppe')));
+  check('eigenes Rezept liegt danach im Index', gespeichert);
+
+  await page.fill('#search', 'Rauchtest');
+  await page.waitForTimeout(400);
+  const eigene = await page.locator('.recipe-card h3').allTextContents();
+  check('und steht in der Bibliothek', eigene.includes('Rauchtest-Suppe'), eigene.join(', '));
+
+  await page.locator('.recipe-card').first().click();
+  await page.waitForTimeout(400);
+  const bearbeiten = await page.locator('.modal-foot .ghost-btn', { hasText: 'Bearbeiten' }).count();
+  check('und lässt sich wieder bearbeiten', bearbeiten === 1);
+  await shot(page, '09-eigenes-rezept');
+  await page.keyboard.press('Escape');
+  await page.fill('#search', '');
+  await page.waitForTimeout(300);
+
   check('keine Fehler in der Browserkonsole', errors.length === 0, errors.join(' | '));
 } finally {
   await browser.close();

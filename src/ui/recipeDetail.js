@@ -7,15 +7,55 @@ import { openModal, closeModal, el } from './modal.js';
 import { store } from '../state/store.js';
 import { recipeById, MEALS, DAYS } from '../data/index.js';
 import { formatAmount } from '../state/units.js';
+import { allergensForRecipe, HINWEIS } from '../state/allergens.js';
+import { istEigenes } from '../state/eigene.js';
+import { openRecipeEditor } from './recipeEditor.js';
+
+/**
+ * Der Allergenblock. "Enthält" und "kann enthalten" stehen getrennt,
+ * und darunter steht, woher die Angabe kommt: aus den Zutatennamen,
+ * nicht von einem Etikett.
+ */
+function allergenBlock(recipe) {
+  const gefunden = recipe.allergens || allergensForRecipe(recipe);
+  if (!gefunden.length) {
+    return `<h3>Allergene</h3>
+      <p class="allergen-note">In den Zutaten ist keines der vierzehn
+      kennzeichnungspflichtigen Allergene erkennbar. ${HINWEIS}</p>`;
+  }
+
+  const chip = (a) => `<span class="allergen-chip ${a.level}" title="${
+    a.quellen.join(', ')
+  }">${a.icon} ${a.short}</span>`;
+
+  const sicher = gefunden.filter((a) => a.level === 'ja');
+  const moeglich = gefunden.filter((a) => a.level === 'moeglich');
+
+  return `
+    <h3>Allergene</h3>
+    ${sicher.length
+      ? `<div class="allergen-row"><span class="allergen-lead">Enthält</span>${
+          sicher.map(chip).join('')}</div>`
+      : ''}
+    ${moeglich.length
+      ? `<div class="allergen-row"><span class="allergen-lead">Kann enthalten</span>${
+          moeglich.map(chip).join('')}</div>`
+      : ''}
+    <p class="allergen-note">${HINWEIS}</p>
+  `;
+}
 
 /**
  * @param {object} recipe
  * @param {{day:number, meal:string}|null} slot Wenn gesetzt, wirkt die
  *        Portionsanpassung direkt auf den Plan.
  */
-export function openRecipe(recipe, slot = null, onPlace = null) {
+export function openRecipe(recipe, slot = null, onPlace = null, onEdited = null) {
   const entry = slot ? store.entry(slot.day, slot.meal) : null;
   let servings = entry?.servings || recipe.servings || 2;
+  // Zaehlt ein Rezept Stueck statt Portionen, liegt der Ertrag von Haus
+  // aus hoch; die Obergrenze richtet sich deshalb nach dem Rezept.
+  const maxServings = Math.max(24, (recipe.servings || 1) * 4);
 
   const body = el('div');
   const foot = el('div');
@@ -61,12 +101,13 @@ export function openRecipe(recipe, slot = null, onPlace = null) {
             <button class="icon-btn" data-step="-1" aria-label="Weniger Portionen">−</button>
             <b>${servings}</b>
             <button class="icon-btn" data-step="1" aria-label="Mehr Portionen">+</button>
-            <span>Portionen</span>
+            <span>${recipe.yieldUnit || 'Portionen'}</span>
           </div>
           <ul class="ing-list">${ings}</ul>
+          ${allergenBlock(recipe)}
         </div>
         <div>
-          <h3>Zubereitung · ${recipe.totalTime} Minuten</h3>
+          <h3>Zubereitung${recipe.totalTime > 0 ? ` · ${recipe.totalTime} Minuten` : ''}</h3>
           <ol class="step-list">${steps}</ol>
           ${licence}
         </div>
@@ -75,7 +116,7 @@ export function openRecipe(recipe, slot = null, onPlace = null) {
 
     for (const btn of body.querySelectorAll('[data-step]')) {
       btn.addEventListener('click', () => {
-        servings = Math.max(1, Math.min(24, servings + Number(btn.dataset.step)));
+        servings = Math.max(1, Math.min(maxServings, servings + Number(btn.dataset.step)));
         if (slot) store.setServings(slot.day, slot.meal, servings);
         render();
       });
@@ -84,6 +125,12 @@ export function openRecipe(recipe, slot = null, onPlace = null) {
 
   function renderFoot() {
     foot.replaceChildren();
+
+    if (istEigenes(recipe)) {
+      const aendern = el('button', 'ghost-btn', 'Bearbeiten');
+      aendern.addEventListener('click', () => openRecipeEditor(recipe, { onSaved: onEdited, onDeleted: onEdited }));
+      foot.append(aendern);
+    }
 
     if (slot) {
       const where = el('span', null,
@@ -122,9 +169,9 @@ export function openRecipe(recipe, slot = null, onPlace = null) {
 }
 
 /** Oeffnet das Rezept, das in einem Feld liegt. */
-export function openSlot(slot) {
+export function openSlot(slot, onEdited = null) {
   const entry = store.entry(slot.day, slot.meal);
   if (!entry) return;
   const recipe = recipeById.get(entry.recipeId);
-  if (recipe) openRecipe(recipe, slot);
+  if (recipe) openRecipe(recipe, slot, null, onEdited);
 }

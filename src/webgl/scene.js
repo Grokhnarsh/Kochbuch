@@ -92,6 +92,19 @@ export class Stage {
     this.renderer.setAnimationLoop(() => this.#tick());
   }
 
+  /**
+   * Setzt die Ausdehnung, die im Bild bleiben muss, und rahmt neu.
+   * Die Ansicht wechselt zwischen Wochenraster und Tagesansicht, dabei
+   * ändert sich das Seitenverhältnis des Plans grundlegend.
+   */
+  setFrame(frame) {
+    this.frame = frame;
+    this.zoom = 1;
+    this.pan.x = 0;
+    this.pan.z = 0;
+    this.resize();
+  }
+
   /** Welteinheiten je Bildschirmpixel beim aktuellen Zoom. */
   worldPerPixel() {
     return this.fitHeight / this.zoom / this.renderer.domElement.clientHeight;
@@ -126,11 +139,13 @@ export class Stage {
     this.renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
     this.renderer.setSize(w, h, false);
 
-    const compact = w < 900;
-    const padLeft = compact ? 14 : 384;   // Bibliothek
-    const padRight = compact ? 14 : 40;   // die Wochenbilanz sitzt jetzt in der Kopfzeile
-    const padTop = 74;                    // Kopfzeile
-    const padBottom = compact ? 20 : 64;  // Hinweiszeile
+    // Auf dem Handy liegt die Bibliothek als Blatt unten, nicht seitlich;
+    // der Plan bekommt die volle Breite und endet über dem Blattgriff.
+    const phone = w < 760;
+    const padLeft = phone ? 12 : 384;     // Bibliothek
+    const padRight = phone ? 12 : 40;     // Wochenbilanz sitzt in der Kopfzeile
+    const padTop = phone ? 150 : 74;      // Kopfzeile plus Tagesleiste
+    const padBottom = phone ? 124 : 64;   // Blattgriff und Aufnahmeleiste
 
     const usableW = Math.max(260, w - padLeft - padRight);
     const usableH = Math.max(220, h - padTop - padBottom);

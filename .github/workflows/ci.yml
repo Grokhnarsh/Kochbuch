@@ -79,6 +79,11 @@ jobs:
           # Bildschirmfotos schreiben, damit ein Fehlschlag nachvollziehbar ist.
           SHOT_DIR: screenshots
 
+      - name: Handy-Ansicht prüfen
+        run: npm run test:handy
+        env:
+          SHOT_DIR: screenshots
+
       - name: Bildschirmfotos bei Fehlschlag sichern
         if: failure()
         uses: actions/upload-artifact@v4

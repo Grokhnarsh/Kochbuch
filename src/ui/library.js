@@ -4,6 +4,7 @@
  */
 
 import { filterRecipes, sources, categories, diets, recipes } from '../data/index.js';
+import { ALLERGENS } from '../state/allergens.js';
 
 const els = {
   list: document.getElementById('recipe-list'),
@@ -12,6 +13,7 @@ const els = {
   source: document.getElementById('filter-source'),
   category: document.getElementById('filter-category'),
   diet: document.getElementById('filter-diet'),
+  allergen: document.getElementById('filter-allergen'),
   time: document.getElementById('filter-time'),
   corpusNote: document.getElementById('corpus-note'),
   panel: document.getElementById('library'),
@@ -34,6 +36,7 @@ export function refreshFilters() {
     source: els.source.value,
     category: els.category.value,
     diet: els.diet.value,
+    allergen: els.allergen.value,
   };
 
   els.source.replaceChildren(option('', 'Alle Quellen'));
@@ -48,9 +51,13 @@ export function refreshFilters() {
   els.diet.replaceChildren(option('', 'Alle Ernährungsformen'));
   for (const d of diets()) els.diet.append(option(d, d[0].toUpperCase() + d.slice(1)));
 
+  els.allergen.replaceChildren(option('', 'Ohne Allergen …'));
+  for (const a of ALLERGENS) els.allergen.append(option(a.id, `ohne ${a.short}`));
+
   els.source.value = keep.source;
   els.category.value = keep.category;
   els.diet.value = keep.diet;
+  els.allergen.value = keep.allergen;
 }
 
 function readFilters() {
@@ -59,6 +66,7 @@ function readFilters() {
     source: els.source.value,
     category: els.category.value,
     diet: els.diet.value,
+    ohneAllergen: els.allergen.value,
     maxTime: els.time.value ? Number(els.time.value) : 0,
   };
 }
@@ -76,14 +84,31 @@ function cardNode(recipe) {
     .map((d) => `<span class="tag diet">${d}</span>`)
     .join('');
 
+  // Auf der Karte reichen die Zeichen; die Namen stehen im Titel und
+  // ausgeschrieben in der Rezeptansicht.
+  const allergene = recipe.allergens || [];
+  const sicher = allergene.filter((a) => a.level === 'ja');
+  const moeglich = allergene.filter((a) => a.level === 'moeglich');
+  const allergenTitel = [
+    sicher.length ? `Enthält: ${sicher.map((a) => a.short).join(', ')}` : '',
+    moeglich.length ? `Kann enthalten: ${moeglich.map((a) => a.short).join(', ')}` : '',
+  ].filter(Boolean).join(' · ');
+
+  const allergenZeile = allergene.length
+    ? `<span class="card-allergens" title="${allergenTitel}" aria-label="${allergenTitel}">${
+        sicher.map((a) => a.icon).join('')
+      }${moeglich.length ? `<span class="maybe">${moeglich.map((a) => a.icon).join('')}</span>` : ''}</span>`
+    : '';
+
   card.innerHTML = `
     <div class="swatch"></div>
     <div class="body">
       <h3>${recipe.title}</h3>
       <div class="meta">
-        <span><b>${recipe.totalTime}</b> Min.</span>
-        <span><b>${recipe.servings}</b> Port.</span>
+        ${recipe.totalTime > 0 ? `<span><b>${recipe.totalTime}</b> Min.</span>` : ''}
+        <span><b>${recipe.servings}</b> ${recipe.yieldUnit || 'Port.'}</span>
         ${recipe.kcal ? `<span><b>${recipe.kcal}</b> kcal</span>` : ''}
+        ${allergenZeile}
       </div>
       <div class="tag-row">
         <span class="tag src">${recipe.source?.author || recipe.source?.title || 'Quelle'}</span>
@@ -123,6 +148,9 @@ export function renderLibrary() {
     ? `${current.length} Rezept${current.length === 1 ? '' : 'e'}`
     : 'Keine Treffer';
 
+  // Auf dem Handy steht die Zahl im zugeklappten Blattkopf.
+  handlers.onCount?.(current.length);
+
   if (!current.length) {
     els.list.replaceChildren(
       Object.assign(document.createElement('p'), {
@@ -153,7 +181,7 @@ export function initLibrary(h) {
     debounce = setTimeout(renderLibrary, 130);
   });
 
-  for (const sel of [els.source, els.category, els.diet, els.time]) {
+  for (const sel of [els.source, els.category, els.diet, els.allergen, els.time]) {
     sel.addEventListener('change', renderLibrary);
   }
 

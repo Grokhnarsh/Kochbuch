@@ -3,6 +3,8 @@
  * in der Reihenfolge des Einkaufs sortiert ist.
  */
 
+import { compile } from './matcher.js';
+
 const RULES = [
   ['Obst & Gemüse', [
     'kartoffel', 'erdäpfel', 'zwiebel', 'schalotte', 'möhre', 'karotte', 'mohrrübe', 'lauch',
@@ -78,36 +80,8 @@ const RULES = [
   ]],
 ];
 
-const escape = (s) => s.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
-const LETTER = '[a-zäöüß]';
-
-/**
- * Baut das Suchmuster fuer ein Stichwort.
- *
- * Deutsche Zusammensetzungen tragen das Grundwort mal vorn
- * ("Paprikaschoten"), mal hinten ("Weizenmehl"). Deshalb zaehlt ein
- * Treffer am Wortanfang oder am Wortende, jeweils mit moeglicher
- * Beugung ("Tomaten"). Ein blosser Teilstring reicht nicht: sonst
- * faende "ei" auch Reis, Weizenmehl und Eiswasser.
- *
- * Ein vorangestelltes "=" verlangt ein eigenstaendiges Wort.
- */
-function patternFor(keyword) {
-  const exact = keyword.startsWith('=');
-  const word = escape(exact ? keyword.slice(1) : keyword);
-
-  if (exact) return new RegExp(`(^|(?!${LETTER}).)${word}($|(?!${LETTER}))`);
-  return new RegExp(`(^|(?!${LETTER}).)${word}|${word}(e|en|n|er|es|s)?($|(?!${LETTER}))`);
-}
-
 /** Vorgefertigte Muster, absteigend nach Stichwortlaenge. */
-const PATTERNS = RULES.flatMap(([aisle, keywords]) =>
-  keywords.map((k) => ({
-    aisle,
-    weight: k.replace('=', '').length,
-    test: patternFor(k),
-  })),
-).sort((a, b) => b.weight - a.weight);
+const PATTERNS = compile(RULES);
 
 /**
  * Liefert die Abteilung fuer einen Zutatennamen. Es gewinnt das
@@ -117,7 +91,7 @@ const PATTERNS = RULES.flatMap(([aisle, keywords]) =>
 export function aisleFor(name) {
   const n = String(name).toLowerCase();
   for (const p of PATTERNS) {
-    if (p.test.test(n)) return p.aisle;
+    if (p.test.test(n)) return p.value;
   }
   return 'Sonstiges';
 }

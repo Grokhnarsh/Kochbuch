@@ -20,7 +20,7 @@
       "title": "The Book of Household Management",
       "author": "Isabella Beeton",
       "year": 1861,
-      "country": "Grossbritannien",
+      "country": "Großbritannien",
       "license": "Public Domain",
       "licenseUrl": "https://www.gutenberg.org/policy/permission.html",
       "url": "https://www.gutenberg.org/ebooks/10136",
@@ -43,7 +43,7 @@
     {
       "id": "davidis-1845",
       "kind": "buch",
-      "title": "Praktisches Kochbuch fuer die gewoehnliche und feinere Kueche",
+      "title": "Praktisches Kochbuch für die gewöhnliche und feinere Küche",
       "author": "Henriette Davidis",
       "year": 1845,
       "country": "Deutschland",
@@ -56,7 +56,7 @@
     {
       "id": "prato-1858",
       "kind": "buch",
-      "title": "Die Sueddeutsche Kueche",
+      "title": "Die Süddeutsche Küche",
       "author": "Katharina Prato",
       "year": 1858,
       "country": "Oesterreich",
@@ -72,7 +72,7 @@
       "title": "The Art of Cookery Made Plain and Easy",
       "author": "Hannah Glasse",
       "year": 1747,
-      "country": "Grossbritannien",
+      "country": "Großbritannien",
       "license": "Public Domain",
       "licenseUrl": "https://archive.org/details/artofcookerymade00glas",
       "url": "https://archive.org/details/artofcookerymade00glas",
@@ -141,7 +141,7 @@
       "license": "ODbL 1.0",
       "licenseUrl": "https://opendatacommons.org/licenses/odbl/1-0/",
       "url": "https://world.openfoodfacts.org/",
-      "via": "REST-API v2, Produkt- und Naehrwertdaten",
+      "via": "REST-Schnittstelle v2, Produkt- und Nährwertdaten",
       "accent": "#4C7BD9"
     },
     {
@@ -154,20 +154,20 @@
       "license": "Katalogdaten gemeinfrei, Software MIT",
       "licenseUrl": "https://github.com/garethbjohnson/gutendex",
       "url": "https://gutendex.com/",
-      "via": "JSON-API fuer Project-Gutenberg-Metadaten",
+      "via": "JSON-Schnittstelle für Project-Gutenberg-Metadaten",
       "accent": "#5B7085"
     },
     {
       "id": "wikisource-de",
       "kind": "wiki",
-      "title": "Wikisource Kochbuecher",
+      "title": "Wikisource Kochbücher",
       "author": "Wikisource-Community",
       "year": 2026,
       "country": "Deutschland",
       "license": "Gemeinfrei / CC BY-SA 4.0",
       "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0/deed.de",
       "url": "https://de.wikisource.org/wiki/Henriette_Davidis",
-      "via": "Digitalisierte historische Kochbuecher",
+      "via": "Digitalisierte historische Kochbücher",
       "accent": "#8A6F4E"
     },
     {
@@ -180,7 +180,7 @@
       "license": "Public Domain (U.S. Government Work)",
       "licenseUrl": "https://fdc.nal.usda.gov/api-guide.html",
       "url": "https://fdc.nal.usda.gov/",
-      "via": "Naehrwert-Referenzdaten",
+      "via": "Nährwert-Referenzdaten",
       "accent": "#4E8C5A"
     }
   ]

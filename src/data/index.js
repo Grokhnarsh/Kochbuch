@@ -7,6 +7,7 @@
  * Open Food Facts, Gutendex) kommen ueber src/sources/ dazu.
  */
 
+import { allergensForRecipe } from '../state/allergens.js';
 import sourcesDoc from './sources.json';
 import davidis from './books/davidis-1845.json';
 import prato from './books/prato-1858.json';
@@ -44,6 +45,13 @@ export const DAYS = [
 ];
 
 /**
+ * Die Ernaehrungsformen, die die App kennt. Bewusst eine feste Liste:
+ * ein freies Feld wuerde binnen kurzem "Vegetarisch", "vegetarisch"
+ * und "veggie" nebeneinander fuehren.
+ */
+export const DIET_OPTIONS = ['vegetarisch', 'vegan', 'glutenfrei', 'laktosefrei', 'pescetarisch'];
+
+/**
  * Haengt Quellenangaben an ein Rohrezept und leitet Suchfeld und
  * Gesamtdauer ab.
  */
@@ -76,6 +84,9 @@ function normalise(raw, sourceId) {
     ingredients,
     totalTime,
     searchText,
+    // Einmal bestimmt statt bei jedem Filterlauf: die Zutaten aendern
+    // sich nicht mehr, die Suche laeuft bei jedem Tastendruck.
+    allergens: allergensForRecipe({ ingredients }),
     live: false,
   };
 }
@@ -93,6 +104,27 @@ export function registerSource(source) {
   sources.push(source);
   sourceById.set(source.id, source);
   return source;
+}
+
+/**
+ * Legt ein Rezept an oder ersetzt es. Anders als registerRecipes ueberschreibt
+ * dies ein vorhandenes — gedacht fuer die eigenen Rezepte, die sich aendern.
+ */
+export function upsertRecipe(raw) {
+  const r = { ...normalise(raw, raw.sourceId), live: true };
+  const i = recipes.findIndex((x) => x.id === r.id);
+  if (i >= 0) recipes[i] = r;
+  else recipes.push(r);
+  recipeById.set(r.id, r);
+  recipes.sort((a, b) => a.title.localeCompare(b.title, 'de'));
+  return r;
+}
+
+/** Nimmt ein Rezept wieder aus dem Index. */
+export function removeRecipe(id) {
+  const i = recipes.findIndex((x) => x.id === id);
+  if (i >= 0) recipes.splice(i, 1);
+  return recipeById.delete(id);
 }
 
 /** Fuegt zur Laufzeit geladene Rezepte (Live-Quellen) dem Index hinzu. */
@@ -121,7 +153,8 @@ export function diets() {
 
 /**
  * Filtert den Index.
- * @param {{query?:string, source?:string, category?:string, diet?:string, maxTime?:number, meal?:string}} f
+ * @param {{query?:string, source?:string, category?:string, diet?:string,
+ *           maxTime?:number, meal?:string, ohneAllergen?:string}} f
  */
 export function filterRecipes(f = {}) {
   const q = (f.query || '').trim().toLowerCase();
@@ -133,6 +166,8 @@ export function filterRecipes(f = {}) {
     if (f.diet && !(r.diet || []).includes(f.diet)) return false;
     if (f.maxTime && r.totalTime > f.maxTime) return false;
     if (f.meal && !(r.meals || []).includes(f.meal)) return false;
+    // "Kann enthalten" zaehlt beim Filtern als enthalten.
+    if (f.ohneAllergen && r.allergens.some((a) => a.id === f.ohneAllergen)) return false;
     return terms.every((t) => r.searchText.includes(t));
   });
 }

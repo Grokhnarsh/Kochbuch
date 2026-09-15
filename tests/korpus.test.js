@@ -21,6 +21,12 @@ const recipes = books.flatMap(({ doc }) =>
 );
 
 const MEALS = new Set(['fruehstueck', 'mittag', 'abend', 'snack']);
+
+/** Buecher, die von Hand aufbereitet wurden und vollstaendig sein muessen. */
+const KURATIERT = new Set([
+  'davidis-1845', 'prato-1858', 'artusi-1891',
+  'farmer-1896', 'beeton-1861', 'glasse-1747', 'wikibooks-de',
+]);
 const DIETS = new Set(['vegetarisch', 'vegan', 'glutenfrei', 'laktosefrei', 'pescetarisch']);
 
 test('jede Quelle nennt Lizenz und Fundstelle', () => {
@@ -54,9 +60,20 @@ test('jedes Rezept ist vollstaendig und plausibel', () => {
 
     assert.ok(r.title?.length > 2, `${wo}: Titel fehlt`);
     assert.ok(r.category?.length, `${wo}: Kategorie fehlt`);
-    assert.ok(r.servings >= 1 && r.servings <= 24, `${wo}: Portionszahl ${r.servings}`);
+    // Portionen bleiben im Haushaltsrahmen. Zaehlt ein Rezept dagegen
+    // Stueck oder Glaeser ("75 Printen"), ist eine hohe Zahl richtig.
+    const maxErtrag = r.yieldUnit ? 400 : 24;
+    assert.ok(
+      r.servings >= 1 && r.servings <= maxErtrag,
+      `${wo}: Ertrag ${r.servings} ${r.yieldUnit || 'Portionen'}`,
+    );
     assert.ok(r.prep >= 0 && r.cook >= 0, `${wo}: negative Zeitangabe`);
-    assert.ok(r.prep + r.cook > 0, `${wo}: Gesamtzeit ist null`);
+
+    // Bei den selbst aufbereiteten Buechern ist eine Zeitangabe Pflicht.
+    // Wiki-Importe duerfen sie weglassen — geraten wird nichts.
+    if (KURATIERT.has(r.sourceId)) {
+      assert.ok(r.prep + r.cook > 0, `${wo}: Gesamtzeit ist null`);
+    }
     assert.ok(r.difficulty >= 1 && r.difficulty <= 3, `${wo}: Schwierigkeit ${r.difficulty}`);
     assert.ok(r.kcal >= 0 && r.kcal < 2000, `${wo}: kcal ${r.kcal} unplausibel`);
 
