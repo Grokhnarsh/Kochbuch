@@ -1,0 +1,1906 @@
+{
+  "sourceId": "wikibooks-de",
+  "recipes": [
+    {
+      "id": "wb-spaghetti-aglio-olio",
+      "title": "Spaghetti Aglio e Olio",
+      "chapter": "Rezepte nach Land / Italien",
+      "cuisine": "Italienisch",
+      "category": "Hauptgericht",
+      "meals": [
+        "mittag",
+        "abend"
+      ],
+      "diet": [
+        "vegetarisch",
+        "vegan"
+      ],
+      "servings": 4,
+      "prep": 5,
+      "cook": 15,
+      "difficulty": 1,
+      "kcal": 520,
+      "tags": [
+        "schnell",
+        "günstig",
+        "15-Minuten"
+      ],
+      "ingredients": [
+        {
+          "a": 400,
+          "u": "g",
+          "n": "Spaghetti"
+        },
+        {
+          "a": 6,
+          "u": "Zehe",
+          "n": "Knoblauch"
+        },
+        {
+          "a": 100,
+          "u": "ml",
+          "n": "Olivenöl"
+        },
+        {
+          "a": 2,
+          "u": "Stk",
+          "n": "Chilischoten"
+        },
+        {
+          "a": 1,
+          "u": "Bund",
+          "n": "Petersilie"
+        },
+        {
+          "a": 1,
+          "u": "TL",
+          "n": "Salz"
+        }
+      ],
+      "steps": [
+        "Spaghetti in reichlich Salzwasser bissfest kochen, eine Tasse Kochwasser aufheben.",
+        "Knoblauch in dünne Scheiben schneiden und im Öl bei kleiner Hitze langsam goldgelb werden lassen.",
+        "Chili zugeben, der Knoblauch darf nicht braun werden, sonst wird er bitter.",
+        "Nudeln direkt in die Pfanne geben und mit etwas Nudelwasser emulgieren.",
+        "Petersilie unterheben und sofort servieren."
+      ],
+      "note": "Nach dem Wikibooks-Kochbuch, CC BY-SA 3.0."
+    },
+    {
+      "id": "wb-chili-con-carne",
+      "title": "Chili con Carne",
+      "chapter": "Rezepte nach Art / Eintopf",
+      "cuisine": "Mexikanisch",
+      "category": "Hauptgericht",
+      "meals": [
+        "mittag",
+        "abend"
+      ],
+      "diet": [
+        "glutenfrei"
+      ],
+      "servings": 6,
+      "prep": 20,
+      "cook": 60,
+      "difficulty": 1,
+      "kcal": 480,
+      "tags": [
+        "Vorkochen",
+        "Eintopf",
+        "Feier"
+      ],
+      "ingredients": [
+        {
+          "a": 700,
+          "u": "g",
+          "n": "Rinderhack"
+        },
+        {
+          "a": 2,
+          "u": "Stk",
+          "n": "Zwiebeln"
+        },
+        {
+          "a": 3,
+          "u": "Zehe",
+          "n": "Knoblauch"
+        },
+        {
+          "a": 2,
+          "u": "Stk",
+          "n": "Paprikaschoten"
+        },
+        {
+          "a": 800,
+          "u": "g",
+          "n": "Tomaten, gehackt"
+        },
+        {
+          "a": 400,
+          "u": "g",
+          "n": "Kidneybohnen, Dose"
+        },
+        {
+          "a": 300,
+          "u": "g",
+          "n": "Mais, Dose"
+        },
+        {
+          "a": 2,
+          "u": "EL",
+          "n": "Tomatenmark"
+        },
+        {
+          "a": 2,
+          "u": "TL",
+          "n": "Kreuzkümmel, gemahlen"
+        },
+        {
+          "a": 1,
+          "u": "TL",
+          "n": "Chilipulver"
+        },
+        {
+          "a": 1,
+          "u": "TL",
+          "n": "Salz"
+        }
+      ],
+      "steps": [
+        "Hack krümelig und kräftig braun anbraten.",
+        "Zwiebeln, Knoblauch und Paprika zugeben und fünf Minuten mitbraten.",
+        "Tomatenmark und Gewürze kurz mitrösten.",
+        "Tomaten zugeben und vierzig Minuten offen köcheln lassen.",
+        "Bohnen und Mais abspülen, zugeben und zehn Minuten mitziehen lassen.",
+        "Kräftig abschmecken; schmeckt am nächsten Tag noch besser."
+      ],
+      "note": "Nach dem Wikibooks-Kochbuch, CC BY-SA 3.0."
+    },
+    {
+      "id": "wb-shakshuka",
+      "title": "Shakshuka",
+      "chapter": "Rezepte nach Land / Israel",
+      "cuisine": "Orientalisch",
+      "category": "Hauptgericht",
+      "meals": [
+        "fruehstueck",
+        "abend"
+      ],
+      "diet": [
+        "vegetarisch",
+        "glutenfrei"
+      ],
+      "servings": 4,
+      "prep": 10,
+      "cook": 25,
+      "difficulty": 1,
+      "kcal": 320,
+      "tags": [
+        "schnell",
+        "Ein-Pfannen-Gericht",
+        "Eier"
+      ],
+      "ingredients": [
+        {
+          "a": 2,
+          "u": "Stk",
+          "n": "Paprikaschoten"
+        },
+        {
+          "a": 1,
+          "u": "Stk",
+          "n": "Zwiebel"
+        },
+        {
+          "a": 3,
+          "u": "Zehe",
+          "n": "Knoblauch"
+        },
+        {
+          "a": 800,
+          "u": "g",
+          "n": "Tomaten, gehackt"
+        },
+        {
+          "a": 8,
+          "u": "Stk",
+          "n": "Eier"
+        },
+        {
+          "a": 3,
+          "u": "EL",
+          "n": "Olivenöl"
+        },
+        {
+          "a": 2,
+          "u": "TL",
+          "n": "Paprikapulver, edelsüß"
+        },
+        {
+          "a": 1,
+          "u": "TL",
+          "n": "Kreuzkümmel, gemahlen"
+        },
+        {
+          "a": 1,
+          "u": "Bund",
+          "n": "Petersilie"
+        },
+        {
+          "a": 100,
+          "u": "g",
+          "n": "Feta"
+        }
+      ],
+      "steps": [
+        "Paprika und Zwiebel in Streifen schneiden und im Öl zehn Minuten weich dünsten.",
+        "Knoblauch und Gewürze kurz mitrösten.",
+        "Tomaten zugeben und fünfzehn Minuten zu einer dicken Sauce einkochen.",
+        "Mulden eindrücken und je ein Ei hineingleiten lassen.",
+        "Zugedeckt sechs bis acht Minuten stocken lassen, das Eigelb soll flüssig bleiben.",
+        "Mit Feta und Petersilie bestreuen und mit Fladenbrot servieren."
+      ],
+      "note": "Nach dem Wikibooks-Kochbuch, CC BY-SA 3.0."
+    },
+    {
+      "id": "wb-linsen-dal",
+      "title": "Rote-Linsen-Dal",
+      "chapter": "Rezepte nach Land / Indien",
+      "cuisine": "Indisch",
+      "category": "Hauptgericht",
+      "meals": [
+        "mittag",
+        "abend"
+      ],
+      "diet": [
+        "vegetarisch",
+        "vegan",
+        "glutenfrei"
+      ],
+      "servings": 4,
+      "prep": 10,
+      "cook": 25,
+      "difficulty": 1,
+      "kcal": 390,
+      "tags": [
+        "schnell",
+        "günstig",
+        "Vorkochen"
+      ],
+      "ingredients": [
+        {
+          "a": 300,
+          "u": "g",
+          "n": "rote Linsen"
+        },
+        {
+          "a": 1,
+          "u": "Stk",
+          "n": "Zwiebel"
+        },
+        {
+          "a": 3,
+          "u": "Zehe",
+          "n": "Knoblauch"
+        },
+        {
+          "a": 20,
+          "u": "g",
+          "n": "Ingwer"
+        },
+        {
+          "a": 400,
+          "u": "ml",
+          "n": "Kokosmilch"
+        },
+        {
+          "a": 600,
+          "u": "ml",
+          "n": "Gemüsebrühe"
+        },
+        {
+          "a": 2,
+          "u": "TL",
+          "n": "Kurkuma"
+        },
+        {
+          "a": 2,
+          "u": "TL",
+          "n": "Kreuzkümmel, gemahlen"
+        },
+        {
+          "a": 1,
+          "u": "TL",
+          "n": "Senfsamen"
+        },
+        {
+          "a": 3,
+          "u": "EL",
+          "n": "Rapsöl"
+        },
+        {
+          "a": 1,
+          "u": "Stk",
+          "n": "Limette"
+        }
+      ],
+      "steps": [
+        "Senfsamen im heißen Öl aufplatzen lassen.",
+        "Zwiebel, Knoblauch und Ingwer zugeben und glasig dünsten.",
+        "Kurkuma und Kreuzkümmel kurz mitrösten.",
+        "Linsen, Brühe und Kokosmilch zufügen und zwanzig Minuten sämig kochen.",
+        "Mit Salz und Limettensaft abschmecken und mit Reis servieren."
+      ],
+      "note": "Nach dem Wikibooks-Kochbuch, CC BY-SA 3.0."
+    },
+    {
+      "id": "wb-kaesespaetzle",
+      "title": "Käsespätzle",
+      "chapter": "Rezepte nach Land / Deutschland",
+      "cuisine": "Deutsch",
+      "category": "Hauptgericht",
+      "meals": [
+        "mittag",
+        "abend"
+      ],
+      "diet": [
+        "vegetarisch"
+      ],
+      "servings": 4,
+      "prep": 30,
+      "cook": 25,
+      "difficulty": 2,
+      "kcal": 680,
+      "tags": [
+        "Käse",
+        "Klassiker"
+      ],
+      "ingredients": [
+        {
+          "a": 400,
+          "u": "g",
+          "n": "Weizenmehl Type 405"
+        },
+        {
+          "a": 4,
+          "u": "Stk",
+          "n": "Eier"
+        },
+        {
+          "a": 150,
+          "u": "ml",
+          "n": "Wasser"
+        },
+        {
+          "a": 1,
+          "u": "TL",
+          "n": "Salz"
+        },
+        {
+          "a": 300,
+          "u": "g",
+          "n": "Bergkäse"
+        },
+        {
+          "a": 3,
+          "u": "Stk",
+          "n": "Zwiebeln"
+        },
+        {
+          "a": 60,
+          "u": "g",
+          "n": "Butter"
+        },
+        {
+          "a": 1,
+          "u": "Bund",
+          "n": "Schnittlauch"
+        }
+      ],
+      "steps": [
+        "Mehl, Eier, Wasser und Salz kräftig schlagen, bis der Teig Blasen wirft.",
+        "Teig dreißig Minuten ruhen lassen.",
+        "Zwiebelringe in Butter langsam goldbraun rösten.",
+        "Teig portionsweise durch den Spätzlehobel in siedendes Salzwasser schaben.",
+        "Spätzle abschöpfen, sobald sie oben schwimmen.",
+        "Abwechselnd mit geriebenem Käse schichten und mit Röstzwiebeln und Schnittlauch servieren."
+      ],
+      "note": "Nach dem Wikibooks-Kochbuch, CC BY-SA 3.0."
+    },
+    {
+      "id": "wb-gemuesecurry",
+      "title": "Gemüsecurry mit Kichererbsen",
+      "chapter": "Rezepte nach Art / Vegetarisch",
+      "cuisine": "Indisch",
+      "category": "Hauptgericht",
+      "meals": [
+        "mittag",
+        "abend"
+      ],
+      "diet": [
+        "vegetarisch",
+        "vegan",
+        "glutenfrei"
+      ],
+      "servings": 4,
+      "prep": 20,
+      "cook": 25,
+      "difficulty": 1,
+      "kcal": 420,
+      "tags": [
+        "schnell",
+        "Vorkochen",
+        "Gemüse"
+      ],
+      "ingredients": [
+        {
+          "a": 400,
+          "u": "g",
+          "n": "Kichererbsen, Dose"
+        },
+        {
+          "a": 300,
+          "u": "g",
+          "n": "Süßkartoffeln"
+        },
+        {
+          "a": 200,
+          "u": "g",
+          "n": "Blumenkohl"
+        },
+        {
+          "a": 150,
+          "u": "g",
+          "n": "Blattspinat"
+        },
+        {
+          "a": 1,
+          "u": "Stk",
+          "n": "Zwiebel"
+        },
+        {
+          "a": 400,
+          "u": "ml",
+          "n": "Kokosmilch"
+        },
+        {
+          "a": 3,
+          "u": "EL",
+          "n": "Currypaste"
+        },
+        {
+          "a": 2,
+          "u": "EL",
+          "n": "Rapsöl"
+        },
+        {
+          "a": 200,
+          "u": "ml",
+          "n": "Gemüsebrühe"
+        },
+        {
+          "a": 1,
+          "u": "Stk",
+          "n": "Limette"
+        }
+      ],
+      "steps": [
+        "Zwiebelwürfel im Öl andünsten und die Currypaste eine Minute mitrösten.",
+        "Süßkartoffel- und Blumenkohlstücke zugeben und wenden.",
+        "Kokosmilch und Brühe angießen und fünfzehn Minuten köcheln.",
+        "Kichererbsen zugeben und fünf Minuten mitziehen lassen.",
+        "Spinat zum Schluss unterheben, bis er zusammenfällt.",
+        "Mit Limettensaft und Salz abschmecken."
+      ],
+      "note": "Nach dem Wikibooks-Kochbuch, CC BY-SA 3.0."
+    },
+    {
+      "id": "wb-flammkuchen",
+      "title": "Flammkuchen",
+      "chapter": "Rezepte nach Land / Frankreich",
+      "cuisine": "Französisch",
+      "category": "Hauptgericht",
+      "meals": [
+        "abend"
+      ],
+      "diet": [],
+      "servings": 4,
+      "prep": 25,
+      "cook": 15,
+      "difficulty": 2,
+      "kcal": 540,
+      "tags": [
+        "Ofen",
+        "Feier"
+      ],
+      "ingredients": [
+        {
+          "a": 300,
+          "u": "g",
+          "n": "Weizenmehl Type 550"
+        },
+        {
+          "a": 160,
+          "u": "ml",
+          "n": "Wasser"
+        },
+        {
+          "a": 3,
+          "u": "EL",
+          "n": "Olivenöl"
+        },
+        {
+          "a": 1,
+          "u": "TL",
+          "n": "Salz"
+        },
+        {
+          "a": 200,
+          "u": "g",
+          "n": "Schmand"
+        },
+        {
+          "a": 150,
+          "u": "g",
+          "n": "Speckwürfel"
+        },
+        {
+          "a": 2,
+          "u": "Stk",
+          "n": "Zwiebeln"
+        },
+        {
+          "a": 1,
+          "u": "Prise",
+          "n": "Muskatnuss"
+        }
+      ],
+      "steps": [
+        "Mehl, Wasser, Öl und Salz zu einem glatten Teig kneten und dreißig Minuten ruhen lassen.",
+        "Backofen mit Blech oder Stein auf 250 Grad vorheizen.",
+        "Teig hauchdünn ausrollen, er soll fast durchscheinend sein.",
+        "Schmand mit Salz und Muskat verrühren und dünn aufstreichen.",
+        "Zwiebelringe und Speck aufstreuen.",
+        "Auf dem heißen Blech zwölf bis fünfzehn Minuten knusprig backen."
+      ],
+      "note": "Nach dem Wikibooks-Kochbuch, CC BY-SA 3.0."
+    },
+    {
+      "id": "wb-pizzateig",
+      "title": "Pizzateig über Nacht",
+      "chapter": "Grundrezepte",
+      "cuisine": "Italienisch",
+      "category": "Grundrezept",
+      "meals": [
+        "abend"
+      ],
+      "diet": [
+        "vegetarisch",
+        "vegan"
+      ],
+      "servings": 4,
+      "prep": 20,
+      "cook": 10,
+      "difficulty": 2,
+      "kcal": 380,
+      "tags": [
+        "Grundrezept",
+        "Vorbereiten"
+      ],
+      "ingredients": [
+        {
+          "a": 500,
+          "u": "g",
+          "n": "Pizzamehl Type 00"
+        },
+        {
+          "a": 325,
+          "u": "ml",
+          "n": "Wasser, kalt"
+        },
+        {
+          "a": 3,
+          "u": "g",
+          "n": "frische Hefe"
+        },
+        {
+          "a": 12,
+          "u": "g",
+          "n": "Salz"
+        },
+        {
+          "a": 2,
+          "u": "EL",
+          "n": "Olivenöl"
+        }
+      ],
+      "steps": [
+        "Hefe im kalten Wasser auflösen und mit dem Mehl zu einem groben Teig mischen.",
+        "Zwanzig Minuten ruhen lassen, dann Salz und Öl einkneten.",
+        "Zehn Minuten kneten, bis der Teig glatt und elastisch ist.",
+        "Zugedeckt vierundzwanzig Stunden im Kühlschrank reifen lassen.",
+        "Zwei Stunden vor dem Backen Teiglinge formen und bei Raumtemperatur gehen lassen.",
+        "Bei höchster Ofentemperatur auf einem vorgeheizten Stein backen."
+      ],
+      "note": "Nach dem Wikibooks-Kochbuch, CC BY-SA 3.0."
+    },
+    {
+      "id": "wb-ofengemuese",
+      "title": "Ofengemüse mit Kräutern",
+      "chapter": "Rezepte nach Art / Vegetarisch",
+      "cuisine": "Mediterran",
+      "category": "Beilage",
+      "meals": [
+        "mittag",
+        "abend"
+      ],
+      "diet": [
+        "vegetarisch",
+        "vegan",
+        "glutenfrei"
+      ],
+      "servings": 4,
+      "prep": 15,
+      "cook": 40,
+      "difficulty": 1,
+      "kcal": 240,
+      "tags": [
+        "Ofen",
+        "Vorkochen",
+        "Gemüse"
+      ],
+      "ingredients": [
+        {
+          "a": 500,
+          "u": "g",
+          "n": "Kartoffeln"
+        },
+        {
+          "a": 2,
+          "u": "Stk",
+          "n": "Zucchini"
+        },
+        {
+          "a": 2,
+          "u": "Stk",
+          "n": "Paprikaschoten"
+        },
+        {
+          "a": 1,
+          "u": "Stk",
+          "n": "Aubergine"
+        },
+        {
+          "a": 2,
+          "u": "Stk",
+          "n": "rote Zwiebeln"
+        },
+        {
+          "a": 6,
+          "u": "EL",
+          "n": "Olivenöl"
+        },
+        {
+          "a": 2,
+          "u": "TL",
+          "n": "Kräuter der Provence"
+        },
+        {
+          "a": 1,
+          "u": "TL",
+          "n": "Salz"
+        },
+        {
+          "a": 4,
+          "u": "Zehe",
+          "n": "Knoblauch"
+        }
+      ],
+      "steps": [
+        "Gemüse in gleich große Stücke schneiden, damit alles gleichmäßig gart.",
+        "Mit Öl, Kräutern, Salz und Pfeffer gründlich vermengen.",
+        "Auf zwei Blechen in einer Lage verteilen, nicht stapeln.",
+        "Bei 200 Grad Umluft vierzig Minuten rösten und einmal wenden.",
+        "Knoblauchzehen in den letzten fünfzehn Minuten dazugeben."
+      ],
+      "note": "Nach dem Wikibooks-Kochbuch, CC BY-SA 3.0."
+    },
+    {
+      "id": "wb-hummus",
+      "title": "Hummus",
+      "chapter": "Rezepte nach Land / Libanon",
+      "cuisine": "Orientalisch",
+      "category": "Vorspeise",
+      "meals": [
+        "abend",
+        "snack"
+      ],
+      "diet": [
+        "vegetarisch",
+        "vegan",
+        "glutenfrei"
+      ],
+      "servings": 6,
+      "prep": 15,
+      "cook": 0,
+      "difficulty": 1,
+      "kcal": 220,
+      "tags": [
+        "schnell",
+        "Vorkochen",
+        "kalt"
+      ],
+      "ingredients": [
+        {
+          "a": 800,
+          "u": "g",
+          "n": "Kichererbsen, Dose"
+        },
+        {
+          "a": 120,
+          "u": "g",
+          "n": "Tahin"
+        },
+        {
+          "a": 2,
+          "u": "Stk",
+          "n": "Zitronen"
+        },
+        {
+          "a": 2,
+          "u": "Zehe",
+          "n": "Knoblauch"
+        },
+        {
+          "a": 1,
+          "u": "TL",
+          "n": "Kreuzkümmel, gemahlen"
+        },
+        {
+          "a": 60,
+          "u": "ml",
+          "n": "Olivenöl"
+        },
+        {
+          "a": 80,
+          "u": "ml",
+          "n": "Eiswasser"
+        },
+        {
+          "a": 1,
+          "u": "TL",
+          "n": "Salz"
+        }
+      ],
+      "steps": [
+        "Kichererbsen abspülen; für besonders feines Hummus die Häutchen abreiben.",
+        "Tahin mit Zitronensaft und Knoblauch zuerst allein cremig mixen, bis die Masse hell wird.",
+        "Kichererbsen, Kreuzkümmel und Salz zugeben und lange mixen.",
+        "Eiswasser löffelweise einlaufen lassen, bis die Creme luftig ist.",
+        "Mit Olivenöl und Paprikapulver anrichten."
+      ],
+      "note": "Nach dem Wikibooks-Kochbuch, CC BY-SA 3.0."
+    },
+    {
+      "id": "wb-falafel",
+      "title": "Falafel",
+      "chapter": "Rezepte nach Land / Libanon",
+      "cuisine": "Orientalisch",
+      "category": "Hauptgericht",
+      "meals": [
+        "mittag",
+        "abend"
+      ],
+      "diet": [
+        "vegetarisch",
+        "vegan"
+      ],
+      "servings": 4,
+      "prep": 30,
+      "cook": 20,
+      "difficulty": 2,
+      "kcal": 450,
+      "tags": [
+        "Frittieren",
+        "Vorbereiten"
+      ],
+      "ingredients": [
+        {
+          "a": 400,
+          "u": "g",
+          "n": "Kichererbsen, getrocknet"
+        },
+        {
+          "a": 1,
+          "u": "Stk",
+          "n": "Zwiebel"
+        },
+        {
+          "a": 4,
+          "u": "Zehe",
+          "n": "Knoblauch"
+        },
+        {
+          "a": 1,
+          "u": "Bund",
+          "n": "Petersilie"
+        },
+        {
+          "a": 1,
+          "u": "Bund",
+          "n": "Koriandergrün"
+        },
+        {
+          "a": 2,
+          "u": "TL",
+          "n": "Kreuzkümmel, gemahlen"
+        },
+        {
+          "a": 1,
+          "u": "TL",
+          "n": "Backpulver"
+        },
+        {
+          "a": 1,
+          "u": "l",
+          "n": "Frittieröl"
+        },
+        {
+          "a": 1,
+          "u": "TL",
+          "n": "Salz"
+        }
+      ],
+      "steps": [
+        "Kichererbsen vierundzwanzig Stunden einweichen und gut abtropfen lassen; keinesfalls kochen.",
+        "Mit Zwiebel, Knoblauch, Kräutern und Gewürzen im Mixer zu einer grießigen Masse zerkleinern.",
+        "Eine Stunde kalt stellen, dann Backpulver und Salz untermengen.",
+        "Kleine Bällchen formen und fest andrücken.",
+        "In 170 Grad heißem Öl vier Minuten goldbraun frittieren.",
+        "Mit Fladenbrot, Salat und Tahinsauce servieren."
+      ],
+      "note": "Nach dem Wikibooks-Kochbuch, CC BY-SA 3.0."
+    },
+    {
+      "id": "wb-tzatziki",
+      "title": "Tzatziki",
+      "chapter": "Rezepte nach Land / Griechenland",
+      "cuisine": "Griechisch",
+      "category": "Vorspeise",
+      "meals": [
+        "abend",
+        "snack"
+      ],
+      "diet": [
+        "vegetarisch",
+        "glutenfrei"
+      ],
+      "servings": 6,
+      "prep": 15,
+      "cook": 0,
+      "difficulty": 1,
+      "kcal": 120,
+      "tags": [
+        "schnell",
+        "kalt"
+      ],
+      "ingredients": [
+        {
+          "a": 500,
+          "u": "g",
+          "n": "griechischer Joghurt"
+        },
+        {
+          "a": 1,
+          "u": "Stk",
+          "n": "Salatgurke"
+        },
+        {
+          "a": 3,
+          "u": "Zehe",
+          "n": "Knoblauch"
+        },
+        {
+          "a": 3,
+          "u": "EL",
+          "n": "Olivenöl"
+        },
+        {
+          "a": 1,
+          "u": "EL",
+          "n": "Weinessig"
+        },
+        {
+          "a": 1,
+          "u": "TL",
+          "n": "Salz"
+        },
+        {
+          "a": 1,
+          "u": "Bund",
+          "n": "Dill"
+        }
+      ],
+      "steps": [
+        "Gurke grob raspeln, salzen und zwanzig Minuten stehen lassen.",
+        "Gurke kräftig ausdrücken, das ist entscheidend für die Konsistenz.",
+        "Joghurt mit gepresstem Knoblauch, Öl und Essig verrühren.",
+        "Gurke und Dill unterheben.",
+        "Mindestens eine Stunde kalt ziehen lassen."
+      ],
+      "note": "Nach dem Wikibooks-Kochbuch, CC BY-SA 3.0."
+    },
+    {
+      "id": "wb-griechischer-salat",
+      "title": "Griechischer Bauernsalat",
+      "chapter": "Rezepte nach Land / Griechenland",
+      "cuisine": "Griechisch",
+      "category": "Vorspeise",
+      "meals": [
+        "mittag",
+        "abend"
+      ],
+      "diet": [
+        "vegetarisch",
+        "glutenfrei"
+      ],
+      "servings": 4,
+      "prep": 15,
+      "cook": 0,
+      "difficulty": 1,
+      "kcal": 280,
+      "tags": [
+        "schnell",
+        "Sommer",
+        "kalt"
+      ],
+      "ingredients": [
+        {
+          "a": 600,
+          "u": "g",
+          "n": "Tomaten"
+        },
+        {
+          "a": 1,
+          "u": "Stk",
+          "n": "Salatgurke"
+        },
+        {
+          "a": 1,
+          "u": "Stk",
+          "n": "rote Zwiebel"
+        },
+        {
+          "a": 1,
+          "u": "Stk",
+          "n": "grüne Paprika"
+        },
+        {
+          "a": 200,
+          "u": "g",
+          "n": "Feta"
+        },
+        {
+          "a": 100,
+          "u": "g",
+          "n": "Kalamata-Oliven"
+        },
+        {
+          "a": 6,
+          "u": "EL",
+          "n": "Olivenöl"
+        },
+        {
+          "a": 2,
+          "u": "TL",
+          "n": "Oregano, getrocknet"
+        },
+        {
+          "a": 1,
+          "u": "TL",
+          "n": "Salz"
+        }
+      ],
+      "steps": [
+        "Tomaten in Spalten, Gurke in dicke Halbmonde schneiden.",
+        "Zwiebel und Paprika in Ringe schneiden.",
+        "Alles mit Oliven in einer Schüssel mischen und salzen.",
+        "Feta im Stück auflegen, nicht zerbröseln.",
+        "Mit Olivenöl beträufeln und mit Oregano bestreuen."
+      ],
+      "note": "Nach dem Wikibooks-Kochbuch, CC BY-SA 3.0."
+    },
+    {
+      "id": "wb-porridge",
+      "title": "Haferbrei mit Apfel und Zimt",
+      "chapter": "Rezepte nach Art / Frühstück",
+      "cuisine": "Britisch",
+      "category": "Hauptgericht",
+      "meals": [
+        "fruehstueck"
+      ],
+      "diet": [
+        "vegetarisch"
+      ],
+      "servings": 2,
+      "prep": 5,
+      "cook": 10,
+      "difficulty": 1,
+      "kcal": 340,
+      "tags": [
+        "schnell",
+        "Frühstück",
+        "günstig"
+      ],
+      "ingredients": [
+        {
+          "a": 100,
+          "u": "g",
+          "n": "Haferflocken"
+        },
+        {
+          "a": 400,
+          "u": "ml",
+          "n": "Milch"
+        },
+        {
+          "a": 1,
+          "u": "Prise",
+          "n": "Salz"
+        },
+        {
+          "a": 1,
+          "u": "Stk",
+          "n": "Apfel"
+        },
+        {
+          "a": 1,
+          "u": "TL",
+          "n": "Zimt"
+        },
+        {
+          "a": 2,
+          "u": "EL",
+          "n": "Honig"
+        },
+        {
+          "a": 30,
+          "u": "g",
+          "n": "Walnüsse"
+        }
+      ],
+      "steps": [
+        "Haferflocken mit Milch und Salz aufsetzen.",
+        "Unter gelegentlichem Rühren acht Minuten sanft köcheln.",
+        "Apfel raspeln und in den letzten zwei Minuten einrühren.",
+        "Mit Zimt, Honig und gehackten Walnüssen anrichten."
+      ],
+      "note": "Nach dem Wikibooks-Kochbuch, CC BY-SA 3.0."
+    },
+    {
+      "id": "wb-overnight-oats",
+      "title": "Übernacht-Haferflocken",
+      "chapter": "Rezepte nach Art / Frühstück",
+      "cuisine": "International",
+      "category": "Hauptgericht",
+      "meals": [
+        "fruehstueck",
+        "snack"
+      ],
+      "diet": [
+        "vegetarisch"
+      ],
+      "servings": 2,
+      "prep": 10,
+      "cook": 0,
+      "difficulty": 1,
+      "kcal": 380,
+      "tags": [
+        "Vorkochen",
+        "Vorbereiten",
+        "schnell"
+      ],
+      "ingredients": [
+        {
+          "a": 120,
+          "u": "g",
+          "n": "Haferflocken"
+        },
+        {
+          "a": 300,
+          "u": "ml",
+          "n": "Milch"
+        },
+        {
+          "a": 150,
+          "u": "g",
+          "n": "Joghurt"
+        },
+        {
+          "a": 2,
+          "u": "EL",
+          "n": "Chiasamen"
+        },
+        {
+          "a": 2,
+          "u": "EL",
+          "n": "Ahornsirup"
+        },
+        {
+          "a": 200,
+          "u": "g",
+          "n": "Beeren"
+        },
+        {
+          "a": 30,
+          "u": "g",
+          "n": "Mandeln"
+        }
+      ],
+      "steps": [
+        "Haferflocken, Milch, Joghurt, Chiasamen und Sirup verrühren.",
+        "In Gläser füllen und über Nacht in den Kühlschrank stellen.",
+        "Am Morgen umrühren und bei Bedarf Milch nachgießen.",
+        "Mit Beeren und Mandeln toppen."
+      ],
+      "note": "Nach dem Wikibooks-Kochbuch, CC BY-SA 3.0."
+    },
+    {
+      "id": "wb-bratkartoffeln",
+      "title": "Bratkartoffeln",
+      "chapter": "Rezepte nach Land / Deutschland",
+      "cuisine": "Deutsch",
+      "category": "Beilage",
+      "meals": [
+        "mittag",
+        "abend"
+      ],
+      "diet": [
+        "vegetarisch",
+        "vegan",
+        "glutenfrei"
+      ],
+      "servings": 4,
+      "prep": 15,
+      "cook": 25,
+      "difficulty": 2,
+      "kcal": 310,
+      "tags": [
+        "Resteverwertung",
+        "günstig"
+      ],
+      "ingredients": [
+        {
+          "a": 1000,
+          "u": "g",
+          "n": "festkochende Kartoffeln"
+        },
+        {
+          "a": 2,
+          "u": "Stk",
+          "n": "Zwiebeln"
+        },
+        {
+          "a": 4,
+          "u": "EL",
+          "n": "Rapsöl"
+        },
+        {
+          "a": 1,
+          "u": "TL",
+          "n": "Salz"
+        },
+        {
+          "a": 1,
+          "u": "TL",
+          "n": "Kümmel, ganz"
+        },
+        {
+          "a": 1,
+          "u": "Bund",
+          "n": "Petersilie"
+        }
+      ],
+      "steps": [
+        "Kartoffeln am Vortag kochen, kalt stellen und in Scheiben schneiden.",
+        "Öl in einer großen Pfanne gut erhitzen.",
+        "Kartoffeln in einer Lage einlegen und fünf Minuten nicht bewegen, bis sich eine Kruste bildet.",
+        "Erst danach wenden und weiter braten.",
+        "Zwiebeln und Kümmel zugeben und mitrösten.",
+        "Salzen und mit Petersilie servieren."
+      ],
+      "note": "Nach dem Wikibooks-Kochbuch, CC BY-SA 3.0."
+    },
+    {
+      "id": "wb-tomatensauce",
+      "title": "Tomatensauce, Grundrezept",
+      "chapter": "Grundrezepte",
+      "cuisine": "Italienisch",
+      "category": "Grundrezept",
+      "meals": [
+        "mittag",
+        "abend"
+      ],
+      "diet": [
+        "vegetarisch",
+        "vegan",
+        "glutenfrei"
+      ],
+      "servings": 6,
+      "prep": 10,
+      "cook": 35,
+      "difficulty": 1,
+      "kcal": 110,
+      "tags": [
+        "Grundrezept",
+        "Vorkochen",
+        "günstig"
+      ],
+      "ingredients": [
+        {
+          "a": 800,
+          "u": "g",
+          "n": "Tomaten, gehackt"
+        },
+        {
+          "a": 1,
+          "u": "Stk",
+          "n": "Zwiebel"
+        },
+        {
+          "a": 3,
+          "u": "Zehe",
+          "n": "Knoblauch"
+        },
+        {
+          "a": 5,
+          "u": "EL",
+          "n": "Olivenöl"
+        },
+        {
+          "a": 1,
+          "u": "TL",
+          "n": "Zucker"
+        },
+        {
+          "a": 1,
+          "u": "TL",
+          "n": "Salz"
+        },
+        {
+          "a": 1,
+          "u": "Bund",
+          "n": "Basilikum"
+        }
+      ],
+      "steps": [
+        "Zwiebel und Knoblauch im Öl sanft glasig dünsten, ohne Farbe zu nehmen.",
+        "Tomaten zugeben und mit Zucker und Salz würzen.",
+        "Dreißig Minuten offen einkochen, bis die Sauce merklich dicker ist.",
+        "Basilikum erst am Ende einrühren.",
+        "Lässt sich gut portionsweise einfrieren."
+      ],
+      "note": "Nach dem Wikibooks-Kochbuch, CC BY-SA 3.0."
+    },
+    {
+      "id": "wb-pesto-genovese",
+      "title": "Pesto alla Genovese",
+      "chapter": "Grundrezepte",
+      "cuisine": "Italienisch",
+      "category": "Grundrezept",
+      "meals": [
+        "mittag",
+        "abend"
+      ],
+      "diet": [
+        "vegetarisch",
+        "glutenfrei"
+      ],
+      "servings": 4,
+      "prep": 15,
+      "cook": 0,
+      "difficulty": 1,
+      "kcal": 380,
+      "tags": [
+        "schnell",
+        "Grundrezept"
+      ],
+      "ingredients": [
+        {
+          "a": 80,
+          "u": "g",
+          "n": "Basilikum"
+        },
+        {
+          "a": 50,
+          "u": "g",
+          "n": "Pinienkerne"
+        },
+        {
+          "a": 60,
+          "u": "g",
+          "n": "Parmesan"
+        },
+        {
+          "a": 30,
+          "u": "g",
+          "n": "Pecorino"
+        },
+        {
+          "a": 2,
+          "u": "Zehe",
+          "n": "Knoblauch"
+        },
+        {
+          "a": 120,
+          "u": "ml",
+          "n": "Olivenöl"
+        },
+        {
+          "a": 1,
+          "u": "Prise",
+          "n": "Salz"
+        }
+      ],
+      "steps": [
+        "Pinienkerne ohne Fett hell rösten und abkühlen lassen.",
+        "Basilikum, Kerne, Knoblauch und Salz im Mörser oder kurz im Mixer zerkleinern.",
+        "Käse einarbeiten.",
+        "Olivenöl langsam einlaufen lassen, bis eine cremige Paste entsteht.",
+        "Nicht erhitzen, sondern nur mit heißen Nudeln und etwas Nudelwasser mischen."
+      ],
+      "note": "Nach dem Wikibooks-Kochbuch, CC BY-SA 3.0."
+    },
+    {
+      "id": "wb-ratatouille",
+      "title": "Ratatouille",
+      "chapter": "Rezepte nach Land / Frankreich",
+      "cuisine": "Französisch",
+      "category": "Hauptgericht",
+      "meals": [
+        "mittag",
+        "abend"
+      ],
+      "diet": [
+        "vegetarisch",
+        "vegan",
+        "glutenfrei"
+      ],
+      "servings": 4,
+      "prep": 25,
+      "cook": 45,
+      "difficulty": 2,
+      "kcal": 260,
+      "tags": [
+        "Gemüse",
+        "Sommer",
+        "Vorkochen"
+      ],
+      "ingredients": [
+        {
+          "a": 2,
+          "u": "Stk",
+          "n": "Auberginen"
+        },
+        {
+          "a": 3,
+          "u": "Stk",
+          "n": "Zucchini"
+        },
+        {
+          "a": 2,
+          "u": "Stk",
+          "n": "Paprikaschoten"
+        },
+        {
+          "a": 600,
+          "u": "g",
+          "n": "Tomaten"
+        },
+        {
+          "a": 2,
+          "u": "Stk",
+          "n": "Zwiebeln"
+        },
+        {
+          "a": 4,
+          "u": "Zehe",
+          "n": "Knoblauch"
+        },
+        {
+          "a": 8,
+          "u": "EL",
+          "n": "Olivenöl"
+        },
+        {
+          "a": 2,
+          "u": "Zweig",
+          "n": "Thymian"
+        },
+        {
+          "a": 1,
+          "u": "TL",
+          "n": "Salz"
+        }
+      ],
+      "steps": [
+        "Jede Gemüsesorte getrennt in Öl anbraten, so behält sie ihren eigenen Geschmack.",
+        "Zwiebeln und Knoblauch zuletzt weich dünsten.",
+        "Tomaten zugeben und fünfzehn Minuten einkochen.",
+        "Alle Gemüse zurück in den Topf geben und mit Thymian würzen.",
+        "Zwanzig Minuten bei kleiner Hitze schmoren lassen.",
+        "Warm oder lauwarm servieren."
+      ],
+      "note": "Nach dem Wikibooks-Kochbuch, CC BY-SA 3.0."
+    },
+    {
+      "id": "wb-quiche-lorraine",
+      "title": "Quiche Lorraine",
+      "chapter": "Rezepte nach Land / Frankreich",
+      "cuisine": "Französisch",
+      "category": "Hauptgericht",
+      "meals": [
+        "mittag",
+        "abend"
+      ],
+      "diet": [],
+      "servings": 8,
+      "prep": 35,
+      "cook": 45,
+      "difficulty": 2,
+      "kcal": 520,
+      "tags": [
+        "Ofen",
+        "Feier"
+      ],
+      "ingredients": [
+        {
+          "a": 250,
+          "u": "g",
+          "n": "Weizenmehl Type 405"
+        },
+        {
+          "a": 125,
+          "u": "g",
+          "n": "Butter"
+        },
+        {
+          "a": 1,
+          "u": "Stk",
+          "n": "Ei"
+        },
+        {
+          "a": 1,
+          "u": "TL",
+          "n": "Salz"
+        },
+        {
+          "a": 200,
+          "u": "g",
+          "n": "Speckwürfel"
+        },
+        {
+          "a": 4,
+          "u": "Stk",
+          "n": "Eier"
+        },
+        {
+          "a": 300,
+          "u": "ml",
+          "n": "Sahne"
+        },
+        {
+          "a": 150,
+          "u": "g",
+          "n": "Gruyère"
+        },
+        {
+          "a": 1,
+          "u": "Prise",
+          "n": "Muskatnuss"
+        }
+      ],
+      "steps": [
+        "Mehl, kalte Butter, Ei und Salz rasch zu einem Mürbteig verkneten und eine Stunde kühlen.",
+        "Teig in die Form legen, einstechen und blind fünfzehn Minuten bei 200 Grad vorbacken.",
+        "Speck auslassen und auf dem Boden verteilen.",
+        "Eier, Sahne, Käse, Muskat und Pfeffer verquirlen und eingießen.",
+        "Bei 180 Grad fünfundvierzig Minuten backen, bis die Füllung gestockt und goldbraun ist.",
+        "Zehn Minuten ruhen lassen vor dem Anschneiden."
+      ],
+      "note": "Nach dem Wikibooks-Kochbuch, CC BY-SA 3.0."
+    },
+    {
+      "id": "wb-couscous-salat",
+      "title": "Couscous-Salat",
+      "chapter": "Rezepte nach Art / Salate",
+      "cuisine": "Orientalisch",
+      "category": "Vorspeise",
+      "meals": [
+        "mittag",
+        "snack"
+      ],
+      "diet": [
+        "vegetarisch",
+        "vegan"
+      ],
+      "servings": 4,
+      "prep": 20,
+      "cook": 5,
+      "difficulty": 1,
+      "kcal": 350,
+      "tags": [
+        "Vorkochen",
+        "schnell",
+        "kalt"
+      ],
+      "ingredients": [
+        {
+          "a": 250,
+          "u": "g",
+          "n": "Couscous"
+        },
+        {
+          "a": 300,
+          "u": "ml",
+          "n": "Gemüsebrühe"
+        },
+        {
+          "a": 300,
+          "u": "g",
+          "n": "Tomaten"
+        },
+        {
+          "a": 1,
+          "u": "Stk",
+          "n": "Salatgurke"
+        },
+        {
+          "a": 1,
+          "u": "Bund",
+          "n": "Petersilie"
+        },
+        {
+          "a": 1,
+          "u": "Bund",
+          "n": "Minze"
+        },
+        {
+          "a": 2,
+          "u": "Stk",
+          "n": "Zitronen"
+        },
+        {
+          "a": 6,
+          "u": "EL",
+          "n": "Olivenöl"
+        },
+        {
+          "a": 1,
+          "u": "TL",
+          "n": "Salz"
+        }
+      ],
+      "steps": [
+        "Couscous mit kochender Brühe übergießen und zugedeckt zehn Minuten quellen lassen.",
+        "Mit einer Gabel auflockern und abkühlen lassen.",
+        "Gemüse fein würfeln, Kräuter hacken.",
+        "Alles mit Zitronensaft, Öl und Salz vermengen.",
+        "Dreißig Minuten durchziehen lassen."
+      ],
+      "note": "Nach dem Wikibooks-Kochbuch, CC BY-SA 3.0."
+    },
+    {
+      "id": "wb-ruehrei",
+      "title": "Cremiges Rührei",
+      "chapter": "Grundrezepte",
+      "cuisine": "International",
+      "category": "Hauptgericht",
+      "meals": [
+        "fruehstueck"
+      ],
+      "diet": [
+        "vegetarisch",
+        "glutenfrei"
+      ],
+      "servings": 2,
+      "prep": 5,
+      "cook": 8,
+      "difficulty": 1,
+      "kcal": 290,
+      "tags": [
+        "schnell",
+        "Frühstück",
+        "15-Minuten"
+      ],
+      "ingredients": [
+        {
+          "a": 6,
+          "u": "Stk",
+          "n": "Eier"
+        },
+        {
+          "a": 30,
+          "u": "g",
+          "n": "Butter"
+        },
+        {
+          "a": 2,
+          "u": "EL",
+          "n": "Sahne"
+        },
+        {
+          "a": 1,
+          "u": "TL",
+          "n": "Salz"
+        },
+        {
+          "a": 1,
+          "u": "Bund",
+          "n": "Schnittlauch"
+        }
+      ],
+      "steps": [
+        "Eier mit Sahne verquirlen, aber noch nicht salzen.",
+        "Butter bei kleiner Hitze schmelzen, Eimasse eingießen.",
+        "Mit dem Spatel langsam und ständig rühren, die Pfanne mehrfach vom Feuer ziehen.",
+        "Vom Herd nehmen, solange die Masse noch leicht flüssig wirkt, sie gart nach.",
+        "Erst jetzt salzen und mit Schnittlauch servieren."
+      ],
+      "note": "Nach dem Wikibooks-Kochbuch, CC BY-SA 3.0."
+    },
+    {
+      "id": "wb-gemuesebruehe",
+      "title": "Gemüsebrühe, Grundrezept",
+      "chapter": "Grundrezepte",
+      "cuisine": "International",
+      "category": "Grundrezept",
+      "meals": [
+        "mittag",
+        "abend"
+      ],
+      "diet": [
+        "vegetarisch",
+        "vegan",
+        "glutenfrei"
+      ],
+      "servings": 8,
+      "prep": 15,
+      "cook": 60,
+      "difficulty": 1,
+      "kcal": 30,
+      "tags": [
+        "Grundrezept",
+        "Resteverwertung",
+        "Vorkochen"
+      ],
+      "ingredients": [
+        {
+          "a": 3,
+          "u": "Stk",
+          "n": "Möhren"
+        },
+        {
+          "a": 1,
+          "u": "Stk",
+          "n": "Sellerieknolle"
+        },
+        {
+          "a": 2,
+          "u": "Stk",
+          "n": "Stangen Lauch"
+        },
+        {
+          "a": 2,
+          "u": "Stk",
+          "n": "Zwiebeln"
+        },
+        {
+          "a": 1,
+          "u": "Bund",
+          "n": "Petersilie"
+        },
+        {
+          "a": 2.5,
+          "u": "l",
+          "n": "Wasser"
+        },
+        {
+          "a": 2,
+          "u": "Stk",
+          "n": "Lorbeerblätter"
+        },
+        {
+          "a": 1,
+          "u": "TL",
+          "n": "Pfefferkörner"
+        },
+        {
+          "a": 2,
+          "u": "TL",
+          "n": "Salz"
+        }
+      ],
+      "steps": [
+        "Zwiebeln halbieren und ohne Fett in der Pfanne dunkel rösten, das gibt Farbe und Tiefe.",
+        "Gemüse grob zerkleinern; Schalen und Strünke können mitverwendet werden.",
+        "Alles mit kaltem Wasser aufsetzen und langsam erhitzen.",
+        "Eine Stunde knapp unter dem Siedepunkt ziehen lassen, nicht sprudelnd kochen.",
+        "Abseihen, salzen und portionsweise einfrieren."
+      ],
+      "note": "Nach dem Wikibooks-Kochbuch, CC BY-SA 3.0."
+    },
+    {
+      "id": "wb-bowl-buddha",
+      "title": "Bunte Getreideschüssel",
+      "chapter": "Rezepte nach Art / Vegetarisch",
+      "cuisine": "International",
+      "category": "Hauptgericht",
+      "meals": [
+        "mittag",
+        "abend"
+      ],
+      "diet": [
+        "vegetarisch",
+        "vegan"
+      ],
+      "servings": 4,
+      "prep": 25,
+      "cook": 30,
+      "difficulty": 1,
+      "kcal": 470,
+      "tags": [
+        "Vorkochen",
+        "Gemüse",
+        "Vorbereiten"
+      ],
+      "ingredients": [
+        {
+          "a": 250,
+          "u": "g",
+          "n": "Quinoa"
+        },
+        {
+          "a": 400,
+          "u": "g",
+          "n": "Kichererbsen, Dose"
+        },
+        {
+          "a": 400,
+          "u": "g",
+          "n": "Süßkartoffeln"
+        },
+        {
+          "a": 200,
+          "u": "g",
+          "n": "Rotkohl"
+        },
+        {
+          "a": 1,
+          "u": "Stk",
+          "n": "Avocado"
+        },
+        {
+          "a": 4,
+          "u": "EL",
+          "n": "Tahin"
+        },
+        {
+          "a": 1,
+          "u": "Stk",
+          "n": "Zitrone"
+        },
+        {
+          "a": 4,
+          "u": "EL",
+          "n": "Olivenöl"
+        },
+        {
+          "a": 2,
+          "u": "TL",
+          "n": "Paprikapulver, edelsüß"
+        },
+        {
+          "a": 1,
+          "u": "TL",
+          "n": "Salz"
+        }
+      ],
+      "steps": [
+        "Quinoa nach Packungsangabe garen und auskühlen lassen.",
+        "Süßkartoffelwürfel und abgetrocknete Kichererbsen mit Öl und Paprika mischen.",
+        "Bei 200 Grad fünfundzwanzig Minuten rösten, bis die Kichererbsen knusprig sind.",
+        "Tahin mit Zitronensaft, Wasser und Salz zu einem gießfähigen Dressing rühren.",
+        "Alle Komponenten nebeneinander in Schüsseln anrichten.",
+        "Mit Avocado und Dressing vollenden."
+      ],
+      "note": "Nach dem Wikibooks-Kochbuch, CC BY-SA 3.0."
+    },
+    {
+      "id": "wb-gulaschsuppe-vegetarisch",
+      "title": "Vegetarische Gulaschsuppe",
+      "chapter": "Rezepte nach Art / Eintopf",
+      "cuisine": "Deutsch",
+      "category": "Suppe",
+      "meals": [
+        "mittag",
+        "abend"
+      ],
+      "diet": [
+        "vegetarisch",
+        "vegan",
+        "glutenfrei"
+      ],
+      "servings": 4,
+      "prep": 20,
+      "cook": 35,
+      "difficulty": 1,
+      "kcal": 300,
+      "tags": [
+        "Eintopf",
+        "Vorkochen",
+        "günstig"
+      ],
+      "ingredients": [
+        {
+          "a": 500,
+          "u": "g",
+          "n": "Kartoffeln"
+        },
+        {
+          "a": 300,
+          "u": "g",
+          "n": "Champignons"
+        },
+        {
+          "a": 3,
+          "u": "Stk",
+          "n": "Paprikaschoten"
+        },
+        {
+          "a": 400,
+          "u": "g",
+          "n": "Zwiebeln"
+        },
+        {
+          "a": 3,
+          "u": "EL",
+          "n": "Rapsöl"
+        },
+        {
+          "a": 2,
+          "u": "EL",
+          "n": "Paprikapulver, edelsüß"
+        },
+        {
+          "a": 2,
+          "u": "EL",
+          "n": "Tomatenmark"
+        },
+        {
+          "a": 1,
+          "u": "l",
+          "n": "Gemüsebrühe"
+        },
+        {
+          "a": 1,
+          "u": "TL",
+          "n": "Kümmel, gemahlen"
+        },
+        {
+          "a": 2,
+          "u": "EL",
+          "n": "Weinessig"
+        }
+      ],
+      "steps": [
+        "Zwiebeln fein schneiden und im Öl fünfzehn Minuten goldbraun rösten.",
+        "Pilze zugeben und braten, bis die Flüssigkeit verdampft ist.",
+        "Topf vom Feuer ziehen, Paprikapulver und Tomatenmark einrühren, mit Essig ablöschen.",
+        "Kartoffel- und Paprikawürfel zugeben und mit Brühe auffüllen.",
+        "Fünfundzwanzig Minuten köcheln und mit Kümmel und Salz abschmecken."
+      ],
+      "note": "Nach dem Wikibooks-Kochbuch, CC BY-SA 3.0."
+    }
+  ]
+}

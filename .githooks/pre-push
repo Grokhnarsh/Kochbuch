@@ -1,0 +1,11 @@
+#!/bin/sh
+# Vor dem Push zusätzlich bauen: ein Bündel, das nicht baut, soll die
+# Gegenseite gar nicht erst erreichen.
+# Umgehen mit: git push --no-verify
+
+if ! npm run build --silent >/dev/null 2>&1; then
+  echo "Push gestoppt: der Build schlägt fehl."
+  echo "Ausgabe ansehen mit:  npm run build"
+  echo "Trotzdem pushen:      git push --no-verify"
+  exit 1
+fi

@@ -1,0 +1,1461 @@
+{
+  "sourceId": "artusi-1891",
+  "recipes": [
+    {
+      "id": "artusi-risotto-milanese",
+      "title": "Risotto alla Milanese",
+      "chapter": "Nudel- und Reisgerichte",
+      "cuisine": "Italienisch",
+      "category": "Hauptgericht",
+      "meals": [
+        "mittag",
+        "abend"
+      ],
+      "diet": [
+        "vegetarisch",
+        "glutenfrei"
+      ],
+      "servings": 4,
+      "prep": 10,
+      "cook": 25,
+      "difficulty": 2,
+      "kcal": 480,
+      "tags": [
+        "Safran",
+        "Klassiker"
+      ],
+      "ingredients": [
+        {
+          "a": 320,
+          "u": "g",
+          "n": "Risottoreis"
+        },
+        {
+          "a": 1.2,
+          "u": "l",
+          "n": "Gemüsebrühe"
+        },
+        {
+          "a": 1,
+          "u": "Stk",
+          "n": "Zwiebel"
+        },
+        {
+          "a": 80,
+          "u": "g",
+          "n": "Butter"
+        },
+        {
+          "a": 150,
+          "u": "ml",
+          "n": "Weißwein"
+        },
+        {
+          "a": 1,
+          "u": "Prise",
+          "n": "Safranfäden"
+        },
+        {
+          "a": 80,
+          "u": "g",
+          "n": "Parmesan"
+        },
+        {
+          "a": 1,
+          "u": "TL",
+          "n": "Salz"
+        }
+      ],
+      "steps": [
+        "Brühe heiß halten und den Safran darin einweichen.",
+        "Zwiebelwürfel in der Hälfte der Butter glasig dünsten.",
+        "Reis zugeben und zwei Minuten glasig rösten, bis die Körner heiß sind.",
+        "Mit Wein ablöschen und vollständig einkochen lassen.",
+        "Nach und nach heiße Brühe angießen und unter Rühren achtzehn Minuten garen.",
+        "Vom Herd nehmen, kalte Butter und Parmesan einrühren und zwei Minuten ruhen lassen."
+      ],
+      "note": "Modernisierte Fassung nach Artusi."
+    },
+    {
+      "id": "artusi-minestrone",
+      "title": "Minestrone",
+      "chapter": "Suppen",
+      "cuisine": "Italienisch",
+      "category": "Suppe",
+      "meals": [
+        "mittag",
+        "abend"
+      ],
+      "diet": [
+        "vegetarisch",
+        "vegan"
+      ],
+      "servings": 6,
+      "prep": 25,
+      "cook": 50,
+      "difficulty": 1,
+      "kcal": 300,
+      "tags": [
+        "Gemüse",
+        "Vorkochen"
+      ],
+      "ingredients": [
+        {
+          "a": 2,
+          "u": "Stk",
+          "n": "Möhren"
+        },
+        {
+          "a": 2,
+          "u": "Stk",
+          "n": "Stangen Sellerie"
+        },
+        {
+          "a": 1,
+          "u": "Stk",
+          "n": "Zwiebel"
+        },
+        {
+          "a": 2,
+          "u": "Stk",
+          "n": "Zucchini"
+        },
+        {
+          "a": 200,
+          "u": "g",
+          "n": "grüne Bohnen"
+        },
+        {
+          "a": 400,
+          "u": "g",
+          "n": "weiße Bohnen, Dose"
+        },
+        {
+          "a": 400,
+          "u": "g",
+          "n": "Tomaten, gehackt"
+        },
+        {
+          "a": 150,
+          "u": "g",
+          "n": "kurze Nudeln"
+        },
+        {
+          "a": 4,
+          "u": "EL",
+          "n": "Olivenöl"
+        },
+        {
+          "a": 1.5,
+          "u": "l",
+          "n": "Gemüsebrühe"
+        },
+        {
+          "a": 1,
+          "u": "TL",
+          "n": "Salz"
+        }
+      ],
+      "steps": [
+        "Zwiebel, Möhre und Sellerie fein würfeln und im Öl zehn Minuten sanft anschwitzen.",
+        "Tomaten zugeben und einkochen lassen.",
+        "Mit Brühe auffüllen, Bohnen zugeben und dreißig Minuten köcheln.",
+        "Zucchini und grüne Bohnen zufügen und zehn Minuten weitergaren.",
+        "Nudeln einstreuen und bissfest kochen.",
+        "Mit Olivenöl und Parmesan servieren."
+      ],
+      "note": "Modernisierte Fassung nach Artusi."
+    },
+    {
+      "id": "artusi-ragu-bolognese",
+      "title": "Ragù alla Bolognese",
+      "chapter": "Saucen",
+      "cuisine": "Italienisch",
+      "category": "Grundrezept",
+      "meals": [
+        "mittag",
+        "abend"
+      ],
+      "diet": [],
+      "servings": 6,
+      "prep": 20,
+      "cook": 180,
+      "difficulty": 2,
+      "kcal": 420,
+      "tags": [
+        "Sauce",
+        "Vorkochen",
+        "Schmoren"
+      ],
+      "ingredients": [
+        {
+          "a": 600,
+          "u": "g",
+          "n": "Rinderhack"
+        },
+        {
+          "a": 150,
+          "u": "g",
+          "n": "Pancetta"
+        },
+        {
+          "a": 1,
+          "u": "Stk",
+          "n": "Zwiebel"
+        },
+        {
+          "a": 1,
+          "u": "Stk",
+          "n": "Möhre"
+        },
+        {
+          "a": 1,
+          "u": "Stk",
+          "n": "Stange Sellerie"
+        },
+        {
+          "a": 200,
+          "u": "ml",
+          "n": "Weißwein"
+        },
+        {
+          "a": 400,
+          "u": "g",
+          "n": "Tomaten, passiert"
+        },
+        {
+          "a": 300,
+          "u": "ml",
+          "n": "Fleischbrühe"
+        },
+        {
+          "a": 200,
+          "u": "ml",
+          "n": "Milch"
+        },
+        {
+          "a": 3,
+          "u": "EL",
+          "n": "Olivenöl"
+        },
+        {
+          "a": 1,
+          "u": "TL",
+          "n": "Salz"
+        }
+      ],
+      "steps": [
+        "Soffritto aus fein gewürfelter Zwiebel, Möhre und Sellerie im Öl zehn Minuten weich dünsten.",
+        "Pancetta zugeben und auslassen, dann das Hack krümelig und braun anbraten.",
+        "Mit Wein ablöschen und vollständig verdampfen lassen.",
+        "Tomaten und Brühe zugeben und bei kleinster Hitze drei Stunden offen schmoren.",
+        "In der letzten halben Stunde die Milch einrühren, das macht die Sauce mild und samtig.",
+        "Kräftig mit Salz und Pfeffer abschmecken."
+      ],
+      "note": "Modernisierte Fassung nach Artusi."
+    },
+    {
+      "id": "artusi-pasta-e-fagioli",
+      "title": "Pasta e fagioli",
+      "chapter": "Suppen",
+      "cuisine": "Italienisch",
+      "category": "Suppe",
+      "meals": [
+        "mittag",
+        "abend"
+      ],
+      "diet": [
+        "vegetarisch",
+        "vegan"
+      ],
+      "servings": 4,
+      "prep": 15,
+      "cook": 40,
+      "difficulty": 1,
+      "kcal": 430,
+      "tags": [
+        "günstig",
+        "Eintopf"
+      ],
+      "ingredients": [
+        {
+          "a": 400,
+          "u": "g",
+          "n": "Borlottibohnen, Dose"
+        },
+        {
+          "a": 200,
+          "u": "g",
+          "n": "kurze Nudeln"
+        },
+        {
+          "a": 1,
+          "u": "Stk",
+          "n": "Zwiebel"
+        },
+        {
+          "a": 1,
+          "u": "Stk",
+          "n": "Möhre"
+        },
+        {
+          "a": 2,
+          "u": "Zehe",
+          "n": "Knoblauch"
+        },
+        {
+          "a": 2,
+          "u": "EL",
+          "n": "Tomatenmark"
+        },
+        {
+          "a": 1,
+          "u": "l",
+          "n": "Gemüsebrühe"
+        },
+        {
+          "a": 4,
+          "u": "EL",
+          "n": "Olivenöl"
+        },
+        {
+          "a": 1,
+          "u": "Zweig",
+          "n": "Rosmarin"
+        },
+        {
+          "a": 1,
+          "u": "TL",
+          "n": "Salz"
+        }
+      ],
+      "steps": [
+        "Zwiebel, Möhre und Knoblauch im Öl anschwitzen, Rosmarin zugeben.",
+        "Tomatenmark kurz mitrösten.",
+        "Bohnen und Brühe zufügen und zwanzig Minuten köcheln.",
+        "Die Hälfte der Bohnen pürieren und zurückgeben, das bindet die Suppe.",
+        "Nudeln direkt darin bissfest garen und mit Olivenöl beträufelt servieren."
+      ],
+      "note": "Modernisierte Fassung nach Artusi."
+    },
+    {
+      "id": "artusi-pollo-cacciatora",
+      "title": "Pollo alla cacciatora",
+      "chapter": "Schmorgerichte",
+      "cuisine": "Italienisch",
+      "category": "Hauptgericht",
+      "meals": [
+        "mittag",
+        "abend"
+      ],
+      "diet": [
+        "glutenfrei"
+      ],
+      "servings": 4,
+      "prep": 20,
+      "cook": 50,
+      "difficulty": 2,
+      "kcal": 520,
+      "tags": [
+        "Schmoren",
+        "Ein-Topf"
+      ],
+      "ingredients": [
+        {
+          "a": 1200,
+          "u": "g",
+          "n": "Hähnchenteile"
+        },
+        {
+          "a": 1,
+          "u": "Stk",
+          "n": "Zwiebel"
+        },
+        {
+          "a": 3,
+          "u": "Zehe",
+          "n": "Knoblauch"
+        },
+        {
+          "a": 200,
+          "u": "ml",
+          "n": "Weißwein"
+        },
+        {
+          "a": 400,
+          "u": "g",
+          "n": "Tomaten, gehackt"
+        },
+        {
+          "a": 100,
+          "u": "g",
+          "n": "schwarze Oliven"
+        },
+        {
+          "a": 4,
+          "u": "EL",
+          "n": "Olivenöl"
+        },
+        {
+          "a": 2,
+          "u": "Zweig",
+          "n": "Rosmarin"
+        },
+        {
+          "a": 1,
+          "u": "TL",
+          "n": "Salz"
+        }
+      ],
+      "steps": [
+        "Hähnchenteile salzen und im Öl rundum goldbraun braten, herausnehmen.",
+        "Zwiebel, Knoblauch und Rosmarin im Bratfett andünsten.",
+        "Mit Wein ablöschen und um die Hälfte einkochen lassen.",
+        "Tomaten zugeben, Hähnchen zurücklegen und vierzig Minuten zugedeckt schmoren.",
+        "Oliven in den letzten zehn Minuten zufügen und abschmecken."
+      ],
+      "note": "Modernisierte Fassung nach Artusi."
+    },
+    {
+      "id": "artusi-gnocchi-patate",
+      "title": "Gnocchi di patate",
+      "chapter": "Nudel- und Reisgerichte",
+      "cuisine": "Italienisch",
+      "category": "Hauptgericht",
+      "meals": [
+        "mittag",
+        "abend"
+      ],
+      "diet": [
+        "vegetarisch"
+      ],
+      "servings": 4,
+      "prep": 40,
+      "cook": 10,
+      "difficulty": 3,
+      "kcal": 410,
+      "tags": [
+        "Teigwaren",
+        "Kartoffel"
+      ],
+      "ingredients": [
+        {
+          "a": 1000,
+          "u": "g",
+          "n": "Kartoffeln, mehligkochend"
+        },
+        {
+          "a": 250,
+          "u": "g",
+          "n": "Weizenmehl Type 405"
+        },
+        {
+          "a": 1,
+          "u": "Stk",
+          "n": "Ei"
+        },
+        {
+          "a": 1,
+          "u": "TL",
+          "n": "Salz"
+        },
+        {
+          "a": 80,
+          "u": "g",
+          "n": "Butter"
+        },
+        {
+          "a": 1,
+          "u": "Bund",
+          "n": "Salbei"
+        },
+        {
+          "a": 60,
+          "u": "g",
+          "n": "Parmesan"
+        }
+      ],
+      "steps": [
+        "Kartoffeln in der Schale garen, pellen und heiß durch die Presse drücken.",
+        "Kurz ausdampfen lassen, dann Mehl, Ei und Salz nur so lange verarbeiten, bis ein weicher Teig entsteht.",
+        "Rollen formen, Stücke abschneiden und über eine Gabel rollen.",
+        "In siedendem Salzwasser garen, bis sie an die Oberfläche steigen.",
+        "Butter mit Salbei bräunen, Gnocchi darin schwenken und mit Parmesan servieren."
+      ],
+      "note": "Modernisierte Fassung nach Artusi."
+    },
+    {
+      "id": "artusi-cotoletta-milanese",
+      "title": "Cotoletta alla Milanese",
+      "chapter": "Ausgebackenes",
+      "cuisine": "Italienisch",
+      "category": "Hauptgericht",
+      "meals": [
+        "mittag",
+        "abend"
+      ],
+      "diet": [],
+      "servings": 4,
+      "prep": 20,
+      "cook": 15,
+      "difficulty": 2,
+      "kcal": 590,
+      "tags": [
+        "Panieren"
+      ],
+      "ingredients": [
+        {
+          "a": 4,
+          "u": "Stk",
+          "n": "Kalbskoteletts"
+        },
+        {
+          "a": 3,
+          "u": "Stk",
+          "n": "Eier"
+        },
+        {
+          "a": 200,
+          "u": "g",
+          "n": "Semmelbrösel"
+        },
+        {
+          "a": 150,
+          "u": "g",
+          "n": "Butter"
+        },
+        {
+          "a": 1,
+          "u": "Stk",
+          "n": "Zitrone"
+        },
+        {
+          "a": 1,
+          "u": "TL",
+          "n": "Salz"
+        }
+      ],
+      "steps": [
+        "Koteletts leicht flach klopfen und salzen.",
+        "In verquirltem Ei und dann in Bröseln wenden, die Panade fest andrücken.",
+        "Butter in der Pfanne aufschäumen lassen, ohne sie zu bräunen.",
+        "Koteletts pro Seite vier Minuten goldbraun braten.",
+        "Abtropfen lassen und mit Zitrone servieren."
+      ],
+      "note": "Modernisierte Fassung nach Artusi."
+    },
+    {
+      "id": "artusi-frittata-erbe",
+      "title": "Frittata mit Kräutern",
+      "chapter": "Eierspeisen",
+      "cuisine": "Italienisch",
+      "category": "Hauptgericht",
+      "meals": [
+        "fruehstueck",
+        "abend"
+      ],
+      "diet": [
+        "vegetarisch",
+        "glutenfrei"
+      ],
+      "servings": 4,
+      "prep": 10,
+      "cook": 15,
+      "difficulty": 1,
+      "kcal": 290,
+      "tags": [
+        "schnell",
+        "Eier"
+      ],
+      "ingredients": [
+        {
+          "a": 8,
+          "u": "Stk",
+          "n": "Eier"
+        },
+        {
+          "a": 60,
+          "u": "g",
+          "n": "Parmesan"
+        },
+        {
+          "a": 1,
+          "u": "Bund",
+          "n": "Petersilie"
+        },
+        {
+          "a": 1,
+          "u": "Bund",
+          "n": "Basilikum"
+        },
+        {
+          "a": 3,
+          "u": "EL",
+          "n": "Olivenöl"
+        },
+        {
+          "a": 1,
+          "u": "TL",
+          "n": "Salz"
+        }
+      ],
+      "steps": [
+        "Eier mit Parmesan, gehackten Kräutern, Salz und Pfeffer verquirlen.",
+        "Öl in einer beschichteten Pfanne erhitzen.",
+        "Eimasse eingießen und bei kleiner Hitze zehn Minuten stocken lassen.",
+        "Mit Hilfe eines Tellers wenden und weitere drei Minuten garen.",
+        "In Ecken schneiden und lauwarm servieren."
+      ],
+      "note": "Modernisierte Fassung nach Artusi."
+    },
+    {
+      "id": "artusi-peperonata",
+      "title": "Peperonata",
+      "chapter": "Gemüse und Hülsenfrüchte",
+      "cuisine": "Italienisch",
+      "category": "Beilage",
+      "meals": [
+        "mittag",
+        "abend"
+      ],
+      "diet": [
+        "vegetarisch",
+        "vegan",
+        "glutenfrei"
+      ],
+      "servings": 4,
+      "prep": 15,
+      "cook": 35,
+      "difficulty": 1,
+      "kcal": 190,
+      "tags": [
+        "Gemüse",
+        "Sommer"
+      ],
+      "ingredients": [
+        {
+          "a": 800,
+          "u": "g",
+          "n": "Paprikaschoten"
+        },
+        {
+          "a": 400,
+          "u": "g",
+          "n": "Tomaten"
+        },
+        {
+          "a": 2,
+          "u": "Stk",
+          "n": "Zwiebeln"
+        },
+        {
+          "a": 2,
+          "u": "Zehe",
+          "n": "Knoblauch"
+        },
+        {
+          "a": 5,
+          "u": "EL",
+          "n": "Olivenöl"
+        },
+        {
+          "a": 2,
+          "u": "EL",
+          "n": "Weinessig"
+        },
+        {
+          "a": 1,
+          "u": "TL",
+          "n": "Salz"
+        },
+        {
+          "a": 1,
+          "u": "Bund",
+          "n": "Basilikum"
+        }
+      ],
+      "steps": [
+        "Paprika in breite Streifen, Zwiebeln in Spalten schneiden.",
+        "Beides im Olivenöl zehn Minuten sanft anschwitzen.",
+        "Knoblauch und gehäutete Tomaten zugeben.",
+        "Zugedeckt zwanzig Minuten schmoren, bis alles weich ist.",
+        "Mit Essig und Salz abschmecken und mit Basilikum servieren, warm oder kalt."
+      ],
+      "note": "Modernisierte Fassung nach Artusi."
+    },
+    {
+      "id": "artusi-zuppa-inglese",
+      "title": "Zuppa Inglese",
+      "chapter": "Löffeldesserts",
+      "cuisine": "Italienisch",
+      "category": "Dessert",
+      "meals": [
+        "snack"
+      ],
+      "diet": [
+        "vegetarisch"
+      ],
+      "servings": 6,
+      "prep": 30,
+      "cook": 15,
+      "difficulty": 2,
+      "kcal": 380,
+      "tags": [
+        "Schichtdessert",
+        "Vorbereiten"
+      ],
+      "ingredients": [
+        {
+          "a": 500,
+          "u": "ml",
+          "n": "Milch"
+        },
+        {
+          "a": 5,
+          "u": "Stk",
+          "n": "Eigelb"
+        },
+        {
+          "a": 120,
+          "u": "g",
+          "n": "Zucker"
+        },
+        {
+          "a": 50,
+          "u": "g",
+          "n": "Speisestärke"
+        },
+        {
+          "a": 1,
+          "u": "Stk",
+          "n": "Vanilleschote"
+        },
+        {
+          "a": 250,
+          "u": "g",
+          "n": "Löffelbiskuits"
+        },
+        {
+          "a": 150,
+          "u": "ml",
+          "n": "Alchermes oder Kirschsaft"
+        },
+        {
+          "a": 50,
+          "u": "g",
+          "n": "Kakaopulver"
+        }
+      ],
+      "steps": [
+        "Milch mit Vanille erhitzen.",
+        "Eigelb, Zucker und Stärke verrühren, heiße Milch einrühren und zur Creme abbinden.",
+        "Die Hälfte der Creme mit Kakao verrühren.",
+        "Biskuits kurz in die Flüssigkeit tauchen und abwechselnd mit heller und dunkler Creme schichten.",
+        "Mindestens vier Stunden kalt stellen."
+      ],
+      "note": "Modernisierte Fassung nach Artusi."
+    },
+    {
+      "id": "artusi-cacciucco",
+      "title": "Cacciucco – toskanische Fischsuppe",
+      "chapter": "Suppen",
+      "cuisine": "Italienisch",
+      "category": "Suppe",
+      "meals": [
+        "mittag",
+        "abend"
+      ],
+      "diet": [],
+      "servings": 4,
+      "prep": 30,
+      "cook": 40,
+      "difficulty": 3,
+      "kcal": 450,
+      "tags": [
+        "Fisch",
+        "Festessen"
+      ],
+      "ingredients": [
+        {
+          "a": 800,
+          "u": "g",
+          "n": "gemischter Fisch, filetiert"
+        },
+        {
+          "a": 300,
+          "u": "g",
+          "n": "Muscheln"
+        },
+        {
+          "a": 200,
+          "u": "g",
+          "n": "Tintenfischringe"
+        },
+        {
+          "a": 1,
+          "u": "Stk",
+          "n": "Zwiebel"
+        },
+        {
+          "a": 3,
+          "u": "Zehe",
+          "n": "Knoblauch"
+        },
+        {
+          "a": 200,
+          "u": "ml",
+          "n": "Rotwein"
+        },
+        {
+          "a": 400,
+          "u": "g",
+          "n": "Tomaten, gehackt"
+        },
+        {
+          "a": 5,
+          "u": "EL",
+          "n": "Olivenöl"
+        },
+        {
+          "a": 1,
+          "u": "Stk",
+          "n": "Chilischote"
+        },
+        {
+          "a": 4,
+          "u": "Scheibe",
+          "n": "Weißbrot"
+        }
+      ],
+      "steps": [
+        "Zwiebel, Knoblauch und Chili im Öl anschwitzen.",
+        "Tintenfisch zugeben und zehn Minuten schmoren, bis er weich wird.",
+        "Mit Rotwein ablöschen, Tomaten zufügen und zwanzig Minuten köcheln.",
+        "Festen Fisch zuerst, zarten Fisch und Muscheln zuletzt einlegen.",
+        "Nur noch fünf bis acht Minuten garen, bis sich die Muscheln öffnen.",
+        "Über geröstetem, mit Knoblauch eingeriebenem Brot anrichten."
+      ],
+      "note": "Modernisierte Fassung nach Artusi."
+    },
+    {
+      "id": "artusi-crostini-fegatini",
+      "title": "Crostini toscani",
+      "chapter": "Vorspeisen",
+      "cuisine": "Italienisch",
+      "category": "Vorspeise",
+      "meals": [
+        "abend",
+        "snack"
+      ],
+      "diet": [],
+      "servings": 6,
+      "prep": 15,
+      "cook": 25,
+      "difficulty": 2,
+      "kcal": 220,
+      "tags": [
+        "Vorspeise",
+        "Feier"
+      ],
+      "ingredients": [
+        {
+          "a": 400,
+          "u": "g",
+          "n": "Hähnchenleber"
+        },
+        {
+          "a": 1,
+          "u": "Stk",
+          "n": "Zwiebel"
+        },
+        {
+          "a": 3,
+          "u": "EL",
+          "n": "Olivenöl"
+        },
+        {
+          "a": 100,
+          "u": "ml",
+          "n": "Vin Santo oder Weißwein"
+        },
+        {
+          "a": 2,
+          "u": "EL",
+          "n": "Kapern"
+        },
+        {
+          "a": 4,
+          "u": "Stk",
+          "n": "Sardellenfilets"
+        },
+        {
+          "a": 30,
+          "u": "g",
+          "n": "Butter"
+        },
+        {
+          "a": 1,
+          "u": "Stk",
+          "n": "Baguette"
+        }
+      ],
+      "steps": [
+        "Zwiebelwürfel im Öl weich dünsten.",
+        "Geputzte Leber zugeben und rundum anbraten.",
+        "Mit Wein ablöschen und fünfzehn Minuten schmoren.",
+        "Kapern und Sardellen zugeben und alles grob hacken oder kurz mixen.",
+        "Butter einrühren, abschmecken und warm auf geröstetem Brot servieren."
+      ],
+      "note": "Modernisierte Fassung nach Artusi."
+    },
+    {
+      "id": "artusi-fagioli-uccelletto",
+      "title": "Fagioli all'uccelletto",
+      "chapter": "Gemüse und Hülsenfrüchte",
+      "cuisine": "Italienisch",
+      "category": "Beilage",
+      "meals": [
+        "mittag",
+        "abend"
+      ],
+      "diet": [
+        "vegetarisch",
+        "vegan",
+        "glutenfrei"
+      ],
+      "servings": 4,
+      "prep": 10,
+      "cook": 25,
+      "difficulty": 1,
+      "kcal": 260,
+      "tags": [
+        "Bohnen",
+        "schnell"
+      ],
+      "ingredients": [
+        {
+          "a": 800,
+          "u": "g",
+          "n": "weiße Bohnen, Dose"
+        },
+        {
+          "a": 400,
+          "u": "g",
+          "n": "Tomaten, gehackt"
+        },
+        {
+          "a": 3,
+          "u": "Zehe",
+          "n": "Knoblauch"
+        },
+        {
+          "a": 5,
+          "u": "EL",
+          "n": "Olivenöl"
+        },
+        {
+          "a": 6,
+          "u": "Blatt",
+          "n": "Salbei"
+        },
+        {
+          "a": 1,
+          "u": "TL",
+          "n": "Salz"
+        }
+      ],
+      "steps": [
+        "Knoblauch und Salbei im Olivenöl sanft aromatisieren, ohne sie zu bräunen.",
+        "Tomaten zugeben und zehn Minuten einkochen.",
+        "Abgespülte Bohnen zufügen.",
+        "Fünfzehn Minuten leise schmoren, damit die Bohnen die Sauce aufnehmen.",
+        "Mit Salz und Pfeffer abschmecken."
+      ],
+      "note": "Modernisierte Fassung nach Artusi."
+    },
+    {
+      "id": "artusi-pasta-frolla",
+      "title": "Pasta frolla – Mürbteig",
+      "chapter": "Teige und Pasteten",
+      "cuisine": "Italienisch",
+      "category": "Grundrezept",
+      "meals": [
+        "snack"
+      ],
+      "diet": [
+        "vegetarisch"
+      ],
+      "servings": 8,
+      "prep": 15,
+      "cook": 0,
+      "difficulty": 1,
+      "kcal": 300,
+      "tags": [
+        "Grundrezept",
+        "Backen"
+      ],
+      "ingredients": [
+        {
+          "a": 300,
+          "u": "g",
+          "n": "Weizenmehl Type 405"
+        },
+        {
+          "a": 150,
+          "u": "g",
+          "n": "Butter"
+        },
+        {
+          "a": 120,
+          "u": "g",
+          "n": "Zucker"
+        },
+        {
+          "a": 2,
+          "u": "Stk",
+          "n": "Eigelb"
+        },
+        {
+          "a": 1,
+          "u": "Prise",
+          "n": "Salz"
+        },
+        {
+          "a": 1,
+          "u": "Stk",
+          "n": "Zitrone"
+        }
+      ],
+      "steps": [
+        "Mehl mit kalter Butter zu Krümeln verreiben.",
+        "Zucker, Eigelb, Salz und abgeriebene Zitronenschale zugeben.",
+        "Nur so lange kneten, bis der Teig zusammenkommt.",
+        "Flach drücken, in Folie wickeln und mindestens eine Stunde kühlen.",
+        "Grundlage für Crostata, Törtchen und Kekse."
+      ],
+      "note": "Modernisierte Fassung nach Artusi."
+    },
+    {
+      "id": "artusi-torta-margherita",
+      "title": "Torta Margherita",
+      "chapter": "Süßspeisen",
+      "cuisine": "Italienisch",
+      "category": "Backen",
+      "meals": [
+        "snack"
+      ],
+      "diet": [
+        "vegetarisch"
+      ],
+      "servings": 10,
+      "prep": 20,
+      "cook": 35,
+      "difficulty": 2,
+      "kcal": 270,
+      "tags": [
+        "Kuchen",
+        "leicht"
+      ],
+      "ingredients": [
+        {
+          "a": 4,
+          "u": "Stk",
+          "n": "Eier"
+        },
+        {
+          "a": 150,
+          "u": "g",
+          "n": "Zucker"
+        },
+        {
+          "a": 100,
+          "u": "g",
+          "n": "Kartoffelstärke"
+        },
+        {
+          "a": 80,
+          "u": "g",
+          "n": "Weizenmehl Type 405"
+        },
+        {
+          "a": 100,
+          "u": "g",
+          "n": "Butter"
+        },
+        {
+          "a": 1,
+          "u": "Stk",
+          "n": "Zitrone"
+        },
+        {
+          "a": 1,
+          "u": "Pck",
+          "n": "Backpulver"
+        },
+        {
+          "a": 30,
+          "u": "g",
+          "n": "Puderzucker"
+        }
+      ],
+      "steps": [
+        "Eier mit Zucker zehn Minuten sehr schaumig schlagen.",
+        "Geschmolzene, abgekühlte Butter und Zitronenschale einrühren.",
+        "Stärke, Mehl und Backpulver sieben und vorsichtig unterheben.",
+        "In eine gefettete Form füllen und bei 170 Grad fünfunddreißig Minuten backen.",
+        "Auskühlen lassen und mit Puderzucker bestäuben."
+      ],
+      "note": "Modernisierte Fassung nach Artusi."
+    },
+    {
+      "id": "artusi-panzanella",
+      "title": "Panzanella",
+      "chapter": "Salate",
+      "cuisine": "Italienisch",
+      "category": "Vorspeise",
+      "meals": [
+        "mittag",
+        "abend"
+      ],
+      "diet": [
+        "vegetarisch",
+        "vegan"
+      ],
+      "servings": 4,
+      "prep": 20,
+      "cook": 0,
+      "difficulty": 1,
+      "kcal": 280,
+      "tags": [
+        "Sommer",
+        "Resteverwertung",
+        "kalt"
+      ],
+      "ingredients": [
+        {
+          "a": 300,
+          "u": "g",
+          "n": "Weißbrot vom Vortag"
+        },
+        {
+          "a": 600,
+          "u": "g",
+          "n": "Tomaten"
+        },
+        {
+          "a": 1,
+          "u": "Stk",
+          "n": "Salatgurke"
+        },
+        {
+          "a": 1,
+          "u": "Stk",
+          "n": "rote Zwiebel"
+        },
+        {
+          "a": 6,
+          "u": "EL",
+          "n": "Olivenöl"
+        },
+        {
+          "a": 3,
+          "u": "EL",
+          "n": "Rotweinessig"
+        },
+        {
+          "a": 1,
+          "u": "Bund",
+          "n": "Basilikum"
+        },
+        {
+          "a": 1,
+          "u": "TL",
+          "n": "Salz"
+        }
+      ],
+      "steps": [
+        "Brot in Wasser kurz einweichen und kräftig ausdrücken, dann zerzupfen.",
+        "Tomaten, Gurke und Zwiebel in mundgerechte Stücke schneiden.",
+        "Alles mit Öl, Essig und Salz vermengen.",
+        "Dreißig Minuten durchziehen lassen.",
+        "Mit reichlich Basilikum servieren."
+      ],
+      "note": "Modernisierte Fassung nach Artusi."
+    },
+    {
+      "id": "artusi-baccala-in-umido",
+      "title": "Stockfisch in Tomatensauce",
+      "chapter": "Fisch",
+      "cuisine": "Italienisch",
+      "category": "Hauptgericht",
+      "meals": [
+        "mittag",
+        "abend"
+      ],
+      "diet": [],
+      "servings": 4,
+      "prep": 20,
+      "cook": 35,
+      "difficulty": 2,
+      "kcal": 380,
+      "tags": [
+        "Fisch",
+        "Schmoren"
+      ],
+      "ingredients": [
+        {
+          "a": 800,
+          "u": "g",
+          "n": "Kabeljaufilet"
+        },
+        {
+          "a": 500,
+          "u": "g",
+          "n": "Tomaten, gehackt"
+        },
+        {
+          "a": 1,
+          "u": "Stk",
+          "n": "Zwiebel"
+        },
+        {
+          "a": 3,
+          "u": "Zehe",
+          "n": "Knoblauch"
+        },
+        {
+          "a": 100,
+          "u": "g",
+          "n": "schwarze Oliven"
+        },
+        {
+          "a": 2,
+          "u": "EL",
+          "n": "Kapern"
+        },
+        {
+          "a": 5,
+          "u": "EL",
+          "n": "Olivenöl"
+        },
+        {
+          "a": 1,
+          "u": "Bund",
+          "n": "Petersilie"
+        },
+        {
+          "a": 1,
+          "u": "TL",
+          "n": "Salz"
+        }
+      ],
+      "steps": [
+        "Zwiebel und Knoblauch im Öl glasig dünsten.",
+        "Tomaten zugeben und zwanzig Minuten einkochen lassen.",
+        "Oliven und Kapern einrühren.",
+        "Fischstücke in die Sauce legen und zehn Minuten sanft gar ziehen lassen, nicht rühren.",
+        "Mit Petersilie bestreut servieren."
+      ],
+      "note": "Modernisierte Fassung nach Artusi."
+    },
+    {
+      "id": "artusi-passatelli",
+      "title": "Passatelli in Brodo",
+      "chapter": "Suppen",
+      "cuisine": "Italienisch",
+      "category": "Suppe",
+      "meals": [
+        "mittag"
+      ],
+      "diet": [
+        "vegetarisch"
+      ],
+      "servings": 4,
+      "prep": 15,
+      "cook": 10,
+      "difficulty": 2,
+      "kcal": 320,
+      "tags": [
+        "Suppeneinlage",
+        "schnell"
+      ],
+      "ingredients": [
+        {
+          "a": 1.2,
+          "u": "l",
+          "n": "Fleischbrühe"
+        },
+        {
+          "a": 150,
+          "u": "g",
+          "n": "Semmelbrösel"
+        },
+        {
+          "a": 150,
+          "u": "g",
+          "n": "Parmesan"
+        },
+        {
+          "a": 3,
+          "u": "Stk",
+          "n": "Eier"
+        },
+        {
+          "a": 1,
+          "u": "Prise",
+          "n": "Muskatnuss"
+        },
+        {
+          "a": 1,
+          "u": "Stk",
+          "n": "Zitrone"
+        }
+      ],
+      "steps": [
+        "Brösel, geriebenen Parmesan, Eier, Muskat und Zitronenschale zu einem festen Teig kneten.",
+        "Dreißig Minuten ruhen lassen.",
+        "Teig durch eine Kartoffelpresse mit großen Löchern drücken und die Stränge abschneiden.",
+        "Brühe aufkochen und die Passatelli darin drei Minuten garen.",
+        "Sofort mit zusätzlichem Parmesan servieren."
+      ],
+      "note": "Modernisierte Fassung nach Artusi."
+    },
+    {
+      "id": "artusi-tortelli-ricotta",
+      "title": "Tortelli mit Ricotta und Spinat",
+      "chapter": "Nudel- und Reisgerichte",
+      "cuisine": "Italienisch",
+      "category": "Hauptgericht",
+      "meals": [
+        "mittag",
+        "abend"
+      ],
+      "diet": [
+        "vegetarisch"
+      ],
+      "servings": 4,
+      "prep": 60,
+      "cook": 5,
+      "difficulty": 3,
+      "kcal": 520,
+      "tags": [
+        "Nudeln",
+        "Festessen"
+      ],
+      "ingredients": [
+        {
+          "a": 300,
+          "u": "g",
+          "n": "Hartweizenmehl"
+        },
+        {
+          "a": 3,
+          "u": "Stk",
+          "n": "Eier"
+        },
+        {
+          "a": 400,
+          "u": "g",
+          "n": "Ricotta"
+        },
+        {
+          "a": 300,
+          "u": "g",
+          "n": "Blattspinat"
+        },
+        {
+          "a": 80,
+          "u": "g",
+          "n": "Parmesan"
+        },
+        {
+          "a": 1,
+          "u": "Prise",
+          "n": "Muskatnuss"
+        },
+        {
+          "a": 80,
+          "u": "g",
+          "n": "Butter"
+        },
+        {
+          "a": 1,
+          "u": "Bund",
+          "n": "Salbei"
+        }
+      ],
+      "steps": [
+        "Mehl und Eier zu einem glatten Nudelteig kneten und eine Stunde ruhen lassen.",
+        "Spinat blanchieren, gut ausdrücken und fein hacken.",
+        "Mit Ricotta, Parmesan, Muskat und Salz zur Füllung mischen.",
+        "Teig dünn ausrollen, Füllung aufsetzen, zuklappen und Tortelli ausstechen.",
+        "In Salzwasser vier Minuten garen.",
+        "In Salbeibutter schwenken und mit Parmesan servieren."
+      ],
+      "note": "Modernisierte Fassung nach Artusi."
+    },
+    {
+      "id": "artusi-gelato-crema",
+      "title": "Crema-Eis",
+      "chapter": "Eis",
+      "cuisine": "Italienisch",
+      "category": "Dessert",
+      "meals": [
+        "snack"
+      ],
+      "diet": [
+        "vegetarisch",
+        "glutenfrei"
+      ],
+      "servings": 6,
+      "prep": 25,
+      "cook": 10,
+      "difficulty": 2,
+      "kcal": 290,
+      "tags": [
+        "Eis",
+        "Sommer"
+      ],
+      "ingredients": [
+        {
+          "a": 500,
+          "u": "ml",
+          "n": "Milch"
+        },
+        {
+          "a": 250,
+          "u": "ml",
+          "n": "Sahne"
+        },
+        {
+          "a": 6,
+          "u": "Stk",
+          "n": "Eigelb"
+        },
+        {
+          "a": 150,
+          "u": "g",
+          "n": "Zucker"
+        },
+        {
+          "a": 1,
+          "u": "Stk",
+          "n": "Vanilleschote"
+        },
+        {
+          "a": 1,
+          "u": "Stk",
+          "n": "Zitrone"
+        }
+      ],
+      "steps": [
+        "Milch und Sahne mit Vanille und Zitronenschale erhitzen.",
+        "Eigelb mit Zucker weißschaumig rühren.",
+        "Heiße Milch einrühren und bei kleiner Hitze zur Rose abziehen, nicht kochen.",
+        "Durch ein Sieb gießen und vollständig kalt stellen.",
+        "In der Eismaschine gefrieren oder im Gefrierfach stündlich durchrühren."
+      ],
+      "note": "Modernisierte Fassung nach Artusi."
+    }
+  ]
+}

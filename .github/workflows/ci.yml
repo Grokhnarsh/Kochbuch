@@ -1,0 +1,94 @@
+name: CI
+
+on:
+  push:
+    branches: ['**']
+  pull_request:
+  workflow_dispatch:
+
+# Ein laufender Durchgang je Branch reicht; ältere werden abgebrochen.
+concurrency:
+  group: ci-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  test:
+    name: Tests und Build
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+          cache: npm
+
+      - name: Abhängigkeiten installieren
+        run: npm ci
+
+      - name: Modultests
+        run: npm test
+
+      - name: Produktionsbündel bauen
+        run: npm run build
+
+      - name: Bündel als Artefakt sichern
+        uses: actions/upload-artifact@v4
+        with:
+          name: dist
+          path: dist/
+          retention-days: 7
+
+  browser:
+    name: Rauchtest im Browser
+    runs-on: ubuntu-latest
+    needs: test
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+          cache: npm
+
+      - name: Abhängigkeiten installieren
+        run: npm ci
+
+      - name: Chromium bereitstellen
+        run: npx playwright install --with-deps chromium
+
+      - name: Bauen
+        run: npm run build
+
+      - name: Vorschau starten und abwarten
+        run: |
+          npm run preview -- --host 127.0.0.1 &
+          for i in $(seq 1 30); do
+            if curl -sf -o /dev/null http://127.0.0.1:4173/; then
+              echo "Vorschau erreichbar nach ${i}s"
+              exit 0
+            fi
+            sleep 1
+          done
+          echo "Vorschau kam nicht hoch" >&2
+          exit 1
+
+      - name: WebGL-Board, Planung und Einkaufsliste prüfen
+        run: npm run test:browser
+        env:
+          # Bildschirmfotos schreiben, damit ein Fehlschlag nachvollziehbar ist.
+          SHOT_DIR: screenshots
+
+      - name: Handy-Ansicht prüfen
+        run: npm run test:handy
+        env:
+          SHOT_DIR: screenshots
+
+      - name: Bildschirmfotos bei Fehlschlag sichern
+        if: failure()
+        uses: actions/upload-artifact@v4
+        with:
+          name: screenshots
+          path: screenshots/
+          retention-days: 7
+          if-no-files-found: ignore

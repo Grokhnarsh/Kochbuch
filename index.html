@@ -1,0 +1,91 @@
+<!doctype html>
+<html lang="de">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+  <title>Kochbuch — Wochenplaner</title>
+  <meta name="description" content="WebGL-Kochbuch mit Wochen-Essensplaner und Rezepten aus offentlichen Quellen." />
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🍲</text></svg>" />
+  <link rel="stylesheet" href="/src/style.css" />
+</head>
+<body>
+  <canvas id="stage" aria-label="Dreidimensionaler Wochenplan" role="img"></canvas>
+
+  <header class="topbar">
+    <div class="brand">
+      <span class="brand-mark" aria-hidden="true"></span>
+      <span class="brand-text">
+        <strong>Kochbuch</strong>
+        <em id="week-label">Wochenplan</em>
+      </span>
+    </div>
+
+    <nav class="week-nav" aria-label="Woche wechseln">
+      <button class="icon-btn" id="week-prev" title="Vorige Woche" aria-label="Vorige Woche">&#8249;</button>
+      <button class="ghost-btn" id="week-today">Diese Woche</button>
+      <button class="icon-btn" id="week-next" title="Nächste Woche" aria-label="Nächste Woche">&#8250;</button>
+    </nav>
+
+    <div class="week-stats" id="week-summary" aria-live="polite"></div>
+
+    <div class="topbar-actions">
+      <button class="ghost-btn" id="btn-autofill" title="Leere Felder automatisch füllen">Woche füllen</button>
+      <button class="ghost-btn" id="btn-clear" title="Alle Einträge der Woche löschen">Leeren</button>
+      <button class="ghost-btn" id="btn-sources">Quellen</button>
+      <button class="icon-btn only-phone" id="btn-more" aria-label="Weitere Aktionen" aria-expanded="false">&#8943;</button>
+      <button class="primary-btn" id="btn-shopping">Einkaufsliste</button>
+    </div>
+  </header>
+
+  <nav class="day-strip" id="day-strip" aria-label="Wochentag wählen"></nav>
+
+  <div class="armed-bar" id="armed-bar" hidden></div>
+
+  <div class="phone-menu" id="phone-menu" hidden>
+    <button class="ghost-btn" data-action="autofill">Woche füllen</button>
+    <button class="ghost-btn" data-action="clear">Woche leeren</button>
+    <button class="ghost-btn" data-action="newRecipe">Eigenes Rezept schreiben</button>
+    <button class="ghost-btn" data-action="sources">Quellen &amp; Lizenzen</button>
+  </div>
+
+  <aside class="library" id="library" aria-label="Rezeptbibliothek">
+    <div class="library-head" id="library-head">
+      <span class="sheet-grip" aria-hidden="true"></span>
+      <h2>Bibliothek</h2>
+      <span class="library-count" id="library-count"></span>
+      <button class="icon-btn library-toggle" id="library-toggle" aria-label="Bibliothek ein- oder ausklappen">&#8249;</button>
+    </div>
+
+    <div class="search-row">
+      <input type="search" id="search" placeholder="Rezept, Zutat oder Küche suchen…" autocomplete="off" />
+    </div>
+
+    <div class="filters">
+      <select id="filter-source" aria-label="Quelle"><option value="">Alle Quellen</option></select>
+      <select id="filter-category" aria-label="Kategorie"><option value="">Alle Kategorien</option></select>
+      <select id="filter-diet" aria-label="Ernährung"><option value="">Alle Ernährungsformen</option></select>
+      <select id="filter-allergen" aria-label="Allergen ausschließen"><option value="">Ohne Allergen …</option></select>
+      <select id="filter-time" aria-label="Maximale Zeit">
+        <option value="">Beliebige Dauer</option>
+        <option value="20">bis 20 Min.</option>
+        <option value="40">bis 40 Min.</option>
+        <option value="60">bis 60 Min.</option>
+      </select>
+    </div>
+
+    <p class="result-count" id="result-count"></p>
+    <div class="recipe-list" id="recipe-list"></div>
+
+    <footer class="library-foot">
+      <span id="corpus-note"></span>
+      <button class="ghost-btn" id="btn-new-recipe" title="Ein eigenes Rezept schreiben">+ Eigenes Rezept</button>
+    </footer>
+  </aside>
+
+  <div class="hint" id="hint">Rezept aus der Bibliothek auf ein Feld ziehen — oder Gerichte im Plan verschieben.</div>
+
+  <div class="modal-root" id="modal-root" hidden></div>
+
+  <script type="module" src="/src/main.js"></script>
+</body>
+</html>

@@ -1,0 +1,1084 @@
+{
+  "sourceId": "glasse-1747",
+  "recipes": [
+    {
+      "id": "glasse-onion-soup",
+      "title": "Zwiebelsuppe nach englischer Art",
+      "chapter": "Von Suppen und Brühen",
+      "cuisine": "Britisch",
+      "category": "Suppe",
+      "meals": [
+        "mittag",
+        "abend"
+      ],
+      "diet": [
+        "vegetarisch"
+      ],
+      "servings": 4,
+      "prep": 15,
+      "cook": 60,
+      "difficulty": 1,
+      "kcal": 320,
+      "tags": [
+        "günstig",
+        "Winter"
+      ],
+      "ingredients": [
+        {
+          "a": 1000,
+          "u": "g",
+          "n": "Zwiebeln"
+        },
+        {
+          "a": 60,
+          "u": "g",
+          "n": "Butter"
+        },
+        {
+          "a": 1.2,
+          "u": "l",
+          "n": "Gemüsebrühe"
+        },
+        {
+          "a": 4,
+          "u": "Scheibe",
+          "n": "Weißbrot"
+        },
+        {
+          "a": 150,
+          "u": "g",
+          "n": "Bergkäse"
+        },
+        {
+          "a": 1,
+          "u": "TL",
+          "n": "Salz"
+        },
+        {
+          "a": 1,
+          "u": "Prise",
+          "n": "Muskatnuss"
+        }
+      ],
+      "steps": [
+        "Zwiebeln in feine Ringe schneiden.",
+        "In Butter bei mittlerer Hitze vierzig Minuten langsam goldbraun schmelzen lassen, dabei oft rühren.",
+        "Mit Brühe auffüllen und zwanzig Minuten ziehen lassen.",
+        "Mit Salz, Pfeffer und Muskat abschmecken.",
+        "Mit geröstetem Brot und Käse überbacken servieren."
+      ],
+      "note": "Modernisierte Fassung nach Glasse."
+    },
+    {
+      "id": "glasse-currey-indian-way",
+      "title": "Curry nach indischer Art",
+      "chapter": "Von zusammengesetzten Gerichten",
+      "cuisine": "Britisch",
+      "category": "Hauptgericht",
+      "meals": [
+        "mittag",
+        "abend"
+      ],
+      "diet": [
+        "glutenfrei"
+      ],
+      "servings": 4,
+      "prep": 20,
+      "cook": 45,
+      "difficulty": 2,
+      "kcal": 480,
+      "tags": [
+        "Curry",
+        "Historisch"
+      ],
+      "ingredients": [
+        {
+          "a": 1000,
+          "u": "g",
+          "n": "Hähnchenteile"
+        },
+        {
+          "a": 3,
+          "u": "Stk",
+          "n": "Zwiebeln"
+        },
+        {
+          "a": 2,
+          "u": "TL",
+          "n": "Koriandersamen, gemahlen"
+        },
+        {
+          "a": 2,
+          "u": "TL",
+          "n": "Kurkuma"
+        },
+        {
+          "a": 1,
+          "u": "TL",
+          "n": "Pfeffer, schwarz"
+        },
+        {
+          "a": 3,
+          "u": "EL",
+          "n": "Butterschmalz"
+        },
+        {
+          "a": 400,
+          "u": "ml",
+          "n": "Hühnerbrühe"
+        },
+        {
+          "a": 200,
+          "u": "ml",
+          "n": "Sahne"
+        },
+        {
+          "a": 2,
+          "u": "EL",
+          "n": "Zitronensaft"
+        },
+        {
+          "a": 1,
+          "u": "TL",
+          "n": "Salz"
+        }
+      ],
+      "steps": [
+        "Zwiebelscheiben im Schmalz zwanzig Minuten hellbraun rösten.",
+        "Gewürze zugeben und eine Minute mitrösten, bis sie duften.",
+        "Hähnchenteile zufügen und rundum wenden.",
+        "Mit Brühe ablöschen und dreißig Minuten zugedeckt schmoren.",
+        "Sahne und Zitronensaft einrühren und offen einkochen lassen.",
+        "Mit Reis servieren."
+      ],
+      "note": "Modernisierte Fassung nach Glasse; eines der ersten Curry-Rezepte in englischer Sprache."
+    },
+    {
+      "id": "glasse-haricot-mutton",
+      "title": "Lammragout mit Wurzelgemüse",
+      "chapter": "Von zusammengesetzten Gerichten",
+      "cuisine": "Britisch",
+      "category": "Hauptgericht",
+      "meals": [
+        "mittag",
+        "abend"
+      ],
+      "diet": [],
+      "servings": 4,
+      "prep": 25,
+      "cook": 105,
+      "difficulty": 2,
+      "kcal": 560,
+      "tags": [
+        "Schmoren",
+        "Winter"
+      ],
+      "ingredients": [
+        {
+          "a": 900,
+          "u": "g",
+          "n": "Lammschulter"
+        },
+        {
+          "a": 4,
+          "u": "Stk",
+          "n": "Möhren"
+        },
+        {
+          "a": 2,
+          "u": "Stk",
+          "n": "Steckrüben"
+        },
+        {
+          "a": 2,
+          "u": "Stk",
+          "n": "Zwiebeln"
+        },
+        {
+          "a": 3,
+          "u": "EL",
+          "n": "Butterschmalz"
+        },
+        {
+          "a": 30,
+          "u": "g",
+          "n": "Mehl"
+        },
+        {
+          "a": 700,
+          "u": "ml",
+          "n": "Lammbrühe"
+        },
+        {
+          "a": 2,
+          "u": "Zweig",
+          "n": "Thymian"
+        },
+        {
+          "a": 1,
+          "u": "TL",
+          "n": "Salz"
+        }
+      ],
+      "steps": [
+        "Fleischwürfel im Schmalz kräftig anbraten.",
+        "Mit Mehl bestäuben und kurz mitrösten.",
+        "Mit Brühe ablöschen und glatt rühren.",
+        "Thymian zugeben und eine Stunde zugedeckt schmoren.",
+        "Wurzelgemüse in groben Stücken zugeben und weitere dreißig Minuten garen.",
+        "Abschmecken und mit Kartoffeln servieren."
+      ],
+      "note": "Modernisierte Fassung nach Glasse."
+    },
+    {
+      "id": "glasse-mushroom-fricassee",
+      "title": "Champignon-Frikassee",
+      "chapter": "Von zusammengesetzten Gerichten",
+      "cuisine": "Britisch",
+      "category": "Hauptgericht",
+      "meals": [
+        "mittag",
+        "abend"
+      ],
+      "diet": [
+        "vegetarisch"
+      ],
+      "servings": 4,
+      "prep": 15,
+      "cook": 20,
+      "difficulty": 1,
+      "kcal": 300,
+      "tags": [
+        "schnell",
+        "Pilze"
+      ],
+      "ingredients": [
+        {
+          "a": 800,
+          "u": "g",
+          "n": "Champignons"
+        },
+        {
+          "a": 50,
+          "u": "g",
+          "n": "Butter"
+        },
+        {
+          "a": 20,
+          "u": "g",
+          "n": "Mehl"
+        },
+        {
+          "a": 250,
+          "u": "ml",
+          "n": "Sahne"
+        },
+        {
+          "a": 2,
+          "u": "Stk",
+          "n": "Eigelb"
+        },
+        {
+          "a": 1,
+          "u": "Stk",
+          "n": "Zitrone"
+        },
+        {
+          "a": 1,
+          "u": "Prise",
+          "n": "Muskatnuss"
+        },
+        {
+          "a": 1,
+          "u": "TL",
+          "n": "Salz"
+        }
+      ],
+      "steps": [
+        "Champignons vierteln und in heißer Butter kräftig anbraten, bis die Flüssigkeit verdampft ist.",
+        "Mit Mehl bestäuben und mit Sahne ablöschen.",
+        "Fünf Minuten köcheln lassen.",
+        "Eigelb mit etwas Sauce verrühren und die Sauce damit legieren, nicht mehr kochen.",
+        "Mit Zitronensaft, Muskat und Salz abschmecken."
+      ],
+      "note": "Modernisierte Fassung nach Glasse."
+    },
+    {
+      "id": "glasse-seed-cake",
+      "title": "Kümmelkuchen",
+      "chapter": "Vom Kuchen",
+      "cuisine": "Britisch",
+      "category": "Backen",
+      "meals": [
+        "snack"
+      ],
+      "diet": [
+        "vegetarisch"
+      ],
+      "servings": 12,
+      "prep": 20,
+      "cook": 60,
+      "difficulty": 2,
+      "kcal": 330,
+      "tags": [
+        "Historisch",
+        "Nachmittagstee"
+      ],
+      "ingredients": [
+        {
+          "a": 300,
+          "u": "g",
+          "n": "Weizenmehl Type 405"
+        },
+        {
+          "a": 250,
+          "u": "g",
+          "n": "Butter"
+        },
+        {
+          "a": 250,
+          "u": "g",
+          "n": "Zucker"
+        },
+        {
+          "a": 5,
+          "u": "Stk",
+          "n": "Eier"
+        },
+        {
+          "a": 3,
+          "u": "EL",
+          "n": "Kümmel, ganz"
+        },
+        {
+          "a": 1,
+          "u": "TL",
+          "n": "Backpulver"
+        },
+        {
+          "a": 3,
+          "u": "EL",
+          "n": "Brandy"
+        }
+      ],
+      "steps": [
+        "Butter und Zucker sehr schaumig rühren.",
+        "Eier einzeln unterrühren, damit die Masse nicht gerinnt.",
+        "Mehl, Backpulver und Kümmel unterheben, zuletzt den Brandy.",
+        "In eine gefettete Kastenform füllen.",
+        "Bei 165 Grad eine Stunde backen und mit der Stäbchenprobe prüfen."
+      ],
+      "note": "Modernisierte Fassung nach Glasse."
+    },
+    {
+      "id": "glasse-syllabub",
+      "title": "Weinschaumcreme",
+      "chapter": "Von den Cremes",
+      "cuisine": "Britisch",
+      "category": "Dessert",
+      "meals": [
+        "snack"
+      ],
+      "diet": [
+        "vegetarisch",
+        "glutenfrei"
+      ],
+      "servings": 6,
+      "prep": 15,
+      "cook": 0,
+      "difficulty": 1,
+      "kcal": 290,
+      "tags": [
+        "Historisch",
+        "kalt",
+        "schnell"
+      ],
+      "ingredients": [
+        {
+          "a": 500,
+          "u": "ml",
+          "n": "Sahne"
+        },
+        {
+          "a": 150,
+          "u": "ml",
+          "n": "Weißwein"
+        },
+        {
+          "a": 2,
+          "u": "Stk",
+          "n": "Zitronen"
+        },
+        {
+          "a": 100,
+          "u": "g",
+          "n": "Zucker"
+        },
+        {
+          "a": 1,
+          "u": "Prise",
+          "n": "Muskatnuss"
+        }
+      ],
+      "steps": [
+        "Zitronenschale abreiben und Saft auspressen.",
+        "Saft, Schale, Wein und Zucker verrühren und eine Stunde ziehen lassen.",
+        "Sahne langsam einlaufen lassen und dabei schlagen, bis die Masse weiche Spitzen bildet.",
+        "In Gläser füllen und mit Muskat bestäuben.",
+        "Mehrere Stunden kalt stellen, dabei trennt sich traditionell eine klare Schicht ab."
+      ],
+      "note": "Modernisierte Fassung nach Glasse."
+    },
+    {
+      "id": "glasse-gooseberry-fool",
+      "title": "Stachelbeercreme",
+      "chapter": "Von den Cremes",
+      "cuisine": "Britisch",
+      "category": "Dessert",
+      "meals": [
+        "snack"
+      ],
+      "diet": [
+        "vegetarisch",
+        "glutenfrei"
+      ],
+      "servings": 4,
+      "prep": 15,
+      "cook": 15,
+      "difficulty": 1,
+      "kcal": 260,
+      "tags": [
+        "Sommer",
+        "schnell"
+      ],
+      "ingredients": [
+        {
+          "a": 600,
+          "u": "g",
+          "n": "Stachelbeeren"
+        },
+        {
+          "a": 120,
+          "u": "g",
+          "n": "Zucker"
+        },
+        {
+          "a": 400,
+          "u": "ml",
+          "n": "Sahne"
+        },
+        {
+          "a": 1,
+          "u": "TL",
+          "n": "Vanilleextrakt"
+        }
+      ],
+      "steps": [
+        "Stachelbeeren mit Zucker und zwei Esslöffeln Wasser weich kochen.",
+        "Grob zerdrücken und vollständig auskühlen lassen.",
+        "Sahne mit Vanille steif schlagen.",
+        "Fruchtmus nur locker unterziehen, sodass Schlieren bleiben.",
+        "Kalt in Gläsern servieren."
+      ],
+      "note": "Modernisierte Fassung nach Glasse."
+    },
+    {
+      "id": "glasse-apple-fritters",
+      "title": "Apfelküchlein",
+      "chapter": "Vom Ausgebackenen",
+      "cuisine": "Britisch",
+      "category": "Dessert",
+      "meals": [
+        "snack"
+      ],
+      "diet": [
+        "vegetarisch"
+      ],
+      "servings": 4,
+      "prep": 20,
+      "cook": 15,
+      "difficulty": 2,
+      "kcal": 380,
+      "tags": [
+        "Frittieren",
+        "Apfel"
+      ],
+      "ingredients": [
+        {
+          "a": 4,
+          "u": "Stk",
+          "n": "Äpfel"
+        },
+        {
+          "a": 200,
+          "u": "g",
+          "n": "Weizenmehl Type 405"
+        },
+        {
+          "a": 250,
+          "u": "ml",
+          "n": "Bier"
+        },
+        {
+          "a": 2,
+          "u": "Stk",
+          "n": "Eier"
+        },
+        {
+          "a": 1,
+          "u": "Prise",
+          "n": "Salz"
+        },
+        {
+          "a": 500,
+          "u": "ml",
+          "n": "Frittieröl"
+        },
+        {
+          "a": 60,
+          "u": "g",
+          "n": "Zucker"
+        },
+        {
+          "a": 2,
+          "u": "TL",
+          "n": "Zimt"
+        }
+      ],
+      "steps": [
+        "Mehl, Bier, Eigelb und Salz zu einem glatten Teig rühren und dreißig Minuten ruhen lassen.",
+        "Eiweiß steif schlagen und unterheben, das macht den Ausbackteig leicht.",
+        "Äpfel schälen, entkernen und in Ringe schneiden.",
+        "Ringe durch den Teig ziehen und in 175 Grad heißem Öl goldbraun ausbacken.",
+        "Abtropfen lassen und in Zimtzucker wenden."
+      ],
+      "note": "Modernisierte Fassung nach Glasse."
+    },
+    {
+      "id": "glasse-pickled-red-cabbage",
+      "title": "Eingelegter Rotkohl",
+      "chapter": "Vom Einlegen",
+      "cuisine": "Britisch",
+      "category": "Beilage",
+      "meals": [
+        "mittag",
+        "abend"
+      ],
+      "diet": [
+        "vegetarisch",
+        "vegan",
+        "glutenfrei"
+      ],
+      "servings": 12,
+      "prep": 25,
+      "cook": 10,
+      "difficulty": 1,
+      "kcal": 45,
+      "tags": [
+        "Vorrat",
+        "kalt"
+      ],
+      "ingredients": [
+        {
+          "a": 1000,
+          "u": "g",
+          "n": "Rotkohl"
+        },
+        {
+          "a": 3,
+          "u": "EL",
+          "n": "Salz"
+        },
+        {
+          "a": 700,
+          "u": "ml",
+          "n": "Rotweinessig"
+        },
+        {
+          "a": 100,
+          "u": "g",
+          "n": "Zucker"
+        },
+        {
+          "a": 2,
+          "u": "TL",
+          "n": "Pfefferkörner"
+        },
+        {
+          "a": 4,
+          "u": "Stk",
+          "n": "Lorbeerblätter"
+        },
+        {
+          "a": 1,
+          "u": "TL",
+          "n": "Nelken"
+        }
+      ],
+      "steps": [
+        "Rotkohl fein hobeln, mit Salz mischen und über Nacht Wasser ziehen lassen.",
+        "Gut abspülen und sehr gründlich trocken tupfen.",
+        "Essig mit Zucker und Gewürzen aufkochen und abkühlen lassen.",
+        "Kohl in saubere Gläser schichten und mit dem Sud übergießen.",
+        "Eine Woche durchziehen lassen; hält kühl mehrere Monate."
+      ],
+      "note": "Modernisierte Fassung nach Glasse."
+    },
+    {
+      "id": "glasse-salmagundi",
+      "title": "Bunter Salatteller",
+      "chapter": "Von den Salaten",
+      "cuisine": "Britisch",
+      "category": "Vorspeise",
+      "meals": [
+        "mittag",
+        "abend"
+      ],
+      "diet": [],
+      "servings": 6,
+      "prep": 30,
+      "cook": 10,
+      "difficulty": 2,
+      "kcal": 340,
+      "tags": [
+        "kalt",
+        "Feier",
+        "Resteverwertung"
+      ],
+      "ingredients": [
+        {
+          "a": 400,
+          "u": "g",
+          "n": "gegartes Hähnchenfleisch"
+        },
+        {
+          "a": 6,
+          "u": "Stk",
+          "n": "Eier"
+        },
+        {
+          "a": 200,
+          "u": "g",
+          "n": "Blattsalat"
+        },
+        {
+          "a": 8,
+          "u": "Stk",
+          "n": "Sardellenfilets"
+        },
+        {
+          "a": 150,
+          "u": "g",
+          "n": "Weintrauben"
+        },
+        {
+          "a": 1,
+          "u": "Stk",
+          "n": "rote Zwiebel"
+        },
+        {
+          "a": 100,
+          "u": "g",
+          "n": "eingelegte Rote Bete"
+        },
+        {
+          "a": 6,
+          "u": "EL",
+          "n": "Olivenöl"
+        },
+        {
+          "a": 3,
+          "u": "EL",
+          "n": "Weinessig"
+        },
+        {
+          "a": 1,
+          "u": "TL",
+          "n": "Salz"
+        }
+      ],
+      "steps": [
+        "Eier hart kochen, abschrecken und vierteln.",
+        "Alle Zutaten getrennt in Streifen oder Stücke schneiden.",
+        "Auf einer großen Platte in konzentrischen Ringen anordnen, das ist das Wesen dieses Gerichts.",
+        "Öl, Essig und Salz zu einer Vinaigrette rühren.",
+        "Erst am Tisch beträufeln und mischen."
+      ],
+      "note": "Modernisierte Fassung nach Glasse."
+    },
+    {
+      "id": "glasse-pease-soup",
+      "title": "Erbsensuppe nach alter englischer Art",
+      "chapter": "Von Suppen und Brühen",
+      "cuisine": "Britisch",
+      "category": "Suppe",
+      "meals": [
+        "mittag",
+        "abend"
+      ],
+      "diet": [
+        "vegetarisch",
+        "vegan"
+      ],
+      "servings": 6,
+      "prep": 15,
+      "cook": 90,
+      "difficulty": 1,
+      "kcal": 330,
+      "tags": [
+        "günstig",
+        "Eintopf"
+      ],
+      "ingredients": [
+        {
+          "a": 400,
+          "u": "g",
+          "n": "getrocknete Schälerbsen"
+        },
+        {
+          "a": 2,
+          "u": "l",
+          "n": "Gemüsebrühe"
+        },
+        {
+          "a": 2,
+          "u": "Stk",
+          "n": "Zwiebeln"
+        },
+        {
+          "a": 2,
+          "u": "Stk",
+          "n": "Stangen Sellerie"
+        },
+        {
+          "a": 1,
+          "u": "Bund",
+          "n": "Minze"
+        },
+        {
+          "a": 40,
+          "u": "g",
+          "n": "Butter"
+        },
+        {
+          "a": 1,
+          "u": "TL",
+          "n": "Salz"
+        },
+        {
+          "a": 4,
+          "u": "Scheibe",
+          "n": "Weißbrot"
+        }
+      ],
+      "steps": [
+        "Erbsen abspülen und mit Brühe, Zwiebeln und Sellerie aufsetzen.",
+        "Eineinhalb Stunden köcheln, bis die Erbsen zerfallen.",
+        "Suppe glatt pürieren.",
+        "Butter und gehackte Minze einrühren und kräftig würzen.",
+        "Mit Croûtons aus geröstetem Weißbrot servieren."
+      ],
+      "note": "Modernisierte, fleischlose Fassung nach Glasse."
+    },
+    {
+      "id": "glasse-potato-pudding",
+      "title": "Süßer Kartoffelauflauf",
+      "chapter": "Von den Puddings",
+      "cuisine": "Britisch",
+      "category": "Dessert",
+      "meals": [
+        "snack"
+      ],
+      "diet": [
+        "vegetarisch",
+        "glutenfrei"
+      ],
+      "servings": 8,
+      "prep": 25,
+      "cook": 50,
+      "difficulty": 2,
+      "kcal": 300,
+      "tags": [
+        "Historisch",
+        "Ofen"
+      ],
+      "ingredients": [
+        {
+          "a": 700,
+          "u": "g",
+          "n": "Kartoffeln, mehligkochend"
+        },
+        {
+          "a": 150,
+          "u": "g",
+          "n": "Butter"
+        },
+        {
+          "a": 150,
+          "u": "g",
+          "n": "Zucker"
+        },
+        {
+          "a": 5,
+          "u": "Stk",
+          "n": "Eier"
+        },
+        {
+          "a": 200,
+          "u": "ml",
+          "n": "Sahne"
+        },
+        {
+          "a": 1,
+          "u": "Stk",
+          "n": "Zitrone"
+        },
+        {
+          "a": 3,
+          "u": "EL",
+          "n": "Brandy"
+        },
+        {
+          "a": 1,
+          "u": "Prise",
+          "n": "Muskatnuss"
+        }
+      ],
+      "steps": [
+        "Kartoffeln garen, pellen und heiß durch die Presse drücken.",
+        "Butter und Zucker in die warme Masse rühren.",
+        "Eier, Sahne, Zitronenschale, Brandy und Muskat untermengen.",
+        "In eine gefettete Form füllen.",
+        "Bei 180 Grad fünfzig Minuten backen, bis die Oberfläche goldbraun ist."
+      ],
+      "note": "Modernisierte Fassung nach Glasse."
+    },
+    {
+      "id": "glasse-fried-fish-batter",
+      "title": "Ausgebackener Fisch im Bierteig",
+      "chapter": "Vom Fisch",
+      "cuisine": "Britisch",
+      "category": "Hauptgericht",
+      "meals": [
+        "mittag",
+        "abend"
+      ],
+      "diet": [],
+      "servings": 4,
+      "prep": 20,
+      "cook": 20,
+      "difficulty": 2,
+      "kcal": 620,
+      "tags": [
+        "Frittieren",
+        "Fisch"
+      ],
+      "ingredients": [
+        {
+          "a": 800,
+          "u": "g",
+          "n": "Kabeljaufilet"
+        },
+        {
+          "a": 250,
+          "u": "g",
+          "n": "Weizenmehl Type 405"
+        },
+        {
+          "a": 330,
+          "u": "ml",
+          "n": "Bier, kalt"
+        },
+        {
+          "a": 1,
+          "u": "TL",
+          "n": "Backpulver"
+        },
+        {
+          "a": 1,
+          "u": "TL",
+          "n": "Salz"
+        },
+        {
+          "a": 1,
+          "u": "l",
+          "n": "Frittieröl"
+        },
+        {
+          "a": 1,
+          "u": "Stk",
+          "n": "Zitrone"
+        }
+      ],
+      "steps": [
+        "Fisch in portionsgroße Stücke schneiden, trocken tupfen und salzen.",
+        "Mehl, Backpulver, Salz und eiskaltes Bier rasch zu einem Teig rühren, Klümpchen sind erlaubt.",
+        "Fischstücke in Mehl wenden, dann durch den Teig ziehen.",
+        "In 180 Grad heißem Öl fünf bis sechs Minuten goldbraun ausbacken.",
+        "Auf einem Gitter abtropfen lassen und sofort mit Zitrone servieren."
+      ],
+      "note": "Modernisierte Fassung nach Glasse."
+    },
+    {
+      "id": "glasse-hot-cross-buns",
+      "title": "Kreuzbrötchen zu Ostern",
+      "chapter": "Vom Brot",
+      "cuisine": "Britisch",
+      "category": "Backen",
+      "meals": [
+        "fruehstueck",
+        "snack"
+      ],
+      "diet": [
+        "vegetarisch"
+      ],
+      "servings": 12,
+      "prep": 40,
+      "cook": 25,
+      "difficulty": 2,
+      "kcal": 250,
+      "tags": [
+        "Hefeteig",
+        "Ostern"
+      ],
+      "ingredients": [
+        {
+          "a": 500,
+          "u": "g",
+          "n": "Weizenmehl Type 550"
+        },
+        {
+          "a": 280,
+          "u": "ml",
+          "n": "Milch"
+        },
+        {
+          "a": 21,
+          "u": "g",
+          "n": "frische Hefe"
+        },
+        {
+          "a": 70,
+          "u": "g",
+          "n": "Zucker"
+        },
+        {
+          "a": 60,
+          "u": "g",
+          "n": "Butter"
+        },
+        {
+          "a": 1,
+          "u": "Stk",
+          "n": "Ei"
+        },
+        {
+          "a": 150,
+          "u": "g",
+          "n": "Rosinen"
+        },
+        {
+          "a": 2,
+          "u": "TL",
+          "n": "Lebkuchengewürz"
+        },
+        {
+          "a": 50,
+          "u": "g",
+          "n": "Weizenmehl Type 405"
+        },
+        {
+          "a": 3,
+          "u": "EL",
+          "n": "Aprikosenmarmelade"
+        }
+      ],
+      "steps": [
+        "Hefe in lauwarmer Milch auflösen und mit Mehl, Zucker, Butter, Ei und Gewürz zu einem Teig kneten.",
+        "Rosinen zum Schluss einarbeiten und den Teig eine Stunde gehen lassen.",
+        "Zwölf Brötchen formen und dicht nebeneinander auf ein Blech setzen.",
+        "Nochmals vierzig Minuten gehen lassen.",
+        "Aus Mehl und Wasser eine Paste rühren und Kreuze aufspritzen.",
+        "Bei 200 Grad fünfundzwanzig Minuten backen und warm mit erwärmter Marmelade bestreichen."
+      ],
+      "note": "Modernisierte Fassung nach Glasse."
+    },
+    {
+      "id": "glasse-cheesecake",
+      "title": "Englischer Käsekuchen",
+      "chapter": "Von den Käsekuchen",
+      "cuisine": "Britisch",
+      "category": "Backen",
+      "meals": [
+        "snack"
+      ],
+      "diet": [
+        "vegetarisch"
+      ],
+      "servings": 10,
+      "prep": 30,
+      "cook": 45,
+      "difficulty": 2,
+      "kcal": 390,
+      "tags": [
+        "Historisch",
+        "Quark"
+      ],
+      "ingredients": [
+        {
+          "a": 250,
+          "u": "g",
+          "n": "Weizenmehl Type 405"
+        },
+        {
+          "a": 150,
+          "u": "g",
+          "n": "Butter"
+        },
+        {
+          "a": 60,
+          "u": "ml",
+          "n": "Eiswasser"
+        },
+        {
+          "a": 500,
+          "u": "g",
+          "n": "Quark"
+        },
+        {
+          "a": 150,
+          "u": "g",
+          "n": "Zucker"
+        },
+        {
+          "a": 4,
+          "u": "Stk",
+          "n": "Eier"
+        },
+        {
+          "a": 100,
+          "u": "g",
+          "n": "Korinthen"
+        },
+        {
+          "a": 1,
+          "u": "Stk",
+          "n": "Zitrone"
+        },
+        {
+          "a": 1,
+          "u": "Prise",
+          "n": "Muskatnuss"
+        }
+      ],
+      "steps": [
+        "Aus Mehl, Butter und Eiswasser einen Mürbteig kneten und eine Stunde kühlen.",
+        "Teig in eine Form legen und blind fünfzehn Minuten bei 190 Grad vorbacken.",
+        "Quark mit Zucker, Eiern, Zitronenschale und Muskat glatt rühren.",
+        "Korinthen unterheben und die Masse einfüllen.",
+        "Bei 170 Grad fünfundvierzig Minuten backen und im ausgeschalteten Ofen auskühlen lassen."
+      ],
+      "note": "Modernisierte Fassung nach Glasse."
+    }
+  ]
+}

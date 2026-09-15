@@ -1,0 +1,1429 @@
+{
+  "sourceId": "beeton-1861",
+  "recipes": [
+    {
+      "id": "beeton-shepherds-pie",
+      "title": "Hackfleischauflauf mit Kartoffelhaube",
+      "chapter": "Resteküche",
+      "cuisine": "Britisch",
+      "category": "Hauptgericht",
+      "meals": [
+        "mittag",
+        "abend"
+      ],
+      "diet": [],
+      "servings": 4,
+      "prep": 30,
+      "cook": 45,
+      "difficulty": 2,
+      "kcal": 610,
+      "tags": [
+        "Ofen",
+        "Vorkochen",
+        "Kinder"
+      ],
+      "ingredients": [
+        {
+          "a": 600,
+          "u": "g",
+          "n": "Rinderhack"
+        },
+        {
+          "a": 2,
+          "u": "Stk",
+          "n": "Zwiebeln"
+        },
+        {
+          "a": 2,
+          "u": "Stk",
+          "n": "Möhren"
+        },
+        {
+          "a": 2,
+          "u": "EL",
+          "n": "Tomatenmark"
+        },
+        {
+          "a": 400,
+          "u": "ml",
+          "n": "Rinderbrühe"
+        },
+        {
+          "a": 2,
+          "u": "EL",
+          "n": "Worcestershiresauce"
+        },
+        {
+          "a": 1000,
+          "u": "g",
+          "n": "mehligkochende Kartoffeln"
+        },
+        {
+          "a": 100,
+          "u": "ml",
+          "n": "Milch"
+        },
+        {
+          "a": 60,
+          "u": "g",
+          "n": "Butter"
+        },
+        {
+          "a": 1,
+          "u": "TL",
+          "n": "Salz"
+        }
+      ],
+      "steps": [
+        "Hack krümelig braun anbraten, Zwiebel- und Möhrenwürfel zugeben.",
+        "Tomatenmark mitrösten, mit Brühe und Worcestershiresauce ablöschen.",
+        "Dreißig Minuten offen einkochen, bis die Sauce sämig ist.",
+        "Kartoffeln kochen und mit warmer Milch und Butter zu Püree stampfen.",
+        "Hack in eine Form füllen, Püree darauf verteilen und mit der Gabel Rillen ziehen.",
+        "Bei 200 Grad fünfundzwanzig Minuten goldbraun überbacken."
+      ],
+      "note": "Modernisierte Fassung nach Beeton."
+    },
+    {
+      "id": "beeton-scotch-broth",
+      "title": "Schottische Lammsuppe",
+      "chapter": "Suppen",
+      "cuisine": "Britisch",
+      "category": "Suppe",
+      "meals": [
+        "mittag",
+        "abend"
+      ],
+      "diet": [],
+      "servings": 6,
+      "prep": 20,
+      "cook": 120,
+      "difficulty": 1,
+      "kcal": 380,
+      "tags": [
+        "Eintopf",
+        "Winter",
+        "Vorkochen"
+      ],
+      "ingredients": [
+        {
+          "a": 800,
+          "u": "g",
+          "n": "Lammschulter"
+        },
+        {
+          "a": 150,
+          "u": "g",
+          "n": "Perlgraupen"
+        },
+        {
+          "a": 2,
+          "u": "l",
+          "n": "Wasser"
+        },
+        {
+          "a": 3,
+          "u": "Stk",
+          "n": "Möhren"
+        },
+        {
+          "a": 1,
+          "u": "Stk",
+          "n": "Steckrübe"
+        },
+        {
+          "a": 2,
+          "u": "Stk",
+          "n": "Stangen Lauch"
+        },
+        {
+          "a": 1,
+          "u": "Stk",
+          "n": "Zwiebel"
+        },
+        {
+          "a": 1,
+          "u": "Bund",
+          "n": "Petersilie"
+        },
+        {
+          "a": 2,
+          "u": "TL",
+          "n": "Salz"
+        }
+      ],
+      "steps": [
+        "Fleisch mit kaltem Wasser aufsetzen, aufkochen und sorgfältig abschäumen.",
+        "Graupen zugeben und eine Stunde leise köcheln.",
+        "Gewürfeltes Wurzelgemüse zufügen und weitere vierzig Minuten garen.",
+        "Fleisch herausnehmen, vom Knochen lösen und zurückgeben.",
+        "Mit Salz und Pfeffer abschmecken und mit Petersilie bestreuen."
+      ],
+      "note": "Modernisierte Fassung nach Beeton."
+    },
+    {
+      "id": "beeton-roast-beef-yorkshire",
+      "title": "Rinderbraten mit Yorkshire-Pudding",
+      "chapter": "Rindfleisch",
+      "cuisine": "Britisch",
+      "category": "Hauptgericht",
+      "meals": [
+        "mittag"
+      ],
+      "diet": [],
+      "servings": 6,
+      "prep": 25,
+      "cook": 90,
+      "difficulty": 3,
+      "kcal": 720,
+      "tags": [
+        "Sonntagsessen",
+        "Ofen"
+      ],
+      "ingredients": [
+        {
+          "a": 1500,
+          "u": "g",
+          "n": "Roastbeef"
+        },
+        {
+          "a": 2,
+          "u": "EL",
+          "n": "Senf"
+        },
+        {
+          "a": 2,
+          "u": "TL",
+          "n": "Salz"
+        },
+        {
+          "a": 150,
+          "u": "g",
+          "n": "Weizenmehl Type 405"
+        },
+        {
+          "a": 3,
+          "u": "Stk",
+          "n": "Eier"
+        },
+        {
+          "a": 250,
+          "u": "ml",
+          "n": "Milch"
+        },
+        {
+          "a": 4,
+          "u": "EL",
+          "n": "Rinderfett oder Öl"
+        },
+        {
+          "a": 400,
+          "u": "ml",
+          "n": "Rinderbrühe"
+        }
+      ],
+      "steps": [
+        "Fleisch eine Stunde vorher aus dem Kühlschrank nehmen, salzen und mit Senf einreiben.",
+        "Bei 230 Grad zwanzig Minuten anrösten, dann bei 160 Grad bis 54 Grad Kerntemperatur garen.",
+        "Fleisch herausnehmen und mindestens zwanzig Minuten ruhen lassen.",
+        "Für den Pudding Mehl, Eier und Milch glatt rühren und dreißig Minuten ruhen lassen.",
+        "Fett in einer Muffinform bei 230 Grad rauchheiß werden lassen, Teig eingießen und zwanzig Minuten backen, ohne die Tür zu öffnen.",
+        "Bratensatz mit Brühe ablöschen, einkochen und als Gravy servieren."
+      ],
+      "note": "Modernisierte Fassung nach Beeton."
+    },
+    {
+      "id": "beeton-mulligatawny",
+      "title": "Currysuppe nach indischer Art",
+      "chapter": "Suppen",
+      "cuisine": "Britisch",
+      "category": "Suppe",
+      "meals": [
+        "mittag",
+        "abend"
+      ],
+      "diet": [],
+      "servings": 4,
+      "prep": 20,
+      "cook": 45,
+      "difficulty": 2,
+      "kcal": 400,
+      "tags": [
+        "Curry",
+        "cremig"
+      ],
+      "ingredients": [
+        {
+          "a": 500,
+          "u": "g",
+          "n": "Hähnchenschenkel"
+        },
+        {
+          "a": 2,
+          "u": "Stk",
+          "n": "Zwiebeln"
+        },
+        {
+          "a": 2,
+          "u": "Stk",
+          "n": "Möhren"
+        },
+        {
+          "a": 1,
+          "u": "Stk",
+          "n": "Apfel"
+        },
+        {
+          "a": 2,
+          "u": "EL",
+          "n": "Currypulver"
+        },
+        {
+          "a": 100,
+          "u": "g",
+          "n": "rote Linsen"
+        },
+        {
+          "a": 1.2,
+          "u": "l",
+          "n": "Hühnerbrühe"
+        },
+        {
+          "a": 200,
+          "u": "ml",
+          "n": "Kokosmilch"
+        },
+        {
+          "a": 3,
+          "u": "EL",
+          "n": "Butter"
+        },
+        {
+          "a": 1,
+          "u": "TL",
+          "n": "Salz"
+        }
+      ],
+      "steps": [
+        "Hähnchen in Butter anbraten und herausnehmen.",
+        "Zwiebel, Möhre und Apfel andünsten, Currypulver kurz mitrösten.",
+        "Linsen und Brühe zugeben, Fleisch zurücklegen und dreißig Minuten köcheln.",
+        "Fleisch herausnehmen, zerpflücken, Suppe pürieren.",
+        "Kokosmilch einrühren, Fleisch zurückgeben und abschmecken.",
+        "Mit Reis servieren."
+      ],
+      "note": "Modernisierte Fassung nach Beeton."
+    },
+    {
+      "id": "beeton-kedgeree",
+      "title": "Reispfanne mit Räucherfisch",
+      "chapter": "Fisch",
+      "cuisine": "Britisch",
+      "category": "Hauptgericht",
+      "meals": [
+        "fruehstueck",
+        "abend"
+      ],
+      "diet": [],
+      "servings": 4,
+      "prep": 15,
+      "cook": 30,
+      "difficulty": 2,
+      "kcal": 480,
+      "tags": [
+        "Fisch",
+        "Frühstück"
+      ],
+      "ingredients": [
+        {
+          "a": 500,
+          "u": "g",
+          "n": "geräucherter Schellfisch"
+        },
+        {
+          "a": 300,
+          "u": "g",
+          "n": "Basmatireis"
+        },
+        {
+          "a": 4,
+          "u": "Stk",
+          "n": "Eier"
+        },
+        {
+          "a": 1,
+          "u": "Stk",
+          "n": "Zwiebel"
+        },
+        {
+          "a": 2,
+          "u": "TL",
+          "n": "Currypulver"
+        },
+        {
+          "a": 60,
+          "u": "g",
+          "n": "Butter"
+        },
+        {
+          "a": 1,
+          "u": "Bund",
+          "n": "Petersilie"
+        },
+        {
+          "a": 1,
+          "u": "Stk",
+          "n": "Zitrone"
+        }
+      ],
+      "steps": [
+        "Fisch in Milch oder Wasser zehn Minuten pochieren, häuten und in Stücke zerteilen.",
+        "Reis bissfest garen und auskühlen lassen.",
+        "Eier sieben Minuten kochen, abschrecken und vierteln.",
+        "Zwiebelwürfel in Butter dünsten, Curry mitrösten.",
+        "Reis und Fisch vorsichtig untermengen und erhitzen.",
+        "Mit Eiern, Petersilie und Zitrone anrichten."
+      ],
+      "note": "Modernisierte Fassung nach Beeton."
+    },
+    {
+      "id": "beeton-toad-in-the-hole",
+      "title": "Bratwürste im Ofenteig",
+      "chapter": "Teigaufläufe",
+      "cuisine": "Britisch",
+      "category": "Hauptgericht",
+      "meals": [
+        "mittag",
+        "abend"
+      ],
+      "diet": [],
+      "servings": 4,
+      "prep": 15,
+      "cook": 40,
+      "difficulty": 2,
+      "kcal": 590,
+      "tags": [
+        "Ofen",
+        "Kinder"
+      ],
+      "ingredients": [
+        {
+          "a": 8,
+          "u": "Stk",
+          "n": "Bratwürste"
+        },
+        {
+          "a": 200,
+          "u": "g",
+          "n": "Weizenmehl Type 405"
+        },
+        {
+          "a": 4,
+          "u": "Stk",
+          "n": "Eier"
+        },
+        {
+          "a": 300,
+          "u": "ml",
+          "n": "Milch"
+        },
+        {
+          "a": 4,
+          "u": "EL",
+          "n": "Rapsöl"
+        },
+        {
+          "a": 1,
+          "u": "TL",
+          "n": "Salz"
+        },
+        {
+          "a": 2,
+          "u": "Zweig",
+          "n": "Thymian"
+        }
+      ],
+      "steps": [
+        "Mehl, Eier, Milch und Salz zu einem glatten Teig verrühren und dreißig Minuten ruhen lassen.",
+        "Öl in einer Auflaufform bei 220 Grad sehr heiß werden lassen.",
+        "Würste darin zehn Minuten anbraten.",
+        "Teig zügig über die heißen Würste gießen.",
+        "Dreißig Minuten backen, ohne die Ofentür zu öffnen, bis der Teig hoch aufgegangen ist."
+      ],
+      "note": "Modernisierte Fassung nach Beeton."
+    },
+    {
+      "id": "beeton-fish-pie",
+      "title": "Fischauflauf",
+      "chapter": "Fisch",
+      "cuisine": "Britisch",
+      "category": "Hauptgericht",
+      "meals": [
+        "mittag",
+        "abend"
+      ],
+      "diet": [],
+      "servings": 4,
+      "prep": 35,
+      "cook": 35,
+      "difficulty": 2,
+      "kcal": 560,
+      "tags": [
+        "Ofen",
+        "Fisch"
+      ],
+      "ingredients": [
+        {
+          "a": 700,
+          "u": "g",
+          "n": "gemischtes Fischfilet"
+        },
+        {
+          "a": 900,
+          "u": "g",
+          "n": "mehligkochende Kartoffeln"
+        },
+        {
+          "a": 600,
+          "u": "ml",
+          "n": "Milch"
+        },
+        {
+          "a": 60,
+          "u": "g",
+          "n": "Butter"
+        },
+        {
+          "a": 50,
+          "u": "g",
+          "n": "Mehl"
+        },
+        {
+          "a": 150,
+          "u": "g",
+          "n": "Erbsen"
+        },
+        {
+          "a": 3,
+          "u": "Stk",
+          "n": "Eier"
+        },
+        {
+          "a": 1,
+          "u": "Bund",
+          "n": "Petersilie"
+        },
+        {
+          "a": 1,
+          "u": "TL",
+          "n": "Salz"
+        }
+      ],
+      "steps": [
+        "Fisch in der Milch acht Minuten sanft pochieren und herausheben, Milch auffangen.",
+        "Aus Butter, Mehl und der Fischmilch eine Bechamel kochen und mit Petersilie würzen.",
+        "Fisch, Erbsen und geviertelte hartgekochte Eier in eine Form schichten und mit Sauce übergießen.",
+        "Kartoffelpüree darauf verteilen und mit der Gabel aufrauen.",
+        "Bei 200 Grad fünfunddreißig Minuten goldbraun backen."
+      ],
+      "note": "Modernisierte Fassung nach Beeton."
+    },
+    {
+      "id": "beeton-bubble-and-squeak",
+      "title": "Kartoffel-Kohl-Pfanne",
+      "chapter": "Resteküche",
+      "cuisine": "Britisch",
+      "category": "Hauptgericht",
+      "meals": [
+        "fruehstueck",
+        "abend"
+      ],
+      "diet": [
+        "vegetarisch",
+        "glutenfrei"
+      ],
+      "servings": 4,
+      "prep": 15,
+      "cook": 25,
+      "difficulty": 1,
+      "kcal": 310,
+      "tags": [
+        "Resteverwertung",
+        "schnell",
+        "günstig"
+      ],
+      "ingredients": [
+        {
+          "a": 700,
+          "u": "g",
+          "n": "Kartoffeln, gekocht"
+        },
+        {
+          "a": 400,
+          "u": "g",
+          "n": "Kohl, gegart"
+        },
+        {
+          "a": 1,
+          "u": "Stk",
+          "n": "Zwiebel"
+        },
+        {
+          "a": 50,
+          "u": "g",
+          "n": "Butter"
+        },
+        {
+          "a": 1,
+          "u": "TL",
+          "n": "Salz"
+        },
+        {
+          "a": 1,
+          "u": "TL",
+          "n": "Pfeffer, schwarz"
+        }
+      ],
+      "steps": [
+        "Kartoffeln grob zerdrücken, Kohl klein schneiden.",
+        "Zwiebelwürfel in Butter andünsten.",
+        "Kartoffeln und Kohl zugeben, kräftig würzen und flach drücken.",
+        "Bei mittlerer Hitze zehn Minuten braten, bis sich eine Kruste bildet.",
+        "In Stücken wenden und weitere zehn Minuten knusprig braten."
+      ],
+      "note": "Modernisierte, fleischlose Fassung nach Beeton."
+    },
+    {
+      "id": "beeton-scones",
+      "title": "Teebrötchen",
+      "chapter": "Brot, Gebäck und Kuchen",
+      "cuisine": "Britisch",
+      "category": "Backen",
+      "meals": [
+        "fruehstueck",
+        "snack"
+      ],
+      "diet": [
+        "vegetarisch"
+      ],
+      "servings": 8,
+      "prep": 15,
+      "cook": 15,
+      "difficulty": 1,
+      "kcal": 240,
+      "tags": [
+        "schnell",
+        "Nachmittagstee"
+      ],
+      "ingredients": [
+        {
+          "a": 350,
+          "u": "g",
+          "n": "Weizenmehl Type 405"
+        },
+        {
+          "a": 1,
+          "u": "Pck",
+          "n": "Backpulver"
+        },
+        {
+          "a": 80,
+          "u": "g",
+          "n": "Butter"
+        },
+        {
+          "a": 50,
+          "u": "g",
+          "n": "Zucker"
+        },
+        {
+          "a": 180,
+          "u": "ml",
+          "n": "Milch"
+        },
+        {
+          "a": 1,
+          "u": "Stk",
+          "n": "Ei"
+        },
+        {
+          "a": 1,
+          "u": "Prise",
+          "n": "Salz"
+        }
+      ],
+      "steps": [
+        "Mehl, Backpulver und kalte Butter zu Krümeln verreiben.",
+        "Zucker, Salz und Milch zugeben und nur kurz zusammenfügen, nicht kneten.",
+        "Teig zwei Zentimeter dick ausrollen und Kreise ausstechen.",
+        "Mit verquirltem Ei bestreichen.",
+        "Bei 220 Grad fünfzehn Minuten backen und warm mit Clotted Cream und Marmelade servieren."
+      ],
+      "note": "Modernisierte Fassung nach Beeton."
+    },
+    {
+      "id": "beeton-trifle",
+      "title": "Englisches Schichtdessert",
+      "chapter": "Cremes und Gelees",
+      "cuisine": "Britisch",
+      "category": "Dessert",
+      "meals": [
+        "snack"
+      ],
+      "diet": [
+        "vegetarisch"
+      ],
+      "servings": 8,
+      "prep": 35,
+      "cook": 10,
+      "difficulty": 2,
+      "kcal": 390,
+      "tags": [
+        "Schichtdessert",
+        "Festessen"
+      ],
+      "ingredients": [
+        {
+          "a": 250,
+          "u": "g",
+          "n": "Löffelbiskuits"
+        },
+        {
+          "a": 150,
+          "u": "ml",
+          "n": "Sherry oder Orangensaft"
+        },
+        {
+          "a": 400,
+          "u": "g",
+          "n": "Beeren"
+        },
+        {
+          "a": 600,
+          "u": "ml",
+          "n": "Milch"
+        },
+        {
+          "a": 5,
+          "u": "Stk",
+          "n": "Eigelb"
+        },
+        {
+          "a": 100,
+          "u": "g",
+          "n": "Zucker"
+        },
+        {
+          "a": 30,
+          "u": "g",
+          "n": "Speisestärke"
+        },
+        {
+          "a": 400,
+          "u": "ml",
+          "n": "Sahne"
+        },
+        {
+          "a": 50,
+          "u": "g",
+          "n": "Mandelblättchen"
+        }
+      ],
+      "steps": [
+        "Aus Milch, Eigelb, Zucker und Stärke eine Vanillecreme kochen und abkühlen lassen.",
+        "Biskuits in eine Glasschüssel schichten und mit Sherry tränken.",
+        "Beeren darauf verteilen.",
+        "Creme darübergießen und mindestens vier Stunden kalt stellen.",
+        "Mit geschlagener Sahne bedecken und mit gerösteten Mandeln bestreuen."
+      ],
+      "note": "Modernisierte Fassung nach Beeton."
+    },
+    {
+      "id": "beeton-bread-sauce",
+      "title": "Brotsauce",
+      "chapter": "Saucen",
+      "cuisine": "Britisch",
+      "category": "Grundrezept",
+      "meals": [
+        "mittag",
+        "abend"
+      ],
+      "diet": [
+        "vegetarisch"
+      ],
+      "servings": 6,
+      "prep": 5,
+      "cook": 20,
+      "difficulty": 1,
+      "kcal": 120,
+      "tags": [
+        "Sauce",
+        "Weihnachten"
+      ],
+      "ingredients": [
+        {
+          "a": 500,
+          "u": "ml",
+          "n": "Milch"
+        },
+        {
+          "a": 1,
+          "u": "Stk",
+          "n": "Zwiebel"
+        },
+        {
+          "a": 6,
+          "u": "Stk",
+          "n": "Nelken"
+        },
+        {
+          "a": 2,
+          "u": "Stk",
+          "n": "Lorbeerblätter"
+        },
+        {
+          "a": 120,
+          "u": "g",
+          "n": "Weißbrotbrösel"
+        },
+        {
+          "a": 40,
+          "u": "g",
+          "n": "Butter"
+        },
+        {
+          "a": 1,
+          "u": "Prise",
+          "n": "Muskatnuss"
+        }
+      ],
+      "steps": [
+        "Zwiebel mit Nelken und Lorbeer spicken und in der Milch zwanzig Minuten ziehen lassen.",
+        "Zwiebel und Gewürze entfernen.",
+        "Brösel einrühren und fünf Minuten quellen lassen.",
+        "Butter und Muskat einrühren und abschmecken.",
+        "Klassische Beilage zu Geflügel."
+      ],
+      "note": "Modernisierte Fassung nach Beeton."
+    },
+    {
+      "id": "beeton-pea-soup",
+      "title": "Grüne Erbsensuppe",
+      "chapter": "Suppen",
+      "cuisine": "Britisch",
+      "category": "Suppe",
+      "meals": [
+        "mittag",
+        "abend"
+      ],
+      "diet": [
+        "vegetarisch"
+      ],
+      "servings": 4,
+      "prep": 10,
+      "cook": 20,
+      "difficulty": 1,
+      "kcal": 240,
+      "tags": [
+        "schnell",
+        "Frühling"
+      ],
+      "ingredients": [
+        {
+          "a": 700,
+          "u": "g",
+          "n": "Erbsen, tiefgekühlt"
+        },
+        {
+          "a": 1,
+          "u": "Stk",
+          "n": "Zwiebel"
+        },
+        {
+          "a": 1,
+          "u": "Stk",
+          "n": "Kartoffel"
+        },
+        {
+          "a": 1,
+          "u": "l",
+          "n": "Gemüsebrühe"
+        },
+        {
+          "a": 40,
+          "u": "g",
+          "n": "Butter"
+        },
+        {
+          "a": 100,
+          "u": "ml",
+          "n": "Sahne"
+        },
+        {
+          "a": 1,
+          "u": "Bund",
+          "n": "Minze"
+        },
+        {
+          "a": 1,
+          "u": "TL",
+          "n": "Salz"
+        }
+      ],
+      "steps": [
+        "Zwiebel in Butter glasig dünsten, Kartoffelwürfel zugeben.",
+        "Mit Brühe auffüllen und zehn Minuten garen.",
+        "Erbsen zugeben und nur fünf Minuten mitkochen, damit die Farbe frisch bleibt.",
+        "Mit Minze fein pürieren und durch ein Sieb streichen.",
+        "Sahne einrühren und abschmecken."
+      ],
+      "note": "Modernisierte Fassung nach Beeton."
+    },
+    {
+      "id": "beeton-apple-charlotte",
+      "title": "Apfelauflauf im Brotmantel",
+      "chapter": "Aufläufe und Puddings",
+      "cuisine": "Britisch",
+      "category": "Dessert",
+      "meals": [
+        "snack"
+      ],
+      "diet": [
+        "vegetarisch"
+      ],
+      "servings": 6,
+      "prep": 25,
+      "cook": 45,
+      "difficulty": 2,
+      "kcal": 330,
+      "tags": [
+        "Ofen",
+        "Apfel"
+      ],
+      "ingredients": [
+        {
+          "a": 1200,
+          "u": "g",
+          "n": "säuerliche Äpfel"
+        },
+        {
+          "a": 120,
+          "u": "g",
+          "n": "Zucker"
+        },
+        {
+          "a": 1,
+          "u": "Stk",
+          "n": "Zitrone"
+        },
+        {
+          "a": 12,
+          "u": "Scheibe",
+          "n": "Toastbrot"
+        },
+        {
+          "a": 150,
+          "u": "g",
+          "n": "Butter"
+        },
+        {
+          "a": 1,
+          "u": "TL",
+          "n": "Zimt"
+        }
+      ],
+      "steps": [
+        "Äpfel schälen, würfeln und mit Zucker und Zitronensaft zu dickem Mus einkochen, bis kaum Flüssigkeit bleibt.",
+        "Brotscheiben entrinden und in geschmolzener Butter wenden.",
+        "Eine Form dicht mit Brot auslegen, Boden und Rand lückenlos.",
+        "Apfelmus einfüllen und mit Brot abdecken.",
+        "Bei 190 Grad fünfundvierzig Minuten backen, bis die Kruste goldbraun ist.",
+        "Zehn Minuten ruhen lassen, dann stürzen."
+      ],
+      "note": "Modernisierte Fassung nach Beeton."
+    },
+    {
+      "id": "beeton-welsh-rarebit",
+      "title": "Überbackenes Käsebrot",
+      "chapter": "Pikante Kleinigkeiten",
+      "cuisine": "Britisch",
+      "category": "Vorspeise",
+      "meals": [
+        "abend",
+        "snack"
+      ],
+      "diet": [
+        "vegetarisch"
+      ],
+      "servings": 4,
+      "prep": 10,
+      "cook": 10,
+      "difficulty": 1,
+      "kcal": 380,
+      "tags": [
+        "schnell",
+        "Käse"
+      ],
+      "ingredients": [
+        {
+          "a": 8,
+          "u": "Scheibe",
+          "n": "Sauerteigbrot"
+        },
+        {
+          "a": 300,
+          "u": "g",
+          "n": "Cheddar"
+        },
+        {
+          "a": 40,
+          "u": "g",
+          "n": "Butter"
+        },
+        {
+          "a": 20,
+          "u": "g",
+          "n": "Mehl"
+        },
+        {
+          "a": 150,
+          "u": "ml",
+          "n": "dunkles Bier"
+        },
+        {
+          "a": 2,
+          "u": "TL",
+          "n": "Senf"
+        },
+        {
+          "a": 1,
+          "u": "EL",
+          "n": "Worcestershiresauce"
+        }
+      ],
+      "steps": [
+        "Butter und Mehl verrühren, mit Bier ablöschen und glatt kochen.",
+        "Käse einrühren, bis eine dicke, ziehende Masse entsteht.",
+        "Senf und Worcestershiresauce zugeben.",
+        "Brot toasten und die Masse dick aufstreichen.",
+        "Unter dem Grill zwei bis drei Minuten blasig bräunen."
+      ],
+      "note": "Modernisierte Fassung nach Beeton."
+    },
+    {
+      "id": "beeton-oxtail-soup",
+      "title": "Ochsenschwanzsuppe",
+      "chapter": "Suppen",
+      "cuisine": "Britisch",
+      "category": "Suppe",
+      "meals": [
+        "mittag",
+        "abend"
+      ],
+      "diet": [],
+      "servings": 6,
+      "prep": 25,
+      "cook": 210,
+      "difficulty": 2,
+      "kcal": 420,
+      "tags": [
+        "Schmoren",
+        "Winter"
+      ],
+      "ingredients": [
+        {
+          "a": 1500,
+          "u": "g",
+          "n": "Ochsenschwanz"
+        },
+        {
+          "a": 2,
+          "u": "Stk",
+          "n": "Zwiebeln"
+        },
+        {
+          "a": 3,
+          "u": "Stk",
+          "n": "Möhren"
+        },
+        {
+          "a": 2,
+          "u": "Stk",
+          "n": "Stangen Sellerie"
+        },
+        {
+          "a": 2,
+          "u": "EL",
+          "n": "Tomatenmark"
+        },
+        {
+          "a": 250,
+          "u": "ml",
+          "n": "Rotwein"
+        },
+        {
+          "a": 2.5,
+          "u": "l",
+          "n": "Rinderbrühe"
+        },
+        {
+          "a": 3,
+          "u": "EL",
+          "n": "Rapsöl"
+        },
+        {
+          "a": 2,
+          "u": "Stk",
+          "n": "Lorbeerblätter"
+        },
+        {
+          "a": 2,
+          "u": "TL",
+          "n": "Salz"
+        }
+      ],
+      "steps": [
+        "Ochsenschwanzstücke im Öl rundum sehr dunkel anbraten und herausnehmen.",
+        "Gemüsewürfel im Bratsatz rösten, Tomatenmark mitrösten.",
+        "Mit Rotwein ablöschen und einkochen lassen.",
+        "Fleisch zurückgeben, mit Brühe auffüllen und drei Stunden leise simmern.",
+        "Fleisch vom Knochen lösen und zurück in die Suppe geben.",
+        "Über Nacht kalt stellen, Fett abheben und abschmecken."
+      ],
+      "note": "Modernisierte Fassung nach Beeton."
+    },
+    {
+      "id": "beeton-victoria-sponge",
+      "title": "Viktoria-Biskuittorte",
+      "chapter": "Kuchen",
+      "cuisine": "Britisch",
+      "category": "Backen",
+      "meals": [
+        "snack"
+      ],
+      "diet": [
+        "vegetarisch"
+      ],
+      "servings": 10,
+      "prep": 20,
+      "cook": 25,
+      "difficulty": 1,
+      "kcal": 380,
+      "tags": [
+        "Nachmittagstee",
+        "Klassiker"
+      ],
+      "ingredients": [
+        {
+          "a": 225,
+          "u": "g",
+          "n": "Butter"
+        },
+        {
+          "a": 225,
+          "u": "g",
+          "n": "Zucker"
+        },
+        {
+          "a": 225,
+          "u": "g",
+          "n": "Weizenmehl Type 405"
+        },
+        {
+          "a": 4,
+          "u": "Stk",
+          "n": "Eier"
+        },
+        {
+          "a": 2,
+          "u": "TL",
+          "n": "Backpulver"
+        },
+        {
+          "a": 200,
+          "u": "g",
+          "n": "Erdbeermarmelade"
+        },
+        {
+          "a": 300,
+          "u": "ml",
+          "n": "Sahne"
+        },
+        {
+          "a": 30,
+          "u": "g",
+          "n": "Puderzucker"
+        }
+      ],
+      "steps": [
+        "Butter und Zucker sehr hell und schaumig aufschlagen.",
+        "Eier einzeln unterrühren.",
+        "Mehl und Backpulver sieben und locker unterheben.",
+        "Teig auf zwei gefettete Formen verteilen und bei 180 Grad fünfundzwanzig Minuten backen.",
+        "Auskühlen lassen, mit Marmelade und geschlagener Sahne füllen.",
+        "Mit Puderzucker bestäuben."
+      ],
+      "note": "Modernisierte Fassung nach Beeton."
+    },
+    {
+      "id": "beeton-mint-sauce",
+      "title": "Minzsauce",
+      "chapter": "Saucen",
+      "cuisine": "Britisch",
+      "category": "Grundrezept",
+      "meals": [
+        "mittag",
+        "abend"
+      ],
+      "diet": [
+        "vegetarisch",
+        "vegan",
+        "glutenfrei"
+      ],
+      "servings": 6,
+      "prep": 10,
+      "cook": 0,
+      "difficulty": 1,
+      "kcal": 40,
+      "tags": [
+        "Sauce",
+        "schnell"
+      ],
+      "ingredients": [
+        {
+          "a": 2,
+          "u": "Bund",
+          "n": "Minze"
+        },
+        {
+          "a": 4,
+          "u": "EL",
+          "n": "Weinessig"
+        },
+        {
+          "a": 2,
+          "u": "EL",
+          "n": "Zucker"
+        },
+        {
+          "a": 3,
+          "u": "EL",
+          "n": "heißes Wasser"
+        },
+        {
+          "a": 1,
+          "u": "Prise",
+          "n": "Salz"
+        }
+      ],
+      "steps": [
+        "Minzblätter sehr fein hacken.",
+        "Zucker in heißem Wasser auflösen.",
+        "Minze, Essig und Salz einrühren.",
+        "Mindestens eine Stunde ziehen lassen; klassische Begleitung zu Lamm."
+      ],
+      "note": "Modernisierte Fassung nach Beeton."
+    },
+    {
+      "id": "beeton-baked-custard",
+      "title": "Eiercreme aus dem Ofen",
+      "chapter": "Cremes",
+      "cuisine": "Britisch",
+      "category": "Dessert",
+      "meals": [
+        "snack"
+      ],
+      "diet": [
+        "vegetarisch",
+        "glutenfrei"
+      ],
+      "servings": 6,
+      "prep": 10,
+      "cook": 45,
+      "difficulty": 2,
+      "kcal": 220,
+      "tags": [
+        "Ofen",
+        "Klassiker"
+      ],
+      "ingredients": [
+        {
+          "a": 600,
+          "u": "ml",
+          "n": "Milch"
+        },
+        {
+          "a": 200,
+          "u": "ml",
+          "n": "Sahne"
+        },
+        {
+          "a": 5,
+          "u": "Stk",
+          "n": "Eier"
+        },
+        {
+          "a": 100,
+          "u": "g",
+          "n": "Zucker"
+        },
+        {
+          "a": 1,
+          "u": "Stk",
+          "n": "Vanilleschote"
+        },
+        {
+          "a": 1,
+          "u": "TL",
+          "n": "Muskatnuss"
+        }
+      ],
+      "steps": [
+        "Milch und Sahne mit Vanille erhitzen, nicht kochen.",
+        "Eier und Zucker verrühren, ohne Schaum zu schlagen.",
+        "Heiße Milch langsam einrühren und durch ein Sieb gießen.",
+        "In Förmchen füllen, mit Muskat bestreuen und in ein heißes Wasserbad stellen.",
+        "Bei 150 Grad fünfundvierzig Minuten stocken lassen, die Mitte darf noch leicht zittern."
+      ],
+      "note": "Modernisierte Fassung nach Beeton."
+    },
+    {
+      "id": "beeton-lemon-curd",
+      "title": "Zitronenaufstrich",
+      "chapter": "Eingemachtes",
+      "cuisine": "Britisch",
+      "category": "Grundrezept",
+      "meals": [
+        "fruehstueck",
+        "snack"
+      ],
+      "diet": [
+        "vegetarisch",
+        "glutenfrei"
+      ],
+      "servings": 12,
+      "prep": 10,
+      "cook": 20,
+      "difficulty": 2,
+      "kcal": 120,
+      "tags": [
+        "Aufstrich",
+        "Vorkochen"
+      ],
+      "ingredients": [
+        {
+          "a": 4,
+          "u": "Stk",
+          "n": "Zitronen"
+        },
+        {
+          "a": 200,
+          "u": "g",
+          "n": "Zucker"
+        },
+        {
+          "a": 100,
+          "u": "g",
+          "n": "Butter"
+        },
+        {
+          "a": 4,
+          "u": "Stk",
+          "n": "Eier"
+        }
+      ],
+      "steps": [
+        "Zitronenschale abreiben und Saft auspressen.",
+        "Alle Zutaten in einer Schüssel über dem Wasserbad verrühren.",
+        "Unter ständigem Rühren fünfzehn Minuten erwärmen, bis die Masse deutlich eindickt.",
+        "Niemals direkt erhitzen, sonst gerinnt das Ei.",
+        "Durch ein Sieb in saubere Gläser füllen und kühl aufbewahren."
+      ],
+      "note": "Modernisierte Fassung nach Beeton."
+    },
+    {
+      "id": "beeton-plum-pudding",
+      "title": "Englischer Früchtepudding",
+      "chapter": "Aufläufe und Puddings",
+      "cuisine": "Britisch",
+      "category": "Dessert",
+      "meals": [
+        "snack"
+      ],
+      "diet": [
+        "vegetarisch"
+      ],
+      "servings": 10,
+      "prep": 40,
+      "cook": 360,
+      "difficulty": 3,
+      "kcal": 450,
+      "tags": [
+        "Weihnachten",
+        "Dampfgaren",
+        "Vorkochen"
+      ],
+      "ingredients": [
+        {
+          "a": 250,
+          "u": "g",
+          "n": "Rosinen"
+        },
+        {
+          "a": 250,
+          "u": "g",
+          "n": "Korinthen"
+        },
+        {
+          "a": 150,
+          "u": "g",
+          "n": "Orangeat und Zitronat"
+        },
+        {
+          "a": 200,
+          "u": "g",
+          "n": "Semmelbrösel"
+        },
+        {
+          "a": 150,
+          "u": "g",
+          "n": "Weizenmehl Type 405"
+        },
+        {
+          "a": 200,
+          "u": "g",
+          "n": "Butter"
+        },
+        {
+          "a": 200,
+          "u": "g",
+          "n": "brauner Zucker"
+        },
+        {
+          "a": 4,
+          "u": "Stk",
+          "n": "Eier"
+        },
+        {
+          "a": 150,
+          "u": "ml",
+          "n": "Brandy"
+        },
+        {
+          "a": 2,
+          "u": "TL",
+          "n": "Lebkuchengewürz"
+        }
+      ],
+      "steps": [
+        "Alle Trockenfrüchte über Nacht im Brandy einweichen.",
+        "Weiche Butter mit Zucker und Eiern verrühren.",
+        "Brösel, Mehl, Gewürze und Früchte untermengen; traditionell rührt jedes Familienmitglied einmal.",
+        "In eine gefettete Puddingform füllen, fest verschließen.",
+        "Sechs Stunden im Wasserbad dämpfen und Wasser nachfüllen.",
+        "Kühl lagern, vor dem Servieren zwei Stunden nachdämpfen."
+      ],
+      "note": "Modernisierte Fassung nach Beeton."
+    }
+  ]
+}

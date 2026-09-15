@@ -1,0 +1,1513 @@
+{
+  "sourceId": "davidis-1845",
+  "recipes": [
+    {
+      "id": "davidis-sauerbraten",
+      "title": "Rheinischer Sauerbraten",
+      "chapter": "Von dem Rindfleisch",
+      "cuisine": "Deutsch",
+      "category": "Hauptgericht",
+      "meals": [
+        "mittag",
+        "abend"
+      ],
+      "diet": [],
+      "servings": 4,
+      "prep": 30,
+      "cook": 150,
+      "difficulty": 2,
+      "kcal": 520,
+      "tags": [
+        "Schmoren",
+        "Klassiker",
+        "Sonntagsessen"
+      ],
+      "ingredients": [
+        {
+          "a": 1000,
+          "u": "g",
+          "n": "Rinderbraten aus der Schulter"
+        },
+        {
+          "a": 500,
+          "u": "ml",
+          "n": "Rotweinessig"
+        },
+        {
+          "a": 500,
+          "u": "ml",
+          "n": "Wasser"
+        },
+        {
+          "a": 2,
+          "u": "Stk",
+          "n": "Zwiebeln"
+        },
+        {
+          "a": 1,
+          "u": "Stk",
+          "n": "Möhre"
+        },
+        {
+          "a": 3,
+          "u": "Stk",
+          "n": "Lorbeerblätter"
+        },
+        {
+          "a": 8,
+          "u": "Stk",
+          "n": "Wacholderbeeren"
+        },
+        {
+          "a": 5,
+          "u": "Stk",
+          "n": "Nelken"
+        },
+        {
+          "a": 40,
+          "u": "g",
+          "n": "Butterschmalz"
+        },
+        {
+          "a": 60,
+          "u": "g",
+          "n": "Rosinen"
+        },
+        {
+          "a": 50,
+          "u": "g",
+          "n": "Lebkuchen oder Printen"
+        },
+        {
+          "a": 1,
+          "u": "TL",
+          "n": "Salz"
+        }
+      ],
+      "steps": [
+        "Essig, Wasser, grob geschnittene Zwiebeln, Möhre und die Gewürze aufkochen und vollständig abkühlen lassen.",
+        "Das Fleisch in der kalten Beize drei bis fünf Tage kühl stellen, täglich einmal wenden.",
+        "Fleisch trocken tupfen, salzen und im Butterschmalz rundum kräftig anbraten.",
+        "Mit der abgeseihten Beize angießen und zugedeckt zweieinhalb Stunden sanft schmoren.",
+        "Braten herausnehmen, Sauce mit zerbröseltem Lebkuchen und Rosinen binden und zehn Minuten ziehen lassen.",
+        "Fleisch in Scheiben schneiden und mit der Sauce servieren."
+      ],
+      "note": "Modernisierte Fassung nach Davidis; Beizzeit an heutige Kühlung angepasst."
+    },
+    {
+      "id": "davidis-koenigsberger-klopse",
+      "title": "Königsberger Klopse",
+      "chapter": "Von gehacktem Fleisch",
+      "cuisine": "Deutsch",
+      "category": "Hauptgericht",
+      "meals": [
+        "mittag",
+        "abend"
+      ],
+      "diet": [],
+      "servings": 4,
+      "prep": 25,
+      "cook": 30,
+      "difficulty": 2,
+      "kcal": 480,
+      "tags": [
+        "Kapern",
+        "Klassiker"
+      ],
+      "ingredients": [
+        {
+          "a": 500,
+          "u": "g",
+          "n": "Hackfleisch, gemischt"
+        },
+        {
+          "a": 1,
+          "u": "Stk",
+          "n": "Brötchen vom Vortag"
+        },
+        {
+          "a": 1,
+          "u": "Stk",
+          "n": "Zwiebel"
+        },
+        {
+          "a": 1,
+          "u": "Stk",
+          "n": "Ei"
+        },
+        {
+          "a": 1,
+          "u": "l",
+          "n": "Fleischbrühe"
+        },
+        {
+          "a": 40,
+          "u": "g",
+          "n": "Butter"
+        },
+        {
+          "a": 40,
+          "u": "g",
+          "n": "Mehl"
+        },
+        {
+          "a": 3,
+          "u": "EL",
+          "n": "Kapern"
+        },
+        {
+          "a": 100,
+          "u": "ml",
+          "n": "Sahne"
+        },
+        {
+          "a": 1,
+          "u": "EL",
+          "n": "Zitronensaft"
+        },
+        {
+          "a": 1,
+          "u": "TL",
+          "n": "Salz"
+        }
+      ],
+      "steps": [
+        "Brötchen in Wasser einweichen, ausdrücken und mit Hack, gehackter Zwiebel, Ei und Salz verkneten.",
+        "Aus der Masse gleich große Klöße formen.",
+        "Brühe zum Sieden bringen und die Klopse darin zehn Minuten gar ziehen lassen, dann herausheben.",
+        "Aus Butter und Mehl eine helle Mehlschwitze rühren, mit der Brühe ablöschen und glatt rühren.",
+        "Kapern, Sahne und Zitronensaft zugeben, abschmecken und die Klopse in der Sauce erwärmen.",
+        "Mit Salzkartoffeln und Roter Bete servieren."
+      ],
+      "note": "Modernisierte Fassung nach Davidis."
+    },
+    {
+      "id": "davidis-kartoffelkloesse",
+      "title": "Kartoffelklöße",
+      "chapter": "Von den Kartoffeln",
+      "cuisine": "Deutsch",
+      "category": "Beilage",
+      "meals": [
+        "mittag",
+        "abend"
+      ],
+      "diet": [
+        "vegetarisch"
+      ],
+      "servings": 4,
+      "prep": 30,
+      "cook": 20,
+      "difficulty": 2,
+      "kcal": 240,
+      "tags": [
+        "Beilage",
+        "Kartoffel"
+      ],
+      "ingredients": [
+        {
+          "a": 1000,
+          "u": "g",
+          "n": "mehligkochende Kartoffeln"
+        },
+        {
+          "a": 80,
+          "u": "g",
+          "n": "Kartoffelstärke"
+        },
+        {
+          "a": 1,
+          "u": "Stk",
+          "n": "Ei"
+        },
+        {
+          "a": 1,
+          "u": "TL",
+          "n": "Salz"
+        },
+        {
+          "a": 1,
+          "u": "Prise",
+          "n": "Muskatnuss"
+        },
+        {
+          "a": 2,
+          "u": "Scheibe",
+          "n": "Weißbrot"
+        },
+        {
+          "a": 20,
+          "u": "g",
+          "n": "Butter"
+        }
+      ],
+      "steps": [
+        "Kartoffeln in der Schale garen, pellen und noch heiß durch die Presse drücken.",
+        "Etwas abkühlen lassen, dann Stärke, Ei, Salz und Muskat rasch untermengen.",
+        "Weißbrot würfeln und in Butter goldbraun rösten.",
+        "Aus dem Teig Klöße formen und je zwei Brotwürfel in die Mitte drücken.",
+        "In siedendem Salzwasser ohne Wallen zwanzig Minuten ziehen lassen, bis sie oben schwimmen."
+      ],
+      "note": "Modernisierte Fassung nach Davidis."
+    },
+    {
+      "id": "davidis-rotkohl",
+      "title": "Apfelrotkohl",
+      "chapter": "Von den Gemüsen",
+      "cuisine": "Deutsch",
+      "category": "Beilage",
+      "meals": [
+        "mittag",
+        "abend"
+      ],
+      "diet": [
+        "vegetarisch",
+        "glutenfrei"
+      ],
+      "servings": 4,
+      "prep": 20,
+      "cook": 60,
+      "difficulty": 1,
+      "kcal": 150,
+      "tags": [
+        "Winter",
+        "Beilage"
+      ],
+      "ingredients": [
+        {
+          "a": 1000,
+          "u": "g",
+          "n": "Rotkohl"
+        },
+        {
+          "a": 2,
+          "u": "Stk",
+          "n": "Äpfel"
+        },
+        {
+          "a": 1,
+          "u": "Stk",
+          "n": "Zwiebel"
+        },
+        {
+          "a": 30,
+          "u": "g",
+          "n": "Butterschmalz"
+        },
+        {
+          "a": 4,
+          "u": "EL",
+          "n": "Rotweinessig"
+        },
+        {
+          "a": 2,
+          "u": "EL",
+          "n": "Zucker"
+        },
+        {
+          "a": 3,
+          "u": "Stk",
+          "n": "Lorbeerblätter"
+        },
+        {
+          "a": 4,
+          "u": "Stk",
+          "n": "Nelken"
+        },
+        {
+          "a": 200,
+          "u": "ml",
+          "n": "Apfelsaft"
+        },
+        {
+          "a": 1,
+          "u": "TL",
+          "n": "Salz"
+        }
+      ],
+      "steps": [
+        "Rotkohl fein hobeln, mit Essig, Zucker und Salz mischen und eine halbe Stunde ziehen lassen.",
+        "Zwiebelwürfel im Schmalz glasig dünsten, Kohl zugeben und kurz mitdünsten.",
+        "Apfelspalten, Gewürze und Apfelsaft zufügen.",
+        "Zugedeckt eine Stunde bei kleiner Hitze weich schmoren, gelegentlich umrühren.",
+        "Lorbeer und Nelken entfernen und mit Essig und Zucker abschmecken."
+      ],
+      "note": "Modernisierte Fassung nach Davidis."
+    },
+    {
+      "id": "davidis-kartoffelsuppe",
+      "title": "Kartoffelsuppe mit Majoran",
+      "chapter": "Von den Suppen",
+      "cuisine": "Deutsch",
+      "category": "Suppe",
+      "meals": [
+        "mittag",
+        "abend"
+      ],
+      "diet": [
+        "vegetarisch"
+      ],
+      "servings": 4,
+      "prep": 20,
+      "cook": 30,
+      "difficulty": 1,
+      "kcal": 280,
+      "tags": [
+        "Eintopf",
+        "günstig"
+      ],
+      "ingredients": [
+        {
+          "a": 800,
+          "u": "g",
+          "n": "Kartoffeln"
+        },
+        {
+          "a": 2,
+          "u": "Stk",
+          "n": "Möhren"
+        },
+        {
+          "a": 1,
+          "u": "Stk",
+          "n": "Stange Lauch"
+        },
+        {
+          "a": 1,
+          "u": "Stk",
+          "n": "Zwiebel"
+        },
+        {
+          "a": 30,
+          "u": "g",
+          "n": "Butter"
+        },
+        {
+          "a": 1.2,
+          "u": "l",
+          "n": "Gemüsebrühe"
+        },
+        {
+          "a": 100,
+          "u": "ml",
+          "n": "Sahne"
+        },
+        {
+          "a": 2,
+          "u": "TL",
+          "n": "Majoran, getrocknet"
+        },
+        {
+          "a": 1,
+          "u": "TL",
+          "n": "Salz"
+        }
+      ],
+      "steps": [
+        "Gemüse putzen und in gleichmäßige Würfel schneiden, Lauch in Ringe.",
+        "Zwiebel in Butter glasig dünsten, übriges Gemüse zugeben und kurz mitschwitzen.",
+        "Mit Brühe auffüllen und dreißig Minuten weich kochen.",
+        "Etwa ein Drittel der Suppe pürieren und zurückgeben, damit sie sämig wird.",
+        "Sahne und Majoran einrühren, mit Salz und Pfeffer abschmecken."
+      ],
+      "note": "Modernisierte Fassung nach Davidis."
+    },
+    {
+      "id": "davidis-griessklosssuppe",
+      "title": "Rindfleischsuppe mit Grießklößchen",
+      "chapter": "Von den Suppen",
+      "cuisine": "Deutsch",
+      "category": "Suppe",
+      "meals": [
+        "mittag"
+      ],
+      "diet": [],
+      "servings": 4,
+      "prep": 20,
+      "cook": 120,
+      "difficulty": 2,
+      "kcal": 310,
+      "tags": [
+        "Brühe",
+        "Klassiker"
+      ],
+      "ingredients": [
+        {
+          "a": 800,
+          "u": "g",
+          "n": "Rinderbeinscheibe"
+        },
+        {
+          "a": 2,
+          "u": "l",
+          "n": "Wasser"
+        },
+        {
+          "a": 1,
+          "u": "Stk",
+          "n": "Suppengrün"
+        },
+        {
+          "a": 1,
+          "u": "Stk",
+          "n": "Zwiebel"
+        },
+        {
+          "a": 60,
+          "u": "g",
+          "n": "Hartweizengrieß"
+        },
+        {
+          "a": 30,
+          "u": "g",
+          "n": "Butter"
+        },
+        {
+          "a": 1,
+          "u": "Stk",
+          "n": "Ei"
+        },
+        {
+          "a": 1,
+          "u": "Bund",
+          "n": "Petersilie"
+        },
+        {
+          "a": 2,
+          "u": "TL",
+          "n": "Salz"
+        }
+      ],
+      "steps": [
+        "Fleisch mit kaltem Wasser aufsetzen, aufkochen und den Schaum abschöpfen.",
+        "Halbierte Zwiebel und Suppengrün zugeben und zwei Stunden leise simmern lassen.",
+        "Für die Klößchen weiche Butter mit Ei und Salz schaumig rühren, Grieß unterziehen, zwanzig Minuten quellen lassen.",
+        "Brühe abseihen und abschmecken, Fleisch würfeln.",
+        "Mit zwei Teelöffeln Nocken abstechen und in der Brühe zehn Minuten ziehen lassen.",
+        "Mit Fleisch und gehackter Petersilie anrichten."
+      ],
+      "note": "Modernisierte Fassung nach Davidis."
+    },
+    {
+      "id": "davidis-linseneintopf",
+      "title": "Linseneintopf",
+      "chapter": "Von den Hülsenfrüchten",
+      "cuisine": "Deutsch",
+      "category": "Hauptgericht",
+      "meals": [
+        "mittag",
+        "abend"
+      ],
+      "diet": [
+        "vegetarisch"
+      ],
+      "servings": 4,
+      "prep": 15,
+      "cook": 50,
+      "difficulty": 1,
+      "kcal": 420,
+      "tags": [
+        "Eintopf",
+        "Vorkochen",
+        "günstig"
+      ],
+      "ingredients": [
+        {
+          "a": 300,
+          "u": "g",
+          "n": "Tellerlinsen"
+        },
+        {
+          "a": 2,
+          "u": "Stk",
+          "n": "Möhren"
+        },
+        {
+          "a": 300,
+          "u": "g",
+          "n": "Kartoffeln"
+        },
+        {
+          "a": 1,
+          "u": "Stk",
+          "n": "Stange Lauch"
+        },
+        {
+          "a": 1,
+          "u": "Stk",
+          "n": "Zwiebel"
+        },
+        {
+          "a": 2,
+          "u": "EL",
+          "n": "Rapsöl"
+        },
+        {
+          "a": 1.2,
+          "u": "l",
+          "n": "Gemüsebrühe"
+        },
+        {
+          "a": 3,
+          "u": "EL",
+          "n": "Weinessig"
+        },
+        {
+          "a": 1,
+          "u": "TL",
+          "n": "Salz"
+        },
+        {
+          "a": 2,
+          "u": "Stk",
+          "n": "Lorbeerblätter"
+        }
+      ],
+      "steps": [
+        "Linsen verlesen und abspülen.",
+        "Zwiebelwürfel in Öl andünsten, gewürfeltes Wurzelgemüse und Lauch zugeben.",
+        "Linsen, Lorbeer und Brühe zufügen und dreißig Minuten köcheln.",
+        "Kartoffelwürfel zugeben und weitere zwanzig Minuten garen.",
+        "Zum Schluss kräftig mit Essig, Salz und Pfeffer abschmecken."
+      ],
+      "note": "Modernisierte, fleischlose Fassung nach Davidis."
+    },
+    {
+      "id": "davidis-milchreis",
+      "title": "Milchreis mit Zimtzucker",
+      "chapter": "Von den Mehlspeisen",
+      "cuisine": "Deutsch",
+      "category": "Dessert",
+      "meals": [
+        "fruehstueck",
+        "mittag",
+        "snack"
+      ],
+      "diet": [
+        "vegetarisch",
+        "glutenfrei"
+      ],
+      "servings": 4,
+      "prep": 5,
+      "cook": 35,
+      "difficulty": 1,
+      "kcal": 330,
+      "tags": [
+        "Süßspeise",
+        "Kinder"
+      ],
+      "ingredients": [
+        {
+          "a": 200,
+          "u": "g",
+          "n": "Milchreis"
+        },
+        {
+          "a": 1,
+          "u": "l",
+          "n": "Milch"
+        },
+        {
+          "a": 40,
+          "u": "g",
+          "n": "Zucker"
+        },
+        {
+          "a": 1,
+          "u": "Prise",
+          "n": "Salz"
+        },
+        {
+          "a": 1,
+          "u": "Stk",
+          "n": "Vanilleschote"
+        },
+        {
+          "a": 2,
+          "u": "TL",
+          "n": "Zimt"
+        }
+      ],
+      "steps": [
+        "Milch mit Zucker, Salz und ausgekratzter Vanille aufkochen.",
+        "Reis einrühren und bei kleinster Hitze zugedeckt dreißig Minuten quellen lassen.",
+        "Gelegentlich umrühren, damit nichts ansetzt.",
+        "Mit Zimtzucker bestreut warm servieren."
+      ],
+      "note": "Modernisierte Fassung nach Davidis."
+    },
+    {
+      "id": "davidis-rote-gruetze",
+      "title": "Rote Grütze",
+      "chapter": "Von den kalten Speisen",
+      "cuisine": "Deutsch",
+      "category": "Dessert",
+      "meals": [
+        "snack"
+      ],
+      "diet": [
+        "vegetarisch",
+        "vegan",
+        "glutenfrei"
+      ],
+      "servings": 4,
+      "prep": 10,
+      "cook": 10,
+      "difficulty": 1,
+      "kcal": 180,
+      "tags": [
+        "Sommer",
+        "Obst"
+      ],
+      "ingredients": [
+        {
+          "a": 750,
+          "u": "g",
+          "n": "gemischte rote Beeren"
+        },
+        {
+          "a": 250,
+          "u": "ml",
+          "n": "roter Traubensaft"
+        },
+        {
+          "a": 80,
+          "u": "g",
+          "n": "Zucker"
+        },
+        {
+          "a": 40,
+          "u": "g",
+          "n": "Speisestärke"
+        },
+        {
+          "a": 1,
+          "u": "EL",
+          "n": "Zitronensaft"
+        }
+      ],
+      "steps": [
+        "Beeren verlesen, größere Früchte halbieren.",
+        "Saft mit Zucker aufkochen, angerührte Stärke einrühren und einmal aufwallen lassen.",
+        "Beeren zugeben und nur noch kurz ziehen lassen, nicht mehr kochen.",
+        "Mit Zitronensaft abschmecken und kalt stellen."
+      ],
+      "note": "Modernisierte Fassung nach Davidis."
+    },
+    {
+      "id": "davidis-gruenkohl",
+      "title": "Grünkohl mit Kartoffeln",
+      "chapter": "Von den Gemüsen",
+      "cuisine": "Deutsch",
+      "category": "Hauptgericht",
+      "meals": [
+        "mittag",
+        "abend"
+      ],
+      "diet": [
+        "vegetarisch"
+      ],
+      "servings": 4,
+      "prep": 25,
+      "cook": 60,
+      "difficulty": 1,
+      "kcal": 390,
+      "tags": [
+        "Winter",
+        "Norddeutsch"
+      ],
+      "ingredients": [
+        {
+          "a": 1500,
+          "u": "g",
+          "n": "Grünkohl"
+        },
+        {
+          "a": 2,
+          "u": "Stk",
+          "n": "Zwiebeln"
+        },
+        {
+          "a": 40,
+          "u": "g",
+          "n": "Butterschmalz"
+        },
+        {
+          "a": 600,
+          "u": "g",
+          "n": "Kartoffeln"
+        },
+        {
+          "a": 500,
+          "u": "ml",
+          "n": "Gemüsebrühe"
+        },
+        {
+          "a": 2,
+          "u": "EL",
+          "n": "grober Senf"
+        },
+        {
+          "a": 1,
+          "u": "TL",
+          "n": "Salz"
+        },
+        {
+          "a": 2,
+          "u": "TL",
+          "n": "Zucker"
+        }
+      ],
+      "steps": [
+        "Grünkohl von den Rippen streifen, waschen und grob hacken.",
+        "Zwiebelwürfel im Schmalz andünsten, Kohl portionsweise zugeben und zusammenfallen lassen.",
+        "Mit Brühe auffüllen und vierzig Minuten schmoren.",
+        "Kartoffelwürfel zugeben und weitere zwanzig Minuten garen, dabei etwas zerdrücken.",
+        "Mit Senf, Salz, Pfeffer und einer Prise Zucker abschmecken."
+      ],
+      "note": "Modernisierte, fleischlose Fassung nach Davidis."
+    },
+    {
+      "id": "davidis-hefezopf",
+      "title": "Hefezopf",
+      "chapter": "Vom Backwerk",
+      "cuisine": "Deutsch",
+      "category": "Backen",
+      "meals": [
+        "fruehstueck",
+        "snack"
+      ],
+      "diet": [
+        "vegetarisch"
+      ],
+      "servings": 8,
+      "prep": 30,
+      "cook": 35,
+      "difficulty": 2,
+      "kcal": 290,
+      "tags": [
+        "Hefeteig",
+        "Sonntag"
+      ],
+      "ingredients": [
+        {
+          "a": 500,
+          "u": "g",
+          "n": "Weizenmehl Type 405"
+        },
+        {
+          "a": 250,
+          "u": "ml",
+          "n": "Milch"
+        },
+        {
+          "a": 21,
+          "u": "g",
+          "n": "frische Hefe"
+        },
+        {
+          "a": 80,
+          "u": "g",
+          "n": "Zucker"
+        },
+        {
+          "a": 80,
+          "u": "g",
+          "n": "Butter"
+        },
+        {
+          "a": 1,
+          "u": "Stk",
+          "n": "Ei"
+        },
+        {
+          "a": 1,
+          "u": "Prise",
+          "n": "Salz"
+        },
+        {
+          "a": 30,
+          "u": "g",
+          "n": "Hagelzucker"
+        }
+      ],
+      "steps": [
+        "Hefe in lauwarmer Milch mit einem Löffel Zucker auflösen und zehn Minuten stehen lassen.",
+        "Mit Mehl, restlichem Zucker, weicher Butter, Ei und Salz zu einem glatten Teig kneten.",
+        "Zugedeckt eine Stunde auf das doppelte Volumen gehen lassen.",
+        "Teig dritteln, zu Strängen rollen und zu einem Zopf flechten.",
+        "Weitere dreißig Minuten gehen lassen, mit Milch bestreichen und mit Hagelzucker bestreuen.",
+        "Bei 180 Grad Ober- und Unterhitze fünfunddreißig Minuten backen."
+      ],
+      "note": "Modernisierte Fassung nach Davidis."
+    },
+    {
+      "id": "davidis-kohlrouladen",
+      "title": "Kohlrouladen",
+      "chapter": "Von den Gemüsen",
+      "cuisine": "Deutsch",
+      "category": "Hauptgericht",
+      "meals": [
+        "mittag",
+        "abend"
+      ],
+      "diet": [],
+      "servings": 4,
+      "prep": 40,
+      "cook": 60,
+      "difficulty": 3,
+      "kcal": 460,
+      "tags": [
+        "Schmoren",
+        "Vorkochen"
+      ],
+      "ingredients": [
+        {
+          "a": 1,
+          "u": "Stk",
+          "n": "Weißkohl"
+        },
+        {
+          "a": 500,
+          "u": "g",
+          "n": "Hackfleisch, gemischt"
+        },
+        {
+          "a": 1,
+          "u": "Stk",
+          "n": "Brötchen vom Vortag"
+        },
+        {
+          "a": 1,
+          "u": "Stk",
+          "n": "Zwiebel"
+        },
+        {
+          "a": 1,
+          "u": "Stk",
+          "n": "Ei"
+        },
+        {
+          "a": 2,
+          "u": "EL",
+          "n": "Rapsöl"
+        },
+        {
+          "a": 400,
+          "u": "ml",
+          "n": "Fleischbrühe"
+        },
+        {
+          "a": 150,
+          "u": "ml",
+          "n": "Sahne"
+        },
+        {
+          "a": 1,
+          "u": "TL",
+          "n": "Salz"
+        }
+      ],
+      "steps": [
+        "Kohlkopf im Ganzen zehn Minuten in Salzwasser kochen, acht große Blätter ablösen und die Rippen flach schneiden.",
+        "Eingeweichtes Brötchen ausdrücken und mit Hack, Zwiebel, Ei und Salz verkneten.",
+        "Je zwei Blätter überlappen, Füllung aufsetzen, einschlagen und mit Küchengarn binden.",
+        "Rouladen in Öl rundum anbraten und mit Brühe angießen.",
+        "Zugedeckt eine Stunde schmoren, Rouladen herausnehmen.",
+        "Sauce mit Sahne verfeinern, einkochen lassen und abschmecken."
+      ],
+      "note": "Modernisierte Fassung nach Davidis."
+    },
+    {
+      "id": "davidis-erbsensuppe",
+      "title": "Deftige Erbsensuppe",
+      "chapter": "Von den Hülsenfrüchten",
+      "cuisine": "Deutsch",
+      "category": "Suppe",
+      "meals": [
+        "mittag",
+        "abend"
+      ],
+      "diet": [
+        "vegetarisch"
+      ],
+      "servings": 4,
+      "prep": 15,
+      "cook": 70,
+      "difficulty": 1,
+      "kcal": 400,
+      "tags": [
+        "Eintopf",
+        "günstig",
+        "Vorkochen"
+      ],
+      "ingredients": [
+        {
+          "a": 400,
+          "u": "g",
+          "n": "getrocknete Schälerbsen"
+        },
+        {
+          "a": 1.5,
+          "u": "l",
+          "n": "Gemüsebrühe"
+        },
+        {
+          "a": 2,
+          "u": "Stk",
+          "n": "Möhren"
+        },
+        {
+          "a": 1,
+          "u": "Stk",
+          "n": "Sellerieknolle, klein"
+        },
+        {
+          "a": 300,
+          "u": "g",
+          "n": "Kartoffeln"
+        },
+        {
+          "a": 1,
+          "u": "Stk",
+          "n": "Zwiebel"
+        },
+        {
+          "a": 2,
+          "u": "EL",
+          "n": "Rapsöl"
+        },
+        {
+          "a": 2,
+          "u": "TL",
+          "n": "Majoran, getrocknet"
+        },
+        {
+          "a": 1,
+          "u": "TL",
+          "n": "Salz"
+        }
+      ],
+      "steps": [
+        "Erbsen abspülen und mit der Brühe aufsetzen.",
+        "Zwiebelwürfel in Öl andünsten und zugeben.",
+        "Vierzig Minuten köcheln, bis die Erbsen zerfallen.",
+        "Gewürfeltes Wurzelgemüse und Kartoffeln zufügen und dreißig Minuten weitergaren.",
+        "Mit Majoran, Salz und Pfeffer abschmecken; bei Bedarf Brühe nachgießen."
+      ],
+      "note": "Modernisierte, fleischlose Fassung nach Davidis."
+    },
+    {
+      "id": "davidis-himmel-und-erde",
+      "title": "Himmel und Erde",
+      "chapter": "Von den Kartoffeln",
+      "cuisine": "Deutsch",
+      "category": "Hauptgericht",
+      "meals": [
+        "mittag",
+        "abend"
+      ],
+      "diet": [
+        "vegetarisch",
+        "glutenfrei"
+      ],
+      "servings": 4,
+      "prep": 20,
+      "cook": 30,
+      "difficulty": 1,
+      "kcal": 360,
+      "tags": [
+        "Rheinland",
+        "Apfel"
+      ],
+      "ingredients": [
+        {
+          "a": 800,
+          "u": "g",
+          "n": "mehligkochende Kartoffeln"
+        },
+        {
+          "a": 500,
+          "u": "g",
+          "n": "säuerliche Äpfel"
+        },
+        {
+          "a": 2,
+          "u": "Stk",
+          "n": "Zwiebeln"
+        },
+        {
+          "a": 50,
+          "u": "g",
+          "n": "Butter"
+        },
+        {
+          "a": 100,
+          "u": "ml",
+          "n": "Milch"
+        },
+        {
+          "a": 1,
+          "u": "TL",
+          "n": "Salz"
+        },
+        {
+          "a": 1,
+          "u": "Prise",
+          "n": "Muskatnuss"
+        }
+      ],
+      "steps": [
+        "Kartoffeln schälen, würfeln und in Salzwasser weich kochen.",
+        "Äpfel schälen, würfeln und mit wenig Wasser zu grobem Mus zerfallen lassen.",
+        "Zwiebelringe in Butter goldbraun braten.",
+        "Kartoffeln abgießen, mit warmer Milch und Butter stampfen und mit Muskat würzen.",
+        "Kartoffelstampf und Apfelmus locker mischen und mit Röstzwiebeln anrichten."
+      ],
+      "note": "Modernisierte, fleischlose Fassung nach Davidis."
+    },
+    {
+      "id": "davidis-streuselkuchen",
+      "title": "Streuselkuchen vom Blech",
+      "chapter": "Vom Backwerk",
+      "cuisine": "Deutsch",
+      "category": "Backen",
+      "meals": [
+        "snack"
+      ],
+      "diet": [
+        "vegetarisch"
+      ],
+      "servings": 12,
+      "prep": 35,
+      "cook": 30,
+      "difficulty": 2,
+      "kcal": 310,
+      "tags": [
+        "Kuchen",
+        "Hefeteig"
+      ],
+      "ingredients": [
+        {
+          "a": 500,
+          "u": "g",
+          "n": "Weizenmehl Type 405"
+        },
+        {
+          "a": 250,
+          "u": "ml",
+          "n": "Milch"
+        },
+        {
+          "a": 21,
+          "u": "g",
+          "n": "frische Hefe"
+        },
+        {
+          "a": 60,
+          "u": "g",
+          "n": "Zucker"
+        },
+        {
+          "a": 60,
+          "u": "g",
+          "n": "Butter"
+        },
+        {
+          "a": 1,
+          "u": "Prise",
+          "n": "Salz"
+        },
+        {
+          "a": 300,
+          "u": "g",
+          "n": "Weizenmehl Type 405"
+        },
+        {
+          "a": 200,
+          "u": "g",
+          "n": "Butter"
+        },
+        {
+          "a": 150,
+          "u": "g",
+          "n": "Zucker"
+        },
+        {
+          "a": 1,
+          "u": "TL",
+          "n": "Zimt"
+        }
+      ],
+      "steps": [
+        "Aus Mehl, lauwarmer Milch, Hefe, Zucker, Butter und Salz einen Hefeteig kneten und eine Stunde gehen lassen.",
+        "Für die Streusel Mehl, kalte Butter, Zucker und Zimt zu groben Krümeln verreiben.",
+        "Teig auf ein gefettetes Blech ausrollen und nochmals zwanzig Minuten gehen lassen.",
+        "Streusel gleichmäßig aufstreuen.",
+        "Bei 190 Grad dreißig Minuten goldbraun backen."
+      ],
+      "note": "Modernisierte Fassung nach Davidis."
+    },
+    {
+      "id": "davidis-rouladen",
+      "title": "Rinderrouladen",
+      "chapter": "Von dem Rindfleisch",
+      "cuisine": "Deutsch",
+      "category": "Hauptgericht",
+      "meals": [
+        "mittag",
+        "abend"
+      ],
+      "diet": [],
+      "servings": 4,
+      "prep": 30,
+      "cook": 90,
+      "difficulty": 2,
+      "kcal": 540,
+      "tags": [
+        "Schmoren",
+        "Sonntagsessen"
+      ],
+      "ingredients": [
+        {
+          "a": 4,
+          "u": "Stk",
+          "n": "Rinderrouladen"
+        },
+        {
+          "a": 4,
+          "u": "TL",
+          "n": "grober Senf"
+        },
+        {
+          "a": 2,
+          "u": "Stk",
+          "n": "Gewürzgurken"
+        },
+        {
+          "a": 2,
+          "u": "Stk",
+          "n": "Zwiebeln"
+        },
+        {
+          "a": 2,
+          "u": "EL",
+          "n": "Rapsöl"
+        },
+        {
+          "a": 500,
+          "u": "ml",
+          "n": "Fleischbrühe"
+        },
+        {
+          "a": 1,
+          "u": "Stk",
+          "n": "Möhre"
+        },
+        {
+          "a": 1,
+          "u": "EL",
+          "n": "Tomatenmark"
+        },
+        {
+          "a": 1,
+          "u": "TL",
+          "n": "Salz"
+        }
+      ],
+      "steps": [
+        "Rouladen flach klopfen, salzen, pfeffern und mit Senf bestreichen.",
+        "Gurken- und Zwiebelstreifen auflegen, aufrollen und feststecken.",
+        "Rouladen in Öl kräftig anbraten und herausnehmen.",
+        "Möhren- und Zwiebelwürfel im Bratensatz rösten, Tomatenmark mitrösten und mit Brühe ablöschen.",
+        "Rouladen zurücklegen und neunzig Minuten zugedeckt schmoren.",
+        "Sauce passieren, einkochen lassen und abschmecken."
+      ],
+      "note": "Modernisierte Fassung nach Davidis."
+    },
+    {
+      "id": "davidis-pfannkuchen",
+      "title": "Pfannkuchen",
+      "chapter": "Von den Mehlspeisen",
+      "cuisine": "Deutsch",
+      "category": "Hauptgericht",
+      "meals": [
+        "fruehstueck",
+        "mittag",
+        "abend"
+      ],
+      "diet": [
+        "vegetarisch"
+      ],
+      "servings": 4,
+      "prep": 10,
+      "cook": 20,
+      "difficulty": 1,
+      "kcal": 350,
+      "tags": [
+        "schnell",
+        "Kinder"
+      ],
+      "ingredients": [
+        {
+          "a": 250,
+          "u": "g",
+          "n": "Weizenmehl Type 405"
+        },
+        {
+          "a": 500,
+          "u": "ml",
+          "n": "Milch"
+        },
+        {
+          "a": 4,
+          "u": "Stk",
+          "n": "Eier"
+        },
+        {
+          "a": 1,
+          "u": "Prise",
+          "n": "Salz"
+        },
+        {
+          "a": 40,
+          "u": "g",
+          "n": "Butterschmalz"
+        }
+      ],
+      "steps": [
+        "Mehl, Milch, Eier und Salz zu einem glatten Teig verrühren.",
+        "Teig zwanzig Minuten ruhen lassen.",
+        "Wenig Butterschmalz in einer Pfanne erhitzen und dünn ausbacken.",
+        "Von beiden Seiten goldgelb backen und warm halten.",
+        "Süß mit Apfelmus oder herzhaft mit Kräuterquark servieren."
+      ],
+      "note": "Modernisierte Fassung nach Davidis."
+    },
+    {
+      "id": "davidis-zwetschgenkuchen",
+      "title": "Zwetschgenkuchen",
+      "chapter": "Vom Backwerk",
+      "cuisine": "Deutsch",
+      "category": "Backen",
+      "meals": [
+        "snack"
+      ],
+      "diet": [
+        "vegetarisch"
+      ],
+      "servings": 12,
+      "prep": 30,
+      "cook": 40,
+      "difficulty": 2,
+      "kcal": 260,
+      "tags": [
+        "Herbst",
+        "Obstkuchen"
+      ],
+      "ingredients": [
+        {
+          "a": 400,
+          "u": "g",
+          "n": "Weizenmehl Type 405"
+        },
+        {
+          "a": 200,
+          "u": "ml",
+          "n": "Milch"
+        },
+        {
+          "a": 21,
+          "u": "g",
+          "n": "frische Hefe"
+        },
+        {
+          "a": 60,
+          "u": "g",
+          "n": "Zucker"
+        },
+        {
+          "a": 60,
+          "u": "g",
+          "n": "Butter"
+        },
+        {
+          "a": 1500,
+          "u": "g",
+          "n": "Zwetschgen"
+        },
+        {
+          "a": 2,
+          "u": "TL",
+          "n": "Zimt"
+        },
+        {
+          "a": 40,
+          "u": "g",
+          "n": "Semmelbrösel"
+        }
+      ],
+      "steps": [
+        "Hefeteig aus Mehl, lauwarmer Milch, Hefe, Zucker und Butter kneten und eine Stunde gehen lassen.",
+        "Zwetschgen entsteinen und einschneiden.",
+        "Teig auf dem Blech ausrollen und mit Semmelbröseln bestreuen.",
+        "Zwetschgen dachziegelartig dicht auflegen.",
+        "Bei 190 Grad vierzig Minuten backen und warm mit Zimtzucker bestreuen."
+      ],
+      "note": "Modernisierte Fassung nach Davidis."
+    },
+    {
+      "id": "davidis-heringssalat",
+      "title": "Heringssalat mit Roter Bete",
+      "chapter": "Von den kalten Speisen",
+      "cuisine": "Deutsch",
+      "category": "Vorspeise",
+      "meals": [
+        "abend",
+        "snack"
+      ],
+      "diet": [],
+      "servings": 4,
+      "prep": 25,
+      "cook": 0,
+      "difficulty": 1,
+      "kcal": 290,
+      "tags": [
+        "kalt",
+        "Vorkochen"
+      ],
+      "ingredients": [
+        {
+          "a": 300,
+          "u": "g",
+          "n": "Matjesfilet"
+        },
+        {
+          "a": 300,
+          "u": "g",
+          "n": "Rote Bete, gegart"
+        },
+        {
+          "a": 300,
+          "u": "g",
+          "n": "Kartoffeln, gekocht"
+        },
+        {
+          "a": 2,
+          "u": "Stk",
+          "n": "saure Äpfel"
+        },
+        {
+          "a": 2,
+          "u": "Stk",
+          "n": "Gewürzgurken"
+        },
+        {
+          "a": 1,
+          "u": "Stk",
+          "n": "Zwiebel"
+        },
+        {
+          "a": 200,
+          "u": "g",
+          "n": "Schmand"
+        },
+        {
+          "a": 2,
+          "u": "EL",
+          "n": "Weinessig"
+        },
+        {
+          "a": 1,
+          "u": "TL",
+          "n": "Salz"
+        }
+      ],
+      "steps": [
+        "Alle Zutaten in gleichmäßige kleine Würfel schneiden.",
+        "Schmand mit Essig, Salz und Pfeffer glatt rühren.",
+        "Alles vorsichtig vermengen.",
+        "Mindestens vier Stunden kühl durchziehen lassen."
+      ],
+      "note": "Modernisierte Fassung nach Davidis."
+    },
+    {
+      "id": "davidis-weisse-bohnensuppe",
+      "title": "Weiße Bohnensuppe",
+      "chapter": "Von den Hülsenfrüchten",
+      "cuisine": "Deutsch",
+      "category": "Suppe",
+      "meals": [
+        "mittag",
+        "abend"
+      ],
+      "diet": [
+        "vegetarisch",
+        "vegan"
+      ],
+      "servings": 4,
+      "prep": 15,
+      "cook": 60,
+      "difficulty": 1,
+      "kcal": 350,
+      "tags": [
+        "Eintopf",
+        "günstig"
+      ],
+      "ingredients": [
+        {
+          "a": 300,
+          "u": "g",
+          "n": "weiße Bohnen, getrocknet"
+        },
+        {
+          "a": 1.5,
+          "u": "l",
+          "n": "Gemüsebrühe"
+        },
+        {
+          "a": 2,
+          "u": "Stk",
+          "n": "Möhren"
+        },
+        {
+          "a": 1,
+          "u": "Stk",
+          "n": "Stange Lauch"
+        },
+        {
+          "a": 1,
+          "u": "Stk",
+          "n": "Zwiebel"
+        },
+        {
+          "a": 2,
+          "u": "EL",
+          "n": "Olivenöl"
+        },
+        {
+          "a": 1,
+          "u": "EL",
+          "n": "Bohnenkraut, getrocknet"
+        },
+        {
+          "a": 2,
+          "u": "EL",
+          "n": "Weinessig"
+        },
+        {
+          "a": 1,
+          "u": "TL",
+          "n": "Salz"
+        }
+      ],
+      "steps": [
+        "Bohnen über Nacht in reichlich Wasser einweichen und abgießen.",
+        "Zwiebelwürfel in Öl andünsten, Bohnen und Brühe zugeben.",
+        "Vierzig Minuten köcheln lassen.",
+        "Möhren- und Lauchstücke zugeben und zwanzig Minuten weitergaren.",
+        "Mit Bohnenkraut, Essig und Salz kräftig abschmecken."
+      ],
+      "note": "Modernisierte, fleischlose Fassung nach Davidis."
+    }
+  ]
+}

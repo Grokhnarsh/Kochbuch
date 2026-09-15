@@ -1,0 +1,28 @@
+{
+  "hooks": {
+    "SessionStart": [
+      {
+        "hooks": [
+          {
+            "type": "command",
+            "command": "npm install --no-audit --no-fund",
+            "timeout": 300,
+            "statusMessage": "Abhängigkeiten und Git-Hooks einrichten"
+          }
+        ]
+      }
+    ],
+    "Stop": [
+      {
+        "hooks": [
+          {
+            "type": "command",
+            "command": "node scripts/sync.mjs --auto",
+            "timeout": 300,
+            "statusMessage": "Mit Git abgleichen"
+          }
+        ]
+      }
+    ]
+  }
+}

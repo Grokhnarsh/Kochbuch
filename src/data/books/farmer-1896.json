@@ -1,0 +1,1451 @@
+{
+  "sourceId": "farmer-1896",
+  "recipes": [
+    {
+      "id": "farmer-boston-brown-bread",
+      "title": "Bostoner Vollkornbrot",
+      "chapter": "Brot und Brotbacken",
+      "cuisine": "Amerikanisch",
+      "category": "Backen",
+      "meals": [
+        "fruehstueck",
+        "snack"
+      ],
+      "diet": [
+        "vegetarisch"
+      ],
+      "servings": 8,
+      "prep": 20,
+      "cook": 180,
+      "difficulty": 2,
+      "kcal": 220,
+      "tags": [
+        "Dampfgaren",
+        "Vollkorn"
+      ],
+      "ingredients": [
+        {
+          "a": 150,
+          "u": "g",
+          "n": "Roggenmehl"
+        },
+        {
+          "a": 150,
+          "u": "g",
+          "n": "Maismehl"
+        },
+        {
+          "a": 150,
+          "u": "g",
+          "n": "Weizenvollkornmehl"
+        },
+        {
+          "a": 180,
+          "u": "ml",
+          "n": "Melasse"
+        },
+        {
+          "a": 500,
+          "u": "ml",
+          "n": "Buttermilch"
+        },
+        {
+          "a": 2,
+          "u": "TL",
+          "n": "Natron"
+        },
+        {
+          "a": 1,
+          "u": "TL",
+          "n": "Salz"
+        },
+        {
+          "a": 100,
+          "u": "g",
+          "n": "Rosinen"
+        }
+      ],
+      "steps": [
+        "Alle trockenen Zutaten gründlich mischen.",
+        "Melasse und Buttermilch zugeben und nur bis zur Bindung verrühren.",
+        "Rosinen unterheben und die Masse in gefettete Dosen oder eine Puddingform füllen, höchstens zu zwei Dritteln.",
+        "Form fest verschließen und in einen Topf mit kochendem Wasser stellen, das bis zur halben Höhe reicht.",
+        "Drei Stunden bei schwacher Hitze dämpfen und Wasser nachfüllen.",
+        "Kurz auskühlen lassen, stürzen und warm mit Butter servieren."
+      ],
+      "note": "Modernisierte Fassung nach Farmer."
+    },
+    {
+      "id": "farmer-corn-chowder",
+      "title": "Maiscremesuppe",
+      "chapter": "Suppen",
+      "cuisine": "Amerikanisch",
+      "category": "Suppe",
+      "meals": [
+        "mittag",
+        "abend"
+      ],
+      "diet": [
+        "vegetarisch"
+      ],
+      "servings": 4,
+      "prep": 15,
+      "cook": 30,
+      "difficulty": 1,
+      "kcal": 380,
+      "tags": [
+        "cremig",
+        "Ein-Topf"
+      ],
+      "ingredients": [
+        {
+          "a": 500,
+          "u": "g",
+          "n": "Maiskörner"
+        },
+        {
+          "a": 500,
+          "u": "g",
+          "n": "Kartoffeln"
+        },
+        {
+          "a": 1,
+          "u": "Stk",
+          "n": "Zwiebel"
+        },
+        {
+          "a": 40,
+          "u": "g",
+          "n": "Butter"
+        },
+        {
+          "a": 600,
+          "u": "ml",
+          "n": "Milch"
+        },
+        {
+          "a": 400,
+          "u": "ml",
+          "n": "Gemüsebrühe"
+        },
+        {
+          "a": 2,
+          "u": "EL",
+          "n": "Mehl"
+        },
+        {
+          "a": 1,
+          "u": "TL",
+          "n": "Salz"
+        },
+        {
+          "a": 1,
+          "u": "Bund",
+          "n": "Schnittlauch"
+        }
+      ],
+      "steps": [
+        "Zwiebelwürfel in Butter glasig dünsten und mit Mehl bestäuben.",
+        "Mit Brühe ablöschen und glatt rühren.",
+        "Kartoffelwürfel zugeben und fünfzehn Minuten garen.",
+        "Mais und Milch zufügen und weitere zehn Minuten ziehen lassen, ohne zu kochen.",
+        "Ein Drittel pürieren für mehr Bindung und mit Salz und Pfeffer abschmecken.",
+        "Mit Schnittlauch bestreuen."
+      ],
+      "note": "Modernisierte Fassung nach Farmer."
+    },
+    {
+      "id": "farmer-cream-tomato-soup",
+      "title": "Tomatencremesuppe",
+      "chapter": "Suppen",
+      "cuisine": "Amerikanisch",
+      "category": "Suppe",
+      "meals": [
+        "mittag",
+        "abend"
+      ],
+      "diet": [
+        "vegetarisch"
+      ],
+      "servings": 4,
+      "prep": 10,
+      "cook": 25,
+      "difficulty": 1,
+      "kcal": 260,
+      "tags": [
+        "schnell",
+        "cremig"
+      ],
+      "ingredients": [
+        {
+          "a": 800,
+          "u": "g",
+          "n": "Tomaten, gehackt"
+        },
+        {
+          "a": 1,
+          "u": "Stk",
+          "n": "Zwiebel"
+        },
+        {
+          "a": 40,
+          "u": "g",
+          "n": "Butter"
+        },
+        {
+          "a": 30,
+          "u": "g",
+          "n": "Mehl"
+        },
+        {
+          "a": 500,
+          "u": "ml",
+          "n": "Milch"
+        },
+        {
+          "a": 1,
+          "u": "Prise",
+          "n": "Natron"
+        },
+        {
+          "a": 1,
+          "u": "TL",
+          "n": "Zucker"
+        },
+        {
+          "a": 1,
+          "u": "TL",
+          "n": "Salz"
+        }
+      ],
+      "steps": [
+        "Tomaten mit Zwiebel fünfzehn Minuten kochen und passieren.",
+        "Eine Prise Natron einrühren, damit die Milch später nicht ausflockt.",
+        "Aus Butter und Mehl eine helle Einbrenne rühren und mit Milch zur Bechamel abbinden.",
+        "Tomatenpüree langsam einrühren.",
+        "Mit Zucker, Salz und Pfeffer abschmecken und heiß servieren."
+      ],
+      "note": "Modernisierte Fassung nach Farmer."
+    },
+    {
+      "id": "farmer-baked-beans",
+      "title": "Bostoner Ofenbohnen",
+      "chapter": "Gemüse",
+      "cuisine": "Amerikanisch",
+      "category": "Hauptgericht",
+      "meals": [
+        "mittag",
+        "abend"
+      ],
+      "diet": [
+        "vegetarisch"
+      ],
+      "servings": 6,
+      "prep": 20,
+      "cook": 300,
+      "difficulty": 2,
+      "kcal": 420,
+      "tags": [
+        "Ofen",
+        "Vorkochen",
+        "günstig"
+      ],
+      "ingredients": [
+        {
+          "a": 500,
+          "u": "g",
+          "n": "weiße Bohnen, getrocknet"
+        },
+        {
+          "a": 1,
+          "u": "Stk",
+          "n": "Zwiebel"
+        },
+        {
+          "a": 120,
+          "u": "ml",
+          "n": "Melasse"
+        },
+        {
+          "a": 2,
+          "u": "EL",
+          "n": "Senf"
+        },
+        {
+          "a": 2,
+          "u": "TL",
+          "n": "Salz"
+        },
+        {
+          "a": 2,
+          "u": "EL",
+          "n": "brauner Zucker"
+        },
+        {
+          "a": 40,
+          "u": "g",
+          "n": "Butter"
+        }
+      ],
+      "steps": [
+        "Bohnen über Nacht einweichen, abgießen und in frischem Wasser eine halbe Stunde vorkochen.",
+        "Ganze Zwiebel in einen Bräter legen, Bohnen darauf schichten.",
+        "Melasse, Senf, Zucker und Salz mit Kochwasser verrühren und angießen, bis die Bohnen knapp bedeckt sind.",
+        "Zugedeckt bei 140 Grad fünf Stunden im Ofen garen.",
+        "In der letzten halben Stunde den Deckel abnehmen, damit eine dunkle Kruste entsteht.",
+        "Butter untermengen und servieren."
+      ],
+      "note": "Modernisierte, fleischlose Fassung nach Farmer."
+    },
+    {
+      "id": "farmer-popovers",
+      "title": "Hohle Ofenbrötchen",
+      "chapter": "Rührteige",
+      "cuisine": "Amerikanisch",
+      "category": "Backen",
+      "meals": [
+        "fruehstueck",
+        "snack"
+      ],
+      "diet": [
+        "vegetarisch"
+      ],
+      "servings": 6,
+      "prep": 10,
+      "cook": 35,
+      "difficulty": 2,
+      "kcal": 160,
+      "tags": [
+        "schnell",
+        "Ofen"
+      ],
+      "ingredients": [
+        {
+          "a": 125,
+          "u": "g",
+          "n": "Weizenmehl Type 405"
+        },
+        {
+          "a": 250,
+          "u": "ml",
+          "n": "Milch"
+        },
+        {
+          "a": 2,
+          "u": "Stk",
+          "n": "Eier"
+        },
+        {
+          "a": 1,
+          "u": "Prise",
+          "n": "Salz"
+        },
+        {
+          "a": 20,
+          "u": "g",
+          "n": "Butter"
+        }
+      ],
+      "steps": [
+        "Alle Zutaten zu einem glatten, dünnflüssigen Teig verschlagen.",
+        "Muffinform gut fetten und im Ofen bei 220 Grad heiß vorheizen.",
+        "Teig in die heiße Form gießen, höchstens zur Hälfte.",
+        "Zwanzig Minuten bei 220 Grad backen, dann bei 180 Grad weitere fünfzehn Minuten.",
+        "Ofentür währenddessen nicht öffnen, sonst fallen sie zusammen."
+      ],
+      "note": "Modernisierte Fassung nach Farmer."
+    },
+    {
+      "id": "farmer-indian-pudding",
+      "title": "Maisgrießpudding",
+      "chapter": "Aufläufe und Puddings",
+      "cuisine": "Amerikanisch",
+      "category": "Dessert",
+      "meals": [
+        "snack"
+      ],
+      "diet": [
+        "vegetarisch"
+      ],
+      "servings": 6,
+      "prep": 15,
+      "cook": 150,
+      "difficulty": 1,
+      "kcal": 290,
+      "tags": [
+        "Ofen",
+        "Winter"
+      ],
+      "ingredients": [
+        {
+          "a": 1,
+          "u": "l",
+          "n": "Milch"
+        },
+        {
+          "a": 80,
+          "u": "g",
+          "n": "Maisgrieß"
+        },
+        {
+          "a": 150,
+          "u": "ml",
+          "n": "Melasse"
+        },
+        {
+          "a": 50,
+          "u": "g",
+          "n": "Butter"
+        },
+        {
+          "a": 1,
+          "u": "TL",
+          "n": "Ingwer, gemahlen"
+        },
+        {
+          "a": 1,
+          "u": "TL",
+          "n": "Zimt"
+        },
+        {
+          "a": 1,
+          "u": "TL",
+          "n": "Salz"
+        }
+      ],
+      "steps": [
+        "Zwei Drittel der Milch erhitzen und den Maisgrieß unter Rühren einrieseln lassen.",
+        "Zwanzig Minuten zu einem dicken Brei kochen.",
+        "Melasse, Butter und Gewürze einrühren.",
+        "In eine gefettete Form füllen und die restliche kalte Milch obenauf gießen, nicht einrühren.",
+        "Bei 150 Grad zweieinhalb Stunden backen und lauwarm servieren."
+      ],
+      "note": "Modernisierte Fassung nach Farmer."
+    },
+    {
+      "id": "farmer-apple-pie",
+      "title": "Gedeckter Apfelkuchen",
+      "chapter": "Kuchen und Pasteten",
+      "cuisine": "Amerikanisch",
+      "category": "Backen",
+      "meals": [
+        "snack"
+      ],
+      "diet": [
+        "vegetarisch"
+      ],
+      "servings": 8,
+      "prep": 40,
+      "cook": 50,
+      "difficulty": 2,
+      "kcal": 380,
+      "tags": [
+        "Klassiker",
+        "Apfel"
+      ],
+      "ingredients": [
+        {
+          "a": 350,
+          "u": "g",
+          "n": "Weizenmehl Type 405"
+        },
+        {
+          "a": 200,
+          "u": "g",
+          "n": "Butter"
+        },
+        {
+          "a": 1,
+          "u": "TL",
+          "n": "Salz"
+        },
+        {
+          "a": 80,
+          "u": "ml",
+          "n": "Eiswasser"
+        },
+        {
+          "a": 1200,
+          "u": "g",
+          "n": "säuerliche Äpfel"
+        },
+        {
+          "a": 120,
+          "u": "g",
+          "n": "Zucker"
+        },
+        {
+          "a": 2,
+          "u": "TL",
+          "n": "Zimt"
+        },
+        {
+          "a": 2,
+          "u": "EL",
+          "n": "Speisestärke"
+        },
+        {
+          "a": 1,
+          "u": "EL",
+          "n": "Zitronensaft"
+        }
+      ],
+      "steps": [
+        "Mehl, Salz und kalte Butterwürfel zu groben Krümeln verreiben.",
+        "Eiswasser zugeben, rasch zusammenfügen und eine Stunde kühlen.",
+        "Äpfel in Spalten schneiden und mit Zucker, Zimt, Stärke und Zitronensaft mischen.",
+        "Zwei Drittel des Teigs in die Form legen, Füllung einschichten.",
+        "Mit dem restlichen Teig abdecken, Rand andrücken und die Decke einschneiden.",
+        "Bei 200 Grad fünfzig Minuten backen, bis der Saft blubbernd austritt."
+      ],
+      "note": "Modernisierte Fassung nach Farmer."
+    },
+    {
+      "id": "farmer-blueberry-muffins",
+      "title": "Heidelbeer-Küchlein",
+      "chapter": "Rührteige",
+      "cuisine": "Amerikanisch",
+      "category": "Backen",
+      "meals": [
+        "fruehstueck",
+        "snack"
+      ],
+      "diet": [
+        "vegetarisch"
+      ],
+      "servings": 12,
+      "prep": 15,
+      "cook": 25,
+      "difficulty": 1,
+      "kcal": 210,
+      "tags": [
+        "schnell",
+        "Frühstück"
+      ],
+      "ingredients": [
+        {
+          "a": 300,
+          "u": "g",
+          "n": "Weizenmehl Type 405"
+        },
+        {
+          "a": 120,
+          "u": "g",
+          "n": "Zucker"
+        },
+        {
+          "a": 1,
+          "u": "Pck",
+          "n": "Backpulver"
+        },
+        {
+          "a": 1,
+          "u": "Prise",
+          "n": "Salz"
+        },
+        {
+          "a": 250,
+          "u": "ml",
+          "n": "Milch"
+        },
+        {
+          "a": 80,
+          "u": "g",
+          "n": "Butter"
+        },
+        {
+          "a": 2,
+          "u": "Stk",
+          "n": "Eier"
+        },
+        {
+          "a": 250,
+          "u": "g",
+          "n": "Heidelbeeren"
+        }
+      ],
+      "steps": [
+        "Trockene und flüssige Zutaten getrennt mischen.",
+        "Beides nur kurz zusammenrühren, der Teig darf klumpig bleiben.",
+        "Beeren mit etwas Mehl bestäuben und unterheben, so sinken sie nicht ab.",
+        "Muffinformen zu zwei Dritteln füllen.",
+        "Bei 190 Grad fünfundzwanzig Minuten backen."
+      ],
+      "note": "Modernisierte Fassung nach Farmer."
+    },
+    {
+      "id": "farmer-macaroni-cheese",
+      "title": "Makkaroni mit Käse",
+      "chapter": "Getreide und Teigwaren",
+      "cuisine": "Amerikanisch",
+      "category": "Hauptgericht",
+      "meals": [
+        "mittag",
+        "abend"
+      ],
+      "diet": [
+        "vegetarisch"
+      ],
+      "servings": 4,
+      "prep": 15,
+      "cook": 30,
+      "difficulty": 1,
+      "kcal": 620,
+      "tags": [
+        "Ofen",
+        "Kinder"
+      ],
+      "ingredients": [
+        {
+          "a": 400,
+          "u": "g",
+          "n": "Makkaroni"
+        },
+        {
+          "a": 50,
+          "u": "g",
+          "n": "Butter"
+        },
+        {
+          "a": 50,
+          "u": "g",
+          "n": "Mehl"
+        },
+        {
+          "a": 700,
+          "u": "ml",
+          "n": "Milch"
+        },
+        {
+          "a": 250,
+          "u": "g",
+          "n": "Cheddar"
+        },
+        {
+          "a": 1,
+          "u": "TL",
+          "n": "Senf"
+        },
+        {
+          "a": 1,
+          "u": "Prise",
+          "n": "Muskatnuss"
+        },
+        {
+          "a": 50,
+          "u": "g",
+          "n": "Semmelbrösel"
+        }
+      ],
+      "steps": [
+        "Nudeln sehr bissfest kochen, sie garen im Ofen nach.",
+        "Aus Butter und Mehl eine Einbrenne rühren, mit Milch zur glatten Bechamel abbinden.",
+        "Käse, Senf und Muskat einrühren, bis die Sauce sämig ist.",
+        "Nudeln untermengen und in eine gefettete Form füllen.",
+        "Mit Bröseln bestreuen und bei 200 Grad zwanzig Minuten überbacken."
+      ],
+      "note": "Modernisierte Fassung nach Farmer."
+    },
+    {
+      "id": "farmer-scalloped-potatoes",
+      "title": "Kartoffelgratin",
+      "chapter": "Gemüse",
+      "cuisine": "Amerikanisch",
+      "category": "Beilage",
+      "meals": [
+        "mittag",
+        "abend"
+      ],
+      "diet": [
+        "vegetarisch"
+      ],
+      "servings": 6,
+      "prep": 20,
+      "cook": 70,
+      "difficulty": 1,
+      "kcal": 330,
+      "tags": [
+        "Ofen",
+        "Gratin"
+      ],
+      "ingredients": [
+        {
+          "a": 1200,
+          "u": "g",
+          "n": "festkochende Kartoffeln"
+        },
+        {
+          "a": 1,
+          "u": "Stk",
+          "n": "Zwiebel"
+        },
+        {
+          "a": 50,
+          "u": "g",
+          "n": "Butter"
+        },
+        {
+          "a": 40,
+          "u": "g",
+          "n": "Mehl"
+        },
+        {
+          "a": 700,
+          "u": "ml",
+          "n": "Milch"
+        },
+        {
+          "a": 1,
+          "u": "TL",
+          "n": "Salz"
+        },
+        {
+          "a": 1,
+          "u": "Prise",
+          "n": "Muskatnuss"
+        }
+      ],
+      "steps": [
+        "Kartoffeln in dünne Scheiben hobeln, Zwiebel fein schneiden.",
+        "Aus Butter, Mehl und Milch eine dünne Bechamel kochen und würzen.",
+        "Kartoffeln und Zwiebeln abwechselnd in eine gefettete Form schichten.",
+        "Sauce darübergießen, sodass alles bedeckt ist.",
+        "Bei 180 Grad siebzig Minuten backen, die letzten zwanzig Minuten ohne Deckel."
+      ],
+      "note": "Modernisierte Fassung nach Farmer."
+    },
+    {
+      "id": "farmer-griddle-cakes",
+      "title": "Amerikanische Pfannkuchen",
+      "chapter": "Rührteige",
+      "cuisine": "Amerikanisch",
+      "category": "Hauptgericht",
+      "meals": [
+        "fruehstueck"
+      ],
+      "diet": [
+        "vegetarisch"
+      ],
+      "servings": 4,
+      "prep": 10,
+      "cook": 15,
+      "difficulty": 1,
+      "kcal": 340,
+      "tags": [
+        "schnell",
+        "Frühstück",
+        "Kinder"
+      ],
+      "ingredients": [
+        {
+          "a": 300,
+          "u": "g",
+          "n": "Weizenmehl Type 405"
+        },
+        {
+          "a": 400,
+          "u": "ml",
+          "n": "Buttermilch"
+        },
+        {
+          "a": 2,
+          "u": "Stk",
+          "n": "Eier"
+        },
+        {
+          "a": 2,
+          "u": "TL",
+          "n": "Backpulver"
+        },
+        {
+          "a": 1,
+          "u": "TL",
+          "n": "Natron"
+        },
+        {
+          "a": 2,
+          "u": "EL",
+          "n": "Zucker"
+        },
+        {
+          "a": 40,
+          "u": "g",
+          "n": "Butter"
+        },
+        {
+          "a": 1,
+          "u": "Prise",
+          "n": "Salz"
+        }
+      ],
+      "steps": [
+        "Trockene Zutaten mischen.",
+        "Buttermilch, Eier und geschmolzene Butter verquirlen und kurz unterrühren.",
+        "Teig fünf Minuten ruhen lassen, bis er Blasen wirft.",
+        "Portionsweise in einer gefetteten Pfanne bei mittlerer Hitze backen.",
+        "Wenden, sobald die Oberfläche matt wird, und mit Ahornsirup servieren."
+      ],
+      "note": "Modernisierte Fassung nach Farmer."
+    },
+    {
+      "id": "farmer-fish-chowder",
+      "title": "Fischcremesuppe",
+      "chapter": "Suppen",
+      "cuisine": "Amerikanisch",
+      "category": "Suppe",
+      "meals": [
+        "mittag",
+        "abend"
+      ],
+      "diet": [],
+      "servings": 4,
+      "prep": 20,
+      "cook": 30,
+      "difficulty": 2,
+      "kcal": 430,
+      "tags": [
+        "Fisch",
+        "cremig"
+      ],
+      "ingredients": [
+        {
+          "a": 700,
+          "u": "g",
+          "n": "Kabeljaufilet"
+        },
+        {
+          "a": 600,
+          "u": "g",
+          "n": "Kartoffeln"
+        },
+        {
+          "a": 2,
+          "u": "Stk",
+          "n": "Zwiebeln"
+        },
+        {
+          "a": 40,
+          "u": "g",
+          "n": "Butter"
+        },
+        {
+          "a": 600,
+          "u": "ml",
+          "n": "Milch"
+        },
+        {
+          "a": 400,
+          "u": "ml",
+          "n": "Fischfond"
+        },
+        {
+          "a": 2,
+          "u": "Stk",
+          "n": "Lorbeerblätter"
+        },
+        {
+          "a": 1,
+          "u": "TL",
+          "n": "Salz"
+        },
+        {
+          "a": 1,
+          "u": "Bund",
+          "n": "Petersilie"
+        }
+      ],
+      "steps": [
+        "Zwiebelwürfel in Butter glasig dünsten.",
+        "Kartoffelwürfel, Lorbeer und Fond zugeben und fünfzehn Minuten garen.",
+        "Fisch in großen Stücken einlegen und acht Minuten ziehen lassen.",
+        "Milch angießen und nur noch erhitzen, nicht kochen.",
+        "Lorbeer entfernen, abschmecken und mit Petersilie servieren."
+      ],
+      "note": "Modernisierte Fassung nach Farmer."
+    },
+    {
+      "id": "farmer-corn-bread",
+      "title": "Maisbrot",
+      "chapter": "Brot und Brotbacken",
+      "cuisine": "Amerikanisch",
+      "category": "Backen",
+      "meals": [
+        "fruehstueck",
+        "abend"
+      ],
+      "diet": [
+        "vegetarisch"
+      ],
+      "servings": 8,
+      "prep": 10,
+      "cook": 30,
+      "difficulty": 1,
+      "kcal": 230,
+      "tags": [
+        "schnell",
+        "Beilage"
+      ],
+      "ingredients": [
+        {
+          "a": 250,
+          "u": "g",
+          "n": "Maisgrieß"
+        },
+        {
+          "a": 150,
+          "u": "g",
+          "n": "Weizenmehl Type 405"
+        },
+        {
+          "a": 1,
+          "u": "Pck",
+          "n": "Backpulver"
+        },
+        {
+          "a": 1,
+          "u": "TL",
+          "n": "Salz"
+        },
+        {
+          "a": 400,
+          "u": "ml",
+          "n": "Buttermilch"
+        },
+        {
+          "a": 2,
+          "u": "Stk",
+          "n": "Eier"
+        },
+        {
+          "a": 60,
+          "u": "g",
+          "n": "Butter"
+        },
+        {
+          "a": 2,
+          "u": "EL",
+          "n": "Zucker"
+        }
+      ],
+      "steps": [
+        "Eine gusseiserne Pfanne mit Butter im Ofen bei 220 Grad vorheizen.",
+        "Trockene Zutaten mischen, flüssige Zutaten verquirlen.",
+        "Beides nur kurz zusammenrühren.",
+        "Teig in die heiße Pfanne gießen, er soll zischen.",
+        "Dreißig Minuten backen, bis die Kruste goldbraun ist."
+      ],
+      "note": "Modernisierte Fassung nach Farmer."
+    },
+    {
+      "id": "farmer-chicken-croquettes",
+      "title": "Hähnchenkroketten",
+      "chapter": "Zwischengerichte",
+      "cuisine": "Amerikanisch",
+      "category": "Hauptgericht",
+      "meals": [
+        "mittag",
+        "abend"
+      ],
+      "diet": [],
+      "servings": 4,
+      "prep": 40,
+      "cook": 15,
+      "difficulty": 3,
+      "kcal": 520,
+      "tags": [
+        "Resteverwertung",
+        "Frittieren"
+      ],
+      "ingredients": [
+        {
+          "a": 500,
+          "u": "g",
+          "n": "gegartes Hähnchenfleisch"
+        },
+        {
+          "a": 60,
+          "u": "g",
+          "n": "Butter"
+        },
+        {
+          "a": 60,
+          "u": "g",
+          "n": "Mehl"
+        },
+        {
+          "a": 400,
+          "u": "ml",
+          "n": "Milch"
+        },
+        {
+          "a": 2,
+          "u": "Stk",
+          "n": "Eier"
+        },
+        {
+          "a": 150,
+          "u": "g",
+          "n": "Semmelbrösel"
+        },
+        {
+          "a": 1,
+          "u": "Bund",
+          "n": "Petersilie"
+        },
+        {
+          "a": 500,
+          "u": "ml",
+          "n": "Frittieröl"
+        },
+        {
+          "a": 1,
+          "u": "TL",
+          "n": "Salz"
+        }
+      ],
+      "steps": [
+        "Aus Butter, Mehl und Milch eine sehr dicke Bechamel kochen.",
+        "Fein gehacktes Fleisch und Petersilie untermengen und kräftig würzen.",
+        "Masse flach ausstreichen und mindestens drei Stunden kalt stellen, bis sie fest ist.",
+        "Kroketten formen, in Ei und Bröseln panieren.",
+        "In 175 Grad heißem Öl vier Minuten goldbraun frittieren und abtropfen lassen."
+      ],
+      "note": "Modernisierte Fassung nach Farmer."
+    },
+    {
+      "id": "farmer-gingerbread",
+      "title": "Saftiger Lebkuchen",
+      "chapter": "Kuchen",
+      "cuisine": "Amerikanisch",
+      "category": "Backen",
+      "meals": [
+        "snack"
+      ],
+      "diet": [
+        "vegetarisch"
+      ],
+      "servings": 12,
+      "prep": 15,
+      "cook": 35,
+      "difficulty": 1,
+      "kcal": 250,
+      "tags": [
+        "Gewürzkuchen",
+        "Winter"
+      ],
+      "ingredients": [
+        {
+          "a": 300,
+          "u": "g",
+          "n": "Weizenmehl Type 405"
+        },
+        {
+          "a": 200,
+          "u": "ml",
+          "n": "Melasse"
+        },
+        {
+          "a": 120,
+          "u": "g",
+          "n": "Butter"
+        },
+        {
+          "a": 100,
+          "u": "g",
+          "n": "brauner Zucker"
+        },
+        {
+          "a": 2,
+          "u": "Stk",
+          "n": "Eier"
+        },
+        {
+          "a": 250,
+          "u": "ml",
+          "n": "heißes Wasser"
+        },
+        {
+          "a": 2,
+          "u": "TL",
+          "n": "Natron"
+        },
+        {
+          "a": 2,
+          "u": "TL",
+          "n": "Ingwer, gemahlen"
+        },
+        {
+          "a": 1,
+          "u": "TL",
+          "n": "Zimt"
+        }
+      ],
+      "steps": [
+        "Butter mit Zucker und Melasse cremig rühren, Eier einzeln zugeben.",
+        "Mehl mit Gewürzen mischen und unterrühren.",
+        "Natron im heißen Wasser auflösen und zügig untermengen.",
+        "Teig in eine gefettete Form gießen, er ist sehr flüssig.",
+        "Bei 175 Grad fünfunddreißig Minuten backen."
+      ],
+      "note": "Modernisierte Fassung nach Farmer."
+    },
+    {
+      "id": "farmer-waffles",
+      "title": "Waffeln",
+      "chapter": "Rührteige",
+      "cuisine": "Amerikanisch",
+      "category": "Dessert",
+      "meals": [
+        "fruehstueck",
+        "snack"
+      ],
+      "diet": [
+        "vegetarisch"
+      ],
+      "servings": 6,
+      "prep": 15,
+      "cook": 20,
+      "difficulty": 1,
+      "kcal": 320,
+      "tags": [
+        "Frühstück",
+        "Kinder"
+      ],
+      "ingredients": [
+        {
+          "a": 300,
+          "u": "g",
+          "n": "Weizenmehl Type 405"
+        },
+        {
+          "a": 400,
+          "u": "ml",
+          "n": "Milch"
+        },
+        {
+          "a": 3,
+          "u": "Stk",
+          "n": "Eier"
+        },
+        {
+          "a": 100,
+          "u": "g",
+          "n": "Butter"
+        },
+        {
+          "a": 2,
+          "u": "TL",
+          "n": "Backpulver"
+        },
+        {
+          "a": 2,
+          "u": "EL",
+          "n": "Zucker"
+        },
+        {
+          "a": 1,
+          "u": "Prise",
+          "n": "Salz"
+        }
+      ],
+      "steps": [
+        "Eier trennen, Eiweiß steif schlagen.",
+        "Mehl, Backpulver, Zucker, Salz, Milch, Eigelb und geschmolzene Butter verrühren.",
+        "Eischnee locker unterheben, das macht die Waffeln innen luftig.",
+        "Waffeleisen gut vorheizen und fetten.",
+        "Portionsweise goldbraun ausbacken."
+      ],
+      "note": "Modernisierte Fassung nach Farmer."
+    },
+    {
+      "id": "farmer-cole-slaw",
+      "title": "Amerikanischer Krautsalat",
+      "chapter": "Salate",
+      "cuisine": "Amerikanisch",
+      "category": "Beilage",
+      "meals": [
+        "mittag",
+        "abend"
+      ],
+      "diet": [
+        "vegetarisch",
+        "glutenfrei"
+      ],
+      "servings": 6,
+      "prep": 20,
+      "cook": 0,
+      "difficulty": 1,
+      "kcal": 170,
+      "tags": [
+        "kalt",
+        "schnell",
+        "Vorkochen"
+      ],
+      "ingredients": [
+        {
+          "a": 800,
+          "u": "g",
+          "n": "Weißkohl"
+        },
+        {
+          "a": 2,
+          "u": "Stk",
+          "n": "Möhren"
+        },
+        {
+          "a": 150,
+          "u": "g",
+          "n": "Mayonnaise"
+        },
+        {
+          "a": 100,
+          "u": "g",
+          "n": "Schmand"
+        },
+        {
+          "a": 3,
+          "u": "EL",
+          "n": "Apfelessig"
+        },
+        {
+          "a": 2,
+          "u": "EL",
+          "n": "Zucker"
+        },
+        {
+          "a": 1,
+          "u": "TL",
+          "n": "Senf"
+        },
+        {
+          "a": 1,
+          "u": "TL",
+          "n": "Salz"
+        }
+      ],
+      "steps": [
+        "Kohl sehr fein hobeln, Möhren grob raspeln.",
+        "Mit Salz vermengen und zwanzig Minuten stehen lassen, dann die Flüssigkeit abgießen.",
+        "Mayonnaise, Schmand, Essig, Zucker und Senf zu einem Dressing rühren.",
+        "Unter das Gemüse mischen.",
+        "Mindestens zwei Stunden kühl durchziehen lassen."
+      ],
+      "note": "Modernisierte Fassung nach Farmer."
+    },
+    {
+      "id": "farmer-rice-pudding",
+      "title": "Milchreisauflauf",
+      "chapter": "Aufläufe und Puddings",
+      "cuisine": "Amerikanisch",
+      "category": "Dessert",
+      "meals": [
+        "snack"
+      ],
+      "diet": [
+        "vegetarisch",
+        "glutenfrei"
+      ],
+      "servings": 6,
+      "prep": 10,
+      "cook": 120,
+      "difficulty": 1,
+      "kcal": 260,
+      "tags": [
+        "Ofen",
+        "Kinder"
+      ],
+      "ingredients": [
+        {
+          "a": 120,
+          "u": "g",
+          "n": "Rundkornreis"
+        },
+        {
+          "a": 1,
+          "u": "l",
+          "n": "Milch"
+        },
+        {
+          "a": 100,
+          "u": "g",
+          "n": "Zucker"
+        },
+        {
+          "a": 1,
+          "u": "Prise",
+          "n": "Salz"
+        },
+        {
+          "a": 1,
+          "u": "TL",
+          "n": "Muskatnuss"
+        },
+        {
+          "a": 80,
+          "u": "g",
+          "n": "Rosinen"
+        },
+        {
+          "a": 30,
+          "u": "g",
+          "n": "Butter"
+        }
+      ],
+      "steps": [
+        "Alle Zutaten in eine gefettete Auflaufform geben und verrühren.",
+        "Bei 150 Grad zwei Stunden backen.",
+        "In der ersten Stunde dreimal umrühren, damit sich keine Haut bildet.",
+        "In der letzten halben Stunde nicht mehr rühren, so entsteht die goldene Haut.",
+        "Lauwarm servieren."
+      ],
+      "note": "Modernisierte Fassung nach Farmer."
+    },
+    {
+      "id": "farmer-hash",
+      "title": "Rote-Bete-Kartoffelpfanne",
+      "chapter": "Resteküche",
+      "cuisine": "Amerikanisch",
+      "category": "Hauptgericht",
+      "meals": [
+        "fruehstueck",
+        "abend"
+      ],
+      "diet": [
+        "vegetarisch",
+        "glutenfrei"
+      ],
+      "servings": 4,
+      "prep": 15,
+      "cook": 25,
+      "difficulty": 1,
+      "kcal": 340,
+      "tags": [
+        "Resteverwertung",
+        "schnell"
+      ],
+      "ingredients": [
+        {
+          "a": 600,
+          "u": "g",
+          "n": "Kartoffeln, gekocht"
+        },
+        {
+          "a": 400,
+          "u": "g",
+          "n": "Rote Bete, gegart"
+        },
+        {
+          "a": 1,
+          "u": "Stk",
+          "n": "Zwiebel"
+        },
+        {
+          "a": 40,
+          "u": "g",
+          "n": "Butter"
+        },
+        {
+          "a": 100,
+          "u": "ml",
+          "n": "Sahne"
+        },
+        {
+          "a": 1,
+          "u": "TL",
+          "n": "Salz"
+        },
+        {
+          "a": 4,
+          "u": "Stk",
+          "n": "Eier"
+        }
+      ],
+      "steps": [
+        "Kartoffeln und Rote Bete grob würfeln.",
+        "Zwiebelwürfel in Butter andünsten.",
+        "Gemüse zugeben, Sahne angießen und flach in die Pfanne drücken.",
+        "Bei mittlerer Hitze fünfzehn Minuten braten, bis sich unten eine Kruste bildet.",
+        "Einmal wenden und mit Spiegeleiern servieren."
+      ],
+      "note": "Modernisierte, fleischlose Fassung nach Farmer."
+    },
+    {
+      "id": "farmer-lemon-pie",
+      "title": "Zitronenkuchen mit Baiser",
+      "chapter": "Kuchen und Pasteten",
+      "cuisine": "Amerikanisch",
+      "category": "Backen",
+      "meals": [
+        "snack"
+      ],
+      "diet": [
+        "vegetarisch"
+      ],
+      "servings": 8,
+      "prep": 40,
+      "cook": 40,
+      "difficulty": 3,
+      "kcal": 360,
+      "tags": [
+        "Zitrone",
+        "Baiser"
+      ],
+      "ingredients": [
+        {
+          "a": 250,
+          "u": "g",
+          "n": "Weizenmehl Type 405"
+        },
+        {
+          "a": 150,
+          "u": "g",
+          "n": "Butter"
+        },
+        {
+          "a": 60,
+          "u": "ml",
+          "n": "Eiswasser"
+        },
+        {
+          "a": 4,
+          "u": "Stk",
+          "n": "Zitronen"
+        },
+        {
+          "a": 250,
+          "u": "g",
+          "n": "Zucker"
+        },
+        {
+          "a": 50,
+          "u": "g",
+          "n": "Speisestärke"
+        },
+        {
+          "a": 4,
+          "u": "Stk",
+          "n": "Eier"
+        },
+        {
+          "a": 350,
+          "u": "ml",
+          "n": "Wasser"
+        },
+        {
+          "a": 1,
+          "u": "Prise",
+          "n": "Salz"
+        }
+      ],
+      "steps": [
+        "Aus Mehl, Butter, Salz und Eiswasser einen Mürbteig kneten und kühlen.",
+        "Teig in die Form legen und blind fünfundzwanzig Minuten bei 190 Grad backen.",
+        "Wasser, Zucker und Stärke aufkochen, Eigelb einrühren und zur dicken Creme abbinden.",
+        "Zitronensaft und Schale einrühren und die Creme in den Boden füllen.",
+        "Eiweiß mit etwas Zucker steif schlagen, aufstreichen und bei 180 Grad zehn Minuten bräunen.",
+        "Vollständig auskühlen lassen, bevor der Kuchen angeschnitten wird."
+      ],
+      "note": "Modernisierte Fassung nach Farmer."
+    }
+  ]
+}

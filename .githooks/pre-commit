@@ -1,0 +1,13 @@
+#!/bin/sh
+# Modultests vor jedem Commit. Sie laufen in gut einer Sekunde.
+# Umgehen mit: git commit --no-verify
+# Das Sync-Werkzeug nutzt das bewusst, weil es die Prüfungen selbst
+# ausführt und auch dann committet, wenn sie fehlschlagen — damit keine
+# Arbeit verlorengeht. Der Push bleibt dort trotzdem aus.
+
+if ! npm test --silent >/dev/null 2>&1; then
+  echo "Commit gestoppt: die Modultests schlagen fehl."
+  echo "Ausgabe ansehen mit:  npm test"
+  echo "Trotzdem committen:   git commit --no-verify"
+  exit 1
+fi
