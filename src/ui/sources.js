@@ -5,6 +5,7 @@
  */
 
 import { openModal, el } from './modal.js';
+import { esc, safeUrl } from './html.js';
 import { sources, recipes } from '../data/index.js';
 import { liveSources, loadLiveSource, importFromHtml, importFromUrl, SourceError } from '../sources/index.js';
 
@@ -14,6 +15,7 @@ const KIND_LABEL = {
   api: 'Offene Schnittstelle',
   datensatz: 'Offener Datensatz',
   import: 'Eigener Import',
+  eigene: 'Selbst geschrieben',
 };
 
 function sourceCard(source) {
@@ -24,15 +26,17 @@ function sourceCard(source) {
   card.innerHTML = `
     <div class="swatch"></div>
     <div class="body">
-      <h3>${source.title}</h3>
+      <h3>${esc(source.title)}</h3>
       <p>
-        ${source.author}${source.year ? ` · ${source.year}` : ''}${
-          source.country ? ` · ${source.country}` : ''
+        ${esc(source.author)}${source.year ? ` · ${esc(source.year)}` : ''}${
+          source.country ? ` · ${esc(source.country)}` : ''
         }<br />
         ${KIND_LABEL[source.kind] || ''}${count ? ` · ${count} Rezepte geladen` : ''}<br />
-        <a href="${source.url}" target="_blank" rel="noopener noreferrer">${source.url}</a>
+        ${source.url
+          ? `<a href="${esc(safeUrl(source.url))}" target="_blank" rel="noopener noreferrer">${esc(source.url)}</a>`
+          : ''}
       </p>
-      <span class="lic">${source.license}</span>
+      <span class="lic">${esc(source.license)}</span>
     </div>
   `;
   return card;

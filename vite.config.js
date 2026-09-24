@@ -16,7 +16,9 @@ export default defineConfig({
       output: {
         manualChunks(id) {
           if (id.includes('node_modules/three')) return 'three';
-          if (id.includes('src/data/books')) return 'korpus';
+          // Die Naehrwerttabelle ist ebenfalls reine Daten und aendert sich
+          // mit dem Korpus, nicht mit dem App-Code.
+          if (id.includes('src/data/books') || id.includes('src/data/naehrwerte.json')) return 'korpus';
           return undefined;
         },
       },

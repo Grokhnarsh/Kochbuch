@@ -8,6 +8,10 @@
  */
 
 import { allergensForRecipe } from '../state/allergens.js';
+import { DIET_OPTIONS } from '../state/rezeptform.js';
+import { erstelleRechner } from '../state/naehrwerte.js';
+import { bewerte } from '../state/gesundheit.js';
+import naehrwertTabelle from './naehrwerte.json';
 import sourcesDoc from './sources.json';
 import davidis from './books/davidis-1845.json';
 import prato from './books/prato-1858.json';
@@ -19,6 +23,10 @@ import wikibooks from './books/wikibooks-de.json';
 import kochwiki from './books/kochwiki.json';
 
 const BOOKS = [davidis, prato, artusi, farmer, beeton, glasse, wikibooks, kochwiki];
+
+/** Naehrwertrechner auf Grundlage der USDA-Tabelle. */
+export const naehrwertRechner = erstelleRechner(naehrwertTabelle);
+export const naehrwertQuelle = naehrwertTabelle.meta;
 
 /** Alle registrierten Quellen, Buecher wie APIs. */
 export const sources = sourcesDoc.sources;
@@ -44,12 +52,7 @@ export const DAYS = [
   { id: 'so', label: 'Sonntag', short: 'So' },
 ];
 
-/**
- * Die Ernaehrungsformen, die die App kennt. Bewusst eine feste Liste:
- * ein freies Feld wuerde binnen kurzem "Vegetarisch", "vegetarisch"
- * und "veggie" nebeneinander fuehren.
- */
-export const DIET_OPTIONS = ['vegetarisch', 'vegan', 'glutenfrei', 'laktosefrei', 'pescetarisch'];
+export { DIET_OPTIONS };
 
 /**
  * Haengt Quellenangaben an ein Rohrezept und leitet Suchfeld und
@@ -87,7 +90,29 @@ function normalise(raw, sourceId) {
     // Einmal bestimmt statt bei jedem Filterlauf: die Zutaten aendern
     // sich nicht mehr, die Suche laeuft bei jedem Tastendruck.
     allergens: allergensForRecipe({ ingredients }),
+    ...mitNaehrwerten(raw, ingredients),
     live: false,
+  };
+}
+
+/**
+ * Haengt die berechneten Naehrwerte an. Die Kalorienzahl auf der Karte
+ * kommt aus der Rechnung, wenn sie belastbar ist; sonst aus der Angabe
+ * des Kochbuchs, falls es eine macht — und sonst gibt es keine.
+ */
+function mitNaehrwerten(raw, ingredients) {
+  const naehrwerte = naehrwertRechner.fuerRezept({
+    ingredients,
+    servings: raw.servings,
+    yieldUnit: raw.yieldUnit,
+    category: raw.category,
+  });
+  const belastbar = naehrwerte.vertrauen !== 'gering';
+  return {
+    naehrwerte,
+    gesundheit: bewerte({ naehrwerte }),
+    kcal: belastbar ? Math.round(naehrwerte.jePortion.kcal) : raw.kcal || 0,
+    kcalBezug: belastbar ? naehrwerte.bezug : 'je Portion',
   };
 }
 

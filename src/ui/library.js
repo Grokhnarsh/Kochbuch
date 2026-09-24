@@ -5,6 +5,8 @@
 
 import { filterRecipes, sources, categories, diets, recipes } from '../data/index.js';
 import { ALLERGENS } from '../state/allergens.js';
+import { esc } from './html.js';
+import { kcalText } from '../state/naehrwerte.js';
 
 const els = {
   list: document.getElementById('recipe-list'),
@@ -71,6 +73,17 @@ function readFilters() {
   };
 }
 
+/**
+ * Ein Blatt fuer ausgewogene Gerichte. Nur ein Zeichen auf der Karte —
+ * die Begruendung steht in der Rezeptansicht und in den Vorschlaegen.
+ */
+function gesundZeichen(recipe) {
+  const g = recipe.gesundheit;
+  if (!g || g.punkte < 60) return '';
+  const titel = `${g.stufe[0].toUpperCase()}${g.stufe.slice(1)} (${g.punkte} von 100 Punkten)`;
+  return `<span class="card-health" title="${esc(titel)}" aria-label="${esc(titel)}">🌿</span>`;
+}
+
 function cardNode(recipe) {
   const card = document.createElement('article');
   card.className = 'recipe-card';
@@ -81,7 +94,7 @@ function cardNode(recipe) {
 
   const diet = (recipe.diet || [])
     .slice(0, 2)
-    .map((d) => `<span class="tag diet">${d}</span>`)
+    .map((d) => `<span class="tag diet">${esc(d)}</span>`)
     .join('');
 
   // Auf der Karte reichen die Zeichen; die Namen stehen im Titel und
@@ -95,7 +108,7 @@ function cardNode(recipe) {
   ].filter(Boolean).join(' · ');
 
   const allergenZeile = allergene.length
-    ? `<span class="card-allergens" title="${allergenTitel}" aria-label="${allergenTitel}">${
+    ? `<span class="card-allergens" title="${esc(allergenTitel)}" aria-label="${esc(allergenTitel)}">${
         sicher.map((a) => a.icon).join('')
       }${moeglich.length ? `<span class="maybe">${moeglich.map((a) => a.icon).join('')}</span>` : ''}</span>`
     : '';
@@ -103,16 +116,17 @@ function cardNode(recipe) {
   card.innerHTML = `
     <div class="swatch"></div>
     <div class="body">
-      <h3>${recipe.title}</h3>
+      <h3>${esc(recipe.title)}</h3>
       <div class="meta">
         ${recipe.totalTime > 0 ? `<span><b>${recipe.totalTime}</b> Min.</span>` : ''}
-        <span><b>${recipe.servings}</b> ${recipe.yieldUnit || 'Port.'}</span>
-        ${recipe.kcal ? `<span><b>${recipe.kcal}</b> kcal</span>` : ''}
+        <span><b>${esc(recipe.servings)}</b> ${esc(recipe.yieldUnit || 'Port.')}</span>
+        ${recipe.kcal ? `<span>${esc(kcalText(recipe))}</span>` : ''}
+        ${gesundZeichen(recipe)}
         ${allergenZeile}
       </div>
       <div class="tag-row">
-        <span class="tag src">${recipe.source?.author || recipe.source?.title || 'Quelle'}</span>
-        <span class="tag">${recipe.category}</span>
+        <span class="tag src">${esc(recipe.source?.author || recipe.source?.title || 'Quelle')}</span>
+        <span class="tag">${esc(recipe.category)}</span>
         ${diet}
       </div>
     </div>
@@ -165,6 +179,24 @@ export function renderLibrary() {
   for (const r of current.slice(0, 260)) frag.append(cardNode(r));
   els.list.replaceChildren(frag);
   els.list.scrollTop = 0;
+}
+
+/**
+ * Rezepte nach den Filtern der Bibliothek, aber ohne den Suchtext: wer
+ * "ohne Milch" gewaehlt hat, will das auch bei Vorschlaegen — ein
+ * eingetipptes "Kuchen" soll sie dagegen nicht auf Kuchen beschraenken.
+ */
+export function gefilterteRezepte() {
+  return filterRecipes({ ...readFilters(), query: '' });
+}
+
+/** Die aktiven Filter in Worten, fuer Hinweise in anderen Ansichten. */
+export function filterBeschreibung() {
+  const teile = [];
+  for (const sel of [els.source, els.category, els.diet, els.allergen, els.time]) {
+    if (sel.value) teile.push(sel.selectedOptions[0]?.textContent || sel.value);
+  }
+  return teile.join(', ');
 }
 
 /** Aktuell gefilterte Rezepte, etwa als Vorrat fuer das Auffuellen. */

@@ -8,6 +8,16 @@
 
 import { parseIngredientLine } from '../sources/ingredients.js';
 
+/** Die Mahlzeiten des Plans, als Kennungen. */
+export const MAHLZEITEN = ['fruehstueck', 'mittag', 'abend', 'snack'];
+
+/**
+ * Die Ernaehrungsformen, die die App kennt. Bewusst eine feste Liste:
+ * ein freies Feld wuerde binnen kurzem "Vegetarisch", "vegetarisch"
+ * und "veggie" nebeneinander fuehren.
+ */
+export const DIET_OPTIONS = ['vegetarisch', 'vegan', 'glutenfrei', 'laktosefrei', 'pescetarisch'];
+
 /** Die eigenen Rezepte stehen als eigene Quelle neben den Kochbuechern. */
 export const EIGENE_QUELLE = {
   id: 'eigene',
@@ -100,4 +110,72 @@ export function pruefe(rezept, { bestehendeIds = new Set() } = {}) {
     fehler.push(`„${rezept.title}“ gibt es schon. Bitte einen anderen Titel wählen.`);
   }
   return fehler;
+}
+
+const text = (x) => (typeof x === 'string' ? x.trim() : '');
+const ganzzahl = (x, ersatz, min, max) => {
+  const n = Number(x);
+  return Number.isFinite(n) ? Math.min(max, Math.max(min, Math.round(n))) : ersatz;
+};
+
+/**
+ * Macht aus gespeicherten oder eingelesenen Daten ein gueltiges Rezept —
+ * oder gibt null zurueck.
+ *
+ * Alles, was nicht aus dem mitgelieferten Korpus kommt, ist unsicher:
+ * der localStorage kann veraltet oder beschaedigt sein, eine gesicherte
+ * Datei von Hand bearbeitet. Ein einziges kaputtes Rezept darf die App
+ * nicht am Starten hindern, deshalb wird hier jedes Feld auf Typ und
+ * Bereich geprueft und nur Bekanntes uebernommen.
+ *
+ * @param {unknown} roh
+ * @param {string} [quelle] Quellen-Id, falls der Datensatz keine traegt
+ */
+export function bereinige(roh, quelle = EIGENE_QUELLE.id) {
+  if (!roh || typeof roh !== 'object') return null;
+
+  const titel = text(roh.title);
+  if (titel.length < 2) return null;
+
+  const zutaten = (Array.isArray(roh.ingredients) ? roh.ingredients : [])
+    .map((z) => {
+      const name = text(z?.n ?? z?.name);
+      if (!name) return null;
+      const menge = Number(z.a ?? z.amount);
+      return {
+        a: Number.isFinite(menge) && menge > 0 ? menge : null,
+        u: text(z.u ?? z.unit),
+        n: name,
+      };
+    })
+    .filter(Boolean);
+  if (!zutaten.length) return null;
+
+  const meals = (Array.isArray(roh.meals) ? roh.meals : []).filter((m) => MAHLZEITEN.includes(m));
+  const diet = (Array.isArray(roh.diet) ? roh.diet : []).filter((d) => DIET_OPTIONS.includes(d));
+  const sourceId = text(roh.sourceId) || quelle;
+
+  return {
+    id: text(roh.id) || `eigen-${slug(titel) || Date.now()}`,
+    sourceId,
+    title: titel,
+    chapter: text(roh.chapter) || null,
+    cuisine: text(roh.cuisine) || 'Eigene Küche',
+    category: text(roh.category) || 'Hauptgericht',
+    meals: meals.length ? meals : ['mittag'],
+    diet,
+    servings: ganzzahl(roh.servings, 2, 1, 400),
+    yieldUnit: text(roh.yieldUnit) || null,
+    prep: ganzzahl(roh.prep, 0, 0, 1440),
+    cook: ganzzahl(roh.cook, 0, 0, 1440),
+    difficulty: ganzzahl(roh.difficulty, 1, 1, 3),
+    kcal: ganzzahl(roh.kcal, 0, 0, 5000),
+    tags: (Array.isArray(roh.tags) ? roh.tags : []).map(text).filter(Boolean),
+    note: text(roh.note) || null,
+    sourceUrl: text(roh.sourceUrl) || null,
+    ingredients: zutaten,
+    steps: (Array.isArray(roh.steps) ? roh.steps : []).map(text).filter(Boolean),
+    ...(roh.erstellt ? { erstellt: text(roh.erstellt) } : {}),
+    ...(roh.geaendert ? { geaendert: text(roh.geaendert) } : {}),
+  };
 }

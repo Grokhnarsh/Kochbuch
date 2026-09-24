@@ -453,6 +453,15 @@ a.ghost-btn { text-decoration: none; color: var(--ink); display: inline-block; }
   background: var(--surface-sunk);
 }
 .modal-foot .spacer { margin-left: auto; }
+/* Die Fusszeilen der Ansichten stecken in einem eigenen Container; ohne
+   das hier wirkte der Abstandhalter darin nicht und alles klebte links. */
+.modal-foot > div {
+  display: flex;
+  flex: 1;
+  flex-wrap: wrap;
+  gap: 9px;
+  align-items: center;
+}
 
 /* Rezeptdetail */
 
@@ -1018,3 +1027,226 @@ a.ghost-btn { text-decoration: none; color: var(--ink); display: inline-block; }
     transition-duration: 0.01ms !important;
   }
 }
+
+/* ------------------------------------------------------------------
+   Nährwerte und Ausgewogenheit
+   ------------------------------------------------------------------ */
+
+.nutri-wrap { overflow-x: auto; margin-top: 8px; }
+
+.nutri-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 13px;
+  font-variant-numeric: tabular-nums;
+}
+
+.nutri-table th,
+.nutri-table td {
+  padding: 6px 4px;
+  border-bottom: 1px solid var(--line);
+  text-align: right;
+  white-space: nowrap;
+}
+
+.nutri-table thead th {
+  font-size: 11px;
+  font-weight: 600;
+  color: var(--ink-faint);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.nutri-table tbody th {
+  text-align: left;
+  font-weight: 500;
+  white-space: normal;
+}
+
+.nutri-table tr.unter th { padding-left: 14px; font-weight: 400; color: var(--ink-soft); }
+.nutri-table td.ref { color: var(--ink-faint); }
+
+.nutri-note {
+  margin: 8px 0 0;
+  font-size: 11.5px;
+  line-height: 1.45;
+  color: var(--ink-faint);
+}
+
+.nutri-badge {
+  display: inline-block;
+  margin-left: 6px;
+  padding: 1px 7px;
+  border-radius: var(--r-pill);
+  background: var(--surface-sunk);
+  border: 1px dashed var(--line-strong);
+  font-size: 10.5px;
+  letter-spacing: 0.04em;
+  color: var(--ink-soft);
+  vertical-align: 1px;
+}
+
+.health-head {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin: 10px 0 6px;
+}
+
+/* Ring, der sich mit den Punkten fuellt */
+.health-score {
+  --p: 50;
+  flex: none;
+  display: grid;
+  place-items: center;
+  width: 46px;
+  height: 46px;
+  border-radius: 50%;
+  font-weight: 700;
+  font-size: 15px;
+  font-variant-numeric: tabular-nums;
+  color: var(--sage);
+  background:
+    radial-gradient(closest-side, var(--surface) 76%, transparent 78%),
+    conic-gradient(var(--sage) calc(var(--p) * 1%), var(--line) 0);
+}
+
+.health-reasons { margin: 6px 0 0; padding: 0; list-style: none; font-size: 13px; }
+.health-reasons li { padding: 3px 0; }
+.health-reasons li.gut { color: var(--sage); }
+.health-reasons li.schlecht { color: var(--accent-ink); }
+
+.card-health { font-size: 12px; cursor: default; }
+
+/* Umschalter mit Segmenten (Mahlzeit, Woche/Rezepte) */
+.seg {
+  display: inline-flex;
+  flex-wrap: wrap;
+  gap: 4px;
+  padding: 4px;
+  margin-bottom: 14px;
+  background: var(--surface-sunk);
+  border: 1px solid var(--line);
+  border-radius: var(--r-pill);
+}
+
+.seg-btn {
+  padding: 6px 14px;
+  border: 0;
+  border-radius: var(--r-pill);
+  background: transparent;
+  color: var(--ink-soft);
+  font-size: 13px;
+  cursor: pointer;
+}
+
+.seg-btn[aria-selected="true"] {
+  background: var(--surface);
+  color: var(--ink);
+  font-weight: 600;
+  box-shadow: var(--shadow-1);
+}
+
+.link-btn {
+  padding: 0;
+  border: 0;
+  background: none;
+  color: inherit;
+  font: inherit;
+  cursor: pointer;
+  text-decoration: underline dotted var(--line-strong);
+  text-underline-offset: 3px;
+}
+
+.link-btn:hover { color: var(--ink); }
+
+/* Wochenhinweis */
+.week-hint {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 10px;
+  margin: 14px 0 0;
+  padding: 10px 12px;
+  background: var(--sage-soft);
+  border-radius: var(--r-sm);
+  color: var(--sage);
+  font-size: 13px;
+}
+
+.week-hint span { flex: 1 1 260px; }
+
+/* Wochentabelle */
+.nutri-table.week td.hoch { color: var(--accent-ink); font-weight: 600; background: var(--accent-soft); }
+.nutri-table.week td.niedrig { color: var(--ink-faint); }
+.nutri-table.week tr.leer td { color: var(--ink-faint); text-align: left; font-style: italic; }
+.nutri-table.week tfoot th, .nutri-table.week tfoot td { font-weight: 600; border-bottom: 0; }
+.nutri-table.week tfoot tr.ref th, .nutri-table.week tfoot tr.ref td { color: var(--ink-faint); font-weight: 400; }
+.nutri-table small { font-size: 10.5px; color: var(--ink-faint); font-weight: 400; text-transform: none; letter-spacing: 0; }
+.nutri-table .stern { color: var(--accent-ink); cursor: help; }
+
+.nutri-table.all th[data-feld] { cursor: pointer; user-select: none; }
+.nutri-table.all th[aria-sort="ascending"]::after { content: " ▲"; font-size: 9px; }
+.nutri-table.all th[aria-sort="descending"]::after { content: " ▼"; font-size: 9px; }
+.nutri-table.all tbody tr { cursor: pointer; }
+.nutri-table.all tbody tr:hover { background: var(--surface-sunk); }
+.nutri-table.all tbody th { max-width: 260px; }
+.nutri-filter { display: flex; flex-wrap: wrap; gap: 8px; }
+.nutri-filter input { flex: 1 1 220px; }
+.nutri-filter select { flex: 0 1 auto; }
+.nutri-filter input,
+.nutri-filter select {
+  padding: 9px 12px;
+  border: 1px solid var(--line);
+  border-radius: var(--r-sm);
+  background: var(--surface-sunk);
+  font-size: 13px;
+}
+
+.mini-score {
+  --p: 50;
+  display: inline-grid;
+  place-items: center;
+  min-width: 30px;
+  padding: 2px 6px;
+  border-radius: var(--r-pill);
+  font-weight: 650;
+  font-size: 12px;
+  color: var(--sage);
+  background: color-mix(in srgb, var(--sage-soft) calc(var(--p) * 1%), var(--surface-sunk));
+}
+
+/* Vorschlagskarten */
+.suggest-list { display: grid; gap: 10px; }
+
+.suggest-card {
+  display: grid;
+  grid-template-columns: auto 1fr auto;
+  align-items: center;
+  gap: 14px;
+  padding: 12px 14px;
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: var(--r-md);
+}
+
+.suggest-card h3 { margin: 0 0 3px; font-size: 14.5px; font-weight: 620; }
+.suggest-card .meta { display: flex; flex-wrap: wrap; gap: 4px 12px; font-size: 12px; color: var(--ink-soft); }
+.suggest-card .meta .passt { color: var(--sage); font-weight: 600; }
+.suggest-card .tag-row { margin-top: 6px; }
+.suggest-card .actions { display: flex; gap: 6px; }
+.suggest-list + .ghost-btn { margin-top: 12px; }
+
+.health-score.small { width: 40px; height: 40px; font-size: 13.5px; }
+
+@media (max-width: 760px) {
+  .suggest-card { grid-template-columns: auto 1fr; }
+  .suggest-card .actions { grid-column: 1 / -1; justify-content: flex-end; }
+  .seg { display: flex; }
+  .seg-btn { flex: 1 1 auto; }
+}
+
+/* Abschnitte in der Rezeptansicht brauchen Luft nach oben */
+.detail-grid h3:not(:first-child) { margin-top: 24px; }
+.detail-grid .source-note { margin-top: 22px; }
+.nutri-table tfoot th { text-align: left; }

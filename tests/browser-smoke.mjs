@@ -200,6 +200,88 @@ try {
   await page.fill('#search', '');
   await page.waitForTimeout(300);
 
+  // --------------------------------------------------- Naehrwerte
+
+  await page.fill('#search', 'Linseneintopf');
+  await page.waitForTimeout(400);
+  await page.locator('.recipe-card').first().click();
+  await page.waitForTimeout(400);
+  const naehrZeilen = await page.locator('.modal .nutri-table tbody tr').count();
+  check('Rezeptansicht zeigt die Nährwerttabelle', naehrZeilen === 8, `${naehrZeilen} Zeilen`);
+  const bewertung = await page.locator('.modal .health-score').textContent().catch(() => '');
+  check('und eine Bewertung mit Gründen', Number(bewertung) > 0
+    && (await page.locator('.modal .health-reasons li').count()) > 0, `${bewertung} Punkte`);
+  await shot(page, '10-naehrwerte');
+  await page.keyboard.press('Escape');
+  await page.fill('#search', '');
+  await page.waitForTimeout(300);
+
+  // --------------------------------------------------- Gesunde Vorschlaege
+
+  await page.click('#btn-clear');
+  await page.waitForTimeout(400);
+  await page.click('#btn-suggest');
+  await page.waitForTimeout(500);
+  const vorschlaege = await page.locator('.suggest-card').count();
+  check('Vorschläge erscheinen', vorschlaege > 0, `${vorschlaege} Karten`);
+  await page.locator('.suggest-card [data-planen]').first().click();
+  await page.waitForTimeout(300);
+  const einer = await page.evaluate(() => Object.keys(window.kochbuch.store.week).length);
+  check('ein Vorschlag lässt sich einplanen', einer === 1, `${einer} Einträge`);
+  await page.locator('.modal-foot .primary-btn').click();
+  await page.waitForTimeout(700);
+  const gefuellt = await page.evaluate(() => Object.keys(window.kochbuch.store.week).length);
+  check('Woche gesund füllen belegt die freien Felder', gefuellt >= 15, `${gefuellt} Einträge`);
+  await shot(page, '11-vorschlaege');
+  await page.keyboard.press('Escape');
+  await page.waitForTimeout(300);
+
+  const proPerson = await page.evaluate(() => {
+    // Mehr Portionen einzuplanen darf die Kalorien je Person nicht aendern.
+    const s = window.kochbuch.store;
+    const vorher = s.kcalPerDay()[0];
+    const e = Object.entries(s.week).find(([k]) => k.startsWith('0:'));
+    if (!e) return { vorher, nachher: vorher };
+    const [tag, mahlzeit] = e[0].split(':');
+    s.setServings(Number(tag), mahlzeit, e[1].servings * 2);
+    return { vorher, nachher: s.kcalPerDay()[0] };
+  });
+  check('Kalorien je Person hängen nicht an der Portionszahl',
+    Math.abs(proPerson.vorher - proPerson.nachher) < 0.001, JSON.stringify(proPerson));
+
+  await page.click('#btn-nutrition');
+  await page.waitForTimeout(500);
+  const tage = await page.locator('.nutri-table.week tbody tr').count();
+  check('Nährwertübersicht zeigt sieben Tage', tage === 7, `${tage}`);
+  await page.locator('.seg-btn[data-tab="rezepte"]').click();
+  await page.waitForTimeout(400);
+  const tabellenZeilen = await page.locator('.nutri-table.all tbody tr').count();
+  check('und alle Mahlzeiten mit belastbaren Werten', tabellenZeilen > 200, `${tabellenZeilen} Zeilen`);
+  await shot(page, '12-uebersicht');
+  await page.keyboard.press('Escape');
+
+  // --------------------------------------------------- Sicherheit
+
+  const markup = await page.evaluate(() => {
+    // Ein Titel, wie er von einer praeparierten Webseite kaeme
+    window.__xss = false;
+    window.kochbuch.store.saveOwn({
+      id: 'eigen-xss', sourceId: 'eigene', title: 'Kuchen <img src=x onerror="window.__xss=true">',
+      category: 'Dessert', meals: ['snack'], servings: 2, ingredients: [{ a: 1, u: '', n: '<b>Ei</b>' }], steps: ['<script>x</script>'],
+    });
+    return true;
+  });
+  await page.reload({ waitUntil: 'networkidle' });
+  await page.waitForTimeout(1500);
+  await page.fill('#search', 'Kuchen <img');
+  await page.waitForTimeout(500);
+  await page.locator('.recipe-card').first().click().catch(() => {});
+  await page.waitForTimeout(500);
+  const ausgefuehrt = await page.evaluate(() => window.__xss === true);
+  const alsText = await page.locator('.recipe-card h3').first().textContent().catch(() => '');
+  check('Markup aus Rezeptdaten wird nicht ausgeführt', markup && !ausgefuehrt && alsText.includes('<img'), alsText);
+  await page.keyboard.press('Escape');
+
   check('keine Fehler in der Browserkonsole', errors.length === 0, errors.join(' | '));
 } finally {
   await browser.close();

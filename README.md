@@ -3,9 +3,10 @@
 Ein Wochen-Essensplaner in Form eines Stundenplans: sieben Tageszeilen, vier
 Mahlzeitenspalten, Gerichte in den Feldern, verschiebbar mit der Maus.
 Dazu eine Bibliothek mit 560 Rezepten aus gemeinfreien Kochbüchern und offen
-lizenzierten Wikis, eigene Rezepte zum Selbstschreiben, Allergenangaben zu
-jedem Gericht, eine Einkaufsliste, die sich aus dem Plan selbst
-zusammenrechnet, und der Weg von dort in den REWE-Onlineshop.
+lizenzierten Wikis, eigene Rezepte zum Selbstschreiben, Allergenangaben und
+berechnete Nährwerte zu jedem Gericht, Vorschläge für eine ausgewogene Woche,
+eine Einkaufsliste, die sich aus dem Plan selbst zusammenrechnet, und der Weg
+von dort in den REWE-Onlineshop.
 
 Die App ist durchgehend deutschsprachig — Oberfläche wie Rezepte.
 
@@ -92,6 +93,80 @@ für eine ausgewählte Liste. Rund achtzig solcher Fälle stehen als Tests in
 > Rezepttext. Die Angaben sind deshalb eine Hilfe beim Aussortieren — bei
 > einer Allergie ersetzen sie das Etikett nicht. Genau dieser Satz steht auch
 > in der App an jeder Stelle, an der Allergene erscheinen.
+
+## Nährwerte
+
+Zu jedem Rezept berechnet die App Energie, Fett, gesättigte Fettsäuren,
+Kohlenhydrate, Zucker, Ballaststoffe, Eiweiß und Salz — die Angaben der
+EU-Nährwertdeklaration, dazu Ballaststoffe. Sie stehen in der Rezeptansicht
+als Tabelle mit dem Anteil an der Referenzmenge, als Kalorienzahl auf jeder
+Karte und im Plan, und unter **Nährwerte** als Übersicht: die geplante Woche
+Tag für Tag und alle Rezepte in einer sortierbaren Tabelle.
+
+**Woher die Zahlen kommen.** Jede Zutat wird einem Lebensmittel der
+USDA-Datenbank *FoodData Central, SR Legacy* zugeordnet (gemeinfrei, CC0) —
+246 Einträge, von Weizenmehl bis Garam Masala. Die Zuordnung steht in
+`scripts/naehrwerte/zuordnung.mjs`, und zwar nur sie: die Werte selbst zieht
+`npm run naehrwerte` aus der Datenbank und schreibt sie nach
+`src/data/naehrwerte.json`. Keine Zahl ist von Hand eingetragen; jede trägt
+ihre FDC-Nummer. Löffel- und Stückgewichte kommen ebenfalls aus der
+Datenbank, wo es passt, sonst aus deutschen Größen (ein Ei der Größe M
+wiegt ohne Schale 50 g, nicht 44 g wie ein amerikanisches „medium“).
+
+**Was als Portion zählt.** Bei Rezepten für Personen gelten die Werte je
+Portion, bei gezählten Stücken je Stück. Ein Blech Butterkuchen, ein Glas
+Marmelade, ein Liter Brühe oder ein Brot wird je 100 g angegeben — „je
+Portion“ wären das sechstausend Kalorien. Dasselbe gilt, wenn eine Portion
+mehr als 1,2 kg wiegen oder mehr als 2000 kcal haben müsste: dann stimmt die
+Portionszahl des Rezepts nicht, und die App sagt das.
+
+**Fett, das man nicht isst.** Mehr als 400 g Fett in einem Rezept ist
+Frittierfett; davon wird ein Zehntel gerechnet. Mehr als 40 g je Portion ist
+Bratfett — 300 g Butterschmalz für vier Schnitzel —, davon ein Viertel. Steht
+Öl ohne Menge im Rezept, wird das vermerkt: auf dem Papier sähe Frittiertes
+sonst aus wie Rohkost.
+
+**Wie belastbar.** Zutaten ohne Menge („Salz nach Geschmack“) fließen nicht
+ein und werden genannt, ebenso Zutaten, die sich nicht zuordnen lassen.
+Daraus ergibt sich die Abdeckung: ab 90 % gelten die Werte als belastbar, ab
+70 % als Schätzung, darunter zeigt die App keine Zahlen, sondern sagt, was
+fehlt. Von den 560 Rezepten sind derzeit 445 belastbar, 92 geschätzt, 23 ohne
+Werte. Gerechnet wird mit Rohgewichten, ohne Garverluste.
+
+**Die Woche** wird je Person gerechnet: aus jeder geplanten Mahlzeit eine
+Portion. Wie viele Portionen man kocht, bestimmt den Einkauf, nicht, was einer
+isst — die App hat das anfangs verwechselt, siehe unten.
+
+## Gesunde Vorschläge
+
+**Gesunde Vorschläge** schlägt je Mahlzeit gut bewertete Gerichte vor, die
+noch nicht im Plan liegen; **Einplanen** legt sie in das nächste freie Feld,
+**Woche gesund füllen** belegt alle freien Frühstücks-, Mittags- und
+Abendfelder auf einmal, gelost aus den besten zwölf, damit nicht jede Woche
+gleich aussieht. Die Filter der Bibliothek gelten mit: wer „ohne Milch“ oder
+„vegan“ gewählt hat, bekommt nur Passendes.
+
+Die Bewertung von 0 bis 100 ist absichtlich nachvollziehbar statt raffiniert
+— ein Grundwert und benannte Kriterien nach den Empfehlungen der DGE und der
+WHO, jedes mit Punkten und einem Satz dazu:
+
+- Anteil von Gemüse, Obst und Hülsenfrüchten am Gewicht, Vollkorn
+- Energiedichte (unter 125 kcal je 100 g gilt als niedrig)
+- gesättigte Fettsäuren, Zucker und Salz je Portion, gemessen an einem
+  Drittel der Tagesreferenz; Ballaststoffe und Eiweiß ebenso
+- wenig rotes und verarbeitetes Fleisch, Fisch als Pluspunkt
+- satt soll es auch machen: ein Tomatensalat mit 60 kcal ist gesund, aber
+  kein Mittagessen
+
+In der Rezeptansicht stehen Punkte und Gründe unter **Ausgewogenheit**, in der
+Bibliothek markiert ein 🌿 Gerichte ab 60 Punkten.
+
+Was der geplanten Woche fehlt, gibt Vorschlägen Vorrang, die genau das
+mitbringen: liegen die Ballaststoffe bisher bei 16 statt 30 g am Tag, stehen
+ballaststoffreiche Gerichte vorn und tragen den Vermerk „passt zur Woche“.
+
+> Das ist eine Orientierung aus berechneten Werten, keine Ernährungsberatung.
+> Bei besonderem Bedarf zählt der ärztliche Rat — so steht es auch in der App.
 
 ## Eigene Rezepte
 
@@ -230,29 +305,35 @@ src/
     books/         ein Kochbuch je Datei
   state/           Wochenplan, Kalenderrechnung, Mengenarithmetik,
                    Einkaufsliste, Abteilungszuordnung, Allergene,
-                   eigene Rezepte
+                   Nährwerte, Gesundheitsbewertung, eigene Rezepte
   webgl/           Szene, Stundenplan-Raster, Canvas-Texturen
   ui/              Bibliothek, Rezeptansicht, Rezeptformular,
-                   Einkaufsliste, Quellen
+                   Einkaufsliste, Nährwerte, Vorschläge, Quellen
   sources/         Live-Adapter und schema.org-Importer
   shops/           Supermarkt-Anbindungen
 scripts/           Import-Werkzeug für die Kommandozeile
+  naehrwerte/      Zuordnung zur USDA-Datenbank und Bau der Nährwerttabelle
 tests/             Modultests und ein Rauchtest im Browser
 ```
 
 Die Logik, die sich lohnt zu prüfen, liegt bewusst frei von App-Zustand:
 `state/shopping.js` verdichtet Einträge zu einer Liste, `state/week.js` rechnet
-Kalenderwochen, `state/allergens.js` erkennt Allergene, `state/rezeptform.js`
-macht aus Formulareingaben ein Rezept, `sources/ingredients.js` zerlegt
+Kalenderwochen, `state/allergens.js` erkennt Allergene, `state/naehrwerte.js`
+rechnet Nährwerte, `state/gesundheit.js` bewertet und schlägt vor,
+`state/rezeptform.js` macht aus Formulareingaben ein Rezept, `sources/ingredients.js` zerlegt
 Zutatenzeilen, `sources/schemaorg.js` liest Rezeptseiten. Der Store ruft diese
 Funktionen nur auf. `state/matcher.js` liegt darunter: die Stichwortsuche im
-Zutatennamen, die Abteilungen und Allergene gemeinsam benutzen.
+Zutatennamen, die Abteilungen, Allergene und Nährwerte gemeinsam benutzen.
+Alles, was aus Rezeptdaten in die Seite geschrieben wird, geht durch
+`ui/html.js`: Rezepte kommen auch von fremden Webseiten, und ein Titel darf nie
+als Markup ausgeführt werden.
 
 ## Tests
 
 ```bash
-npm test               # 56 Modultests: Mengen, Einkaufsliste, Import,
-                       # Korpus, Allergene, eigene Rezepte
+npm test               # 88 Modultests: Mengen, Einkaufsliste, Import,
+                       # Korpus, Allergene, Nährwerte, Bewertung,
+                       # eigene Rezepte, Sicherheit
 npm run test:browser   # Rauchtest in Chromium gegen die gebaute App
 npm run test:handy     # derselbe Weg in Telefongröße, mit Berührung
 ```
@@ -262,11 +343,15 @@ Mengen über Einheitengrenzen korrekt summiert werden, dass imperiale Einheiten
 metrisch ankommen, dass Zutaten in der richtigen Abteilung landen — auch bei
 Zusammensetzungen wie „Milchreis" oder „Olivenöl" —, dass die Allergenerkennung
 die Verwechslungen aushält, die ein bloßer Teilstring machen würde, dass ein
-leeres Formularfeld als fehlend und nicht als Null gilt, und dass kein
-englischer Text in Titel, Kapitel oder Schlagwörter zurückkehrt. Der
-Browsertest fährt die App hoch, plant eine Woche, zieht eine Karte mit der Maus
-in einen anderen Slot, prüft Einkaufsliste und Shop-Übergabe und schreibt zum
-Schluss ein eigenes Rezept. Der Handytest geht denselben Weg in einem Fenster
+leeres Formularfeld als fehlend und nicht als Null gilt, dass Nährwerte aus
+der Datenbank stammen und Frittierfett nicht als gegessen zählt, dass ein
+Linseneintopf besser abschneidet als Bratwurst in Sahne, dass Markup in
+Rezeptdaten maskiert wird, und dass kein englischer Text in Titel, Kapitel
+oder Schlagwörter zurückkehrt. Der Browsertest fährt die App hoch, plant eine
+Woche, zieht eine Karte mit der Maus in einen anderen Slot, prüft
+Einkaufsliste und Shop-Übergabe, schreibt ein eigenes Rezept, füllt die Woche
+mit gesunden Vorschlägen und prüft, dass ein eingeschleuster Titel nicht
+ausgeführt wird. Der Handytest geht denselben Weg in einem Fenster
 von 390 × 844 Punkten, mit Berührung statt Maus.
 
 Für den Browsertest muss die gebaute App laufen:
@@ -277,6 +362,41 @@ npm run test:browser
 npm run test:handy
 # abweichender Browser: CHROMIUM_PATH=/pfad/zu/chrome npm run test:browser
 ```
+
+## Behobene Fehler
+
+Eine Durchsicht des ganzen Projekts hat Folgendes gefunden, jeweils mit
+Test abgesichert:
+
+- **Eingeschleustes Markup.** Rezepttitel, Zutaten und Schritte aus
+  importierten Seiten, Wikis und Sicherungsdateien wurden als HTML in die
+  Seite geschrieben. Eine präparierte Rezeptseite mit dem Titel
+  `Kuchen <img src=x onerror=…>` führte beim Import Code aus — nachgewiesen
+  gegen den alten Stand. Alles wird jetzt maskiert, Links lassen nur `http`
+  und `https` durch.
+- **Kalorien hingen an der Haushaltsgröße.** Wer für acht statt vier
+  Personen plante, aß rechnerisch doppelt so viel; im Plan und im
+  Tagesschnitt. Jetzt zählt je Person eine Portion.
+- **„Geplante Tage“ hingen an Kalorien.** Ein Tag mit einem Gericht ohne
+  Kalorienangabe galt als ungeplant.
+- **Portionsgrenze uneins.** Die Rezeptansicht erlaubte 75 Printen, der Plan
+  kürzte still auf 24.
+- **Importe gingen auf dem Handy verloren.** Gespeichert wurde nur beim
+  Verlassen der Seite, und das melden mobile Browser oft nicht. Nach dem
+  Neuladen fehlten außerdem Lizenzhinweis und Anbieter, und ein geplantes
+  importiertes Gericht blieb im Plan leer, bis sich etwas anderes änderte.
+- **Ein kaputter Eintrag legte die App lahm.** Ein beschädigtes Rezept im
+  Speicher oder in einer Sicherungsdatei brachte den Start zum Absturz; jetzt
+  wird jeder Datensatz geprüft und notfalls übergangen.
+- **Mengen ohne Zahl.** „1∕2 Zitrone“, „½-1 TL“, „1 – 2 EL“, „175ml“, „2Eier“,
+  „ca. 200 g“ blieben als Name stehen, ohne Menge — in Einkaufsliste und
+  Nährwerten gleichermaßen. 67 Zeilen im Korpus waren betroffen.
+- **Jedes Koch-Wiki-Rezept war ein Hauptgericht.** Auch Amaretti,
+  Kräuterbutter und eine Gewürzmischung, die „Woche füllen“ dann zum
+  Abendessen machte. Kategorie, Mahlzeit, Küche und vegetarisch/vegan kommen
+  jetzt aus den Kategorien der Wikiseite.
+- Kleineres: HTML-Entitäten wie `z.&#8239;B.` im Text, Knöpfe in Fußzeilen,
+  die nicht rechts standen, ein Handytest, der donnerstags scheiterte.
 
 ## Abgleich mit Git
 

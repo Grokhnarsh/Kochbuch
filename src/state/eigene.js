@@ -9,14 +9,20 @@
 
 import { store } from './store.js';
 import { registerSource, upsertRecipe, removeRecipe, recipeById } from '../data/index.js';
-import { EIGENE_QUELLE, slug, istEigenes, ausFormular, zeilen, pruefe } from './rezeptform.js';
+import {
+  EIGENE_QUELLE, slug, istEigenes, ausFormular, zeilen, pruefe, bereinige,
+} from './rezeptform.js';
 
-export { EIGENE_QUELLE, slug, istEigenes, ausFormular, zeilen, pruefe };
+export { EIGENE_QUELLE, slug, istEigenes, ausFormular, zeilen, pruefe, bereinige };
 
 /** Liest die gespeicherten Rezepte und haengt sie in den Index. */
 export function ladeEigene() {
   registerSource(EIGENE_QUELLE);
-  const gespeichert = store.loadOwn();
+  // Kaputte Eintraege werden uebergangen statt den Start zu verhindern.
+  const gespeichert = store.loadOwn()
+    .map((r) => bereinige(r, EIGENE_QUELLE.id))
+    .filter(Boolean)
+    .map((r) => ({ ...r, sourceId: EIGENE_QUELLE.id }));
   for (const r of gespeichert) upsertRecipe(r);
   return gespeichert;
 }
@@ -61,11 +67,17 @@ export function ausDatei(text) {
   if (!Array.isArray(liste)) throw new Error('Die Datei enthält keine Rezeptliste.');
 
   let ersetzt = 0;
+  let gelesen = 0;
   for (const roh of liste) {
-    if (!roh?.title || !Array.isArray(roh.ingredients)) continue;
-    const rezept = { ...roh, sourceId: EIGENE_QUELLE.id, id: roh.id || `eigen-${slug(roh.title)}` };
+    const bereinigt = bereinige(roh, EIGENE_QUELLE.id);
+    if (!bereinigt) continue;
+    // Eingelesene Rezepte werden eigene — auch wenn die Datei etwas
+    // anderes behauptet, sonst ueberschriebe sie Rezepte des Korpus.
+    const rezept = { ...bereinigt, sourceId: EIGENE_QUELLE.id };
+    if (!rezept.id.startsWith('eigen-')) rezept.id = `eigen-${slug(rezept.title)}`;
     if (recipeById.has(rezept.id)) ersetzt += 1;
     speichern(rezept);
+    gelesen += 1;
   }
-  return { gelesen: liste.length, ersetzt };
+  return { gelesen, uebergangen: liste.length - gelesen, ersetzt };
 }

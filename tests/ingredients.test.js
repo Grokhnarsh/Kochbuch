@@ -74,3 +74,43 @@ test('toSearchTerm reduziert auf einen Begriff fuers Sortiment', () => {
   assert.equal(toSearchTerm('Kichererbsen (Dose)'), 'Kichererbsen');
   assert.equal(toSearchTerm('Salz'), 'Salz');
 });
+
+test('versteht die Schreibweisen, an denen der Zerleger frueher scheiterte', () => {
+  // Jede dieser Zeilen blieb frueher ganz als Name stehen, ohne Menge —
+  // und fehlte damit in Einkaufsliste und Naehrwerten.
+  const faelle = [
+    ['1∕2 Zitrone', 0.5, '', 'Zitrone'],             // Unicode-Bruchstrich
+    ['3∕4 l Apfelsaft', 0.75, 'l', 'Apfelsaft'],
+    ['1/2–1 Bund Bärlauch', 0.75, 'Bund', 'Bärlauch'], // Spanne mit Bruch
+    ['1 – 2 EL Öl', 1.5, 'EL', 'Öl'],                  // Spanne mit Leerzeichen
+    ['175ml Wasser', 175, 'ml', 'Wasser'],             // ohne Abstand
+    ['60g Pinienkerne', 60, 'g', 'Pinienkerne'],
+    ['2Eier (Klasse M)', 2, '', 'Eier (Klasse M)'],
+    ['1­2 EL Meerrettich', 1.5, 'EL', 'Meerrettich'], // weicher Trennstrich
+    ['1–x EL Zucker', 1, 'EL', 'Zucker'],              // offene Spanne
+    ['ca. 200 g Butter', 200, 'g', 'Butter'],
+    ['etwa 100 g Mehl', 100, 'g', 'Mehl'],
+  ];
+  for (const [zeile, menge, einheit, name] of faelle) {
+    const r = parseIngredientLine(zeile);
+    assert.ok(Math.abs(r.amount - menge) < 1e-9, `${zeile}: Menge ${r.amount}`);
+    assert.equal(r.unit, einheit, `${zeile}: Einheit`);
+    assert.equal(r.name, name, `${zeile}: Name`);
+  }
+});
+
+test('laesst unbestimmte Mengen und gewoehnliche Woerter in Ruhe', () => {
+  assert.deepEqual(parseIngredientLine('etwas Pfeffer'), { amount: null, unit: '', name: 'Pfeffer' });
+  assert.deepEqual(parseIngredientLine('Gut Holz'), { amount: null, unit: '', name: 'Gut Holz' });
+  assert.equal(parseIngredientLine('2 Eier, Größe M').name, 'Eier, Größe M');
+});
+
+test('versteht Spannen mit Unicode-Bruechen', () => {
+  const r = parseIngredientLine('½-1 TL Cayennepfeffer');
+  assert.equal(r.amount, 0.75);
+  assert.equal(r.unit, 'TL');
+  assert.equal(r.name, 'Cayennepfeffer');
+  assert.equal(parseIngredientLine('1½ kg Mehl').amount, 1.5);
+  assert.equal(parseIngredientLine('1 ½ TL Salz').amount, 1.5);
+  assert.equal(parseIngredientLine('¼ l Milch').amount, 0.25);
+});

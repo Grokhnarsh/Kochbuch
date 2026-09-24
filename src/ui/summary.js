@@ -20,11 +20,16 @@ export function renderSummary() {
     <span><b>${s.count}</b> von ${s.totalSlots} Feldern</span>
     <span><b>${s.plannedDays}</b> von 7 Tagen</span>
     <span>Kochzeit <b>${minutesLabel(s.cookMinutes)}</b></span>
-    <span>Ø <b>${s.kcalAvg || '—'}</b> kcal/Tag</span>
+    <button class="link-btn" type="button" data-naehrwerte title="Nährwerte der Woche ansehen">
+      Ø <b>${s.kcalAvg || '—'}</b> kcal/Tag je Person</button>
   `;
 }
 
-export function initSummary() {
+export function initSummary({ onNaehrwerte } = {}) {
   renderSummary();
   store.subscribe(renderSummary);
+  // Der Knopf wird bei jedem Neuzeichnen ersetzt, der Klick deshalb am Wirt abgefangen.
+  host.addEventListener('click', (e) => {
+    if (e.target.closest('[data-naehrwerte]')) onNaehrwerte?.();
+  });
 }

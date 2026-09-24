@@ -91,7 +91,7 @@ const PATTERNS = compile(RULES);
 export function aisleFor(name) {
   const n = String(name).toLowerCase();
   for (const p of PATTERNS) {
-    if (p.test.test(n)) return p.value;
+    if (p.trifft(n)) return p.value;
   }
   return 'Sonstiges';
 }

@@ -7,6 +7,7 @@
 
 import { getJSON } from './http.js';
 import { parseIngredientLine } from './ingredients.js';
+import { decodeEntities } from './schemaorg.js';
 
 const API = 'https://www.kochwiki.org/w/api.php';
 
@@ -159,6 +160,9 @@ function cleanMarkup(text) {
     .replace(/'''?/g, '')
     .replace(/<ref[\s\S]*?<\/ref>/g, '')
     .replace(/<[^>]+>/g, '')
+    // Wikitext enthaelt Entitaeten wie "z.&#8239;B."; roh stuenden sie
+    // sonst als Zeichensalat in der Oberflaeche.
+    .replace(/&[#a-zA-Z0-9]+;/g, (e) => decodeEntities(e))
     .replace(/\s+/g, ' ')
     .trim();
 }
@@ -228,11 +232,57 @@ function stepsFrom(block) {
   );
 }
 
+/**
+ * Regeln von den Wiki-Kategorien zur Einordnung in der App, die erste
+ * zutreffende gilt. Frueher stand jedes Koch-Wiki-Rezept als Hauptgericht
+ * fuer Mittag und Abend da — auch Amaretti, Kraeuterbutter und eine
+ * Gewuerzmischung, die "Woche fuellen" dann zum Abendessen machte.
+ */
+const EINORDNUNG = [
+  [/gewürzmischung|garam.masala|gewürzpaste|würzpaste|currypaste|marinade|dressing|vinaigrette|\bdips?\b|pesto|soßen?\b|saucen?\b|kräuterbutter|\bfond\b|chutney|konfitüre|marmelade|gelee|sirup|essig|würzöl|grundrezept/,
+    'Grundrezept', ['snack']],
+  [/getränk|cocktail|bowle|punsch|smoothie|limonade|milchshake|likör/, 'Getränk', ['snack']],
+  [/\bbrot\b|brote\b|brötchen|semmeln|baguette|brotrezept/, 'Backen', ['fruehstueck']],
+  [/gebäck|kuchen|torten?\b|plätzchen|kekse|backwaren|muffins?|waffeln|stollen|lebkuchen|\bpies?\b|tarte|strudel|konfekt|pralinen/,
+    'Backen', ['snack']],
+  [/frühstück|müsli|porridge|aufstrich/, 'Frühstück', ['fruehstueck']],
+  [/dessert|nachspeise|nachtisch|speiseeis|\beis\b|pudding|mousse|kompott|süßspeise|parfait|grütze|creme\b/, 'Dessert', ['snack']],
+  [/suppe|eintopf/, 'Suppe', ['mittag', 'abend']],
+  [/salat/, 'Salat', ['mittag', 'abend']],
+  [/vorspeise|tapas|antipasti|fingerfood|häppchen|snack/, 'Vorspeise', ['abend', 'snack']],
+  [/beilage|knödel|klöße|spätzle/, 'Beilage', ['mittag', 'abend']],
+];
+
+/**
+ * Kategorie, Mahlzeiten, Kueche und Ernaehrungsform aus den Kategorien
+ * der Wikiseite. Was sich nicht erschliessen laesst, bleibt beim
+ * Hauptgericht — der haeufigste Fall im Koch-Wiki.
+ */
+export function einordnen(kategorien, titel = '') {
+  const namen = kategorien.map((k) => String(k).replace(/_/g, ' '));
+  const text = `${namen.join(' | ')} | ${titel}`.toLowerCase();
+
+  const regel = EINORDNUNG.find(([re]) => re.test(text));
+  const kueche = namen.find((k) => /\bKüche$/.test(k) && !/^(Deutsche|Internationale)/.test(k));
+
+  const diet = [];
+  if (/vegan/.test(text)) diet.push('vegan', 'vegetarisch');
+  else if (/vegetarisch/.test(text)) diet.push('vegetarisch');
+
+  return {
+    category: regel ? regel[1] : 'Hauptgericht',
+    meals: regel ? regel[2] : ['mittag', 'abend'],
+    cuisine: kueche || 'International',
+    diet,
+  };
+}
+
 /** Lädt eine Rezeptseite und wandelt sie um. */
 export async function fetchRecipe(title) {
-  const data = await api({ action: 'parse', page: title, prop: 'wikitext' });
+  const data = await api({ action: 'parse', page: title, prop: 'wikitext|categories' });
   const wikitext = data.parse?.wikitext?.['*'];
   if (!wikitext) return null;
+  const kategorien = (data.parse?.categories || []).map((k) => k['*'] ?? k.category ?? '');
 
   const ingredients = ingredientsFrom(section(wikitext, 'Zutaten'));
   const steps = stepsFrom(section(wikitext, 'Zubereitung'));
@@ -247,10 +297,7 @@ export async function fetchRecipe(title) {
     sourceId: 'kochwiki',
     title,
     chapter: 'Koch-Wiki',
-    cuisine: 'International',
-    category: 'Hauptgericht',
-    meals: ['mittag', 'abend'],
-    diet: [],
+    ...einordnen(kategorien, title),
     // Fehlt eine Angabe, bleibt sie leer statt geraten; die Oberflaeche
     // laesst sie dann weg.
     servings: ausbeute?.zahl || 4,

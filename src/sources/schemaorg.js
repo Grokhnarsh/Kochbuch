@@ -30,11 +30,11 @@ export function parseYield(value) {
   return m ? Math.max(1, Math.min(48, parseInt(m[0], 10))) : 4;
 }
 
-function stripTags(text) {
+export function stripTags(text) {
   return String(text).replace(/<[^>]*>/g, ' ').replace(/\s+/g, ' ').trim();
 }
 
-function decodeEntities(text) {
+export function decodeEntities(text) {
   const named = {
     amp: '&', lt: '<', gt: '>', quot: '"', apos: "'", nbsp: ' ',
     auml: 'ä', ouml: 'ö', uuml: 'ü', Auml: 'Ä', Ouml: 'Ö', Uuml: 'Ü', szlig: 'ß',
@@ -69,7 +69,9 @@ export function flattenInstructions(value) {
 
 function firstString(value) {
   if (!value) return '';
-  if (typeof value === 'string') return decodeEntities(value).trim();
+  // Tags erst nach dem Entschluesseln entfernen: aus "&lt;b&gt;" wird
+  // sonst ein echtes Tag, das im Titel landet.
+  if (typeof value === 'string') return stripTags(decodeEntities(value));
   if (Array.isArray(value)) return firstString(value[0]);
   if (typeof value === 'object') return firstString(value.name || value['@type']);
   return '';

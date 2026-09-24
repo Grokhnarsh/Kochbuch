@@ -14,6 +14,7 @@ import { categories, recipeById, DIET_OPTIONS, MEALS } from '../data/index.js';
 import { ausFormular, pruefe, speichern, loeschen, istEigenes } from '../state/eigene.js';
 import { allergensForRecipe, HINWEIS } from '../state/allergens.js';
 import { formatAmount } from '../state/units.js';
+import { esc } from './html.js';
 
 const SCHWIERIGKEIT = [[1, 'einfach'], [2, 'mittel'], [3, 'anspruchsvoll']];
 
@@ -162,7 +163,7 @@ export function openRecipeEditor(recipe = null, { onSaved, onDeleted } = {}) {
     const zutaten = entwurf.ingredients
       .map((i) => {
         const menge = formatAmount(i.a, i.u);
-        return `<li><span>${i.n}</span><span class="amt">${menge || '—'}</span></li>`;
+        return `<li><span>${esc(i.n)}</span><span class="amt">${esc(menge || '—')}</span></li>`;
       })
       .join('');
 

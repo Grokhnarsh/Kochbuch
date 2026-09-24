@@ -49,7 +49,7 @@ export async function loadLiveSource(sourceId, onProgress) {
 }
 
 /** Legt fuer einen importierten Host eine Quelle an, falls noch keine existiert. */
-function ensureImportSource(host) {
+export function ensureImportSource(host) {
   const id = `import-${host}`;
   registerSource({
     id,
