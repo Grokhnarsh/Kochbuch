@@ -25,6 +25,20 @@ const els = {
 let handlers = {};
 let current = [];
 
+/**
+ * Karten entstehen stapelweise beim Blaettern: zehntausend Treffer auf
+ * einmal machten jede Eingabe in der Suche traege. Ganz unten wartet ein
+ * Merkposten; kommt er in Sicht, folgt der naechste Stapel.
+ */
+const STAPEL = 40;
+/** Mehr haelt niemand beim Blaettern durch; die Suche grenzt ein. */
+const HOECHSTENS = 1000;
+const zahl = new Intl.NumberFormat('de-DE');
+
+let gezeigt = 0;
+let beobachter = null;
+const merkposten = Object.assign(document.createElement('p'), { className: 'list-end' });
+
 function option(value, label) {
   const o = document.createElement('option');
   o.value = value;
@@ -107,6 +121,10 @@ function cardNode(recipe) {
     moeglich.length ? `Kann enthalten: ${moeglich.map((a) => a.short).join(', ')}` : '',
   ].filter(Boolean).join(' · ');
 
+  const original = recipe.lesetext
+    ? '<span class="tag original" title="Historischer Text im Wortlaut; Zutaten daraus erschlossen">Originaltext</span>'
+    : '';
+
   const allergenZeile = allergene.length
     ? `<span class="card-allergens" title="${esc(allergenTitel)}" aria-label="${esc(allergenTitel)}">${
         sicher.map((a) => a.icon).join('')
@@ -127,6 +145,7 @@ function cardNode(recipe) {
       <div class="tag-row">
         <span class="tag src">${esc(recipe.source?.author || recipe.source?.title || 'Quelle')}</span>
         <span class="tag">${esc(recipe.category)}</span>
+        ${original}
         ${diet}
       </div>
     </div>
@@ -155,17 +174,47 @@ function cardNode(recipe) {
   return card;
 }
 
-export function renderLibrary() {
+/** Haengt den naechsten Stapel Karten an. */
+function weitere(anzahl = STAPEL) {
+  const bis = Math.min(current.length, HOECHSTENS, gezeigt + anzahl);
+  if (bis > gezeigt) {
+    const frag = document.createDocumentFragment();
+    for (const r of current.slice(gezeigt, bis)) frag.append(cardNode(r));
+    merkposten.before(frag);
+    gezeigt = bis;
+  }
+  merkposten.textContent = gezeigt < current.length && gezeigt >= HOECHSTENS
+    ? `Gezeigt werden die ersten ${zahl.format(HOECHSTENS)} von ${zahl.format(current.length)}. Suche oder Filter grenzen ein.`
+    : '';
+}
+
+/**
+ * Neu beobachten: das meldet sofort, ob der Merkposten noch in Sicht ist
+ * — auf einem hohen Bildschirm reicht ein Stapel womoeglich nicht.
+ */
+function beobachten() {
+  if (!beobachter) return;
+  beobachter.unobserve(merkposten);
+  if (gezeigt < Math.min(current.length, HOECHSTENS)) beobachter.observe(merkposten);
+}
+
+/**
+ * @param {{behalteScroll?:boolean}} [optionen] beim Nachladen des Korpus
+ *        springt die Liste nicht nach oben, waehrend jemand darin blaettert
+ */
+export function renderLibrary({ behalteScroll = false } = {}) {
   current = filterRecipes(readFilters());
 
   els.count.textContent = current.length
-    ? `${current.length} Rezept${current.length === 1 ? '' : 'e'}`
+    ? `${zahl.format(current.length)} Rezept${current.length === 1 ? '' : 'e'}`
     : 'Keine Treffer';
 
   // Auf dem Handy steht die Zahl im zugeklappten Blattkopf.
   handlers.onCount?.(current.length);
 
   if (!current.length) {
+    gezeigt = 0;
+    beobachter?.unobserve(merkposten);
     els.list.replaceChildren(
       Object.assign(document.createElement('p'), {
         className: 'empty-note',
@@ -175,10 +224,27 @@ export function renderLibrary() {
     return;
   }
 
-  const frag = document.createDocumentFragment();
-  for (const r of current.slice(0, 260)) frag.append(cardNode(r));
-  els.list.replaceChildren(frag);
-  els.list.scrollTop = 0;
+  const oben = els.list.scrollTop;
+  // Wer schon geblaettert hat, behaelt beim Nachladen so viele Karten
+  const anzahl = behalteScroll ? Math.max(gezeigt, STAPEL) : STAPEL;
+  els.list.replaceChildren(merkposten);
+  gezeigt = 0;
+  weitere(anzahl);
+  els.list.scrollTop = behalteScroll ? oben : 0;
+  beobachten();
+}
+
+/**
+ * Bestand in der Fusszeile der Bibliothek.
+ * @param {{laedt?:boolean, fehler?:boolean}} [stand]
+ */
+export function zeigeBestand({ laedt = false, fehler = false } = {}) {
+  const quellen = new Set(recipes.map((r) => r.sourceId)).size;
+  const text = `${zahl.format(recipes.length)} Rezepte aus ${quellen} Quellen`;
+  let zusatz = '';
+  if (laedt) zusatz = ' · weitere werden geladen …';
+  else if (fehler) zusatz = ' · nicht alle Sammlungen erreichbar';
+  els.corpusNote.textContent = text + zusatz;
 }
 
 /**
@@ -221,7 +287,17 @@ export function initLibrary(h) {
     els.panel.classList.toggle('collapsed');
   });
 
-  els.corpusNote.textContent = `${recipes.length} Rezepte aus ${
-    new Set(recipes.map((r) => r.sourceId)).size
-  } Quellen`;
+  if ('IntersectionObserver' in window) {
+    beobachter = new IntersectionObserver((eintraege) => {
+      if (!eintraege.some((e) => e.isIntersecting)) return;
+      weitere();
+      beobachten();
+    }, { root: els.list, rootMargin: '0px 0px 600px 0px' });
+    beobachten();
+  } else {
+    // Ohne Beobachter gleich alles bis zur Obergrenze
+    weitere(HOECHSTENS);
+  }
+
+  zeigeBestand();
 }

@@ -256,6 +256,8 @@ a.ghost-btn { text-decoration: none; color: var(--ink); display: inline-block; }
   scrollbar-width: thin;
 }
 .recipe-list::-webkit-scrollbar { width: 9px; }
+/* Merkposten am Listenende: loest den naechsten Stapel Karten aus */
+.list-end { min-height: 1px; margin: 4px 2px 0; font-size: 12px; color: var(--ink-faint); text-align: center; }
 .recipe-list::-webkit-scrollbar-thumb {
   background: var(--line-strong);
   border-radius: var(--r-pill);
@@ -320,6 +322,19 @@ a.ghost-btn { text-decoration: none; color: var(--ink); display: inline-block; }
 }
 .tag.diet { background: var(--sage-soft); color: var(--sage); }
 .tag.src { background: var(--accent-soft); color: var(--accent-ink); }
+/* Historischer Text im Wortlaut: gelesen, nicht automatisch geplant */
+.original-note {
+  margin: 0 0 10px;
+  padding: 9px 12px;
+  border-radius: var(--r-sm);
+  background: #f8f4ea;
+  color: #6b5220;
+  font-size: 12.5px;
+  line-height: 1.5;
+}
+.step-list.original li { font-family: Georgia, "Times New Roman", serif; font-size: 14.5px; line-height: 1.6; }
+.tag.original { background: #f4efe4; color: #7a5b1e; }
+.tag.thermomix { background: #e8f1fb; color: #1f5d99; }
 
 .library-foot {
   display: flex;

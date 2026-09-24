@@ -8,10 +8,11 @@ import { Stage } from './webgl/scene.js';
 import { Board, COMPACT_BREAKPOINT } from './webgl/board.js';
 import { store, isoWeekNumber, slotId } from './state/store.js';
 import { recipes, recipeById, registerRecipes, DAYS, MEALS } from './data/index.js';
+import { ladeKorpus } from './data/korpus.js';
 import { ladeEigene, bereinige } from './state/eigene.js';
 import { ensureImportSource } from './sources/index.js';
 import {
-  initLibrary, renderLibrary, refreshFilters, visibleRecipes, gefilterteRezepte, filterBeschreibung,
+  initLibrary, renderLibrary, refreshFilters, visibleRecipes, gefilterteRezepte, filterBeschreibung, zeigeBestand,
 } from './ui/library.js';
 import { openNaehrwerte } from './ui/naehrwerte.js';
 import { openVorschlaege } from './ui/vorschlaege.js';
@@ -53,9 +54,13 @@ function sichereImporte() {
   store.saveImported(
     importe.map((r) => ({
       ...r,
+      // Abgeleitetes entsteht beim Laden neu; gespeichert kostete es nur
+      // Platz im knappen Speicher des Browsers.
       source: undefined,
       searchText: undefined,
       allergens: undefined,
+      naehrwerte: undefined,
+      gesundheit: undefined,
       ingredients: r.ingredients.map((i) => ({ a: i.amount, u: i.unit, n: i.name })),
     })),
   );
@@ -267,6 +272,28 @@ initLibrary({
 
 initSummary({ onNaehrwerte: () => naehrwerteOeffnen() });
 
+// ------------------------------------------------------- Grosse Sammlungen
+
+/**
+ * Die Wikis und historischen Kochbuecher kommen, wenn der Plan schon
+ * steht. Nach jedem Teil wachsen Filter und Liste, und der Plan zeichnet
+ * Gerichte, die er vorher noch nicht kannte.
+ */
+zeigeBestand({ laedt: true });
+const korpus = ladeKorpus({
+  onTeil: (neu) => {
+    refreshFilters();
+    renderLibrary({ behalteScroll: true });
+    zeigeBestand({ laedt: true });
+    // Neu zeichnen nur, wenn der Plan ein eben geladenes Rezept enthaelt
+    const ids = new Set(neu.map((r) => r.id));
+    if (Object.values(store.week).some((e) => ids.has(e.recipeId))) store.emit();
+  },
+}).then((ergebnis) => {
+  zeigeBestand({ fehler: ergebnis.fehler > 0 });
+  return ergebnis;
+});
+
 // ------------------------------------------------------ Ueberlaufmenue
 
 const phoneMenu = document.getElementById('phone-menu');
@@ -329,5 +356,5 @@ window.addEventListener('pagehide', sichereImporte);
 
 // Fuer Konsole und Tests erreichbar halten
 Object.assign(window, {
-  kochbuch: { store, board, stage, recipeById, newRecipe, vorschlaegeOeffnen, naehrwerteOeffnen },
+  kochbuch: { store, board, stage, recipeById, newRecipe, vorschlaegeOeffnen, naehrwerteOeffnen, korpus },
 });

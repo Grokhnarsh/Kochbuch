@@ -86,10 +86,10 @@
       "author": "Wikibooks-Autorinnen und -Autoren",
       "year": 2026,
       "country": "International",
-      "license": "CC BY-SA 3.0",
-      "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0/deed.de",
+      "license": "CC BY-SA 4.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0/deed.de",
       "url": "https://de.wikibooks.org/wiki/Kochbuch",
-      "via": "de.wikibooks.org (rund 640 Rezepte)",
+      "via": "de.wikibooks.org, alle Rezeptseiten des Kochbuchs",
       "accent": "#2F8F83"
     },
     {
@@ -112,11 +112,24 @@
       "author": "Koch-Wiki-Autorinnen und -Autoren",
       "year": 2026,
       "country": "Deutschland",
-      "license": "CC BY-SA",
+      "license": "CC BY-SA 3.0",
       "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0/de/",
       "url": "https://www.kochwiki.org/",
-      "via": "rund 9000 Rezepte, MediaWiki-Schnittstelle",
+      "via": "kochwiki.org, alle Rezeptseiten (rund 9000)",
       "accent": "#8C4B9E"
+    },
+    {
+      "id": "rezeptewiki",
+      "kind": "wiki",
+      "title": "Rezepte-Wiki",
+      "author": "Rezepte-Wiki-Autorinnen und -Autoren",
+      "year": 2026,
+      "country": "Deutschland",
+      "license": "CC BY-SA 3.0",
+      "licenseUrl": "https://www.fandom.com/de/licensing-de",
+      "url": "https://rezepte.fandom.com/de/wiki/Rezepte_Wiki",
+      "via": "rezepte.fandom.com, alle Artikel mit Zutaten und Zubereitung",
+      "accent": "#C0508A"
     },
     {
       "id": "themealdb",

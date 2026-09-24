@@ -210,7 +210,12 @@ export function vorschlaege(rezepte, { mahlzeit, ausschliessen = new Set(), schw
     if (!passend) continue;
     if (mahlzeit && !(r.meals || []).includes(mahlzeit)) continue;
 
-    const bewertung = r.gesundheit ?? bewerte(r);
+    // Historische Originaltexte haben keine belastbaren Werte und damit
+    // keine Bewertung; sie tauchen hier nicht auf.
+    if (r.lesetext) continue;
+    // Eine vorhandene Bewertung gilt, auch wenn sie "keine" lautet:
+    // neu rechnen ginge ohnehin nur mit der vollen Rechnung.
+    const bewertung = r.gesundheit !== undefined ? r.gesundheit : bewerte(r);
     if (!bewertung || bewertung.punkte < 45) continue;
 
     const p = r.naehrwerte.jePortion;

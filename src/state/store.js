@@ -161,8 +161,10 @@ class Store {
         const id = slotId(day, meal.id);
         if (week[id]) continue;
 
+        // Historische Originaltexte liest man; ungefragt auf den Plan
+        // gehoeren sie nicht.
         const candidates = pool.filter(
-          (r) => (r.meals || []).includes(meal.id) && !used.has(r.id),
+          (r) => !r.lesetext && (r.meals || []).includes(meal.id) && !used.has(r.id),
         );
         if (!candidates.length) continue;
 

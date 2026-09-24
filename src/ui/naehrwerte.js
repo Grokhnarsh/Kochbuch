@@ -11,7 +11,7 @@
 import { openModal, el } from './modal.js';
 import { esc } from './html.js';
 import { store } from '../state/store.js';
-import { recipes, DAYS, naehrwertQuelle } from '../data/index.js';
+import { recipes, recipeById, DAYS, naehrwertQuelle } from '../data/index.js';
 import { NAEHRSTOFFE, REFERENZ, anzeige } from '../state/naehrwerte.js';
 import { wochenLuecke } from '../state/gesundheit.js';
 
@@ -102,6 +102,11 @@ const GRUPPEN = [
   ['stueck', 'Stückgebäck und Häppchen, je Stück'],
 ];
 
+/** Mehr Zeilen machen die Tabelle traege; wer sucht oder sortiert, findet trotzdem alles. */
+const ZEILEN = 300;
+const sortierer = new Intl.Collator('de');
+const zahl = new Intl.NumberFormat('de-DE');
+
 function rezepteAnsicht(host, { onOpen }) {
   const alleBelastbar = recipes.filter((r) => r.naehrwerte && r.naehrwerte.vertrauen !== 'gering');
   let gruppe = 'portion';
@@ -144,14 +149,16 @@ function rezepteAnsicht(host, { onOpen }) {
       .sort((a, b) => {
         const x = wert(a, sortierung.feld);
         const y = wert(b, sortierung.feld);
-        const v = typeof x === 'string' ? x.localeCompare(y, 'de') : x - y;
+        const v = typeof x === 'string' ? sortierer.compare(x, y) : x - y;
         return sortierung.auf ? v : -v;
       });
 
-    anzahl.textContent = `${liste.length} Rezepte in dieser Gruppe. ${
-      recipes.length - alleBelastbar.length} Rezepte haben zu wenige Angaben für belastbare Werte und fehlen hier.`;
+    const gekuerzt = liste.length > ZEILEN;
+    anzahl.textContent = `${zahl.format(liste.length)} Rezepte in dieser Gruppe${
+      gekuerzt ? `, gezeigt die ersten ${ZEILEN} — Suche oder Sortierung grenzen ein` : ''}. ${
+      zahl.format(recipes.length - alleBelastbar.length)} Rezepte haben zu wenige Angaben für belastbare Werte und fehlen hier.`;
 
-    tbody.innerHTML = liste.map((r) => `
+    tbody.innerHTML = liste.slice(0, ZEILEN).map((r) => `
       <tr data-id="${esc(r.id)}" tabindex="0">
         <th scope="row">${esc(r.title)}${
           r.naehrwerte.vertrauen === 'mittel' ? '<br /><small>Schätzung</small>' : ''}</th>
@@ -178,7 +185,7 @@ function rezepteAnsicht(host, { onOpen }) {
   }
   tbody.addEventListener('click', (e) => {
     const id = e.target.closest('tr[data-id]')?.dataset.id;
-    const r = id && alleBelastbar.find((x) => x.id === id);
+    const r = id && recipeById.get(id);
     if (r) onOpen(r);
   });
 

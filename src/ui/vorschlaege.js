@@ -11,7 +11,7 @@
 import { openModal, el } from './modal.js';
 import { esc } from './html.js';
 import { store, slotId } from '../state/store.js';
-import { MEALS, DAYS } from '../data/index.js';
+import { MEALS, DAYS, vollstaendig } from '../data/index.js';
 import { vorschlaege, wochenLuecke, HINWEIS_GESUNDHEIT } from '../state/gesundheit.js';
 import { kcalText } from '../state/naehrwerte.js';
 
@@ -31,8 +31,10 @@ function freierTag(mahlzeit) {
 }
 
 function karte(v, mahlzeit, { onOpen, onGeplant }) {
-  const r = v.rezept;
-  const g = v.bewertung;
+  // Fuer die Rangliste reicht die Punktzahl; die Gruende auf der Karte
+  // gibt es erst mit der vollen Rechnung — fuer sechs Karten, nicht fuer alle.
+  const r = vollstaendig(v.rezept);
+  const g = r.gesundheit || v.bewertung;
   const card = el('article', 'suggest-card');
   const gruende = g.gruende.filter((x) => x.gut).slice(0, 3)
     .map((x) => `<span class="tag diet">${esc(x.text)}</span>`).join('');

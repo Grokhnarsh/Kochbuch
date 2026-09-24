@@ -5,7 +5,7 @@
 
 import { openModal, closeModal, el } from './modal.js';
 import { store, maxServingsFor } from '../state/store.js';
-import { recipeById, MEALS, DAYS } from '../data/index.js';
+import { recipeById, MEALS, DAYS, vollstaendig } from '../data/index.js';
 import { formatAmount } from '../state/units.js';
 import { allergensForRecipe, HINWEIS } from '../state/allergens.js';
 import { istEigenes } from '../state/eigene.js';
@@ -129,6 +129,9 @@ function allergenBlock(recipe) {
  *        Portionsanpassung direkt auf den Plan.
  */
 export function openRecipe(recipe, slot = null, onPlace = null, onEdited = null) {
+  // Die grossen Sammlungen bringen nur eine Zusammenfassung mit; Gruende,
+  // Posten und Hinweise entstehen jetzt, fuer dieses eine Rezept.
+  vollstaendig(recipe);
   const entry = slot ? store.entry(slot.day, slot.meal) : null;
   let servings = entry?.servings || recipe.servings || 2;
   // Dieselbe Obergrenze wie im Store, sonst zeigte die Ansicht eine
@@ -187,7 +190,10 @@ export function openRecipe(recipe, slot = null, onPlace = null, onEdited = null)
         </div>
         <div>
           <h3>Zubereitung${recipe.totalTime > 0 ? ` · ${recipe.totalTime} Minuten` : ''}</h3>
-          <ol class="step-list">${steps}</ol>
+          ${recipe.lesetext ? `<p class="original-note">Historischer Text im Wortlaut. Die Zutatenliste ist
+            daraus erschlossen und kann unvollständig sein; alte Maße sind umgerechnet.
+            ${recipe.servingsGeschaetzt ? 'Das Original nennt keine Portionszahl, gerechnet wird mit 4.' : ''}</p>` : ''}
+          <ol class="step-list${recipe.lesetext ? ' original' : ''}">${steps}</ol>
           ${naehrwertBlock(recipe)}
           ${gesundheitBlock(recipe)}
           ${licence}

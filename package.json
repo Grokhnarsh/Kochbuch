@@ -14,7 +14,8 @@
     "import": "node scripts/import-sources.mjs",
     "naehrwerte": "node scripts/naehrwerte/bauen.mjs",
     "sync": "node scripts/sync.mjs",
-    "prepare": "node scripts/install-hooks.mjs"
+    "prepare": "node scripts/install-hooks.mjs",
+    "korpus": "node scripts/korpus.mjs"
   },
   "dependencies": {
     "three": "^0.169.0"

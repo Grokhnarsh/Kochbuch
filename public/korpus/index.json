@@ -1,0 +1,83 @@
+{
+  "hinweis": "Von scripts/korpus.mjs erzeugt. Rezepttexte unter der Lizenz ihrer Quelle, siehe src/data/sources.json.",
+  "rezepte": 9894,
+  "teile": [
+    {
+      "buch": "wikibooks",
+      "quelle": "wikibooks-de",
+      "datei": "wikibooks-1.json",
+      "rezepte": 562,
+      "bytes": 832285
+    },
+    {
+      "buch": "rezeptewiki",
+      "quelle": "rezeptewiki",
+      "datei": "rezeptewiki-1.json",
+      "rezepte": 370,
+      "bytes": 474936
+    },
+    {
+      "buch": "kochwiki",
+      "quelle": "kochwiki",
+      "datei": "kochwiki-1.json",
+      "rezepte": 1131,
+      "bytes": 1999026
+    },
+    {
+      "buch": "kochwiki",
+      "quelle": "kochwiki",
+      "datei": "kochwiki-2.json",
+      "rezepte": 1083,
+      "bytes": 1999558
+    },
+    {
+      "buch": "kochwiki",
+      "quelle": "kochwiki",
+      "datei": "kochwiki-3.json",
+      "rezepte": 1081,
+      "bytes": 1998935
+    },
+    {
+      "buch": "kochwiki",
+      "quelle": "kochwiki",
+      "datei": "kochwiki-4.json",
+      "rezepte": 1073,
+      "bytes": 1998817
+    },
+    {
+      "buch": "kochwiki",
+      "quelle": "kochwiki",
+      "datei": "kochwiki-5.json",
+      "rezepte": 1084,
+      "bytes": 1999722
+    },
+    {
+      "buch": "kochwiki",
+      "quelle": "kochwiki",
+      "datei": "kochwiki-6.json",
+      "rezepte": 1101,
+      "bytes": 1998622
+    },
+    {
+      "buch": "kochwiki",
+      "quelle": "kochwiki",
+      "datei": "kochwiki-7.json",
+      "rezepte": 1118,
+      "bytes": 1998280
+    },
+    {
+      "buch": "kochwiki",
+      "quelle": "kochwiki",
+      "datei": "kochwiki-8.json",
+      "rezepte": 1093,
+      "bytes": 1999982
+    },
+    {
+      "buch": "kochwiki",
+      "quelle": "kochwiki",
+      "datei": "kochwiki-9.json",
+      "rezepte": 198,
+      "bytes": 355036
+    }
+  ]
+}

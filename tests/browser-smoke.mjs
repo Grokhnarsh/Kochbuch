@@ -54,7 +54,24 @@ try {
   check('Raster hat 28 Slots', slots === 28, `${slots}`);
 
   const cards = await page.locator('.recipe-card').count();
-  check('Bibliothek ist gefüllt', cards > 100, `${cards} Karten`);
+  check('Bibliothek ist gefüllt', cards >= 20, `${cards} Karten`);
+
+  // Die grossen Sammlungen kommen nach dem ersten Bild
+  const korpus = await page.evaluate(async () => {
+    const ergebnis = await window.kochbuch.korpus;
+    return { ...ergebnis, gesamt: window.kochbuch.recipeById.size, fuss: document.getElementById('corpus-note').textContent };
+  });
+  check('große Sammlungen werden nachgeladen', korpus.rezepte > 5000 && korpus.fehler === 0,
+    `${korpus.rezepte} Rezepte aus ${korpus.teile} Teilen, ${korpus.gesamt} insgesamt`);
+  check('die Bibliothek nennt den Bestand', /\d\.\d{3} Rezepte aus \d+ Quellen$/.test(korpus.fuss), korpus.fuss);
+
+  // Karten entstehen beim Blaettern stapelweise
+  const vorher = await page.locator('.recipe-card').count();
+  await page.locator('#recipe-list').evaluate((n) => { n.scrollTop = n.scrollHeight; });
+  await page.waitForTimeout(500);
+  const nachher = await page.locator('.recipe-card').count();
+  check('beim Blättern kommen weitere Karten dazu', nachher > vorher, `${vorher} → ${nachher}`);
+  await page.locator('#recipe-list').evaluate((n) => { n.scrollTop = 0; });
 
   const cardHeight = await page.locator('.recipe-card').first().evaluate((n) => n.clientHeight);
   check('Bibliothekskarten sind nicht gestaucht', cardHeight > 60, `${cardHeight}px`);
@@ -156,13 +173,16 @@ try {
   await page.fill('#search', '');
   await page.waitForTimeout(300);
 
-  const alle = await page.locator('.recipe-card').count();
+  // Gezaehlt wird die Trefferzahl, nicht die Karten: die Liste zeigt
+  // hoechstens 260 auf einmal.
+  const treffer = async () => Number((await page.locator('#result-count').textContent()).replace(/\D/g, ''));
+  const alle = await treffer();
   await page.selectOption('#filter-allergen', 'milch');
   await page.waitForTimeout(400);
   const mitMilch = await page.evaluate(() =>
     [...document.querySelectorAll('.card-allergens')]
       .filter((n) => (n.title || '').includes('Milch')).length);
-  const ohne = await page.locator('.recipe-card').count();
+  const ohne = await treffer();
   check('Filter blendet Rezepte mit Milch aus', mitMilch === 0 && ohne < alle, `${ohne} von ${alle}`);
   await page.selectOption('#filter-allergen', '');
   await page.waitForTimeout(300);
@@ -201,6 +221,20 @@ try {
   await page.waitForTimeout(300);
 
   // --------------------------------------------------- Naehrwerte
+
+  // Ein Rezept aus dem nachgeladenen Koch-Wiki: die Karte kennt nur die
+  // Zusammenfassung, die Ansicht rechnet die Gruende beim Oeffnen nach.
+  await page.fill('#search', 'Bauerneintopf');
+  await page.waitForTimeout(400);
+  await page.locator('.recipe-card', { hasText: 'Koch-Wiki' }).first().click();
+  await page.waitForTimeout(400);
+  const nachgerechnet = await page.evaluate(() => {
+    const r = window.kochbuch.recipeById.get('kochwiki-bauerneintopf');
+    return { posten: r?.naehrwerte?.posten?.length || 0, zusammenfassung: Boolean(r?.naehrwerte?.zusammenfassung) };
+  });
+  check('ein nachgeladenes Rezept wird beim Öffnen voll gerechnet',
+    nachgerechnet.posten > 0 && !nachgerechnet.zusammenfassung, JSON.stringify(nachgerechnet));
+  await page.keyboard.press('Escape');
 
   await page.fill('#search', 'Linseneintopf');
   await page.waitForTimeout(400);
