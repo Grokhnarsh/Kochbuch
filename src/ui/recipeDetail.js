@@ -164,12 +164,22 @@ export function openRecipe(recipe, slot = null, onPlace = null, onEdited = null)
     const steps = (recipe.steps || []).map((s) => `<li>${markiereEinstellungen(esc(s))}</li>`).join('');
     const link = recipe.sourceUrl || source?.url;
 
+    // Bei abgeschriebenen Rezepten die Angabe, woher sie stammen
+    const q = recipe.quelle;
+    const quellenZeile = q
+      ? `<p class="source-line"><strong>Quelle:</strong> ${[
+        q.titel && `<cite>${esc(q.titel)}</cite>`, q.autor && esc(q.autor), q.jahr && esc(q.jahr), q.seite && `S. ${esc(q.seite)}`,
+      ].filter(Boolean).join(', ')}</p>`
+      : '';
+
     const licence = source
-      ? `<div class="source-note">
+      ? `<div class="source-note">${quellenZeile}
            <strong>${esc(source.title)}</strong>${source.author ? `, ${esc(source.author)}` : ''}${
              source.year ? ` (${esc(source.year)})` : ''
            }<br />
-           Lizenz: ${esc(source.license)} · ${esc(source.via || '')}
+           Lizenz: ${source.licenseUrl
+             ? `<a href="${esc(safeUrl(source.licenseUrl))}" target="_blank" rel="noopener noreferrer">${esc(source.license)}</a>`
+             : esc(source.license)} · ${esc(source.via || '')}
            ${link
              ? `<br /><a href="${esc(safeUrl(link))}" target="_blank" rel="noopener noreferrer">${esc(link)}</a>`
              : ''}

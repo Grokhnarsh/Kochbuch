@@ -171,6 +171,19 @@
       "accent": "#C0508A"
     },
     {
+      "id": "koeche-nord",
+      "kind": "buch",
+      "title": "Köche-Nord.de Kochbücher",
+      "author": "Marcus Petersen-Clausen",
+      "year": 2024,
+      "country": "Deutschland",
+      "license": "CC BY-SA 3.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0/de/",
+      "url": "https://xn--kche-nord-07a.de/kochbuecher.html",
+      "via": "Kostenlose PDF-Kochbücher, urheberrechtlich geschützt und unter CC BY-SA 3.0 freigegeben",
+      "accent": "#2E7D6B"
+    },
+    {
       "id": "themealdb",
       "kind": "api",
       "title": "TheMealDB",

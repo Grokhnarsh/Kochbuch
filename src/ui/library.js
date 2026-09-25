@@ -146,7 +146,7 @@ function cardNode(recipe) {
         ${allergenZeile}
       </div>
       <div class="tag-row">
-        <span class="tag src">${esc(recipe.source?.author || recipe.source?.title || 'Quelle')}</span>
+        <span class="tag src">${esc(recipe.quelle?.titel || recipe.source?.author || recipe.source?.title || 'Quelle')}</span>
         <span class="tag">${esc(recipe.category)}</span>
         ${original}
         ${thermomix}

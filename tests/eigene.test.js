@@ -123,3 +123,32 @@ test('haelt einen Titel aus, der keinen slug ergibt', () => {
   assert.ok(r.id.startsWith('eigen-'), r.id);
   assert.ok(r.id.length > 'eigen-'.length);
 });
+
+test('nimmt die Quellenangabe eines abgeschriebenen Rezepts mit', () => {
+  const r = ausFormular({
+    ...FORMULAR,
+    quelleTitel: '  Das große Kochbuch ',
+    quelleAutor: 'Beispiel-Verlag',
+    quelleJahr: '1998',
+    quelleSeite: '214',
+    quelleLink: 'https://example.org/buch',
+  });
+
+  assert.deepEqual(r.quelle, { titel: 'Das große Kochbuch', autor: 'Beispiel-Verlag', jahr: '1998', seite: '214' });
+  assert.equal(r.sourceUrl, 'https://example.org/buch');
+});
+
+test('ohne Angaben bleibt die Quelle weg, statt leer mitzulaufen', () => {
+  const r = ausFormular({ ...FORMULAR, quelleTitel: '   ', quelleSeite: '' });
+  assert.equal('quelle' in r, false);
+  assert.equal('sourceUrl' in r, false);
+
+  const nurSeite = ausFormular({ ...FORMULAR, quelleSeite: '12' });
+  assert.deepEqual(nurSeite.quelle, { seite: '12' });
+});
+
+test('kuerzt ueberlange Quellenangaben', () => {
+  const r = ausFormular({ ...FORMULAR, quelleTitel: 'x'.repeat(500), quelleJahr: '1'.repeat(40) });
+  assert.equal(r.quelle.titel.length, 160);
+  assert.equal(r.quelle.jahr.length, 12);
+});

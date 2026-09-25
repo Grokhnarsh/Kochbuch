@@ -12,7 +12,7 @@ const UNICODE_FRACTIONS = {
 /** Bekannte Einheiten und ihre kanonische Schreibweise. */
 const UNITS = new Map(Object.entries({
   g: 'g', gramm: 'g', kg: 'kg', kilogramm: 'kg', mg: 'mg',
-  ml: 'ml', milliliter: 'ml', l: 'l', liter: 'l', cl: 'cl',
+  ml: 'ml', milliliter: 'ml', l: 'l', liter: 'l', cl: 'cl', zentiliter: 'cl',
   el: 'EL', esslöffel: 'EL', essloeffel: 'EL', eßlöffel: 'EL', essl: 'EL', eßl: 'EL',
   tl: 'TL', teelöffel: 'TL', teeloeffel: 'TL', teel: 'TL', theelöffel: 'TL', theel: 'TL',
   msp: 'Msp', messerspitze: 'Msp', messersp: 'Msp',

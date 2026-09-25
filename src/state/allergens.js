@@ -69,14 +69,15 @@ const RULES = {
       'weizenstärke', 'oblate',
       'backoblate', 'grahambrot', 'knäckebrot', 'baiserboden', 'kuchenmehl', 'tortenboden',
     ],
-    moeglich: ['sojasauce', 'sojasoße', 'brühe', 'brühwürfel', 'bouillon', 'gemüsebrühe', 'backpulver'],
+    // "Stärkemehl" ist meist Mais oder Kartoffel, in alten Rezepten auch Weizenstärke
+    moeglich: ['sojasauce', 'sojasoße', 'brühe', 'brühwürfel', 'bouillon', 'gemüsebrühe', 'backpulver', 'stärkemehl'],
     nein: [
       'mandelmehl', 'kokosmehl', 'kichererbsenmehl', 'reismehl', 'maismehl', 'buchweizenmehl',
       'sojamehl', 'kastanienmehl', 'johannisbrotkernmehl', 'maisgrieß', 'maisstärke',
       'kartoffelmehl', 'speisestärke', 'reisnudeln', 'glasnudeln', 'glutenfrei', 'maisbrot',
       'buchweizen',
       'lupinenmehl', 'hirsemehl', 'quinoamehl', 'traubenkernmehl', 'guarkernmehl',
-      'flohsamenschalen', 'mandelgrieß',
+      'flohsamenschalen', 'mandelgrieß', 'maisstärkemehl', 'kartoffelstärkemehl', 'maisgrießmehl',
       // "mehligkochende Kartoffeln" ist kein Mehl, "Lebkuchengewürz" kein Gebäck.
       'mehlig', 'lebkuchengewürz', 'spekulatiusgewürz', 'printengewürz',
     ],
@@ -95,7 +96,7 @@ const RULES = {
     moeglich: ['nudel', 'panade', 'brioche', 'blätterteig', 'löffelbiskuit', 'speiseeis', 'eiscreme'],
     nein: [
       'eierschwammerl', 'eierfrucht', 'eiertomate', 'eiswasser', 'eiswürfel',
-      'reisnudeln', 'glasnudeln',
+      'reisnudeln', 'glasnudeln', 'ei-ersatz', 'eiersatz',
     ],
   },
   fisch: {
@@ -132,11 +133,21 @@ const RULES = {
       'milchschokolade', 'vollmilchschokolade', 'sahneschokolade',
       'sahneeis', 'vanilleeis',
     ],
-    moeglich: ['butterschmalz', 'ghee', 'schokolade', 'kuvertüre', 'nougat', 'karamell', 'margarine'],
+    moeglich: [
+      'butterschmalz', 'ghee', 'schokolade', 'kuvertüre', 'nougat', 'karamell', 'margarine',
+      // Nicht jede pflanzliche Sahne ist frei von Buttermilch
+      'pflanzenbutter', 'pflanzensahne', 'pflanzliche sahne',
+    ],
     nein: [
       'sojamilch', 'hafermilch', 'mandelmilch', 'reismilch', 'kokosmilch', 'dinkelmilch',
       'cashewmilch', 'nussmilch', 'erdnussbutter', 'kakaobutter', 'sheabutter',
       'mandelbutter', 'nussbutter', 'kokosbutter', 'laktosefrei', 'milchfrei', 'butterpilz',
+      // Pflanzliche Erzeugnisse, die ihre Grundlage im Namen tragen
+      'pflanzenmilch', 'pflanzliche milch', 'hafersahne', 'sojasahne', 'reissahne', 'dinkelsahne',
+      'mandelsahne', 'cashewsahne', 'kokossahne', 'kokosrahm', 'sojajoghurt', 'soja-joghurt',
+      'kokosjoghurt', 'kokos-joghurt', 'haferjoghurt', 'mandeljoghurt', 'cashewjoghurt',
+      'lupinenjoghurt', 'sojaquark', 'cashewkäse', 'hafer-milch', 'soja-milch', 'hafer-sahne',
+      'soja-sahne',
     ],
   },
   schalenfruechte: {
@@ -147,7 +158,7 @@ const RULES = {
     ],
     moeglich: ['studentenfutter', 'nussmischung', 'müsli', 'pesto'],
     nein: [
-      'muskatnuss', 'muskat', 'kokosnuss', 'kokosraspel', 'kokosmilch', 'kokosöl',
+      'muskatnuss', 'muskatnüsse', 'muskat', 'kokosnuss', 'kokosnüsse', 'kokosraspel', 'kokosmilch', 'kokosöl',
       'kokosfett', 'kokosblüten', 'erdnuss', 'erdnüsse', 'erdnussbutter', 'erdnussöl',
       'esskastanie', 'kastanie', 'maroni', 'wassernuss', 'muskatblüte',
       // Groessenangabe, keine Zutat: "ein walnussgroßes Stück Ingwer".
@@ -209,25 +220,76 @@ const PATTERNS = compile(
   return { ...p, id, level };
 });
 
+/** Alle Stellen, an denen ein Stichwort im Text steht, als [von, bis]. */
+function stellen(p, text) {
+  const re = new RegExp(p.test.source, 'g');
+  const out = [];
+  let m;
+  while ((m = re.exec(text))) {
+    const von = m.index + m[0].indexOf(p.keyword);
+    out.push([von, von + p.keyword.length]);
+    if (m[0].length === 0) re.lastIndex += 1;
+  }
+  return out;
+}
+
+/** Was vom Tier stammt — und was deshalb in einer veganen Zutat nicht sein kann. */
+const TIERISCH = new Set(['milch', 'eier', 'fisch', 'krebstiere', 'weichtiere']);
+
 /**
- * Allergene einer einzelnen Zutat. Je Allergen entscheidet das laengste
- * zutreffende Stichwort — so schlaegt "Sojamilch" das kuerzere "Milch"
- * und "Muskatnuss" das kuerzere "Nuss".
+ * "Vegan" als Eigenschaft der Zutat: "vegane Butter", "Joghurt (vegan)".
+ * Nicht aber als Ausweichmoeglichkeit — "Butter (vegan: Margarine)"
+ * ist Butter. "Pflanzlich" reicht nicht: manche pflanzliche Sahne
+ * enthaelt Buttermilch.
+ */
+function istVegan(teil) {
+  const ohneKlammern = teil.replace(/\(([^)]*)\)/g, (_, innen) => (/^\s*vegan\w*\s*$/.test(innen) ? ' vegan ' : ' '));
+  return /\bvegan\w*\b(?!\s*:)/.test(ohneKlammern);
+}
+
+/** "Butter oder vegane Butter": jede Moeglichkeit zaehlt fuer sich */
+const MOEGLICHKEITEN = /\s+(?:oder|und|bzw\.?|sowie|alternativ|ersatzweise)\s+|\s*\/\s*/;
+
+/** Allergene eines einzelnen Namensteils, als Map id → level */
+function imTeil(n) {
+  const treffer = [];
+  for (const p of PATTERNS) {           // PATTERNS ist nach Laenge sortiert
+    if (!p.trifft(n)) continue;
+    for (const [von, bis] of stellen(p, n)) {
+      // Ein laengeres Stichwort an derselben Stelle hat schon entschieden
+      if (treffer.some((t) => t.id === p.id && t.von <= von && bis <= t.bis)) continue;
+      treffer.push({ id: p.id, level: p.level, von, bis });
+    }
+  }
+
+  const vegan = istVegan(n);
+  const gefunden = new Map();
+  for (const t of treffer) {
+    if (t.level === 'nein' || (vegan && TIERISCH.has(t.id))) continue;
+    if (gefunden.get(t.id) !== 'ja') gefunden.set(t.id, t.level);
+  }
+  return gefunden;
+}
+
+/**
+ * Allergene einer einzelnen Zutat.
+ *
+ * An jeder Stelle des Namens entscheidet das laengste Stichwort: so
+ * schlaegt "Sojamilch" das kuerzere "Milch" und "Muskatnuss" die "Nuss".
+ * Eine andere Stelle zaehlt fuer sich — in "Joghurt mit Kokosmilch"
+ * bleibt der Joghurt Milch, in "Schweinebraten mit Rotwein" der Wein
+ * ein moeglicher Schwefel.
  *
  * @returns {{id:string, level:'ja'|'moeglich'}[]}
  */
 export function allergensFor(name) {
-  const n = String(name).toLowerCase();
-  const beste = new Map();
-
-  for (const p of PATTERNS) {
-    if (beste.has(p.id)) continue;      // PATTERNS ist nach Laenge sortiert
-    if (p.trifft(n)) beste.set(p.id, p.level);
+  const gesamt = new Map();
+  for (const teil of String(name).toLowerCase().split(MOEGLICHKEITEN)) {
+    for (const [id, level] of imTeil(teil)) {
+      if (gesamt.get(id) !== 'ja') gesamt.set(id, level);
+    }
   }
-
-  return [...beste]
-    .filter(([, level]) => level !== 'nein')
-    .map(([id, level]) => ({ id, level }));
+  return [...gesamt].map(([id, level]) => ({ id, level }));
 }
 
 /**

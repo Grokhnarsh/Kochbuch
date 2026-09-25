@@ -2,8 +2,9 @@
 
 Ein Wochen-Essensplaner in Form eines Stundenplans: sieben Tageszeilen, vier
 Mahlzeitenspalten, Gerichte in den Feldern, verschiebbar mit der Maus.
-Dazu eine Bibliothek mit rund 12.000 Rezepten aus gemeinfreien Kochbüchern und
-offen lizenzierten Wikis, eigene Rezepte zum Selbstschreiben, Allergenangaben und
+Dazu eine Bibliothek mit rund 13.000 Rezepten aus gemeinfreien Kochbüchern,
+offen lizenzierten Wikis und frei lizenzierten Kochbüchern, eigene Rezepte zum
+Selbstschreiben (auch aus eigenen Büchern, mit Quellenangabe), Allergenangaben und
 berechnete Nährwerte zu jedem Gericht, Vorschläge für eine ausgewogene Woche,
 eine Einkaufsliste, die sich aus dem Plan selbst zusammenrechnet, und der Weg
 von dort in den REWE-Onlineshop.
@@ -80,13 +81,23 @@ Erkannt wird aus dem Zutatennamen, und zwar in zwei Stufen:
   Brühwürfel (Sellerie, Weizen), Schokolade (Sojalecithin), Butterschmalz
   (Milcheiweiß), Wein und Essig (Sulfite).
 
-Damit das trägt, gewinnt beim Suchen immer das längste passende Stichwort.
-Sonst wäre Sojamilch Milch, Muskatnuss eine Nuss, Erdnussbutter Butter und
-Hackfleisch vom Schwein ein Getränk mit Sulfiten. Umgekehrt müssen lange
+Damit das trägt, entscheidet an jeder Stelle des Namens das längste passende
+Stichwort. Sonst wäre Sojamilch Milch, Muskatnuss eine Nuss, Erdnussbutter
+Butter und Hackfleisch vom Schwein ein Getränk mit Sulfiten. Eine andere
+Stelle zählt aber für sich: „Butter oder Margarine“ enthält Milch, auch wenn
+Margarine allein sie nur enthalten *kann*, und in „Joghurt mit Kokosmilch“
+bleibt der Joghurt Milch. Umgekehrt müssen lange
 Grundwörter auch mitten im Wort gefunden werden, sonst bliebe „Ziegenkäserolle“
 unerkannt; bei kurzen Stichwörtern wäre genau das fatal, deshalb gilt es nur
-für eine ausgewählte Liste. Rund achtzig solcher Fälle stehen als Tests in
+für eine ausgewählte Liste. Rund hundert solcher Fälle stehen als Tests in
 `tests/allergene.test.js`.
+
+Steht **„vegan“** an einer Zutat — „vegane Butter“, „Joghurt (vegan)“ —, ist
+sie frei von Milch, Ei, Fisch, Krebs- und Weichtieren; was pflanzlich darin
+ist, Soja, Hafer oder Nüsse, bleibt stehen. „Pflanzlich“ allein genügt dafür
+nicht, manche pflanzliche Sahne enthält Buttermilch. Und es zählt die erste
+Wahl: „Butter (vegan: Margarine)“ und „Butter oder vegane Butter“ enthalten
+Milch.
 
 > **Wichtig:** Das Verfahren kennt nur, was im Rezept steht. Was ein
 > Fertigprodukt tatsächlich enthält, steht auf der Packung, nicht im
@@ -105,13 +116,19 @@ Tag für Tag und alle Rezepte in einer sortierbaren Tabelle.
 
 **Woher die Zahlen kommen.** Jede Zutat wird einem Lebensmittel der
 USDA-Datenbank *FoodData Central, SR Legacy* zugeordnet (gemeinfrei, CC0) —
-246 Einträge, von Weizenmehl bis Garam Masala. Die Zuordnung steht in
+267 Einträge, von Weizenmehl bis Garam Masala. Die Zuordnung steht in
 `scripts/naehrwerte/zuordnung.mjs`, und zwar nur sie: die Werte selbst zieht
 `npm run naehrwerte` aus der Datenbank und schreibt sie nach
 `src/data/naehrwerte.json`. Keine Zahl ist von Hand eingetragen; jede trägt
 ihre FDC-Nummer. Löffel- und Stückgewichte kommen ebenfalls aus der
 Datenbank, wo es passt, sonst aus deutschen Größen (ein Ei der Größe M
 wiegt ohne Schale 50 g, nicht 44 g wie ein amerikanisches „medium“).
+
+**Vegane Küche.** Tempeh, Sojaschnetzel, pflanzliche Sahne, Kokoscreme,
+Soja- und Mandeldrink haben eigene Einträge. Steht „vegan“ vor einem
+tierischen Lebensmittel, gilt sein pflanzliches Gegenstück: „vegane Butter“
+ist Margarine, „veganes Hack“ ein Fleischersatz und kein Rinderhack, das die
+Gesundheitsbewertung als rotes Fleisch zählen würde.
 
 **Was als Portion zählt.** Bei Rezepten für Personen gelten die Werte je
 Portion, bei gezählten Stücken je Stück. Ein Blech Butterkuchen, ein Glas
@@ -185,6 +202,15 @@ in den Plan legen, fließen in die Einkaufsliste ein und sind über die
 Rezeptansicht wieder zu ändern oder zu löschen. Beim Löschen verschwinden sie
 auch aus allen Wochenplänen; sonst bliebe dort ein Eintrag ohne Rezept.
 
+**Aus eigenen Kochbüchern.** Wer ein Rezept aus einem gekauften Buch
+abschreibt, trägt unter *Quelle* Buch oder Website, Autor oder Verlag, Jahr,
+Seite und einen Link ein. Die Angabe steht dann in der Rezeptansicht
+(„Quelle: *Das große Kochbuch*, Beispiel-Verlag, 1998, S. 214“), auf der
+Karte und in der Suche — ein Rezept findet sich also auch über den Titel des
+Buchs. Eine Abschrift für den eigenen Gebrauch ist erlaubt; veröffentlichen
+ließe sie sich nicht, auch nicht mit Quellenangabe. Deshalb bleiben solche
+Rezepte, wie alle eigenen, in diesem Browser.
+
 Sie liegen im `localStorage` dieses Browsers — die App hat keinen Server, der
 sie aufbewahren könnte. Ein geleerter Browser oder ein anderes Gerät heißt
 also: weg. `state/eigene.js` bringt dafür `alsDatei()` und `ausDatei()` mit.
@@ -192,7 +218,7 @@ also: weg. `state/eigene.js` bringt dafür `alsDatei()` und `ausDatei()` mit.
 ## Woher die Rezepte stammen
 
 Alle mitgelieferten Rezepte gehen auf gemeinfreie Kochbücher und offen
-lizenzierte Projekte zurück. Die Herkunft steht an jedem Rezept, mit Link auf
+lizenzierte Werke zurück. Die Herkunft steht an jedem Rezept, mit Link auf
 die Originalseite, und im Quellenverzeichnis der App.
 
 **Offene Wikis, vollständig.** Jede Rezeptseite, die Zutaten und Zubereitung
@@ -223,6 +249,26 @@ gewöhnliches Rezept.
 | [Viktorine Schiller, *Neuestes Süddeutsches Kochbuch*](https://www.gutenberg.org/ebooks/52879) | 1843 | gemeinfrei | 790 |
 | [Hedwig Heyl, *Volks-Kochbuch*](https://www.gutenberg.org/ebooks/13921) | 1905 | gemeinfrei | 127 |
 
+**Geschützt, aber frei lizenziert.** Ein urheberrechtlich geschütztes
+Kochbuch darf nur hinein, wenn sein Urheber es erlaubt — eine Quellenangabe
+allein genügt nicht. Marcus Petersen-Clausen hat seine Kochbücher auf
+Köche-Nord.de unter Creative Commons BY-SA 3.0 gestellt: nutzbar mit
+Namensnennung und unter gleichen Bedingungen. Jedes Rezept nennt Buch, Autor
+und Lizenz, verlinkt die Seite im PDF und vermerkt, dass es für die App in
+Zutaten und Arbeitsschritte gegliedert wurde. Übernommen werden nur Bücher,
+die die Lizenz selbst nennen — 16 tun das nicht und bleiben außen vor —, und
+keine, die ihr Autor als KI-erzeugt kennzeichnet. Ebenfalls nicht dabei sind
+sechs Bücher, die ihre Rezepte mit Wahlkampf oder Widmungen an Diktatoren
+verweben. Aus den übrigen fallen beim Lesen Kopf- und Fußzeilen, Hinweise auf
+unterstützte Vereine und Parteien, Spendenkonten und Länderkunde heraus;
+„Arbeitszeit: etwa 30 Minuten“ wird zur Vorbereitungszeit. Vegan heißt ein
+Rezept nur, wenn es das Buch sagt und die Zutaten es bestätigen: steht in
+einem veganen Buch schlicht „Butter“, gilt es als vegetarisch.
+
+| Quelle | Lizenz | Bücher | Rezepte |
+| --- | --- | --- | --- |
+| [Köche-Nord.de, Kochbücher von Marcus Petersen-Clausen](https://xn--kche-nord-07a.de/kochbuecher.html) | CC BY-SA 3.0 | 59 | 1.077 |
+
 **Von Hand aufbereitet** und sofort beim Start da: je 15 bis 20 Rezepte aus
 sechs historischen Büchern, behutsam modernisiert — metrische Mengen, heutige
 Gartemperaturen, zeitgemäße Sprache.
@@ -242,6 +288,10 @@ Gartemperaturen, zeitgemäße Sprache.
   urheberrechtlich geschützt, und die Nutzungsbedingungen verbieten das
   massenhafte Kopieren. Einzelne, selbst ausgewählte Rezepte lassen sich
   importieren (siehe unten); ins Repository gelangen sie nie.
+- **Gekaufte Kochbücher** — Dr. Oetker, GU, die Thermomix-Bücher und alle
+  anderen, deren Rechte vorbehalten sind. Eine Quellenangabe ersetzt die
+  Erlaubnis nicht. Zum eigenen Gebrauch lassen sich Rezepte daraus als
+  eigenes Rezept mit Quelle abschreiben; sie bleiben dann im Browser.
 - **Kochbücher, die nur als Scan vorliegen** — ohne Transkription gibt es
   keinen Text, und eine Texterkennung alter Frakturdrucke wäre zu fehlerhaft.
 - **Frühneuhochdeutsche Bücher** wie Rumpolt (1581) oder Wecker (1598) im
@@ -253,8 +303,8 @@ Gartemperaturen, zeitgemäße Sprache.
 
 ### Wie die großen Sammlungen geladen werden
 
-Zwölftausend Rezepte im Programmbündel würden den Start um Sekunden verzögern.
-Deshalb liegen die Wikis und die Bücher im Wortlaut als statische Dateien unter
+Dreizehntausend Rezepte im Programmbündel würden den Start um Sekunden verzögern.
+Deshalb liegen die Wikis und die großen Bücher als statische Dateien unter
 `public/korpus/` — in Teilen von höchstens 2 MB, ein Rezept je Zeile — und
 kommen nach dem ersten Bild dazu. Die Bibliothek wächst dabei sichtbar, der
 Plan zeichnet Gerichte nach, die er vorher noch nicht kannte.
@@ -417,9 +467,10 @@ als Markup ausgeführt werden.
 ## Tests
 
 ```bash
-npm test               # 106 Modultests: Mengen, Einkaufsliste, Import,
+npm test               # 125 Modultests: Mengen, Einkaufsliste, Import,
                        # Korpus, Allergene, Nährwerte, Bewertung,
-                       # eigene Rezepte, Sicherheit, alte Texte, Thermomix
+                       # eigene Rezepte, Sicherheit, alte Texte, Thermomix,
+                       # Köche-Nord-Bücher
 npm run test:browser   # Rauchtest in Chromium gegen die gebaute App
 npm run test:handy     # derselbe Weg in Telefongröße, mit Berührung
 ```
@@ -433,17 +484,24 @@ leeres Formularfeld als fehlend und nicht als Null gilt, dass Nährwerte aus
 der Datenbank stammen und Frittierfett nicht als gegessen zählt, dass ein
 Linseneintopf besser abschneidet als Bratwurst in Sahne, dass Markup in
 Rezeptdaten maskiert wird, und dass kein englischer Text in Titel, Kapitel
-oder Schlagwörter zurückkehrt. Fürs Korpus prüfen sie jedes der zwölftausend
+oder Schlagwörter zurückkehrt. Fürs Korpus prüfen sie jedes der dreizehntausend
 Rezepte, dass jede vorberechnete Zusammenfassung der frischen Rechnung
 entspricht, dass kein Teil zu groß wird und nur offen lizenzierte Quellen
 darin stehen. Für die alten Bücher: dass „¼ Pfund" bei Davidis 115 g sind und
 ein bairisches Pfund bei Schiller 560 g, dass „½ Ei dick Butter" Butter meint
-und kein Ei, und dass „Aepfel" wieder „Äpfel" heißt.
+und kein Ei, und dass „Aepfel" wieder „Äpfel" heißt. Für die Köche-Nord-Bücher:
+dass Kopfzeilen, Werbung und Zwischenüberschriften nicht in die Schritte
+geraten, dass ein Titel über zwei Zeilen ganz ankommt und dass „NICHT vegan!“
+kein veganes Buch ist. Und für die vegane Küche: dass „vegane Butter“ keine
+Milch enthält und als Margarine zählt, „Butter (vegan: Margarine)“ aber
+Butter bleibt.
 
 Der Browsertest fährt die App hoch, wartet, bis die großen Sammlungen
 nachgeladen sind, lädt eine Import-Sammlung mit Thermomix-Rezept, plant eine
 Woche, zieht eine Karte mit der Maus in einen anderen Slot, prüft
-Einkaufsliste und Shop-Übergabe, schreibt ein eigenes Rezept, füllt die Woche
+Einkaufsliste und Shop-Übergabe, prüft die Namensnennung eines
+Köche-Nord-Rezepts samt Lizenzlink, schreibt ein eigenes Rezept mit
+Quellenangabe und findet es über den Buchtitel wieder, füllt die Woche
 mit gesunden Vorschlägen und prüft, dass ein eingeschleuster Titel nicht
 ausgeführt wird. Der Handytest geht denselben Weg in einem Fenster
 von 390 × 844 Punkten, mit Berührung statt Maus.
@@ -509,6 +567,22 @@ Beim Ausbau auf das ganze Korpus kam dazu:
 - **Die Bibliothek baute bei jedem Tastendruck 260 Karten neu.** Jetzt
   entstehen sie stapelweise beim Blättern; die Suche braucht auf einem
   gedrosselten Rechner noch ein Drittel der Zeit.
+
+Mit den veganen Kochbüchern kam dazu:
+
+- **Ein langes Stichwort verdeckte den Rest des Namens.** Je Allergen
+  entschied das längste Stichwort im ganzen Zutatennamen. „Butter oder
+  Margarine“ enthielt Milch deshalb nur „vielleicht“, „Sojamilch oder
+  Kuhmilch“ gar nicht, „Walnüsse oder Erdnüsse“ keine Nüsse und
+  „Schweinebraten mit Rotwein“ keine Sulfite. 231 Zutatennamen im
+  Korpus waren betroffen; jetzt zählt jede Stelle für sich.
+- **Vegane Ersatzprodukte galten als tierisch.** „Veganes Hack“ ging als
+  Rinderhack in Nährwerte und Gesundheitsbewertung ein, „Ei-Ersatz“ als Ei,
+  „Mandeldrink“ als Mandeln (250 ml ergaben 666 statt 42 kcal), und vegane
+  Butter trug das Allergen Milch.
+- **Stärkemehl war Weizenmehl** — in den Nährwerten und als sicheres Gluten.
+  Es ist Stärke, meist aus Mais oder Kartoffeln, und steht jetzt bei „kann
+  enthalten“, weil alte Rezepte auch Weizenstärke meinen.
 
 ## Abgleich mit Git
 

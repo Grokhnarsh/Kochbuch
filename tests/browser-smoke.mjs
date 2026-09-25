@@ -177,6 +177,17 @@ try {
   const tmSet = await page.locator('.modal .tm-set').allTextContents();
   check('Thermomix-Einstellungen sind hervorgehoben', tmSet.length === 2, tmSet.join(' | '));
   await page.keyboard.press('Escape');
+
+  // Ein geschuetztes, frei lizenziertes Buch: Werk, Urheber und Lizenz stehen am Rezept
+  await page.fill('#search', 'Köche-Nord');
+  await page.waitForTimeout(400);
+  await page.locator('.recipe-card').first().click();
+  await page.waitForTimeout(400);
+  const namensnennung = await page.locator('.modal .source-line').textContent().catch(() => '');
+  const lizenzLink = await page.locator('.modal .source-note a[href*="creativecommons.org/licenses/by-sa/3.0"]').count();
+  check('Köche-Nord-Rezepte nennen Buch, Urheber und Lizenz',
+    /Petersen-Clausen.*S\. \d+/.test(namensnennung || '') && lizenzLink === 1, `${namensnennung} / ${lizenzLink}`);
+  await page.keyboard.press('Escape');
   await page.fill('#search', '');
   await page.waitForTimeout(300);
 
@@ -225,6 +236,9 @@ try {
   await shot(page, '08-formular');
 
   await page.fill('textarea[name="steps"]', 'Kartoffeln garen.\nAlles verrühren.');
+  // Abgeschrieben aus einem eigenen Buch: die Quelle gehoert dazu
+  await page.fill('input[name="quelleTitel"]', 'Rauchtests Hausbuch');
+  await page.fill('input[name="quelleSeite"]', '42');
   await page.locator('.modal-foot .primary-btn').click();
   await page.waitForTimeout(600);
 
@@ -232,13 +246,16 @@ try {
     Boolean(window.kochbuch.recipeById.get('eigen-rauchtest-suppe')));
   check('eigenes Rezept liegt danach im Index', gespeichert);
 
-  await page.fill('#search', 'Rauchtest');
+  // Gesucht ueber den Buchtitel der Quelle, nicht ueber den Rezepttitel
+  await page.fill('#search', 'Hausbuch');
   await page.waitForTimeout(400);
   const eigene = await page.locator('.recipe-card h3').allTextContents();
-  check('und steht in der Bibliothek', eigene.includes('Rauchtest-Suppe'), eigene.join(', '));
+  check('und steht in der Bibliothek, auffindbar über die Quelle', eigene.includes('Rauchtest-Suppe'), eigene.join(', '));
 
-  await page.locator('.recipe-card').first().click();
+  await page.locator('.recipe-card', { hasText: 'Rauchtest-Suppe' }).first().click();
   await page.waitForTimeout(400);
+  const quellenZeile = await page.locator('.source-line').textContent().catch(() => '');
+  check('die Ansicht nennt Buch und Seite', /Rauchtests Hausbuch.*S\. 42/.test(quellenZeile || ''), quellenZeile);
   const bearbeiten = await page.locator('.modal-foot .ghost-btn', { hasText: 'Bearbeiten' }).count();
   check('und lässt sich wieder bearbeiten', bearbeiten === 1);
   await shot(page, '09-eigenes-rezept');
