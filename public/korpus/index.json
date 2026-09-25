@@ -1,6 +1,6 @@
 {
   "hinweis": "Von scripts/korpus.mjs erzeugt. Rezepttexte unter der Lizenz ihrer Quelle, siehe src/data/sources.json.",
-  "rezepte": 11865,
+  "rezepte": 12942,
   "teile": [
     {
       "buch": "wikibooks",
@@ -22,6 +22,20 @@
       "datei": "heyl-1905-1.json",
       "rezepte": 127,
       "bytes": 256434
+    },
+    {
+      "buch": "koeche-nord",
+      "quelle": "koeche-nord",
+      "datei": "koeche-nord-1.json",
+      "rezepte": 916,
+      "bytes": 1999220
+    },
+    {
+      "buch": "koeche-nord",
+      "quelle": "koeche-nord",
+      "datei": "koeche-nord-2.json",
+      "rezepte": 161,
+      "bytes": 342953
     },
     {
       "buch": "kochwiki",

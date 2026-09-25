@@ -34,7 +34,7 @@ export const MAX_BYTES = 2_000_000;
  * Bibliothek schnell waechst; die grossen Wiki-Teile danach, die
  * historischen Originaltexte zuletzt.
  */
-const REIHENFOLGE = ['wikibooks', 'rezeptewiki', 'heyl-1905', 'kochwiki', 'davidis-1849', 'schiller-1843'];
+const REIHENFOLGE = ['wikibooks', 'rezeptewiki', 'heyl-1905', 'koeche-nord', 'kochwiki', 'davidis-1849', 'schiller-1843'];
 
 let rechner;
 function naehrwertRechner() {

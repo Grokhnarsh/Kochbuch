@@ -177,6 +177,17 @@ try {
   const tmSet = await page.locator('.modal .tm-set').allTextContents();
   check('Thermomix-Einstellungen sind hervorgehoben', tmSet.length === 2, tmSet.join(' | '));
   await page.keyboard.press('Escape');
+
+  // Ein geschuetztes, frei lizenziertes Buch: Werk, Urheber und Lizenz stehen am Rezept
+  await page.fill('#search', 'Köche-Nord');
+  await page.waitForTimeout(400);
+  await page.locator('.recipe-card').first().click();
+  await page.waitForTimeout(400);
+  const namensnennung = await page.locator('.modal .source-line').textContent().catch(() => '');
+  const lizenzLink = await page.locator('.modal .source-note a[href*="creativecommons.org/licenses/by-sa/3.0"]').count();
+  check('Köche-Nord-Rezepte nennen Buch, Urheber und Lizenz',
+    /Petersen-Clausen.*S\. \d+/.test(namensnennung || '') && lizenzLink === 1, `${namensnennung} / ${lizenzLink}`);
+  await page.keyboard.press('Escape');
   await page.fill('#search', '');
   await page.waitForTimeout(300);
 
