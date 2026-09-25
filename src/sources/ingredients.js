@@ -13,9 +13,11 @@ const UNICODE_FRACTIONS = {
 const UNITS = new Map(Object.entries({
   g: 'g', gramm: 'g', kg: 'kg', kilogramm: 'kg', mg: 'mg',
   ml: 'ml', milliliter: 'ml', l: 'l', liter: 'l', cl: 'cl',
-  el: 'EL', esslöffel: 'EL', essloeffel: 'EL',
-  tl: 'TL', teelöffel: 'TL', teeloeffel: 'TL',
-  msp: 'Msp', messerspitze: 'Msp',
+  el: 'EL', esslöffel: 'EL', essloeffel: 'EL', eßlöffel: 'EL', essl: 'EL', eßl: 'EL',
+  tl: 'TL', teelöffel: 'TL', teeloeffel: 'TL', teel: 'TL', theelöffel: 'TL', theel: 'TL',
+  msp: 'Msp', messerspitze: 'Msp', messersp: 'Msp',
+  // Deziliter (Schweiz) und Pfund werden umgerechnet, siehe CONVERT
+  dl: 'dl', deziliter: 'dl', pfund: 'pfund', pfd: 'pfund',
   prise: 'Prise', prisen: 'Prise', pr: 'Prise',
   do: 'Dose', sch: 'Scheibe', tr: 'Tropfen', tropfen: 'Tropfen',
   bund: 'Bund', bd: 'Bund',
@@ -56,6 +58,10 @@ const UNITS = new Map(Object.entries({
  * metrisch, damit Mengen addierbar bleiben.
  */
 const CONVERT = new Map(Object.entries({
+  dl: { unit: 'ml', factor: 100 },
+  // Das Pfund heutiger deutscher Rezepte: 500 g. Alte Pfunde rechnen die
+  // Import-Werkzeuge je Buch selbst um.
+  pfund: { unit: 'g', factor: 500 },
   oz: { unit: 'g', factor: 28.35 },
   lb: { unit: 'g', factor: 453.59 },
   pint: { unit: 'ml', factor: 473.18 },

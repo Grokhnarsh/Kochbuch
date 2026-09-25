@@ -54,6 +54,45 @@
       "accent": "#6B8F3E"
     },
     {
+      "id": "davidis-1849",
+      "kind": "buch",
+      "title": "Praktisches Kochbuch für die gewöhnliche und feinere Küche (Originaltext)",
+      "author": "Henriette Davidis",
+      "year": 1849,
+      "country": "Deutschland",
+      "license": "CC BY-SA 4.0 (Transkription), Text gemeinfrei",
+      "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0/deed.de",
+      "url": "https://www.deutschestextarchiv.de/davidis_kochbuch_1849",
+      "via": "Deutsches Textarchiv (BBAW), vollständige Transkription der 4. Auflage",
+      "accent": "#8B6A2E"
+    },
+    {
+      "id": "schiller-1843",
+      "kind": "buch",
+      "title": "Neuestes Süddeutsches Kochbuch für alle Stände",
+      "author": "Viktorine Schiller",
+      "year": 1843,
+      "country": "Deutschland",
+      "license": "Gemeinfrei",
+      "licenseUrl": "https://de.wikipedia.org/wiki/Gemeinfreiheit",
+      "url": "https://www.gutenberg.org/ebooks/52879",
+      "via": "Projekt Gutenberg (eBook 52879), Stuttgart 1843",
+      "accent": "#5E7F3A"
+    },
+    {
+      "id": "heyl-1905",
+      "kind": "buch",
+      "title": "Volks-Kochbuch für Schule, Fortbildungsschule und Haus",
+      "author": "Hedwig Heyl",
+      "year": 1905,
+      "country": "Deutschland",
+      "license": "Gemeinfrei",
+      "licenseUrl": "https://de.wikipedia.org/wiki/Gemeinfreiheit",
+      "url": "https://www.gutenberg.org/ebooks/13921",
+      "via": "Projekt Gutenberg (eBook 13921), Rezepte für zwei Personen",
+      "accent": "#3D6E8C"
+    },
+    {
       "id": "prato-1858",
       "kind": "buch",
       "title": "Die Süddeutsche Küche",

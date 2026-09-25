@@ -4,12 +4,19 @@
  * die Dateien; das Werkzeug meldet, wie viel es verworfen hat.
  */
 
+import { mitVorgaben } from '../../src/data/standard.js';
+
 const MAHLZEITEN = new Set(['fruehstueck', 'mittag', 'abend', 'snack']);
 const ERNAEHRUNG = new Set(['vegetarisch', 'vegan', 'glutenfrei', 'laktosefrei', 'pescetarisch']);
 export const ENGLISCH = /(^|\s)(the|and|of|with|for|from|made|baked|roast|boiled|fried)(\s|$)/i;
 
-/** @returns {string|null} der erste Mangel oder null */
-export function mangel(r) {
+/**
+ * @param {object} r Rezept mit den Vorgaben seines Buchs
+ * @param {{lesetext?:boolean}} [art] historische Texte im Wortlaut duerfen
+ *        aus einem einzigen, langen Absatz bestehen — so sind sie gedruckt
+ * @returns {string|null} der erste Mangel oder null
+ */
+export function mangel(r, { lesetext = false } = {}) {
   if (!(r.title?.length > 2)) return 'Titel';
   if (ENGLISCH.test(r.title)) return 'englischer Titel';
   if (!r.category) return 'Kategorie';
@@ -24,7 +31,8 @@ export function mangel(r) {
     if (!(i.a == null || i.a > 0)) return 'Menge';
     if (typeof i.u !== 'string') return 'Einheit';
   }
-  if (!(r.steps?.length >= 2)) return 'zu wenige Schritte';
+  const wortlaut = lesetext && r.steps?.length === 1 && r.steps[0].length >= 80;
+  if (!(r.steps?.length >= 2) && !wortlaut) return 'zu wenige Schritte';
   if (r.steps.some((s) => !(s.length > 10))) return 'Schritt zu kurz';
   return null;
 }
@@ -33,12 +41,14 @@ export function mangel(r) {
  * Filtert eine Liste und macht Ids eindeutig: Seiten, deren Titel sich
  * nur in Satzzeichen unterscheiden, ergaeben sonst dieselbe Id.
  */
-export function aussieben(liste, { vergeben = new Set() } = {}) {
+export function aussieben(liste, { vergeben = new Set(), buch = {} } = {}) {
   const gut = [];
   const verworfen = {};
   const ids = new Set(vergeben);
   for (const r of liste) {
-    const m = mangel(r);
+    // Geprueft wird, was die App sieht: mit den Vorgaben des Buchs
+    const { raw, lesetext } = mitVorgaben(r, buch);
+    const m = mangel(raw, { lesetext });
     if (m) {
       verworfen[m] = (verworfen[m] || 0) + 1;
       continue;

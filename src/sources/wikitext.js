@@ -238,7 +238,7 @@ export function stepsFrom(block) {
  * endet kein Satz, auch wenn eine Zahl folgt ("ca. 30 Minuten").
  */
 const SATZGRENZE = /(?<=[.!?])\s+(?=[A-ZÄÖÜ0-9])/;
-const ABKUERZUNG = /(?:^|[\s(])(?:[A-Za-zÄÖÜäöüß]|[Cc]a|[Bb]zw|[Ee]vtl?|[Gg]gf|[Ee]tc|[Uu]sw|[Vv]gl|[Mm]in|[Ss]td|Pc?kg?|Pckg|Stk|Msp|EL|TL|[Kk]l|[Gg]r|Nr|[Mm]ax|[Mm]ind|[Gg]eh|[Gg]estr)\.$/;
+const ABKUERZUNG = /(?:^|[\s(])(?:[A-Za-zÄÖÜäöüß]|[Cc]a|[Bb]zw|[Ee]vtl?|[Gg]gf|[Ee]tc|[Uu]sw|[Vv]gl|[Mm]in|[Ss]td|Pc?kg?|Pckg|Stk|Msp|EL|TL|[Kk]l|[Gg]r|Nr|No|[Mm]ax|[Mm]ind|[Gg]eh|[Gg]estr|[Vv]erg|[Ss]iehe)\.$/;
 
 export function saetze(text) {
   const out = [];
@@ -258,11 +258,13 @@ export const SCHWIERIGKEIT = { leicht: 1, einfach: 1, mittel: 2, normal: 2, schw
  * Gewuerzmischung, die "Woche fuellen" dann zum Abendessen machte.
  */
 const EINORDNUNG = [
+  // Pfannkuchen und herzhafte Kuchen sind Mahlzeiten, kein Gebaeck
+  [/pfannkuchen|eierkuchen|reibekuchen|kartoffelpuffer|flammkuchen|zwiebelkuchen|quiche/, 'Hauptgericht', ['mittag', 'abend']],
   [/gewürzmischung|garam.masala|gewürzpaste|würzpaste|currypaste|marinade|dressing|vinaigrette|\bdips?\b|pesto|soßen?\b|saucen?\b|kräuterbutter|\bfond\b|chutney|konfitüre|marmelade|gelee|sirup|essig|würzöl|grundrezept/,
     'Grundrezept', ['snack']],
   [/getränk|cocktail|bowle|punsch|smoothie|limonade|milchshake|likör/, 'Getränk', ['snack']],
   [/\bbrot\b|brote\b|brötchen|semmeln|baguette|brotrezept/, 'Backen', ['fruehstueck']],
-  [/gebäck|kuchen|torten?\b|plätzchen|kekse|backwaren|muffins?|waffeln|stollen|lebkuchen|\bpies?\b|tarte|strudel|konfekt|pralinen/,
+  [/gebäck|kuchen|torten?\b|plätzchen|kekse|backwaren|muffins?|waffeln|stollen|lebkuchen|\bpies?\b|tarte|strudel|konfekt|pralinen|makronen|printen|spekulatius|baiser/,
     'Backen', ['snack']],
   [/frühstück|müsli|porridge|aufstrich/, 'Frühstück', ['fruehstueck']],
   [/dessert|nachspeise|nachtisch|speiseeis|\beis\b|pudding|mousse|kompott|süßspeise|parfait|grütze|creme\b/, 'Dessert', ['snack']],

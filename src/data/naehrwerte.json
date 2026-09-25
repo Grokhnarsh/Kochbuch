@@ -438,6 +438,51 @@
    "pck": 275
   },
   {
+   "id": "zwieback",
+   "name": "Zwieback",
+   "fdc": 171372,
+   "quelle": "Zwieback",
+   "schluessel": [
+    "zwieback",
+    "zwiebäcke"
+   ],
+   "je100g": {
+    "kcal": 426,
+    "eiweiss": 10.1,
+    "fett": 9.7,
+    "gesFett": 2.5,
+    "kh": 74.2,
+    "zucker": 12.5,
+    "ballast": 2.5,
+    "salz": 0.57
+   },
+   "stueck": 10
+  },
+  {
+   "id": "sago",
+   "name": "Sago, Tapioka",
+   "fdc": 169717,
+   "quelle": "Tapioca, pearl, dry",
+   "schluessel": [
+    "sago",
+    "perlsago",
+    "tapioka"
+   ],
+   "je100g": {
+    "kcal": 358,
+    "eiweiss": 0.2,
+    "fett": 0,
+    "gesFett": 0,
+    "kh": 88.7,
+    "zucker": 3.4,
+    "ballast": 0.9,
+    "salz": 0
+   },
+   "el": 9.5,
+   "tl": 3.17,
+   "dichte": 0.64
+  },
+  {
    "id": "loeffelbiskuit",
    "name": "Löffelbiskuits",
    "fdc": 174959,
@@ -816,6 +861,8 @@
    "schluessel": [
     "orangeat",
     "zitronat",
+    "citronat",
+    "cedrat",
     "belegkirschen"
    ],
    "je100g": {
@@ -836,7 +883,8 @@
    "quelle": "Gelatins, dry powder, unsweetened",
    "schluessel": [
     "gelatine",
-    "blattgelatine"
+    "blattgelatine",
+    "hausenblase"
    ],
    "je100g": {
     "kcal": 335,
@@ -930,7 +978,9 @@
     "frischhefe",
     "germ",
     "würfel hefe",
-    "hefewürfel"
+    "hefewürfel",
+    "bärme",
+    "bierhefe"
    ],
    "je100g": {
     "kcal": 105,
@@ -2122,7 +2172,14 @@
     "suppenhuhn",
     "hühnerkeulen",
     "chicken wings",
-    "hähnchenflügel"
+    "hähnchenflügel",
+    "hühner",
+    "henne",
+    "hennen",
+    "kapaun",
+    "kapaune",
+    "kücken",
+    "küken"
    ],
    "je100g": {
     "kcal": 215,
@@ -2185,6 +2242,102 @@
     "salz": 0.15
    },
    "stueck": 80
+  },
+  {
+   "id": "taube",
+   "name": "Taube",
+   "fdc": 171079,
+   "quelle": "Squab, (pigeon), meat only, raw",
+   "schluessel": [
+    "taube",
+    "tauben",
+    "täubchen"
+   ],
+   "je100g": {
+    "kcal": 142,
+    "eiweiss": 17.5,
+    "fett": 7.5,
+    "gesFett": 2,
+    "kh": 0,
+    "zucker": null,
+    "ballast": 0,
+    "salz": 0.13
+   },
+   "stueck": 200
+  },
+  {
+   "id": "zunge",
+   "name": "Zunge",
+   "fdc": 170196,
+   "quelle": "Beef, variety meats and by-products, tongue, raw",
+   "schluessel": [
+    "zunge",
+    "ochsenzunge",
+    "rinderzunge",
+    "kalbszunge",
+    "schweinezunge",
+    "zungen"
+   ],
+   "je100g": {
+    "kcal": 224,
+    "eiweiss": 14.9,
+    "fett": 16.1,
+    "gesFett": 7,
+    "kh": 3.7,
+    "zucker": null,
+    "ballast": 0,
+    "salz": 0.17
+   },
+   "stueck": 1000
+  },
+  {
+   "id": "nieren",
+   "name": "Nieren",
+   "fdc": 169449,
+   "quelle": "Beef, variety meats and by-products, kidneys, raw",
+   "schluessel": [
+    "niere",
+    "nieren",
+    "nierchen",
+    "kalbsniere",
+    "kalbsnieren",
+    "schweineniere",
+    "schweinenieren"
+   ],
+   "je100g": {
+    "kcal": 99,
+    "eiweiss": 17.4,
+    "fett": 3.1,
+    "gesFett": 0.9,
+    "kh": 0.3,
+    "zucker": 0,
+    "ballast": 0,
+    "salz": 0.46
+   },
+   "stueck": 150
+  },
+  {
+   "id": "talg",
+   "name": "Rindertalg, Nierenfett",
+   "fdc": 170193,
+   "quelle": "Beef, variety meats and by-products, suet, raw",
+   "schluessel": [
+    "nierenfett",
+    "rindernierenfett",
+    "kalbsnierenfett",
+    "rindertalg",
+    "talg"
+   ],
+   "je100g": {
+    "kcal": 854,
+    "eiweiss": 1.5,
+    "fett": 94,
+    "gesFett": 52.3,
+    "kh": 0,
+    "zucker": 0,
+    "ballast": 0,
+    "salz": 0.02
+   }
   },
   {
    "id": "kalb",
@@ -2652,6 +2805,29 @@
    }
   },
   {
+   "id": "krebse",
+   "name": "Flusskrebse",
+   "fdc": 174206,
+   "quelle": "Crustaceans, crayfish, mixed species, wild, raw",
+   "schluessel": [
+    "krebs",
+    "krebse",
+    "flusskrebs",
+    "krebsschwänze"
+   ],
+   "je100g": {
+    "kcal": 77,
+    "eiweiss": 16,
+    "fett": 1,
+    "gesFett": 0.2,
+    "kh": 0,
+    "zucker": 0,
+    "ballast": 0,
+    "salz": 0.14
+   },
+   "stueck": 30
+  },
+  {
    "id": "garnelen",
    "name": "Garnelen",
    "fdc": 175179,
@@ -2907,7 +3083,10 @@
     "karotten",
     "mohrrübe",
     "mohrrüben",
-    "rüebli"
+    "rüebli",
+    "gelbe rübe",
+    "gelbe rüben",
+    "gelbrüben"
    ],
    "je100g": {
     "kcal": 41,
@@ -3418,6 +3597,8 @@
     "steinpilze",
     "pfifferlinge",
     "kräuterseitlinge",
+    "morcheln",
+    "morchel",
     "austernpilze",
     "egerlinge",
     "shiitake",
@@ -3951,6 +4132,60 @@
    "stueck": 386
   },
   {
+   "id": "rueben",
+   "name": "Weiße Rüben, Mairüben",
+   "fdc": 170465,
+   "quelle": "Turnips, raw",
+   "schluessel": [
+    "rübe",
+    "rüben",
+    "weiße rübe",
+    "weiße rüben",
+    "mairübe",
+    "mairüben",
+    "rübchen",
+    "teltower rübchen"
+   ],
+   "je100g": {
+    "kcal": 28,
+    "eiweiss": 0.9,
+    "fett": 0.1,
+    "gesFett": 0,
+    "kh": 6.4,
+    "zucker": 3.8,
+    "ballast": 1.8,
+    "salz": 0.17
+   },
+   "el": 8.1,
+   "tl": 2.71,
+   "dichte": 0.55,
+   "stueck": 120
+  },
+  {
+   "id": "sauerampfer",
+   "name": "Sauerampfer",
+   "fdc": 170076,
+   "quelle": "Dock, raw",
+   "schluessel": [
+    "sauerampfer",
+    "ampfer"
+   ],
+   "je100g": {
+    "kcal": 22,
+    "eiweiss": 2,
+    "fett": 0.7,
+    "gesFett": null,
+    "kh": 3.2,
+    "zucker": null,
+    "ballast": 2.9,
+    "salz": 0.01
+   },
+   "el": 8.3,
+   "tl": 2.77,
+   "dichte": 0.56,
+   "bund": 50
+  },
+  {
    "id": "pastinaken",
    "name": "Pastinaken",
    "fdc": 170417,
@@ -4098,11 +4333,16 @@
     "bärlauch",
     "kräuter",
     "estragon",
+    "dragon",
     "liebstöckel",
     "zitronenmelisse",
     "kresse",
     "brunnenkresse",
-    "zitronengras"
+    "zitronengras",
+    "borretsch",
+    "boretsch",
+    "pimpernelle",
+    "pimpinelle"
    ],
    "je100g": {
     "kcal": 36,
@@ -4330,10 +4570,13 @@
     "orange",
     "orangen",
     "apfelsine",
+    "apfelsinen",
     "mandarine",
     "mandarinen",
     "clementine",
-    "blutorange"
+    "blutorange",
+    "pomeranze",
+    "pomeranzen"
    ],
    "je100g": {
     "kcal": 47,
@@ -4492,7 +4735,9 @@
     "zwetschge",
     "zwetschgen",
     "zwetschken",
-    "mirabellen"
+    "zwetschen",
+    "mirabellen",
+    "reineclauden"
    ],
    "je100g": {
     "kcal": 46,
@@ -4823,6 +5068,35 @@
    "el": 6.8,
    "tl": 2.25,
    "dichte": 0.46
+  },
+  {
+   "id": "maronen",
+   "name": "Maronen, Esskastanien",
+   "fdc": 170190,
+   "quelle": "Nuts, chestnuts, european, roasted",
+   "schluessel": [
+    "marone",
+    "maronen",
+    "maroni",
+    "kastanie",
+    "kastanien",
+    "esskastanien",
+    "edelkastanien"
+   ],
+   "je100g": {
+    "kcal": 245,
+    "eiweiss": 3.2,
+    "fett": 2.2,
+    "gesFett": 0.4,
+    "kh": 53,
+    "zucker": 10.6,
+    "ballast": 5.1,
+    "salz": 0.01
+   },
+   "el": 8.9,
+   "tl": 2.98,
+   "dichte": 0.6,
+   "stueck": 8
   },
   {
    "id": "haselnuesse",
@@ -5220,6 +5494,29 @@
    "el": 7.8,
    "tl": 2.6,
    "stueck": 3
+  },
+  {
+   "id": "safran",
+   "name": "Safran",
+   "fdc": 170934,
+   "quelle": "Spices, saffron",
+   "schluessel": [
+    "safran",
+    "safranfäden",
+    "safranpulver"
+   ],
+   "je100g": {
+    "kcal": 310,
+    "eiweiss": 11.4,
+    "fett": 5.9,
+    "gesFett": 1.6,
+    "kh": 65.4,
+    "zucker": null,
+    "ballast": 3.9,
+    "salz": 0.37
+   },
+   "el": 2.1,
+   "tl": 0.7
   },
   {
    "id": "muskat",
@@ -6202,7 +6499,10 @@
     "grand marnier",
     "calvados",
     "grappa",
-    "inländer rum"
+    "inländer rum",
+    "arak",
+    "arrak",
+    "branntwein"
    ],
    "je100g": {
     "kcal": 231,

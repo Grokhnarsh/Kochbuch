@@ -22,6 +22,9 @@ const QUELLEN = {
   wikibooks: () => import('./korpus/quellen/wikibooks.mjs'),
   rezeptewiki: () => import('./korpus/quellen/rezeptewiki.mjs'),
   kochwiki: () => import('./korpus/quellen/kochwiki.mjs'),
+  'davidis-1849': () => import('./korpus/quellen/davidis-1849.mjs'),
+  'schiller-1843': () => import('./korpus/quellen/schiller-1843.mjs'),
+  'heyl-1905': () => import('./korpus/quellen/heyl-1905.mjs'),
 };
 
 const args = argv.slice(2);
@@ -37,7 +40,7 @@ async function hole(name) {
   const buch = await modul.laden({ fortschritt: fortschritt(name) });
   stdout.write('\n');
 
-  const { gut, verworfen } = aussieben(buch.recipes);
+  const { gut, verworfen } = aussieben(buch.recipes, { buch });
   const teile = schreibeBuch({ ...buch, name, recipes: gut });
   const bytes = teile.reduce((s, t) => s + t.bytes, 0);
   console.log(`  ${zahl.format(gut.length)} Rezepte${buch.gelesen ? ` aus ${zahl.format(buch.gelesen)} Seiten` : ''}, `

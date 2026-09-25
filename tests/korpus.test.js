@@ -159,7 +159,9 @@ test('jedes Rezept ist vollstaendig und plausibel', () => {
     // Zwei Schritte reichen: ein Pesto ist mit "alles mixen, abschmecken"
     // vollständig beschrieben. Die Schwelle soll kaputte Importe fangen,
     // keine knapp gefassten Rezepte.
-    assert.ok(r.steps.length >= 2, `${wo}: zu wenige Zubereitungsschritte`);
+    // Historische Texte im Wortlaut sind oft ein einziger langer Absatz.
+    const wortlaut = r.lesetext && r.steps.length === 1 && r.steps[0].length >= 80;
+    assert.ok(r.steps.length >= 2 || wortlaut, `${wo}: zu wenige Zubereitungsschritte`);
     for (const s of r.steps) assert.ok(s.length > 10, `${wo}: Schritt zu kurz: "${s}"`);
   }
 });
