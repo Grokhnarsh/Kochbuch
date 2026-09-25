@@ -14,6 +14,7 @@ import { DIET_OPTIONS } from '../state/rezeptform.js';
 import { erstelleRechner } from '../state/naehrwerte.js';
 import { berechne, ausKompakt } from '../state/anreicherung.js';
 import { mitVorgaben, zutatenAusDatei, rechenGrundlage, seitenAdresse } from './standard.js';
+import { istThermomix } from '../sources/thermomix.js';
 import naehrwertTabelle from './naehrwerte.json';
 import sourcesDoc from './sources.json';
 import davidis from './books/davidis-1845.json';
@@ -79,6 +80,12 @@ function normalise(roh, sourceId, buch = {}) {
   // Wikis nennen ihre Seiten nach dem Titel; die Adresse steht dann nur
   // einmal im Buch statt zehntausendmal in den Rezepten.
   const sourceUrl = raw.sourceUrl || (buch.urlBasis ? seitenAdresse(buch.urlBasis, seite || raw.title) : undefined);
+
+  // Eigene und importierte Rezepte mit Thermomix-Einstellungen findet die
+  // Suche unter "Thermomix". Das grosse Korpus traegt das schon mit (z).
+  if (!z && !(raw.tags || []).includes('Thermomix') && istThermomix({ steps: raw.steps || [], sourceUrl })) {
+    raw.tags = [...(raw.tags || []), 'Thermomix'];
+  }
 
   const searchText = [
     raw.title,

@@ -7,7 +7,9 @@
 import { openModal, el } from './modal.js';
 import { esc, safeUrl } from './html.js';
 import { sources, recipes } from '../data/index.js';
-import { liveSources, loadLiveSource, importFromHtml, importFromUrl, SourceError } from '../sources/index.js';
+import {
+  liveSources, loadLiveSource, importFromHtml, importFromUrl, importiereSammlung, SourceError,
+} from '../sources/index.js';
 
 const KIND_LABEL = {
   buch: 'Gemeinfreies Kochbuch',
@@ -109,6 +111,8 @@ function importBlock(onChanged) {
       Anbieters und werden nur lokal in diesem Browser gespeichert.
       Blockt die Seite den direkten Zugriff (CORS), den Seitenquelltext einfügen
       oder <code>npm run import -- --url &lt;adresse&gt;</code> nutzen.
+      Thermomix-Rezepte von Cookidoo kommen mit Zutaten; die Arbeitsschritte zeigt
+      Cookidoo nur angemeldeten Nutzern.
     </p>
   `;
 
@@ -165,7 +169,29 @@ function importBlock(onChanged) {
     }
   });
 
-  wrap.append(input, paste, go, status);
+  // Sammlung aus dem Import-Werkzeug: npm run import -- --urls datei.txt
+  const datei = el('input');
+  datei.type = 'file';
+  datei.accept = 'application/json,.json';
+  datei.hidden = true;
+  const laden = el('button', 'ghost-btn', 'Sammlung laden');
+  laden.title = 'data/importiert/sammlung.json aus „npm run import -- --urls datei.txt“ einlesen';
+  laden.style.marginLeft = '8px';
+  laden.addEventListener('click', () => datei.click());
+  datei.addEventListener('change', async () => {
+    const f = datei.files?.[0];
+    datei.value = '';
+    if (!f) return;
+    try {
+      const { neu, gelesen } = importiereSammlung(await f.text());
+      status.textContent = `${neu.length} von ${gelesen} Rezepten aus „${f.name}“ übernommen.`;
+      if (neu.length) onChanged?.();
+    } catch (err) {
+      status.textContent = err instanceof SourceError ? err.message : 'Die Sammlung ließ sich nicht lesen.';
+    }
+  });
+
+  wrap.append(input, paste, go, laden, datei, status);
   return wrap;
 }
 

@@ -10,6 +10,7 @@
  */
 
 import { parseIngredientLine } from './ingredients.js';
+import { istThermomix } from './thermomix.js';
 
 const LD_BLOCK = /<script[^>]+type=["']application\/ld\+json["'][^>]*>([\s\S]*?)<\/script>/gi;
 
@@ -34,15 +35,58 @@ export function stripTags(text) {
   return String(text).replace(/<[^>]*>/g, ' ').replace(/\s+/g, ' ').trim();
 }
 
+/**
+ * Benannte Entitaeten, wie Rezeptseiten sie verwenden. Cookidoo schreibt
+ * Mengen etwa als "1 &frac12; TL Salz" — ohne Aufloesung bliebe die Menge
+ * im Namen stehen.
+ */
+const ENTITAETEN = {
+  amp: '&', lt: '<', gt: '>', quot: '"', apos: "'", nbsp: ' ', shy: '', thinsp: ' ', ensp: ' ', emsp: ' ',
+  auml: 'ä', ouml: 'ö', uuml: 'ü', Auml: 'Ä', Ouml: 'Ö', Uuml: 'Ü', szlig: 'ß',
+  frac12: '½', frac14: '¼', frac34: '¾', frac13: '⅓', frac23: '⅔', frac18: '⅛', frac38: '⅜', frac58: '⅝', frac78: '⅞',
+  deg: '°', times: '×', ndash: '–', mdash: '—', hellip: '…', middot: '·', bull: '•',
+  laquo: '«', raquo: '»', bdquo: '„', ldquo: '“', rdquo: '”', lsquo: '‘', rsquo: '’', sbquo: '‚',
+  eacute: 'é', egrave: 'è', ecirc: 'ê', euml: 'ë', aacute: 'á', agrave: 'à', acirc: 'â', ccedil: 'ç',
+  iacute: 'í', icirc: 'î', iuml: 'ï', oacute: 'ó', ocirc: 'ô', uacute: 'ú', ucirc: 'û', ntilde: 'ñ', oelig: 'œ',
+  Eacute: 'É', copy: '©', reg: '®', trade: '™', euro: '€',
+};
+
 export function decodeEntities(text) {
-  const named = {
-    amp: '&', lt: '<', gt: '>', quot: '"', apos: "'", nbsp: ' ',
-    auml: 'ä', ouml: 'ö', uuml: 'ü', Auml: 'Ä', Ouml: 'Ö', Uuml: 'Ü', szlig: 'ß',
-  };
   return String(text)
     .replace(/&#(\d+);/g, (_, n) => String.fromCodePoint(parseInt(n, 10)))
     .replace(/&#x([0-9a-f]+);/gi, (_, n) => String.fromCodePoint(parseInt(n, 16)))
-    .replace(/&([a-z]+);/gi, (all, name) => named[name] ?? all);
+    .replace(/&([a-z]+[0-9]*);/gi, (all, name) => ENTITAETEN[name] ?? all);
+}
+
+/**
+ * Arbeitsschritte aus dem Seitentext, wenn die schema.org-Daten keine
+ * haben: erst Mikrodaten (itemprop="recipeInstructions"), dann die Liste
+ * oder die Absaetze unter einer Ueberschrift "Zubereitung".
+ */
+export function schritteAusHtml(html) {
+  const sauber = (t) => stripTags(decodeEntities(t)).replace(/\s+/g, ' ').trim();
+  const brauchbar = (liste) => liste.map(sauber).filter((s) => s.length >= 15 && !/^\d+\s*(Min|Std)/i.test(s));
+
+  const mikro = brauchbar([...html.matchAll(
+    /<(li|p|div)[^>]*itemprop=["']recipeInstructions["'][^>]*>([\s\S]*?)<\/\1>/gi,
+  )].map((m) => m[2]));
+  if (mikro.length) return mikro;
+
+  const kopf = html.search(/<h[1-4][^>]*>\s*(?:<[^>]+>\s*)*(?:Zubereitung|Anleitung|Arbeitsschritte|So wird's gemacht)\b/i);
+  if (kopf < 0) return [];
+  const rest = html.slice(kopf);
+  const naechste = rest.slice(4).search(/<h[1-4][^>]*>/i);
+  const block = naechste >= 0 ? rest.slice(0, naechste + 4) : rest.slice(0, 30000);
+  const punkte = brauchbar([...block.matchAll(/<li[^>]*>([\s\S]*?)<\/li>/gi)].map((m) => m[1]));
+  if (punkte.length) return punkte;
+  return brauchbar([...block.matchAll(/<p[^>]*>([\s\S]*?)<\/p>/gi)].map((m) => m[1]));
+}
+
+/** Was statt der Schritte dasteht, wenn die Seite sie nicht hergibt */
+function ohneSchritte(host) {
+  return /cookidoo|thermomix|vorwerk/i.test(host)
+    ? ['Die Arbeitsschritte zeigt Cookidoo nur angemeldeten Nutzern. Bitte auf der Originalseite nachsehen.']
+    : ['Zubereitung siehe Originalseite.'];
 }
 
 /** Flacht Anweisungen aus allen von schema.org erlaubten Formen ab. */
@@ -126,7 +170,7 @@ function guessDiet(node) {
  * @param {object} node
  * @param {string} url Herkunfts-URL, liefert Host und Quellenangabe
  */
-export function fromSchemaOrg(node, url = '') {
+export function fromSchemaOrg(node, url = '', { html = '' } = {}) {
   let host = '';
   try {
     host = new URL(url).hostname.replace(/^www\./, '');
@@ -144,7 +188,9 @@ export function fromSchemaOrg(node, url = '') {
     .filter((i) => i.name)
     .map((i) => ({ a: i.amount, u: i.unit, n: i.name }));
 
-  const steps = flattenInstructions(node.recipeInstructions);
+  let steps = flattenInstructions(node.recipeInstructions);
+  if (!steps.length && html) steps = schritteAusHtml(html);
+  const thermomix = istThermomix({ steps, sourceHost: host });
 
   return {
     id: `import-${slug(host)}-${slug(title)}`,
@@ -159,9 +205,9 @@ export function fromSchemaOrg(node, url = '') {
     cook: cook || (prep ? Math.max(0, total - prep) : total),
     difficulty: 2,
     kcal: calories(node.nutrition),
-    tags: ['Import', host],
+    tags: ['Import', host, ...(thermomix ? ['Thermomix'] : [])],
     ingredients,
-    steps: steps.length ? steps : ['Zubereitung siehe Originalseite.'],
+    steps: steps.length ? steps : ohneSchritte(host),
     note: `Importiert von ${host}. Rechte am Rezepttext liegen beim Anbieter; nur lokal gespeichert.`,
     sourceUrl: url,
     sourceHost: host,
@@ -217,7 +263,7 @@ export function parseRecipeFromHtml(html, url = '') {
       continue; // fehlerhafte Bloecke ueberspringen, es gibt oft mehrere
     }
     const node = findRecipeNode(data);
-    if (node) return fromSchemaOrg(node, url);
+    if (node) return fromSchemaOrg(node, url, { html });
   }
 
   return null;

@@ -14,6 +14,7 @@ import { esc, safeUrl } from './html.js';
 import { NAEHRSTOFFE, REFERENZ, anzeige } from '../state/naehrwerte.js';
 import { HINWEIS_GESUNDHEIT } from '../state/gesundheit.js';
 import { naehrwertQuelle } from '../data/index.js';
+import { markiereEinstellungen } from '../sources/thermomix.js';
 
 const liste = (namen) => namen.map((n) => esc(n)).join(', ');
 
@@ -159,7 +160,8 @@ export function openRecipe(recipe, slot = null, onPlace = null, onEdited = null)
       })
       .join('');
 
-    const steps = (recipe.steps || []).map((s) => `<li>${esc(s)}</li>`).join('');
+    // Thermomix-Einstellungen ("10 Sek./Stufe 5") hervorheben — nach dem Maskieren
+    const steps = (recipe.steps || []).map((s) => `<li>${markiereEinstellungen(esc(s))}</li>`).join('');
     const link = recipe.sourceUrl || source?.url;
 
     const licence = source

@@ -124,6 +124,9 @@ function cardNode(recipe) {
   const original = recipe.lesetext
     ? '<span class="tag original" title="Historischer Text im Wortlaut; Zutaten daraus erschlossen">Originaltext</span>'
     : '';
+  const thermomix = (recipe.tags || []).includes('Thermomix')
+    ? '<span class="tag thermomix" title="Mit Thermomix-Einstellungen">Thermomix</span>'
+    : '';
 
   const allergenZeile = allergene.length
     ? `<span class="card-allergens" title="${esc(allergenTitel)}" aria-label="${esc(allergenTitel)}">${
@@ -146,6 +149,7 @@ function cardNode(recipe) {
         <span class="tag src">${esc(recipe.source?.author || recipe.source?.title || 'Quelle')}</span>
         <span class="tag">${esc(recipe.category)}</span>
         ${original}
+        ${thermomix}
         ${diet}
       </div>
     </div>

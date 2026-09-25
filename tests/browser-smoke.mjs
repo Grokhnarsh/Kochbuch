@@ -13,7 +13,9 @@
  */
 
 import { chromium } from 'playwright';
-import { mkdir } from 'node:fs/promises';
+import { mkdir, writeFile } from 'node:fs/promises';
+import { tmpdir } from 'node:os';
+import path from 'node:path';
 
 const BASE = process.env.BASE_URL || 'http://127.0.0.1:4173/';
 const SHOTS = process.env.SHOT_DIR || null;
@@ -152,7 +154,31 @@ try {
   const srcs = await page.locator('.source-card').count();
   check('Quellenverzeichnis ist vollständig', srcs >= 10, `${srcs} Quellen`);
   await shot(page, '06-quellen');
+
+  // Sammlung aus "npm run import -- --urls": selbst gewaehlte Rezepte, hier eines im Thermomix-Stil
+  const sammlung = path.join(tmpdir(), `kochbuch-sammlung-${Date.now()}.json`);
+  await writeFile(sammlung, JSON.stringify({ recipes: [{
+    id: 'import-example-org-sammeltest-risotto', title: 'Sammeltest-Risotto', sourceUrl: 'https://example.org/risotto',
+    sourceHost: 'example.org', category: 'Hauptgericht', meals: ['mittag', 'abend'], servings: 4,
+    ingredients: [{ a: 300, u: 'g', n: 'Risottoreis' }, { a: 1, u: 'l', n: 'Gemüsebrühe' }, { a: 1, u: '', n: 'Zwiebel' }],
+    steps: ['Zwiebel 5 Sek./Stufe 5 zerkleinern.', 'Reis und Brühe zugeben, 17 Min./100°C/Linkslauf/Sanftrührstufe garen.'],
+  }] }));
+  await page.locator('.modal input[type="file"]').setInputFiles(sammlung);
+  await page.waitForTimeout(500);
+  const sammelStatus = await page.locator('.modal').textContent();
+  check('eine Import-Sammlung lässt sich laden', /1 von 1 Rezepten/.test(sammelStatus));
   await page.keyboard.press('Escape');
+  await page.fill('#search', 'Sammeltest-Risotto');
+  await page.waitForTimeout(400);
+  const tmChip = await page.locator('.recipe-card .tag.thermomix').count();
+  check('Thermomix-Rezepte tragen ihr Schlagwort', tmChip === 1, `${tmChip}`);
+  await page.locator('.recipe-card').first().click();
+  await page.waitForTimeout(400);
+  const tmSet = await page.locator('.modal .tm-set').allTextContents();
+  check('Thermomix-Einstellungen sind hervorgehoben', tmSet.length === 2, tmSet.join(' | '));
+  await page.keyboard.press('Escape');
+  await page.fill('#search', '');
+  await page.waitForTimeout(300);
 
   // --------------------------------------------------- Allergene
 

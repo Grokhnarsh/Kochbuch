@@ -114,3 +114,10 @@ test('versteht Spannen mit Unicode-Bruechen', () => {
   assert.equal(parseIngredientLine('1 ½ TL Salz').amount, 1.5);
   assert.equal(parseIngredientLine('¼ l Milch').amount, 0.25);
 });
+
+test('Deziliter, Pfund und alte Loeffelkuerzel werden verstanden', () => {
+  assert.deepEqual(parseIngredientLine('2 dl Rahm'), { amount: 200, unit: 'ml', name: 'Rahm' });
+  assert.deepEqual(parseIngredientLine('1 Pfund Hackfleisch'), { amount: 500, unit: 'g', name: 'Hackfleisch' });
+  assert.deepEqual(parseIngredientLine('1 Essl. Selleriewürfel'), { amount: 1, unit: 'EL', name: 'Selleriewürfel' });
+  assert.deepEqual(parseIngredientLine('1/2 Teel. Majoran'), { amount: 0.5, unit: 'TL', name: 'Majoran' });
+});

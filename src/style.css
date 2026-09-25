@@ -335,6 +335,17 @@ a.ghost-btn { text-decoration: none; color: var(--ink); display: inline-block; }
 .step-list.original li { font-family: Georgia, "Times New Roman", serif; font-size: 14.5px; line-height: 1.6; }
 .tag.original { background: #f4efe4; color: #7a5b1e; }
 .tag.thermomix { background: #e8f1fb; color: #1f5d99; }
+/* Thermomix-Einstellung im Arbeitsschritt: "10 Sek./Stufe 5" */
+.tm-set {
+  display: inline-block;
+  padding: 0 6px;
+  border-radius: 6px;
+  background: #e8f1fb;
+  color: #1f5d99;
+  font-weight: 600;
+  font-variant-numeric: tabular-nums;
+  white-space: nowrap;
+}
 
 .library-foot {
   display: flex;
