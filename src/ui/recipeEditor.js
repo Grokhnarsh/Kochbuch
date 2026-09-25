@@ -145,8 +145,28 @@ export function openRecipeEditor(recipe = null, { onSaved, onDeleted } = {}) {
       textarea('steps', (recipe?.steps || []).join('\n'), 8),
       'Ein Schritt je Zeile.',
     ),
-    feld('Notiz', input('note', recipe?.note || '', { placeholder: 'Woher das Rezept stammt, Varianten …' })),
+    feld('Notiz', input('note', recipe?.note || '', { placeholder: 'Varianten, Beilagen, was beim nächsten Mal anders …' })),
   );
+
+  // Quellenangabe: fuer Rezepte aus eigenen Kochbuechern oder von Webseiten
+  const quelle = recipe?.quelle || {};
+  const quelleBox = el('fieldset', 'source-fields');
+  quelleBox.append(el('legend', null, 'Quelle'));
+  const zeileQ1 = el('div', 'form-row');
+  zeileQ1.append(
+    feld('Kochbuch oder Website', input('quelleTitel', quelle.titel, { placeholder: 'z. B. Das große Kochbuch' })),
+    feld('Autor, Verlag', input('quelleAutor', quelle.autor, { placeholder: 'z. B. Name, Verlag' })),
+  );
+  const zeileQ2 = el('div', 'form-row');
+  zeileQ2.append(
+    feld('Jahr', input('quelleJahr', quelle.jahr, { inputMode: 'numeric' })),
+    feld('Seite', input('quelleSeite', quelle.seite)),
+    feld('Link', input('quelleLink', recipe?.sourceUrl || '', { type: 'url', placeholder: 'https://…' })),
+  );
+  quelleBox.append(zeileQ1, zeileQ2, el('p', 'field-hint',
+    'Für Rezepte aus eigenen Büchern: Die Angabe steht in der Rezeptansicht und hilft beim Wiederfinden. '
+    + 'Eigene Rezepte bleiben in diesem Browser, zum eigenen Gebrauch.'));
+  form.append(quelleBox);
 
   const fehlerFeld = el('p', 'form-errors');
   fehlerFeld.hidden = true;

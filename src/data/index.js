@@ -95,6 +95,8 @@ function normalise(roh, sourceId, buch = {}) {
     source?.author,
     ...(raw.tags || []),
     ...(raw.diet || []),
+    raw.quelle?.titel,
+    raw.quelle?.autor,
     ...ingredients.map((i) => i.name),
   ]
     .join(' ')
