@@ -5,8 +5,11 @@
  */
 
 import { openModal, el } from './modal.js';
+import { esc, safeUrl } from './html.js';
 import { sources, recipes } from '../data/index.js';
-import { liveSources, loadLiveSource, importFromHtml, importFromUrl, SourceError } from '../sources/index.js';
+import {
+  liveSources, loadLiveSource, importFromHtml, importFromUrl, importiereSammlung, SourceError,
+} from '../sources/index.js';
 
 const KIND_LABEL = {
   buch: 'Gemeinfreies Kochbuch',
@@ -14,6 +17,7 @@ const KIND_LABEL = {
   api: 'Offene Schnittstelle',
   datensatz: 'Offener Datensatz',
   import: 'Eigener Import',
+  eigene: 'Selbst geschrieben',
 };
 
 function sourceCard(source) {
@@ -24,15 +28,17 @@ function sourceCard(source) {
   card.innerHTML = `
     <div class="swatch"></div>
     <div class="body">
-      <h3>${source.title}</h3>
+      <h3>${esc(source.title)}</h3>
       <p>
-        ${source.author}${source.year ? ` · ${source.year}` : ''}${
-          source.country ? ` · ${source.country}` : ''
+        ${esc(source.author)}${source.year ? ` · ${esc(source.year)}` : ''}${
+          source.country ? ` · ${esc(source.country)}` : ''
         }<br />
         ${KIND_LABEL[source.kind] || ''}${count ? ` · ${count} Rezepte geladen` : ''}<br />
-        <a href="${source.url}" target="_blank" rel="noopener noreferrer">${source.url}</a>
+        ${source.url
+          ? `<a href="${esc(safeUrl(source.url))}" target="_blank" rel="noopener noreferrer">${esc(source.url)}</a>`
+          : ''}
       </p>
-      <span class="lic">${source.license}</span>
+      <span class="lic">${esc(source.license)}</span>
     </div>
   `;
   return card;
@@ -105,6 +111,8 @@ function importBlock(onChanged) {
       Anbieters und werden nur lokal in diesem Browser gespeichert.
       Blockt die Seite den direkten Zugriff (CORS), den Seitenquelltext einfügen
       oder <code>npm run import -- --url &lt;adresse&gt;</code> nutzen.
+      Thermomix-Rezepte von Cookidoo kommen mit Zutaten; die Arbeitsschritte zeigt
+      Cookidoo nur angemeldeten Nutzern.
     </p>
   `;
 
@@ -161,7 +169,29 @@ function importBlock(onChanged) {
     }
   });
 
-  wrap.append(input, paste, go, status);
+  // Sammlung aus dem Import-Werkzeug: npm run import -- --urls datei.txt
+  const datei = el('input');
+  datei.type = 'file';
+  datei.accept = 'application/json,.json';
+  datei.hidden = true;
+  const laden = el('button', 'ghost-btn', 'Sammlung laden');
+  laden.title = 'data/importiert/sammlung.json aus „npm run import -- --urls datei.txt“ einlesen';
+  laden.style.marginLeft = '8px';
+  laden.addEventListener('click', () => datei.click());
+  datei.addEventListener('change', async () => {
+    const f = datei.files?.[0];
+    datei.value = '';
+    if (!f) return;
+    try {
+      const { neu, gelesen } = importiereSammlung(await f.text());
+      status.textContent = `${neu.length} von ${gelesen} Rezepten aus „${f.name}“ übernommen.`;
+      if (neu.length) onChanged?.();
+    } catch (err) {
+      status.textContent = err instanceof SourceError ? err.message : 'Die Sammlung ließ sich nicht lesen.';
+    }
+  });
+
+  wrap.append(input, paste, go, laden, datei, status);
   return wrap;
 }
 

@@ -222,7 +222,7 @@ export function allergensFor(name) {
 
   for (const p of PATTERNS) {
     if (beste.has(p.id)) continue;      // PATTERNS ist nach Laenge sortiert
-    if (p.test.test(n)) beste.set(p.id, p.level);
+    if (p.trifft(n)) beste.set(p.id, p.level);
   }
 
   return [...beste]

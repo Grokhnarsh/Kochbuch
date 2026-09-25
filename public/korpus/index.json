@@ -1,0 +1,104 @@
+{
+  "hinweis": "Von scripts/korpus.mjs erzeugt. Rezepttexte unter der Lizenz ihrer Quelle, siehe src/data/sources.json.",
+  "rezepte": 11865,
+  "teile": [
+    {
+      "buch": "wikibooks",
+      "quelle": "wikibooks-de",
+      "datei": "wikibooks-1.json",
+      "rezepte": 562,
+      "bytes": 833158
+    },
+    {
+      "buch": "rezeptewiki",
+      "quelle": "rezeptewiki",
+      "datei": "rezeptewiki-1.json",
+      "rezepte": 370,
+      "bytes": 476153
+    },
+    {
+      "buch": "heyl-1905",
+      "quelle": "heyl-1905",
+      "datei": "heyl-1905-1.json",
+      "rezepte": 127,
+      "bytes": 256419
+    },
+    {
+      "buch": "kochwiki",
+      "quelle": "kochwiki",
+      "datei": "kochwiki-1.json",
+      "rezepte": 1131,
+      "bytes": 1999603
+    },
+    {
+      "buch": "kochwiki",
+      "quelle": "kochwiki",
+      "datei": "kochwiki-2.json",
+      "rezepte": 1082,
+      "bytes": 1999402
+    },
+    {
+      "buch": "kochwiki",
+      "quelle": "kochwiki",
+      "datei": "kochwiki-3.json",
+      "rezepte": 1081,
+      "bytes": 1999615
+    },
+    {
+      "buch": "kochwiki",
+      "quelle": "kochwiki",
+      "datei": "kochwiki-4.json",
+      "rezepte": 1073,
+      "bytes": 1999430
+    },
+    {
+      "buch": "kochwiki",
+      "quelle": "kochwiki",
+      "datei": "kochwiki-5.json",
+      "rezepte": 1084,
+      "bytes": 1999479
+    },
+    {
+      "buch": "kochwiki",
+      "quelle": "kochwiki",
+      "datei": "kochwiki-6.json",
+      "rezepte": 1101,
+      "bytes": 1998966
+    },
+    {
+      "buch": "kochwiki",
+      "quelle": "kochwiki",
+      "datei": "kochwiki-7.json",
+      "rezepte": 1118,
+      "bytes": 1998981
+    },
+    {
+      "buch": "kochwiki",
+      "quelle": "kochwiki",
+      "datei": "kochwiki-8.json",
+      "rezepte": 1093,
+      "bytes": 1999589
+    },
+    {
+      "buch": "kochwiki",
+      "quelle": "kochwiki",
+      "datei": "kochwiki-9.json",
+      "rezepte": 199,
+      "bytes": 358669
+    },
+    {
+      "buch": "davidis-1849",
+      "quelle": "davidis-1849",
+      "datei": "davidis-1849-1.json",
+      "rezepte": 1054,
+      "bytes": 1233279
+    },
+    {
+      "buch": "schiller-1843",
+      "quelle": "schiller-1843",
+      "datei": "schiller-1843-1.json",
+      "rezepte": 790,
+      "bytes": 965262
+    }
+  ]
+}

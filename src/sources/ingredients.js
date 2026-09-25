@@ -13,9 +13,11 @@ const UNICODE_FRACTIONS = {
 const UNITS = new Map(Object.entries({
   g: 'g', gramm: 'g', kg: 'kg', kilogramm: 'kg', mg: 'mg',
   ml: 'ml', milliliter: 'ml', l: 'l', liter: 'l', cl: 'cl',
-  el: 'EL', esslöffel: 'EL', essloeffel: 'EL',
-  tl: 'TL', teelöffel: 'TL', teeloeffel: 'TL',
-  msp: 'Msp', messerspitze: 'Msp',
+  el: 'EL', esslöffel: 'EL', essloeffel: 'EL', eßlöffel: 'EL', essl: 'EL', eßl: 'EL',
+  tl: 'TL', teelöffel: 'TL', teeloeffel: 'TL', teel: 'TL', theelöffel: 'TL', theel: 'TL',
+  msp: 'Msp', messerspitze: 'Msp', messersp: 'Msp',
+  // Deziliter (Schweiz) und Pfund werden umgerechnet, siehe CONVERT
+  dl: 'dl', deziliter: 'dl', pfund: 'pfund', pfd: 'pfund',
   prise: 'Prise', prisen: 'Prise', pr: 'Prise',
   do: 'Dose', sch: 'Scheibe', tr: 'Tropfen', tropfen: 'Tropfen',
   bund: 'Bund', bd: 'Bund',
@@ -56,21 +58,36 @@ const UNITS = new Map(Object.entries({
  * metrisch, damit Mengen addierbar bleiben.
  */
 const CONVERT = new Map(Object.entries({
+  dl: { unit: 'ml', factor: 100 },
+  // Das Pfund heutiger deutscher Rezepte: 500 g. Alte Pfunde rechnen die
+  // Import-Werkzeuge je Buch selbst um.
+  pfund: { unit: 'g', factor: 500 },
   oz: { unit: 'g', factor: 28.35 },
   lb: { unit: 'g', factor: 453.59 },
   pint: { unit: 'ml', factor: 473.18 },
   quart: { unit: 'ml', factor: 946.35 },
 }));
 
-/** Wandelt "1 ½", "1/2", "2-3" oder "1,5" in eine Zahl. */
+/** Eine einzelne Zahl oder ein Bruch: "2", "1,5", "1/2". */
+function einzelwert(text) {
+  const frac = text.match(/^(\d+)\/(\d+)$/);
+  if (frac) return Number(frac[2]) ? parseInt(frac[1], 10) / parseInt(frac[2], 10) : null;
+  const num = text.match(/^\d+(?:[.,]\d+)?$/);
+  return num ? parseFloat(text.replace(',', '.')) : null;
+}
+
+/** Wandelt "1 ½", "1/2", "2-3", "1/2-1" oder "1,5" in eine Zahl. */
 export function parseAmount(text) {
   if (!text) return null;
   let total = 0;
   let found = false;
 
-  const range = text.match(/^(\d+(?:[.,]\d+)?)\s*[-–]\s*(\d+(?:[.,]\d+)?)$/);
+  // Spannen zaehlen mit ihrem Mittelwert, auch mit Bruechen: "1/2-1".
+  const range = text.match(/^([\d.,/]+)\s*[-–]\s*([\d.,/]+)$/);
   if (range) {
-    return (parseFloat(range[1].replace(',', '.')) + parseFloat(range[2].replace(',', '.'))) / 2;
+    const von = einzelwert(range[1]);
+    const bis = einzelwert(range[2]);
+    if (von != null && bis != null) return (von + bis) / 2;
   }
 
   for (const token of text.split(/\s+/)) {
@@ -109,6 +126,11 @@ export function parseAmount(text) {
   return found ? total : null;
 }
 
+const BRUCH_TEXT = {
+  '½': '1/2', '⅓': '1/3', '⅔': '2/3', '¼': '1/4', '¾': '3/4',
+  '⅕': '1/5', '⅖': '2/5', '⅗': '3/5', '⅘': '4/5', '⅙': '1/6', '⅛': '1/8',
+};
+
 /** Erkennt Tokens, die zu einer Mengenangabe gehoeren. */
 function isAmountToken(token) {
   return (
@@ -116,8 +138,37 @@ function isAmountToken(token) {
     /^\d+\/\d+$/.test(token) ||
     /^[\u00bd\u2153\u2154\u00bc\u00be\u2155\u2156\u2157\u2158\u2159\u215b]$/.test(token) ||
     /^\d+[\u00bd\u2153\u2154\u00bc\u00be\u2155\u2156\u2157\u2158\u2159\u215b]$/.test(token) ||
-    /^\d+(?:[.,]\d+)?\s*[-\u2013]\s*\d+(?:[.,]\d+)?$/.test(token)
+    /^[\d.,/]+-[\d.,/]+$/.test(token)
   );
+}
+
+/**
+ * Bringt eine Zeile in die Form, die der Zerleger erwartet.
+ *
+ * Rezeptquellen schreiben Mengen erstaunlich verschieden: mit dem
+ * Unicode-Bruchstrich ("1∕2"), mit Halbgeviertstrich und Leerzeichen
+ * ("1 – 2"), offenen Spannen ("1–x"), ohne Abstand zur Einheit ("175ml",
+ * "2Eier"), mit weichem Trennstrich statt Bindestrich oder einem
+ * vorangestellten "ca.". Ohne diese Angleichung blieb die ganze Zeile
+ * als Name stehen und die Menge fehlte — in Einkaufsliste und
+ * Naehrwerten gleichermassen.
+ */
+export function normalizeLine(line) {
+  return String(line)
+    .replace(/(\d)\u00ad(\d)/g, '$1-$2')          // weicher Trennstrich zwischen Zahlen
+    .replace(/\u00ad/g, '')
+    .replace(/[\u2215\u2044]/g, '/')               // Bruchstriche
+    .replace(/[\u2012\u2013\u2014\u2212]/g, '-')     // Striche aller Art
+    // Unicode-Brueche als a/b schreiben, damit Spannen wie "½-1" gehen;
+    // bei gemischten Zahlen ("1½") erst einen Abstand einfuegen.
+    .replace(/(\d)([½⅓⅔¼¾⅕⅖⅗⅘⅙⅛])/g, '$1 $2')
+    .replace(/[½⅓⅔¼¾⅕⅖⅗⅘⅙⅛]/g, (c) => BRUCH_TEXT[c])
+    .replace(/\s+/g, ' ')
+    .trim()
+    .replace(/^(?:ca\.?|circa|etwa|ungefähr|gut|knapp|je)\s+(?=\d|[½⅓⅔¼¾])/i, '')
+    .replace(/^([\d.,/]+)\s*-\s*([\d.,/]+)(?=\s|$|[A-Za-zÄÖÜäöüß])/, '$1-$2')
+    .replace(/^([\d.,/]+)-(?:x|\.\.\.|…)(?=\s|$)/i, '$1')
+    .replace(/^([\d.,/]+(?:-[\d.,/]+)?)([A-Za-zÄÖÜäöüß])/, '$1 $2');
 }
 
 /**
@@ -127,7 +178,7 @@ function isAmountToken(token) {
  * @returns {{amount:number|null, unit:string, name:string}}
  */
 export function parseIngredientLine(line) {
-  const raw = String(line).replace(/\s+/g, ' ').trim();
+  const raw = normalizeLine(line);
   if (!raw) return { amount: null, unit: '', name: '' };
 
   // Unbestimmte Mengen wie "n. B." oder "etwas"

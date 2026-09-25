@@ -4,12 +4,91 @@
  */
 
 import { openModal, closeModal, el } from './modal.js';
-import { store } from '../state/store.js';
-import { recipeById, MEALS, DAYS } from '../data/index.js';
+import { store, maxServingsFor } from '../state/store.js';
+import { recipeById, MEALS, DAYS, vollstaendig } from '../data/index.js';
 import { formatAmount } from '../state/units.js';
 import { allergensForRecipe, HINWEIS } from '../state/allergens.js';
 import { istEigenes } from '../state/eigene.js';
 import { openRecipeEditor } from './recipeEditor.js';
+import { esc, safeUrl } from './html.js';
+import { NAEHRSTOFFE, REFERENZ, anzeige } from '../state/naehrwerte.js';
+import { HINWEIS_GESUNDHEIT } from '../state/gesundheit.js';
+import { naehrwertQuelle } from '../data/index.js';
+import { markiereEinstellungen } from '../sources/thermomix.js';
+
+const liste = (namen) => namen.map((n) => esc(n)).join(', ');
+
+/**
+ * Naehrwerttabelle nach dem Muster der EU-Kennzeichnung, dazu, wie
+ * belastbar die Rechnung ist und woher die Zahlen stammen.
+ */
+function naehrwertBlock(recipe) {
+  const n = recipe.naehrwerte;
+  if (!n) return '';
+
+  const erkannt = n.posten.length;
+  const bewertet = erkannt + n.unbekannt.length;
+  const herkunft = `
+    <p class="nutri-note">
+      Berechnet aus ${erkannt} von ${bewertet} Zutaten mit Mengenangabe.
+      ${n.ohneMenge.length ? `Ohne Menge, daher nicht eingerechnet: ${liste(n.ohneMenge)}.` : ''}
+      ${n.unbekannt.length ? `Nicht zugeordnet: ${liste(n.unbekannt)}.` : ''}
+      ${n.hinweise.map((h) => `${esc(h)}.`).join(' ')}
+      Werte roh, ohne Garverluste. Quelle: ${esc(naehrwertQuelle.quelle)}, ${esc(naehrwertQuelle.lizenz)}.
+    </p>`;
+
+  if (n.vertrauen === 'gering') {
+    return `<h3>Nährwerte</h3>
+      <p class="allergen-note">Für belastbare Nährwerte fehlen zu viele Angaben.</p>${herkunft}`;
+  }
+
+  const zweiteSpalte = n.art !== 'masse' && n.je100g;
+  const referenz = n.art === 'portion';
+  const zeilen = NAEHRSTOFFE.map((s) => {
+    const wert = n.jePortion[s.id];
+    const prozent = referenz && REFERENZ[s.id] ? Math.round((wert / REFERENZ[s.id]) * 100) : null;
+    return `<tr class="${s.unter ? 'unter' : ''}">
+      <th scope="row">${esc(s.label)}</th>
+      <td>${anzeige(wert, s)} ${s.einheit}</td>
+      ${zweiteSpalte ? `<td>${anzeige(n.je100g[s.id], s)} ${s.einheit}</td>` : ''}
+      ${referenz ? `<td class="ref">${prozent != null ? `${prozent} %` : ''}</td>` : ''}
+    </tr>`;
+  }).join('');
+
+  return `
+    <h3>Nährwerte${n.vertrauen === 'mittel' ? ' <span class="nutri-badge">Schätzung</span>' : ''}</h3>
+    <div class="nutri-wrap">
+      <table class="nutri-table">
+        <thead><tr>
+          <th></th><th>${esc(n.bezug)}</th>
+          ${zweiteSpalte ? '<th>je 100 g</th>' : ''}
+          ${referenz ? '<th title="Anteil an der Referenzmenge für einen Erwachsenen (EU, 2000 kcal)">Ref.*</th>' : ''}
+        </tr></thead>
+        <tbody>${zeilen}</tbody>
+      </table>
+    </div>
+    ${referenz ? '<p class="nutri-note">* Referenzmenge für einen durchschnittlichen Erwachsenen (8400 kJ/2000 kcal).</p>' : ''}
+    ${herkunft}
+  `;
+}
+
+/** Die Gesundheitsbewertung mit ihren Gruenden. */
+function gesundheitBlock(recipe) {
+  const g = recipe.gesundheit;
+  if (!g) return '';
+  const gruende = g.gruende.slice(0, 6).map((x) => `
+    <li class="${x.gut ? 'gut' : 'schlecht'}">${x.gut ? '＋' : '−'} ${esc(x.text)}</li>`).join('');
+  return `
+    <h3>Ausgewogenheit</h3>
+    <div class="health-head">
+      <span class="health-score" style="--p:${g.punkte}">${g.punkte}</span>
+      <span><b>${esc(g.stufe[0].toUpperCase() + g.stufe.slice(1))}</b><br />
+        <span class="nutri-note">${g.punkte} von 100 Punkten</span></span>
+    </div>
+    <ul class="health-reasons">${gruende}</ul>
+    <p class="nutri-note">${esc(HINWEIS_GESUNDHEIT)}</p>
+  `;
+}
 
 /**
  * Der Allergenblock. "Enthält" und "kann enthalten" stehen getrennt,
@@ -25,8 +104,8 @@ function allergenBlock(recipe) {
   }
 
   const chip = (a) => `<span class="allergen-chip ${a.level}" title="${
-    a.quellen.join(', ')
-  }">${a.icon} ${a.short}</span>`;
+    esc(a.quellen.join(', '))
+  }">${a.icon} ${esc(a.short)}</span>`;
 
   const sicher = gefunden.filter((a) => a.level === 'ja');
   const moeglich = gefunden.filter((a) => a.level === 'moeglich');
@@ -51,11 +130,14 @@ function allergenBlock(recipe) {
  *        Portionsanpassung direkt auf den Plan.
  */
 export function openRecipe(recipe, slot = null, onPlace = null, onEdited = null) {
+  // Die grossen Sammlungen bringen nur eine Zusammenfassung mit; Gruende,
+  // Posten und Hinweise entstehen jetzt, fuer dieses eine Rezept.
+  vollstaendig(recipe);
   const entry = slot ? store.entry(slot.day, slot.meal) : null;
   let servings = entry?.servings || recipe.servings || 2;
-  // Zaehlt ein Rezept Stueck statt Portionen, liegt der Ertrag von Haus
-  // aus hoch; die Obergrenze richtet sich deshalb nach dem Rezept.
-  const maxServings = Math.max(24, (recipe.servings || 1) * 4);
+  // Dieselbe Obergrenze wie im Store, sonst zeigte die Ansicht eine
+  // andere Zahl als der Plan speichert.
+  const maxServings = maxServingsFor(recipe);
 
   const body = el('div');
   const foot = el('div');
@@ -74,22 +156,24 @@ export function openRecipe(recipe, slot = null, onPlace = null, onEdited = null)
       .map((i) => {
         const amount = i.amount == null ? null : i.amount * factor;
         const label = formatAmount(amount, i.unit);
-        return `<li><span>${i.name}</span><span class="amt">${label || '—'}</span></li>`;
+        return `<li><span>${esc(i.name)}</span><span class="amt">${esc(label || '—')}</span></li>`;
       })
       .join('');
 
-    const steps = recipe.steps.map((s) => `<li>${s}</li>`).join('');
+    // Thermomix-Einstellungen ("10 Sek./Stufe 5") hervorheben — nach dem Maskieren
+    const steps = (recipe.steps || []).map((s) => `<li>${markiereEinstellungen(esc(s))}</li>`).join('');
+    const link = recipe.sourceUrl || source?.url;
 
     const licence = source
       ? `<div class="source-note">
-           <strong>${source.title}</strong>${source.author ? `, ${source.author}` : ''}${
-             source.year ? ` (${source.year})` : ''
+           <strong>${esc(source.title)}</strong>${source.author ? `, ${esc(source.author)}` : ''}${
+             source.year ? ` (${esc(source.year)})` : ''
            }<br />
-           Lizenz: ${source.license} · ${source.via || ''}<br />
-           <a href="${recipe.sourceUrl || source.url}" target="_blank" rel="noopener noreferrer">${
-             recipe.sourceUrl || source.url
-           }</a>
-           ${recipe.note ? `<br /><br />${recipe.note}` : ''}
+           Lizenz: ${esc(source.license)} · ${esc(source.via || '')}
+           ${link
+             ? `<br /><a href="${esc(safeUrl(link))}" target="_blank" rel="noopener noreferrer">${esc(link)}</a>`
+             : ''}
+           ${recipe.note ? `<br /><br />${esc(recipe.note)}` : ''}
          </div>`
       : '';
 
@@ -101,14 +185,19 @@ export function openRecipe(recipe, slot = null, onPlace = null, onEdited = null)
             <button class="icon-btn" data-step="-1" aria-label="Weniger Portionen">−</button>
             <b>${servings}</b>
             <button class="icon-btn" data-step="1" aria-label="Mehr Portionen">+</button>
-            <span>${recipe.yieldUnit || 'Portionen'}</span>
+            <span>${esc(recipe.yieldUnit || 'Portionen')}</span>
           </div>
           <ul class="ing-list">${ings}</ul>
           ${allergenBlock(recipe)}
         </div>
         <div>
           <h3>Zubereitung${recipe.totalTime > 0 ? ` · ${recipe.totalTime} Minuten` : ''}</h3>
-          <ol class="step-list">${steps}</ol>
+          ${recipe.lesetext ? `<p class="original-note">Historischer Text im Wortlaut. Die Zutatenliste ist
+            daraus erschlossen und kann unvollständig sein; alte Maße sind umgerechnet.
+            ${recipe.servingsGeschaetzt ? 'Das Original nennt keine Portionszahl, gerechnet wird mit 4.' : ''}</p>` : ''}
+          <ol class="step-list${recipe.lesetext ? ' original' : ''}">${steps}</ol>
+          ${naehrwertBlock(recipe)}
+          ${gesundheitBlock(recipe)}
           ${licence}
         </div>
       </div>

@@ -101,23 +101,15 @@ try {
   check('Leiste verschwindet nach dem Ablegen', !bar);
   await shot(page, 'handy-04-abgelegt');
 
-  await page.locator('#day-strip button').nth(3).tap();
+  // Relativ zum heutigen Tag wechseln: die Ansicht startet auf heute, ein
+  // fester Zieltag waere an einem von sieben Tagen gar kein Wechsel.
+  const start = await page.evaluate(() => window.kochbuch.board.day);
+  const zielTag = (start + 3) % 7;
+  await page.locator('#day-strip button').nth(zielTag).tap();
   await page.waitForTimeout(600);
   const tag = await page.evaluate(() => window.kochbuch.board.day);
-  check('Tagesleiste wechselt den Tag', tag === 3, `Tag ${tag}`);
+  check('Tagesleiste wechselt den Tag', tag === zielTag && tag !== start, `von ${start} auf ${tag}`);
   await shot(page, 'handy-05-anderer-tag');
-
-  // Wischen nach links ist der naechste Tag.
-  const mitte = await page.evaluate(() => {
-    const r = document.getElementById('stage').getBoundingClientRect();
-    return { x: r.left + r.width / 2, y: r.top + r.height / 2 };
-  });
-  await page.touchscreen.tap(mitte.x, mitte.y); // Blatt schliessen, falls offen
-  await page.waitForTimeout(300);
-  await page.evaluate(() => window.kochbuch.board.disarm());
-  await page.mouse.move(mitte.x + 90, mitte.y);
-  await page.touchscreen.tap(mitte.x, mitte.y);
-  await page.waitForTimeout(200);
 
   await page.locator('#btn-shopping').tap();
   await page.waitForTimeout(600);
@@ -125,6 +117,23 @@ try {
   check('Ansichten füllen das Fenster', modal && modal.width > 340, `${Math.round(modal?.width || 0)}px`);
   await shot(page, 'handy-06-einkaufsliste');
   await page.keyboard.press('Escape');
+
+  // Neue Ansichten ueber das Ueberlaufmenue, ohne seitliches Scrollen
+  for (const [aktion, name, selektor] of [
+    ['suggest', 'Vorschläge', '.suggest-card'],
+    ['nutrition', 'Nährwerte', '.nutri-table.week'],
+  ]) {
+    await page.locator('#btn-more').tap();
+    await page.waitForTimeout(300);
+    await page.locator(`#phone-menu [data-action="${aktion}"]`).tap();
+    await page.waitForTimeout(600);
+    const da = await page.locator(selektor).first().isVisible().catch(() => false);
+    const breit = await page.evaluate(() => document.documentElement.scrollWidth > window.innerWidth + 1);
+    check(`${name} öffnen sich über das Menü`, da && !breit, breit ? 'Seite scrollt seitlich' : '');
+    await shot(page, `handy-${aktion}`);
+    await page.keyboard.press('Escape');
+    await page.waitForTimeout(300);
+  }
 
   check('keine Fehler in der Browserkonsole', errors.length === 0, errors.join(' | '));
 } finally {

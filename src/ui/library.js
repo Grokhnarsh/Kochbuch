@@ -5,6 +5,8 @@
 
 import { filterRecipes, sources, categories, diets, recipes } from '../data/index.js';
 import { ALLERGENS } from '../state/allergens.js';
+import { esc } from './html.js';
+import { kcalText } from '../state/naehrwerte.js';
 
 const els = {
   list: document.getElementById('recipe-list'),
@@ -22,6 +24,20 @@ const els = {
 
 let handlers = {};
 let current = [];
+
+/**
+ * Karten entstehen stapelweise beim Blaettern: zehntausend Treffer auf
+ * einmal machten jede Eingabe in der Suche traege. Ganz unten wartet ein
+ * Merkposten; kommt er in Sicht, folgt der naechste Stapel.
+ */
+const STAPEL = 40;
+/** Mehr haelt niemand beim Blaettern durch; die Suche grenzt ein. */
+const HOECHSTENS = 1000;
+const zahl = new Intl.NumberFormat('de-DE');
+
+let gezeigt = 0;
+let beobachter = null;
+const merkposten = Object.assign(document.createElement('p'), { className: 'list-end' });
 
 function option(value, label) {
   const o = document.createElement('option');
@@ -71,6 +87,17 @@ function readFilters() {
   };
 }
 
+/**
+ * Ein Blatt fuer ausgewogene Gerichte. Nur ein Zeichen auf der Karte —
+ * die Begruendung steht in der Rezeptansicht und in den Vorschlaegen.
+ */
+function gesundZeichen(recipe) {
+  const g = recipe.gesundheit;
+  if (!g || g.punkte < 60) return '';
+  const titel = `${g.stufe[0].toUpperCase()}${g.stufe.slice(1)} (${g.punkte} von 100 Punkten)`;
+  return `<span class="card-health" title="${esc(titel)}" aria-label="${esc(titel)}">🌿</span>`;
+}
+
 function cardNode(recipe) {
   const card = document.createElement('article');
   card.className = 'recipe-card';
@@ -81,7 +108,7 @@ function cardNode(recipe) {
 
   const diet = (recipe.diet || [])
     .slice(0, 2)
-    .map((d) => `<span class="tag diet">${d}</span>`)
+    .map((d) => `<span class="tag diet">${esc(d)}</span>`)
     .join('');
 
   // Auf der Karte reichen die Zeichen; die Namen stehen im Titel und
@@ -94,8 +121,15 @@ function cardNode(recipe) {
     moeglich.length ? `Kann enthalten: ${moeglich.map((a) => a.short).join(', ')}` : '',
   ].filter(Boolean).join(' · ');
 
+  const original = recipe.lesetext
+    ? '<span class="tag original" title="Historischer Text im Wortlaut; Zutaten daraus erschlossen">Originaltext</span>'
+    : '';
+  const thermomix = (recipe.tags || []).includes('Thermomix')
+    ? '<span class="tag thermomix" title="Mit Thermomix-Einstellungen">Thermomix</span>'
+    : '';
+
   const allergenZeile = allergene.length
-    ? `<span class="card-allergens" title="${allergenTitel}" aria-label="${allergenTitel}">${
+    ? `<span class="card-allergens" title="${esc(allergenTitel)}" aria-label="${esc(allergenTitel)}">${
         sicher.map((a) => a.icon).join('')
       }${moeglich.length ? `<span class="maybe">${moeglich.map((a) => a.icon).join('')}</span>` : ''}</span>`
     : '';
@@ -103,16 +137,19 @@ function cardNode(recipe) {
   card.innerHTML = `
     <div class="swatch"></div>
     <div class="body">
-      <h3>${recipe.title}</h3>
+      <h3>${esc(recipe.title)}</h3>
       <div class="meta">
         ${recipe.totalTime > 0 ? `<span><b>${recipe.totalTime}</b> Min.</span>` : ''}
-        <span><b>${recipe.servings}</b> ${recipe.yieldUnit || 'Port.'}</span>
-        ${recipe.kcal ? `<span><b>${recipe.kcal}</b> kcal</span>` : ''}
+        <span><b>${esc(recipe.servings)}</b> ${esc(recipe.yieldUnit || 'Port.')}</span>
+        ${recipe.kcal ? `<span>${esc(kcalText(recipe))}</span>` : ''}
+        ${gesundZeichen(recipe)}
         ${allergenZeile}
       </div>
       <div class="tag-row">
-        <span class="tag src">${recipe.source?.author || recipe.source?.title || 'Quelle'}</span>
-        <span class="tag">${recipe.category}</span>
+        <span class="tag src">${esc(recipe.source?.author || recipe.source?.title || 'Quelle')}</span>
+        <span class="tag">${esc(recipe.category)}</span>
+        ${original}
+        ${thermomix}
         ${diet}
       </div>
     </div>
@@ -141,17 +178,47 @@ function cardNode(recipe) {
   return card;
 }
 
-export function renderLibrary() {
+/** Haengt den naechsten Stapel Karten an. */
+function weitere(anzahl = STAPEL) {
+  const bis = Math.min(current.length, HOECHSTENS, gezeigt + anzahl);
+  if (bis > gezeigt) {
+    const frag = document.createDocumentFragment();
+    for (const r of current.slice(gezeigt, bis)) frag.append(cardNode(r));
+    merkposten.before(frag);
+    gezeigt = bis;
+  }
+  merkposten.textContent = gezeigt < current.length && gezeigt >= HOECHSTENS
+    ? `Gezeigt werden die ersten ${zahl.format(HOECHSTENS)} von ${zahl.format(current.length)}. Suche oder Filter grenzen ein.`
+    : '';
+}
+
+/**
+ * Neu beobachten: das meldet sofort, ob der Merkposten noch in Sicht ist
+ * — auf einem hohen Bildschirm reicht ein Stapel womoeglich nicht.
+ */
+function beobachten() {
+  if (!beobachter) return;
+  beobachter.unobserve(merkposten);
+  if (gezeigt < Math.min(current.length, HOECHSTENS)) beobachter.observe(merkposten);
+}
+
+/**
+ * @param {{behalteScroll?:boolean}} [optionen] beim Nachladen des Korpus
+ *        springt die Liste nicht nach oben, waehrend jemand darin blaettert
+ */
+export function renderLibrary({ behalteScroll = false } = {}) {
   current = filterRecipes(readFilters());
 
   els.count.textContent = current.length
-    ? `${current.length} Rezept${current.length === 1 ? '' : 'e'}`
+    ? `${zahl.format(current.length)} Rezept${current.length === 1 ? '' : 'e'}`
     : 'Keine Treffer';
 
   // Auf dem Handy steht die Zahl im zugeklappten Blattkopf.
   handlers.onCount?.(current.length);
 
   if (!current.length) {
+    gezeigt = 0;
+    beobachter?.unobserve(merkposten);
     els.list.replaceChildren(
       Object.assign(document.createElement('p'), {
         className: 'empty-note',
@@ -161,10 +228,45 @@ export function renderLibrary() {
     return;
   }
 
-  const frag = document.createDocumentFragment();
-  for (const r of current.slice(0, 260)) frag.append(cardNode(r));
-  els.list.replaceChildren(frag);
-  els.list.scrollTop = 0;
+  const oben = els.list.scrollTop;
+  // Wer schon geblaettert hat, behaelt beim Nachladen so viele Karten
+  const anzahl = behalteScroll ? Math.max(gezeigt, STAPEL) : STAPEL;
+  els.list.replaceChildren(merkposten);
+  gezeigt = 0;
+  weitere(anzahl);
+  els.list.scrollTop = behalteScroll ? oben : 0;
+  beobachten();
+}
+
+/**
+ * Bestand in der Fusszeile der Bibliothek.
+ * @param {{laedt?:boolean, fehler?:boolean}} [stand]
+ */
+export function zeigeBestand({ laedt = false, fehler = false } = {}) {
+  const quellen = new Set(recipes.map((r) => r.sourceId)).size;
+  const text = `${zahl.format(recipes.length)} Rezepte aus ${quellen} Quellen`;
+  let zusatz = '';
+  if (laedt) zusatz = ' · weitere werden geladen …';
+  else if (fehler) zusatz = ' · nicht alle Sammlungen erreichbar';
+  els.corpusNote.textContent = text + zusatz;
+}
+
+/**
+ * Rezepte nach den Filtern der Bibliothek, aber ohne den Suchtext: wer
+ * "ohne Milch" gewaehlt hat, will das auch bei Vorschlaegen — ein
+ * eingetipptes "Kuchen" soll sie dagegen nicht auf Kuchen beschraenken.
+ */
+export function gefilterteRezepte() {
+  return filterRecipes({ ...readFilters(), query: '' });
+}
+
+/** Die aktiven Filter in Worten, fuer Hinweise in anderen Ansichten. */
+export function filterBeschreibung() {
+  const teile = [];
+  for (const sel of [els.source, els.category, els.diet, els.allergen, els.time]) {
+    if (sel.value) teile.push(sel.selectedOptions[0]?.textContent || sel.value);
+  }
+  return teile.join(', ');
 }
 
 /** Aktuell gefilterte Rezepte, etwa als Vorrat fuer das Auffuellen. */
@@ -189,7 +291,17 @@ export function initLibrary(h) {
     els.panel.classList.toggle('collapsed');
   });
 
-  els.corpusNote.textContent = `${recipes.length} Rezepte aus ${
-    new Set(recipes.map((r) => r.sourceId)).size
-  } Quellen`;
+  if ('IntersectionObserver' in window) {
+    beobachter = new IntersectionObserver((eintraege) => {
+      if (!eintraege.some((e) => e.isIntersecting)) return;
+      weitere();
+      beobachten();
+    }, { root: els.list, rootMargin: '0px 0px 600px 0px' });
+    beobachten();
+  } else {
+    // Ohne Beobachter gleich alles bis zur Obergrenze
+    weitere(HOECHSTENS);
+  }
+
+  zeigeBestand();
 }

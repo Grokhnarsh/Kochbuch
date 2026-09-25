@@ -1,0 +1,6598 @@
+{
+ "meta": {
+  "quelle": "USDA FoodData Central, SR Legacy (April 2018)",
+  "lizenz": "Gemeinfrei (CC0 1.0)",
+  "url": "https://fdc.nal.usda.gov/",
+  "datensatz": "https://fdc.nal.usda.gov/fdc-datasets/FoodData_Central_sr_legacy_food_csv_2018-04.zip",
+  "hinweis": "Werte je 100 g essbarer Anteil. Salz = Natrium × 2,5."
+ },
+ "eintraege": [
+  {
+   "id": "weizenmehl",
+   "name": "Weizenmehl",
+   "fdc": 168894,
+   "quelle": "Wheat flour, white, all-purpose, enriched, bleached",
+   "schluessel": [
+    "mehl",
+    "weizenmehl",
+    "kuchenmehl",
+    "mehl type",
+    "stärkemehl"
+   ],
+   "je100g": {
+    "kcal": 364,
+    "eiweiss": 10.3,
+    "fett": 1,
+    "gesFett": 0.2,
+    "kh": 76.3,
+    "zucker": 0.3,
+    "ballast": 2.7,
+    "salz": 0.01
+   },
+   "el": 7.8,
+   "tl": 2.6,
+   "dichte": 0.53
+  },
+  {
+   "id": "vollkornmehl",
+   "name": "Weizenvollkornmehl",
+   "fdc": 168893,
+   "quelle": "Wheat flour, whole-grain (Includes foods for USDA's Food Distribution Program)",
+   "schluessel": [
+    "vollkornmehl",
+    "weizenvollkornmehl",
+    "vollkornweizenmehl",
+    "weizenschrot",
+    "backschrot"
+   ],
+   "je100g": {
+    "kcal": 340,
+    "eiweiss": 13.2,
+    "fett": 2.5,
+    "gesFett": 0.4,
+    "kh": 72,
+    "zucker": 0.4,
+    "ballast": 10.7,
+    "salz": 0.01
+   },
+   "el": 7.5,
+   "tl": 2.5,
+   "dichte": 0.51
+  },
+  {
+   "id": "roggenmehl",
+   "name": "Roggenmehl",
+   "fdc": 168886,
+   "quelle": "Rye flour, medium",
+   "schluessel": [
+    "roggenmehl",
+    "roggenschrot"
+   ],
+   "je100g": {
+    "kcal": 349,
+    "eiweiss": 10.9,
+    "fett": 1.5,
+    "gesFett": 0.2,
+    "kh": 75.4,
+    "zucker": 1.1,
+    "ballast": 11.8,
+    "salz": 0.01
+   },
+   "el": 6.4,
+   "tl": 2.13,
+   "dichte": 0.43
+  },
+  {
+   "id": "dinkelmehl",
+   "name": "Dinkelmehl",
+   "fdc": 169745,
+   "quelle": "Spelt, uncooked",
+   "schluessel": [
+    "dinkelmehl",
+    "dinkel"
+   ],
+   "je100g": {
+    "kcal": 338,
+    "eiweiss": 14.6,
+    "fett": 2.4,
+    "gesFett": 0.4,
+    "kh": 70.2,
+    "zucker": 6.8,
+    "ballast": 10.7,
+    "salz": 0.02
+   },
+   "el": 10.9,
+   "tl": 3.63,
+   "dichte": 0.74
+  },
+  {
+   "id": "maismehl",
+   "name": "Maismehl, Polenta",
+   "fdc": 169697,
+   "quelle": "Cornmeal, whole-grain, yellow",
+   "schluessel": [
+    "maismehl",
+    "maisgrieß",
+    "polenta"
+   ],
+   "je100g": {
+    "kcal": 362,
+    "eiweiss": 8.1,
+    "fett": 3.6,
+    "gesFett": 0.5,
+    "kh": 76.9,
+    "zucker": 0.6,
+    "ballast": 7.3,
+    "salz": 0.09
+   },
+   "el": 7.6,
+   "tl": 2.54,
+   "dichte": 0.52
+  },
+  {
+   "id": "griess",
+   "name": "Grieß",
+   "fdc": 169715,
+   "quelle": "Semolina, enriched",
+   "schluessel": [
+    "grieß",
+    "hartweizengrieß",
+    "weichweizengrieß",
+    "couscous"
+   ],
+   "je100g": {
+    "kcal": 360,
+    "eiweiss": 12.7,
+    "fett": 1.1,
+    "gesFett": 0.2,
+    "kh": 72.8,
+    "zucker": null,
+    "ballast": 3.9,
+    "salz": 0
+   },
+   "el": 10.4,
+   "tl": 3.48,
+   "dichte": 0.71
+  },
+  {
+   "id": "staerke",
+   "name": "Speisestärke",
+   "fdc": 169698,
+   "quelle": "Cornstarch",
+   "schluessel": [
+    "speisestärke",
+    "maisstärke",
+    "stärke",
+    "kartoffelstärke",
+    "mondamin"
+   ],
+   "je100g": {
+    "kcal": 381,
+    "eiweiss": 0.3,
+    "fett": 0.1,
+    "gesFett": 0,
+    "kh": 91.3,
+    "zucker": 0,
+    "ballast": 0.9,
+    "salz": 0.02
+   },
+   "el": 8,
+   "tl": 2.67,
+   "dichte": 0.54
+  },
+  {
+   "id": "haferflocken",
+   "name": "Haferflocken",
+   "fdc": 173904,
+   "quelle": "Cereals, oats, regular and quick, not fortified, dry",
+   "schluessel": [
+    "haferflocken",
+    "hafer"
+   ],
+   "je100g": {
+    "kcal": 379,
+    "eiweiss": 13.2,
+    "fett": 6.5,
+    "gesFett": 1.1,
+    "kh": 67.7,
+    "zucker": 1,
+    "ballast": 10.1,
+    "salz": 0.02
+   },
+   "el": 5.1,
+   "tl": 1.69,
+   "dichte": 0.34
+  },
+  {
+   "id": "reis",
+   "name": "Reis",
+   "fdc": 168877,
+   "quelle": "Rice, white, long-grain, regular, raw, enriched",
+   "schluessel": [
+    "reis",
+    "basmatireis",
+    "langkornreis",
+    "jasminreis",
+    "reisnudeln"
+   ],
+   "je100g": {
+    "kcal": 365,
+    "eiweiss": 7.1,
+    "fett": 0.7,
+    "gesFett": 0.2,
+    "kh": 80,
+    "zucker": 0.1,
+    "ballast": 1.3,
+    "salz": 0.01
+   },
+   "el": 11.6,
+   "tl": 3.85,
+   "dichte": 0.78
+  },
+  {
+   "id": "rundkornreis",
+   "name": "Rundkornreis",
+   "fdc": 168881,
+   "quelle": "Rice, white, short-grain, enriched, uncooked",
+   "schluessel": [
+    "rundkornreis",
+    "milchreis",
+    "risottoreis",
+    "arborio",
+    "sushireis",
+    "klebreis"
+   ],
+   "je100g": {
+    "kcal": 358,
+    "eiweiss": 6.5,
+    "fett": 0.5,
+    "gesFett": 0.1,
+    "kh": 79.2,
+    "zucker": null,
+    "ballast": 2.8,
+    "salz": 0
+   },
+   "el": 12.5,
+   "tl": 4.17,
+   "dichte": 0.85
+  },
+  {
+   "id": "nudeln",
+   "name": "Nudeln",
+   "fdc": 169736,
+   "quelle": "Pasta, dry, enriched",
+   "schluessel": [
+    "nudel",
+    "nudeln",
+    "spaghetti",
+    "makkaroni",
+    "penne",
+    "tagliatelle",
+    "fusilli",
+    "farfalle",
+    "lasagneplatten",
+    "bandnudeln",
+    "hörnchennudeln",
+    "glasnudeln",
+    "mie-nudeln",
+    "mienudeln"
+   ],
+   "je100g": {
+    "kcal": 371,
+    "eiweiss": 13,
+    "fett": 1.5,
+    "gesFett": 0.3,
+    "kh": 74.7,
+    "zucker": 2.7,
+    "ballast": 3.2,
+    "salz": 0.02
+   },
+   "el": 5.7,
+   "tl": 1.9,
+   "dichte": 0.38
+  },
+  {
+   "id": "semmelbroesel",
+   "name": "Semmelbrösel",
+   "fdc": 174928,
+   "quelle": "Bread, crumbs, dry, grated, plain",
+   "schluessel": [
+    "semmelbrösel",
+    "brösel",
+    "paniermehl",
+    "weißbrotbrösel"
+   ],
+   "je100g": {
+    "kcal": 395,
+    "eiweiss": 13.4,
+    "fett": 5.3,
+    "gesFett": 1.2,
+    "kh": 72,
+    "zucker": 6.2,
+    "ballast": 4.5,
+    "salz": 1.83
+   },
+   "el": 6.8,
+   "tl": 2.25,
+   "dichte": 0.46
+  },
+  {
+   "id": "weissbrot",
+   "name": "Weißbrot, Toast",
+   "fdc": 174924,
+   "quelle": "Bread, white, commercially prepared (includes soft bread crumbs)",
+   "schluessel": [
+    "weißbrot",
+    "toast",
+    "toastbrot",
+    "baguette",
+    "ciabatta",
+    "kastenweißbrot"
+   ],
+   "je100g": {
+    "kcal": 266,
+    "eiweiss": 8.9,
+    "fett": 3.3,
+    "gesFett": 0.7,
+    "kh": 49.4,
+    "zucker": 5.7,
+    "ballast": 2.7,
+    "salz": 1.23
+   },
+   "el": 2.8,
+   "tl": 0.94,
+   "dichte": 0.19,
+   "scheibe": 25
+  },
+  {
+   "id": "broetchen",
+   "name": "Brötchen",
+   "fdc": 175031,
+   "quelle": "Rolls, hard (includes kaiser)",
+   "schluessel": [
+    "brötchen",
+    "semmel",
+    "semmeln",
+    "wecken",
+    "schrippe"
+   ],
+   "je100g": {
+    "kcal": 293,
+    "eiweiss": 9.9,
+    "fett": 4.3,
+    "gesFett": 0.6,
+    "kh": 52.7,
+    "zucker": 1.8,
+    "ballast": 2.3,
+    "salz": 1.36
+   },
+   "stueck": 57
+  },
+  {
+   "id": "roggenbrot",
+   "name": "Roggen- und Mischbrot",
+   "fdc": 172684,
+   "quelle": "Bread, rye",
+   "schluessel": [
+    "roggenbrot",
+    "mischbrot",
+    "bauernbrot",
+    "graubrot",
+    "schwarzbrot",
+    "brot",
+    "sauerteigbrot"
+   ],
+   "je100g": {
+    "kcal": 259,
+    "eiweiss": 8.5,
+    "fett": 3.3,
+    "gesFett": 0.6,
+    "kh": 48.3,
+    "zucker": 3.9,
+    "ballast": 5.8,
+    "salz": 1.51
+   },
+   "scheibe": 45
+  },
+  {
+   "id": "vollkornbrot",
+   "name": "Vollkornbrot",
+   "fdc": 172688,
+   "quelle": "Bread, whole-wheat, commercially prepared",
+   "schluessel": [
+    "vollkornbrot",
+    "pumpernickel"
+   ],
+   "je100g": {
+    "kcal": 252,
+    "eiweiss": 12.5,
+    "fett": 3.5,
+    "gesFett": 0.7,
+    "kh": 42.7,
+    "zucker": 4.3,
+    "ballast": 6,
+    "salz": 1.14
+   },
+   "scheibe": 45
+  },
+  {
+   "id": "blaetterteig",
+   "name": "Blätterteig",
+   "fdc": 172790,
+   "quelle": "Puff pastry, frozen, ready-to-bake",
+   "schluessel": [
+    "blätterteig",
+    "puff-paste"
+   ],
+   "je100g": {
+    "kcal": 551,
+    "eiweiss": 7.3,
+    "fett": 38.1,
+    "gesFett": 9.6,
+    "kh": 45.1,
+    "zucker": 0.7,
+    "ballast": 1.5,
+    "salz": 0.62
+   },
+   "scheibe": 75,
+   "pck": 275
+  },
+  {
+   "id": "zwieback",
+   "name": "Zwieback",
+   "fdc": 171372,
+   "quelle": "Zwieback",
+   "schluessel": [
+    "zwieback",
+    "zwiebäcke"
+   ],
+   "je100g": {
+    "kcal": 426,
+    "eiweiss": 10.1,
+    "fett": 9.7,
+    "gesFett": 2.5,
+    "kh": 74.2,
+    "zucker": 12.5,
+    "ballast": 2.5,
+    "salz": 0.57
+   },
+   "stueck": 10
+  },
+  {
+   "id": "sago",
+   "name": "Sago, Tapioka",
+   "fdc": 169717,
+   "quelle": "Tapioca, pearl, dry",
+   "schluessel": [
+    "sago",
+    "perlsago",
+    "tapioka"
+   ],
+   "je100g": {
+    "kcal": 358,
+    "eiweiss": 0.2,
+    "fett": 0,
+    "gesFett": 0,
+    "kh": 88.7,
+    "zucker": 3.4,
+    "ballast": 0.9,
+    "salz": 0
+   },
+   "el": 9.5,
+   "tl": 3.17,
+   "dichte": 0.64
+  },
+  {
+   "id": "loeffelbiskuit",
+   "name": "Löffelbiskuits",
+   "fdc": 174959,
+   "quelle": "Cookies, ladyfingers, with lemon juice and rind",
+   "schluessel": [
+    "löffelbiskuit",
+    "löffelbiskuits",
+    "biskotten"
+   ],
+   "je100g": {
+    "kcal": 365,
+    "eiweiss": 10.6,
+    "fett": 9.1,
+    "gesFett": 3.1,
+    "kh": 59.7,
+    "zucker": 25.4,
+    "ballast": 1,
+    "salz": 0.37
+   },
+   "stueck": 11
+  },
+  {
+   "id": "zucker",
+   "name": "Zucker",
+   "fdc": 169655,
+   "quelle": "Sugars, granulated",
+   "schluessel": [
+    "zucker",
+    "kristallzucker",
+    "feinkristallzucker",
+    "vanillezucker",
+    "vanillinzucker",
+    "hagelzucker",
+    "würfelzucker",
+    "gelierzucker",
+    "einmachzucker",
+    "raffinade"
+   ],
+   "je100g": {
+    "kcal": 387,
+    "eiweiss": 0,
+    "fett": 0,
+    "gesFett": 0,
+    "kh": 100,
+    "zucker": 99.8,
+    "ballast": 0,
+    "salz": 0
+   },
+   "el": 12.6,
+   "tl": 4.2,
+   "dichte": 0.85,
+   "pck": 8
+  },
+  {
+   "id": "brauner_zucker",
+   "name": "Brauner Zucker",
+   "fdc": 168833,
+   "quelle": "Sugars, brown",
+   "schluessel": [
+    "brauner zucker",
+    "rohrzucker",
+    "farinzucker",
+    "weißer farinzucker",
+    "palmzucker",
+    "kandiszucker",
+    "vollrohrzucker",
+    "muscovado"
+   ],
+   "je100g": {
+    "kcal": 380,
+    "eiweiss": 0.1,
+    "fett": 0,
+    "gesFett": 0,
+    "kh": 98.1,
+    "zucker": 97,
+    "ballast": 0,
+    "salz": 0.07
+   },
+   "el": 9,
+   "tl": 3,
+   "dichte": 0.93
+  },
+  {
+   "id": "puderzucker",
+   "name": "Puderzucker",
+   "fdc": 169656,
+   "quelle": "Sugars, powdered",
+   "schluessel": [
+    "puderzucker",
+    "staubzucker"
+   ],
+   "je100g": {
+    "kcal": 389,
+    "eiweiss": 0,
+    "fett": 0,
+    "gesFett": 0,
+    "kh": 99.8,
+    "zucker": 97.8,
+    "ballast": 0,
+    "salz": 0.01
+   },
+   "el": 8,
+   "tl": 2.5,
+   "dichte": 0.51
+  },
+  {
+   "id": "honig",
+   "name": "Honig",
+   "fdc": 169640,
+   "quelle": "Honey",
+   "schluessel": [
+    "honig"
+   ],
+   "je100g": {
+    "kcal": 304,
+    "eiweiss": 0.3,
+    "fett": 0,
+    "gesFett": 0,
+    "kh": 82.4,
+    "zucker": 82.1,
+    "ballast": 0.2,
+    "salz": 0.01
+   },
+   "el": 21,
+   "tl": 7,
+   "dichte": 1.43
+  },
+  {
+   "id": "ahornsirup",
+   "name": "Ahornsirup",
+   "fdc": 169661,
+   "quelle": "Syrups, maple",
+   "schluessel": [
+    "ahornsirup"
+   ],
+   "je100g": {
+    "kcal": 260,
+    "eiweiss": 0,
+    "fett": 0.1,
+    "gesFett": 0,
+    "kh": 67,
+    "zucker": 60.5,
+    "ballast": 0,
+    "salz": 0.03
+   },
+   "el": 20,
+   "tl": 6.67,
+   "dichte": 1.33
+  },
+  {
+   "id": "melasse",
+   "name": "Melasse, Rübensirup",
+   "fdc": 168820,
+   "quelle": "Molasses",
+   "schluessel": [
+    "melasse",
+    "zuckerrübensirup",
+    "rübensirup",
+    "rübenkraut",
+    "apfelkraut",
+    "birnenkraut"
+   ],
+   "je100g": {
+    "kcal": 290,
+    "eiweiss": 0,
+    "fett": 0.1,
+    "gesFett": 0,
+    "kh": 74.7,
+    "zucker": 74.7,
+    "ballast": 0,
+    "salz": 0.09
+   },
+   "el": 21.1,
+   "tl": 7.02,
+   "dichte": 1.42
+  },
+  {
+   "id": "marmelade",
+   "name": "Konfitüre",
+   "fdc": 169641,
+   "quelle": "Jams and preserves",
+   "schluessel": [
+    "marmelade",
+    "konfitüre",
+    "aprikosenmarmelade",
+    "gelee",
+    "powidl"
+   ],
+   "je100g": {
+    "kcal": 278,
+    "eiweiss": 0.4,
+    "fett": 0.1,
+    "gesFett": 0,
+    "kh": 68.9,
+    "zucker": 48.5,
+    "ballast": 1.1,
+    "salz": 0.08
+   },
+   "el": 20,
+   "tl": 6.67
+  },
+  {
+   "id": "kakao",
+   "name": "Kakaopulver",
+   "fdc": 169593,
+   "quelle": "Cocoa, dry powder, unsweetened",
+   "schluessel": [
+    "kakao",
+    "kakaopulver",
+    "backkakao"
+   ],
+   "je100g": {
+    "kcal": 228,
+    "eiweiss": 19.6,
+    "fett": 13.7,
+    "gesFett": 8.1,
+    "kh": 57.9,
+    "zucker": 1.8,
+    "ballast": 37,
+    "salz": 0.05
+   },
+   "el": 5.4,
+   "tl": 1.8,
+   "dichte": 0.36
+  },
+  {
+   "id": "zartbitter",
+   "name": "Zartbitterschokolade",
+   "fdc": 170273,
+   "quelle": "Chocolate, dark, 70-85% cacao solids",
+   "schluessel": [
+    "schokolade",
+    "zartbitterschokolade",
+    "zartbitter",
+    "kuvertüre",
+    "bitterschokolade",
+    "raspelschokolade",
+    "schokoladenglasur",
+    "moccaschokolade"
+   ],
+   "je100g": {
+    "kcal": 598,
+    "eiweiss": 7.8,
+    "fett": 42.6,
+    "gesFett": 24.5,
+    "kh": 45.9,
+    "zucker": 24,
+    "ballast": 10.9,
+    "salz": 0.05
+   }
+  },
+  {
+   "id": "milchschokolade",
+   "name": "Vollmilchschokolade",
+   "fdc": 167587,
+   "quelle": "Candies, milk chocolate",
+   "schluessel": [
+    "milchschokolade",
+    "vollmilchschokolade",
+    "vollmilch-schokolade",
+    "vollmilch kuvertüre",
+    "vollmich kuvertüre",
+    "kuvertüre (typ vollmilch)"
+   ],
+   "je100g": {
+    "kcal": 535,
+    "eiweiss": 7.7,
+    "fett": 29.7,
+    "gesFett": 18.5,
+    "kh": 59.4,
+    "zucker": 51.5,
+    "ballast": 3.4,
+    "salz": 0.2
+   },
+   "el": 10.5,
+   "tl": 3.5,
+   "dichte": 0.71
+  },
+  {
+   "id": "weisse_schokolade",
+   "name": "Weiße Schokolade",
+   "fdc": 167571,
+   "quelle": "Candies, white chocolate",
+   "schluessel": [
+    "weiße schokolade"
+   ],
+   "je100g": {
+    "kcal": 539,
+    "eiweiss": 5.9,
+    "fett": 32.1,
+    "gesFett": 19.4,
+    "kh": 59.2,
+    "zucker": 59,
+    "ballast": 0.2,
+    "salz": 0.23
+   },
+   "el": 14,
+   "tl": 4.67,
+   "dichte": 0.72
+  },
+  {
+   "id": "marzipan",
+   "name": "Marzipan",
+   "fdc": 170160,
+   "quelle": "Nuts, almond paste",
+   "schluessel": [
+    "marzipan",
+    "marzipan-rohmasse",
+    "persipan"
+   ],
+   "je100g": {
+    "kcal": 458,
+    "eiweiss": 9,
+    "fett": 27.7,
+    "gesFett": 2.6,
+    "kh": 47.8,
+    "zucker": 36.3,
+    "ballast": 4.8,
+    "salz": 0.02
+   },
+   "el": 14.2,
+   "tl": 4.73,
+   "dichte": 0.96
+  },
+  {
+   "id": "nougat",
+   "name": "Nuss-Nougat",
+   "fdc": 168000,
+   "quelle": "Chocolate-flavored hazelnut spread",
+   "schluessel": [
+    "nougat",
+    "nuss-nougat",
+    "nuss-nougat-creme"
+   ],
+   "je100g": {
+    "kcal": 539,
+    "eiweiss": 5.4,
+    "fett": 29.7,
+    "gesFett": 28.4,
+    "kh": 62.4,
+    "zucker": 54.1,
+    "ballast": 5.4,
+    "salz": 0.1
+   }
+  },
+  {
+   "id": "rosinen",
+   "name": "Rosinen",
+   "fdc": 168165,
+   "quelle": "Raisins, dark, seedless (Includes foods for USDA's Food Distribution Program)",
+   "schluessel": [
+    "rosinen",
+    "sultaninen",
+    "korinthen",
+    "rumrosinen"
+   ],
+   "je100g": {
+    "kcal": 299,
+    "eiweiss": 3.3,
+    "fett": 0.3,
+    "gesFett": 0.1,
+    "kh": 79.3,
+    "zucker": 65.2,
+    "ballast": 4.5,
+    "salz": 0.07
+   },
+   "el": 10.3,
+   "tl": 3.44,
+   "dichte": 0.7
+  },
+  {
+   "id": "orangeat",
+   "name": "Orangeat, Zitronat",
+   "fdc": 167781,
+   "quelle": "Candied fruit",
+   "schluessel": [
+    "orangeat",
+    "zitronat",
+    "citronat",
+    "cedrat",
+    "belegkirschen"
+   ],
+   "je100g": {
+    "kcal": 322,
+    "eiweiss": 0.3,
+    "fett": 0.1,
+    "gesFett": 0,
+    "kh": 82.7,
+    "zucker": 80.7,
+    "ballast": 1.6,
+    "salz": 0.25
+   }
+  },
+  {
+   "id": "gelatine",
+   "name": "Gelatine",
+   "fdc": 169599,
+   "quelle": "Gelatins, dry powder, unsweetened",
+   "schluessel": [
+    "gelatine",
+    "blattgelatine",
+    "hausenblase"
+   ],
+   "je100g": {
+    "kcal": 335,
+    "eiweiss": 85.6,
+    "fett": 0.1,
+    "gesFett": 0.1,
+    "kh": 0,
+    "zucker": 0,
+    "ballast": 0,
+    "salz": 0.49
+   },
+   "blatt": 1.7,
+   "pck": 9
+  },
+  {
+   "id": "puddingpulver",
+   "name": "Puddingpulver",
+   "fdc": 169609,
+   "quelle": "Puddings, vanilla, dry mix, regular",
+   "schluessel": [
+    "puddingpulver",
+    "vanillepuddingpulver",
+    "custardpulver"
+   ],
+   "je100g": {
+    "kcal": 379,
+    "eiweiss": 0.3,
+    "fett": 0.4,
+    "gesFett": 0.1,
+    "kh": 93.5,
+    "zucker": 79.3,
+    "ballast": 0.6,
+    "salz": 1.53
+   },
+   "pck": 37
+  },
+  {
+   "id": "backpulver",
+   "name": "Backpulver",
+   "fdc": 172803,
+   "quelle": "Leavening agents, baking powder, double-acting, sodium aluminum sulfate",
+   "schluessel": [
+    "backpulver",
+    "weinsteinbackpulver"
+   ],
+   "je100g": {
+    "kcal": 53,
+    "eiweiss": 0,
+    "fett": 0,
+    "gesFett": 0,
+    "kh": 27.7,
+    "zucker": 0,
+    "ballast": 0.2,
+    "salz": 26.5
+   },
+   "el": 13.8,
+   "tl": 4.6,
+   "pck": 15
+  },
+  {
+   "id": "natron",
+   "name": "Natron",
+   "fdc": 175040,
+   "quelle": "Leavening agents, baking soda",
+   "schluessel": [
+    "natron",
+    "hirschhornsalz",
+    "pottasche"
+   ],
+   "je100g": {
+    "kcal": 0,
+    "eiweiss": 0,
+    "fett": 0,
+    "gesFett": 0,
+    "kh": 0,
+    "zucker": 0,
+    "ballast": 0,
+    "salz": 68.4
+   },
+   "el": 13.8,
+   "tl": 4.6,
+   "pck": 5
+  },
+  {
+   "id": "hefe",
+   "name": "Frischhefe",
+   "fdc": 175042,
+   "quelle": "Leavening agents, yeast, baker's, compressed",
+   "schluessel": [
+    "hefe",
+    "frischhefe",
+    "germ",
+    "würfel hefe",
+    "hefewürfel",
+    "bärme",
+    "bierhefe"
+   ],
+   "je100g": {
+    "kcal": 105,
+    "eiweiss": 8.4,
+    "fett": 1.9,
+    "gesFett": 0.2,
+    "kh": 18.1,
+    "zucker": 0,
+    "ballast": 8.1,
+    "salz": 0.08
+   },
+   "stueck": 42,
+   "pck": 42
+  },
+  {
+   "id": "trockenhefe",
+   "name": "Trockenhefe",
+   "fdc": 175043,
+   "quelle": "Leavening agents, yeast, baker's, active dry",
+   "schluessel": [
+    "trockenhefe"
+   ],
+   "je100g": {
+    "kcal": 325,
+    "eiweiss": 40.4,
+    "fett": 7.6,
+    "gesFett": 1,
+    "kh": 41.2,
+    "zucker": 0,
+    "ballast": 26.9,
+    "salz": 0.13
+   },
+   "el": 12,
+   "tl": 4,
+   "pck": 7
+  },
+  {
+   "id": "butter",
+   "name": "Butter",
+   "fdc": 173430,
+   "quelle": "Butter, without salt",
+   "schluessel": [
+    "butter",
+    "butterflocken",
+    "süßrahmbutter",
+    "sauerrahmbutter",
+    "markenbutter"
+   ],
+   "je100g": {
+    "kcal": 717,
+    "eiweiss": 0.9,
+    "fett": 81.1,
+    "gesFett": 50.5,
+    "kh": 0.1,
+    "zucker": 0.1,
+    "ballast": 0,
+    "salz": 0.03
+   },
+   "el": 14.2,
+   "tl": 4.73,
+   "dichte": 0.96
+  },
+  {
+   "id": "butterschmalz",
+   "name": "Butterschmalz, Ghee",
+   "fdc": 171314,
+   "quelle": "Butter, Clarified butter (ghee)",
+   "schluessel": [
+    "butterschmalz",
+    "ghee",
+    "butterreinfett"
+   ],
+   "je100g": {
+    "kcal": 900,
+    "eiweiss": 0,
+    "fett": 100,
+    "gesFett": 60,
+    "kh": 0,
+    "zucker": 0,
+    "ballast": 0,
+    "salz": 0
+   }
+  },
+  {
+   "id": "margarine",
+   "name": "Margarine",
+   "fdc": 172346,
+   "quelle": "Margarine, regular, 80% fat, composite, stick, with salt",
+   "schluessel": [
+    "margarine",
+    "pflanzenmargarine",
+    "sonnenblumenmargarine"
+   ],
+   "je100g": {
+    "kcal": 717,
+    "eiweiss": 0.2,
+    "fett": 80.7,
+    "gesFett": 15.2,
+    "kh": 0.7,
+    "zucker": 0,
+    "ballast": 0,
+    "salz": 1.88
+   },
+   "el": 14,
+   "tl": 4.7,
+   "dichte": 0.96
+  },
+  {
+   "id": "schmalz",
+   "name": "Schweineschmalz",
+   "fdc": 171401,
+   "quelle": "Lard",
+   "schluessel": [
+    "schmalz",
+    "schweineschmalz",
+    "gänseschmalz"
+   ],
+   "je100g": {
+    "kcal": 902,
+    "eiweiss": 0,
+    "fett": 100,
+    "gesFett": 39.2,
+    "kh": 0,
+    "zucker": 0,
+    "ballast": 0,
+    "salz": 0
+   },
+   "el": 12.8,
+   "tl": 4.27,
+   "dichte": 0.87
+  },
+  {
+   "id": "olivenoel",
+   "name": "Olivenöl",
+   "fdc": 171413,
+   "quelle": "Oil, olive, salad or cooking",
+   "schluessel": [
+    "olivenöl",
+    "olivenöl extra vergine"
+   ],
+   "je100g": {
+    "kcal": 884,
+    "eiweiss": 0,
+    "fett": 100,
+    "gesFett": 13.8,
+    "kh": 0,
+    "zucker": 0,
+    "ballast": 0,
+    "salz": 0.01
+   },
+   "el": 13.5,
+   "tl": 4.5,
+   "dichte": 0.91
+  },
+  {
+   "id": "rapsoel",
+   "name": "Pflanzenöl",
+   "fdc": 172336,
+   "quelle": "Oil, canola",
+   "schluessel": [
+    "öl",
+    "rapsöl",
+    "pflanzenöl",
+    "speiseöl",
+    "sonnenblumenöl",
+    "maiskeimöl",
+    "distelöl",
+    "bratöl",
+    "neutrales öl",
+    "traubenkernöl",
+    "sojaöl"
+   ],
+   "je100g": {
+    "kcal": 884,
+    "eiweiss": 0,
+    "fett": 100,
+    "gesFett": 7.4,
+    "kh": 0,
+    "zucker": 0,
+    "ballast": 0,
+    "salz": 0
+   },
+   "el": 14,
+   "tl": 4.5,
+   "dichte": 0.92
+  },
+  {
+   "id": "frittieroel",
+   "name": "Frittieröl (nur aufgenommener Anteil)",
+   "fdc": 172336,
+   "quelle": "Oil, canola",
+   "schluessel": [
+    "frittieröl",
+    "öl zum frittieren",
+    "fett zum frittieren",
+    "öl zum ausbacken",
+    "fett zum ausbacken",
+    "frittierfett",
+    "öl zum braten"
+   ],
+   "je100g": {
+    "kcal": 884,
+    "eiweiss": 0,
+    "fett": 100,
+    "gesFett": 7.4,
+    "kh": 0,
+    "zucker": 0,
+    "ballast": 0,
+    "salz": 0
+   },
+   "el": 14,
+   "tl": 4.5,
+   "dichte": 0.92,
+   "verzehr": 0.1
+  },
+  {
+   "id": "erdnussoel",
+   "name": "Erdnussöl",
+   "fdc": 171410,
+   "quelle": "Oil, peanut, salad or cooking",
+   "schluessel": [
+    "erdnussöl"
+   ],
+   "je100g": {
+    "kcal": 884,
+    "eiweiss": 0,
+    "fett": 100,
+    "gesFett": 16.9,
+    "kh": 0,
+    "zucker": 0,
+    "ballast": 0,
+    "salz": 0
+   },
+   "el": 13.5,
+   "tl": 4.5,
+   "dichte": 0.91
+  },
+  {
+   "id": "sesamoel",
+   "name": "Sesamöl",
+   "fdc": 171016,
+   "quelle": "Oil, sesame, salad or cooking",
+   "schluessel": [
+    "sesamöl"
+   ],
+   "je100g": {
+    "kcal": 884,
+    "eiweiss": 0,
+    "fett": 100,
+    "gesFett": 14.2,
+    "kh": 0,
+    "zucker": 0,
+    "ballast": 0,
+    "salz": 0
+   },
+   "el": 13.6,
+   "tl": 4.5,
+   "dichte": 0.92
+  },
+  {
+   "id": "kokosoel",
+   "name": "Kokosöl",
+   "fdc": 171412,
+   "quelle": "Oil, coconut",
+   "schluessel": [
+    "kokosöl",
+    "kokosfett",
+    "kokosnussöl",
+    "palmin"
+   ],
+   "je100g": {
+    "kcal": 892,
+    "eiweiss": 0,
+    "fett": 99.1,
+    "gesFett": 82.5,
+    "kh": 0,
+    "zucker": 0,
+    "ballast": 0,
+    "salz": 0
+   },
+   "el": 13.6,
+   "tl": 4.5,
+   "dichte": 0.92
+  },
+  {
+   "id": "walnussoel",
+   "name": "Walnussöl",
+   "fdc": 171030,
+   "quelle": "Oil, walnut",
+   "schluessel": [
+    "walnussöl",
+    "haselnussöl"
+   ],
+   "je100g": {
+    "kcal": 884,
+    "eiweiss": 0,
+    "fett": 100,
+    "gesFett": 9.1,
+    "kh": 0,
+    "zucker": 0,
+    "ballast": 0,
+    "salz": 0
+   },
+   "el": 13.6,
+   "tl": 4.5,
+   "dichte": 0.92
+  },
+  {
+   "id": "milch",
+   "name": "Vollmilch",
+   "fdc": 171265,
+   "quelle": "Milk, whole, 3.25% milkfat, with added vitamin D",
+   "schluessel": [
+    "milch",
+    "vollmilch",
+    "frischmilch",
+    "kuhmilch"
+   ],
+   "je100g": {
+    "kcal": 61,
+    "eiweiss": 3.2,
+    "fett": 3.3,
+    "gesFett": 1.9,
+    "kh": 4.8,
+    "zucker": 5.1,
+    "ballast": 0,
+    "salz": 0.11
+   },
+   "el": 15,
+   "tl": 5,
+   "dichte": 1.03
+  },
+  {
+   "id": "fettarme_milch",
+   "name": "Fettarme Milch",
+   "fdc": 170872,
+   "quelle": "Milk, lowfat, fluid, 1% milkfat, with added vitamin A and vitamin D",
+   "schluessel": [
+    "fettarme milch",
+    "magermilch",
+    "entrahmte milch",
+    "milch 1,5"
+   ],
+   "je100g": {
+    "kcal": 42,
+    "eiweiss": 3.4,
+    "fett": 1,
+    "gesFett": 0.6,
+    "kh": 5,
+    "zucker": 5.2,
+    "ballast": 0,
+    "salz": 0.11
+   },
+   "el": 15.3,
+   "tl": 5.08,
+   "dichte": 1.03
+  },
+  {
+   "id": "buttermilch",
+   "name": "Buttermilch",
+   "fdc": 170874,
+   "quelle": "Milk, buttermilk, fluid, cultured, lowfat",
+   "schluessel": [
+    "buttermilch",
+    "dickmilch",
+    "kefir"
+   ],
+   "je100g": {
+    "kcal": 40,
+    "eiweiss": 3.3,
+    "fett": 1.1,
+    "gesFett": 0.7,
+    "kh": 4.8,
+    "zucker": 5.4,
+    "ballast": 0,
+    "salz": 0.37
+   },
+   "el": 15.3,
+   "tl": 5.1,
+   "dichte": 1.04
+  },
+  {
+   "id": "kondensmilch",
+   "name": "Gezuckerte Kondensmilch",
+   "fdc": 171275,
+   "quelle": "Milk, canned, condensed, sweetened",
+   "schluessel": [
+    "gezuckerte kondensmilch",
+    "kondensmilch gezuckert",
+    "milchmädchen"
+   ],
+   "je100g": {
+    "kcal": 321,
+    "eiweiss": 7.9,
+    "fett": 8.7,
+    "gesFett": 5.5,
+    "kh": 54.4,
+    "zucker": 54.4,
+    "ballast": 0,
+    "salz": 0.32
+   },
+   "el": 19.1,
+   "tl": 6.38,
+   "dichte": 1.29
+  },
+  {
+   "id": "kondensmilch_ungezuckert",
+   "name": "Kondensmilch",
+   "fdc": 171276,
+   "quelle": "Milk, canned, evaporated, with added vitamin D and without added vitamin A",
+   "schluessel": [
+    "kondensmilch",
+    "dosenmilch",
+    "kaffeesahne"
+   ],
+   "je100g": {
+    "kcal": 134,
+    "eiweiss": 6.8,
+    "fett": 7.6,
+    "gesFett": 4.6,
+    "kh": 10,
+    "zucker": 10,
+    "ballast": 0,
+    "salz": 0.27
+   },
+   "el": 15.8,
+   "tl": 5.25,
+   "dichte": 1.07
+  },
+  {
+   "id": "sahne",
+   "name": "Sahne",
+   "fdc": 170858,
+   "quelle": "Cream, fluid, light whipping",
+   "schluessel": [
+    "sahne",
+    "schlagsahne",
+    "süße sahne",
+    "obers",
+    "schlagobers",
+    "rahm",
+    "kochsahne",
+    "cremefine"
+   ],
+   "je100g": {
+    "kcal": 292,
+    "eiweiss": 2.2,
+    "fett": 30.9,
+    "gesFett": 19.3,
+    "kh": 3,
+    "zucker": 3,
+    "ballast": 0,
+    "salz": 0.09
+   },
+   "el": 15,
+   "tl": 5,
+   "dichte": 1
+  },
+  {
+   "id": "creme_fraiche",
+   "name": "Crème fraîche",
+   "fdc": 170859,
+   "quelle": "Cream, fluid, heavy whipping",
+   "schluessel": [
+    "crème fraîche",
+    "creme fraiche",
+    "crème double",
+    "clotted cream"
+   ],
+   "je100g": {
+    "kcal": 340,
+    "eiweiss": 2.8,
+    "fett": 36.1,
+    "gesFett": 23,
+    "kh": 2.8,
+    "zucker": 2.9,
+    "ballast": 0,
+    "salz": 0.07
+   },
+   "el": 15,
+   "tl": 5,
+   "dichte": 1
+  },
+  {
+   "id": "schmand",
+   "name": "Schmand",
+   "fdc": 171257,
+   "quelle": "Cream, sour, cultured",
+   "schluessel": [
+    "schmand",
+    "sauerrahm",
+    "saure sahne",
+    "smetana"
+   ],
+   "je100g": {
+    "kcal": 198,
+    "eiweiss": 2.4,
+    "fett": 19.4,
+    "gesFett": 10.1,
+    "kh": 4.6,
+    "zucker": 3.4,
+    "ballast": 0,
+    "salz": 0.08
+   },
+   "el": 12,
+   "tl": 4,
+   "dichte": 0.97
+  },
+  {
+   "id": "joghurt",
+   "name": "Joghurt",
+   "fdc": 171284,
+   "quelle": "Yogurt, plain, whole milk",
+   "schluessel": [
+    "joghurt",
+    "naturjoghurt",
+    "griechischer joghurt",
+    "sahnejoghurt",
+    "jogurt"
+   ],
+   "je100g": {
+    "kcal": 61,
+    "eiweiss": 3.5,
+    "fett": 3.3,
+    "gesFett": 2.1,
+    "kh": 4.7,
+    "zucker": 4.7,
+    "ballast": 0,
+    "salz": 0.12
+   },
+   "el": 15.3,
+   "tl": 5.1,
+   "dichte": 1.04,
+   "becher": 150
+  },
+  {
+   "id": "quark",
+   "name": "Magerquark",
+   "fdc": 172181,
+   "quelle": "Cheese, cottage, nonfat, uncreamed, dry, large or small curd",
+   "schluessel": [
+    "quark",
+    "magerquark",
+    "speisequark",
+    "topfen",
+    "skyr"
+   ],
+   "je100g": {
+    "kcal": 72,
+    "eiweiss": 10.3,
+    "fett": 0.3,
+    "gesFett": 0.2,
+    "kh": 6.7,
+    "zucker": 1.9,
+    "ballast": 0,
+    "salz": 0.93
+   },
+   "el": 15,
+   "tl": 3.02,
+   "dichte": 1
+  },
+  {
+   "id": "frischkaese",
+   "name": "Frischkäse",
+   "fdc": 173418,
+   "quelle": "Cheese, cream",
+   "schluessel": [
+    "frischkäse",
+    "doppelrahmfrischkäse",
+    "mascarpone",
+    "philadelphia",
+    "hüttenkäse"
+   ],
+   "je100g": {
+    "kcal": 350,
+    "eiweiss": 6.2,
+    "fett": 34.4,
+    "gesFett": 20.2,
+    "kh": 5.5,
+    "zucker": 3.8,
+    "ballast": 0,
+    "salz": 0.79
+   },
+   "el": 14.5,
+   "tl": 4.83,
+   "dichte": 0.98
+  },
+  {
+   "id": "parmesan",
+   "name": "Parmesan",
+   "fdc": 170848,
+   "quelle": "Cheese, parmesan, hard",
+   "schluessel": [
+    "parmesan",
+    "parmesankäse",
+    "grana padano",
+    "pecorino",
+    "parmigiano"
+   ],
+   "je100g": {
+    "kcal": 392,
+    "eiweiss": 35.8,
+    "fett": 25,
+    "gesFett": 14.9,
+    "kh": 3.2,
+    "zucker": 0.1,
+    "ballast": 0,
+    "salz": 2.94
+   }
+  },
+  {
+   "id": "hartkaese",
+   "name": "Emmentaler, Bergkäse",
+   "fdc": 171251,
+   "quelle": "Cheese, swiss",
+   "schluessel": [
+    "emmentaler",
+    "bergkäse",
+    "greyerzer",
+    "gruyère",
+    "appenzeller",
+    "hartkäse",
+    "käse",
+    "reibekäse",
+    "raclettekäse",
+    "allgäuer"
+   ],
+   "je100g": {
+    "kcal": 393,
+    "eiweiss": 27,
+    "fett": 31,
+    "gesFett": 18.2,
+    "kh": 1.4,
+    "zucker": 0,
+    "ballast": 0,
+    "salz": 0.47
+   },
+   "el": 15.3,
+   "tl": 5.08,
+   "dichte": 1.03,
+   "scheibe": 20
+  },
+  {
+   "id": "gouda",
+   "name": "Gouda",
+   "fdc": 171241,
+   "quelle": "Cheese, gouda",
+   "schluessel": [
+    "gouda",
+    "edamer",
+    "butterkäse",
+    "tilsiter"
+   ],
+   "je100g": {
+    "kcal": 356,
+    "eiweiss": 24.9,
+    "fett": 27.4,
+    "gesFett": 17.6,
+    "kh": 2.2,
+    "zucker": 2.2,
+    "ballast": 0,
+    "salz": 2.05
+   },
+   "scheibe": 20
+  },
+  {
+   "id": "cheddar",
+   "name": "Cheddar",
+   "fdc": 173414,
+   "quelle": "Cheese, cheddar (Includes foods for USDA's Food Distribution Program)",
+   "schluessel": [
+    "cheddar"
+   ],
+   "je100g": {
+    "kcal": 403,
+    "eiweiss": 22.9,
+    "fett": 33.3,
+    "gesFett": 18.9,
+    "kh": 3.4,
+    "zucker": 0.5,
+    "ballast": 0,
+    "salz": 1.63
+   },
+   "el": 15.3,
+   "tl": 5.08,
+   "dichte": 1.03,
+   "scheibe": 20
+  },
+  {
+   "id": "feta",
+   "name": "Feta",
+   "fdc": 173420,
+   "quelle": "Cheese, feta",
+   "schluessel": [
+    "feta",
+    "schafskäse",
+    "hirtenkäse"
+   ],
+   "je100g": {
+    "kcal": 265,
+    "eiweiss": 14.2,
+    "fett": 21.5,
+    "gesFett": 13.3,
+    "kh": 3.9,
+    "zucker": 0,
+    "ballast": 0,
+    "salz": 2.85
+   },
+   "el": 9.4,
+   "tl": 3.13,
+   "dichte": 0.63
+  },
+  {
+   "id": "mozzarella",
+   "name": "Mozzarella",
+   "fdc": 170845,
+   "quelle": "Cheese, mozzarella, whole milk",
+   "schluessel": [
+    "mozzarella",
+    "burrata"
+   ],
+   "je100g": {
+    "kcal": 299,
+    "eiweiss": 22.2,
+    "fett": 22.1,
+    "gesFett": 13.9,
+    "kh": 2.4,
+    "zucker": 0,
+    "ballast": 0,
+    "salz": 1.22
+   },
+   "el": 7,
+   "tl": 2.33,
+   "dichte": 0.47,
+   "stueck": 125
+  },
+  {
+   "id": "ricotta",
+   "name": "Ricotta",
+   "fdc": 170851,
+   "quelle": "Cheese, ricotta, whole milk",
+   "schluessel": [
+    "ricotta"
+   ],
+   "je100g": {
+    "kcal": 150,
+    "eiweiss": 7.5,
+    "fett": 10.2,
+    "gesFett": 6.4,
+    "kh": 7.3,
+    "zucker": 0.3,
+    "ballast": 0,
+    "salz": 0.28
+   },
+   "el": 15.5,
+   "tl": 5.17,
+   "dichte": 1.05
+  },
+  {
+   "id": "camembert",
+   "name": "Camembert, Brie",
+   "fdc": 172178,
+   "quelle": "Cheese, camembert",
+   "schluessel": [
+    "camembert",
+    "brie",
+    "weichkäse"
+   ],
+   "je100g": {
+    "kcal": 300,
+    "eiweiss": 19.8,
+    "fett": 24.3,
+    "gesFett": 15.3,
+    "kh": 0.5,
+    "zucker": 0.5,
+    "ballast": 0,
+    "salz": 2.11
+   },
+   "el": 15.4,
+   "tl": 5.13,
+   "dichte": 1.04,
+   "stueck": 125
+  },
+  {
+   "id": "ziegenkaese",
+   "name": "Ziegenkäse",
+   "fdc": 173435,
+   "quelle": "Cheese, goat, soft type",
+   "schluessel": [
+    "ziegenkäse",
+    "ziegenfrischkäse",
+    "picandou"
+   ],
+   "je100g": {
+    "kcal": 264,
+    "eiweiss": 18.5,
+    "fett": 21.1,
+    "gesFett": 14.6,
+    "kh": 0,
+    "zucker": 0,
+    "ballast": 0,
+    "salz": 1.15
+   }
+  },
+  {
+   "id": "ei",
+   "name": "Ei",
+   "fdc": 171287,
+   "quelle": "Egg, whole, raw, fresh",
+   "schluessel": [
+    "=ei",
+    "eier",
+    "vollei",
+    "ganze eier",
+    "hühnerei",
+    "hühnereier"
+   ],
+   "je100g": {
+    "kcal": 143,
+    "eiweiss": 12.6,
+    "fett": 9.5,
+    "gesFett": 3.1,
+    "kh": 0.7,
+    "zucker": 0.4,
+    "ballast": 0,
+    "salz": 0.36
+   },
+   "el": 15.2,
+   "tl": 5.06,
+   "dichte": 1.03,
+   "stueck": 50
+  },
+  {
+   "id": "eigelb",
+   "name": "Eigelb",
+   "fdc": 172184,
+   "quelle": "Egg, yolk, raw, fresh",
+   "schluessel": [
+    "eigelb",
+    "eigelbe",
+    "eidotter",
+    "dotter"
+   ],
+   "je100g": {
+    "kcal": 322,
+    "eiweiss": 15.9,
+    "fett": 26.5,
+    "gesFett": 9.6,
+    "kh": 3.6,
+    "zucker": 0.6,
+    "ballast": 0,
+    "salz": 0.12
+   },
+   "el": 15.2,
+   "tl": 5.06,
+   "dichte": 1.03,
+   "stueck": 17
+  },
+  {
+   "id": "eiweiss",
+   "name": "Eiweiß",
+   "fdc": 172183,
+   "quelle": "Egg, white, raw, fresh",
+   "schluessel": [
+    "eiweiß",
+    "eiklar",
+    "eischnee"
+   ],
+   "je100g": {
+    "kcal": 52,
+    "eiweiss": 10.9,
+    "fett": 0.2,
+    "gesFett": 0,
+    "kh": 0.7,
+    "zucker": 0.7,
+    "ballast": 0,
+    "salz": 0.42
+   },
+   "el": 15.2,
+   "tl": 5.06,
+   "dichte": 1.03,
+   "stueck": 33
+  },
+  {
+   "id": "rinderhack",
+   "name": "Rinderhack",
+   "fdc": 174036,
+   "quelle": "Beef, ground, 80% lean meat / 20% fat, raw",
+   "schluessel": [
+    "hackfleisch",
+    "rinderhack",
+    "rinderhackfleisch",
+    "gemischtes hackfleisch",
+    "gemischtes hack",
+    "hack",
+    "faschiertes"
+   ],
+   "je100g": {
+    "kcal": 254,
+    "eiweiss": 17.2,
+    "fett": 20,
+    "gesFett": 7.6,
+    "kh": 0,
+    "zucker": 0,
+    "ballast": 0,
+    "salz": 0.17
+   }
+  },
+  {
+   "id": "schweinehack",
+   "name": "Schweinehack, Mett",
+   "fdc": 167902,
+   "quelle": "Pork, fresh, ground, raw",
+   "schluessel": [
+    "schweinehack",
+    "schweinehackfleisch",
+    "mett",
+    "hackfleisch vom schwein",
+    "bratwurstbrät",
+    "brät"
+   ],
+   "je100g": {
+    "kcal": 263,
+    "eiweiss": 16.9,
+    "fett": 21.2,
+    "gesFett": 7.9,
+    "kh": 0,
+    "zucker": null,
+    "ballast": 0,
+    "salz": 0.14
+   }
+  },
+  {
+   "id": "rindfleisch",
+   "name": "Rindfleisch",
+   "fdc": 169491,
+   "quelle": "Beef, chuck, arm pot roast, separable lean and fat, trimmed to 1/8\" fat, all grades, raw",
+   "schluessel": [
+    "rindfleisch",
+    "rind",
+    "rinderbraten",
+    "gulasch",
+    "rindergulasch",
+    "schmorbraten",
+    "tafelspitz",
+    "beinscheibe",
+    "suppenfleisch",
+    "rinderschulter",
+    "ochsenfleisch",
+    "rinderwade"
+   ],
+   "je100g": {
+    "kcal": 244,
+    "eiweiss": 19.2,
+    "fett": 18,
+    "gesFett": 7.3,
+    "kh": 0,
+    "zucker": 0,
+    "ballast": 0,
+    "salz": 0.16
+   }
+  },
+  {
+   "id": "rindersteak",
+   "name": "Rindersteak, Filet",
+   "fdc": 168726,
+   "quelle": "Beef, top sirloin, steak, separable lean and fat, trimmed to 1/8\" fat, all grades, raw",
+   "schluessel": [
+    "steak",
+    "rumpsteak",
+    "rinderfilet",
+    "roastbeef",
+    "entrecote",
+    "hüftsteak",
+    "rouladen",
+    "roulade"
+   ],
+   "je100g": {
+    "kcal": 201,
+    "eiweiss": 20.3,
+    "fett": 12.7,
+    "gesFett": 5.1,
+    "kh": 0,
+    "zucker": 0,
+    "ballast": 0,
+    "salz": 0.13
+   },
+   "stueck": 200
+  },
+  {
+   "id": "schweinefleisch",
+   "name": "Schweinefleisch",
+   "fdc": 167843,
+   "quelle": "Pork, fresh, shoulder, whole, separable lean and fat, raw",
+   "schluessel": [
+    "schweinefleisch",
+    "schwein",
+    "schweinebraten",
+    "schweineschulter",
+    "schweinenacken",
+    "nacken",
+    "kotelett",
+    "schweinekotelett",
+    "schnitzel",
+    "schweineschnitzel",
+    "kasseler",
+    "schweinegulasch",
+    "eisbein",
+    "schweinshaxe",
+    "schäufele"
+   ],
+   "je100g": {
+    "kcal": 236,
+    "eiweiss": 17.2,
+    "fett": 18,
+    "gesFett": 6.2,
+    "kh": 0,
+    "zucker": 0,
+    "ballast": 0,
+    "salz": 0.16
+   },
+   "stueck": 150
+  },
+  {
+   "id": "schweinefilet",
+   "name": "Schweinefilet",
+   "fdc": 168249,
+   "quelle": "Pork, fresh, loin, tenderloin, separable lean only, raw",
+   "schluessel": [
+    "schweinefilet",
+    "schweinelende",
+    "filet vom schwein"
+   ],
+   "je100g": {
+    "kcal": 109,
+    "eiweiss": 21,
+    "fett": 2.2,
+    "gesFett": 0.7,
+    "kh": 0,
+    "zucker": 0,
+    "ballast": 0,
+    "salz": 0.13
+   },
+   "stueck": 400
+  },
+  {
+   "id": "schweinebauch",
+   "name": "Schweinebauch",
+   "fdc": 167812,
+   "quelle": "Pork, fresh, belly, raw",
+   "schluessel": [
+    "schweinebauch",
+    "bauchfleisch",
+    "wammerl"
+   ],
+   "je100g": {
+    "kcal": 518,
+    "eiweiss": 9.3,
+    "fett": 53,
+    "gesFett": 19.3,
+    "kh": 0,
+    "zucker": 0,
+    "ballast": 0,
+    "salz": 0.08
+   }
+  },
+  {
+   "id": "speck",
+   "name": "Speck",
+   "fdc": 168277,
+   "quelle": "Pork, cured, bacon, unprepared",
+   "schluessel": [
+    "speck",
+    "bacon",
+    "speckwürfel",
+    "frühstücksspeck",
+    "bauchspeck",
+    "durchwachsener speck",
+    "schinkenspeck",
+    "pancetta",
+    "räucherspeck"
+   ],
+   "je100g": {
+    "kcal": 393,
+    "eiweiss": 13.7,
+    "fett": 37.1,
+    "gesFett": 12.6,
+    "kh": 0,
+    "zucker": 0.4,
+    "ballast": 0,
+    "salz": 1.88
+   },
+   "scheibe": 12
+  },
+  {
+   "id": "kochschinken",
+   "name": "Kochschinken",
+   "fdc": 173864,
+   "quelle": "Ham, sliced, regular (approximately 11% fat)",
+   "schluessel": [
+    "schinken",
+    "kochschinken",
+    "gekochter schinken",
+    "schinkenwürfel"
+   ],
+   "je100g": {
+    "kcal": 164,
+    "eiweiss": 16.6,
+    "fett": 8.8,
+    "gesFett": 0.5,
+    "kh": 3.6,
+    "zucker": 1,
+    "ballast": 1.3,
+    "salz": 2.04
+   },
+   "scheibe": 25
+  },
+  {
+   "id": "rohschinken",
+   "name": "Roher Schinken",
+   "fdc": 167872,
+   "quelle": "Pork, cured, ham, boneless, regular (approximately 11% fat), roasted",
+   "schluessel": [
+    "roher schinken",
+    "rohschinken",
+    "parmaschinken",
+    "serranoschinken",
+    "schwarzwälder schinken",
+    "prosciutto",
+    "katenschinken"
+   ],
+   "je100g": {
+    "kcal": 178,
+    "eiweiss": 22.6,
+    "fett": 9,
+    "gesFett": 3.1,
+    "kh": 0,
+    "zucker": 0,
+    "ballast": 0,
+    "salz": 3.75
+   },
+   "el": 8.8,
+   "tl": 2.92,
+   "dichte": 0.59,
+   "scheibe": 15
+  },
+  {
+   "id": "haehnchenbrust",
+   "name": "Hähnchenbrust",
+   "fdc": 171077,
+   "quelle": "Chicken, broiler or fryers, breast, skinless, boneless, meat only, raw",
+   "schluessel": [
+    "hähnchenbrust",
+    "hähnchenbrustfilet",
+    "hühnerbrust",
+    "hühnerbrustfilet",
+    "hähnchenfilet",
+    "hühnchenbrust",
+    "hähnchenfleisch",
+    "hühnerfleisch",
+    "hühnchenfleisch",
+    "geflügel"
+   ],
+   "je100g": {
+    "kcal": 120,
+    "eiweiss": 22.5,
+    "fett": 2.6,
+    "gesFett": 0.6,
+    "kh": 0,
+    "zucker": 0,
+    "ballast": 0,
+    "salz": 0.11
+   },
+   "stueck": 150
+  },
+  {
+   "id": "haehnchen",
+   "name": "Hähnchen mit Haut",
+   "fdc": 171447,
+   "quelle": "Chicken, broilers or fryers, meat and skin, raw",
+   "schluessel": [
+    "hähnchen",
+    "hähnchenteile",
+    "hähnchenschenkel",
+    "hähnchenkeulen",
+    "huhn",
+    "hühnchen",
+    "poularde",
+    "suppenhuhn",
+    "hühnerkeulen",
+    "chicken wings",
+    "hähnchenflügel",
+    "hühner",
+    "henne",
+    "hennen",
+    "kapaun",
+    "kapaune",
+    "kücken",
+    "küken"
+   ],
+   "je100g": {
+    "kcal": 215,
+    "eiweiss": 18.6,
+    "fett": 15.1,
+    "gesFett": 4.3,
+    "kh": 0,
+    "zucker": 0,
+    "ballast": 0,
+    "salz": 0.18
+   },
+   "stueck": 200
+  },
+  {
+   "id": "pute",
+   "name": "Pute",
+   "fdc": 171098,
+   "quelle": "Turkey, whole, breast, meat only, raw",
+   "schluessel": [
+    "pute",
+    "putenbrust",
+    "putenfleisch",
+    "putenschnitzel",
+    "truthahn"
+   ],
+   "je100g": {
+    "kcal": 114,
+    "eiweiss": 23.7,
+    "fett": 1.5,
+    "gesFett": 0.3,
+    "kh": 0.1,
+    "zucker": 0.1,
+    "ballast": 0,
+    "salz": 0.28
+   },
+   "stueck": 150
+  },
+  {
+   "id": "lamm",
+   "name": "Lammfleisch",
+   "fdc": 172496,
+   "quelle": "Lamb, shoulder, whole (arm and blade), separable lean and fat, trimmed to 1/4\" fat, choice, raw",
+   "schluessel": [
+    "lamm",
+    "lammfleisch",
+    "lammschulter",
+    "lammkeule",
+    "lammkotelett",
+    "hammel",
+    "lammhack"
+   ],
+   "je100g": {
+    "kcal": 264,
+    "eiweiss": 16.6,
+    "fett": 21.5,
+    "gesFett": 9.3,
+    "kh": 0,
+    "zucker": 0,
+    "ballast": 0,
+    "salz": 0.15
+   },
+   "stueck": 80
+  },
+  {
+   "id": "taube",
+   "name": "Taube",
+   "fdc": 171079,
+   "quelle": "Squab, (pigeon), meat only, raw",
+   "schluessel": [
+    "taube",
+    "tauben",
+    "täubchen"
+   ],
+   "je100g": {
+    "kcal": 142,
+    "eiweiss": 17.5,
+    "fett": 7.5,
+    "gesFett": 2,
+    "kh": 0,
+    "zucker": null,
+    "ballast": 0,
+    "salz": 0.13
+   },
+   "stueck": 200
+  },
+  {
+   "id": "zunge",
+   "name": "Zunge",
+   "fdc": 170196,
+   "quelle": "Beef, variety meats and by-products, tongue, raw",
+   "schluessel": [
+    "zunge",
+    "ochsenzunge",
+    "rinderzunge",
+    "kalbszunge",
+    "schweinezunge",
+    "zungen"
+   ],
+   "je100g": {
+    "kcal": 224,
+    "eiweiss": 14.9,
+    "fett": 16.1,
+    "gesFett": 7,
+    "kh": 3.7,
+    "zucker": null,
+    "ballast": 0,
+    "salz": 0.17
+   },
+   "stueck": 1000
+  },
+  {
+   "id": "nieren",
+   "name": "Nieren",
+   "fdc": 169449,
+   "quelle": "Beef, variety meats and by-products, kidneys, raw",
+   "schluessel": [
+    "niere",
+    "nieren",
+    "nierchen",
+    "kalbsniere",
+    "kalbsnieren",
+    "schweineniere",
+    "schweinenieren"
+   ],
+   "je100g": {
+    "kcal": 99,
+    "eiweiss": 17.4,
+    "fett": 3.1,
+    "gesFett": 0.9,
+    "kh": 0.3,
+    "zucker": 0,
+    "ballast": 0,
+    "salz": 0.46
+   },
+   "stueck": 150
+  },
+  {
+   "id": "talg",
+   "name": "Rindertalg, Nierenfett",
+   "fdc": 170193,
+   "quelle": "Beef, variety meats and by-products, suet, raw",
+   "schluessel": [
+    "nierenfett",
+    "rindernierenfett",
+    "kalbsnierenfett",
+    "rindertalg",
+    "talg"
+   ],
+   "je100g": {
+    "kcal": 854,
+    "eiweiss": 1.5,
+    "fett": 94,
+    "gesFett": 52.3,
+    "kh": 0,
+    "zucker": 0,
+    "ballast": 0,
+    "salz": 0.02
+   }
+  },
+  {
+   "id": "kalb",
+   "name": "Kalbfleisch",
+   "fdc": 175269,
+   "quelle": "Veal, leg (top round), separable lean only, raw",
+   "schluessel": [
+    "kalb",
+    "kalbfleisch",
+    "kalbsschnitzel",
+    "kalbsbraten",
+    "kalbshaxe",
+    "kalbsnuss"
+   ],
+   "je100g": {
+    "kcal": 107,
+    "eiweiss": 21.3,
+    "fett": 1.8,
+    "gesFett": 0.5,
+    "kh": 0,
+    "zucker": null,
+    "ballast": 0,
+    "salz": 0.16
+   },
+   "stueck": 150
+  },
+  {
+   "id": "ente",
+   "name": "Ente",
+   "fdc": 172408,
+   "quelle": "Duck, domesticated, meat and skin, raw",
+   "schluessel": [
+    "ente",
+    "entenbrust",
+    "entenkeule",
+    "gans"
+   ],
+   "je100g": {
+    "kcal": 404,
+    "eiweiss": 11.5,
+    "fett": 39.3,
+    "gesFett": 13.2,
+    "kh": 0,
+    "zucker": 0,
+    "ballast": 0,
+    "salz": 0.16
+   },
+   "stueck": 300
+  },
+  {
+   "id": "wild",
+   "name": "Wild",
+   "fdc": 173855,
+   "quelle": "Game meat, deer, raw",
+   "schluessel": [
+    "reh",
+    "hirsch",
+    "wild",
+    "rehrücken",
+    "hirschgulasch",
+    "wildschwein"
+   ],
+   "je100g": {
+    "kcal": 120,
+    "eiweiss": 23,
+    "fett": 2.4,
+    "gesFett": 1,
+    "kh": 0,
+    "zucker": 0,
+    "ballast": 0,
+    "salz": 0.13
+   },
+   "stueck": 150
+  },
+  {
+   "id": "kaninchen",
+   "name": "Kaninchen",
+   "fdc": 172521,
+   "quelle": "Game meat, rabbit, domesticated, composite of cuts, raw",
+   "schluessel": [
+    "kaninchen",
+    "hase"
+   ],
+   "je100g": {
+    "kcal": 136,
+    "eiweiss": 20.1,
+    "fett": 5.6,
+    "gesFett": 1.7,
+    "kh": 0,
+    "zucker": null,
+    "ballast": 0,
+    "salz": 0.1
+   }
+  },
+  {
+   "id": "bratwurst",
+   "name": "Bratwurst",
+   "fdc": 171620,
+   "quelle": "Bratwurst, pork, cooked",
+   "schluessel": [
+    "bratwurst",
+    "bratwürste",
+    "wurst",
+    "würstchen",
+    "wiener",
+    "frankfurter",
+    "bockwurst",
+    "mettwurst",
+    "chorizo",
+    "rostbratwürste",
+    "weißwurst",
+    "krakauer"
+   ],
+   "je100g": {
+    "kcal": 333,
+    "eiweiss": 13.7,
+    "fett": 29.2,
+    "gesFett": 10,
+    "kh": 2.9,
+    "zucker": 0,
+    "ballast": 0,
+    "salz": 2.12
+   },
+   "stueck": 100
+  },
+  {
+   "id": "salami",
+   "name": "Salami",
+   "fdc": 172938,
+   "quelle": "Salami, dry or hard, pork",
+   "schluessel": [
+    "salami",
+    "cabanossi",
+    "landjäger"
+   ],
+   "je100g": {
+    "kcal": 407,
+    "eiweiss": 22.6,
+    "fett": 33.7,
+    "gesFett": 11.9,
+    "kh": 1.6,
+    "zucker": null,
+    "ballast": 0,
+    "salz": 5.65
+   },
+   "scheibe": 5
+  },
+  {
+   "id": "leber",
+   "name": "Leber",
+   "fdc": 169451,
+   "quelle": "Beef, variety meats and by-products, liver, raw",
+   "schluessel": [
+    "leber",
+    "rinderleber",
+    "kalbsleber",
+    "schweineleber",
+    "geflügelleber",
+    "hühnerleber"
+   ],
+   "je100g": {
+    "kcal": 135,
+    "eiweiss": 20.4,
+    "fett": 3.6,
+    "gesFett": 1.2,
+    "kh": 3.9,
+    "zucker": 0,
+    "ballast": 0,
+    "salz": 0.17
+   },
+   "stueck": 120
+  },
+  {
+   "id": "kabeljau",
+   "name": "Kabeljau, Seelachs",
+   "fdc": 171955,
+   "quelle": "Fish, cod, Atlantic, raw",
+   "schluessel": [
+    "fisch",
+    "fischfilet",
+    "kabeljau",
+    "kabeljaufilet",
+    "dorsch",
+    "seelachs",
+    "seelachsfilet",
+    "schellfisch",
+    "rotbarsch",
+    "zander",
+    "hecht",
+    "scholle",
+    "seezunge",
+    "weißfisch",
+    "gemischter fisch",
+    "pangasius",
+    "heilbutt",
+    "wolfsbarsch",
+    "dorade",
+    "karpfen"
+   ],
+   "je100g": {
+    "kcal": 82,
+    "eiweiss": 17.8,
+    "fett": 0.7,
+    "gesFett": 0.1,
+    "kh": 0,
+    "zucker": 0,
+    "ballast": 0,
+    "salz": 0.14
+   },
+   "stueck": 150
+  },
+  {
+   "id": "lachs",
+   "name": "Lachs",
+   "fdc": 175167,
+   "quelle": "Fish, salmon, Atlantic, farmed, raw",
+   "schluessel": [
+    "lachs",
+    "lachsfilet",
+    "wildlachs",
+    "saibling"
+   ],
+   "je100g": {
+    "kcal": 208,
+    "eiweiss": 20.4,
+    "fett": 13.4,
+    "gesFett": 3.1,
+    "kh": 0,
+    "zucker": 0,
+    "ballast": 0,
+    "salz": 0.15
+   },
+   "stueck": 150
+  },
+  {
+   "id": "raeucherlachs",
+   "name": "Räucherlachs",
+   "fdc": 173687,
+   "quelle": "Fish, salmon, chinook, smoked",
+   "schluessel": [
+    "räucherlachs",
+    "geräucherter lachs",
+    "graved lachs"
+   ],
+   "je100g": {
+    "kcal": 117,
+    "eiweiss": 18.3,
+    "fett": 4.3,
+    "gesFett": 0.9,
+    "kh": 0,
+    "zucker": 0,
+    "ballast": 0,
+    "salz": 1.68
+   },
+   "el": 8.5,
+   "tl": 2.83,
+   "dichte": 0.57
+  },
+  {
+   "id": "forelle",
+   "name": "Forelle",
+   "fdc": 173717,
+   "quelle": "Fish, trout, rainbow, farmed, raw",
+   "schluessel": [
+    "forelle",
+    "forellenfilet",
+    "räucherforelle"
+   ],
+   "je100g": {
+    "kcal": 141,
+    "eiweiss": 19.9,
+    "fett": 6.2,
+    "gesFett": 1.4,
+    "kh": 0,
+    "zucker": 0,
+    "ballast": 0,
+    "salz": 0.13
+   },
+   "stueck": 250
+  },
+  {
+   "id": "thunfisch",
+   "name": "Thunfisch (Dose)",
+   "fdc": 171986,
+   "quelle": "Fish, tuna, light, canned in water, without salt, drained solids",
+   "schluessel": [
+    "thunfisch"
+   ],
+   "je100g": {
+    "kcal": 116,
+    "eiweiss": 25.5,
+    "fett": 0.8,
+    "gesFett": 0.2,
+    "kh": 0,
+    "zucker": 0,
+    "ballast": 0,
+    "salz": 0.13
+   },
+   "dose": 150
+  },
+  {
+   "id": "hering",
+   "name": "Hering",
+   "fdc": 175116,
+   "quelle": "Fish, herring, Atlantic, raw",
+   "schluessel": [
+    "hering",
+    "heringsfilet",
+    "bismarckhering",
+    "brathering"
+   ],
+   "je100g": {
+    "kcal": 158,
+    "eiweiss": 18,
+    "fett": 9,
+    "gesFett": 2,
+    "kh": 0,
+    "zucker": 0,
+    "ballast": 0,
+    "salz": 0.23
+   },
+   "stueck": 150
+  },
+  {
+   "id": "matjes",
+   "name": "Matjes",
+   "fdc": 175118,
+   "quelle": "Fish, herring, Atlantic, pickled",
+   "schluessel": [
+    "matjes",
+    "matjesfilet",
+    "rollmops"
+   ],
+   "je100g": {
+    "kcal": 262,
+    "eiweiss": 14.2,
+    "fett": 18,
+    "gesFett": 2.4,
+    "kh": 9.6,
+    "zucker": 7.7,
+    "ballast": 0,
+    "salz": 2.17
+   },
+   "el": 8.8,
+   "tl": 2.92,
+   "dichte": 0.59,
+   "stueck": 50
+  },
+  {
+   "id": "makrele",
+   "name": "Makrele",
+   "fdc": 175119,
+   "quelle": "Fish, mackerel, Atlantic, raw",
+   "schluessel": [
+    "makrele",
+    "räuchermakrele",
+    "makrelenfilet"
+   ],
+   "je100g": {
+    "kcal": 205,
+    "eiweiss": 18.6,
+    "fett": 13.9,
+    "gesFett": 3.3,
+    "kh": 0,
+    "zucker": 0,
+    "ballast": 0,
+    "salz": 0.23
+   },
+   "stueck": 200
+  },
+  {
+   "id": "aal",
+   "name": "Aal",
+   "fdc": 174193,
+   "quelle": "Fish, eel, mixed species, raw",
+   "schluessel": [
+    "aal",
+    "aale",
+    "aalfilet",
+    "aalfilets",
+    "räucheraal",
+    "suppenaal",
+    "suppenaale"
+   ],
+   "je100g": {
+    "kcal": 184,
+    "eiweiss": 18.4,
+    "fett": 11.7,
+    "gesFett": 2.4,
+    "kh": 0,
+    "zucker": 0,
+    "ballast": 0,
+    "salz": 0.13
+   }
+  },
+  {
+   "id": "sardellen",
+   "name": "Sardellen",
+   "fdc": 174183,
+   "quelle": "Fish, anchovy, european, canned in oil, drained solids",
+   "schluessel": [
+    "sardellen",
+    "sardellenfilet",
+    "sardellenfilets",
+    "anchovis",
+    "anchovisfilets",
+    "sardelle"
+   ],
+   "je100g": {
+    "kcal": 210,
+    "eiweiss": 28.9,
+    "fett": 9.7,
+    "gesFett": 2.2,
+    "kh": 0,
+    "zucker": 0,
+    "ballast": 0,
+    "salz": 9.17
+   },
+   "stueck": 4
+  },
+  {
+   "id": "sardinen",
+   "name": "Sardinen",
+   "fdc": 175139,
+   "quelle": "Fish, sardine, Atlantic, canned in oil, drained solids with bone",
+   "schluessel": [
+    "sardinen",
+    "sardine"
+   ],
+   "je100g": {
+    "kcal": 208,
+    "eiweiss": 24.6,
+    "fett": 11.5,
+    "gesFett": 1.5,
+    "kh": 0,
+    "zucker": 0,
+    "ballast": 0,
+    "salz": 0.77
+   },
+   "el": 9.3,
+   "tl": 3.1,
+   "dichte": 0.63,
+   "dose": 90
+  },
+  {
+   "id": "stockfisch",
+   "name": "Stockfisch",
+   "fdc": 174190,
+   "quelle": "Fish, cod, Atlantic, dried and salted",
+   "schluessel": [
+    "stockfisch",
+    "klippfisch",
+    "bacalhau",
+    "bakkeljauw"
+   ],
+   "je100g": {
+    "kcal": 290,
+    "eiweiss": 62.8,
+    "fett": 2.4,
+    "gesFett": 0.5,
+    "kh": 0,
+    "zucker": 0,
+    "ballast": 0,
+    "salz": 17.57
+   }
+  },
+  {
+   "id": "krebse",
+   "name": "Flusskrebse",
+   "fdc": 174206,
+   "quelle": "Crustaceans, crayfish, mixed species, wild, raw",
+   "schluessel": [
+    "krebs",
+    "krebse",
+    "flusskrebs",
+    "krebsschwänze"
+   ],
+   "je100g": {
+    "kcal": 77,
+    "eiweiss": 16,
+    "fett": 1,
+    "gesFett": 0.2,
+    "kh": 0,
+    "zucker": 0,
+    "ballast": 0,
+    "salz": 0.14
+   },
+   "stueck": 30
+  },
+  {
+   "id": "garnelen",
+   "name": "Garnelen",
+   "fdc": 175179,
+   "quelle": "Crustaceans, shrimp, raw",
+   "schluessel": [
+    "garnele",
+    "garnelen",
+    "shrimps",
+    "shrimp",
+    "scampi",
+    "krabben",
+    "nordseekrabben",
+    "gambas",
+    "krebsfleisch",
+    "flusskrebsfleisch",
+    "flusskrebse",
+    "hummer",
+    "langusten",
+    "riesengarnelen"
+   ],
+   "je100g": {
+    "kcal": 85,
+    "eiweiss": 20.1,
+    "fett": 0.5,
+    "gesFett": 0.1,
+    "kh": 0,
+    "zucker": null,
+    "ballast": null,
+    "salz": 0.3
+   }
+  },
+  {
+   "id": "muscheln",
+   "name": "Muscheln",
+   "fdc": 174216,
+   "quelle": "Mollusks, mussel, blue, raw",
+   "schluessel": [
+    "muschel",
+    "muscheln",
+    "miesmuscheln",
+    "venusmuscheln",
+    "jakobsmuscheln"
+   ],
+   "je100g": {
+    "kcal": 86,
+    "eiweiss": 11.9,
+    "fett": 2.2,
+    "gesFett": 0.4,
+    "kh": 3.7,
+    "zucker": 0,
+    "ballast": 0,
+    "salz": 0.72
+   },
+   "el": 9.4,
+   "tl": 3.13,
+   "dichte": 0.63,
+   "stueck": 16
+  },
+  {
+   "id": "tintenfisch",
+   "name": "Tintenfisch",
+   "fdc": 174223,
+   "quelle": "Mollusks, squid, mixed species, raw",
+   "schluessel": [
+    "tintenfisch",
+    "tintenfischringe",
+    "kalmar",
+    "calamari",
+    "oktopus",
+    "sepia"
+   ],
+   "je100g": {
+    "kcal": 92,
+    "eiweiss": 15.6,
+    "fett": 1.4,
+    "gesFett": 0.4,
+    "kh": 3.1,
+    "zucker": 0,
+    "ballast": 0,
+    "salz": 0.11
+   }
+  },
+  {
+   "id": "kartoffeln",
+   "name": "Kartoffeln",
+   "fdc": 170026,
+   "quelle": "Potatoes, flesh and skin, raw",
+   "schluessel": [
+    "kartoffel",
+    "kartoffeln",
+    "erdäpfel",
+    "frühkartoffeln",
+    "pellkartoffeln",
+    "salzkartoffeln",
+    "drillinge",
+    "grumbeere"
+   ],
+   "je100g": {
+    "kcal": 77,
+    "eiweiss": 2.1,
+    "fett": 0.1,
+    "gesFett": 0,
+    "kh": 17.5,
+    "zucker": 0.8,
+    "ballast": 2.1,
+    "salz": 0.02
+   },
+   "el": 9.4,
+   "tl": 3.13,
+   "dichte": 0.63,
+   "stueck": 120
+  },
+  {
+   "id": "suesskartoffel",
+   "name": "Süßkartoffel",
+   "fdc": 168482,
+   "quelle": "Sweet potato, raw, unprepared (Includes foods for USDA's Food Distribution Program)",
+   "schluessel": [
+    "süßkartoffel",
+    "süßkartoffeln",
+    "batate"
+   ],
+   "je100g": {
+    "kcal": 86,
+    "eiweiss": 1.6,
+    "fett": 0.1,
+    "gesFett": 0,
+    "kh": 20.1,
+    "zucker": 4.2,
+    "ballast": 3,
+    "salz": 0.14
+   },
+   "el": 8.3,
+   "tl": 2.77,
+   "dichte": 0.56,
+   "stueck": 250
+  },
+  {
+   "id": "zwiebel",
+   "name": "Zwiebel",
+   "fdc": 170000,
+   "quelle": "Onions, raw",
+   "schluessel": [
+    "zwiebel",
+    "zwiebeln",
+    "gemüsezwiebel",
+    "rote zwiebel",
+    "rote zwiebeln",
+    "zwiebelringe",
+    "perlzwiebeln"
+   ],
+   "je100g": {
+    "kcal": 40,
+    "eiweiss": 1.1,
+    "fett": 0.1,
+    "gesFett": 0,
+    "kh": 9.3,
+    "zucker": 4.2,
+    "ballast": 1.7,
+    "salz": 0.01
+   },
+   "el": 10,
+   "tl": 3.33,
+   "dichte": 0.68,
+   "stueck": 110
+  },
+  {
+   "id": "schalotte",
+   "name": "Schalotten",
+   "fdc": 170499,
+   "quelle": "Shallots, raw",
+   "schluessel": [
+    "schalotte",
+    "schalotten"
+   ],
+   "je100g": {
+    "kcal": 72,
+    "eiweiss": 2.5,
+    "fett": 0.1,
+    "gesFett": 0,
+    "kh": 16.8,
+    "zucker": 7.9,
+    "ballast": 3.2,
+    "salz": 0.03
+   },
+   "el": 10,
+   "tl": 3.33,
+   "stueck": 25
+  },
+  {
+   "id": "fruehlingszwiebel",
+   "name": "Frühlingszwiebeln",
+   "fdc": 170005,
+   "quelle": "Onions, spring or scallions (includes tops and bulb), raw",
+   "schluessel": [
+    "frühlingszwiebel",
+    "frühlingszwiebeln",
+    "lauchzwiebel",
+    "lauchzwiebeln"
+   ],
+   "je100g": {
+    "kcal": 32,
+    "eiweiss": 1.8,
+    "fett": 0.2,
+    "gesFett": 0,
+    "kh": 7.3,
+    "zucker": 2.3,
+    "ballast": 2.6,
+    "salz": 0.04
+   },
+   "el": 6,
+   "tl": 2,
+   "dichte": 0.42,
+   "stueck": 15,
+   "bund": 120
+  },
+  {
+   "id": "knoblauch",
+   "name": "Knoblauch",
+   "fdc": 169230,
+   "quelle": "Garlic, raw",
+   "schluessel": [
+    "knoblauch",
+    "knoblauchzehe",
+    "knoblauchzehen",
+    "knofi"
+   ],
+   "je100g": {
+    "kcal": 149,
+    "eiweiss": 6.4,
+    "fett": 0.5,
+    "gesFett": 0.1,
+    "kh": 33.1,
+    "zucker": 1,
+    "ballast": 2.1,
+    "salz": 0.04
+   },
+   "el": 8.4,
+   "tl": 2.8,
+   "dichte": 0.57,
+   "stueck": 3,
+   "zehe": 3
+  },
+  {
+   "id": "moehren",
+   "name": "Möhren",
+   "fdc": 170393,
+   "quelle": "Carrots, raw",
+   "schluessel": [
+    "möhre",
+    "möhren",
+    "karotte",
+    "karotten",
+    "mohrrübe",
+    "mohrrüben",
+    "rüebli",
+    "gelbe rübe",
+    "gelbe rüben",
+    "gelbrüben"
+   ],
+   "je100g": {
+    "kcal": 41,
+    "eiweiss": 0.9,
+    "fett": 0.2,
+    "gesFett": 0,
+    "kh": 9.6,
+    "zucker": 4.7,
+    "ballast": 2.8,
+    "salz": 0.17
+   },
+   "el": 6.9,
+   "tl": 2.29,
+   "dichte": 0.46,
+   "stueck": 80
+  },
+  {
+   "id": "tomaten",
+   "name": "Tomaten",
+   "fdc": 170457,
+   "quelle": "Tomatoes, red, ripe, raw, year round average",
+   "schluessel": [
+    "tomate",
+    "tomaten",
+    "kirschtomaten",
+    "cocktailtomaten",
+    "strauchtomaten",
+    "fleischtomaten",
+    "eiertomaten",
+    "rispentomaten"
+   ],
+   "je100g": {
+    "kcal": 18,
+    "eiweiss": 0.9,
+    "fett": 0.2,
+    "gesFett": 0,
+    "kh": 3.9,
+    "zucker": 2.6,
+    "ballast": 1.2,
+    "salz": 0.01
+   },
+   "el": 9.3,
+   "tl": 3.1,
+   "dichte": 0.63,
+   "stueck": 100
+  },
+  {
+   "id": "dosentomaten",
+   "name": "Tomaten aus der Dose",
+   "fdc": 170051,
+   "quelle": "Tomatoes, red, ripe, canned, packed in tomato juice",
+   "schluessel": [
+    "dosentomaten",
+    "geschälte tomaten",
+    "stückige tomaten",
+    "passierte tomaten",
+    "tomaten aus der dose",
+    "pizzatomaten",
+    "passata",
+    "tomatenstücke"
+   ],
+   "je100g": {
+    "kcal": 16,
+    "eiweiss": 0.8,
+    "fett": 0.3,
+    "gesFett": 0,
+    "kh": 3.5,
+    "zucker": 2.6,
+    "ballast": 1.9,
+    "salz": 0.29
+   },
+   "el": 15,
+   "tl": 5,
+   "dichte": 1.01,
+   "stueck": 111,
+   "dose": 400
+  },
+  {
+   "id": "tomatenmark",
+   "name": "Tomatenmark",
+   "fdc": 170459,
+   "quelle": "Tomato products, canned, paste, without salt added (Includes foods for USDA's Food Distribution Program)",
+   "schluessel": [
+    "tomatenmark",
+    "tomatenpüree"
+   ],
+   "je100g": {
+    "kcal": 82,
+    "eiweiss": 4.3,
+    "fett": 0.5,
+    "gesFett": 0.1,
+    "kh": 18.9,
+    "zucker": 12.2,
+    "ballast": 4.1,
+    "salz": 0.15
+   },
+   "el": 16,
+   "tl": 5.33,
+   "dichte": 1.12
+  },
+  {
+   "id": "paprika",
+   "name": "Paprikaschote",
+   "fdc": 170108,
+   "quelle": "Peppers, sweet, red, raw",
+   "schluessel": [
+    "paprika",
+    "paprikaschote",
+    "paprikaschoten",
+    "rote paprika",
+    "gelbe paprika",
+    "spitzpaprika"
+   ],
+   "je100g": {
+    "kcal": 26,
+    "eiweiss": 1,
+    "fett": 0.3,
+    "gesFett": 0.1,
+    "kh": 6,
+    "zucker": 4.2,
+    "ballast": 2.1,
+    "salz": 0.01
+   },
+   "el": 9.3,
+   "tl": 3.1,
+   "dichte": 0.63,
+   "stueck": 150
+  },
+  {
+   "id": "gruene_paprika",
+   "name": "Grüne Paprika",
+   "fdc": 170427,
+   "quelle": "Peppers, sweet, green, raw",
+   "schluessel": [
+    "grüne paprika",
+    "grüne paprikaschote"
+   ],
+   "je100g": {
+    "kcal": 20,
+    "eiweiss": 0.9,
+    "fett": 0.2,
+    "gesFett": 0.1,
+    "kh": 4.6,
+    "zucker": 2.4,
+    "ballast": 1.7,
+    "salz": 0.01
+   },
+   "el": 9.3,
+   "tl": 3.1,
+   "dichte": 0.63,
+   "stueck": 150
+  },
+  {
+   "id": "chili",
+   "name": "Chilischote",
+   "fdc": 170106,
+   "quelle": "Peppers, hot chili, red, raw",
+   "schluessel": [
+    "chili",
+    "chilischote",
+    "chilischoten",
+    "peperoni",
+    "peperoncini",
+    "jalapeño",
+    "jalapeños",
+    "rote chilischoten"
+   ],
+   "je100g": {
+    "kcal": 40,
+    "eiweiss": 1.9,
+    "fett": 0.4,
+    "gesFett": 0,
+    "kh": 8.8,
+    "zucker": 5.3,
+    "ballast": 1.5,
+    "salz": 0.02
+   },
+   "el": 9.4,
+   "tl": 3.13,
+   "dichte": 0.63,
+   "stueck": 10
+  },
+  {
+   "id": "zucchini",
+   "name": "Zucchini",
+   "fdc": 169291,
+   "quelle": "Squash, summer, zucchini, includes skin, raw",
+   "schluessel": [
+    "zucchini",
+    "zucchinis",
+    "zucchetti"
+   ],
+   "je100g": {
+    "kcal": 17,
+    "eiweiss": 1.2,
+    "fett": 0.3,
+    "gesFett": 0.1,
+    "kh": 3.1,
+    "zucker": 2.5,
+    "ballast": 1,
+    "salz": 0.02
+   },
+   "el": 7.8,
+   "tl": 2.58,
+   "dichte": 0.52,
+   "stueck": 200
+  },
+  {
+   "id": "aubergine",
+   "name": "Aubergine",
+   "fdc": 169228,
+   "quelle": "Eggplant, raw",
+   "schluessel": [
+    "aubergine",
+    "auberginen",
+    "melanzani"
+   ],
+   "je100g": {
+    "kcal": 25,
+    "eiweiss": 1,
+    "fett": 0.2,
+    "gesFett": 0,
+    "kh": 5.9,
+    "zucker": 3.5,
+    "ballast": 3,
+    "salz": 0.01
+   },
+   "el": 5.1,
+   "tl": 1.71,
+   "dichte": 0.35,
+   "stueck": 300
+  },
+  {
+   "id": "gurke",
+   "name": "Salatgurke",
+   "fdc": 168409,
+   "quelle": "Cucumber, with peel, raw",
+   "schluessel": [
+    "gurke",
+    "gurken",
+    "salatgurke",
+    "schlangengurke",
+    "minigurken"
+   ],
+   "je100g": {
+    "kcal": 15,
+    "eiweiss": 0.7,
+    "fett": 0.1,
+    "gesFett": 0,
+    "kh": 3.6,
+    "zucker": 1.7,
+    "ballast": 0.5,
+    "salz": 0.01
+   },
+   "el": 6.5,
+   "tl": 2.17,
+   "dichte": 0.44,
+   "stueck": 300
+  },
+  {
+   "id": "gewuerzgurke",
+   "name": "Gewürzgurken",
+   "fdc": 168558,
+   "quelle": "Pickles, cucumber, dill or kosher dill",
+   "schluessel": [
+    "gewürzgurke",
+    "gewürzgurken",
+    "essiggurke",
+    "essiggurken",
+    "cornichons",
+    "senfgurken",
+    "saure gurken"
+   ],
+   "je100g": {
+    "kcal": 12,
+    "eiweiss": 0.5,
+    "fett": 0.3,
+    "gesFett": 0.1,
+    "kh": 2.4,
+    "zucker": 1.1,
+    "ballast": 1,
+    "salz": 2.02
+   },
+   "el": 9.7,
+   "tl": 3.23,
+   "dichte": 0.66,
+   "stueck": 35
+  },
+  {
+   "id": "weisskohl",
+   "name": "Weißkohl",
+   "fdc": 169975,
+   "quelle": "Cabbage, raw",
+   "schluessel": [
+    "kohl",
+    "weißkohl",
+    "spitzkohl",
+    "wirsing",
+    "chinakohl",
+    "weißkraut",
+    "kraut",
+    "kohlkopf",
+    "pak choi"
+   ],
+   "je100g": {
+    "kcal": 25,
+    "eiweiss": 1.3,
+    "fett": 0.1,
+    "gesFett": 0,
+    "kh": 5.8,
+    "zucker": 3.2,
+    "ballast": 2.5,
+    "salz": 0.05
+   },
+   "el": 5.6,
+   "tl": 1.85,
+   "dichte": 0.38,
+   "stueck": 1000,
+   "blatt": 30
+  },
+  {
+   "id": "rotkohl",
+   "name": "Rotkohl",
+   "fdc": 169977,
+   "quelle": "Cabbage, red, raw",
+   "schluessel": [
+    "rotkohl",
+    "blaukraut",
+    "rotkraut"
+   ],
+   "je100g": {
+    "kcal": 31,
+    "eiweiss": 1.4,
+    "fett": 0.2,
+    "gesFett": 0,
+    "kh": 7.4,
+    "zucker": 3.8,
+    "ballast": 2.1,
+    "salz": 0.07
+   },
+   "el": 5.6,
+   "tl": 1.85,
+   "dichte": 0.38,
+   "stueck": 1000
+  },
+  {
+   "id": "sauerkraut",
+   "name": "Sauerkraut",
+   "fdc": 169279,
+   "quelle": "Sauerkraut, canned, solids and liquids",
+   "schluessel": [
+    "sauerkraut"
+   ],
+   "je100g": {
+    "kcal": 19,
+    "eiweiss": 0.9,
+    "fett": 0.1,
+    "gesFett": 0,
+    "kh": 4.3,
+    "zucker": 1.8,
+    "ballast": 2.9,
+    "salz": 1.65
+   },
+   "el": 8.9,
+   "tl": 2.96,
+   "dichte": 0.6,
+   "dose": 500
+  },
+  {
+   "id": "lauch",
+   "name": "Lauch",
+   "fdc": 169246,
+   "quelle": "Leeks, (bulb and lower leaf-portion), raw",
+   "schluessel": [
+    "lauch",
+    "porree",
+    "stange lauch"
+   ],
+   "je100g": {
+    "kcal": 61,
+    "eiweiss": 1.5,
+    "fett": 0.3,
+    "gesFett": 0,
+    "kh": 14.2,
+    "zucker": 3.9,
+    "ballast": 1.8,
+    "salz": 0.05
+   },
+   "el": 5.6,
+   "tl": 1.85,
+   "dichte": 0.38,
+   "stueck": 150
+  },
+  {
+   "id": "sellerieknolle",
+   "name": "Knollensellerie",
+   "fdc": 170400,
+   "quelle": "Celeriac, raw",
+   "schluessel": [
+    "sellerie",
+    "knollensellerie",
+    "sellerieknolle"
+   ],
+   "je100g": {
+    "kcal": 42,
+    "eiweiss": 1.5,
+    "fett": 0.3,
+    "gesFett": 0.1,
+    "kh": 9.2,
+    "zucker": 1.6,
+    "ballast": 1.8,
+    "salz": 0.25
+   },
+   "el": 9.8,
+   "tl": 3.25,
+   "dichte": 0.66,
+   "stueck": 400
+  },
+  {
+   "id": "staudensellerie",
+   "name": "Staudensellerie",
+   "fdc": 169988,
+   "quelle": "Celery, raw",
+   "schluessel": [
+    "staudensellerie",
+    "stangensellerie",
+    "stangen sellerie",
+    "stange sellerie",
+    "bleichsellerie",
+    "selleriegrün"
+   ],
+   "je100g": {
+    "kcal": 14,
+    "eiweiss": 0.7,
+    "fett": 0.2,
+    "gesFett": 0,
+    "kh": 3,
+    "zucker": 1.3,
+    "ballast": 1.6,
+    "salz": 0.2
+   },
+   "el": 7.5,
+   "tl": 2.5,
+   "dichte": 0.43,
+   "stueck": 40
+  },
+  {
+   "id": "suppengruen",
+   "name": "Suppengrün",
+   "fdc": 170393,
+   "quelle": "Carrots, raw",
+   "schluessel": [
+    "suppengrün",
+    "wurzelgemüse"
+   ],
+   "je100g": {
+    "kcal": 41,
+    "eiweiss": 0.9,
+    "fett": 0.2,
+    "gesFett": 0,
+    "kh": 9.6,
+    "zucker": 4.7,
+    "ballast": 2.8,
+    "salz": 0.17
+   },
+   "el": 6.9,
+   "tl": 2.29,
+   "dichte": 0.46,
+   "stueck": 61,
+   "bund": 350,
+   "pck": 350
+  },
+  {
+   "id": "spinat",
+   "name": "Spinat",
+   "fdc": 168462,
+   "quelle": "Spinach, raw",
+   "schluessel": [
+    "spinat",
+    "blattspinat",
+    "babyspinat",
+    "mangold"
+   ],
+   "je100g": {
+    "kcal": 23,
+    "eiweiss": 2.9,
+    "fett": 0.4,
+    "gesFett": 0.1,
+    "kh": 3.6,
+    "zucker": 0.4,
+    "ballast": 2.2,
+    "salz": 0.2
+   },
+   "el": 1.9,
+   "tl": 0.63,
+   "dichte": 0.13
+  },
+  {
+   "id": "champignons",
+   "name": "Champignons, Pilze",
+   "fdc": 169251,
+   "quelle": "Mushrooms, white, raw",
+   "schluessel": [
+    "champignon",
+    "champignons",
+    "pilze",
+    "pilz",
+    "steinpilze",
+    "pfifferlinge",
+    "kräuterseitlinge",
+    "morcheln",
+    "morchel",
+    "austernpilze",
+    "egerlinge",
+    "shiitake",
+    "mischpilze",
+    "waldpilze",
+    "eierschwammerl"
+   ],
+   "je100g": {
+    "kcal": 22,
+    "eiweiss": 3.1,
+    "fett": 0.3,
+    "gesFett": 0.1,
+    "kh": 3.3,
+    "zucker": 2,
+    "ballast": 1,
+    "salz": 0.01
+   },
+   "el": 4.4,
+   "tl": 1.46,
+   "dichte": 0.3,
+   "stueck": 18
+  },
+  {
+   "id": "erbsen",
+   "name": "Erbsen",
+   "fdc": 170419,
+   "quelle": "Peas, green, raw",
+   "schluessel": [
+    "erbsen",
+    "tk-erbsen",
+    "zuckerschoten",
+    "kaiserschoten"
+   ],
+   "je100g": {
+    "kcal": 81,
+    "eiweiss": 5.4,
+    "fett": 0.4,
+    "gesFett": 0.1,
+    "kh": 14.5,
+    "zucker": 5.7,
+    "ballast": 5.7,
+    "salz": 0.01
+   },
+   "el": 9.1,
+   "tl": 3.02,
+   "dichte": 0.61
+  },
+  {
+   "id": "gruene_bohnen",
+   "name": "Grüne Bohnen",
+   "fdc": 169961,
+   "quelle": "Beans, snap, green, raw",
+   "schluessel": [
+    "grüne bohnen",
+    "brechbohnen",
+    "buschbohnen",
+    "stangenbohnen",
+    "prinzessbohnen",
+    "bohnen"
+   ],
+   "je100g": {
+    "kcal": 31,
+    "eiweiss": 1.8,
+    "fett": 0.2,
+    "gesFett": 0.1,
+    "kh": 7,
+    "zucker": 3.3,
+    "ballast": 2.7,
+    "salz": 0.02
+   },
+   "el": 6.3,
+   "tl": 2.08,
+   "dichte": 0.42
+  },
+  {
+   "id": "weisse_bohnen",
+   "name": "Weiße Bohnen (Dose)",
+   "fdc": 175204,
+   "quelle": "Beans, white, mature seeds, canned",
+   "schluessel": [
+    "weiße bohnen",
+    "cannellini",
+    "cannellinibohnen",
+    "bohnenkerne",
+    "dicke bohnen",
+    "saubohnen",
+    "baked beans"
+   ],
+   "je100g": {
+    "kcal": 114,
+    "eiweiss": 7.3,
+    "fett": 0.3,
+    "gesFett": 0.1,
+    "kh": 21.2,
+    "zucker": 0.3,
+    "ballast": 4.8,
+    "salz": 0.85
+   },
+   "el": 16.4,
+   "tl": 5.46,
+   "dichte": 1.11,
+   "dose": 250
+  },
+  {
+   "id": "kidneybohnen",
+   "name": "Kidneybohnen (Dose)",
+   "fdc": 174285,
+   "quelle": "Beans, kidney, red, mature seeds, canned, drained solids",
+   "schluessel": [
+    "kidneybohnen",
+    "rote bohnen",
+    "schwarze bohnen",
+    "pintobohnen"
+   ],
+   "je100g": {
+    "kcal": 124,
+    "eiweiss": 8,
+    "fett": 1.1,
+    "gesFett": 0.2,
+    "kh": 21.5,
+    "zucker": 3.8,
+    "ballast": 5.5,
+    "salz": 0.58
+   },
+   "dose": 250
+  },
+  {
+   "id": "kichererbsen",
+   "name": "Kichererbsen (Dose)",
+   "fdc": 173800,
+   "quelle": "Chickpeas (garbanzo beans, bengal gram), mature seeds, canned, drained solids",
+   "schluessel": [
+    "kichererbsen"
+   ],
+   "je100g": {
+    "kcal": 139,
+    "eiweiss": 7.1,
+    "fett": 2.8,
+    "gesFett": 0.2,
+    "kh": 22.5,
+    "zucker": 4,
+    "ballast": 6.4,
+    "salz": 0.62
+   },
+   "dose": 240
+  },
+  {
+   "id": "linsen",
+   "name": "Linsen (trocken)",
+   "fdc": 172420,
+   "quelle": "Lentils, raw",
+   "schluessel": [
+    "linsen",
+    "berglinsen",
+    "tellerlinsen",
+    "belugalinsen",
+    "schälerbsen",
+    "spalterbsen",
+    "gelbe erbsen"
+   ],
+   "je100g": {
+    "kcal": 352,
+    "eiweiss": 24.6,
+    "fett": 1.1,
+    "gesFett": 0.2,
+    "kh": 63.4,
+    "zucker": 2,
+    "ballast": 10.7,
+    "salz": 0.02
+   },
+   "el": 12,
+   "tl": 4,
+   "dichte": 0.81
+  },
+  {
+   "id": "rote_linsen",
+   "name": "Rote Linsen (trocken)",
+   "fdc": 174284,
+   "quelle": "Lentils, pink or red, raw",
+   "schluessel": [
+    "rote linsen",
+    "gelbe linsen"
+   ],
+   "je100g": {
+    "kcal": 358,
+    "eiweiss": 23.9,
+    "fett": 2.2,
+    "gesFett": 0.4,
+    "kh": 63.1,
+    "zucker": null,
+    "ballast": 10.8,
+    "salz": 0.02
+   },
+   "el": 12,
+   "tl": 4,
+   "dichte": 0.81
+  },
+  {
+   "id": "mais",
+   "name": "Mais (Dose)",
+   "fdc": 169214,
+   "quelle": "Corn, sweet, yellow, canned, whole kernel, drained solids",
+   "schluessel": [
+    "mais",
+    "maiskörner",
+    "zuckermais"
+   ],
+   "je100g": {
+    "kcal": 67,
+    "eiweiss": 2.3,
+    "fett": 1.2,
+    "gesFett": 0.2,
+    "kh": 14.3,
+    "zucker": 4.4,
+    "ballast": 2,
+    "salz": 0.51
+   },
+   "el": 10.3,
+   "tl": 3.42,
+   "dichte": 0.69,
+   "dose": 285
+  },
+  {
+   "id": "kuerbis",
+   "name": "Kürbis",
+   "fdc": 168448,
+   "quelle": "Pumpkin, raw",
+   "schluessel": [
+    "kürbis",
+    "hokkaido",
+    "butternut",
+    "butternutkürbis",
+    "muskatkürbis"
+   ],
+   "je100g": {
+    "kcal": 26,
+    "eiweiss": 1,
+    "fett": 0.1,
+    "gesFett": 0.1,
+    "kh": 6.5,
+    "zucker": 2.8,
+    "ballast": 0.5,
+    "salz": 0
+   },
+   "el": 7.3,
+   "tl": 2.42,
+   "dichte": 0.49
+  },
+  {
+   "id": "rote_bete",
+   "name": "Rote Bete",
+   "fdc": 169145,
+   "quelle": "Beets, raw",
+   "schluessel": [
+    "rote bete",
+    "rote beete",
+    "rote rübe",
+    "rote rüben",
+    "randen"
+   ],
+   "je100g": {
+    "kcal": 43,
+    "eiweiss": 1.6,
+    "fett": 0.2,
+    "gesFett": 0,
+    "kh": 9.6,
+    "zucker": 6.8,
+    "ballast": 2.8,
+    "salz": 0.2
+   },
+   "el": 8.5,
+   "tl": 2.83,
+   "dichte": 0.57,
+   "stueck": 150
+  },
+  {
+   "id": "brokkoli",
+   "name": "Brokkoli",
+   "fdc": 170379,
+   "quelle": "Broccoli, raw",
+   "schluessel": [
+    "brokkoli",
+    "broccoli",
+    "romanesco"
+   ],
+   "je100g": {
+    "kcal": 34,
+    "eiweiss": 2.8,
+    "fett": 0.4,
+    "gesFett": 0.1,
+    "kh": 6.6,
+    "zucker": 1.7,
+    "ballast": 2.6,
+    "salz": 0.08
+   },
+   "el": 5.7,
+   "tl": 1.9,
+   "dichte": 0.38,
+   "stueck": 400
+  },
+  {
+   "id": "blumenkohl",
+   "name": "Blumenkohl",
+   "fdc": 169986,
+   "quelle": "Cauliflower, raw",
+   "schluessel": [
+    "blumenkohl",
+    "karfiol"
+   ],
+   "je100g": {
+    "kcal": 25,
+    "eiweiss": 1.9,
+    "fett": 0.3,
+    "gesFett": 0.1,
+    "kh": 5,
+    "zucker": 1.9,
+    "ballast": 2,
+    "salz": 0.08
+   },
+   "el": 6.7,
+   "tl": 2.23,
+   "dichte": 0.45,
+   "stueck": 800
+  },
+  {
+   "id": "kohlrabi",
+   "name": "Kohlrabi",
+   "fdc": 168424,
+   "quelle": "Kohlrabi, raw",
+   "schluessel": [
+    "kohlrabi"
+   ],
+   "je100g": {
+    "kcal": 27,
+    "eiweiss": 1.7,
+    "fett": 0.1,
+    "gesFett": 0,
+    "kh": 6.2,
+    "zucker": 2.6,
+    "ballast": 3.6,
+    "salz": 0.05
+   },
+   "el": 8.4,
+   "tl": 2.81,
+   "dichte": 0.57,
+   "stueck": 250
+  },
+  {
+   "id": "rosenkohl",
+   "name": "Rosenkohl",
+   "fdc": 170383,
+   "quelle": "Brussels sprouts, raw",
+   "schluessel": [
+    "rosenkohl",
+    "kohlsprossen"
+   ],
+   "je100g": {
+    "kcal": 43,
+    "eiweiss": 3.4,
+    "fett": 0.3,
+    "gesFett": 0.1,
+    "kh": 9,
+    "zucker": 2.2,
+    "ballast": 3.8,
+    "salz": 0.06
+   },
+   "el": 5.5,
+   "tl": 1.83,
+   "dichte": 0.37
+  },
+  {
+   "id": "gruenkohl",
+   "name": "Grünkohl",
+   "fdc": 168421,
+   "quelle": "Kale, raw",
+   "schluessel": [
+    "grünkohl",
+    "palmkohl",
+    "federkohl"
+   ],
+   "je100g": {
+    "kcal": 35,
+    "eiweiss": 2.9,
+    "fett": 1.5,
+    "gesFett": 0.2,
+    "kh": 4.4,
+    "zucker": 1,
+    "ballast": 4.1,
+    "salz": 0.13
+   },
+   "el": 1.3,
+   "tl": 0.44,
+   "dichte": 0.09
+  },
+  {
+   "id": "spargel",
+   "name": "Spargel",
+   "fdc": 168389,
+   "quelle": "Asparagus, raw",
+   "schluessel": [
+    "spargel",
+    "grüner spargel",
+    "weißer spargel"
+   ],
+   "je100g": {
+    "kcal": 20,
+    "eiweiss": 2.2,
+    "fett": 0.1,
+    "gesFett": 0,
+    "kh": 3.9,
+    "zucker": 1.9,
+    "ballast": 2.1,
+    "salz": 0.01
+   },
+   "el": 8.4,
+   "tl": 2.79,
+   "dichte": 0.57,
+   "stueck": 20
+  },
+  {
+   "id": "fenchel",
+   "name": "Fenchel",
+   "fdc": 169385,
+   "quelle": "Fennel, bulb, raw",
+   "schluessel": [
+    "fenchel",
+    "fenchelknolle"
+   ],
+   "je100g": {
+    "kcal": 31,
+    "eiweiss": 1.2,
+    "fett": 0.2,
+    "gesFett": 0.1,
+    "kh": 7.3,
+    "zucker": 3.9,
+    "ballast": 3.1,
+    "salz": 0.13
+   },
+   "el": 5.4,
+   "tl": 1.81,
+   "dichte": 0.37,
+   "stueck": 250
+  },
+  {
+   "id": "salat",
+   "name": "Blattsalat",
+   "fdc": 169249,
+   "quelle": "Lettuce, green leaf, raw",
+   "schluessel": [
+    "salat",
+    "blattsalat",
+    "kopfsalat",
+    "feldsalat",
+    "eisbergsalat",
+    "römersalat",
+    "lollo rosso",
+    "friséesalat",
+    "endivie",
+    "endiviensalat",
+    "radicchio",
+    "chicorée",
+    "pflücksalat",
+    "rucola",
+    "rauke"
+   ],
+   "je100g": {
+    "kcal": 15,
+    "eiweiss": 1.4,
+    "fett": 0.2,
+    "gesFett": 0,
+    "kh": 2.9,
+    "zucker": 0.8,
+    "ballast": 1.3,
+    "salz": 0.07
+   },
+   "el": 2.3,
+   "tl": 0.75,
+   "dichte": 0.15,
+   "stueck": 300
+  },
+  {
+   "id": "radieschen",
+   "name": "Radieschen",
+   "fdc": 169276,
+   "quelle": "Radishes, raw",
+   "schluessel": [
+    "radieschen",
+    "rettich",
+    "radi"
+   ],
+   "je100g": {
+    "kcal": 16,
+    "eiweiss": 0.7,
+    "fett": 0.1,
+    "gesFett": 0,
+    "kh": 3.4,
+    "zucker": 1.9,
+    "ballast": 1.6,
+    "salz": 0.1
+   },
+   "el": 7.3,
+   "tl": 2.42,
+   "dichte": 0.49,
+   "stueck": 10,
+   "bund": 150
+  },
+  {
+   "id": "steckrueben",
+   "name": "Steckrüben",
+   "fdc": 168454,
+   "quelle": "Rutabagas, raw",
+   "schluessel": [
+    "steckrübe",
+    "steckrüben",
+    "kohlrübe",
+    "wruke"
+   ],
+   "je100g": {
+    "kcal": 37,
+    "eiweiss": 1.1,
+    "fett": 0.2,
+    "gesFett": 0,
+    "kh": 8.6,
+    "zucker": 4.5,
+    "ballast": 2.3,
+    "salz": 0.03
+   },
+   "el": 8.8,
+   "tl": 2.92,
+   "dichte": 0.59,
+   "stueck": 386
+  },
+  {
+   "id": "rueben",
+   "name": "Weiße Rüben, Mairüben",
+   "fdc": 170465,
+   "quelle": "Turnips, raw",
+   "schluessel": [
+    "rübe",
+    "rüben",
+    "weiße rübe",
+    "weiße rüben",
+    "mairübe",
+    "mairüben",
+    "rübchen",
+    "teltower rübchen"
+   ],
+   "je100g": {
+    "kcal": 28,
+    "eiweiss": 0.9,
+    "fett": 0.1,
+    "gesFett": 0,
+    "kh": 6.4,
+    "zucker": 3.8,
+    "ballast": 1.8,
+    "salz": 0.17
+   },
+   "el": 8.1,
+   "tl": 2.71,
+   "dichte": 0.55,
+   "stueck": 120
+  },
+  {
+   "id": "sauerampfer",
+   "name": "Sauerampfer",
+   "fdc": 170076,
+   "quelle": "Dock, raw",
+   "schluessel": [
+    "sauerampfer",
+    "ampfer"
+   ],
+   "je100g": {
+    "kcal": 22,
+    "eiweiss": 2,
+    "fett": 0.7,
+    "gesFett": null,
+    "kh": 3.2,
+    "zucker": null,
+    "ballast": 2.9,
+    "salz": 0.01
+   },
+   "el": 8.3,
+   "tl": 2.77,
+   "dichte": 0.56,
+   "bund": 50
+  },
+  {
+   "id": "pastinaken",
+   "name": "Pastinaken",
+   "fdc": 170417,
+   "quelle": "Parsnips, raw",
+   "schluessel": [
+    "pastinake",
+    "pastinaken",
+    "petersilienwurzel",
+    "schwarzwurzeln",
+    "topinambur"
+   ],
+   "je100g": {
+    "kcal": 75,
+    "eiweiss": 1.2,
+    "fett": 0.3,
+    "gesFett": 0.1,
+    "kh": 18,
+    "zucker": 4.8,
+    "ballast": 4.9,
+    "salz": 0.03
+   },
+   "el": 8.3,
+   "tl": 2.77,
+   "dichte": 0.56,
+   "stueck": 150
+  },
+  {
+   "id": "avocado",
+   "name": "Avocado",
+   "fdc": 171705,
+   "quelle": "Avocados, raw, all commercial varieties",
+   "schluessel": [
+    "avocado",
+    "avocados"
+   ],
+   "je100g": {
+    "kcal": 160,
+    "eiweiss": 2,
+    "fett": 14.7,
+    "gesFett": 2.1,
+    "kh": 8.5,
+    "zucker": 0.7,
+    "ballast": 6.7,
+    "salz": 0.02
+   },
+   "el": 14.4,
+   "tl": 4.79,
+   "dichte": 0.97,
+   "stueck": 150
+  },
+  {
+   "id": "oliven",
+   "name": "Oliven",
+   "fdc": 169094,
+   "quelle": "Olives, ripe, canned (small-extra large)",
+   "schluessel": [
+    "oliven",
+    "olive",
+    "schwarze oliven",
+    "grüne oliven",
+    "kalamata"
+   ],
+   "je100g": {
+    "kcal": 116,
+    "eiweiss": 0.8,
+    "fett": 10.9,
+    "gesFett": 2.3,
+    "kh": 6,
+    "zucker": 0,
+    "ballast": 1.6,
+    "salz": 1.84
+   },
+   "el": 8.4,
+   "tl": 2.8,
+   "stueck": 4
+  },
+  {
+   "id": "ingwer",
+   "name": "Ingwer",
+   "fdc": 169231,
+   "quelle": "Ginger root, raw",
+   "schluessel": [
+    "ingwer",
+    "ingwerwurzel",
+    "frischer ingwer",
+    "galgant"
+   ],
+   "je100g": {
+    "kcal": 80,
+    "eiweiss": 1.8,
+    "fett": 0.8,
+    "gesFett": 0.2,
+    "kh": 17.8,
+    "zucker": 1.7,
+    "ballast": 2,
+    "salz": 0.03
+   },
+   "el": 6,
+   "tl": 2,
+   "dichte": 0.41,
+   "stueck": 10
+  },
+  {
+   "id": "bambussprossen",
+   "name": "Bambussprossen",
+   "fdc": 169212,
+   "quelle": "Bamboo shoots, canned, drained solids",
+   "schluessel": [
+    "bambussprossen",
+    "sojasprossen",
+    "mungbohnensprossen"
+   ],
+   "je100g": {
+    "kcal": 19,
+    "eiweiss": 1.7,
+    "fett": 0.4,
+    "gesFett": 0.1,
+    "kh": 3.2,
+    "zucker": 1.9,
+    "ballast": 1.4,
+    "salz": 0.02
+   },
+   "el": 8.2,
+   "tl": 2.73,
+   "dichte": 0.55
+  },
+  {
+   "id": "kraeuter",
+   "name": "Frische Kräuter",
+   "fdc": 170416,
+   "quelle": "Parsley, fresh",
+   "schluessel": [
+    "petersilie",
+    "glatte petersilie",
+    "krause petersilie",
+    "schnittlauch",
+    "basilikum",
+    "dill",
+    "kerbel",
+    "koriandergrün",
+    "korianderblätter",
+    "frischer koriander",
+    "minze",
+    "pfefferminze",
+    "bärlauch",
+    "kräuter",
+    "estragon",
+    "dragon",
+    "liebstöckel",
+    "zitronenmelisse",
+    "kresse",
+    "brunnenkresse",
+    "zitronengras",
+    "borretsch",
+    "boretsch",
+    "pimpernelle",
+    "pimpinelle"
+   ],
+   "je100g": {
+    "kcal": 36,
+    "eiweiss": 3,
+    "fett": 0.8,
+    "gesFett": 0.1,
+    "kh": 6.3,
+    "zucker": 0.9,
+    "ballast": 3.3,
+    "salz": 0.14
+   },
+   "el": 4,
+   "tl": 1.3,
+   "dichte": 0.25,
+   "bund": 30,
+   "zweig": 2,
+   "blatt": 0.5
+  },
+  {
+   "id": "aepfel",
+   "name": "Äpfel",
+   "fdc": 171688,
+   "quelle": "Apples, raw, with skin (Includes foods for USDA's Food Distribution Program)",
+   "schluessel": [
+    "apfel",
+    "äpfel",
+    "boskoop",
+    "boskoopäpfel",
+    "elstar",
+    "säuerliche äpfel",
+    "kochäpfel",
+    "backäpfel"
+   ],
+   "je100g": {
+    "kcal": 52,
+    "eiweiss": 0.3,
+    "fett": 0.2,
+    "gesFett": 0,
+    "kh": 13.8,
+    "zucker": 10.4,
+    "ballast": 2.4,
+    "salz": 0
+   },
+   "el": 6.8,
+   "tl": 2.27,
+   "dichte": 0.46,
+   "stueck": 150
+  },
+  {
+   "id": "birnen",
+   "name": "Birnen",
+   "fdc": 169118,
+   "quelle": "Pears, raw",
+   "schluessel": [
+    "birne",
+    "birnen"
+   ],
+   "je100g": {
+    "kcal": 57,
+    "eiweiss": 0.4,
+    "fett": 0.1,
+    "gesFett": 0,
+    "kh": 15.2,
+    "zucker": 9.8,
+    "ballast": 3.1,
+    "salz": 0
+   },
+   "el": 8.8,
+   "tl": 2.92,
+   "dichte": 0.59,
+   "stueck": 170
+  },
+  {
+   "id": "bananen",
+   "name": "Bananen",
+   "fdc": 173944,
+   "quelle": "Bananas, raw",
+   "schluessel": [
+    "banane",
+    "bananen",
+    "reife bananen"
+   ],
+   "je100g": {
+    "kcal": 89,
+    "eiweiss": 1.1,
+    "fett": 0.3,
+    "gesFett": 0.1,
+    "kh": 22.8,
+    "zucker": 12.2,
+    "ballast": 2.6,
+    "salz": 0
+   },
+   "el": 14.1,
+   "tl": 4.69,
+   "dichte": 0.95,
+   "stueck": 115
+  },
+  {
+   "id": "zitrone",
+   "name": "Zitrone",
+   "fdc": 167746,
+   "quelle": "Lemons, raw, without peel",
+   "schluessel": [
+    "zitrone",
+    "zitronen",
+    "bio-zitrone",
+    "unbehandelte zitrone"
+   ],
+   "je100g": {
+    "kcal": 29,
+    "eiweiss": 1.1,
+    "fett": 0.3,
+    "gesFett": 0,
+    "kh": 9.3,
+    "zucker": 2.5,
+    "ballast": 2.8,
+    "salz": 0.01
+   },
+   "el": 13.3,
+   "tl": 4.42,
+   "dichte": 0.9,
+   "stueck": 60
+  },
+  {
+   "id": "zitronensaft",
+   "name": "Zitronensaft",
+   "fdc": 167747,
+   "quelle": "Lemon juice, raw",
+   "schluessel": [
+    "zitronensaft",
+    "saft einer zitrone",
+    "saft von 1 zitrone"
+   ],
+   "je100g": {
+    "kcal": 22,
+    "eiweiss": 0.4,
+    "fett": 0.2,
+    "gesFett": 0,
+    "kh": 6.9,
+    "zucker": 2.5,
+    "ballast": 0.3,
+    "salz": 0
+   },
+   "el": 15.3,
+   "tl": 5.08,
+   "dichte": 1.03
+  },
+  {
+   "id": "zitronenschale",
+   "name": "Zitronenschale",
+   "fdc": 167749,
+   "quelle": "Lemon peel, raw",
+   "schluessel": [
+    "zitronenschale",
+    "zitronenabrieb",
+    "abrieb",
+    "orangenschale",
+    "orangenabrieb",
+    "limettenschale",
+    "limettenabrieb"
+   ],
+   "je100g": {
+    "kcal": 47,
+    "eiweiss": 1.5,
+    "fett": 0.3,
+    "gesFett": 0,
+    "kh": 16,
+    "zucker": 4.2,
+    "ballast": 10.6,
+    "salz": 0.02
+   },
+   "el": 6,
+   "tl": 2,
+   "stueck": 6
+  },
+  {
+   "id": "limette",
+   "name": "Limette",
+   "fdc": 168155,
+   "quelle": "Limes, raw",
+   "schluessel": [
+    "limette",
+    "limetten"
+   ],
+   "je100g": {
+    "kcal": 30,
+    "eiweiss": 0.7,
+    "fett": 0.2,
+    "gesFett": 0,
+    "kh": 10.5,
+    "zucker": 1.7,
+    "ballast": 2.8,
+    "salz": 0.01
+   },
+   "stueck": 65
+  },
+  {
+   "id": "limettensaft",
+   "name": "Limettensaft",
+   "fdc": 168156,
+   "quelle": "Lime juice, raw",
+   "schluessel": [
+    "limettensaft"
+   ],
+   "je100g": {
+    "kcal": 25,
+    "eiweiss": 0.4,
+    "fett": 0.1,
+    "gesFett": 0,
+    "kh": 8.4,
+    "zucker": 1.7,
+    "ballast": 0.4,
+    "salz": 0.01
+   },
+   "el": 15.1,
+   "tl": 5.04,
+   "dichte": 1.02
+  },
+  {
+   "id": "orange",
+   "name": "Orange",
+   "fdc": 169097,
+   "quelle": "Oranges, raw, all commercial varieties",
+   "schluessel": [
+    "orange",
+    "orangen",
+    "apfelsine",
+    "apfelsinen",
+    "mandarine",
+    "mandarinen",
+    "clementine",
+    "blutorange",
+    "pomeranze",
+    "pomeranzen"
+   ],
+   "je100g": {
+    "kcal": 47,
+    "eiweiss": 0.9,
+    "fett": 0.1,
+    "gesFett": 0,
+    "kh": 11.8,
+    "zucker": 9.4,
+    "ballast": 2.4,
+    "salz": 0
+   },
+   "el": 11.3,
+   "tl": 3.75,
+   "dichte": 0.76,
+   "stueck": 130
+  },
+  {
+   "id": "orangensaft",
+   "name": "Orangensaft",
+   "fdc": 169098,
+   "quelle": "Orange juice, raw (Includes foods for USDA's Food Distribution Program)",
+   "schluessel": [
+    "orangensaft",
+    "o-saft"
+   ],
+   "je100g": {
+    "kcal": 45,
+    "eiweiss": 0.7,
+    "fett": 0.2,
+    "gesFett": 0,
+    "kh": 10.4,
+    "zucker": 8.4,
+    "ballast": 0.2,
+    "salz": 0
+   },
+   "el": 15.5,
+   "tl": 5.17,
+   "dichte": 1.05
+  },
+  {
+   "id": "apfelsaft",
+   "name": "Apfelsaft",
+   "fdc": 173933,
+   "quelle": "Apple juice, canned or bottled, unsweetened, without added ascorbic acid",
+   "schluessel": [
+    "apfelsaft",
+    "apfelmost",
+    "traubensaft",
+    "most",
+    "cidre"
+   ],
+   "je100g": {
+    "kcal": 46,
+    "eiweiss": 0.1,
+    "fett": 0.1,
+    "gesFett": 0,
+    "kh": 11.3,
+    "zucker": 9.6,
+    "ballast": 0.2,
+    "salz": 0.01
+   },
+   "el": 15.5,
+   "tl": 5.17,
+   "dichte": 1.05
+  },
+  {
+   "id": "ananas",
+   "name": "Ananas",
+   "fdc": 169124,
+   "quelle": "Pineapple, raw, all varieties",
+   "schluessel": [
+    "ananas",
+    "ananasscheiben",
+    "ananasstücke"
+   ],
+   "je100g": {
+    "kcal": 50,
+    "eiweiss": 0.5,
+    "fett": 0.1,
+    "gesFett": 0,
+    "kh": 13.1,
+    "zucker": 9.9,
+    "ballast": 1.4,
+    "salz": 0
+   },
+   "el": 10.3,
+   "tl": 3.44,
+   "dichte": 0.7,
+   "stueck": 900,
+   "scheibe": 55
+  },
+  {
+   "id": "aprikosen",
+   "name": "Aprikosen",
+   "fdc": 171697,
+   "quelle": "Apricots, raw",
+   "schluessel": [
+    "aprikose",
+    "aprikosen",
+    "marillen",
+    "pfirsich",
+    "pfirsiche",
+    "nektarine",
+    "nektarinen"
+   ],
+   "je100g": {
+    "kcal": 48,
+    "eiweiss": 1.4,
+    "fett": 0.4,
+    "gesFett": 0,
+    "kh": 11.1,
+    "zucker": 9.2,
+    "ballast": 2,
+    "salz": 0
+   },
+   "el": 9.7,
+   "tl": 3.23,
+   "dichte": 0.66,
+   "stueck": 40
+  },
+  {
+   "id": "trockenaprikosen",
+   "name": "Getrocknete Aprikosen",
+   "fdc": 173941,
+   "quelle": "Apricots, dried, sulfured, uncooked",
+   "schluessel": [
+    "getrocknete aprikosen",
+    "trockenaprikosen",
+    "soft-aprikosen",
+    "trockenobst",
+    "dörrobst"
+   ],
+   "je100g": {
+    "kcal": 241,
+    "eiweiss": 3.4,
+    "fett": 0.5,
+    "gesFett": 0,
+    "kh": 62.6,
+    "zucker": 53.4,
+    "ballast": 7.3,
+    "salz": 0.03
+   },
+   "el": 8.1,
+   "tl": 2.71,
+   "dichte": 0.55,
+   "stueck": 8
+  },
+  {
+   "id": "pflaumen",
+   "name": "Pflaumen",
+   "fdc": 169949,
+   "quelle": "Plums, raw",
+   "schluessel": [
+    "pflaume",
+    "pflaumen",
+    "zwetschge",
+    "zwetschgen",
+    "zwetschken",
+    "zwetschen",
+    "mirabellen",
+    "reineclauden"
+   ],
+   "je100g": {
+    "kcal": 46,
+    "eiweiss": 0.7,
+    "fett": 0.3,
+    "gesFett": 0,
+    "kh": 11.4,
+    "zucker": 9.9,
+    "ballast": 1.4,
+    "salz": 0
+   },
+   "el": 10.3,
+   "tl": 3.44,
+   "dichte": 0.7,
+   "stueck": 40
+  },
+  {
+   "id": "backpflaumen",
+   "name": "Backpflaumen",
+   "fdc": 168162,
+   "quelle": "Plums, dried (prunes), uncooked",
+   "schluessel": [
+    "backpflaumen",
+    "trockenpflaumen",
+    "dörrpflaumen"
+   ],
+   "je100g": {
+    "kcal": 240,
+    "eiweiss": 2.2,
+    "fett": 0.4,
+    "gesFett": 0.1,
+    "kh": 63.9,
+    "zucker": 38.1,
+    "ballast": 7.1,
+    "salz": 0.01
+   },
+   "el": 10.9,
+   "tl": 3.63,
+   "dichte": 0.74,
+   "stueck": 10
+  },
+  {
+   "id": "kirschen",
+   "name": "Kirschen",
+   "fdc": 171719,
+   "quelle": "Cherries, sweet, raw",
+   "schluessel": [
+    "kirschen",
+    "süßkirschen",
+    "sauerkirschen",
+    "schattenmorellen",
+    "amarenakirschen"
+   ],
+   "je100g": {
+    "kcal": 63,
+    "eiweiss": 1.1,
+    "fett": 0.2,
+    "gesFett": 0,
+    "kh": 16,
+    "zucker": 12.8,
+    "ballast": 2.1,
+    "salz": 0
+   },
+   "el": 8.6,
+   "tl": 2.88,
+   "dichte": 0.58
+  },
+  {
+   "id": "erdbeeren",
+   "name": "Erdbeeren",
+   "fdc": 167762,
+   "quelle": "Strawberries, raw",
+   "schluessel": [
+    "erdbeeren",
+    "erdbeere"
+   ],
+   "je100g": {
+    "kcal": 32,
+    "eiweiss": 0.7,
+    "fett": 0.3,
+    "gesFett": 0,
+    "kh": 7.7,
+    "zucker": 4.9,
+    "ballast": 2,
+    "salz": 0
+   },
+   "el": 14.5,
+   "tl": 4.83,
+   "dichte": 0.98,
+   "stueck": 12
+  },
+  {
+   "id": "beeren",
+   "name": "Beeren",
+   "fdc": 167755,
+   "quelle": "Raspberries, raw",
+   "schluessel": [
+    "himbeeren",
+    "beeren",
+    "brombeeren",
+    "johannisbeeren",
+    "stachelbeeren",
+    "heidelbeeren",
+    "blaubeeren",
+    "preiselbeeren",
+    "cranberries",
+    "waldbeeren",
+    "beerenmischung"
+   ],
+   "je100g": {
+    "kcal": 52,
+    "eiweiss": 1.2,
+    "fett": 0.7,
+    "gesFett": 0,
+    "kh": 11.9,
+    "zucker": 4.4,
+    "ballast": 6.5,
+    "salz": 0
+   },
+   "el": 7.7,
+   "tl": 2.56,
+   "dichte": 0.52
+  },
+  {
+   "id": "rhabarber",
+   "name": "Rhabarber",
+   "fdc": 167758,
+   "quelle": "Rhubarb, raw",
+   "schluessel": [
+    "rhabarber"
+   ],
+   "je100g": {
+    "kcal": 21,
+    "eiweiss": 0.9,
+    "fett": 0.2,
+    "gesFett": 0.1,
+    "kh": 4.5,
+    "zucker": 1.1,
+    "ballast": 1.8,
+    "salz": 0.01
+   },
+   "el": 7.6,
+   "tl": 2.54,
+   "dichte": 0.52,
+   "stueck": 100
+  },
+  {
+   "id": "mango",
+   "name": "Mango",
+   "fdc": 169910,
+   "quelle": "Mangos, raw",
+   "schluessel": [
+    "mango",
+    "mangos"
+   ],
+   "je100g": {
+    "kcal": 60,
+    "eiweiss": 0.8,
+    "fett": 0.4,
+    "gesFett": 0.1,
+    "kh": 15,
+    "zucker": 13.7,
+    "ballast": 1.6,
+    "salz": 0
+   },
+   "el": 10.3,
+   "tl": 3.44,
+   "dichte": 0.7,
+   "stueck": 300
+  },
+  {
+   "id": "trauben",
+   "name": "Weintrauben",
+   "fdc": 174683,
+   "quelle": "Grapes, red or green (European type, such as Thompson seedless), raw",
+   "schluessel": [
+    "trauben",
+    "weintrauben",
+    "weinbeeren"
+   ],
+   "je100g": {
+    "kcal": 69,
+    "eiweiss": 0.7,
+    "fett": 0.2,
+    "gesFett": 0.1,
+    "kh": 18.1,
+    "zucker": 15.5,
+    "ballast": 0.9,
+    "salz": 0.01
+   },
+   "el": 9.4,
+   "tl": 3.15,
+   "dichte": 0.64
+  },
+  {
+   "id": "feigen",
+   "name": "Feigen",
+   "fdc": 173021,
+   "quelle": "Figs, raw",
+   "schluessel": [
+    "feige",
+    "feigen"
+   ],
+   "je100g": {
+    "kcal": 74,
+    "eiweiss": 0.8,
+    "fett": 0.3,
+    "gesFett": 0.1,
+    "kh": 19.2,
+    "zucker": 16.3,
+    "ballast": 2.9,
+    "salz": 0
+   },
+   "stueck": 50
+  },
+  {
+   "id": "datteln",
+   "name": "Datteln",
+   "fdc": 168191,
+   "quelle": "Dates, medjool",
+   "schluessel": [
+    "dattel",
+    "datteln"
+   ],
+   "je100g": {
+    "kcal": 277,
+    "eiweiss": 1.8,
+    "fett": 0.2,
+    "gesFett": null,
+    "kh": 75,
+    "zucker": 66.5,
+    "ballast": 6.7,
+    "salz": 0
+   },
+   "stueck": 20
+  },
+  {
+   "id": "quitten",
+   "name": "Quitten",
+   "fdc": 168163,
+   "quelle": "Quinces, raw",
+   "schluessel": [
+    "quitte",
+    "quitten"
+   ],
+   "je100g": {
+    "kcal": 57,
+    "eiweiss": 0.4,
+    "fett": 0.1,
+    "gesFett": 0,
+    "kh": 15.3,
+    "zucker": null,
+    "ballast": 1.9,
+    "salz": 0.01
+   },
+   "stueck": 250
+  },
+  {
+   "id": "kokosraspel",
+   "name": "Kokosraspeln",
+   "fdc": 170170,
+   "quelle": "Nuts, coconut meat, dried (desiccated), not sweetened",
+   "schluessel": [
+    "kokosraspel",
+    "kokosraspeln",
+    "kokosflocken"
+   ],
+   "je100g": {
+    "kcal": 660,
+    "eiweiss": 6.9,
+    "fett": 64.5,
+    "gesFett": 57.2,
+    "kh": 23.7,
+    "zucker": 7.4,
+    "ballast": 16.3,
+    "salz": 0.09
+   }
+  },
+  {
+   "id": "kokosmilch",
+   "name": "Kokosmilch",
+   "fdc": 170173,
+   "quelle": "Nuts, coconut milk, canned (liquid expressed from grated meat and water)",
+   "schluessel": [
+    "kokosmilch",
+    "kokoscreme",
+    "kokosnussmilch"
+   ],
+   "je100g": {
+    "kcal": 197,
+    "eiweiss": 2,
+    "fett": 21.3,
+    "gesFett": 18.9,
+    "kh": 2.8,
+    "zucker": null,
+    "ballast": null,
+    "salz": 0.03
+   },
+   "el": 15,
+   "tl": 5,
+   "dichte": 0.96,
+   "dose": 400
+  },
+  {
+   "id": "mandeln",
+   "name": "Mandeln",
+   "fdc": 170567,
+   "quelle": "Nuts, almonds",
+   "schluessel": [
+    "mandel",
+    "mandeln",
+    "mandelblättchen",
+    "mandelstifte",
+    "gemahlene mandeln",
+    "mandelmehl",
+    "bittermandel"
+   ],
+   "je100g": {
+    "kcal": 579,
+    "eiweiss": 21.2,
+    "fett": 49.9,
+    "gesFett": 3.8,
+    "kh": 21.6,
+    "zucker": 4.4,
+    "ballast": 12.5,
+    "salz": 0
+   },
+   "el": 6.8,
+   "tl": 2.25,
+   "dichte": 0.46
+  },
+  {
+   "id": "maronen",
+   "name": "Maronen, Esskastanien",
+   "fdc": 170190,
+   "quelle": "Nuts, chestnuts, european, roasted",
+   "schluessel": [
+    "marone",
+    "maronen",
+    "maroni",
+    "kastanie",
+    "kastanien",
+    "esskastanien",
+    "edelkastanien"
+   ],
+   "je100g": {
+    "kcal": 245,
+    "eiweiss": 3.2,
+    "fett": 2.2,
+    "gesFett": 0.4,
+    "kh": 53,
+    "zucker": 10.6,
+    "ballast": 5.1,
+    "salz": 0.01
+   },
+   "el": 8.9,
+   "tl": 2.98,
+   "dichte": 0.6,
+   "stueck": 8
+  },
+  {
+   "id": "haselnuesse",
+   "name": "Haselnüsse",
+   "fdc": 170581,
+   "quelle": "Nuts, hazelnuts or filberts",
+   "schluessel": [
+    "haselnuss",
+    "haselnüsse",
+    "haselnusskerne",
+    "haselnussblättchen",
+    "haselnuss-krokant",
+    "krokant",
+    "nüsse",
+    "nuss",
+    "nusskerne",
+    "kemirinüsse"
+   ],
+   "je100g": {
+    "kcal": 628,
+    "eiweiss": 15,
+    "fett": 60.8,
+    "gesFett": 4.5,
+    "kh": 16.7,
+    "zucker": 4.3,
+    "ballast": 9.7,
+    "salz": 0
+   },
+   "el": 4.7,
+   "tl": 1.56,
+   "dichte": 0.32
+  },
+  {
+   "id": "walnuesse",
+   "name": "Walnüsse",
+   "fdc": 170187,
+   "quelle": "Nuts, walnuts, english",
+   "schluessel": [
+    "walnuss",
+    "walnüsse",
+    "walnusskerne",
+    "walnusshälften",
+    "pekannüsse",
+    "pekannuss"
+   ],
+   "je100g": {
+    "kcal": 654,
+    "eiweiss": 15.2,
+    "fett": 65.2,
+    "gesFett": 6.1,
+    "kh": 13.7,
+    "zucker": 2.6,
+    "ballast": 6.7,
+    "salz": 0.01
+   },
+   "el": 5,
+   "tl": 1.67,
+   "dichte": 0.34
+  },
+  {
+   "id": "pinienkerne",
+   "name": "Pinienkerne",
+   "fdc": 170591,
+   "quelle": "Nuts, pine nuts, dried",
+   "schluessel": [
+    "pinienkerne"
+   ],
+   "je100g": {
+    "kcal": 673,
+    "eiweiss": 13.7,
+    "fett": 68.4,
+    "gesFett": 4.9,
+    "kh": 13.1,
+    "zucker": 3.6,
+    "ballast": 3.7,
+    "salz": 0.01
+   },
+   "el": 8.4,
+   "tl": 2.81,
+   "dichte": 0.57
+  },
+  {
+   "id": "cashew",
+   "name": "Cashewkerne",
+   "fdc": 170162,
+   "quelle": "Nuts, cashew nuts, raw",
+   "schluessel": [
+    "cashew",
+    "cashewkerne",
+    "cashewnüsse"
+   ],
+   "je100g": {
+    "kcal": 553,
+    "eiweiss": 18.2,
+    "fett": 43.9,
+    "gesFett": 7.8,
+    "kh": 30.2,
+    "zucker": 5.9,
+    "ballast": 3.3,
+    "salz": 0.03
+   }
+  },
+  {
+   "id": "pistazien",
+   "name": "Pistazien",
+   "fdc": 170184,
+   "quelle": "Nuts, pistachio nuts, raw",
+   "schluessel": [
+    "pistazie",
+    "pistazien",
+    "pistazienkerne"
+   ],
+   "je100g": {
+    "kcal": 560,
+    "eiweiss": 20.2,
+    "fett": 45.3,
+    "gesFett": 5.9,
+    "kh": 27.2,
+    "zucker": 7.7,
+    "ballast": 10.6,
+    "salz": 0
+   },
+   "el": 7.7,
+   "tl": 2.56,
+   "dichte": 0.52
+  },
+  {
+   "id": "erdnuesse",
+   "name": "Erdnüsse",
+   "fdc": 172430,
+   "quelle": "Peanuts, all types, raw",
+   "schluessel": [
+    "erdnuss",
+    "erdnüsse",
+    "erdnusskerne"
+   ],
+   "je100g": {
+    "kcal": 567,
+    "eiweiss": 25.8,
+    "fett": 49.2,
+    "gesFett": 6.3,
+    "kh": 16.1,
+    "zucker": 4.7,
+    "ballast": 8.5,
+    "salz": 0.05
+   },
+   "el": 9.1,
+   "tl": 3.04,
+   "dichte": 0.62
+  },
+  {
+   "id": "erdnussbutter",
+   "name": "Erdnussbutter",
+   "fdc": 172470,
+   "quelle": "Peanut butter, smooth style, without salt",
+   "schluessel": [
+    "erdnussbutter",
+    "erdnusscreme",
+    "erdnussmus"
+   ],
+   "je100g": {
+    "kcal": 598,
+    "eiweiss": 22.2,
+    "fett": 51.4,
+    "gesFett": 10.3,
+    "kh": 22.3,
+    "zucker": 10.5,
+    "ballast": 5,
+    "salz": 0.04
+   },
+   "el": 16,
+   "tl": 5.33,
+   "dichte": 1.09
+  },
+  {
+   "id": "sesam",
+   "name": "Sesam",
+   "fdc": 170150,
+   "quelle": "Seeds, sesame seeds, whole, dried",
+   "schluessel": [
+    "sesam",
+    "sesamsamen",
+    "sesamkörner",
+    "sesamsaat"
+   ],
+   "je100g": {
+    "kcal": 573,
+    "eiweiss": 17.7,
+    "fett": 49.7,
+    "gesFett": 7,
+    "kh": 23.5,
+    "zucker": 0.3,
+    "ballast": 11.8,
+    "salz": 0.03
+   },
+   "el": 9,
+   "tl": 3,
+   "dichte": 0.61
+  },
+  {
+   "id": "tahin",
+   "name": "Tahin",
+   "fdc": 170189,
+   "quelle": "Seeds, sesame butter, tahini, from roasted and toasted kernels (most common type)",
+   "schluessel": [
+    "tahin",
+    "tahini",
+    "sesampaste"
+   ],
+   "je100g": {
+    "kcal": 595,
+    "eiweiss": 17,
+    "fett": 53.8,
+    "gesFett": 7.5,
+    "kh": 21.2,
+    "zucker": 0.5,
+    "ballast": 9.3,
+    "salz": 0.29
+   },
+   "el": 15,
+   "tl": 5
+  },
+  {
+   "id": "sonnenblumenkerne",
+   "name": "Sonnenblumenkerne",
+   "fdc": 170562,
+   "quelle": "Seeds, sunflower seed kernels, dried",
+   "schluessel": [
+    "sonnenblumenkerne"
+   ],
+   "je100g": {
+    "kcal": 584,
+    "eiweiss": 20.8,
+    "fett": 51.5,
+    "gesFett": 4.5,
+    "kh": 20,
+    "zucker": 2.6,
+    "ballast": 8.6,
+    "salz": 0.02
+   },
+   "el": 2.9,
+   "tl": 0.96,
+   "dichte": 0.19
+  },
+  {
+   "id": "kuerbiskerne",
+   "name": "Kürbiskerne",
+   "fdc": 170556,
+   "quelle": "Seeds, pumpkin and squash seed kernels, dried",
+   "schluessel": [
+    "kürbiskerne"
+   ],
+   "je100g": {
+    "kcal": 559,
+    "eiweiss": 30.2,
+    "fett": 49.1,
+    "gesFett": 8.7,
+    "kh": 10.7,
+    "zucker": 1.4,
+    "ballast": 6,
+    "salz": 0.02
+   },
+   "el": 8.1,
+   "tl": 2.69,
+   "dichte": 0.55
+  },
+  {
+   "id": "leinsamen",
+   "name": "Leinsamen",
+   "fdc": 169414,
+   "quelle": "Seeds, flaxseed",
+   "schluessel": [
+    "leinsamen",
+    "chiasamen",
+    "chia"
+   ],
+   "je100g": {
+    "kcal": 534,
+    "eiweiss": 18.3,
+    "fett": 42.2,
+    "gesFett": 3.7,
+    "kh": 28.9,
+    "zucker": 1.6,
+    "ballast": 27.3,
+    "salz": 0.08
+   },
+   "el": 10.3,
+   "tl": 3.4,
+   "dichte": 0.71
+  },
+  {
+   "id": "mohn",
+   "name": "Mohn",
+   "fdc": 171330,
+   "quelle": "Spices, poppy seed",
+   "schluessel": [
+    "mohn",
+    "blaumohn",
+    "mohnsamen"
+   ],
+   "je100g": {
+    "kcal": 525,
+    "eiweiss": 18,
+    "fett": 41.6,
+    "gesFett": 4.5,
+    "kh": 28.1,
+    "zucker": 3,
+    "ballast": 19.5,
+    "salz": 0.07
+   },
+   "el": 8.8,
+   "tl": 2.8
+  },
+  {
+   "id": "salz",
+   "name": "Salz",
+   "fdc": 173468,
+   "quelle": "Salt, table",
+   "schluessel": [
+    "salz",
+    "meersalz",
+    "speisesalz",
+    "jodsalz",
+    "kräutersalz",
+    "fleur de sel",
+    "steinsalz",
+    "pökelsalz",
+    "selleriesalz"
+   ],
+   "je100g": {
+    "kcal": 0,
+    "eiweiss": 0,
+    "fett": 0,
+    "gesFett": 0,
+    "kh": 0,
+    "zucker": 0,
+    "ballast": 0,
+    "salz": 96.9
+   },
+   "el": 18,
+   "tl": 6,
+   "dichte": 1.23
+  },
+  {
+   "id": "pfeffer",
+   "name": "Pfeffer",
+   "fdc": 170931,
+   "quelle": "Spices, pepper, black",
+   "schluessel": [
+    "pfeffer",
+    "schwarzer pfeffer",
+    "weißer pfeffer",
+    "pfefferkörner",
+    "pfeffer aus der mühle",
+    "grüner pfeffer"
+   ],
+   "je100g": {
+    "kcal": 251,
+    "eiweiss": 10.4,
+    "fett": 3.3,
+    "gesFett": 1.4,
+    "kh": 64,
+    "zucker": 0.6,
+    "ballast": 25.3,
+    "salz": 0.05
+   },
+   "el": 6.9,
+   "tl": 2.3
+  },
+  {
+   "id": "zimt",
+   "name": "Zimt",
+   "fdc": 171320,
+   "quelle": "Spices, cinnamon, ground",
+   "schluessel": [
+    "zimt",
+    "zimtpulver",
+    "zimtstange",
+    "zimtstangen",
+    "lebkuchengewürz",
+    "spekulatiusgewürz",
+    "printengewürz",
+    "apfelkuchengewürz"
+   ],
+   "je100g": {
+    "kcal": 247,
+    "eiweiss": 4,
+    "fett": 1.2,
+    "gesFett": 0.3,
+    "kh": 80.6,
+    "zucker": 2.2,
+    "ballast": 53.1,
+    "salz": 0.03
+   },
+   "el": 7.8,
+   "tl": 2.6,
+   "stueck": 3
+  },
+  {
+   "id": "safran",
+   "name": "Safran",
+   "fdc": 170934,
+   "quelle": "Spices, saffron",
+   "schluessel": [
+    "safran",
+    "safranfäden",
+    "safranpulver"
+   ],
+   "je100g": {
+    "kcal": 310,
+    "eiweiss": 11.4,
+    "fett": 5.9,
+    "gesFett": 1.6,
+    "kh": 65.4,
+    "zucker": null,
+    "ballast": 3.9,
+    "salz": 0.37
+   },
+   "el": 2.1,
+   "tl": 0.7
+  },
+  {
+   "id": "muskat",
+   "name": "Muskat",
+   "fdc": 171326,
+   "quelle": "Spices, nutmeg, ground",
+   "schluessel": [
+    "muskat",
+    "muskatnuss",
+    "muskatblüte",
+    "macis"
+   ],
+   "je100g": {
+    "kcal": 525,
+    "eiweiss": 5.8,
+    "fett": 36.3,
+    "gesFett": 25.9,
+    "kh": 49.3,
+    "zucker": 3,
+    "ballast": 20.8,
+    "salz": 0.04
+   },
+   "el": 7,
+   "tl": 2.2
+  },
+  {
+   "id": "paprikapulver",
+   "name": "Paprikapulver",
+   "fdc": 171329,
+   "quelle": "Spices, paprika",
+   "schluessel": [
+    "paprikapulver",
+    "rosenpaprika",
+    "paprika edelsüß",
+    "edelsüß",
+    "geräuchertes paprikapulver",
+    "pimentón"
+   ],
+   "je100g": {
+    "kcal": 282,
+    "eiweiss": 14.1,
+    "fett": 12.9,
+    "gesFett": 2.1,
+    "kh": 54,
+    "zucker": 10.3,
+    "ballast": 34.9,
+    "salz": 0.17
+   },
+   "el": 6.8,
+   "tl": 2.3
+  },
+  {
+   "id": "kreuzkuemmel",
+   "name": "Kreuzkümmel",
+   "fdc": 170923,
+   "quelle": "Spices, cumin seed",
+   "schluessel": [
+    "kreuzkümmel",
+    "cumin",
+    "kumin"
+   ],
+   "je100g": {
+    "kcal": 375,
+    "eiweiss": 17.8,
+    "fett": 22.3,
+    "gesFett": 1.5,
+    "kh": 44.2,
+    "zucker": 2.3,
+    "ballast": 10.5,
+    "salz": 0.42
+   },
+   "el": 6,
+   "tl": 2.1
+  },
+  {
+   "id": "kuemmel",
+   "name": "Kümmel",
+   "fdc": 170918,
+   "quelle": "Spices, caraway seed",
+   "schluessel": [
+    "kümmel"
+   ],
+   "je100g": {
+    "kcal": 333,
+    "eiweiss": 19.8,
+    "fett": 14.6,
+    "gesFett": 0.6,
+    "kh": 49.9,
+    "zucker": 0.6,
+    "ballast": 38,
+    "salz": 0.04
+   },
+   "el": 6.7,
+   "tl": 2.1
+  },
+  {
+   "id": "kurkuma",
+   "name": "Kurkuma",
+   "fdc": 172231,
+   "quelle": "Spices, turmeric, ground",
+   "schluessel": [
+    "kurkuma",
+    "gelbwurz"
+   ],
+   "je100g": {
+    "kcal": 312,
+    "eiweiss": 9.7,
+    "fett": 3.3,
+    "gesFett": 1.8,
+    "kh": 67.1,
+    "zucker": 3.2,
+    "ballast": 22.7,
+    "salz": 0.07
+   },
+   "el": 9.4,
+   "tl": 3
+  },
+  {
+   "id": "curry",
+   "name": "Currypulver",
+   "fdc": 170924,
+   "quelle": "Spices, curry powder",
+   "schluessel": [
+    "curry",
+    "currypulver",
+    "garam masala",
+    "ras el-hanout",
+    "ras el hanout",
+    "currypaste",
+    "fünf-gewürze-pulver"
+   ],
+   "je100g": {
+    "kcal": 325,
+    "eiweiss": 14.3,
+    "fett": 14,
+    "gesFett": 1.6,
+    "kh": 55.8,
+    "zucker": 2.8,
+    "ballast": 53.2,
+    "salz": 0.13
+   },
+   "el": 6.3,
+   "tl": 2
+  },
+  {
+   "id": "nelken",
+   "name": "Nelken",
+   "fdc": 171321,
+   "quelle": "Spices, cloves, ground",
+   "schluessel": [
+    "nelke",
+    "nelken",
+    "gewürznelken",
+    "nelkenpulver"
+   ],
+   "je100g": {
+    "kcal": 274,
+    "eiweiss": 6,
+    "fett": 13,
+    "gesFett": 4,
+    "kh": 65.5,
+    "zucker": 2.4,
+    "ballast": 33.9,
+    "salz": 0.69
+   },
+   "el": 6.5,
+   "tl": 2.1,
+   "stueck": 0.1
+  },
+  {
+   "id": "ingwerpulver",
+   "name": "Ingwerpulver",
+   "fdc": 170926,
+   "quelle": "Spices, ginger, ground",
+   "schluessel": [
+    "ingwerpulver",
+    "gemahlener ingwer"
+   ],
+   "je100g": {
+    "kcal": 335,
+    "eiweiss": 9,
+    "fett": 4.2,
+    "gesFett": 2.6,
+    "kh": 71.6,
+    "zucker": 3.4,
+    "ballast": 14.1,
+    "salz": 0.07
+   },
+   "el": 5.2,
+   "tl": 1.8
+  },
+  {
+   "id": "cayenne",
+   "name": "Cayennepfeffer, Chilipulver",
+   "fdc": 170932,
+   "quelle": "Spices, pepper, red or cayenne",
+   "schluessel": [
+    "cayenne",
+    "cayennepfeffer",
+    "chilipulver",
+    "chiliflocken",
+    "chilli",
+    "piment d'espelette",
+    "sambal",
+    "sambal oelek",
+    "sambal ulek"
+   ],
+   "je100g": {
+    "kcal": 318,
+    "eiweiss": 12,
+    "fett": 17.3,
+    "gesFett": 3.3,
+    "kh": 56.6,
+    "zucker": 10.3,
+    "ballast": 27.2,
+    "salz": 0.08
+   },
+   "el": 5.3,
+   "tl": 1.8
+  },
+  {
+   "id": "koriandersamen",
+   "name": "Koriandersamen",
+   "fdc": 170922,
+   "quelle": "Spices, coriander seed",
+   "schluessel": [
+    "koriander",
+    "koriandersamen",
+    "gemahlener koriander"
+   ],
+   "je100g": {
+    "kcal": 298,
+    "eiweiss": 12.4,
+    "fett": 17.8,
+    "gesFett": 1,
+    "kh": 55,
+    "zucker": null,
+    "ballast": 41.9,
+    "salz": 0.09
+   },
+   "el": 5,
+   "tl": 1.8
+  },
+  {
+   "id": "kardamom",
+   "name": "Kardamom",
+   "fdc": 170919,
+   "quelle": "Spices, cardamom",
+   "schluessel": [
+    "kardamom"
+   ],
+   "je100g": {
+    "kcal": 311,
+    "eiweiss": 10.8,
+    "fett": 6.7,
+    "gesFett": 0.7,
+    "kh": 68.5,
+    "zucker": null,
+    "ballast": 28,
+    "salz": 0.05
+   },
+   "el": 5.8,
+   "tl": 2,
+   "stueck": 0.2
+  },
+  {
+   "id": "anis",
+   "name": "Anis",
+   "fdc": 171316,
+   "quelle": "Spices, anise seed",
+   "schluessel": [
+    "anis",
+    "anissamen",
+    "sternanis",
+    "fenchelsamen"
+   ],
+   "je100g": {
+    "kcal": 337,
+    "eiweiss": 17.6,
+    "fett": 15.9,
+    "gesFett": 0.6,
+    "kh": 50,
+    "zucker": null,
+    "ballast": 14.6,
+    "salz": 0.04
+   },
+   "el": 6.7,
+   "tl": 2.1,
+   "stueck": 0.5
+  },
+  {
+   "id": "piment",
+   "name": "Piment",
+   "fdc": 171315,
+   "quelle": "Spices, allspice, ground",
+   "schluessel": [
+    "piment",
+    "pimentkörner",
+    "nelkenpfeffer"
+   ],
+   "je100g": {
+    "kcal": 263,
+    "eiweiss": 6.1,
+    "fett": 8.7,
+    "gesFett": 2.6,
+    "kh": 72.1,
+    "zucker": null,
+    "ballast": 21.6,
+    "salz": 0.19
+   },
+   "el": 6,
+   "tl": 1.9,
+   "stueck": 0.1
+  },
+  {
+   "id": "getr_kraeuter",
+   "name": "Getrocknete Kräuter",
+   "fdc": 171328,
+   "quelle": "Spices, oregano, dried",
+   "schluessel": [
+    "oregano",
+    "thymian",
+    "majoran",
+    "rosmarin",
+    "salbei",
+    "bohnenkraut",
+    "kräuter der provence",
+    "italienische kräuter",
+    "getrocknete kräuter",
+    "beifuß"
+   ],
+   "je100g": {
+    "kcal": 265,
+    "eiweiss": 9,
+    "fett": 4.3,
+    "gesFett": 1.6,
+    "kh": 68.9,
+    "zucker": 4.1,
+    "ballast": 42.5,
+    "salz": 0.06
+   },
+   "el": 3,
+   "tl": 1,
+   "zweig": 0.5,
+   "bund": 20
+  },
+  {
+   "id": "lorbeer",
+   "name": "Lorbeer",
+   "fdc": 170917,
+   "quelle": "Spices, bay leaf",
+   "schluessel": [
+    "lorbeer",
+    "lorbeerblatt",
+    "lorbeerblätter",
+    "wacholder",
+    "wacholderbeeren"
+   ],
+   "je100g": {
+    "kcal": 313,
+    "eiweiss": 7.6,
+    "fett": 8.4,
+    "gesFett": 2.3,
+    "kh": 75,
+    "zucker": null,
+    "ballast": 26.3,
+    "salz": 0.06
+   },
+   "el": 1.8,
+   "tl": 0.6,
+   "stueck": 0.2,
+   "blatt": 0.2
+  },
+  {
+   "id": "senfkoerner",
+   "name": "Senfkörner",
+   "fdc": 170929,
+   "quelle": "Spices, mustard seed, ground",
+   "schluessel": [
+    "senfkörner",
+    "senfsaat",
+    "senfsamen",
+    "senfpulver",
+    "senfmehl"
+   ],
+   "je100g": {
+    "kcal": 508,
+    "eiweiss": 26.1,
+    "fett": 36.2,
+    "gesFett": 2,
+    "kh": 28.1,
+    "zucker": 6.8,
+    "ballast": 12.2,
+    "salz": 0.03
+   },
+   "el": 6.3,
+   "tl": 2
+  },
+  {
+   "id": "vanille",
+   "name": "Vanille",
+   "fdc": 173471,
+   "quelle": "Vanilla extract",
+   "schluessel": [
+    "vanille",
+    "vanilleschote",
+    "vanilleschoten",
+    "vanillemark",
+    "mark einer vanilleschote",
+    "mark von 1 vanilleschote",
+    "vanilleextrakt",
+    "bourbon-vanille"
+   ],
+   "je100g": {
+    "kcal": 288,
+    "eiweiss": 0.1,
+    "fett": 0.1,
+    "gesFett": 0,
+    "kh": 12.7,
+    "zucker": 12.7,
+    "ballast": 0,
+    "salz": 0.02
+   },
+   "el": 13,
+   "tl": 4.2,
+   "dichte": 0.88,
+   "stueck": 3
+  },
+  {
+   "id": "senf",
+   "name": "Senf",
+   "fdc": 172234,
+   "quelle": "Mustard, prepared, yellow",
+   "schluessel": [
+    "senf",
+    "mittelscharfer senf",
+    "scharfer senf",
+    "dijonsenf",
+    "dijon",
+    "grober senf",
+    "süßer senf",
+    "mostrich"
+   ],
+   "je100g": {
+    "kcal": 60,
+    "eiweiss": 3.7,
+    "fett": 3.3,
+    "gesFett": 0.2,
+    "kh": 5.8,
+    "zucker": 0.9,
+    "ballast": 4,
+    "salz": 2.76
+   },
+   "el": 15,
+   "tl": 5,
+   "dichte": 1.05
+  },
+  {
+   "id": "essig",
+   "name": "Essig",
+   "fdc": 172237,
+   "quelle": "Vinegar, distilled",
+   "schluessel": [
+    "essig",
+    "essigessenz",
+    "branntweinessig",
+    "kräuteressig",
+    "reisessig",
+    "weißer essig"
+   ],
+   "je100g": {
+    "kcal": 18,
+    "eiweiss": 0,
+    "fett": 0,
+    "gesFett": 0,
+    "kh": 0,
+    "zucker": 0,
+    "ballast": 0,
+    "salz": 0.01
+   },
+   "el": 14.9,
+   "tl": 5,
+   "dichte": 1.01
+  },
+  {
+   "id": "weinessig",
+   "name": "Weinessig",
+   "fdc": 172240,
+   "quelle": "Vinegar, red wine",
+   "schluessel": [
+    "weinessig",
+    "rotweinessig",
+    "weißweinessig",
+    "sherryessig",
+    "estragonessig",
+    "himbeeressig"
+   ],
+   "je100g": {
+    "kcal": 19,
+    "eiweiss": 0,
+    "fett": 0,
+    "gesFett": 0,
+    "kh": 0.3,
+    "zucker": 0,
+    "ballast": 0,
+    "salz": 0.02
+   },
+   "el": 14.9,
+   "tl": 5,
+   "dichte": 1.01
+  },
+  {
+   "id": "apfelessig",
+   "name": "Apfelessig",
+   "fdc": 173469,
+   "quelle": "Vinegar, cider",
+   "schluessel": [
+    "apfelessig",
+    "obstessig",
+    "cidre-essig"
+   ],
+   "je100g": {
+    "kcal": 21,
+    "eiweiss": 0,
+    "fett": 0,
+    "gesFett": 0,
+    "kh": 0.9,
+    "zucker": 0.4,
+    "ballast": 0,
+    "salz": 0.01
+   },
+   "el": 14.9,
+   "tl": 5,
+   "dichte": 1.01
+  },
+  {
+   "id": "balsamico",
+   "name": "Balsamico",
+   "fdc": 172241,
+   "quelle": "Vinegar, balsamic",
+   "schluessel": [
+    "balsamico",
+    "balsamessig",
+    "aceto balsamico",
+    "balsamicoessig",
+    "balsamico-essig"
+   ],
+   "je100g": {
+    "kcal": 88,
+    "eiweiss": 0.5,
+    "fett": 0,
+    "gesFett": 0,
+    "kh": 17,
+    "zucker": 15,
+    "ballast": null,
+    "salz": 0.06
+   },
+   "el": 16,
+   "tl": 5.3,
+   "dichte": 1.08
+  },
+  {
+   "id": "sojasauce",
+   "name": "Sojasauce",
+   "fdc": 174277,
+   "quelle": "Soy sauce made from soy and wheat (shoyu)",
+   "schluessel": [
+    "sojasauce",
+    "sojasoße",
+    "shoyu",
+    "tamari",
+    "kecap asin",
+    "ketjap asin",
+    "fischsauce",
+    "fischsoße",
+    "nam pla",
+    "austernsauce",
+    "teriyakisauce"
+   ],
+   "je100g": {
+    "kcal": 53,
+    "eiweiss": 8.1,
+    "fett": 0.6,
+    "gesFett": 0.1,
+    "kh": 4.9,
+    "zucker": 0.4,
+    "ballast": 0.8,
+    "salz": 13.73
+   },
+   "el": 16,
+   "tl": 5.3,
+   "dichte": 1.08
+  },
+  {
+   "id": "worcester",
+   "name": "Worcestershiresauce",
+   "fdc": 171610,
+   "quelle": "Sauce, worcestershire",
+   "schluessel": [
+    "worcestersauce",
+    "worcestershiresauce",
+    "worcestershire-sauce"
+   ],
+   "je100g": {
+    "kcal": 77,
+    "eiweiss": 0,
+    "fett": 0,
+    "gesFett": 0,
+    "kh": 19.2,
+    "zucker": 10,
+    "ballast": 0,
+    "salz": 3.25
+   },
+   "el": 17,
+   "tl": 5.67,
+   "dichte": 1.16
+  },
+  {
+   "id": "ketchup",
+   "name": "Ketchup",
+   "fdc": 168556,
+   "quelle": "Catsup",
+   "schluessel": [
+    "ketchup",
+    "tomatenketchup",
+    "kecap manis",
+    "ketjap manis",
+    "bbq-sauce",
+    "barbecuesauce",
+    "chilisauce",
+    "sweet chili"
+   ],
+   "je100g": {
+    "kcal": 101,
+    "eiweiss": 1,
+    "fett": 0.1,
+    "gesFett": 0,
+    "kh": 27.4,
+    "zucker": 21.3,
+    "ballast": 0.3,
+    "salz": 2.27
+   },
+   "el": 17,
+   "tl": 5.67,
+   "dichte": 1.01
+  },
+  {
+   "id": "mayonnaise",
+   "name": "Mayonnaise",
+   "fdc": 171009,
+   "quelle": "Salad dressing, mayonnaise, regular",
+   "schluessel": [
+    "mayonnaise",
+    "majonäse",
+    "remoulade",
+    "aioli"
+   ],
+   "je100g": {
+    "kcal": 680,
+    "eiweiss": 1,
+    "fett": 74.9,
+    "gesFett": 11.7,
+    "kh": 0.6,
+    "zucker": 0.6,
+    "ballast": 0,
+    "salz": 1.59
+   },
+   "el": 13.8,
+   "tl": 4.6,
+   "dichte": 0.93
+  },
+  {
+   "id": "meerrettich",
+   "name": "Meerrettich",
+   "fdc": 173472,
+   "quelle": "Horseradish, prepared",
+   "schluessel": [
+    "meerrettich",
+    "kren",
+    "sahnemeerrettich",
+    "wasabi"
+   ],
+   "je100g": {
+    "kcal": 48,
+    "eiweiss": 1.2,
+    "fett": 0.7,
+    "gesFett": 0.1,
+    "kh": 11.3,
+    "zucker": 8,
+    "ballast": 3.3,
+    "salz": 1.05
+   },
+   "el": 15,
+   "tl": 5
+  },
+  {
+   "id": "kapern",
+   "name": "Kapern",
+   "fdc": 172238,
+   "quelle": "Capers, canned",
+   "schluessel": [
+    "kapern",
+    "kapernäpfel"
+   ],
+   "je100g": {
+    "kcal": 23,
+    "eiweiss": 2.4,
+    "fett": 0.9,
+    "gesFett": 0.2,
+    "kh": 4.9,
+    "zucker": 0.4,
+    "ballast": 3.2,
+    "salz": 5.87
+   },
+   "el": 8.6,
+   "tl": 2.87
+  },
+  {
+   "id": "gemuesebruehe",
+   "name": "Gemüsebrühe",
+   "fdc": 171583,
+   "quelle": "Soup, vegetable broth, ready to serve",
+   "schluessel": [
+    "brühe",
+    "gemüsebrühe",
+    "gemüsefond",
+    "instantbrühe",
+    "gekörnte brühe",
+    "bouillon",
+    "würfelbrühe",
+    "klare brühe",
+    "dashi"
+   ],
+   "je100g": {
+    "kcal": 5,
+    "eiweiss": 0.2,
+    "fett": 0.1,
+    "gesFett": 0,
+    "kh": 0.9,
+    "zucker": 0.6,
+    "ballast": 0,
+    "salz": 0.74
+   },
+   "el": 13.8,
+   "tl": 4.6,
+   "dichte": 0.93
+  },
+  {
+   "id": "fleischbruehe",
+   "name": "Fleischbrühe",
+   "fdc": 172883,
+   "quelle": "Soup, stock, beef, home-prepared",
+   "schluessel": [
+    "fleischbrühe",
+    "rinderbrühe",
+    "rinderfond",
+    "kalbsbrühe",
+    "kalbsfond",
+    "wildfond",
+    "lammbrühe",
+    "lammfond",
+    "fleischfond",
+    "fond",
+    "bratenfond",
+    "schweinefleischfond",
+    "rindssuppe"
+   ],
+   "je100g": {
+    "kcal": 13,
+    "eiweiss": 2,
+    "fett": 0.1,
+    "gesFett": 0,
+    "kh": 1.2,
+    "zucker": 0.5,
+    "ballast": 0,
+    "salz": 0.5
+   },
+   "el": 15,
+   "tl": 5,
+   "dichte": 1.01
+  },
+  {
+   "id": "huehnerbruehe",
+   "name": "Hühnerbrühe",
+   "fdc": 172884,
+   "quelle": "Soup, stock, chicken, home-prepared",
+   "schluessel": [
+    "hühnerbrühe",
+    "hühnerfond",
+    "geflügelbrühe",
+    "geflügelfond",
+    "entenfond",
+    "hühnersuppe"
+   ],
+   "je100g": {
+    "kcal": 36,
+    "eiweiss": 2.5,
+    "fett": 1.2,
+    "gesFett": 0.3,
+    "kh": 3.5,
+    "zucker": 1.6,
+    "ballast": 0,
+    "salz": 0.36
+   },
+   "el": 15,
+   "tl": 5,
+   "dichte": 1.01
+  },
+  {
+   "id": "fischfond",
+   "name": "Fischfond",
+   "fdc": 172885,
+   "quelle": "Soup, stock, fish, home-prepared",
+   "schluessel": [
+    "fischfond",
+    "fischbrühe",
+    "fischsud"
+   ],
+   "je100g": {
+    "kcal": 16,
+    "eiweiss": 2.3,
+    "fett": 0.8,
+    "gesFett": 0.2,
+    "kh": 0,
+    "zucker": 0,
+    "ballast": 0,
+    "salz": 0.39
+   },
+   "el": 14.6,
+   "tl": 4.85,
+   "dichte": 0.98
+  },
+  {
+   "id": "bruehwuerfel",
+   "name": "Brühwürfel",
+   "fdc": 171560,
+   "quelle": "Soup, beef broth or bouillon, powder, dry",
+   "schluessel": [
+    "brühwürfel",
+    "suppenwürfel",
+    "brühpulver",
+    "würfel rinderbrühe",
+    "würfel gemüsebrühe"
+   ],
+   "je100g": {
+    "kcal": 213,
+    "eiweiss": 16,
+    "fett": 8.9,
+    "gesFett": 4.3,
+    "kh": 17.4,
+    "zucker": 16.7,
+    "ballast": 0,
+    "salz": 65
+   },
+   "stueck": 10,
+   "pck": 10
+  },
+  {
+   "id": "wasser",
+   "name": "Wasser",
+   "fdc": 173647,
+   "quelle": "Beverages, water, tap, drinking",
+   "schluessel": [
+    "wasser",
+    "leitungswasser",
+    "eiswasser",
+    "mineralwasser",
+    "sprudel",
+    "kochwasser",
+    "salzwasser"
+   ],
+   "je100g": {
+    "kcal": 0,
+    "eiweiss": 0,
+    "fett": 0,
+    "gesFett": 0,
+    "kh": 0,
+    "zucker": 0,
+    "ballast": 0,
+    "salz": 0.01
+   }
+  },
+  {
+   "id": "weisswein",
+   "name": "Weißwein",
+   "fdc": 174837,
+   "quelle": "Alcoholic beverage, wine, table, white",
+   "schluessel": [
+    "wein",
+    "weißwein",
+    "trockener weißwein",
+    "riesling",
+    "sekt",
+    "prosecco",
+    "weißherbst",
+    "vin santo",
+    "sherry",
+    "marsala",
+    "madeira",
+    "portwein",
+    "wermut",
+    "vermouth"
+   ],
+   "je100g": {
+    "kcal": 82,
+    "eiweiss": 0.1,
+    "fett": 0,
+    "gesFett": 0,
+    "kh": 2.6,
+    "zucker": 1,
+    "ballast": 0,
+    "salz": 0.01
+   }
+  },
+  {
+   "id": "rotwein",
+   "name": "Rotwein",
+   "fdc": 173190,
+   "quelle": "Alcoholic beverage, wine, table, red",
+   "schluessel": [
+    "rotwein",
+    "trockener rotwein",
+    "glühwein"
+   ],
+   "je100g": {
+    "kcal": 85,
+    "eiweiss": 0.1,
+    "fett": 0,
+    "gesFett": 0,
+    "kh": 2.6,
+    "zucker": 0.6,
+    "ballast": 0,
+    "salz": 0.01
+   }
+  },
+  {
+   "id": "bier",
+   "name": "Bier",
+   "fdc": 168746,
+   "quelle": "Alcoholic beverage, beer, regular, all",
+   "schluessel": [
+    "bier",
+    "dunkles bier",
+    "helles bier",
+    "weißbier",
+    "malzbier",
+    "pils",
+    "altbier",
+    "kölsch"
+   ],
+   "je100g": {
+    "kcal": 43,
+    "eiweiss": 0.5,
+    "fett": 0,
+    "gesFett": 0,
+    "kh": 3.6,
+    "zucker": 0,
+    "ballast": 0,
+    "salz": 0.01
+   }
+  },
+  {
+   "id": "spirituosen",
+   "name": "Spirituosen",
+   "fdc": 174815,
+   "quelle": "Alcoholic beverage, distilled, all (gin, rum, vodka, whiskey) 80 proof",
+   "schluessel": [
+    "rum",
+    "brandy",
+    "cognac",
+    "weinbrand",
+    "schnaps",
+    "obstler",
+    "kirschwasser",
+    "wodka",
+    "whisky",
+    "gin",
+    "likör",
+    "amaretto",
+    "grand marnier",
+    "calvados",
+    "grappa",
+    "inländer rum",
+    "arak",
+    "arrak",
+    "branntwein"
+   ],
+   "je100g": {
+    "kcal": 231,
+    "eiweiss": 0,
+    "fett": 0,
+    "gesFett": 0,
+    "kh": 0,
+    "zucker": 0,
+    "ballast": 0,
+    "salz": 0
+   }
+  },
+  {
+   "id": "kaffee",
+   "name": "Kaffee",
+   "fdc": 171890,
+   "quelle": "Beverages, coffee, brewed, prepared with tap water",
+   "schluessel": [
+    "kaffee",
+    "espresso",
+    "mokka",
+    "tee",
+    "schwarztee",
+    "grüner tee"
+   ],
+   "je100g": {
+    "kcal": 1,
+    "eiweiss": 0.1,
+    "fett": 0,
+    "gesFett": 0,
+    "kh": 0,
+    "zucker": 0,
+    "ballast": 0,
+    "salz": 0.01
+   },
+   "el": 14.8,
+   "tl": 4.94,
+   "dichte": 1
+  },
+  {
+   "id": "tofu",
+   "name": "Tofu",
+   "fdc": 172475,
+   "quelle": "Tofu, raw, firm, prepared with calcium sulfate",
+   "schluessel": [
+    "tofu",
+    "räuchertofu",
+    "seidentofu"
+   ],
+   "je100g": {
+    "kcal": 144,
+    "eiweiss": 17.3,
+    "fett": 8.7,
+    "gesFett": 1.3,
+    "kh": 2.8,
+    "zucker": null,
+    "ballast": 2.3,
+    "salz": 0.04
+   },
+   "el": 15.8,
+   "tl": 5.25,
+   "dichte": 1.07
+  },
+  {
+   "id": "sojamilch",
+   "name": "Sojadrink",
+   "fdc": 172446,
+   "quelle": "Soymilk, original and vanilla, unfortified",
+   "schluessel": [
+    "sojamilch",
+    "sojadrink",
+    "hafermilch",
+    "haferdrink",
+    "mandelmilch",
+    "reismilch",
+    "pflanzendrink"
+   ],
+   "je100g": {
+    "kcal": 54,
+    "eiweiss": 3.3,
+    "fett": 1.8,
+    "gesFett": 0.2,
+    "kh": 6.3,
+    "zucker": 4,
+    "ballast": 0.6,
+    "salz": 0.13
+   },
+   "el": 15.2,
+   "tl": 5.06,
+   "dichte": 1.03
+  }
+ ]
+}

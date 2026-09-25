@@ -8,6 +8,7 @@
 import { recipeById, MEALS, DAYS } from '../data/index.js';
 import { startOfWeek, weekKey, isoWeekNumber } from './week.js';
 import { aggregate } from './shopping.js';
+import { NAEHRSTOFFE } from './naehrwerte.js';
 
 export { startOfWeek, weekKey, isoWeekNumber };
 
@@ -33,6 +34,13 @@ function writeStorage(key, value) {
 }
 
 export const slotId = (dayIndex, mealId) => `${dayIndex}:${mealId}`;
+
+/**
+ * Hoechste Portionszahl fuer ein Rezept. Zaehlt es Stueck statt Portionen
+ * ("75 Printen"), liegt der Ertrag von Haus aus hoch; die Grenze richtet
+ * sich deshalb nach dem Rezept und gilt fuer Ansicht und Plan gleich.
+ */
+export const maxServingsFor = (recipe) => Math.max(24, (recipe?.servings || 1) * 4);
 
 class Store {
   constructor() {
@@ -96,6 +104,13 @@ class Store {
     this.persist();
   }
 
+  /** Legt mehrere Eintraege auf einmal ab — ein Speichern, ein Neuzeichnen. */
+  placeMany(eintraege) {
+    if (!Object.keys(eintraege).length) return;
+    this.plans = { ...this.plans, [this.key]: { ...this.week, ...eintraege } };
+    this.persist();
+  }
+
   remove(dayIndex, mealId) {
     const week = { ...this.week };
     delete week[slotId(dayIndex, mealId)];
@@ -120,7 +135,8 @@ class Store {
     const e = this.entry(dayIndex, mealId);
     if (!e) return;
     const week = { ...this.week };
-    week[slotId(dayIndex, mealId)] = { ...e, servings: Math.max(1, Math.min(24, servings)) };
+    const max = maxServingsFor(recipeById.get(e.recipeId));
+    week[slotId(dayIndex, mealId)] = { ...e, servings: Math.max(1, Math.min(max, servings)) };
     this.plans = { ...this.plans, [this.key]: week };
     this.persist();
   }
@@ -145,8 +161,10 @@ class Store {
         const id = slotId(day, meal.id);
         if (week[id]) continue;
 
+        // Historische Originaltexte liest man; ungefragt auf den Plan
+        // gehoeren sie nicht.
         const candidates = pool.filter(
-          (r) => (r.meals || []).includes(meal.id) && !used.has(r.id),
+          (r) => !r.lesetext && (r.meals || []).includes(meal.id) && !used.has(r.id),
         );
         if (!candidates.length) continue;
 
@@ -164,24 +182,47 @@ class Store {
     this.emit();
   }
 
-  /** Kalorien je Wochentag, aus Portionen hochgerechnet. */
-  kcalPerDay() {
-    return DAYS.map((_, day) =>
-      MEALS.reduce((sum, meal) => {
+  /**
+   * Naehrwerte je Wochentag fuer eine Person: aus jeder geplanten
+   * Mahlzeit eine Portion.
+   *
+   * Frueher wurde mit der geplanten Portionszahl multipliziert — wer fuer
+   * acht statt vier Personen kochte, ass danach rechnerisch doppelt so
+   * viel. Die Portionszahl bestimmt den Einkauf, nicht, was einer isst.
+   *
+   * @returns {{werte:object, mahlzeiten:number, belastbar:number}[]}
+   */
+  naehrwerteProTag() {
+    return DAYS.map((_, day) => {
+      const werte = Object.fromEntries(NAEHRSTOFFE.map((n) => [n.id, 0]));
+      let mahlzeiten = 0;
+      let belastbar = 0;
+      for (const meal of MEALS) {
         const e = this.entry(day, meal.id);
-        if (!e) return sum;
-        const r = recipeById.get(e.recipeId);
-        if (!r) return sum;
-        return sum + (r.kcal || 0) * (e.servings / (r.servings || 1));
-      }, 0),
-    );
+        const r = e && recipeById.get(e.recipeId);
+        if (!r) continue;
+        mahlzeiten += 1;
+        if (!r.naehrwerte || r.naehrwerte.vertrauen === 'gering') continue;
+        belastbar += 1;
+        for (const n of NAEHRSTOFFE) werte[n.id] += r.naehrwerte.jePortion[n.id] || 0;
+      }
+      return { werte, mahlzeiten, belastbar };
+    });
+  }
+
+  /** Kalorien je Wochentag fuer eine Person. */
+  kcalPerDay() {
+    return this.naehrwerteProTag().map((t) => t.werte.kcal);
   }
 
   /** Kennzahlen der Woche fuer die Randspalte. */
   stats() {
     const entries = Object.values(this.week);
-    const kcal = this.kcalPerDay();
-    const plannedDays = this.kcalPerDay().filter((k) => k > 0).length;
+    const tage = this.naehrwerteProTag();
+    // Ein Tag ist geplant, sobald etwas darauf liegt — ob es dazu
+    // Naehrwerte gibt, ist eine andere Frage.
+    const plannedDays = tage.filter((t) => t.mahlzeiten > 0).length;
+    const mitWerten = tage.filter((t) => t.belastbar > 0);
     const totalSlots = DAYS.length * MEALS.length;
     const cookMinutes = entries.reduce((sum, e) => {
       const r = recipeById.get(e.recipeId);
@@ -194,7 +235,9 @@ class Store {
       fill: entries.length / totalSlots,
       plannedDays,
       cookMinutes,
-      kcalAvg: plannedDays ? Math.round(kcal.reduce((a, b) => a + b, 0) / plannedDays) : 0,
+      kcalAvg: mitWerten.length
+        ? Math.round(mitWerten.reduce((a, t) => a + t.werte.kcal, 0) / mitWerten.length)
+        : 0,
     };
   }
 

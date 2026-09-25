@@ -47,6 +47,10 @@ export function compile(rules, extra = () => ({})) {
         keyword: k.replace(/^[=~]/, ''),
         weight: k.replace(/^[=~]/, '').length,
         test: patternFor(k),
+        // Jeder Treffer enthaelt das Stichwort woertlich. includes() ist
+        // um ein Vielfaches schneller als der Ausdruck und sortiert fast
+        // alle Muster aus, bevor der Ausdruck ueberhaupt laeuft.
+        trifft(text) { return text.includes(this.keyword) && this.test.test(text); },
         ...extra(value, k),
       })),
     )

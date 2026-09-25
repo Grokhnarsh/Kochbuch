@@ -13,7 +13,9 @@
  */
 
 import { chromium } from 'playwright';
-import { mkdir } from 'node:fs/promises';
+import { mkdir, writeFile } from 'node:fs/promises';
+import { tmpdir } from 'node:os';
+import path from 'node:path';
 
 const BASE = process.env.BASE_URL || 'http://127.0.0.1:4173/';
 const SHOTS = process.env.SHOT_DIR || null;
@@ -54,7 +56,24 @@ try {
   check('Raster hat 28 Slots', slots === 28, `${slots}`);
 
   const cards = await page.locator('.recipe-card').count();
-  check('Bibliothek ist gefüllt', cards > 100, `${cards} Karten`);
+  check('Bibliothek ist gefüllt', cards >= 20, `${cards} Karten`);
+
+  // Die grossen Sammlungen kommen nach dem ersten Bild
+  const korpus = await page.evaluate(async () => {
+    const ergebnis = await window.kochbuch.korpus;
+    return { ...ergebnis, gesamt: window.kochbuch.recipeById.size, fuss: document.getElementById('corpus-note').textContent };
+  });
+  check('große Sammlungen werden nachgeladen', korpus.rezepte > 5000 && korpus.fehler === 0,
+    `${korpus.rezepte} Rezepte aus ${korpus.teile} Teilen, ${korpus.gesamt} insgesamt`);
+  check('die Bibliothek nennt den Bestand', /\d\.\d{3} Rezepte aus \d+ Quellen$/.test(korpus.fuss), korpus.fuss);
+
+  // Karten entstehen beim Blaettern stapelweise
+  const vorher = await page.locator('.recipe-card').count();
+  await page.locator('#recipe-list').evaluate((n) => { n.scrollTop = n.scrollHeight; });
+  await page.waitForTimeout(500);
+  const nachher = await page.locator('.recipe-card').count();
+  check('beim Blättern kommen weitere Karten dazu', nachher > vorher, `${vorher} → ${nachher}`);
+  await page.locator('#recipe-list').evaluate((n) => { n.scrollTop = 0; });
 
   const cardHeight = await page.locator('.recipe-card').first().evaluate((n) => n.clientHeight);
   check('Bibliothekskarten sind nicht gestaucht', cardHeight > 60, `${cardHeight}px`);
@@ -135,7 +154,31 @@ try {
   const srcs = await page.locator('.source-card').count();
   check('Quellenverzeichnis ist vollständig', srcs >= 10, `${srcs} Quellen`);
   await shot(page, '06-quellen');
+
+  // Sammlung aus "npm run import -- --urls": selbst gewaehlte Rezepte, hier eines im Thermomix-Stil
+  const sammlung = path.join(tmpdir(), `kochbuch-sammlung-${Date.now()}.json`);
+  await writeFile(sammlung, JSON.stringify({ recipes: [{
+    id: 'import-example-org-sammeltest-risotto', title: 'Sammeltest-Risotto', sourceUrl: 'https://example.org/risotto',
+    sourceHost: 'example.org', category: 'Hauptgericht', meals: ['mittag', 'abend'], servings: 4,
+    ingredients: [{ a: 300, u: 'g', n: 'Risottoreis' }, { a: 1, u: 'l', n: 'Gemüsebrühe' }, { a: 1, u: '', n: 'Zwiebel' }],
+    steps: ['Zwiebel 5 Sek./Stufe 5 zerkleinern.', 'Reis und Brühe zugeben, 17 Min./100°C/Linkslauf/Sanftrührstufe garen.'],
+  }] }));
+  await page.locator('.modal input[type="file"]').setInputFiles(sammlung);
+  await page.waitForTimeout(500);
+  const sammelStatus = await page.locator('.modal').textContent();
+  check('eine Import-Sammlung lässt sich laden', /1 von 1 Rezepten/.test(sammelStatus));
   await page.keyboard.press('Escape');
+  await page.fill('#search', 'Sammeltest-Risotto');
+  await page.waitForTimeout(400);
+  const tmChip = await page.locator('.recipe-card .tag.thermomix').count();
+  check('Thermomix-Rezepte tragen ihr Schlagwort', tmChip === 1, `${tmChip}`);
+  await page.locator('.recipe-card').first().click();
+  await page.waitForTimeout(400);
+  const tmSet = await page.locator('.modal .tm-set').allTextContents();
+  check('Thermomix-Einstellungen sind hervorgehoben', tmSet.length === 2, tmSet.join(' | '));
+  await page.keyboard.press('Escape');
+  await page.fill('#search', '');
+  await page.waitForTimeout(300);
 
   // --------------------------------------------------- Allergene
 
@@ -156,13 +199,16 @@ try {
   await page.fill('#search', '');
   await page.waitForTimeout(300);
 
-  const alle = await page.locator('.recipe-card').count();
+  // Gezaehlt wird die Trefferzahl, nicht die Karten: die Liste zeigt
+  // hoechstens 260 auf einmal.
+  const treffer = async () => Number((await page.locator('#result-count').textContent()).replace(/\D/g, ''));
+  const alle = await treffer();
   await page.selectOption('#filter-allergen', 'milch');
   await page.waitForTimeout(400);
   const mitMilch = await page.evaluate(() =>
     [...document.querySelectorAll('.card-allergens')]
       .filter((n) => (n.title || '').includes('Milch')).length);
-  const ohne = await page.locator('.recipe-card').count();
+  const ohne = await treffer();
   check('Filter blendet Rezepte mit Milch aus', mitMilch === 0 && ohne < alle, `${ohne} von ${alle}`);
   await page.selectOption('#filter-allergen', '');
   await page.waitForTimeout(300);
@@ -199,6 +245,102 @@ try {
   await page.keyboard.press('Escape');
   await page.fill('#search', '');
   await page.waitForTimeout(300);
+
+  // --------------------------------------------------- Naehrwerte
+
+  // Ein Rezept aus dem nachgeladenen Koch-Wiki: die Karte kennt nur die
+  // Zusammenfassung, die Ansicht rechnet die Gruende beim Oeffnen nach.
+  await page.fill('#search', 'Bauerneintopf');
+  await page.waitForTimeout(400);
+  await page.locator('.recipe-card', { hasText: 'Koch-Wiki' }).first().click();
+  await page.waitForTimeout(400);
+  const nachgerechnet = await page.evaluate(() => {
+    const r = window.kochbuch.recipeById.get('kochwiki-bauerneintopf');
+    return { posten: r?.naehrwerte?.posten?.length || 0, zusammenfassung: Boolean(r?.naehrwerte?.zusammenfassung) };
+  });
+  check('ein nachgeladenes Rezept wird beim Öffnen voll gerechnet',
+    nachgerechnet.posten > 0 && !nachgerechnet.zusammenfassung, JSON.stringify(nachgerechnet));
+  await page.keyboard.press('Escape');
+
+  await page.fill('#search', 'Linseneintopf');
+  await page.waitForTimeout(400);
+  await page.locator('.recipe-card').first().click();
+  await page.waitForTimeout(400);
+  const naehrZeilen = await page.locator('.modal .nutri-table tbody tr').count();
+  check('Rezeptansicht zeigt die Nährwerttabelle', naehrZeilen === 8, `${naehrZeilen} Zeilen`);
+  const bewertung = await page.locator('.modal .health-score').textContent().catch(() => '');
+  check('und eine Bewertung mit Gründen', Number(bewertung) > 0
+    && (await page.locator('.modal .health-reasons li').count()) > 0, `${bewertung} Punkte`);
+  await shot(page, '10-naehrwerte');
+  await page.keyboard.press('Escape');
+  await page.fill('#search', '');
+  await page.waitForTimeout(300);
+
+  // --------------------------------------------------- Gesunde Vorschlaege
+
+  await page.click('#btn-clear');
+  await page.waitForTimeout(400);
+  await page.click('#btn-suggest');
+  await page.waitForTimeout(500);
+  const vorschlaege = await page.locator('.suggest-card').count();
+  check('Vorschläge erscheinen', vorschlaege > 0, `${vorschlaege} Karten`);
+  await page.locator('.suggest-card [data-planen]').first().click();
+  await page.waitForTimeout(300);
+  const einer = await page.evaluate(() => Object.keys(window.kochbuch.store.week).length);
+  check('ein Vorschlag lässt sich einplanen', einer === 1, `${einer} Einträge`);
+  await page.locator('.modal-foot .primary-btn').click();
+  await page.waitForTimeout(700);
+  const gefuellt = await page.evaluate(() => Object.keys(window.kochbuch.store.week).length);
+  check('Woche gesund füllen belegt die freien Felder', gefuellt >= 15, `${gefuellt} Einträge`);
+  await shot(page, '11-vorschlaege');
+  await page.keyboard.press('Escape');
+  await page.waitForTimeout(300);
+
+  const proPerson = await page.evaluate(() => {
+    // Mehr Portionen einzuplanen darf die Kalorien je Person nicht aendern.
+    const s = window.kochbuch.store;
+    const vorher = s.kcalPerDay()[0];
+    const e = Object.entries(s.week).find(([k]) => k.startsWith('0:'));
+    if (!e) return { vorher, nachher: vorher };
+    const [tag, mahlzeit] = e[0].split(':');
+    s.setServings(Number(tag), mahlzeit, e[1].servings * 2);
+    return { vorher, nachher: s.kcalPerDay()[0] };
+  });
+  check('Kalorien je Person hängen nicht an der Portionszahl',
+    Math.abs(proPerson.vorher - proPerson.nachher) < 0.001, JSON.stringify(proPerson));
+
+  await page.click('#btn-nutrition');
+  await page.waitForTimeout(500);
+  const tage = await page.locator('.nutri-table.week tbody tr').count();
+  check('Nährwertübersicht zeigt sieben Tage', tage === 7, `${tage}`);
+  await page.locator('.seg-btn[data-tab="rezepte"]').click();
+  await page.waitForTimeout(400);
+  const tabellenZeilen = await page.locator('.nutri-table.all tbody tr').count();
+  check('und alle Mahlzeiten mit belastbaren Werten', tabellenZeilen > 200, `${tabellenZeilen} Zeilen`);
+  await shot(page, '12-uebersicht');
+  await page.keyboard.press('Escape');
+
+  // --------------------------------------------------- Sicherheit
+
+  const markup = await page.evaluate(() => {
+    // Ein Titel, wie er von einer praeparierten Webseite kaeme
+    window.__xss = false;
+    window.kochbuch.store.saveOwn({
+      id: 'eigen-xss', sourceId: 'eigene', title: 'Kuchen <img src=x onerror="window.__xss=true">',
+      category: 'Dessert', meals: ['snack'], servings: 2, ingredients: [{ a: 1, u: '', n: '<b>Ei</b>' }], steps: ['<script>x</script>'],
+    });
+    return true;
+  });
+  await page.reload({ waitUntil: 'networkidle' });
+  await page.waitForTimeout(1500);
+  await page.fill('#search', 'Kuchen <img');
+  await page.waitForTimeout(500);
+  await page.locator('.recipe-card').first().click().catch(() => {});
+  await page.waitForTimeout(500);
+  const ausgefuehrt = await page.evaluate(() => window.__xss === true);
+  const alsText = await page.locator('.recipe-card h3').first().textContent().catch(() => '');
+  check('Markup aus Rezeptdaten wird nicht ausgeführt', markup && !ausgefuehrt && alsText.includes('<img'), alsText);
+  await page.keyboard.press('Escape');
 
   check('keine Fehler in der Browserkonsole', errors.length === 0, errors.join(' | '));
 } finally {

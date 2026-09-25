@@ -8,6 +8,7 @@
  *
  *   npm run import -- --url https://www.chefkoch.de/rezepte/...
  *   npm run import -- --file seite.html --url https://...
+ *   npm run import -- --urls meine-rezepte.txt   (eine Adresse je Zeile)
  *   npm run import -- --themealdb German
  *   npm run import -- --wikibooks 20
  *   npm run import -- --gutendex cookery
@@ -100,6 +101,54 @@ async function importUrl(url, file) {
   console.log('  Hinweis: Rechte beim Anbieter, nicht ins Repository aufnehmen.');
 }
 
+/** Hoechstens so viele Adressen je Lauf: das Werkzeug ist fuer die eigene Auswahl da, nicht zum Abgrasen. */
+const HOECHSTENS_URLS = 50;
+/** Abstand zwischen zwei Abrufen, damit kein Anbieter Last spuert */
+const ABSTAND_MS = 5000;
+
+/**
+ * Importiert selbst ausgewaehlte Rezeptseiten — etwa die Lieblingsrezepte
+ * von Chefkoch oder Cookidoo — nacheinander und mit Pause. Jedes Rezept
+ * landet einzeln unter data/importiert/, alle zusammen in
+ * data/importiert/sammlung.json; diese Datei liest die App unter
+ * "Quellen → Sammlung laden" ein. Nichts davon gelangt ins Repository.
+ */
+async function importUrls(datei) {
+  const text = await readFile(datei, 'utf8');
+  const alle = [...new Set(text.split(/\r?\n/).map((z) => z.trim()).filter((z) => /^https?:\/\//.test(z)))];
+  if (!alle.length) throw new Error(`${datei} enthält keine Adressen (eine je Zeile, beginnend mit https://).`);
+  if (alle.length > HOECHSTENS_URLS) {
+    console.log(`  ${alle.length} Adressen — eingelesen werden die ersten ${HOECHSTENS_URLS}.`);
+  }
+
+  const rezepte = [];
+  for (const [i, url] of alle.slice(0, HOECHSTENS_URLS).entries()) {
+    if (i) await new Promise((fertig) => setTimeout(fertig, ABSTAND_MS));
+    try {
+      const recipe = parseRecipeFromHtml(await fetchText(url), url);
+      if (!recipe) {
+        console.log(`✗ ${url}: kein schema.org-Rezept auf der Seite`);
+        continue;
+      }
+      await save(OUT_PRIVATE, recipe.id, recipe);
+      rezepte.push(recipe);
+      console.log(`✓ ${recipe.title} — ${recipe.ingredients.length} Zutaten, ${recipe.steps.length} Schritte${
+        recipe.tags.includes('Thermomix') ? ' (Thermomix)' : ''}`);
+    } catch (err) {
+      console.log(`✗ ${url}: ${err.message}`);
+    }
+  }
+
+  const out = await save(OUT_PRIVATE, 'sammlung', {
+    art: 'kochbuch-importe',
+    hinweis: 'Rechte am Rezepttext beim jeweiligen Anbieter; nur zur privaten Nutzung.',
+    exportiert: new Date().toISOString(),
+    recipes: rezepte,
+  });
+  console.log(`\n${rezepte.length} von ${Math.min(alle.length, HOECHSTENS_URLS)} Rezepten übernommen: ${out}`);
+  console.log('In der App unter „Quellen & Lizenzen → Sammlung laden“ einlesen.');
+}
+
 async function importTheMealDB(area) {
   const alle = area === true || area === 'alle';
   const recipes = alle
@@ -135,13 +184,14 @@ async function importWikibooks(limit) {
 
   const out = await save(OUT_OPEN, 'wikibooks-kochbuch', {
     sourceId: 'wikibooks-de',
-    license: 'CC BY-SA 3.0',
+    license: 'CC BY-SA 4.0',
     fetchedAt: new Date().toISOString(),
     recipes,
   });
   console.log(`✓ ${recipes.length} Rezepte aus dem Wikibooks-Kochbuch`);
   console.log(`  ${out}`);
-  if (args.bundle) await bundle('wikibooks-de', 'wikibooks-live', recipes);
+  // Der ganze Bestand liegt schon im Korpus; ein zweites Buch ergaebe doppelte Rezepte.
+  if (args.bundle) console.log('  Mitliefern: npm run korpus -- wikibooks (vollständig, mit Nährwerten)');
 }
 
 async function importUnitools() {
@@ -174,7 +224,7 @@ async function importKochwiki(limit) {
   });
   console.log(`✓ ${recipes.length} Rezepte aus dem Koch-Wiki`);
   console.log(`  ${out}`);
-  if (args.bundle) await bundle('kochwiki', 'kochwiki', recipes);
+  if (args.bundle) console.log('  Mitliefern: npm run korpus -- kochwiki (vollständig, mit Nährwerten)');
 }
 
 async function importGutendex(query) {
@@ -191,7 +241,9 @@ async function importGutendex(query) {
 }
 
 try {
-  if (args.url || args.file) {
+  if (typeof args.urls === 'string') {
+    await importUrls(args.urls);
+  } else if (args.url || args.file) {
     await importUrl(typeof args.url === 'string' ? args.url : '', typeof args.file === 'string' ? args.file : null);
   } else if (args.themealdb) {
     await importTheMealDB(typeof args.themealdb === 'string' ? args.themealdb : 'German');

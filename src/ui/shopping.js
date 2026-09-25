@@ -11,6 +11,7 @@ import { store } from '../state/store.js';
 import { formatAmount } from '../state/units.js';
 import { allergensFor, allergenById, HINWEIS } from '../state/allergens.js';
 import { defaultShop } from '../shops/index.js';
+import { esc, safeUrl } from './html.js';
 
 /**
  * Welche Allergene in der ganzen Liste stecken, und in welchen
@@ -37,7 +38,7 @@ function allergenUebersicht(groups) {
     .sort((a, b) => b[1].positionen.length - a[1].positionen.length)
     .map(([id, e]) => {
       const a = allergenById.get(id);
-      return `<span class="allergen-chip ${e.level}" title="${e.positionen.join(', ')}">${
+      return `<span class="allergen-chip ${e.level}" title="${esc(e.positionen.join(', '))}">${
         a.icon} ${a.short} <b>${e.positionen.length}</b></span>`;
     })
     .join('');
@@ -107,12 +108,12 @@ function renderList(groups, body) {
     ${allergenUebersicht(groups)}
     ${groups.map((g) => `
       <section class="shop-group">
-        <h3>${g.aisle}</h3>
+        <h3>${esc(g.aisle)}</h3>
         ${g.items.map((i) => `
           <div class="shop-item${i.done ? ' done' : ''}">
-            <input type="checkbox" id="c-${i.key}" ${i.done ? 'checked' : ''} />
-            <label for="c-${i.key}" title="${i.recipes.join(', ')}">${i.name}</label>
-            <span class="amt">${formatAmount(i.amount, i.unit) || '—'}</span>
+            <input type="checkbox" id="c-${esc(i.key)}" ${i.done ? 'checked' : ''} />
+            <label for="c-${esc(i.key)}" title="${esc(i.recipes.join(', '))}">${esc(i.name)}</label>
+            <span class="amt">${esc(formatAmount(i.amount, i.unit) || '—')}</span>
           </div>
         `).join('')}
       </section>
@@ -148,8 +149,8 @@ function renderShop(groups, body) {
 
     ${next ? `
       <div class="servings-row" style="justify-content:space-between">
-        <span>Nächste Position: <strong style="color:var(--ink)">${next.name}</strong>
-          ${next.quantityLabel ? `· ${next.quantityLabel}` : ''}</span>
+        <span>Nächste Position: <strong style="color:var(--ink)">${esc(next.name)}</strong>
+          ${next.quantityLabel ? `· ${esc(next.quantityLabel)}` : ''}</span>
         <button class="primary-btn" id="open-next">Bei ${defaultShop.label} suchen</button>
       </div>` : '<p class="intro-copy">Alle Positionen abgehakt.</p>'}
 
@@ -157,13 +158,13 @@ function renderShop(groups, body) {
       <h3>Alle Positionen</h3>
       ${items.map((i) => `
         <div class="shop-item${i.done ? ' done' : ''}">
-          <input type="checkbox" id="s-${i.key}" ${i.done ? 'checked' : ''} />
-          <label for="s-${i.key}">${i.name}
-            <span style="color:var(--ink-faint)">· sucht „${i.term}"</span>
+          <input type="checkbox" id="s-${esc(i.key)}" ${i.done ? 'checked' : ''} />
+          <label for="s-${esc(i.key)}">${esc(i.name)}
+            <span style="color:var(--ink-faint)">· sucht „${esc(i.term)}"</span>
           </label>
-          <span class="amt">${i.quantityLabel || '—'}</span>
+          <span class="amt">${esc(i.quantityLabel || '—')}</span>
           <a class="ghost-btn" style="padding:4px 10px;font-size:12px"
-             href="${i.url}" target="_blank" rel="noopener noreferrer">Öffnen</a>
+             href="${esc(safeUrl(i.url))}" target="_blank" rel="noopener noreferrer">Öffnen</a>
         </div>
       `).join('')}
     </section>

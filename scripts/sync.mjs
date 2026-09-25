@@ -101,9 +101,11 @@ const passed = [
 git('add', '-A');
 
 const text = message || deriveMessage(status);
+// Die Zuschreibung kommt aus der Umgebung statt fest aus dem Code: fest
+// eingetragen wurde sie mit jedem Modellwechsel falsch.
 const attribution = [
   '',
-  'Co-Authored-By: Claude Opus 5 <noreply@anthropic.com>',
+  `Co-Authored-By: ${env.CLAUDE_COAUTHOR || 'Claude <noreply@anthropic.com>'}`,
   env.CLAUDE_SESSION_URL ? `Claude-Session: ${env.CLAUDE_SESSION_URL}` : null,
 ].filter((l) => l !== null).join('\n');
 

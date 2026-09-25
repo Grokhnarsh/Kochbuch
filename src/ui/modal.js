@@ -35,8 +35,9 @@ export function openModal({ title, subtitle = '', body, footer = null, onClose =
 
   const head = el('div', 'modal-head');
   const heading = el('div');
-  heading.append(el('h2', null, title));
-  if (subtitle) heading.append(el('div', 'sub', subtitle));
+  // Titel stammen oft aus Rezeptdaten, also als Text setzen, nie als Markup.
+  heading.append(Object.assign(el('h2'), { textContent: title }));
+  if (subtitle) heading.append(Object.assign(el('div', 'sub'), { textContent: subtitle }));
 
   const close = el('button', 'icon-btn', '&times;');
   close.setAttribute('aria-label', 'Schließen');

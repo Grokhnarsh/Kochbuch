@@ -3,6 +3,7 @@
  */
 
 import { registerRecipes, registerSource } from '../data/index.js';
+import { bereinige } from '../state/rezeptform.js';
 import { SourceError, getText } from './http.js';
 import { parseRecipeFromHtml } from './schemaorg.js';
 import * as themealdb from './themealdb.js';
@@ -49,7 +50,7 @@ export async function loadLiveSource(sourceId, onProgress) {
 }
 
 /** Legt fuer einen importierten Host eine Quelle an, falls noch keine existiert. */
-function ensureImportSource(host) {
+export function ensureImportSource(host) {
   const id = `import-${host}`;
   registerSource({
     id,
@@ -93,4 +94,40 @@ export function importFromHtml(html, url = '') {
 export async function importFromUrl(url) {
   const html = await getText(url);
   return importFromHtml(html, url);
+}
+
+/**
+ * Liest eine Sammlung ein, wie `npm run import -- --urls datei.txt` sie
+ * schreibt (data/importiert/sammlung.json): selbst ausgewaehlte Rezepte
+ * von Chefkoch, Cookidoo und anderen Seiten. Jeder Datensatz wird
+ * geprueft; was nicht passt, bleibt draussen.
+ *
+ * @param {string} text Inhalt der Datei
+ * @returns {{neu:object[], gelesen:number}}
+ */
+export function importiereSammlung(text) {
+  let doc;
+  try {
+    doc = JSON.parse(text);
+  } catch {
+    throw new SourceError('Die Datei ist kein gültiges JSON.', { kind: 'parse' });
+  }
+  const liste = Array.isArray(doc) ? doc : doc?.recipes;
+  if (!Array.isArray(liste)) throw new SourceError('Die Datei enthält keine Rezeptliste.', { kind: 'parse' });
+
+  const rezepte = [];
+  for (const roh of liste) {
+    let host = typeof roh?.sourceHost === 'string' ? roh.sourceHost : '';
+    if (!host) {
+      try { host = new URL(roh?.sourceUrl).hostname.replace(/^www\./, ''); } catch { host = ''; }
+    }
+    if (!/^[a-z0-9.-]+$/i.test(host)) continue;
+    const sourceId = ensureImportSource(host);
+    const r = bereinige({ ...roh, sourceId }, sourceId);
+    if (!r) continue;
+    // Importe tragen immer das Praefix; so bleiben sie von Korpus und eigenen Rezepten getrennt
+    if (!r.id.startsWith('import-')) r.id = `import-${r.id}`;
+    rezepte.push(r);
+  }
+  return { neu: registerRecipes(rezepte), gelesen: liste.length };
 }

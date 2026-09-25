@@ -8,6 +8,7 @@
  */
 
 import * as THREE from 'three';
+import { kcalText } from '../state/naehrwerte.js';
 
 const FONT = '"Inter", "Segoe UI", -apple-system, system-ui, sans-serif';
 
@@ -105,9 +106,9 @@ export function recipeCellTexture(recipe, servings, compact = false) {
   const facts = [];
   if (recipe.totalTime > 0) facts.push(`${recipe.totalTime} Min.`);
   facts.push(`${servings} ${recipe.yieldUnit || 'Port.'}`);
-  if (recipe.kcal) {
-    facts.push(`${Math.round((recipe.kcal * servings) / (recipe.servings || 1))} kcal`);
-  }
+  // Kalorien je Portion, nicht mal der Portionszahl: wer fuer acht kocht,
+  // isst nicht doppelt so viel wie fuer vier.
+  if (recipe.kcal) facts.push(kcalText(recipe));
 
   // Hochkant laeuft der Text von oben durch, sonst klafft eine Luecke
   // zwischen Titel und Kennzahlen. Im weiten Feld bleibt der Fuss unten.

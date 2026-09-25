@@ -8,10 +8,17 @@ import { Stage } from './webgl/scene.js';
 import { Board, COMPACT_BREAKPOINT } from './webgl/board.js';
 import { store, isoWeekNumber, slotId } from './state/store.js';
 import { recipes, recipeById, registerRecipes, DAYS, MEALS } from './data/index.js';
-import { ladeEigene } from './state/eigene.js';
-import { initLibrary, renderLibrary, refreshFilters, visibleRecipes } from './ui/library.js';
+import { ladeKorpus } from './data/korpus.js';
+import { ladeEigene, bereinige } from './state/eigene.js';
+import { ensureImportSource } from './sources/index.js';
+import {
+  initLibrary, renderLibrary, refreshFilters, visibleRecipes, gefilterteRezepte, filterBeschreibung, zeigeBestand,
+} from './ui/library.js';
+import { openNaehrwerte } from './ui/naehrwerte.js';
+import { openVorschlaege } from './ui/vorschlaege.js';
 import { openRecipe, openSlot } from './ui/recipeDetail.js';
 import { openRecipeEditor } from './ui/recipeEditor.js';
+import { esc } from './ui/html.js';
 import { openShoppingList } from './ui/shopping.js';
 import { openSources } from './ui/sources.js';
 import { initSummary } from './ui/summary.js';
@@ -21,9 +28,50 @@ const canvas = document.getElementById('stage');
 // mit einem vorläufigen Rahmen starten und ihn danach setzen.
 const stage = new Stage(canvas, { width: 12, height: 10 });
 
-// Eigene Rezepte vor dem ersten Rendern einhaengen, damit sie in der
-// Bibliothek stehen wie alle anderen.
+// Eigene und importierte Rezepte vor dem Board einhaengen: das Board
+// zeichnet beim Aufbau den gespeicherten Plan, und ein Rezept, das es
+// dann noch nicht kennt, bliebe leer, bis sich etwas anderes aendert.
 ladeEigene();
+ladeImporte();
+
+function ladeImporte() {
+  const liste = store.loadImported()
+    .map((r) => bereinige(r, ''))
+    .filter((r) => r && r.sourceId.startsWith('import-'));
+  // Die Quelle eines Imports ist nicht mitgespeichert; ohne sie fehlten
+  // nach dem Neuladen Lizenzhinweis und Anbieter.
+  for (const r of liste) ensureImportSource(r.sourceId.slice('import-'.length));
+  registerRecipes(liste);
+}
+
+/**
+ * Sichert importierte Rezepte. Direkt nach jeder Aenderung und beim
+ * Verlassen der Seite — "beforeunload" allein reicht nicht, mobile
+ * Browser lassen es beim Schliessen eines Tabs oft aus.
+ */
+function sichereImporte() {
+  const importe = recipes.filter((r) => r.live && r.sourceId?.startsWith('import-'));
+  store.saveImported(
+    importe.map((r) => ({
+      ...r,
+      // Abgeleitetes entsteht beim Laden neu; gespeichert kostete es nur
+      // Platz im knappen Speicher des Browsers.
+      source: undefined,
+      searchText: undefined,
+      allergens: undefined,
+      naehrwerte: undefined,
+      gesundheit: undefined,
+      ingredients: r.ingredients.map((i) => ({ a: i.amount, u: i.unit, n: i.name })),
+    })),
+  );
+}
+
+/** Nach dem Nachladen oder Importieren in den Quellen. */
+function nachQuellenAenderung() {
+  refreshFilters();
+  renderLibrary();
+  sichereImporte();
+}
 
 const board = new Board(stage, {
   onSelect: (slot) => openSlot(slot, afterRecipeChange),
@@ -47,6 +95,23 @@ function afterRecipeChange() {
 
 function newRecipe() {
   openRecipeEditor(null, { onSaved: afterRecipeChange });
+}
+
+function oeffneAusUebersicht(recipe) {
+  openRecipe(recipe, null, placeFromDetail, afterRecipeChange);
+}
+
+function vorschlaegeOeffnen() {
+  openVorschlaege({
+    pool: gefilterteRezepte,
+    filterText: filterBeschreibung,
+    onOpen: oeffneAusUebersicht,
+    onGeplant: () => fadeHint(),
+  });
+}
+
+function naehrwerteOeffnen(ansicht = 'woche') {
+  openNaehrwerte({ onOpen: oeffneAusUebersicht, onVorschlaege: vorschlaegeOeffnen, ansicht });
 }
 
 // --------------------------------------------------------------- Kopfzeile
@@ -73,13 +138,10 @@ document.getElementById('week-today').addEventListener('click', () => store.goTo
 
 document.getElementById('btn-shopping').addEventListener('click', openShoppingList);
 document.getElementById('btn-new-recipe').addEventListener('click', newRecipe);
+document.getElementById('btn-suggest').addEventListener('click', vorschlaegeOeffnen);
+document.getElementById('btn-nutrition').addEventListener('click', () => naehrwerteOeffnen());
 
-document.getElementById('btn-sources').addEventListener('click', () =>
-  openSources(() => {
-    refreshFilters();
-    renderLibrary();
-  }),
-);
+document.getElementById('btn-sources').addEventListener('click', () => openSources(nachQuellenAenderung));
 
 document.getElementById('btn-autofill').addEventListener('click', () => {
   const pool = visibleRecipes().length > 12 ? visibleRecipes() : recipes;
@@ -144,7 +206,7 @@ function renderArmed(recipe) {
   armedBar.hidden = false;
   armedBar.innerHTML = `
     <span class="text">
-      <span class="name">${recipe.title}</span>
+      <span class="name">${esc(recipe.title)}</span>
       <span class="was">Feld antippen zum Ablegen</span>
     </span>
   `;
@@ -208,7 +270,29 @@ initLibrary({
   onCount: (n) => { libraryCount.textContent = `${n}`; },
 });
 
-initSummary();
+initSummary({ onNaehrwerte: () => naehrwerteOeffnen() });
+
+// ------------------------------------------------------- Grosse Sammlungen
+
+/**
+ * Die Wikis und historischen Kochbuecher kommen, wenn der Plan schon
+ * steht. Nach jedem Teil wachsen Filter und Liste, und der Plan zeichnet
+ * Gerichte, die er vorher noch nicht kannte.
+ */
+zeigeBestand({ laedt: true });
+const korpus = ladeKorpus({
+  onTeil: (neu) => {
+    refreshFilters();
+    renderLibrary({ behalteScroll: true });
+    zeigeBestand({ laedt: true });
+    // Neu zeichnen nur, wenn der Plan ein eben geladenes Rezept enthaelt
+    const ids = new Set(neu.map((r) => r.id));
+    if (Object.values(store.week).some((e) => ids.has(e.recipeId))) store.emit();
+  },
+}).then((ergebnis) => {
+  zeigeBestand({ fehler: ergebnis.fehler > 0 });
+  return ergebnis;
+});
 
 // ------------------------------------------------------ Ueberlaufmenue
 
@@ -224,8 +308,10 @@ const AKTIONEN = {
   clear: () => {
     if (Object.keys(store.week).length) store.clearWeek();
   },
-  sources: () => openSources(() => { refreshFilters(); renderLibrary(); }),
+  sources: () => openSources(nachQuellenAenderung),
   newRecipe,
+  suggest: vorschlaegeOeffnen,
+  nutrition: () => naehrwerteOeffnen(),
 };
 
 moreBtn.addEventListener('click', (e) => {
@@ -265,28 +351,10 @@ function fadeHint() {
   hint.classList.add('faded');
 }
 
-// Importierte Rezepte aus einer frueheren Sitzung zuruecklesen
-const imported = store.loadImported();
-if (imported.length) {
-  registerRecipes(imported);
-  refreshFilters();
-  renderLibrary();
-}
-
-// Importe fuer die naechste Sitzung sichern
-window.addEventListener('beforeunload', () => {
-  const own = recipes.filter((r) => r.live && r.sourceId?.startsWith('import-'));
-  if (own.length) {
-    store.saveImported(
-      own.map((r) => ({
-        ...r,
-        source: undefined,
-        searchText: undefined,
-        ingredients: r.ingredients.map((i) => ({ a: i.amount, u: i.unit, n: i.name })),
-      })),
-    );
-  }
-});
+// "pagehide" feuert auch dort, wo "beforeunload" ausbleibt.
+window.addEventListener('pagehide', sichereImporte);
 
 // Fuer Konsole und Tests erreichbar halten
-Object.assign(window, { kochbuch: { store, board, stage, recipeById, newRecipe } });
+Object.assign(window, {
+  kochbuch: { store, board, stage, recipeById, newRecipe, vorschlaegeOeffnen, naehrwerteOeffnen, korpus },
+});
