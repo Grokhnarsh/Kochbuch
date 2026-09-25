@@ -2,8 +2,8 @@
 
 Ein Wochen-Essensplaner in Form eines Stundenplans: sieben Tageszeilen, vier
 Mahlzeitenspalten, Gerichte in den Feldern, verschiebbar mit der Maus.
-Dazu eine Bibliothek mit 560 Rezepten aus gemeinfreien Kochbüchern und offen
-lizenzierten Wikis, eigene Rezepte zum Selbstschreiben, Allergenangaben und
+Dazu eine Bibliothek mit rund 12.000 Rezepten aus gemeinfreien Kochbüchern und
+offen lizenzierten Wikis, eigene Rezepte zum Selbstschreiben, Allergenangaben und
 berechnete Nährwerte zu jedem Gericht, Vorschläge für eine ausgewogene Woche,
 eine Einkaufsliste, die sich aus dem Plan selbst zusammenrechnet, und der Weg
 von dort in den REWE-Onlineshop.
@@ -192,9 +192,40 @@ also: weg. `state/eigene.js` bringt dafür `alsDatei()` und `ausDatei()` mit.
 ## Woher die Rezepte stammen
 
 Alle mitgelieferten Rezepte gehen auf gemeinfreie Kochbücher und offen
-lizenzierte Projekte zurück. Die historischen sind behutsam modernisiert —
-metrische Mengen, heutige Gartemperaturen, zeitgemäße Sprache —, die Herkunft
-steht an jedem Rezept und im Quellenverzeichnis der App.
+lizenzierte Projekte zurück. Die Herkunft steht an jedem Rezept, mit Link auf
+die Originalseite, und im Quellenverzeichnis der App.
+
+**Offene Wikis, vollständig.** Jede Rezeptseite, die Zutaten und Zubereitung
+hat, ist dabei. Kategorie, Mahlzeit, Küche und vegetarisch/vegan kommen aus den
+Kategorien der Seite; Portionen, Zeiten und Schwierigkeit aus ihrer Infobox —
+fehlt dort etwas, bleibt es leer statt geraten.
+
+| Quelle | Lizenz | Rezepte |
+| --- | --- | --- |
+| [Koch-Wiki](https://www.kochwiki.org/) | CC BY-SA 3.0 | 8.962 |
+| [Wikibooks-Kochbuch](https://de.wikibooks.org/wiki/Kochbuch) | CC BY-SA 4.0 | 562 + 25 aufbereitete |
+| [Rezepte-Wiki (Fandom)](https://rezepte.fandom.com/de/) | CC BY-SA 3.0 | 370 |
+
+**Historische Kochbücher im Wortlaut.** Die Rezepte stehen so da, wie sie
+gedruckt wurden, mit einem Hinweis *Originaltext*. Davidis und Schiller
+schreiben keine Zutatenlisten, sondern Anweisungen („Ein Viertel Pfund mageres
+Schweinefleisch … dann 4 Loth Butter zu Sahne gerührt"). Die Zutaten werden
+daraus erschlossen und die alten Maße umgerechnet — nach preußischem Gewicht bei
+Davidis, nach bairischem bei Schiller, wie sie selbst angibt. Weil so eine
+Liste unvollständig sein kann, rechnet die App daraus keine Nährwerte, und
+„Woche füllen" sowie die Vorschläge lassen diese Rezepte aus; einplanen lassen
+sie sich von Hand. Heyl hat echte Zutatenlisten in Gramm und gilt deshalb als
+gewöhnliches Rezept.
+
+| Quelle | Jahr | Lizenz | Rezepte |
+| --- | --- | --- | --- |
+| [Henriette Davidis, *Praktisches Kochbuch*](https://www.deutschestextarchiv.de/davidis_kochbuch_1849), 4. Auflage, Deutsches Textarchiv | 1849 | Text gemeinfrei, Transkription CC BY-SA 4.0 | 1.054 |
+| [Viktorine Schiller, *Neuestes Süddeutsches Kochbuch*](https://www.gutenberg.org/ebooks/52879) | 1843 | gemeinfrei | 790 |
+| [Hedwig Heyl, *Volks-Kochbuch*](https://www.gutenberg.org/ebooks/13921) | 1905 | gemeinfrei | 127 |
+
+**Von Hand aufbereitet** und sofort beim Start da: je 15 bis 20 Rezepte aus
+sechs historischen Büchern, behutsam modernisiert — metrische Mengen, heutige
+Gartemperaturen, zeitgemäße Sprache.
 
 | Quelle | Jahr | Lizenz | Rezepte |
 | --- | --- | --- | --- |
@@ -204,23 +235,58 @@ steht an jedem Rezept und im Quellenverzeichnis der App.
 | [Pellegrino Artusi, *La scienza in cucina*](https://www.gutenberg.org/ebooks/59047) | 1891 | Public Domain | 20 |
 | [Fannie Farmer, *Boston Cooking-School Cook Book*](https://www.gutenberg.org/ebooks/65061) | 1896 | Public Domain | 20 |
 | [Hannah Glasse, *The Art of Cookery*](https://archive.org/details/artofcookermade00glas) | 1747 | Public Domain | 15 |
-| [Wikibooks Kochbuch](https://de.wikibooks.org/wiki/Kochbuch) | laufend | CC BY-SA 3.0 | 25 |
-| [Koch-Wiki](https://www.kochwiki.org/) | laufend | CC BY-SA | 420 |
+
+**Was nicht dabei ist, und warum:**
+
+- **Chefkoch, Cookidoo (Thermomix), Rezeptwelt, REWE** — die Rezepttexte sind
+  urheberrechtlich geschützt, und die Nutzungsbedingungen verbieten das
+  massenhafte Kopieren. Einzelne, selbst ausgewählte Rezepte lassen sich
+  importieren (siehe unten); ins Repository gelangen sie nie.
+- **Kochbücher, die nur als Scan vorliegen** — ohne Transkription gibt es
+  keinen Text, und eine Texterkennung alter Frakturdrucke wäre zu fehlerhaft.
+- **Frühneuhochdeutsche Bücher** wie Rumpolt (1581) oder Wecker (1598) im
+  Deutschen Textarchiv — ohne verwertbare Mengen und für heutige Leser kaum
+  nachzukochen.
+- **Englischsprachige Sammlungen** wie TheMealDB und der UniTools-Datensatz —
+  die App ist durchgehend deutsch. Aus demselben Grund fehlen drei Rezepte,
+  die schon bei Davidis „Round of Beef" heißen.
+
+### Wie die großen Sammlungen geladen werden
+
+Zwölftausend Rezepte im Programmbündel würden den Start um Sekunden verzögern.
+Deshalb liegen die Wikis und die Bücher im Wortlaut als statische Dateien unter
+`public/korpus/` — in Teilen von höchstens 2 MB, ein Rezept je Zeile — und
+kommen nach dem ersten Bild dazu. Die Bibliothek wächst dabei sichtbar, der
+Plan zeichnet Gerichte nach, die er vorher noch nicht kannte.
+
+Allergene, Nährwerte und Bewertung rechnet das Werkzeug beim Bauen und legt je
+Rezept eine knappe Zusammenfassung ab; das reicht für Karten, Filter,
+Wochensummen und Vorschläge. Wer ein Rezept öffnet, bekommt die volle Rechnung
+mit Gründen, Posten und Hinweisen — für genau dieses eine. Beide Wege laufen
+durch dieselbe Funktion, und ein Test prüft, dass keine Zusammenfassung
+veraltet ist.
+
+```bash
+npm run korpus -- kochwiki            # eine Sammlung neu holen
+npm run korpus -- --alle              # alle
+npm run korpus -- --neu-rechnen       # nur Zusammenfassungen, etwa nach
+                                      # Änderungen an der Nährwerttabelle
+```
+
+Abgerufen wird höflich: mit Name und Kontaktadresse im User-Agent, einer Pause
+zwischen den Anfragen je Server, Warten nach „429" so lange, wie der Server
+sagt, und einem Plattencache unter `data/cache/` — ein zweiter Lauf fragt
+nichts erneut. Aus MediaWiki-Wikis kommen fünfzig Seiten je Anfrage, fürs
+Koch-Wiki also rund zweihundert Anfragen statt neuntausend.
 
 ### Live nachladen
 
-Unter **Quellen → Live nachladen** holt die App weitere Rezepte dazu. Angeboten
-werden bewusst nur deutschsprachige Quellen; beide senden
-`access-control-allow-origin: *` und funktionieren direkt aus dem Browser:
-
-- **[Koch-Wiki](https://www.kochwiki.org/)** (CC BY-SA) — rund 9000 deutsche
-  Rezepte. Seiten mit englischem Titel bleiben außen vor, damit die App
-  einsprachig bleibt. Bruchvorlagen wie `{{B|1|2}}` werden in Mengen
-  übersetzt statt gestrichen, sehr knappe Schritte an den vorigen angehängt
-  statt verworfen.
-- **[Wikibooks-Kochbuch](https://de.wikibooks.org/wiki/Kochbuch)** (CC BY-SA 3.0)
-  über die MediaWiki-API. Bewusst gedrosselt und seriell: Wikimedia
-  beantwortet Stoßlasten mit 429.
+Unter **Quellen → Live nachladen** holt die App die **neuesten** Seiten aus
+Koch-Wiki und Wikibooks — alles Ältere liegt dem Korpus schon bei. Beide
+senden `access-control-allow-origin: *` und funktionieren direkt aus dem
+Browser. Seiten mit englischem Titel bleiben außen vor, Bruchvorlagen wie
+`{{B|1|2}}` werden in Mengen übersetzt statt gestrichen, sehr knappe Schritte
+an den vorigen angehängt statt verworfen.
 
 Zwei weitere Quellen sind angebunden, liefern aber nur englische Texte und
 bleiben deshalb dem Import-Werkzeug auf der Kommandozeile vorbehalten:
@@ -265,6 +331,7 @@ und legt das Rezept in der Bibliothek ab.
 
 ```bash
 npm run import -- --url https://www.chefkoch.de/rezepte/...
+npm run import -- --urls meine-rezepte.txt   # eine Adresse je Zeile, höchstens 50
 npm run import -- --file gespeicherte-seite.html --url https://...
 npm run import -- --themealdb alle        # gesamter Bestand, rund 790 Rezepte
 npm run import -- --themealdb Italian     # nur eine Küche
@@ -286,6 +353,21 @@ eine Seite den direkten Zugriff aus dem Browser — bei Rezeptportalen die Regel
 weil sie keine CORS-Freigabe setzen —, funktioniert der eingefügte
 Seitenquelltext oder der Weg über die Kommandozeile, wo CORS nicht greift.
 
+Für mehrere Rezepte auf einmal: die Adressen der Lieblingsrezepte in eine
+Textdatei schreiben und `npm run import -- --urls datei.txt` aufrufen. Das
+Werkzeug holt sie nacheinander mit fünf Sekunden Pause und schreibt
+`data/importiert/sammlung.json`; diese Datei liest die App unter **Quellen →
+Sammlung laden** ein.
+
+**Thermomix:** Einstellungen wie „10 Sek./Stufe 5", „5 Min./100°C/Stufe 1" oder
+„Turbo/0,5 Sek." erkennt die App in jedem Rezept — importiert oder selbst
+geschrieben —, hebt sie in der Rezeptansicht hervor und führt das Rezept unter
+dem Schlagwort *Thermomix*. Von Cookidoo kommen Zutaten, Portionen und Zeiten;
+die Arbeitsschritte zeigt Cookidoo nur angemeldeten Nutzern, das Rezept sagt
+das dann ausdrücklich. Seiten, die ihre Schritte nicht als schema.org-Daten
+liefern, liest der Importer unter der Überschrift „Zubereitung" aus dem
+Seitentext.
+
 Ein Massenabzug ganzer Portale ist bewusst nicht vorgesehen: Chefkoch und REWE
 untersagen das in ihren Nutzungsbedingungen, und die Rezepttexte sind
 urheberrechtlich geschützt. Der Importer holt einzelne Rezepte, die man selbst
@@ -301,8 +383,9 @@ lizenzierte Korpus.
 
 ```
 src/
-  data/            Rezeptkorpus als JSON, Quellenregister, Suchindex
-    books/         ein Kochbuch je Datei
+  data/            Rezeptkorpus als JSON, Quellenregister, Suchindex,
+                   Nachladen der großen Sammlungen (korpus.js)
+    books/         die von Hand aufbereiteten Bücher, eines je Datei
   state/           Wochenplan, Kalenderrechnung, Mengenarithmetik,
                    Einkaufsliste, Abteilungszuordnung, Allergene,
                    Nährwerte, Gesundheitsbewertung, eigene Rezepte
@@ -311,7 +394,10 @@ src/
                    Einkaufsliste, Nährwerte, Vorschläge, Quellen
   sources/         Live-Adapter und schema.org-Importer
   shops/           Supermarkt-Anbindungen
+public/korpus/     die großen Sammlungen in Teilen, mit Verzeichnis index.json
 scripts/           Import-Werkzeug für die Kommandozeile
+  korpus/          Bau des Korpus: höflicher Abruf, MediaWiki, historische
+                   Texte (alte Maße und Schreibung), je Quelle ein Modul
   naehrwerte/      Zuordnung zur USDA-Datenbank und Bau der Nährwerttabelle
 tests/             Modultests und ein Rauchtest im Browser
 ```
@@ -331,9 +417,9 @@ als Markup ausgeführt werden.
 ## Tests
 
 ```bash
-npm test               # 88 Modultests: Mengen, Einkaufsliste, Import,
+npm test               # 106 Modultests: Mengen, Einkaufsliste, Import,
                        # Korpus, Allergene, Nährwerte, Bewertung,
-                       # eigene Rezepte, Sicherheit
+                       # eigene Rezepte, Sicherheit, alte Texte, Thermomix
 npm run test:browser   # Rauchtest in Chromium gegen die gebaute App
 npm run test:handy     # derselbe Weg in Telefongröße, mit Berührung
 ```
@@ -347,7 +433,15 @@ leeres Formularfeld als fehlend und nicht als Null gilt, dass Nährwerte aus
 der Datenbank stammen und Frittierfett nicht als gegessen zählt, dass ein
 Linseneintopf besser abschneidet als Bratwurst in Sahne, dass Markup in
 Rezeptdaten maskiert wird, und dass kein englischer Text in Titel, Kapitel
-oder Schlagwörter zurückkehrt. Der Browsertest fährt die App hoch, plant eine
+oder Schlagwörter zurückkehrt. Fürs Korpus prüfen sie jedes der zwölftausend
+Rezepte, dass jede vorberechnete Zusammenfassung der frischen Rechnung
+entspricht, dass kein Teil zu groß wird und nur offen lizenzierte Quellen
+darin stehen. Für die alten Bücher: dass „¼ Pfund" bei Davidis 115 g sind und
+ein bairisches Pfund bei Schiller 560 g, dass „½ Ei dick Butter" Butter meint
+und kein Ei, und dass „Aepfel" wieder „Äpfel" heißt.
+
+Der Browsertest fährt die App hoch, wartet, bis die großen Sammlungen
+nachgeladen sind, lädt eine Import-Sammlung mit Thermomix-Rezept, plant eine
 Woche, zieht eine Karte mit der Maus in einen anderen Slot, prüft
 Einkaufsliste und Shop-Übergabe, schreibt ein eigenes Rezept, füllt die Woche
 mit gesunden Vorschlägen und prüft, dass ein eingeschleuster Titel nicht
@@ -397,6 +491,24 @@ Test abgesichert:
   jetzt aus den Kategorien der Wikiseite.
 - Kleineres: HTML-Entitäten wie `z.&#8239;B.` im Text, Knöpfe in Fußzeilen,
   die nicht rechts standen, ein Handytest, der donnerstags scheiterte.
+
+Beim Ausbau auf das ganze Korpus kam dazu:
+
+- **Erfundene Angaben bei Wikibooks.** Der Adapter setzte jedem Rezept
+  20 + 30 Minuten, vier Portionen und „Hauptgericht“. Jetzt kommen die Angaben
+  aus der Rezeptbox der Seite, und was dort fehlt, bleibt leer.
+- **Zweispaltige Zutatentabellen doppelten den Namen** („250 Mehl Mehl“).
+- **Nur der erste Zutatenabschnitt zählte.** „Zutaten für den Teig“ und
+  „Zutaten für den Guss“ stehen jetzt beide in der Liste. Ebenso gingen
+  Absätze in der Zubereitung verloren, sobald es daneben einen
+  Aufzählungspunkt gab.
+- **„Bandnudeln mit Sahnesauce“ war ein Grundrezept** — die Sauce im Titel
+  entschied. Jetzt zählt der Kern des Namens vor „mit“, „in“, „an“, und eine
+  Kategorie „Hauptspeise“ geht einer Kategorie „Saucen“ vor. „Leicht
+  veganisierbar“ galt als vegan.
+- **Die Bibliothek baute bei jedem Tastendruck 260 Karten neu.** Jetzt
+  entstehen sie stapelweise beim Blättern; die Suche braucht auf einem
+  gedrosselten Rechner noch ein Drittel der Zeit.
 
 ## Abgleich mit Git
 
