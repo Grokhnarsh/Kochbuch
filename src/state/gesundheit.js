@@ -35,10 +35,11 @@ export const PFLANZLICH = new Set([
   'rosenkohl', 'gruenkohl', 'spargel', 'fenchel', 'salat', 'radieschen', 'steckrueben', 'pastinaken',
   'avocado', 'ingwer', 'bambussprossen', 'kraeuter', 'aepfel', 'birnen', 'bananen', 'zitrone', 'limette',
   'orange', 'ananas', 'aprikosen', 'pflaumen', 'kirschen', 'erdbeeren', 'beeren', 'rhabarber', 'mango',
-  'trauben', 'feigen', 'quitten', 'tofu',
+  'trauben', 'feigen', 'quitten', 'tofu', 'tempeh', 'sojaschnetzel',
 ]);
 
-const HUELSENFRUECHTE = new Set(['weisse_bohnen', 'kidneybohnen', 'kichererbsen', 'linsen', 'rote_linsen', 'erbsen', 'tofu']);
+const HUELSENFRUECHTE = new Set(['weisse_bohnen', 'kidneybohnen', 'kichererbsen', 'linsen', 'rote_linsen', 'erbsen',
+  'tofu', 'tempeh', 'sojaschnetzel']);
 const VOLLKORN = new Set(['vollkornmehl', 'roggenmehl', 'dinkelmehl', 'haferflocken', 'vollkornbrot', 'roggenbrot']);
 const ROTES_FLEISCH = new Set(['rinderhack', 'rindfleisch', 'rindersteak', 'schweinehack', 'schweinefleisch',
   'schweinefilet', 'schweinebauch', 'lamm', 'kalb', 'wild']);

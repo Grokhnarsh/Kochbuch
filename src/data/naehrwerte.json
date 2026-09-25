@@ -16,8 +16,7 @@
     "mehl",
     "weizenmehl",
     "kuchenmehl",
-    "mehl type",
-    "stärkemehl"
+    "mehl type"
    ],
    "je100g": {
     "kcal": 364,
@@ -164,7 +163,10 @@
     "maisstärke",
     "stärke",
     "kartoffelstärke",
-    "mondamin"
+    "mondamin",
+    "stärkemehl",
+    "ei-ersatz",
+    "eiersatz"
    ],
    "je100g": {
     "kcal": 381,
@@ -608,7 +610,33 @@
    },
    "el": 21,
    "tl": 7,
-   "dichte": 1.43
+   "dichte": 1.43,
+   "ersatz": "agavendicksaft"
+  },
+  {
+   "id": "agavendicksaft",
+   "name": "Agavendicksaft",
+   "fdc": 170277,
+   "quelle": "Sweetener, syrup, agave",
+   "schluessel": [
+    "agavendicksaft",
+    "agavensirup",
+    "agavendicksirup",
+    "agavensaft"
+   ],
+   "je100g": {
+    "kcal": 310,
+    "eiweiss": 0.1,
+    "fett": 0.5,
+    "gesFett": 0,
+    "kh": 76.4,
+    "zucker": 68,
+    "ballast": 0.2,
+    "salz": 0.01
+   },
+   "el": 20.7,
+   "tl": 6.9,
+   "dichte": 0.93
   },
   {
    "id": "ahornsirup",
@@ -1001,7 +1029,11 @@
    "fdc": 175043,
    "quelle": "Leavening agents, yeast, baker's, active dry",
    "schluessel": [
-    "trockenhefe"
+    "trockenhefe",
+    "hefeflocken",
+    "nährhefe",
+    "edelhefe",
+    "edelhefeflocken"
    ],
    "je100g": {
     "kcal": 325,
@@ -1041,7 +1073,8 @@
    },
    "el": 14.2,
    "tl": 4.73,
-   "dichte": 0.96
+   "dichte": 0.96,
+   "ersatz": "margarine"
   },
   {
    "id": "butterschmalz",
@@ -1072,7 +1105,10 @@
    "schluessel": [
     "margarine",
     "pflanzenmargarine",
-    "sonnenblumenmargarine"
+    "sonnenblumenmargarine",
+    "vegane butter",
+    "pflanzenbutter",
+    "alsan"
    ],
    "je100g": {
     "kcal": 717,
@@ -1110,7 +1146,8 @@
    },
    "el": 12.8,
    "tl": 4.27,
-   "dichte": 0.87
+   "dichte": 0.87,
+   "ersatz": "kokosoel"
   },
   {
    "id": "olivenoel",
@@ -1311,7 +1348,8 @@
    },
    "el": 15,
    "tl": 5,
-   "dichte": 1.03
+   "dichte": 1.03,
+   "ersatz": "sojamilch"
   },
   {
    "id": "fettarme_milch",
@@ -1336,7 +1374,8 @@
    },
    "el": 15.3,
    "tl": 5.08,
-   "dichte": 1.03
+   "dichte": 1.03,
+   "ersatz": "sojamilch"
   },
   {
    "id": "buttermilch",
@@ -1437,7 +1476,8 @@
    },
    "el": 15,
    "tl": 5,
-   "dichte": 1
+   "dichte": 1,
+   "ersatz": "pflanzensahne"
   },
   {
    "id": "creme_fraiche",
@@ -1462,7 +1502,8 @@
    },
    "el": 15,
    "tl": 5,
-   "dichte": 1
+   "dichte": 1,
+   "ersatz": "pflanzensahne"
   },
   {
    "id": "schmand",
@@ -1487,7 +1528,8 @@
    },
    "el": 12,
    "tl": 4,
-   "dichte": 0.97
+   "dichte": 0.97,
+   "ersatz": "pflanzensahne"
   },
   {
    "id": "joghurt",
@@ -1514,7 +1556,8 @@
    "el": 15.3,
    "tl": 5.1,
    "dichte": 1.04,
-   "becher": 150
+   "becher": 150,
+   "ersatz": "sojajoghurt"
   },
   {
    "id": "quark",
@@ -1540,7 +1583,8 @@
    },
    "el": 15,
    "tl": 3.02,
-   "dichte": 1
+   "dichte": 1,
+   "ersatz": "sojajoghurt"
   },
   {
    "id": "frischkaese",
@@ -1566,7 +1610,8 @@
    },
    "el": 14.5,
    "tl": 4.83,
-   "dichte": 0.98
+   "dichte": 0.98,
+   "ersatz": "kaeseersatz"
   },
   {
    "id": "parmesan",
@@ -1589,7 +1634,8 @@
     "zucker": 0.1,
     "ballast": 0,
     "salz": 2.94
-   }
+   },
+   "ersatz": "kaeseersatz"
   },
   {
    "id": "hartkaese",
@@ -1621,7 +1667,8 @@
    "el": 15.3,
    "tl": 5.08,
    "dichte": 1.03,
-   "scheibe": 20
+   "scheibe": 20,
+   "ersatz": "kaeseersatz"
   },
   {
    "id": "gouda",
@@ -1644,7 +1691,8 @@
     "ballast": 0,
     "salz": 2.05
    },
-   "scheibe": 20
+   "scheibe": 20,
+   "ersatz": "kaeseersatz"
   },
   {
    "id": "cheddar",
@@ -1667,7 +1715,8 @@
    "el": 15.3,
    "tl": 5.08,
    "dichte": 1.03,
-   "scheibe": 20
+   "scheibe": 20,
+   "ersatz": "kaeseersatz"
   },
   {
    "id": "feta",
@@ -1691,7 +1740,8 @@
    },
    "el": 9.4,
    "tl": 3.13,
-   "dichte": 0.63
+   "dichte": 0.63,
+   "ersatz": "kaeseersatz"
   },
   {
    "id": "mozzarella",
@@ -1715,7 +1765,8 @@
    "el": 7,
    "tl": 2.33,
    "dichte": 0.47,
-   "stueck": 125
+   "stueck": 125,
+   "ersatz": "kaeseersatz"
   },
   {
    "id": "ricotta",
@@ -1737,7 +1788,8 @@
    },
    "el": 15.5,
    "tl": 5.17,
-   "dichte": 1.05
+   "dichte": 1.05,
+   "ersatz": "kaeseersatz"
   },
   {
    "id": "camembert",
@@ -1762,7 +1814,8 @@
    "el": 15.4,
    "tl": 5.13,
    "dichte": 1.04,
-   "stueck": 125
+   "stueck": 125,
+   "ersatz": "kaeseersatz"
   },
   {
    "id": "ziegenkaese",
@@ -1783,7 +1836,8 @@
     "zucker": 0,
     "ballast": 0,
     "salz": 1.15
-   }
+   },
+   "ersatz": "kaeseersatz"
   },
   {
    "id": "ei",
@@ -1887,7 +1941,8 @@
     "zucker": 0,
     "ballast": 0,
     "salz": 0.17
-   }
+   },
+   "ersatz": "fleischersatz"
   },
   {
    "id": "schweinehack",
@@ -1911,7 +1966,8 @@
     "zucker": null,
     "ballast": 0,
     "salz": 0.14
-   }
+   },
+   "ersatz": "fleischersatz"
   },
   {
    "id": "rindfleisch",
@@ -1941,7 +1997,8 @@
     "zucker": 0,
     "ballast": 0,
     "salz": 0.16
-   }
+   },
+   "ersatz": "fleischersatz"
   },
   {
    "id": "rindersteak",
@@ -1968,7 +2025,8 @@
     "ballast": 0,
     "salz": 0.13
    },
-   "stueck": 200
+   "stueck": 200,
+   "ersatz": "fleischersatz"
   },
   {
    "id": "schweinefleisch",
@@ -2002,7 +2060,8 @@
     "ballast": 0,
     "salz": 0.16
    },
-   "stueck": 150
+   "stueck": 150,
+   "ersatz": "fleischersatz"
   },
   {
    "id": "schweinefilet",
@@ -2073,7 +2132,8 @@
     "ballast": 0,
     "salz": 1.88
    },
-   "scheibe": 12
+   "scheibe": 12,
+   "ersatz": "fleischersatz"
   },
   {
    "id": "kochschinken",
@@ -2096,7 +2156,8 @@
     "ballast": 1.3,
     "salz": 2.04
    },
-   "scheibe": 25
+   "scheibe": 25,
+   "ersatz": "fleischersatz"
   },
   {
    "id": "rohschinken",
@@ -2154,7 +2215,8 @@
     "ballast": 0,
     "salz": 0.11
    },
-   "stueck": 150
+   "stueck": 150,
+   "ersatz": "fleischersatz"
   },
   {
    "id": "haehnchen",
@@ -2191,7 +2253,8 @@
     "ballast": 0,
     "salz": 0.18
    },
-   "stueck": 200
+   "stueck": 200,
+   "ersatz": "fleischersatz"
   },
   {
    "id": "pute",
@@ -2215,7 +2278,8 @@
     "ballast": 0,
     "salz": 0.28
    },
-   "stueck": 150
+   "stueck": 150,
+   "ersatz": "fleischersatz"
   },
   {
    "id": "lamm",
@@ -2461,7 +2525,8 @@
     "ballast": 0,
     "salz": 2.12
    },
-   "stueck": 100
+   "stueck": 100,
+   "ersatz": "fleischersatz"
   },
   {
    "id": "salami",
@@ -2483,7 +2548,8 @@
     "ballast": 0,
     "salz": 5.65
    },
-   "scheibe": 5
+   "scheibe": 5,
+   "ersatz": "fleischersatz"
   },
   {
    "id": "leber",
@@ -5023,7 +5089,6 @@
    "quelle": "Nuts, coconut milk, canned (liquid expressed from grated meat and water)",
    "schluessel": [
     "kokosmilch",
-    "kokoscreme",
     "kokosnussmilch"
    ],
    "je100g": {
@@ -6296,7 +6361,8 @@
    },
    "el": 15,
    "tl": 5,
-   "dichte": 1.01
+   "dichte": 1.01,
+   "ersatz": "gemuesebruehe"
   },
   {
    "id": "huehnerbruehe",
@@ -6323,7 +6389,8 @@
    },
    "el": 15,
    "tl": 5,
-   "dichte": 1.01
+   "dichte": 1.01,
+   "ersatz": "gemuesebruehe"
   },
   {
    "id": "fischfond",
@@ -6386,7 +6453,10 @@
     "mineralwasser",
     "sprudel",
     "kochwasser",
-    "salzwasser"
+    "salzwasser",
+    "aquafaba",
+    "kichererbsenwasser",
+    "kichererbsensud"
    ],
    "je100g": {
     "kcal": 0,
@@ -6567,6 +6637,86 @@
    "dichte": 1.07
   },
   {
+   "id": "tempeh",
+   "name": "Tempeh",
+   "fdc": 174272,
+   "quelle": "Tempeh",
+   "schluessel": [
+    "tempeh"
+   ],
+   "je100g": {
+    "kcal": 192,
+    "eiweiss": 20.3,
+    "fett": 10.8,
+    "gesFett": 2.5,
+    "kh": 7.6,
+    "zucker": null,
+    "ballast": null,
+    "salz": 0.02
+   },
+   "el": 10.4,
+   "tl": 3.46,
+   "dichte": 0.7
+  },
+  {
+   "id": "sojaschnetzel",
+   "name": "Sojaschnetzel (trocken)",
+   "fdc": 174268,
+   "quelle": "Meat extender",
+   "schluessel": [
+    "sojaschnetzel",
+    "sojagranulat",
+    "sojafleisch",
+    "sojabrocken",
+    "sojawürfel",
+    "sojamedaillons",
+    "sojahack"
+   ],
+   "je100g": {
+    "kcal": 311,
+    "eiweiss": 41.7,
+    "fett": 3,
+    "gesFett": 0.4,
+    "kh": 34.7,
+    "zucker": null,
+    "ballast": 17.5,
+    "salz": 0.03
+   },
+   "el": 5.5,
+   "tl": 1.83,
+   "dichte": 0.37
+  },
+  {
+   "id": "fleischersatz",
+   "name": "Fleischersatz (vegan)",
+   "fdc": 174287,
+   "quelle": "Veggie burgers or soyburgers, unprepared",
+   "schluessel": [
+    "fleischersatz",
+    "veganes hack",
+    "vegane hack",
+    "veganes hackfleisch",
+    "vegane hackfleisch",
+    "veggie-hack",
+    "erbsenhack",
+    "vegetarisches hack",
+    "veggieburger",
+    "veggie-burger",
+    "vegane frikadelle"
+   ],
+   "je100g": {
+    "kcal": 177,
+    "eiweiss": 15.7,
+    "fett": 6.3,
+    "gesFett": 1.4,
+    "kh": 14.3,
+    "zucker": 1.1,
+    "ballast": 4.9,
+    "salz": 1.42
+   },
+   "stueck": 100
+  },
+  {
    "id": "sojamilch",
    "name": "Sojadrink",
    "fdc": 172446,
@@ -6574,11 +6724,16 @@
    "schluessel": [
     "sojamilch",
     "sojadrink",
+    "soja-drink",
     "hafermilch",
     "haferdrink",
-    "mandelmilch",
-    "reismilch",
-    "pflanzendrink"
+    "hafer-drink",
+    "dinkelmilch",
+    "dinkeldrink",
+    "erbsendrink",
+    "pflanzendrink",
+    "pflanzenmilch",
+    "pflanzliche milch"
    ],
    "je100g": {
     "kcal": 54,
@@ -6593,6 +6748,179 @@
    "el": 15.2,
    "tl": 5.06,
    "dichte": 1.03
+  },
+  {
+   "id": "mandeldrink",
+   "name": "Mandeldrink",
+   "fdc": 174832,
+   "quelle": "Beverages, almond milk, unsweetened, shelf stable",
+   "schluessel": [
+    "mandeldrink",
+    "mandelmilch",
+    "mandel-drink",
+    "nussdrink",
+    "nussmilch",
+    "haselnussdrink",
+    "haselnussmilch",
+    "cashewdrink",
+    "cashewmilch"
+   ],
+   "je100g": {
+    "kcal": 15,
+    "eiweiss": 0.4,
+    "fett": 1,
+    "gesFett": 0.1,
+    "kh": 1.3,
+    "zucker": 0.8,
+    "ballast": 0.2,
+    "salz": 0.18
+   },
+   "el": 16.4,
+   "tl": 5.46,
+   "dichte": 1.11
+  },
+  {
+   "id": "reisdrink",
+   "name": "Reisdrink",
+   "fdc": 171942,
+   "quelle": "Beverages, rice milk, unsweetened",
+   "schluessel": [
+    "reisdrink",
+    "reismilch",
+    "reis-drink"
+   ],
+   "je100g": {
+    "kcal": 47,
+    "eiweiss": 0.3,
+    "fett": 1,
+    "gesFett": 0,
+    "kh": 9.2,
+    "zucker": 5.3,
+    "ballast": 0.3,
+    "salz": 0.1
+   }
+  },
+  {
+   "id": "pflanzensahne",
+   "name": "Pflanzliche Sahne",
+   "fdc": 171261,
+   "quelle": "Cream substitute, liquid, with hydrogenated vegetable oil and soy protein",
+   "schluessel": [
+    "pflanzensahne",
+    "pflanzliche sahne",
+    "hafersahne",
+    "hafer-sahne",
+    "sojasahne",
+    "soja-sahne",
+    "reissahne",
+    "dinkelsahne",
+    "mandelsahne",
+    "cashewsahne",
+    "hafer-cuisine",
+    "hafer cuisine",
+    "soja-cuisine",
+    "soja cuisine",
+    "sojacreme",
+    "hafercreme",
+    "vegane sahne",
+    "vegane schlagsahne"
+   ],
+   "je100g": {
+    "kcal": 136,
+    "eiweiss": 1,
+    "fett": 10,
+    "gesFett": 1.9,
+    "kh": 11.4,
+    "zucker": 11.4,
+    "ballast": 0,
+    "salz": 0.17
+   },
+   "el": 15,
+   "tl": 5,
+   "dichte": 1
+  },
+  {
+   "id": "kokossahne",
+   "name": "Kokoscreme",
+   "fdc": 170580,
+   "quelle": "Nuts, coconut cream, raw (liquid expressed from grated meat)",
+   "schluessel": [
+    "kokossahne",
+    "kokoscreme",
+    "kokosrahm"
+   ],
+   "je100g": {
+    "kcal": 330,
+    "eiweiss": 3.6,
+    "fett": 34.7,
+    "gesFett": 30.8,
+    "kh": 6.7,
+    "zucker": null,
+    "ballast": 2.2,
+    "salz": 0.01
+   },
+   "el": 15,
+   "tl": 5,
+   "dichte": 1.01
+  },
+  {
+   "id": "sojajoghurt",
+   "name": "Sojajoghurt",
+   "fdc": 167722,
+   "quelle": "Tofu yogurt",
+   "schluessel": [
+    "sojajoghurt",
+    "soja-joghurt",
+    "soja joghurt",
+    "sojaghurt",
+    "kokosjoghurt",
+    "kokos-joghurt",
+    "haferjoghurt",
+    "mandeljoghurt",
+    "cashewjoghurt",
+    "lupinenjoghurt",
+    "sojaquark"
+   ],
+   "je100g": {
+    "kcal": 94,
+    "eiweiss": 3.5,
+    "fett": 1.8,
+    "gesFett": 0.3,
+    "kh": 16,
+    "zucker": 1.2,
+    "ballast": 0.2,
+    "salz": 0.09
+   },
+   "el": 16.4,
+   "tl": 5.46,
+   "dichte": 1.11,
+   "becher": 150
+  },
+  {
+   "id": "kaeseersatz",
+   "name": "Käseersatz (vegan)",
+   "fdc": 172198,
+   "quelle": "Cheese substitute, mozzarella",
+   "schluessel": [
+    "käseersatz",
+    "käsealternative",
+    "veganer käse",
+    "vegane käse",
+    "veganer reibekäse"
+   ],
+   "je100g": {
+    "kcal": 248,
+    "eiweiss": 11.5,
+    "fett": 12.2,
+    "gesFett": 3.7,
+    "kh": 23.7,
+    "zucker": 23.7,
+    "ballast": 0,
+    "salz": 1.71
+   },
+   "el": 7.1,
+   "tl": 2.35,
+   "dichte": 0.48
   }
  ]
 }

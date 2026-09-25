@@ -124,6 +124,16 @@ export function kern(name) {
 }
 
 /**
+ * Ob die gemeinte Zutat vegan ist: "vegane Butter", "Joghurt (vegan)",
+ * "Butter, vegan" — nur die erste Wahl zaehlt, "Butter oder vegane
+ * Butter" ist Butter.
+ */
+function istVegan(name) {
+  const erste = String(name).toLowerCase().split(/ oder | bzw\.? | alternativ | ersatzweise |\//)[0];
+  return /\bvegan\w*\b(?!\s*:)/.test(erste);
+}
+
+/**
  * @param {{eintraege: object[]}} tabelle Inhalt von naehrwerte.json
  */
 export function erstelleRechner(tabelle) {
@@ -143,7 +153,9 @@ export function erstelleRechner(tabelle) {
     const schluessel = String(name);
     if (gemerkt.has(schluessel)) return gemerkt.get(schluessel);
     const k = kern(schluessel);
-    const e = (k && suche(k)) || suche(schluessel.toLowerCase());
+    let e = (k && suche(k)) || suche(schluessel.toLowerCase());
+    // "Vegane Butter" ist Margarine, "veganes Hack" kein Rindfleisch
+    if (e?.ersatz && istVegan(schluessel)) e = eintraege.get(e.ersatz) ?? e;
     gemerkt.set(schluessel, e);
     return e;
   }
