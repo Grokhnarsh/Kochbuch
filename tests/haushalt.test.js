@@ -16,7 +16,10 @@ test('Profile werden bereinigt', () => {
     { name: '' }, 'kaputt',
   ]);
   assert.equal(p.length, 1);
-  assert.deepEqual(p[0], { id: 'p-1', name: 'Anna', aktiv: true, ernaehrung: ['vegetarisch'], allergene: ['schalenfruechte'], meidet: ['Pilze'] });
+  assert.deepEqual(p[0], {
+    id: 'p-1', name: 'Anna', aktiv: true, ernaehrung: ['vegetarisch'], allergene: ['schalenfruechte'], meidet: ['Pilze'],
+    faktor: 1, kcal: null, eiweiss: null, vorlage: '',
+  });
 });
 
 test('vegan erfüllt vegetarisch, vegetarisch erfüllt pescetarisch', () => {

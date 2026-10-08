@@ -77,6 +77,14 @@ export function pausiere(id) {
   aenderung();
 }
 
+/** Quittiert alle abgelaufenen Timer, etwa per Sprachbefehl "Stopp" */
+export function quittiereAlle() {
+  const vorher = timer.length;
+  timer = timer.filter((x) => !x.fertig);
+  if (timer.length !== vorher) aenderung();
+  return vorher - timer.length;
+}
+
 export function entferne(id) {
   timer = timer.filter((x) => x.id !== id);
   aenderung();

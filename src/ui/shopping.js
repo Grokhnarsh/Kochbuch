@@ -15,6 +15,7 @@ import { esc, safeUrl } from './html.js';
 import { fuegeHinzu } from '../state/vorrat.js';
 import { resteAus, resteRezepte } from '../state/reste.js';
 import { kostenWoche, euroText, HINWEIS_KOSTEN } from '../state/kosten.js';
+import { kochEintraege } from '../state/vorkochen.js';
 import { recipes, recipeById, vollstaendig } from '../data/index.js';
 
 /**
@@ -112,7 +113,8 @@ function vorratsBlock(gedeckt) {
 
 /** Geschaetzte Kosten der Woche, auf die geplanten Portionen gerechnet */
 function kostenZeile() {
-  const k = kostenWoche(Object.values(store.week), (id) => vollstaendig(recipeById.get(id)));
+  // Reste kosten nichts mehr, Vorgekochtes mit seinen Extraportionen
+  const k = kostenWoche(kochEintraege(store.week), (id) => vollstaendig(recipeById.get(id)));
   if (!k.geschaetzt) return '';
   const teil = k.geschaetzt < k.gerichte ? ` für ${k.geschaetzt} von ${k.gerichte} Gerichten` : '';
   return `<p class="kosten-zeile" title="${esc(HINWEIS_KOSTEN)}">Geschätzt <b>ca. ${euroText(k.gesamt)}</b>${teil}

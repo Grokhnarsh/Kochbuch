@@ -12,6 +12,28 @@ import { ALLERGENS } from './allergens.js';
 import { vorratsName, deckt } from './vorrat.js';
 
 const ERNAEHRUNG = ['vegetarisch', 'vegan', 'glutenfrei', 'laktosefrei', 'pescetarisch'];
+
+/**
+ * Richtwerte je Altersgruppe nach den Referenzwerten der DGE fuer
+ * geringe koerperliche Aktivitaet (PAL 1,4), gerundet. `faktor` ist der
+ * Anteil einer Erwachsenenportion: Ein Kindergartenkind isst etwa eine
+ * halbe. Richtwerte fuer Gesunde, keine Ernaehrungsberatung.
+ */
+export const VORLAGEN = [
+  { id: 'kind-4', name: 'Kind, 4–6 Jahre', kcal: 1400, eiweiss: 18, faktor: 0.5 },
+  { id: 'kind-7', name: 'Kind, 7–9 Jahre', kcal: 1600, eiweiss: 24, faktor: 0.75 },
+  { id: 'kind-10', name: 'Kind, 10–12 Jahre', kcal: 1800, eiweiss: 34, faktor: 0.75 },
+  { id: 'jugend', name: 'Jugendliche, 13–18 Jahre', kcal: 2200, eiweiss: 52, faktor: 1 },
+  { id: 'frau', name: 'Frau, 19–64 Jahre', kcal: 1900, eiweiss: 48, faktor: 1 },
+  { id: 'mann', name: 'Mann, 19–64 Jahre', kcal: 2400, eiweiss: 57, faktor: 1 },
+  { id: 'frau-65', name: 'Frau, ab 65 Jahre', kcal: 1700, eiweiss: 50, faktor: 1 },
+  { id: 'mann-65', name: 'Mann, ab 65 Jahre', kcal: 2100, eiweiss: 60, faktor: 1 },
+];
+
+export const HINWEIS_ZIELE = 'Richtwerte der DGE für Gesunde bei wenig Bewegung, gerundet. '
+  + 'Keine Ernährungsberatung; bei Krankheit, Schwangerschaft oder Sport gelten andere Werte.';
+
+const zahlIn = (x, min, max) => (Number.isFinite(Number(x)) && Number(x) >= min && Number(x) <= max ? Number(x) : null);
 const ALLERGEN_IDS = new Set(ALLERGENS.map((a) => a.id));
 
 /**
@@ -52,6 +74,11 @@ export function bereinigeProfile(liste) {
       allergene: (Array.isArray(p.allergene) ? p.allergene : []).filter((a) => ALLERGEN_IDS.has(a)),
       meidet: (Array.isArray(p.meidet) ? p.meidet : [])
         .map((m) => String(m).trim().slice(0, 40)).filter(Boolean).slice(0, 30),
+      // Anteil einer Erwachsenenportion und Tagesziele, alle freiwillig
+      faktor: zahlIn(p.faktor, 0.25, 2) ?? 1,
+      kcal: zahlIn(p.kcal, 500, 5000),
+      eiweiss: zahlIn(p.eiweiss, 5, 300),
+      vorlage: VORLAGEN.some((v) => v.id === p.vorlage) ? p.vorlage : '',
     });
   }
   return out;
@@ -101,8 +128,42 @@ export function haushaltsVorgaben(profile) {
     ohneAllergene: [...new Set(aktiv.flatMap((p) => p.allergene))],
     ernaehrungen: [...new Set(aktiv.flatMap((p) => p.ernaehrung))],
     meidet: [...new Set(aktiv.flatMap((p) => p.meidet))],
-    personen: aktiv.length,
+    personen: portionenFuer(aktiv),
   };
+}
+
+/**
+ * Portionen fuer alle, die mitessen: zwei Erwachsene und ein kleines Kind
+ * sind zweieinhalb, gekocht wird fuer drei.
+ */
+export function portionenFuer(profile) {
+  const summe = profile.reduce((a, p) => a + (p.faktor ?? 1), 0);
+  return summe > 0 ? Math.ceil(summe - 1e-9) : 0;
+}
+
+/**
+ * Wie weit der Plan die Tagesziele jeder Person deckt.
+ *
+ * Gerechnet ueber die Tage, an denen etwas mit Naehrwerten geplant ist;
+ * jede Person isst ihren Anteil einer Portion. Was nicht im Plan steht
+ * (das Brot zum Abend, der Apfel), fehlt natuerlich.
+ *
+ * @param {{werte:object, mahlzeiten:number, belastbar:number}[]} tage aus store.naehrwerteProTag()
+ * @param {object[]} profile
+ * @returns {{name:string, faktor:number, tage:number, kcal:object|null, eiweiss:object|null}[]}
+ */
+export function zieleWoche(tage, profile) {
+  const geplant = tage.filter((t) => t.belastbar > 0);
+  const schnitt = (id) => (geplant.length ? geplant.reduce((a, t) => a + (t.werte[id] || 0), 0) / geplant.length : 0);
+  const kcal = schnitt('kcal');
+  const eiweiss = schnitt('eiweiss');
+  return profile
+    .filter((p) => p.aktiv && (p.kcal || p.eiweiss))
+    .map((p) => {
+      const f = p.faktor ?? 1;
+      const wert = (ist, ziel) => (ziel ? { ist: Math.round(ist * f), ziel, anteil: (ist * f) / ziel } : null);
+      return { name: p.name, faktor: f, tage: geplant.length, kcal: wert(kcal, p.kcal), eiweiss: wert(eiweiss, p.eiweiss) };
+    });
 }
 
 /**

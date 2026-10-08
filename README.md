@@ -66,7 +66,9 @@ Die Bibliothek wird zum Blatt, das vom unteren Rand heraufgezogen wird — ein
 Tipp auf den Griff öffnet und schließt sie, ein Tipp auf ein leeres Feld im
 Plan öffnet sie ebenfalls. Was in der Kopfzeile keinen Platz mehr findet,
 Woche füllen, Woche leeren, Vorrat und Quellen, liegt unter **⋯** — auf
-mittleren Breiten bis 1400 Pixel auch am Rechner.
+mittleren Breiten bis 1400 Pixel auch am Rechner. Auf jeder Breite stehen
+dort Zeitplan für heute, Kalender und Rückblick sowie Einstellungen und
+Abgleich.
 
 Die Beschriftungen werden für beide Ansichten getrennt gezeichnet: hochkant ist
 Höhe reichlich vorhanden und Breite knapp, quer genau umgekehrt. Eine
@@ -385,6 +387,43 @@ abgelaufen, piept und vibriert es, bis jemand quittiert. Gerechnet wird mit
 dem Endzeitpunkt, nicht mit gezählten Sekunden; ein Tab im Hintergrund geht
 deshalb nicht nach.
 
+### Sprache und Vorlesen
+
+**🎤 Sprache** im Kochmodus steuert mit der Stimme: „weiter", „zurück",
+„Zutaten", „Timer zehn Minuten" (oder „Timer starten" für die Zeit im
+Schritt), „vorlesen", „Stopp" quittiert einen klingelnden Timer, „beenden"
+schließt. **🔊 Vorlesen** liest jeden Schritt beim Umblättern vor. Beides
+nutzt die Sprachdienste des Browsers und erscheint nur, wo es sie gibt. Die
+Spracherkennung schickt das Gesprochene je nach Browser an dessen Hersteller
+(in Chrome an Google); wer das nicht möchte, lässt den Knopf aus.
+
+### Zeitplan für ein Menü
+
+**Zeitplan** in der Rezeptansicht (oder „Zeitplan für heute" im Menü ⋯)
+rechnet vom Essen rückwärts: Wann muss was beginnen, damit alles zugleich
+fertig ist? Jeder Schritt bekommt die Zeit, die in ihm steht („40 Minuten
+backen"), Schritte ohne Zeitangabe teilen sich den Rest der Gesamtzeit. Wer
+Backofen und Temperatur nennt, bekommt eine Viertelstunde vorher „Backofen auf
+200 °C vorheizen". Weitere Gerichte aus dem Wochenplan kommen dazu; stehen zwei
+Arbeiten, die Hände brauchen, zur selben Zeit an, sagt der Plan es.
+„Nebenbei" heißt: Der Topf arbeitet. **Timer bis zum Start** klingelt, wenn es
+losgeht.
+
+### Ersatz, Backformen, Tassen
+
+Neben Zutaten, für die es bewährten Ersatz gibt, steht **⇄**: Buttermilch aus
+Milch und Zitronensaft, Leinsamen statt Ei, Agar-Agar statt Gelatine,
+Hefeflocken statt Parmesan — mit Menge. Jede Alternative wird gegen den
+Haushalt geprüft („Anna: nicht vegan", „Ben: enthält Milch").
+
+Nennt ein Rezept seine Form („Springform Ø 26 cm", „Kastenform 30 cm",
+„Backblech", „Form 20 × 30 cm"), lässt sich eine andere wählen; die Mengen
+folgen der Grundfläche, mit einem Hinweis zur Backzeit. Tassen und
+amerikanische Cups (die größer sind) stehen auf Wunsch in Gramm oder
+Milliliter da, über die Dichte aus der Nährwerttabelle — eine Tasse Mehl
+wiegt etwa 80 g. Auch die Einkaufsliste rechnet so und addiert dann
+„1 Tasse Mehl" und „200 g Mehl".
+
 ## Vorrat
 
 Unter **Vorrat** steht, was in Küche und Kammer liegt, mit Menge („1 kg
@@ -408,6 +447,19 @@ ersetzt keine Kokosmilch. Eine Näherung bleibt es: Wer „Zucker" einträgt, de
 gilt auch Puderzucker als vorhanden. Gekochtes zieht die App nicht selbst ab
 — der Vorrat ist eine Liste dessen, was da ist, kein Lagerbuch.
 
+**Haltbarkeit.** Zu jedem Posten lässt sich ein Datum eintragen. Was in drei
+Tagen oder früher abläuft, steht oben im Vorrat, als Zahl am Vorrat-Knopf und
+zuerst unter „Was kann ich kochen?"; die Bibliothek filtert nach **Verbraucht,
+was bald abläuft**, und Woche füllen plant es auf Wunsch zuerst ein.
+
+**📷 Scannen.** Den Strichcode einer Packung vor die Kamera halten, oder die
+Nummer darunter eintippen: Name und Menge kommen aus
+[Open Food Facts](https://world.openfoodfacts.org) (ODbL, von Freiwilligen
+gepflegt) ins Eingabefeld, eingetragen wird nach einem Blick darauf. Die
+Kamera-Erkennung (`BarcodeDetector`) gibt es in Chrome und Edge auf Android und
+dem Mac, nicht in Firefox und nicht in Safari auf dem iPhone; dort bleibt das
+Eintippen. Open Food Facts erfährt nur die Nummer.
+
 ## Haushalt
 
 Unter **Haushalt** stehen die Personen, die mitessen: mit Ernährungsform,
@@ -419,6 +471,24 @@ zusammen (vegan erfüllt dabei auch vegetarisch), und ohne eigene
 Personenzahl kocht der Plan für alle, die mitessen. Wer diese Woche nicht da
 ist, wird abgehakt statt gelöscht. Der Filter **Passt für den ganzen
 Haushalt** in der Bibliothek zeigt nur Rezepte ohne Konflikt.
+
+**Nährwertziele.** Je Person lassen sich Richtwerte wählen — nach Alter und
+Geschlecht aus den Referenzwerten der DGE für wenig Bewegung, gerundet — oder
+eigene Werte für Kalorien und Eiweiß eintragen. Kinder bekommen einen
+Portionsanteil: Zwei Erwachsene und ein Kindergartenkind sind zweieinhalb, Woche
+füllen kocht für drei. Die Nährwertübersicht zeigt dann je Person, wie weit
+der Plan die Tagesziele deckt; was nicht im Plan steht, fehlt darin.
+Richtwerte für Gesunde, keine Ernährungsberatung.
+
+**Rückblick.** Haushalt → Rückblick zählt je Monat: Gerichte im Plan, als
+gekocht markiert, zum ersten Mal ausprobiert, wie oft Fisch, der Anteil
+vegetarischer und saisonaler Hauptgerichte, die mittlere Ausgewogenheit, die
+geschätzten Kosten und was am häufigsten auf den Tisch kam.
+
+**Sammlungen.** Eigene Ordner wie „Weihnachten" oder „Schnell unter der
+Woche": In der Rezeptansicht legt ein Tipp das Rezept hinein, die Bibliothek
+filtert danach, und Haushalt → Sammlungen benennt um, löscht und teilt eine
+Sammlung als Link (nur mit Rezepten, die der Empfänger kennt).
 
 ## Bewertungen, Notizen, Kochverlauf
 
@@ -459,6 +529,20 @@ statt Pinienkernen, Hartkäse statt Parmesan). Die Einkaufsliste schätzt die
 Woche. Angebote, Bio und Packungsgrößen verschieben das; es ist eine
 Größenordnung, kein Kassenbon, und so steht es auch da.
 
+## Vorkochen und Einkauf bündeln
+
+**Doppelt kochen** in der Rezeptansicht eines geplanten Gerichts legt den Rest
+auf das nächste freie Feld der folgenden Tage, meist den nächsten Mittag. Die
+Einkaufsliste kauft für beide Mahlzeiten auf einmal ein und für den Rest gar
+nichts; im Plan steht er als „♻ Rest vom Vortag", die Rezeptansicht nennt die
+Herkunft. Wer den Rest entfernt, kocht wieder einfach, wer das Gericht
+entfernt, entfernt seine Reste mit — auch wenn eines davon verschoben wurde.
+
+**Woche füllen** kann das von selbst: abends doppelt, mittags der Rest
+(Fisch wird nicht aufgewärmt). **Einkauf bündeln** zieht Gerichte vor, die sich
+frische Zutaten teilen — die halbe Packung Sahne, den Lauch, den Bund
+Petersilie —, damit weniger übrig bleibt.
+
 ## Sichern, Teilen, Drucken
 
 Alles liegt im Browser. Unter Haushalt → **Sichern & Teilen** entsteht eine
@@ -478,6 +562,40 @@ Bibliothek; eigene und importierte kennt der Empfänger nicht.
 Rezeptheft der Woche aus — jedes Gericht einmal, mit Zutaten für die geplanten
 Portionen und der Quellenangabe samt Lizenz. Über den Druckdialog lässt sich
 das auch als PDF speichern.
+
+**In den Kalender** lädt den Wochenplan als `.ics`-Datei für Google, Apple,
+Outlook oder Thunderbird: Jedes Gericht wird ein Termin, der so beginnt, dass
+das Essen zur üblichen Zeit fertig ist (Frühstück 7:30, Mittag 12:30, Imbiss
+15:30, Abend 18:30), mit Erinnerung. Was am Vortag beginnen muss — getrocknete
+Hülsenfrüchte einweichen, Tiefgekühltes auftauen, über Nacht gehen lassen,
+lange marinieren —, bekommt einen Termin am Vorabend um 20 Uhr.
+
+## Abgleich zwischen Geräten
+
+Unter **Einstellungen → Abgleich** (Menü ⋯) trägt man einen eigenen
+WebDAV-Speicher ein, etwa einen Ordner in der Nextcloud, dazu Benutzer und
+App-Passwort; alle Geräte tragen dieselbe Adresse ein. Dann teilen sie Plan,
+Einkaufsliste samt Haken, Vorrat, eigene und importierte Rezepte, Haushalt,
+Bewertungen und Sammlungen. Abgeglichen wird nach Änderungen, beim Öffnen und
+jede Minute, solange die App sichtbar ist.
+
+Ohne Server, der Buch führt, entscheiden Zeitstempel je Teil: Wochenpläne und
+Haken je Woche (die neuere gewinnt), Listen mit Kennung werden vereinigt, und
+was gelöscht wurde, bleibt gelöscht. Geschrieben wird mit `If-Match`, damit
+kein Gerät die Änderung eines anderen überschreibt; kommt eines dazwischen,
+wird neu geholt und gemischt. Fotos bleiben auf dem Gerät.
+
+Was die App nicht selbst schaffen kann: Der Server muss Anfragen von der
+Adresse dieser App erlauben (CORS). Nextcloud tut das von Haus aus nicht — die
+Nextcloud-App „WebAppPassword" oder eine Regel im Webserver schaltet es frei.
+Das App-Passwort liegt im Browser und geht nur an den eingetragenen Server.
+
+## Ansicht
+
+Einstellungen → Ansicht: Farbschema wie das System, hell oder dunkel —
+der Dunkelmodus hat eigene Farbstufen, auch für den Plan auf der WebGL-Bühne —,
+größere Schrift in Fenstern und Bibliothek, und ob Tassen in Gramm umgerechnet
+werden. Das gilt je Gerät und wird nicht abgeglichen.
 
 ## Fotos
 
@@ -583,12 +701,15 @@ src/
                    Einkaufsliste, Abteilungszuordnung, Allergene,
                    Nährwerte, Gesundheitsbewertung, eigene Rezepte,
                    Zeitangaben, Vorrat, Wochenplanung nach Vorgaben,
-                   Saison, Reste, Kosten, Haushalt, Bewertungen, Sichern
+                   Saison, Reste, Kosten, Haushalt, Bewertungen, Sichern,
+                   Vorkochen, Kalender, Zeitplan, Sprachbefehle, Ersatz,
+                   Backformen, Rückblick, Sammlungen, Abgleich, Produkte
   webgl/           Szene, Stundenplan-Raster, Canvas-Texturen
   ui/              Bibliothek, Rezeptansicht, Rezeptformular,
                    Einkaufsliste, Nährwerte, Vorschläge, Quellen,
                    Kochmodus, Timer, Vorrat, Woche füllen, Haushalt,
-                   Drucken, Fotos
+                   Drucken, Fotos, Zeitplan, Scanner, Einstellungen,
+                   Abgleich, Ansicht
   sources/         Live-Adapter und schema.org-Importer
   shops/           Supermarkt-Anbindungen
 public/korpus/     die großen Sammlungen in Teilen, mit Verzeichnis index.json
@@ -609,7 +730,13 @@ rechnet Nährwerte, `state/gesundheit.js` bewertet und schlägt vor,
 Vorrat und Zutaten ab, `state/planer.js` plant nach Vorgaben,
 `state/saison.js`, `state/reste.js`, `state/kosten.js`, `state/profile.js`,
 `state/bewertung.js` und `state/teilen.js` rechnen Saison, Reste, Kosten,
-Haushalt, Bewertungen sowie Sicherung und Teilen-Link, `sources/ingredients.js` zerlegt
+Haushalt, Bewertungen sowie Sicherung und Teilen-Link, `state/vorkochen.js`,
+`state/kalender.js`, `state/zeitplan.js`, `state/sprache.js`, `state/ersatz.js`,
+`state/formen.js`, `state/rueckblick.js`, `state/sammlungen.js`,
+`state/abgleich.js` und `state/produkt.js` Vorkochen, Kalenderdatei, Menü-Zeitplan,
+Sprachbefehle, Ersatzzutaten, Backformen und Tassen, Monatsrückblick,
+Sammlungen, das Zusammenführen beim Abgleich und Produkte aus Open Food Facts,
+`sources/ingredients.js` zerlegt
 Zutatenzeilen, `sources/schemaorg.js` liest Rezeptseiten. Der Store ruft diese
 Funktionen nur auf. `state/matcher.js` liegt darunter: die Stichwortsuche im
 Zutatennamen, die Abteilungen, Allergene und Nährwerte gemeinsam benutzen.
@@ -620,11 +747,13 @@ als Markup ausgeführt werden.
 ## Tests
 
 ```bash
-npm test               # 162 Modultests: Mengen, Einkaufsliste, Import,
+npm test               # 186 Modultests: Mengen, Einkaufsliste, Import,
                        # Korpus, Allergene, Nährwerte, Bewertung,
                        # eigene Rezepte, Sicherheit, alte Texte, Thermomix,
                        # Köche-Nord-Bücher, Zeitangaben, Vorrat, Planer,
-                       # Saison, Reste, Kosten, Haushalt, Sichern, Teilen
+                       # Saison, Reste, Kosten, Haushalt, Sichern, Teilen,
+                       # Vorkochen, Kalender, Zeitplan, Sprache, Ersatz,
+                       # Formen, Ziele, Rückblick, Sammlungen, Abgleich
 npm run test:browser   # Rauchtest in Chromium gegen die gebaute App
 npm run test:handy     # derselbe Weg in Telefongröße, mit Berührung
 ```

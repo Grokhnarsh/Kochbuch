@@ -125,6 +125,9 @@ try {
     ['autofill', 'Vorgaben fürs Wochenfüllen', '.planer'],
     ['vorrat', 'Vorrat und Kochideen', '.vorrat-form'],
     ['haushalt', 'Haushalt, Teilen und Drucken', '.haushalt'],
+    ['zeitplan', 'Zeitplan für heute', '.zeitplan'],
+    ['kalender', 'Kalender und Rückblick', '[data-ics]'],
+    ['einstellungen', 'Einstellungen und Abgleich', '.einstellungen'],
   ]) {
     await page.locator('#btn-more').tap();
     await page.waitForTimeout(300);

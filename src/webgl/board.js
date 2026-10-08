@@ -24,6 +24,11 @@ import {
   dayHeadTexture,
   cornerTexture,
 } from './textures.js';
+import { farben, istDunkel } from './farben.js';
+
+const WEISS = new THREE.Color(0xffffff);
+const ZART = new THREE.Color(0xffe2d4);
+const HELLER = new THREE.Color(2.4, 1.6, 1.35);
 
 /** Ab dieser Breite passt das volle Wochenraster. */
 export const COMPACT_BREAKPOINT = 760;
@@ -152,6 +157,14 @@ export class Board {
     this.handlers.onDayChange?.(next);
   }
 
+  /** Nach einem Wechsel des Farbschemas: alles neu zeichnen */
+  farbenNeu() {
+    for (const t of Object.values(this.emptyTextures)) t.dispose();
+    this.emptyTextures = { weit: emptyCellTexture(false), kompakt: emptyCellTexture(true) };
+    this.stage.setHintergrund(farben().grund);
+    this.#rebuild();
+  }
+
   #rebuild() {
     this.#clear();
     this.#build();
@@ -186,7 +199,7 @@ export class Board {
     const frame = this.frame;
     const grid = new THREE.Mesh(
       new THREE.PlaneGeometry(frame.width, frame.height),
-      new THREE.MeshBasicMaterial({ color: 0x000000 }),
+      new THREE.MeshBasicMaterial({ color: farben().linie }),
     );
     grid.rotation.x = -Math.PI / 2;
     grid.position.y = Y_GRID;
@@ -301,10 +314,10 @@ export class Board {
           card.scale.setScalar(0.9);
         }
 
-        const stamp = `${entry.recipeId}|${entry.servings}|${this.compact}`;
+        const stamp = `${entry.recipeId}|${entry.servings}|${this.compact}|${entry.rest ? 'r' : ''}|${entry.extra || 0}|${istDunkel()}`;
         if (card.userData.stamp !== stamp) {
           card.material.map?.dispose();
-          card.material.map = recipeCellTexture(recipe, entry.servings, this.compact);
+          card.material.map = recipeCellTexture(recipe, entry.servings, this.compact, { rest: Boolean(entry.rest), extra: entry.extra || 0 });
           card.material.needsUpdate = true;
           card.userData.stamp = stamp;
         }
@@ -580,7 +593,8 @@ export class Board {
     for (const slot of this.slots.values()) {
       const active = this.hoverSlot === slot
         || (this.armed && !store.entry(slot.userData.day, slot.userData.meal));
-      const target = active ? new THREE.Color(0xffe2d4) : new THREE.Color(0xffffff);
+      // Dunkel laesst sich eine Flaeche nur ueber Weiss hinaus aufhellen
+      const target = !active ? WEISS : istDunkel() ? HELLER : ZART;
       slot.material.color.lerp(target, k);
     }
   }

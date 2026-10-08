@@ -14,6 +14,29 @@ import { store } from '../state/store.js';
 import { recipes, recipeById, DAYS, naehrwertQuelle } from '../data/index.js';
 import { NAEHRSTOFFE, REFERENZ, anzeige } from '../state/naehrwerte.js';
 import { wochenLuecke } from '../state/gesundheit.js';
+import { zieleWoche, HINWEIS_ZIELE } from '../state/profile.js';
+
+/** Wie weit der Plan die Tagesziele der Personen im Haushalt deckt */
+function zieleBlock(tage) {
+  const ziele = zieleWoche(tage, store.profile);
+  if (!ziele.length) return '';
+  const balken = (w, label, einheit) => {
+    if (!w) return '';
+    const p = Math.round(w.anteil * 100);
+    return `<div class="anteil"><span>${label}</span>
+      <span class="anteil-balken${p > 110 ? ' ueber' : ''}" role="img" aria-label="${label}: ${p} % von ${w.ziel} ${einheit}">
+        <span style="width:${Math.min(100, p)}%"></span></span>
+      <b>${w.ist} / ${w.ziel} ${einheit}</b></div>`;
+  };
+  return `
+    <h3>Tagesziele im Haushalt</h3>
+    <div class="ziele">${ziele.map((z) => `
+      <div class="ziel-person"><b>${esc(z.name)}</b>${z.faktor !== 1 ? ` <small>(${String(z.faktor).replace('.', ',')} Portion)</small>` : ''}
+        ${balken(z.kcal, 'Energie', 'kcal')}${balken(z.eiweiss, 'Eiweiß', 'g')}</div>`).join('')}
+    </div>
+    <p class="nutri-note">Ø je geplantem Tag aus den Gerichten im Plan; was nicht im Plan steht — Brot, Obst, Getränke —,
+      fehlt darin. ${esc(HINWEIS_ZIELE)}</p>`;
+}
 
 /** Grenzen, ab denen ein Tageswert auffaellt. */
 const ZU_VIEL = new Set(['salz', 'gesFett', 'zucker']);
@@ -80,6 +103,7 @@ function wocheAnsicht(host, { onVorschlaege }) {
         : ''}
       Referenzmengen: EU-Lebensmittelinformationsverordnung, Anhang XIII (2000 kcal); Ballaststoffe: DGE (30 g).
     </p>
+    ${zieleBlock(tage)}
     ${luecke.text ? `
       <div class="week-hint">
         <span>${esc(luecke.text)}</span>

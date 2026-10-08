@@ -11,10 +11,12 @@
  * Reine Funktionen; der Aufrufer legt das Ergebnis in den Store.
  */
 
-import { deckt, vorratsName } from './vorrat.js';
+import { deckt, vorratsName, baldAblaufend } from './vorrat.js';
 import { erfuellt } from './profile.js';
-import { saisonFuer } from './saison.js';
+import { saisonFuer, saisonZutat } from './saison.js';
 import { lieblingsGewicht } from './bewertung.js';
+import { packungFuer } from './reste.js';
+import { neueKennung } from './vorkochen.js';
 
 const SLOT = (day, meal) => `${day}:${meal}`;
 const MAHLZEITEN = ['fruehstueck', 'mittag', 'abend', 'snack'];
@@ -33,6 +35,9 @@ export const VORGABEN_STANDARD = Object.freeze({
   saison: false,
   lieblinge: false,
   haushalt: false,
+  buendeln: false,
+  vorkochen: false,
+  ablauf: false,
   ersetzen: false,
 });
 
@@ -54,6 +59,9 @@ export function bereinigeVorgaben(eingabe) {
     saison: Boolean(v.saison),
     lieblinge: Boolean(v.lieblinge),
     haushalt: Boolean(v.haushalt),
+    buendeln: Boolean(v.buendeln),
+    vorkochen: Boolean(v.vorkochen),
+    ablauf: Boolean(v.ablauf),
     ersetzen: Boolean(v.ersetzen),
     // Aus den Haushaltsprofilen, nicht gespeichert: alle muessen gelten
     ernaehrungen: liste(v.ernaehrungen, (e) => ERNAEHRUNG.includes(e)) ?? [],
@@ -97,8 +105,19 @@ const aehnlich = (woerter, r) => {
  * Baut die Gewichtung. Der Vorratsanteil wird je Rezept nur einmal
  * gerechnet, und nur, wenn er gefragt ist.
  */
-function gewichter(v, vorrat, { monat = new Date().getMonth() + 1, bewertungen = {} } = {}) {
+function gewichter(v, vorrat, { monat = new Date().getMonth() + 1, bewertungen = {}, jetzt = new Date() } = {}) {
   const keys = v.vorrat ? vorrat.map((p) => vorratsName(p.name)).filter(Boolean) : [];
+  // Was bald ablaeuft, zieht kraeftig: es soll weg, bevor es verdirbt
+  const bald = v.ablauf ? baldAblaufend(vorrat, { jetzt }).map((x) => vorratsName(x.posten.name)) : [];
+  const baldAnteile = new Map();
+  const baldTreffer = (r) => {
+    let n = baldAnteile.get(r.id);
+    if (n === undefined) {
+      n = bald.filter((k) => (r.ingredients || []).some((i) => deckt(k, vorratsName(i.name)))).length;
+      baldAnteile.set(r.id, n);
+    }
+    return n;
+  };
   const namen = new Map();
   const imVorrat = (name) => {
     let x = namen.get(name);
@@ -123,6 +142,7 @@ function gewichter(v, vorrat, { monat = new Date().getMonth() + 1, bewertungen =
     let g = 1;
     if (v.gesund) g += Math.max(0, (r.gesundheit?.punkte || 0) - 40) / 10;
     if (keys.length) g += vorratsAnteil(r) * 6;
+    if (bald.length) g += baldTreffer(r) * 12;
     if (v.saison) {
       const s = saisonFuer(r, monat);
       g += s.passend.length * 3;
@@ -131,6 +151,34 @@ function gewichter(v, vorrat, { monat = new Date().getMonth() + 1, bewertungen =
     if (v.lieblinge) g *= lieblingsGewicht(bewertungen[r.id]);
     return g;
   };
+}
+
+/** Kraeuter und Blattgruenes, das im Bund kommt und schnell welkt */
+const FRISCHES = /^(petersilie|schnittlauch|basilikum|koriander|dill|minze|thymian|rosmarin|salbei|zitronenmelisse|frühlingszwiebel|lauchzwiebel|ingwer|zitrone|limette)/;
+
+const frischCache = new Map();
+/**
+ * Zutaten, von denen man mehr kauft, als ein Rezept braucht: Packungen
+ * wie Sahne oder Kokosmilch, frisches Gemuese, Kraeuter im Bund. Teilen
+ * sich zwei Gerichte der Woche so etwas, bleibt weniger uebrig.
+ */
+export function frischZutaten(r) {
+  let out = frischCache.get(r.id);
+  if (out === undefined) {
+    const s = new Set();
+    for (const i of r.ingredients || []) {
+      const n = vorratsName(i.name);
+      if (!n) continue;
+      const p = packungFuer(i.name);
+      if (p) s.add(p.key);
+      else if (saisonZutat(i.name)) s.add(saisonZutat(i.name).toLowerCase());
+      else if (FRISCHES.test(n)) s.add(n.match(FRISCHES)[1]);
+    }
+    out = [...s];
+    if (frischCache.size > 20000) frischCache.clear();
+    frischCache.set(r.id, out);
+  }
+  return out;
 }
 
 /**
@@ -177,10 +225,13 @@ function portionen(r, v) {
  * @param {Record<string,{recipeId:string, servings:number}>} woche bisherige Eintraege
  * @param {object} vorgaben siehe VORGABEN_STANDARD
  * @param {{zufall?:()=>number, vorrat?:object[], lookup?:{get:Function}}} [opt]
- * @returns {{eintraege:Record<string,object>, ohneTreffer:string[], fisch:number}}
+ * @returns {{eintraege:Record<string,object>, ohneTreffer:string[], fisch:number,
+ *            geteilt:string[], reste:number}}
+ *          geteilt: frische Zutaten, die mehr als ein Gericht verwendet;
+ *          reste: Felder, die mit Vorgekochtem vom Vortag belegt sind
  */
 export function planeWoche(pool, woche, vorgaben, {
-  zufall = Math.random, vorrat = [], lookup = null, monat, bewertungen,
+  zufall = Math.random, vorrat = [], lookup = null, monat, bewertungen, jetzt,
 } = {}) {
   const v = bereinigeVorgaben(vorgaben);
   const ziele = [];
@@ -196,11 +247,17 @@ export function planeWoche(pool, woche, vorgaben, {
   const benutzt = new Set(bleibt.map(([, e]) => e.recipeId));
   const woerter = new Set();
   let fisch = 0;
+  // Frische Zutaten der Woche und wie viele Gerichte sie nutzen
+  const korb = new Map();
+  const inDenKorb = (r) => {
+    for (const k of frischZutaten(r)) korb.set(k, (korb.get(k) || 0) + 1);
+  };
   for (const [, e] of bleibt) {
     const r = lookup?.get(e.recipeId);
-    if (!r) continue;
+    if (!r || e.rest) continue;
     woerter.add(titelWort(r));
     if (istFisch(r)) fisch += 1;
+    inDenKorb(r);
   }
 
   const kandidaten = new Map();
@@ -208,7 +265,11 @@ export function planeWoche(pool, woche, vorgaben, {
     if (!kandidaten.has(meal)) kandidaten.set(meal, pool.filter((r) => passt(r, meal, v)));
     return kandidaten.get(meal);
   };
-  const gewicht = gewichter(v, vorrat, { monat, bewertungen });
+  const grundgewicht = gewichter(v, vorrat, { monat, bewertungen, jetzt });
+  // Gebuendelt: je geteilter frischer Zutat deutlich mehr Gewicht, gedeckelt
+  const gewicht = v.buendeln
+    ? (r) => grundgewicht(r) * (1 + 1.5 * Math.min(3, frischZutaten(r).filter((k) => korb.has(k)).length))
+    : grundgewicht;
 
   // Fischtage gleichmaessig ueber die Hauptmahlzeiten verteilen
   const hauptziele = ziele.filter((z) => z.meal === 'mittag' || z.meal === 'abend');
@@ -221,8 +282,30 @@ export function planeWoche(pool, woche, vorgaben, {
 
   const eintraege = {};
   const ohneTreffer = [];
+  let reste = 0;
+
+  /** Das Abendessen des Vortags, ob eben geplant oder schon im Plan */
+  const vortagAbend = (day) => {
+    const id = SLOT(day - 1, 'abend');
+    if (eintraege[id]) return { id, e: eintraege[id] };
+    if (woche[id] && !ziele.some((z) => z.id === id)) return { id, e: woche[id] };
+    return null;
+  };
 
   for (const z of ziele) {
+    // Vorkochen: abends mehr, am naechsten Mittag den Rest
+    if (v.vorkochen && z.meal === 'mittag' && z.day > 0) {
+      const q = vortagAbend(z.day);
+      const qr = q && !q.e.rest && lookup?.get(q.e.recipeId);
+      if (qr && (qr.meals || []).includes('mittag') && !istFisch(qr)) {
+        const kid = q.e.kid || neueKennung(zufall);
+        const n = q.e.servings;
+        eintraege[q.id] = { ...q.e, kid, extra: (q.e.extra || 0) + n };
+        eintraege[z.id] = { recipeId: q.e.recipeId, servings: n, rest: kid };
+        reste += 1;
+        continue;
+      }
+    }
     const alle = fuer(z.meal);
     const frei = (r) => !benutzt.has(r.id) && !aehnlich(woerter, r);
     const freiLocker = (r) => !benutzt.has(r.id);
@@ -250,9 +333,11 @@ export function planeWoche(pool, woche, vorgaben, {
     benutzt.add(r.id);
     woerter.add(titelWort(r));
     if (istFisch(r)) fisch += 1;
+    inDenKorb(r);
   }
 
-  return { eintraege, ohneTreffer, fisch };
+  const geteilt = [...korb].filter(([, n]) => n > 1).map(([k]) => k);
+  return { eintraege, ohneTreffer, fisch, geteilt, reste };
 }
 
 /**
@@ -263,7 +348,7 @@ export function planeWoche(pool, woche, vorgaben, {
  * @returns {{recipeId:string, servings:number}|null}
  */
 export function wuerfleFeld(pool, woche, slot, vorgaben, {
-  zufall = Math.random, vorrat = [], lookup = null, monat, bewertungen,
+  zufall = Math.random, vorrat = [], lookup = null, monat, bewertungen, jetzt,
 } = {}) {
   const v = bereinigeVorgaben(vorgaben);
   const id = SLOT(slot.day, slot.meal);
@@ -280,7 +365,7 @@ export function wuerfleFeld(pool, woche, slot, vorgaben, {
     const gleich = liste.filter((r) => istFisch(r) === istFisch(bisher));
     if (gleich.length > 1) liste = gleich;
   }
-  const gewicht = gewichter(v, vorrat, { monat, bewertungen });
+  const gewicht = gewichter(v, vorrat, { monat, bewertungen, jetzt });
   const r = ziehe(liste, gewicht, zufall, (x) => !benutzt.has(x.id) && !aehnlich(woerter, x))
     || ziehe(liste, gewicht, zufall, (x) => !benutzt.has(x.id));
   if (!r) return null;

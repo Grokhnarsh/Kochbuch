@@ -43,7 +43,7 @@ export const PACKUNGEN = [
 const ALIAS = new Map([['sahne', 'schlagsahne'], ['rinderhack', 'hackfleisch'], ['hack', 'hackfleisch'],
   ['gemischtes hackfleisch', 'hackfleisch'], ['dosentomaten', 'gehackte tomaten'], ['tomaten aus der dose', 'gehackte tomaten']]);
 
-function packungFuer(name) {
+export function packungFuer(name) {
   const n = vorratsName(name);
   const key = ALIAS.get(n) || n;
   return PACKUNGEN.find((p) => p.key === key)

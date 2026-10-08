@@ -698,6 +698,294 @@ try {
   await page.fill('#search', '');
   await page.waitForTimeout(300);
 
+  // ------------------------------------------------- Vorkochen und Planer
+  await page.evaluate(() => {
+    const s = window.kochbuch.store;
+    s.goToday();
+    s.clearWeek();
+    s.place(0, 'abend', 'prato-wiener-schnitzel', 2);
+  });
+  const vorKochen = await page.evaluate(() => window.kochbuch.store.einkauf().groups.flatMap((g) => g.items).find((i) => i.amount)?.amount);
+  await page.evaluate(() => window.kochbuch.feldOeffnen(0, 'abend'));
+  await page.waitForTimeout(300);
+  await page.locator('.modal-foot .ghost-btn', { hasText: 'Doppelt kochen' }).click();
+  await page.waitForTimeout(400);
+  const vorkochen = await page.evaluate(() => {
+    const s = window.kochbuch.store;
+    return {
+      quelle: s.week['0:abend'], rest: s.week['1:mittag'],
+      hinweis: document.querySelector('.modal .rest-hinweis')?.textContent || '',
+      menge: s.einkauf().groups.flatMap((g) => g.items).find((i) => i.amount)?.amount,
+    };
+  });
+  check('„Doppelt kochen“ legt den Rest auf den nächsten Mittag und kauft doppelt ein',
+    vorkochen.quelle.extra === 2 && vorkochen.rest?.rest === vorkochen.quelle.kid && /4 Portionen, 2 davon für Dienstag Mittag/.test(vorkochen.hinweis.replace(/\s+/g, ' '))
+    && Math.abs(vorkochen.menge - vorKochen * 2) < 0.02, JSON.stringify(vorkochen));
+  await page.keyboard.press('Escape');
+  await page.evaluate(() => window.kochbuch.feldOeffnen(1, 'mittag'));
+  await page.waitForTimeout(300);
+  const restText = await page.locator('.modal .rest-hinweis').textContent().catch(() => '');
+  check('der Rest weiß, woher er kommt', /Rest vom Montag Abend/.test(restText), restText);
+  await page.locator('.modal-foot .ghost-btn', { hasText: 'Aus Plan entfernen' }).click();
+  await page.waitForTimeout(300);
+  const nachEntfernen = await page.evaluate(() => window.kochbuch.store.week['0:abend']);
+  check('ohne den Rest wird wieder einfach gekocht', !nachEntfernen.extra && !nachEntfernen.kid, JSON.stringify(nachEntfernen));
+
+  await page.evaluate(() => window.kochbuch.store.clearWeek());
+  await page.evaluate(() => window.kochbuch.planerOeffnen());
+  await page.waitForTimeout(300);
+  for (const n of ['buendeln', 'vorkochen']) await page.locator(`.planer input[name="${n}"]`).check({ force: true });
+  await page.locator('.modal-foot .primary-btn').click();
+  await page.waitForTimeout(1200);
+  const planerText = await page.locator('.planer-ergebnis').textContent();
+  const planerReste = await page.evaluate(() => Object.values(window.kochbuch.store.week).filter((e) => e.rest).length);
+  // Sechs Mittage folgen auf ein Abendessen; Fisch wird nicht aufgewaermt
+  check('„Woche füllen“ kocht abends vor und bündelt den Einkauf',
+    planerReste >= 4 && planerText.includes(`${planerReste}× Rest vom Vorabend`) && /frische Zutaten für mehrere Gerichte/.test(planerText),
+    `${planerReste} / ${planerText}`);
+  await shot(page, '30-vorkochen');
+  await page.keyboard.press('Escape');
+
+  // --------------------------------------------------- Kalender, Zeitplan
+  await page.evaluate(() => window.kochbuch.haushaltOeffnen('drucken'));
+  await page.waitForTimeout(300);
+  const [ics] = await Promise.all([page.waitForEvent('download'), page.locator('[data-ics]').click()]);
+  const icsText = await (await import('node:fs/promises')).readFile(await ics.path(), 'utf8');
+  check('der Wochenplan lässt sich als Kalenderdatei laden',
+    ics.suggestedFilename().endsWith('.ics') && icsText.startsWith('BEGIN:VCALENDAR') && (icsText.match(/BEGIN:VEVENT/g) || []).length >= 14
+    && /SUMMARY:Mittagessen: Rest/.test(icsText), `${ics.suggestedFilename()} ${(icsText.match(/BEGIN:VEVENT/g) || []).length} Termine`);
+  await page.keyboard.press('Escape');
+
+  await page.evaluate(() => window.kochbuch.zeitplanOeffnen());
+  await page.waitForTimeout(400);
+  const zp = await page.evaluate(() => ({
+    schritte: document.querySelectorAll('.zeitplan-liste li').length,
+    summe: document.querySelector('.zeitplan-summe')?.textContent || '',
+  }));
+  check('der Zeitplan rechnet vom Essen rückwärts', zp.schritte > 1 && /Beginn um \d\d:\d\d, fertig um \d\d:\d\d/.test(zp.summe.replace(/\s+/g, ' ')),
+    JSON.stringify(zp));
+  const dazu = await page.locator('.zeitplan [name="dazu"] option').count();
+  if (dazu > 1) {
+    await page.locator('.zeitplan [name="dazu"]').selectOption({ index: 1 });
+    await page.waitForTimeout(300);
+  }
+  const zweiGerichte = await page.locator('.zeitplan-kopf .planer-chip').count();
+  check('ein zweites Gericht kommt dazu', zweiGerichte === 2, `${zweiGerichte}`);
+  await shot(page, '31-zeitplan');
+  await page.keyboard.press('Escape');
+
+  // -------------------------------- Ersatz, Backform, Tassen, Sammlungen
+  await page.evaluate(() => {
+    const s = window.kochbuch.store;
+    s.clearWeek();
+    s.saveOwn({
+      id: 'eigen-buttermilchkuchen', sourceId: 'eigene', title: 'Buttermilchkuchen', category: 'Backen', meals: ['snack'], servings: 1,
+      ingredients: [{ a: 500, u: 'ml', n: 'Buttermilch' }, { a: 2, u: 'Tasse', n: 'Mehl' }, { a: 200, u: 'g', n: 'Zucker' }],
+      steps: ['Alles verrühren und in eine Springform (Ø 26 cm) füllen.', 'Bei 180 °C 45 Minuten backen.'],
+    });
+  });
+  await page.reload({ waitUntil: 'networkidle' });
+  await page.waitForTimeout(1500);
+  await page.fill('#search', 'Buttermilchkuchen');
+  await page.waitForTimeout(400);
+  await page.locator('.recipe-card').first().click();
+  await page.waitForTimeout(400);
+  const tasse = await page.locator('.ing-list li', { hasText: 'Mehl' }).locator('.amt').textContent();
+  check('Tassen stehen in Gramm da', /≈ 160 g/.test(tasse), tasse);
+  await page.locator('.ersatz-btn').first().click();
+  await page.waitForTimeout(200);
+  const ersatz = await page.locator('.ersatz-liste').first().textContent();
+  check('Ersatz für Buttermilch mit Mengenangabe', /Milch mit Zitronensaft.*1 EL Zitronensaft/.test(ersatz.replace(/\s+/g, ' ')), ersatz.slice(0, 80));
+  await page.locator('[data-form]').selectOption('rund-20');
+  await page.waitForTimeout(200);
+  const butter20 = await page.locator('.ing-list li', { hasText: 'Buttermilch' }).first().locator('.amt').textContent();
+  check('die Backform rechnet die Mengen um', /29[56] ml/.test(butter20), butter20);
+  await page.locator('.sammlung-neu input').fill('Kuchen für Gäste');
+  await page.locator('.sammlung-neu button').click();
+  await page.waitForTimeout(300);
+  const neueSammlung = await page.evaluate(() => window.kochbuch.store.sammlungen);
+  check('ein Rezept kommt in eine neue Sammlung', neueSammlung.length === 1 && neueSammlung[0].rezepte[0] === 'eigen-buttermilchkuchen',
+    JSON.stringify(neueSammlung));
+  await shot(page, '32-ersatz-form');
+  await page.keyboard.press('Escape');
+  await page.fill('#search', '');
+  await page.locator('#filter-mehr').selectOption({ label: '📁 Kuchen für Gäste' });
+  await page.waitForTimeout(400);
+  const inSammlung = await page.locator('.recipe-card').count();
+  check('die Bibliothek filtert nach Sammlung', inSammlung === 1, `${inSammlung}`);
+  await page.locator('#filter-mehr').selectOption('');
+
+  // ------------------------------------------------- Sprache im Kochmodus
+  await page.evaluate(() => {
+    // Eine gespielte Erkennung: ohne Mikrofon, die Worte kommen aus dem Test
+    window.SpeechRecognition = class {
+      start() { window.__erkennung = this; }
+      stop() { window.__erkennung = null; }
+    };
+    window.webkitSpeechRecognition = window.SpeechRecognition;
+  });
+  await page.evaluate(() => window.kochbuch.kochen('eigen-buttermilchkuchen'));
+  await page.waitForTimeout(300);
+  await page.locator('.km-sprache').click();
+  const sag = (text) => page.evaluate((t) => window.__erkennung.onresult({ results: [Object.assign([{ transcript: t }], { isFinal: true })] }), text);
+  await sag('weiter');
+  await page.waitForTimeout(150);
+  const stand = await page.locator('.km-stand').textContent();
+  await sag('Timer zwei Minuten');
+  await page.waitForTimeout(300);
+  const sprachTimer = await page.locator('.timer-chip').count();
+  check('Sprachbefehle blättern und stellen Timer', /Schritt 2 von 2/.test(stand) && sprachTimer >= 1, `${stand} / ${sprachTimer}`);
+  await page.keyboard.press('Escape');
+  await page.evaluate(() => { localStorage.removeItem('kochbuch.timer.v1'); });
+  for (const knopf of await page.locator('.timer-chip .timer-btn[aria-label*="ntfernen"], .timer-chip [data-weg]').all()) await knopf.click().catch(() => {});
+
+  // ------------------------------------------- Haltbarkeit und Barcode
+  await page.route('https://world.openfoodfacts.org/api/v2/product/**', (route) => route.fulfill({
+    status: 200,
+    contentType: 'application/json',
+    headers: { 'Access-Control-Allow-Origin': '*' },
+    body: JSON.stringify({ status: 1, product: { code: '4006381333931', product_name_de: 'Spaghetti n.5', brands: 'Testmarke', quantity: '500 g', allergens_tags: ['en:gluten'] } }),
+  }));
+  await page.evaluate(() => window.kochbuch.vorratOeffnen());
+  await page.waitForTimeout(300);
+  const morgen = await page.evaluate(() => {
+    const d = new Date();
+    d.setDate(d.getDate() + 1);
+    return `${d.getFullYear()}-${String(d.getMonth() + 1).padStart(2, '0')}-${String(d.getDate()).padStart(2, '0')}`;
+  });
+  await page.fill('.vorrat-form [name="posten"]', '200 ml Sahne');
+  await page.fill('.vorrat-form [name="bis"]', morgen);
+  await page.locator('.vorrat-form .primary-btn').click();
+  await page.waitForTimeout(300);
+  const bald = await page.evaluate(() => ({
+    li: document.querySelector('.vorrat-liste li.bald')?.textContent.replace(/\s+/g, ' ') || '',
+    zaehler: document.querySelector('#btn-vorrat .zaehler')?.textContent,
+    hinweis: Boolean(document.querySelector('.bald-hinweis')),
+  }));
+  check('ein Ablaufdatum wird angezeigt und gezählt', /Sahne.*läuft morgen ab/.test(bald.li) && bald.zaehler === '1' && bald.hinweis, JSON.stringify(bald));
+  await page.locator('[data-scanner]').click();
+  await page.waitForTimeout(200);
+  await page.fill('.scanner [name="ean"]', '4006381333931');
+  await page.locator('.scanner-form button').click();
+  await page.waitForTimeout(800);
+  const gescannt = await page.evaluate(() => ({
+    feld: document.querySelector('.vorrat-form [name="posten"]').value,
+    status: document.querySelector('.scanner-status').textContent,
+  }));
+  check('eine Strichcode-Nummer holt das Produkt aus Open Food Facts',
+    gescannt.feld === '500 g Spaghetti n.5' && /Gefunden.*Spaghetti.*Gluten/.test(gescannt.status), JSON.stringify(gescannt));
+  await page.keyboard.press('Escape');
+  await page.locator('#filter-mehr').selectOption('bald');
+  await page.waitForTimeout(400);
+  const baldRezepte = await page.locator('.recipe-card').count();
+  check('die Bibliothek zeigt, was die Sahne verbraucht', baldRezepte > 3, `${baldRezepte}`);
+  await page.locator('#filter-mehr').selectOption('');
+
+  // ------------------------------------------------ Ziele und Rückblick
+  await page.evaluate(() => window.kochbuch.store.setProfile([
+    { id: 'p-a', name: 'Anna', vorlage: 'frau', faktor: 1, kcal: 1900, eiweiss: 48 },
+    { id: 'p-b', name: 'Ben', vorlage: 'kind-4', faktor: 0.5, kcal: 1400, eiweiss: 18 },
+  ]));
+  await page.evaluate(() => window.kochbuch.planerOeffnen());
+  await page.waitForTimeout(300);
+  await page.locator('.planer input[name="haushalt"]').check({ force: true });
+  await page.locator('.planer [name="personen"]').selectOption('0');
+  await page.locator('.modal-foot .primary-btn').click();
+  await page.waitForTimeout(1200);
+  const portionen = await page.evaluate(() => Object.values(window.kochbuch.store.week).filter((e) => !e.rest)
+    .map((e) => [e.servings, window.kochbuch.recipeById.get(e.recipeId).yieldUnit || '']));
+  check('eine halbe Kinderportion: zwei Personen, zwei Portionen',
+    portionen.filter(([, u]) => !u || /portion/i.test(u)).every(([n]) => n === 2), JSON.stringify(portionen.slice(0, 5)));
+  await page.keyboard.press('Escape');
+  await page.evaluate(() => window.kochbuch.naehrwerteOeffnen());
+  await page.waitForTimeout(500);
+  const ziele = await page.locator('.ziel-person').count();
+  check('die Nährwertübersicht zeigt die Tagesziele je Person', ziele === 2, `${ziele}`);
+  await page.keyboard.press('Escape');
+  await page.evaluate(() => window.kochbuch.haushaltOeffnen('rueckblick'));
+  await page.waitForTimeout(400);
+  const rb = await page.evaluate(() => ({
+    kacheln: document.querySelectorAll('.kachel').length,
+    erste: document.querySelector('.kachel b')?.textContent,
+  }));
+  check('der Monatsrückblick zählt die Gerichte', rb.kacheln === 5 && Number(rb.erste) > 0, JSON.stringify(rb));
+  await shot(page, '33-rueckblick');
+  await page.keyboard.press('Escape');
+
+  // --------------------------------------------------------- Dunkelmodus
+  await page.evaluate(() => window.kochbuch.einstellungenOeffnen());
+  await page.waitForTimeout(300);
+  await page.locator('.einstellungen input[name="thema"][value="dunkel"]').check({ force: true });
+  await page.waitForTimeout(500);
+  const dunkel = await page.evaluate(() => ({
+    attr: document.documentElement.dataset.dunkel,
+    grund: getComputedStyle(document.body).backgroundColor,
+    modal: getComputedStyle(document.querySelector('.modal')).backgroundColor,
+  }));
+  check('der Dunkelmodus färbt Seite und Fenster', dunkel.attr === '1' && dunkel.grund === 'rgb(18, 20, 24)', JSON.stringify(dunkel));
+  await page.keyboard.press('Escape');
+  await page.waitForTimeout(300);
+  await shot(page, '34-dunkel');
+  await page.reload({ waitUntil: 'networkidle' });
+  await page.waitForTimeout(1200);
+  const nochDunkel = await page.evaluate(() => document.documentElement.dataset.dunkel);
+  check('und bleibt nach dem Neuladen', nochDunkel === '1');
+  await page.evaluate(() => window.kochbuch.store.setAnsicht({ thema: 'hell' }));
+  await page.waitForTimeout(300);
+
+  // ----------------------------------------------------- Abgleich (WebDAV)
+  // Ein anderes Geraet hat schon etwas hochgeladen: Safran im Vorrat
+  let server = JSON.stringify({
+    format: 'kochbuch-abgleich', version: 1,
+    daten: { vorrat: [{ name: 'Safran', menge: null, einheit: '' }], plan: {}, eigene: [], importe: [], profile: [], bewertungen: {}, sammlungen: [], abgehakt: {}, planer: {} },
+    zeiten: { vorrat: Date.now() + 1000 },
+    entfernt: {},
+  });
+  let etag = 1;
+  let puts = 0;
+  const cors = {
+    'Access-Control-Allow-Origin': '*',
+    'Access-Control-Allow-Headers': 'Authorization, Content-Type, If-Match, If-None-Match',
+    'Access-Control-Allow-Methods': 'GET, PUT, OPTIONS',
+    'Access-Control-Expose-Headers': 'ETag',
+  };
+  let anmeldung = '';
+  await page.route('https://dav.test/**', async (route) => {
+    const r = route.request();
+    if (r.method() === 'OPTIONS') return route.fulfill({ status: 204, headers: cors });
+    anmeldung = r.headers().authorization || anmeldung;
+    if (r.method() === 'GET') return route.fulfill({ status: 200, headers: { ...cors, ETag: `"${etag}"` }, contentType: 'application/json', body: server });
+    if (r.method() === 'PUT') {
+      if (r.headers()['if-match'] && r.headers()['if-match'] !== `"${etag}"`) return route.fulfill({ status: 412, headers: cors });
+      server = r.postData();
+      etag += 1;
+      puts += 1;
+      return route.fulfill({ status: 204, headers: { ...cors, ETag: `"${etag}"` } });
+    }
+    return route.fulfill({ status: 405, headers: cors });
+  });
+  await page.evaluate(() => window.kochbuch.einstellungenOeffnen({ ansicht: 'abgleich' }));
+  await page.waitForTimeout(300);
+  await page.fill('.abgleich [name="url"]', 'https://dav.test/remote.php/dav/files/anna/Kochbuch');
+  await page.fill('.abgleich [name="benutzer"]', 'anna');
+  await page.fill('.abgleich [name="passwort"]', 'app-passwort');
+  await page.locator('.abgleich .primary-btn').click();
+  await page.waitForTimeout(1500);
+  const abgleich = await page.evaluate(() => ({
+    status: document.querySelector('.abgleich-status')?.textContent || '',
+    safran: window.kochbuch.store.vorrat.some((p) => p.name === 'Safran'),
+    sahne: window.kochbuch.store.vorrat.some((p) => p.name === 'Sahne'),
+  }));
+  const hochgeladen = JSON.parse(server);
+  check('der Abgleich holt, was andere Geräte eingetragen haben, und schreibt zurück',
+    /Abgeglichen/.test(abgleich.status) && abgleich.safran && abgleich.sahne && puts === 1
+    && hochgeladen.daten.vorrat.some((p) => p.name === 'Sahne') && Object.keys(hochgeladen.daten.plan).length > 0
+    && anmeldung === `Basic ${Buffer.from('anna:app-passwort').toString('base64')}`, JSON.stringify({ ...abgleich, puts }));
+  const zweiter = await page.evaluate(() => window.kochbuch.abgleichen());
+  check('ohne Änderung wird nicht noch einmal geschrieben', zweiter.ok && puts === 1, `${puts}`);
+  await page.keyboard.press('Escape');
+  await page.evaluate(() => localStorage.removeItem('kochbuch.abgleich.v1'));
+
   // Offline: Manifest, Service Worker, Start ohne Netz
   const sw = await page.evaluate(async () => {
     const reg = await Promise.race([navigator.serviceWorker.ready, new Promise((r) => setTimeout(() => r(null), 8000))]);

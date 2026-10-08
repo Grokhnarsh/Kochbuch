@@ -28,6 +28,7 @@ export const GRUNDZUTATEN = ['Salz', 'Pfeffer', 'Zucker', 'Mehl', 'Öl', 'Oliven
 const IMMER_DA = /^(wasser|leitungswasser|salz|pfeffer|salz und pfeffer|salz, pfeffer|eiswasser|warmes wasser|kaltes wasser)$/;
 
 const BUCHSTABE = '[a-zäöüß]';
+const TAG = /^\d{4}-\d{2}-\d{2}$/;
 
 /**
  * Zusammensetzungen, die etwas anderes sind als ihr Grundwort: Milch im
@@ -123,9 +124,48 @@ export function bereinigeVorrat(liste) {
     if (!key || gesehen.has(key)) continue;
     gesehen.add(key);
     const menge = Number.isFinite(p.menge) && p.menge > 0 ? p.menge : null;
-    out.push({ name, menge, einheit: menge != null && typeof p.einheit === 'string' ? p.einheit.slice(0, 12) : '' });
+    const posten = { name, menge, einheit: menge != null && typeof p.einheit === 'string' ? p.einheit.slice(0, 12) : '' };
+    if (typeof p.bis === 'string' && TAG.test(p.bis)) posten.bis = p.bis;
+    out.push(posten);
   }
   return out;
+}
+
+// ----------------------------------------------------------- Haltbarkeit
+
+
+/** Ab so vielen Tagen vor dem Datum gilt ein Posten als "bald" */
+export const BALD_TAGE = 3;
+
+/**
+ * Tage bis zum Ablaufdatum eines Postens: 0 heute, negativ abgelaufen,
+ * null ohne Datum.
+ */
+export function tageBis(posten, jetzt = new Date()) {
+  if (!posten?.bis || !TAG.test(posten.bis)) return null;
+  const [j, m, t] = posten.bis.split('-').map(Number);
+  const heute = new Date(jetzt.getFullYear(), jetzt.getMonth(), jetzt.getDate());
+  return Math.round((new Date(j, m - 1, t) - heute) / 86400000);
+}
+
+/**
+ * Was bald ablaeuft oder schon abgelaufen ist, das Dringendste zuerst.
+ * @returns {{posten:object, tage:number}[]}
+ */
+export function baldAblaufend(vorrat, { tage = BALD_TAGE, jetzt = new Date() } = {}) {
+  return (vorrat || [])
+    .map((posten) => ({ posten, tage: tageBis(posten, jetzt) }))
+    .filter((x) => x.tage != null && x.tage <= tage)
+    .sort((a, b) => a.tage - b.tage);
+}
+
+/** "läuft heute ab", "noch 2 Tage", "seit 3 Tagen abgelaufen" */
+export function haltbarText(tage) {
+  if (tage == null) return '';
+  if (tage < 0) return tage === -1 ? 'seit gestern abgelaufen' : `seit ${-tage} Tagen abgelaufen`;
+  if (tage === 0) return 'läuft heute ab';
+  if (tage === 1) return 'läuft morgen ab';
+  return `noch ${tage} Tage`;
 }
 
 /** Fuegt einen Posten hinzu; ein gleichnamiger wird ersetzt. */
@@ -207,12 +247,25 @@ export function vorratAbziehen(groups, vorrat) {
  * @param {object[]} rezepte
  * @param {{name:string}[]} vorrat
  * @param {{limit?:number, maxFehlend?:number}} [opt]
- * @returns {{recipe:object, vorhanden:string[], fehlt:string[], anteil:number}[]}
- *          zuerst die mit den wenigsten fehlenden Zutaten
+ * @returns {{recipe:object, vorhanden:string[], fehlt:string[], bald:string[], anteil:number}[]}
+ *          zuerst die mit den wenigsten fehlenden Zutaten, bei gleich
+ *          vielen die, die bald Ablaufendes verbrauchen
  */
-export function kochbarMitVorrat(rezepte, vorrat, { limit = 40, maxFehlend = 3 } = {}) {
+export function kochbarMitVorrat(rezepte, vorrat, { limit = 40, maxFehlend = 3, jetzt = new Date() } = {}) {
   const keys = vorrat.map((p) => vorratsName(p.name)).filter(Boolean);
   if (!keys.length) return [];
+  // Was bald ablaeuft, soll zuerst verbraucht werden
+  const baldKeys = baldAblaufend(vorrat, { jetzt }).map((x) => vorratsName(x.posten.name));
+  const baldCache = new Map();
+  const istBald = (name) => {
+    let v = baldCache.get(name);
+    if (v === undefined) {
+      const n = vorratsName(name);
+      v = baldKeys.some((k) => deckt(k, n));
+      baldCache.set(name, v);
+    }
+    return v;
+  };
   const cache = new Map();
   const istDa = (name) => {
     let v = cache.get(name);
@@ -238,11 +291,13 @@ export function kochbarMitVorrat(rezepte, vorrat, { limit = 40, maxFehlend = 3 }
       if (fehlt.length > maxFehlend) break;
     }
     if (fehlt.length > maxFehlend || vorhanden.length < 2) continue;
-    out.push({ recipe: r, vorhanden, fehlt, anteil: vorhanden.length / (vorhanden.length + fehlt.length) });
+    const bald = baldKeys.length ? vorhanden.filter(istBald) : [];
+    out.push({ recipe: r, vorhanden, fehlt, bald, anteil: vorhanden.length / (vorhanden.length + fehlt.length) });
   }
 
   return out
     .sort((a, b) => a.fehlt.length - b.fehlt.length
+      || b.bald.length - a.bald.length
       || b.anteil - a.anteil
       || (b.recipe.gesundheit?.punkte || 0) - (a.recipe.gesundheit?.punkte || 0))
     .slice(0, limit);

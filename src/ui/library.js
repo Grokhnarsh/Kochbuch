@@ -10,6 +10,7 @@ import { kcalText } from '../state/naehrwerte.js';
 import { store } from '../state/store.js';
 import { saisonFuer } from '../state/saison.js';
 import { konflikte } from '../state/profile.js';
+import { baldAblaufend, vorratsName, deckt } from '../state/vorrat.js';
 
 const els = {
   list: document.getElementById('recipe-list'),
@@ -108,7 +109,38 @@ function mehrFilter(liste) {
     if (!store.profile.some((p) => p.aktiv)) return liste;
     return liste.filter((r) => !konflikte(r, store.profile).length);
   }
+  if (art === 'bald') {
+    const bald = baldAblaufend(store.vorrat).map((x) => vorratsName(x.posten.name));
+    if (!bald.length) return [];
+    return liste.filter((r) => !r.lesetext && r.ingredients.some((i) => {
+      const n = vorratsName(i.name);
+      return bald.some((k) => deckt(k, n));
+    }));
+  }
+  if (art.startsWith('sammlung:')) {
+    const s = store.sammlungen.find((x) => x.id === art.slice('sammlung:'.length));
+    const ids = new Set(s?.rezepte || []);
+    return liste.filter((r) => ids.has(r.id));
+  }
   return liste;
+}
+
+/** Die Sammlungen als Auswahl unter "Weitere Auswahl"; neu, wenn sich Namen oder Zahl aendern */
+let sammlungsStand = '';
+function sammlungsOptionen() {
+  if (!els.mehr) return;
+  const stand = store.sammlungen.map((x) => `${x.id}=${x.name}`).join('|');
+  if (stand === sammlungsStand) return;
+  sammlungsStand = stand;
+  const wert = els.mehr.value;
+  for (const o of [...els.mehr.querySelectorAll('option[data-sammlung]')]) o.remove();
+  for (const x of store.sammlungen) {
+    const o = option(`sammlung:${x.id}`, `📁 ${x.name}`);
+    o.dataset.sammlung = '1';
+    els.mehr.append(o);
+  }
+  els.mehr.value = [...els.mehr.options].some((o) => o.value === wert) ? wert : '';
+  if (els.mehr.value !== wert) renderLibrary();
 }
 
 const gefiltert = (f) => mehrFilter(filterRecipes(f));
@@ -310,6 +342,12 @@ export const visibleRecipes = () => current;
 export function initLibrary(h) {
   handlers = h;
   refreshFilters();
+  sammlungsOptionen();
+  store.subscribe(() => {
+    sammlungsOptionen();
+    // Wer nach einer Sammlung filtert, sieht ein neu hineingelegtes Rezept sofort
+    if (els.mehr?.value.startsWith('sammlung:')) renderLibrary({ behalteScroll: true });
+  });
   renderLibrary();
 
   let debounce;

@@ -20,12 +20,26 @@ import { bereinigeVorrat } from './vorrat.js';
 import { bereinigeProfile } from './profile.js';
 import { bereinigeBewertungen } from './bewertung.js';
 import { bereinigeVorgaben } from './planer.js';
+import { bereinigeSammlungen } from './sammlungen.js';
 
 export const FORMAT = 'kochbuch-sicherung';
 
 const WOCHE = /^\d{4}-\d{2}-\d{2}$/;
 const SLOT = /^[0-6]:(fruehstueck|mittag|abend|snack)$/;
 const ID = /^[\w.:-]{1,200}$/;
+const KENNUNG = /^k[a-z0-9]{1,12}$/;
+
+/** Ein Plan-Eintrag; Vorgekochtes behaelt Extraportionen und Kennung, ein Rest seine Herkunft */
+function eintrag(e) {
+  const servings = Number.isInteger(e.servings) && e.servings > 0 && e.servings <= 400 ? e.servings : 2;
+  const out = { recipeId: e.recipeId, servings };
+  if (typeof e.rest === 'string' && KENNUNG.test(e.rest)) out.rest = e.rest;
+  else if (typeof e.kid === 'string' && KENNUNG.test(e.kid) && Number.isInteger(e.extra) && e.extra > 0 && e.extra <= 400) {
+    out.kid = e.kid;
+    out.extra = e.extra;
+  }
+  return out;
+}
 
 /** Ist ein eigenes Rezept die Abschrift aus einem Buch? */
 export const istAbschrift = (r) => Boolean(r?.quelle?.titel);
@@ -39,8 +53,7 @@ export function bereinigePlaene(roh) {
     const w = {};
     for (const [slot, e] of Object.entries(eintraege)) {
       if (!SLOT.test(slot) || typeof e?.recipeId !== 'string' || !ID.test(e.recipeId)) continue;
-      const servings = Number.isInteger(e.servings) && e.servings > 0 && e.servings <= 400 ? e.servings : 2;
-      w[slot] = { recipeId: e.recipeId, servings };
+      w[slot] = eintrag(e);
     }
     out[woche] = w;
   }
@@ -49,7 +62,7 @@ export function bereinigePlaene(roh) {
 
 /**
  * Baut die Sicherung.
- * @param {object} daten {plan, eigene, importe, vorrat, planer, profile, bewertungen, fotos?}
+ * @param {object} daten {plan, eigene, importe, vorrat, planer, profile, bewertungen, sammlungen, abgehakt, fotos?}
  * @param {{fuerAndere?:boolean}} [opt]
  */
 export function sicherung(daten, { fuerAndere = false } = {}) {
@@ -69,9 +82,22 @@ export function sicherung(daten, { fuerAndere = false } = {}) {
       planer: daten.planer || {},
       profile: daten.profile || [],
       bewertungen: daten.bewertungen || {},
+      sammlungen: daten.sammlungen || [],
+      abgehakt: daten.abgehakt || {},
       fotos,
     },
   };
+}
+
+/** Haken der Einkaufsliste je Woche */
+export function bereinigeAbgehakt(roh) {
+  if (!roh || typeof roh !== 'object' || Array.isArray(roh)) return {};
+  const out = {};
+  for (const [woche, haken] of Object.entries(roh)) {
+    if (!WOCHE.test(woche) || !haken || typeof haken !== 'object' || Array.isArray(haken)) continue;
+    out[woche] = Object.fromEntries(Object.entries(haken).filter(([k, v]) => v === true && k.length < 300).slice(0, 500));
+  }
+  return out;
 }
 
 /** Ein Foto als data:-Adresse; nur JPEG, PNG und WebP, hoechstens 3 MB */
@@ -105,6 +131,8 @@ export function wiederherstellen(text) {
     planer: bereinigeVorgaben(d.planer),
     profile: bereinigeProfile(d.profile),
     bewertungen: bereinigeBewertungen(d.bewertungen),
+    sammlungen: bereinigeSammlungen(d.sammlungen),
+    abgehakt: bereinigeAbgehakt(d.abgehakt),
     fotos,
   };
   return {
@@ -116,6 +144,7 @@ export function wiederherstellen(text) {
       vorrat: daten.vorrat.length,
       profile: daten.profile.length,
       bewertungen: Object.keys(daten.bewertungen).length,
+      sammlungen: daten.sammlungen.length,
       fotos: Object.keys(fotos).length,
     },
   };
@@ -134,9 +163,11 @@ export const istGemeinsam = (id) => !/^(eigen|import)-/.test(id);
  * @returns {{hash:string, ausgelassen:number}}
  */
 export function planLink(woche, eintraege) {
+  // Vorkochen reist mit: [Feld, Rezept, Portionen, Extra, Kennung, Rest]
   const e = Object.entries(eintraege)
     .filter(([slot, x]) => SLOT.test(slot) && istGemeinsam(x.recipeId))
-    .map(([slot, x]) => [slot, x.recipeId, x.servings]);
+    .map(([slot, x]) => (x.rest ? [slot, x.recipeId, x.servings, 0, '', x.rest]
+      : x.kid ? [slot, x.recipeId, x.servings, x.extra, x.kid] : [slot, x.recipeId, x.servings]));
   return {
     hash: `#plan=${b64url(JSON.stringify({ w: woche, e }))}`,
     ausgelassen: Object.keys(eintraege).length - e.length,
@@ -156,9 +187,14 @@ export function ausLink(hash) {
     const eintraege = {};
     for (const x of roh.e.slice(0, 28)) {
       if (!Array.isArray(x)) continue;
-      const [slot, recipeId, servings] = x;
+      const [slot, recipeId, servings, extra, kid, rest] = x;
       if (!SLOT.test(slot) || typeof recipeId !== 'string' || !ID.test(recipeId) || !istGemeinsam(recipeId)) continue;
-      eintraege[slot] = { recipeId, servings: Number.isInteger(servings) && servings > 0 && servings <= 400 ? servings : 2 };
+      eintraege[slot] = eintrag({ recipeId, servings, extra, kid, rest });
+    }
+    // Ein Rest ohne sein gekochtes Gericht im Link wird selbst gekocht
+    const kennungen = new Set(Object.values(eintraege).map((e) => e.kid).filter(Boolean));
+    for (const [slot, e] of Object.entries(eintraege)) {
+      if (e.rest && !kennungen.has(e.rest)) eintraege[slot] = { recipeId: e.recipeId, servings: e.servings };
     }
     return { woche: roh.w, eintraege };
   } catch {

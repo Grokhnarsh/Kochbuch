@@ -333,8 +333,8 @@ a.ghost-btn { text-decoration: none; color: var(--ink); display: inline-block; }
   line-height: 1.5;
 }
 .step-list.original li { font-family: Georgia, "Times New Roman", serif; font-size: 14.5px; line-height: 1.6; }
-.tag.original { background: #f4efe4; color: #7a5b1e; }
-.tag.thermomix { background: #e8f1fb; color: #1f5d99; }
+.tag.original { background: var(--tag-alt, #f4efe4); color: var(--tag-alt-ink, #7a5b1e); }
+.tag.thermomix { background: var(--tag-tm, #e8f1fb); color: var(--tag-tm-ink, #1f5d99); }
 /* Quellenangabe im Rezeptformular und in der Rezeptansicht */
 .source-fields { margin: 4px 0 0; padding: 10px 12px 12px; border: 1px solid var(--line); border-radius: var(--r-sm); }
 .source-fields legend { padding: 0 6px; font-size: 12px; font-weight: 600; color: var(--ink-soft); }
@@ -1540,7 +1540,11 @@ body.kocht .timer-bar { bottom: 88px; }
    draengen sie Marke und Einkaufsliste aus der Kopfleiste. */
 @media (max-width: 1400px) and (min-width: 761px) {
   .topbar-actions .ghost-btn:not(#btn-autofill) { display: none; }
-  .topbar-actions .only-phone { display: grid; }
+}
+
+/* Das Ueberlaufmenue als Klappliste; auf breiten Schirmen nur mit dem,
+   was nicht schon in der Kopfleiste steht */
+@media (min-width: 761px) {
   .phone-menu {
     position: fixed;
     top: 66px;
@@ -1558,6 +1562,9 @@ body.kocht .timer-bar { bottom: 88px; }
   .phone-menu[hidden] { display: none; }
   .phone-menu .ghost-btn { display: block; width: 100%; text-align: left; }
   .phone-menu [data-action="autofill"] { display: none; }
+}
+@media (min-width: 1401px) {
+  .phone-menu .dup { display: none !important; }
 }
 
 /* -------------------------------------------------------------- Druck */
@@ -1691,3 +1698,239 @@ body.kocht .timer-bar { bottom: 88px; }
 .planer-optionen-zeile { display: flex; gap: 8px; align-items: baseline; margin-bottom: 6px; font-size: 13.5px; }
 .sichern-status, .teilen-status { min-height: 1.4em; font-size: 13px; color: var(--sage); font-weight: 560; word-break: break-all; }
 .haushalt h3 { margin: 18px 0 6px; font-size: 14px; }
+
+
+/* =================================================================
+   Dunkelmodus: eigene Stufen, nicht einfach umgedreht. Gilt, wenn das
+   System dunkel ist und keine helle Ansicht gewaehlt wurde, oder wenn
+   "dunkel" gewaehlt ist.
+   ================================================================= */
+
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    color-scheme: dark;
+    --bg: #121418;
+    --surface: #1b1e24;
+    --surface-veil: rgba(27, 30, 36, 0.86);
+    --surface-sunk: #15181d;
+    --line: #2c3038;
+    --line-strong: #3a3f48;
+    --ink: #eef0f3;
+    --ink-soft: #b9bec7;
+    --ink-faint: #858c97;
+    --accent-ink: #ff9a74;
+    --accent-soft: #3a2219;
+    --accent-line: #6b3826;
+    --sage: #7cc3a2;
+    --sage-soft: #1d2e27;
+    --tag-alt: #33291a; --tag-alt-ink: #e6c27d;
+    --tag-tm: #1a2838; --tag-tm-ink: #8cbcf0;
+    --shadow-1: 0 1px 2px rgba(0, 0, 0, 0.4);
+    --shadow-2: 0 2px 6px rgba(0, 0, 0, 0.4), 0 12px 28px rgba(0, 0, 0, 0.35);
+    --shadow-3: 0 8px 20px rgba(0, 0, 0, 0.45), 0 32px 64px rgba(0, 0, 0, 0.5);
+  }
+}
+
+:root[data-theme="dark"] {
+  color-scheme: dark;
+  --bg: #121418;
+  --surface: #1b1e24;
+  --surface-veil: rgba(27, 30, 36, 0.86);
+  --surface-sunk: #15181d;
+  --line: #2c3038;
+  --line-strong: #3a3f48;
+  --ink: #eef0f3;
+  --ink-soft: #b9bec7;
+  --ink-faint: #858c97;
+  --accent-ink: #ff9a74;
+  --accent-soft: #3a2219;
+  --accent-line: #6b3826;
+  --sage: #7cc3a2;
+  --sage-soft: #1d2e27;
+  --tag-alt: #33291a; --tag-alt-ink: #e6c27d;
+  --tag-tm: #1a2838; --tag-tm-ink: #8cbcf0;
+  --shadow-1: 0 1px 2px rgba(0, 0, 0, 0.4);
+  --shadow-2: 0 2px 6px rgba(0, 0, 0, 0.4), 0 12px 28px rgba(0, 0, 0, 0.35);
+  --shadow-3: 0 8px 20px rgba(0, 0, 0, 0.45), 0 32px 64px rgba(0, 0, 0, 0.5);
+}
+
+:root[data-dunkel="1"] .card-sterne { color: #f0b72f; }
+:root[data-dunkel="1"] .stern.an { color: #f0b72f; }
+
+/* Groessere Schrift in Fenstern und Bibliothek */
+.modal-body, .recipe-list, .phone-menu { zoom: var(--schrift, 1); }
+
+/* ------------------------------------------------------- Kopfleiste */
+
+#btn-more { display: grid; }
+.zaehler {
+  display: inline-grid;
+  place-items: center;
+  min-width: 18px;
+  height: 18px;
+  margin-left: 4px;
+  padding: 0 5px;
+  border-radius: var(--r-pill);
+  background: var(--accent);
+  color: #fff;
+  font-size: 11px;
+  font-weight: 700;
+}
+
+/* --------------------------------------------------- Rezeptansicht */
+
+.ersatz-btn {
+  margin-left: 4px;
+  padding: 0 6px;
+  border: 1px solid var(--line-strong);
+  border-radius: var(--r-pill);
+  background: var(--surface);
+  color: var(--ink-soft);
+  font-size: 12px;
+  line-height: 18px;
+  cursor: pointer;
+}
+.ersatz-btn[aria-expanded="true"], .ersatz-btn:hover { border-color: var(--accent); color: var(--accent-ink); }
+.ing-list li.ersatz-liste { display: block; padding: 6px 0 10px 12px; border-left: 2px solid var(--accent-line); }
+.ersatz-liste ul { margin: 0; padding: 0; list-style: none; display: grid; gap: 6px; }
+.ersatz-liste li { display: block; font-size: 13px; }
+.ersatz-menge { display: block; color: var(--ink-soft); font-size: 12.5px; }
+.ersatz-warnung { display: block; color: var(--accent-ink); font-size: 12.5px; }
+
+.form-wahl { display: flex; align-items: center; gap: 8px; margin: 0 0 8px; font-size: 13px; color: var(--ink-soft); }
+.form-wahl select, .person-ziele select, .person-ziele input, .zeitplan-kopf input, .zeitplan-kopf select,
+.vorrat-bis, .feld input, .planer-optionen-zeile select {
+  padding: 5px 8px;
+  border: 1px solid var(--line-strong);
+  border-radius: var(--r-sm);
+  background: var(--surface);
+  color: var(--ink);
+  font-size: 13px;
+}
+
+.rest-hinweis {
+  margin: 0 0 14px;
+  padding: 8px 12px;
+  border-radius: var(--r-sm);
+  background: var(--sage-soft);
+  color: var(--sage);
+  font-size: 13px;
+  font-weight: 600;
+}
+
+.sammlung-wahl { display: flex; flex-wrap: wrap; align-items: center; gap: 6px; margin-top: 10px; }
+.sammlung-chip {
+  padding: 3px 10px;
+  border: 1px solid var(--line-strong);
+  border-radius: var(--r-pill);
+  background: var(--surface);
+  color: var(--ink-soft);
+  font-size: 12.5px;
+  cursor: pointer;
+}
+.sammlung-chip.an { background: var(--sage-soft); border-color: var(--sage); color: var(--sage); }
+.sammlung-neu { display: flex; gap: 4px; }
+.sammlung-neu input {
+  width: 140px;
+  padding: 3px 8px;
+  border: 1px solid var(--line-strong);
+  border-radius: var(--r-pill);
+  background: var(--surface);
+  color: var(--ink);
+  font-size: 12.5px;
+}
+.sammlung-neu .ghost-btn { padding: 2px 10px; }
+
+.modal-foot { flex-wrap: wrap; row-gap: 8px; }
+
+/* ----------------------------------------------------------- Zeitplan */
+
+.zeitplan-kopf { display: flex; flex-wrap: wrap; align-items: center; gap: 10px 16px; margin-bottom: 12px; font-size: 13px; }
+.zeitplan-kopf label { display: flex; align-items: center; gap: 6px; }
+.planer-chip.an > span { background: var(--accent-soft); border-color: var(--accent-line); color: var(--accent-ink); }
+.chip-weg { margin-left: 4px; border: 0; background: none; color: inherit; cursor: pointer; font-size: 14px; line-height: 1; }
+.zeitplan-summe { margin: 0 0 10px; font-size: 14px; }
+.zeitplan-liste { margin: 0; padding: 0; list-style: none; display: grid; gap: 2px; }
+.zeitplan-liste li {
+  display: grid;
+  grid-template-columns: 58px 1fr;
+  gap: 10px;
+  padding: 8px 10px;
+  border-radius: var(--r-sm);
+  background: var(--surface-sunk);
+  font-size: 13px;
+}
+.zeitplan-liste time { font-variant-numeric: tabular-nums; font-weight: 700; color: var(--ink); }
+.zeitplan-liste small { display: block; color: var(--ink-faint); }
+.zeitplan-liste li.passiv { background: transparent; border: 1px dashed var(--line); }
+.zeitplan-liste li.ofen { background: var(--accent-soft); }
+.zeitplan-liste li.konflikt { box-shadow: inset 3px 0 0 var(--accent); }
+
+/* ------------------------------------------------------------- Vorrat */
+
+.vorrat-form input[type="date"] { flex: 0 0 auto; width: auto; }
+.vorrat-liste li { gap: 8px; }
+.vorrat-liste li > span:first-child { flex: 1; }
+.vorrat-bis { padding: 3px 6px; font-size: 12px; color: var(--ink-soft); }
+.haltbar { margin-left: 6px; font-size: 12px; color: var(--ink-faint); }
+.vorrat-liste li.bald .haltbar { color: var(--accent-ink); font-weight: 600; }
+.vorrat-liste li.abgelaufen .haltbar { color: var(--accent-ink); font-weight: 700; }
+.vorrat-liste li.abgelaufen > span:first-child { text-decoration: line-through; text-decoration-color: var(--accent-line); }
+.bald-hinweis { margin-bottom: 12px; }
+.meta .bald { color: var(--accent-ink); font-weight: 600; }
+
+.scanner { margin: 0 0 14px; padding: 12px; border: 1px solid var(--line); border-radius: var(--r-md); background: var(--surface-sunk); }
+.scanner-bild { display: block; width: 100%; max-height: 260px; object-fit: cover; border-radius: var(--r-sm); background: #000; margin-bottom: 10px; }
+.scanner-form { margin: 0 0 8px; }
+.scanner-status { margin: 0 0 6px; font-size: 13px; }
+
+/* ------------------------------------------------------ Haushalt */
+
+.person-ziele { display: flex; flex-wrap: wrap; gap: 8px 14px; margin: 8px 0; font-size: 12.5px; color: var(--ink-soft); }
+.person-ziele label { display: flex; align-items: center; gap: 6px; }
+.person-ziele input[type="number"] { width: 84px; }
+
+.rueckblick-kopf { display: flex; align-items: center; justify-content: center; gap: 14px; margin-bottom: 14px; }
+.rueckblick-kopf h3 { margin: 0; min-width: 150px; text-align: center; }
+.kacheln { display: grid; grid-template-columns: repeat(auto-fit, minmax(140px, 1fr)); gap: 10px; margin-bottom: 16px; }
+.kachel {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  padding: 12px 14px;
+  border: 1px solid var(--line);
+  border-radius: var(--r-md);
+  background: var(--surface);
+}
+.kachel b { font-size: 24px; line-height: 1.15; color: var(--ink); font-variant-numeric: tabular-nums; }
+.kachel span { font-size: 12.5px; color: var(--ink-soft); }
+.kachel small { font-size: 11.5px; color: var(--ink-faint); }
+
+.anteile, .ziele { display: grid; gap: 8px; margin-bottom: 14px; }
+.anteil { display: grid; grid-template-columns: minmax(120px, 220px) 1fr auto; align-items: center; gap: 10px; font-size: 13px; }
+.anteil > span:first-child { color: var(--ink-soft); }
+.anteil b { font-variant-numeric: tabular-nums; color: var(--ink); font-weight: 600; }
+.anteil-balken { position: relative; height: 8px; border-radius: var(--r-pill); background: var(--surface-sunk); border: 1px solid var(--line); overflow: hidden; }
+.anteil-balken > span { position: absolute; inset: 0 auto 0 0; border-radius: var(--r-pill); background: var(--sage); }
+.anteil-balken.ueber > span { background: var(--accent); }
+.ziel-person { padding: 10px 12px; border: 1px solid var(--line); border-radius: var(--r-md); display: grid; gap: 6px; }
+.ziel-person small { color: var(--ink-faint); }
+
+@media (max-width: 560px) {
+  .anteil { grid-template-columns: 1fr auto; }
+  .anteil-balken { grid-column: 1 / -1; grid-row: 2; }
+}
+
+/* ----------------------------------------------------- Einstellungen */
+
+.feld { display: grid; gap: 4px; font-size: 13px; color: var(--ink-soft); margin-bottom: 10px; }
+.feld input { width: 100%; font-size: 14px; padding: 7px 10px; }
+.abgleich-status { min-height: 1.4em; font-size: 13px; font-weight: 600; }
+.abgleich details { margin-top: 8px; }
+
+/* ------------------------------------------------------- Kochmodus */
+
+.km-kopf [aria-pressed="true"] { background: var(--accent-soft); border-color: var(--accent); color: var(--accent-ink); }
+@media (max-width: 760px) {
+  .km-kopf .km-vorlesen, .km-kopf .km-sprache { padding-left: 8px; padding-right: 8px; font-size: 12px; }
+}

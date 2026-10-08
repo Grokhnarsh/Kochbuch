@@ -10,8 +10,14 @@ import { esc } from './html.js';
 import { dauernIn, dauerText } from '../state/zeiten.js';
 import { formatAmount } from '../state/units.js';
 import { EINSTELLUNG } from '../sources/thermomix.js';
-import { starteTimer } from './timer.js';
+import { starteTimer, quittiereAlle } from './timer.js';
 import { store } from '../state/store.js';
+import { befehlAus } from '../state/sprache.js';
+import { inMetrisch } from '../state/formen.js';
+import { naehrwertRechner } from '../data/index.js';
+
+/** Spracherkennung des Browsers, falls es eine gibt (Chrome, Edge, Safari) */
+const Erkennung = () => window.SpeechRecognition || window.webkitSpeechRecognition || null;
 
 /**
  * Ein Arbeitsschritt als HTML: maskiert, Thermomix-Einstellungen
@@ -120,9 +126,14 @@ export function openKochmodus(recipe, { servings } = {}) {
   root.setAttribute('aria-label', `Kochmodus: ${recipe.title}`);
   root.tabIndex = -1;
 
+  const menge = (i) => {
+    const amount = i.amount == null ? null : i.amount * faktor;
+    const m = store.ansicht.metrisch ? inMetrisch({ ...i, amount }, naehrwertRechner) : null;
+    return m ? `≈ ${formatAmount(m.amount, m.unit)}` : formatAmount(amount, i.unit);
+  };
   const zutaten = recipe.ingredients.map((i, idx) => `
     <li><label><input type="checkbox" data-zutat="${idx}" />
-      <span class="amt">${esc(formatAmount(i.amount == null ? null : i.amount * faktor, i.unit) || '')}</span>
+      <span class="amt">${esc(menge(i) || '')}</span>
       <span>${esc(i.name)}</span></label></li>`).join('');
 
   root.innerHTML = `
@@ -131,6 +142,8 @@ export function openKochmodus(recipe, { servings } = {}) {
         <b>${esc(recipe.title)}</b>
         <span class="km-stand"></span>
       </div>
+      ${'speechSynthesis' in window ? '<button type="button" class="ghost-btn km-vorlesen" aria-pressed="false" title="Jeden Schritt vorlesen">🔊 Vorlesen</button>' : ''}
+      ${Erkennung() ? '<button type="button" class="ghost-btn km-sprache" aria-pressed="false" title="Mit der Stimme steuern: „weiter“, „zurück“, „Timer 10 Minuten“, „Zutaten“, „Stopp“">🎤 Sprache</button>' : ''}
       <button type="button" class="ghost-btn km-zutaten-btn" aria-expanded="false">Zutaten</button>
       <button type="button" class="icon-btn km-zu" aria-label="Kochmodus beenden">&times;</button>
     </header>
@@ -163,6 +176,86 @@ export function openKochmodus(recipe, { servings } = {}) {
     $('.km-fortschritt span').style.width = `${((nr + 1) / schritte.length) * 100}%`;
     $('.km-zurueck').disabled = nr === 0;
     $('.km-weiter').textContent = nr === schritte.length - 1 ? 'Fertig' : 'Weiter ›';
+    if (vorlesen) lies(text);
+  }
+
+  // ------------------------------------------------ Vorlesen und Sprache
+
+  let vorlesen = false;
+  let hoerer = null;
+  let hoerenAn = false;
+
+  function lies(text) {
+    if (!('speechSynthesis' in window)) return;
+    window.speechSynthesis.cancel();
+    const u = new SpeechSynthesisUtterance(`Schritt ${nr + 1}. ${text}`);
+    u.lang = 'de-DE';
+    window.speechSynthesis.speak(u);
+  }
+
+  function hinweis(text) {
+    $('.km-hinweis').textContent = text;
+  }
+
+  /** Fuehrt einen erkannten Befehl aus */
+  function ausfuehren(gehoert) {
+    const b = befehlAus(gehoert);
+    if (!b) {
+      hinweis(`„${gehoert}“ — nicht verstanden`);
+      return;
+    }
+    hinweis(`🎤 „${gehoert}“`);
+    if (b.art === 'weiter') gehe(1);
+    else if (b.art === 'zurueck') gehe(-1);
+    else if (b.art === 'vorlesen') lies(schritte[nr]);
+    else if (b.art === 'zutaten') zutatenUmschalten();
+    else if (b.art === 'stopp') {
+      quittiereAlle();
+      window.speechSynthesis?.cancel();
+    } else if (b.art === 'beenden') schliessen();
+    else if (b.art === 'timer') {
+      if (b.sekunden) starteTimer(b.sekunden, `${kurz(recipe.title)} · ${dauerText(b.sekunden)}`);
+      else schrittEl.querySelector('.zeit-btn')?.click();
+    }
+  }
+
+  function hoeren(an) {
+    hoerenAn = an;
+    $('.km-sprache')?.setAttribute('aria-pressed', String(an));
+    if (!an) {
+      const h = hoerer;
+      hoerer = null;
+      try { h?.stop(); } catch { /* schon aus */ }
+      hinweis(sperre ? 'Bildschirm bleibt an' : '');
+      return;
+    }
+    const E = Erkennung();
+    if (!E) return;
+    const h = new E();
+    h.lang = 'de-DE';
+    h.continuous = true;
+    h.interimResults = false;
+    h.onresult = (e) => {
+      const r = e.results[e.results.length - 1];
+      if (r?.isFinal !== false) ausfuehren(r[0].transcript);
+    };
+    h.onerror = (e) => {
+      if (e.error === 'not-allowed' || e.error === 'service-not-allowed') {
+        hoeren(false);
+        hinweis('Kein Zugriff auf das Mikrofon');
+      }
+    };
+    // Die Erkennung beendet sich nach einer Weile von selbst; solange gewuenscht, neu starten
+    h.onend = () => {
+      if (hoerenAn && hoerer === h) setTimeout(() => { if (hoerenAn && hoerer === h) { try { h.start(); } catch { /* laeuft */ } } }, 250);
+    };
+    hoerer = h;
+    try {
+      h.start();
+      hinweis('🎤 Ich höre: „weiter“, „zurück“, „Timer 10 Minuten“, „Zutaten“, „Stopp“');
+    } catch {
+      hoeren(false);
+    }
   }
 
   function gehe(delta) {
@@ -213,9 +306,18 @@ export function openKochmodus(recipe, { servings } = {}) {
   $('.km-weiter').addEventListener('click', () => gehe(1));
   $('.km-zu').addEventListener('click', () => schliessen());
   $('.km-zutaten-btn').addEventListener('click', zutatenUmschalten);
+  $('.km-vorlesen')?.addEventListener('click', (e) => {
+    vorlesen = !vorlesen;
+    e.currentTarget.setAttribute('aria-pressed', String(vorlesen));
+    if (vorlesen) lies(schritte[nr]);
+    else window.speechSynthesis.cancel();
+  });
+  $('.km-sprache')?.addEventListener('click', () => hoeren(!hoerenAn));
   document.addEventListener('keydown', taste, true);
 
   function schliessen() {
+    hoeren(false);
+    if (vorlesen) window.speechSynthesis?.cancel();
     document.removeEventListener('keydown', taste, true);
     bildschirmFrei();
     root.remove();
@@ -231,6 +333,6 @@ export function openKochmodus(recipe, { servings } = {}) {
     $('.km-hinweis').textContent = sperre ? 'Bildschirm bleibt an' : '';
   });
 
-  offen = { schliessen, gehe, get nr() { return nr; } };
+  offen = { schliessen, gehe, ausfuehren, get nr() { return nr; } };
   return offen;
 }

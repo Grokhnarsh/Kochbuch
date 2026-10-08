@@ -11,7 +11,10 @@ import { esc } from './html.js';
 import { store } from '../state/store.js';
 import { recipes, vollstaendig } from '../data/index.js';
 import { formatAmount } from '../state/units.js';
-import { GRUNDZUTATEN, postenAus, fuegeHinzu, kochbarMitVorrat } from '../state/vorrat.js';
+import {
+  GRUNDZUTATEN, postenAus, fuegeHinzu, kochbarMitVorrat, tageBis, haltbarText, baldAblaufend, BALD_TAGE,
+} from '../state/vorrat.js';
+import { scannerEinbauen } from './scanner.js';
 import { imMonat, saisonFuer, MONATE } from '../state/saison.js';
 
 const posten = (p) => `${p.menge != null ? `${formatAmount(p.menge, p.einheit)} ` : ''}${p.name}`;
@@ -24,8 +27,19 @@ export function openVorrat({ onOpen, ansicht = 'vorrat' } = {}) {
   const body = el('div');
   const foot = el('div');
   let unsubscribe = null;
+  let scanner = null;
+  let scannerOffen = false;
+  // Der Scanner ueberlebt das Neuzeichnen, sonst ginge bei jedem Eintrag die Kamera aus und an
+  const scannerHost = el('div');
+
+  function scannerAus() {
+    scanner?.stop();
+    scanner = null;
+    scannerHost.replaceChildren();
+  }
 
   function zeichne() {
+    if (tab !== 'vorrat' || !scannerOffen) scannerAus();
     body.replaceChildren();
     const reiter = el('div', 'seg');
     reiter.setAttribute('role', 'tablist');
@@ -53,8 +67,12 @@ export function openVorrat({ onOpen, ansicht = 'vorrat' } = {}) {
       <form class="vorrat-form">
         <input type="text" name="posten" placeholder="z. B. 1 kg Mehl, 6 Eier oder Reis"
           aria-label="Zutat für den Vorrat" autocomplete="off" maxlength="100" />
+        <input type="date" name="bis" aria-label="Haltbar bis (freiwillig)" title="Haltbar bis (freiwillig)" />
         <button type="submit" class="primary-btn">Hinzufügen</button>
+        <button type="button" class="ghost-btn" data-scanner aria-expanded="${scannerOffen}">📷 Scannen</button>
       </form>
+      <div class="scanner-platz"></div>
+      ${baldBlock()}
       <ul class="vorrat-liste"></ul>
     `;
     const liste = box.querySelector('.vorrat-liste');
@@ -65,12 +83,26 @@ export function openVorrat({ onOpen, ansicht = 'vorrat' } = {}) {
       liste.innerHTML = store.vorrat
         .slice()
         .sort((a, b) => a.name.localeCompare(b.name, 'de'))
-        .map((p) => `<li><span>${esc(posten(p))}</span>
-          <button type="button" class="icon-btn" data-weg="${esc(p.name)}" aria-label="${esc(p.name)} austragen">&times;</button></li>`)
+        .map((p) => {
+          const tage = tageBis(p);
+          const klasse = tage == null ? '' : tage < 0 ? 'abgelaufen' : tage <= BALD_TAGE ? 'bald' : '';
+          return `<li class="${klasse}"><span>${esc(posten(p))}${tage != null ? ` <span class="haltbar">${esc(haltbarText(tage))}</span>` : ''}</span>
+          <input type="date" class="vorrat-bis" data-bis="${esc(p.name)}" value="${esc(p.bis || '')}" aria-label="${esc(p.name)} haltbar bis" />
+          <button type="button" class="icon-btn" data-weg="${esc(p.name)}" aria-label="${esc(p.name)} austragen">&times;</button></li>`;
+        })
         .join('');
       liste.addEventListener('click', (e) => {
         const name = e.target.closest('[data-weg]')?.dataset.weg;
         if (name != null) store.setVorrat(store.vorrat.filter((p) => p.name !== name));
+      });
+      liste.addEventListener('change', (e) => {
+        const name = e.target.dataset?.bis;
+        if (name == null) return;
+        store.setVorrat(store.vorrat.map((p) => {
+          if (p.name !== name) return p;
+          const { bis, ...ohne } = p;
+          return e.target.value ? { ...ohne, bis: e.target.value } : ohne;
+        }));
       });
     }
 
@@ -79,11 +111,36 @@ export function openVorrat({ onOpen, ansicht = 'vorrat' } = {}) {
       e.preventDefault();
       const p = postenAus(form.posten.value);
       if (!p) return;
+      if (form.bis.value) p.bis = form.bis.value;
       store.setVorrat(fuegeHinzu(store.vorrat, p));
       body.querySelector('.vorrat-form input')?.focus();
     });
-    queueMicrotask(() => form.posten?.focus());
+    form.querySelector('[data-scanner]').addEventListener('click', () => {
+      scannerOffen = !scannerOffen;
+      zeichne();
+    });
+    if (scannerOffen) {
+      box.querySelector('.scanner-platz').append(scannerHost);
+      if (!scanner) scanner = scannerEinbauen(scannerHost, (p) => {
+        // Der Posten kommt ins Feld; eintragen erst nach einem Blick darauf
+        const feld = body.querySelector('.vorrat-form [name="posten"]');
+        if (feld) {
+          feld.value = `${p.menge != null ? `${String(p.menge).replace('.', ',')} ${p.einheit} ` : ''}${p.name}`;
+          feld.focus();
+        }
+      });
+    } else {
+      queueMicrotask(() => form.posten?.focus());
+    }
     return box;
+  }
+
+  /** Was bald ablaeuft, mit einem Weg zu passenden Rezepten */
+  function baldBlock() {
+    const bald = baldAblaufend(store.vorrat);
+    if (!bald.length) return '';
+    return `<div class="haushalt-warnung bald-hinweis" role="note">⏳ Bald verbrauchen: ${bald.map((x) => `<b>${esc(x.posten.name)}</b> (${esc(haltbarText(x.tage))})`).join(', ')}
+      <button type="button" class="link-btn" data-tab-wechsel="kochen">Rezepte dafür</button></div>`;
   }
 
   function kochenAnsicht() {
@@ -99,7 +156,8 @@ export function openVorrat({ onOpen, ansicht = 'vorrat' } = {}) {
       return box;
     }
     box.innerHTML = `<p class="intro-copy">${treffer.length} Rezepte, denen höchstens drei Zutaten
-      fehlen; zuerst die, für die alles da ist. Salz, Pfeffer und Wasser zählen nicht.</p>`;
+      fehlen; zuerst die, für die alles da ist, und darunter die, die bald Ablaufendes verbrauchen.
+      Salz, Pfeffer und Wasser zählen nicht.</p>`;
     for (const t of treffer) {
       const card = el('article', 'suggest-card vorrat-card');
       card.innerHTML = `
@@ -108,6 +166,7 @@ export function openVorrat({ onOpen, ansicht = 'vorrat' } = {}) {
           <h3>${esc(t.recipe.title)}</h3>
           <div class="meta">
             ${t.fehlt.length ? `<span>Fehlt: ${esc(t.fehlt.join(', '))}</span>` : '<span class="passt">Alles da</span>'}
+            ${t.bald.length ? `<span class="bald">⏳ verbraucht ${esc(t.bald.join(', '))}</span>` : ''}
             ${t.recipe.totalTime > 0 ? `<span>${t.recipe.totalTime} Min.</span>` : ''}
           </div>
         </div>
@@ -165,6 +224,11 @@ export function openVorrat({ onOpen, ansicht = 'vorrat' } = {}) {
     foot.append(grund, leeren);
   }
 
+  body.addEventListener('click', (e) => {
+    const ziel = e.target.closest('[data-tab-wechsel]')?.dataset.tabWechsel;
+    if (ziel) { tab = ziel; zeichne(); }
+  });
+
   zeichne();
   unsubscribe = store.subscribe(() => {
     // Nur der Vorrat zeichnet neu; Eingaben im Formular sollen stehen bleiben
@@ -180,6 +244,9 @@ export function openVorrat({ onOpen, ansicht = 'vorrat' } = {}) {
     body,
     footer: foot,
     wide: true,
-    onClose: () => unsubscribe?.(),
+    onClose: () => {
+      unsubscribe?.();
+      scannerAus();
+    },
   });
 }

@@ -13,6 +13,7 @@ import { ALLERGENS } from '../state/allergens.js';
 import { planeWoche } from '../state/planer.js';
 import { mitHaushalt } from '../state/profile.js';
 import { MONATE } from '../state/saison.js';
+import { baldAblaufend } from '../state/vorrat.js';
 
 const ZEITEN = [[0, 'beliebig'], [20, 'bis 20 Min.'], [30, 'bis 30 Min.'], [45, 'bis 45 Min.'], [60, 'bis 60 Min.']];
 
@@ -25,6 +26,7 @@ export function openPlaner({ bibliothek = null, filterText = () => '', onFertig 
   const filter = filterText();
   const aktive = store.profile.filter((p) => p.aktiv);
   const bewertet = Object.keys(store.bewertungen).length > 0;
+  const bald = baldAblaufend(store.vorrat);
   const body = el('form', 'planer');
   const foot = el('div');
 
@@ -78,6 +80,12 @@ export function openPlaner({ bibliothek = null, filterText = () => '', onFertig 
         eigene Lieblinge, gerade Gekochtes erst später${bewertet ? '' : ' — noch nichts bewertet'}</label>
       <label><input type="checkbox" name="vorrat" ${v.vorrat ? 'checked' : ''} ${store.vorrat.length ? '' : 'disabled'} />
         Rezepte, deren Zutaten im Vorrat liegen${store.vorrat.length ? ` (${store.vorrat.length} Posten)` : ' — der Vorrat ist leer'}</label>
+      <label><input type="checkbox" name="ablauf" ${v.ablauf && bald.length ? 'checked' : ''} ${bald.length ? '' : 'disabled'} />
+        zuerst verbrauchen, was bald abläuft${bald.length ? `: ${esc(bald.slice(0, 4).map((x) => x.posten.name).join(', '))}` : ' — nichts mit Datum im Vorrat'}</label>
+      <label><input type="checkbox" name="buendeln" ${v.buendeln ? 'checked' : ''} />
+        Einkauf bündeln: Gerichte, die sich frische Zutaten teilen — weniger Reste</label>
+      <label><input type="checkbox" name="vorkochen" ${v.vorkochen ? 'checked' : ''} />
+        abends doppelt kochen, am nächsten Mittag den Rest essen</label>
       ${filter ? `<label><input type="checkbox" name="bibliothek" /> nur aus der gefilterten Bibliothek (${esc(filter)})</label>` : ''}
       <label><input type="checkbox" name="ersetzen" ${v.ersetzen ? 'checked' : ''} /> belegte Felder neu planen</label>
     </fieldset>
@@ -99,6 +107,9 @@ export function openPlaner({ bibliothek = null, filterText = () => '', onFertig 
       saison: f.has('saison'),
       lieblinge: f.has('lieblinge'),
       haushalt: f.has('haushalt'),
+      ablauf: f.has('ablauf'),
+      buendeln: f.has('buendeln'),
+      vorkochen: f.has('vorkochen'),
       ersetzen: f.has('ersetzen'),
     };
   }
@@ -115,7 +126,9 @@ export function openPlaner({ bibliothek = null, filterText = () => '', onFertig 
       return;
     }
     const pool = new FormData(body).has('bibliothek') && bibliothek ? bibliothek() : recipes;
-    const { eintraege, ohneTreffer, fisch } = planeWoche(pool, store.week, mitHaushalt(vorgaben, store.profile), {
+    const {
+      eintraege, ohneTreffer, fisch, geteilt, reste,
+    } = planeWoche(pool, store.week, mitHaushalt(vorgaben, store.profile), {
       vorrat: store.vorrat, lookup: recipeById, bewertungen: store.bewertungen,
     });
     store.placeMany(eintraege);
@@ -123,6 +136,8 @@ export function openPlaner({ bibliothek = null, filterText = () => '', onFertig 
     const n = zuletzt.length;
     const teile = [n ? `${n} ${n === 1 ? 'Feld' : 'Felder'} geplant` : 'Kein Feld geplant'];
     if (vorgaben.fischProWoche) teile.push(`${fisch}× Fisch in der Woche`);
+    if (reste) teile.push(`${reste}× Rest vom Vorabend`);
+    if (vorgaben.buendeln && geteilt.length) teile.push(`${geteilt.length} frische Zutaten für mehrere Gerichte`);
     if (ohneTreffer.length) teile.push(`für ${ohneTreffer.length} kein passendes Rezept — die Vorgaben sind dafür zu eng`);
     if (!n && !ohneTreffer.length) teile.push('alle gewählten Felder sind schon belegt');
     ergebnis.textContent = `${teile.join(', ')}.`;

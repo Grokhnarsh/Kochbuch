@@ -25,7 +25,8 @@ function planHtml() {
     MEALS.map((m) => {
       const e = store.week[slotId(i, m.id)];
       const r = e && recipeById.get(e.recipeId);
-      return `<td>${r ? `${esc(r.title)}<br /><small>${e.servings} ${esc(r.yieldUnit || 'Port.')}</small>` : ''}</td>`;
+      const zusatz = e?.rest ? 'Rest vom Vortag' : `${e?.servings} ${r?.yieldUnit || 'Port.'}${e?.extra ? `, +${e.extra} vorgekocht` : ''}`;
+      return `<td>${r ? `${esc(r.title)}<br /><small>${esc(zusatz)}</small>` : ''}</td>`;
     }).join('')}</tr>`).join('');
   return `${kopf('Wochenplan')}
     <table class="druck-plan"><thead><tr><th></th>${MEALS.map((m) => `<th scope="col">${esc(m.label)}</th>`).join('')}</tr></thead>
@@ -70,9 +71,10 @@ function heftHtml() {
     for (const m of MEALS) {
       const e = store.week[slotId(d, m.id)];
       const r = e && recipeById.get(e.recipeId);
-      if (!r || gesehen.has(r.id)) continue;
+      // Reste kocht man nicht; Vorgekochtes fuer alle Portionen
+      if (!r || e.rest || gesehen.has(r.id)) continue;
       gesehen.add(r.id);
-      teile.push(rezeptHtml(r, e.servings));
+      teile.push(rezeptHtml(r, e.servings + (e.extra || 0)));
     }
   }
   return `${kopf('Rezeptheft der Woche')}${teile.length ? teile.join('') : '<p>Der Wochenplan ist leer.</p>'}`;
