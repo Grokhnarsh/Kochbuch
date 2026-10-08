@@ -106,6 +106,10 @@ export function ertragsart(recipe) {
   return 'stueck';
 }
 
+/** Fassungsvermoegen: deutsche Kaffeetasse und amerikanische Cup */
+export const TASSE_ML = 150;
+export const CUP_ML = 236.6;
+
 /** Mehr als so viel Gramm sind keine Portion und kein Stueck mehr. */
 const HOECHSTENS_JE_PORTION = 1200;
 
@@ -121,6 +125,16 @@ export function kern(name) {
     .split(/,|;| oder | bzw\.? | alternativ | ersatzweise | und /)[0]
     .replace(/\s+/g, ' ')
     .trim();
+}
+
+/**
+ * Ob die gemeinte Zutat vegan ist: "vegane Butter", "Joghurt (vegan)",
+ * "Butter, vegan" — nur die erste Wahl zaehlt, "Butter oder vegane
+ * Butter" ist Butter.
+ */
+function istVegan(name) {
+  const erste = String(name).toLowerCase().split(/ oder | bzw\.? | alternativ | ersatzweise |\//)[0];
+  return /\bvegan\w*\b(?!\s*:)/.test(erste);
 }
 
 /**
@@ -143,7 +157,9 @@ export function erstelleRechner(tabelle) {
     const schluessel = String(name);
     if (gemerkt.has(schluessel)) return gemerkt.get(schluessel);
     const k = kern(schluessel);
-    const e = (k && suche(k)) || suche(schluessel.toLowerCase());
+    let e = (k && suche(k)) || suche(schluessel.toLowerCase());
+    // "Vegane Butter" ist Margarine, "veganes Hack" kein Rindfleisch
+    if (e?.ersatz && istVegan(schluessel)) e = eintraege.get(e.ersatz) ?? e;
     gemerkt.set(schluessel, e);
     return e;
   }
@@ -165,7 +181,8 @@ export function erstelleRechner(tabelle) {
       case 'l': g = menge * 1000 * dichte; break;
       case 'EL': g = menge * (e.el ?? 15 * dichte); break;
       case 'TL': g = menge * (e.tl ?? 5 * dichte); break;
-      case 'Tasse': g = menge * 150 * dichte; break;
+      case 'Tasse': g = menge * TASSE_ML * dichte; break;
+      case 'Cup': g = menge * CUP_ML * dichte; break;
       case '':
       case 'Stk': g = e.stueck ? menge * e.stueck : null; break;
       case 'Pck': g = e.pck ? menge * e.pck : null; break;

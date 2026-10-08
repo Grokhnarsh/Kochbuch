@@ -73,3 +73,68 @@ export async function abruf(url, { abstand = 1500, json = true, headers = {}, fr
 /** Adresse eines MediaWiki-API-Aufrufs im Format 2. */
 export const apiAdresse = (basis, parameter) =>
   `${basis}?${new URLSearchParams({ format: 'json', formatversion: '2', ...parameter })}`;
+
+/** Wartet, bis der Mindestabstand zum vorigen Abruf beim selben Server um ist. */
+async function takt(host, abstand) {
+  const warte = (letzter.get(host) || 0) + abstand - Date.now();
+  if (warte > 0) await pause(warte);
+  letzter.set(host, Date.now());
+}
+
+/**
+ * Ziel einer Weiterleitung, ohne ihr zu folgen — etwa vom Forum-Eintrag
+ * eines Buchs zu dessen PDF. Das Ergebnis wird wie jeder Abruf gemerkt.
+ *
+ * @returns {Promise<string|null>} Adresse aus "Location" oder null
+ */
+export async function weiterleitung(url, { abstand = 3000 } = {}) {
+  mkdirSync(CACHE, { recursive: true });
+  const datei = path.join(CACHE, `${createHash('sha1').update(`ziel:${url}`).digest('hex')}`);
+  if (existsSync(datei)) return JSON.parse(readFileSync(datei, 'utf8')).ziel;
+  await takt(new URL(url).host, abstand);
+  const antwort = await fetch(url, { redirect: 'manual', headers: { 'user-agent': UA } });
+  const ort = antwort.headers.get('location');
+  const ziel = ort ? new URL(ort, url).href : null;
+  writeFileSync(datei, JSON.stringify({ ziel, status: antwort.status }));
+  return ziel;
+}
+
+/**
+ * Laedt eine Datei (etwa ein PDF) nach `ziel`. Grosse Dateien kommen nicht
+ * in den Cache — gemerkt wird, was daraus gelesen wurde.
+ */
+export async function ladeDatei(url, ziel, { abstand = 10000 } = {}) {
+  const host = new URL(url).host;
+  for (let versuch = 0; versuch < 5; versuch += 1) {
+    await takt(host, abstand);
+    let antwort;
+    try {
+      antwort = await fetch(url, { headers: { 'user-agent': UA } });
+    } catch (err) {
+      process.stderr.write(`  ${host}: ${err.message}, neuer Versuch\n`);
+      await pause(10000 * (versuch + 1));
+      continue;
+    }
+    if (antwort.status === 429 || antwort.status === 503) {
+      await pause((Number(antwort.headers.get('retry-after')) || 30) * 1000);
+      continue;
+    }
+    if (!antwort.ok) throw new Error(`${antwort.status} ${url}`);
+    writeFileSync(ziel, Buffer.from(await antwort.arrayBuffer()));
+    return ziel;
+  }
+  throw new Error(`nicht erreichbar: ${url}`);
+}
+
+/** Merkt sich ein beliebiges Ergebnis unter einem Schluessel (etwa den Text eines PDFs). */
+export function gemerkt(schluessel, erzeugen) {
+  mkdirSync(CACHE, { recursive: true });
+  const datei = path.join(CACHE, createHash('sha1').update(`wert:${schluessel}`).digest('hex'));
+  if (existsSync(datei)) return JSON.parse(readFileSync(datei, 'utf8'));
+  const wert = erzeugen();
+  if (wert instanceof Promise) {
+    return wert.then((w) => { writeFileSync(datei, JSON.stringify(w)); return w; });
+  }
+  writeFileSync(datei, JSON.stringify(wert));
+  return wert;
+}

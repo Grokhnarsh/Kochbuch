@@ -132,3 +132,35 @@ test('haelt leere und ungueltige Eingaben aus', () => {
   assert.deepEqual(allergensForRecipe(null), []);
   assert.deepEqual(allergensForRecipe({}), []);
 });
+
+test('jede Stelle im Namen zaehlt fuer sich', () => {
+  // Das laengere Stichwort entscheidet nur dort, wo es steht
+  assert.equal(level('Joghurt mit Kokosmilch', 'milch'), 'ja');
+  assert.equal(level('Schweinebraten mit Rotwein', 'sulfite'), 'moeglich');
+  assert.deepEqual(ids('Walnüsse oder Erdnüsse'), ['erdnuesse', 'schalenfruechte']);
+  // Butter bleibt Butter, auch wenn Margarine als Ausweg danebensteht
+  assert.equal(level('Butter oder Margarine', 'milch'), 'ja');
+  assert.equal(level('Mehl oder Speisestärke', 'gluten'), 'ja');
+  assert.equal(level('Sojamilch oder Kuhmilch', 'milch'), 'ja');
+});
+
+test('"vegan" macht eine Zutat frei von Tierischem, "pflanzlich" nicht', () => {
+  assert.deepEqual(ids('vegane Butter'), []);
+  assert.deepEqual(ids('Joghurt (vegan)'), []);
+  assert.deepEqual(ids('Butter, vegan'), []);
+  assert.deepEqual(ids('veganer Reibekäse'), []);
+  assert.deepEqual(ids('vegane Mayonnaise').filter((i) => i === 'eier'), []);
+  // Pflanzliches bleibt, was es ist
+  assert.deepEqual(ids('vegane Margarine'), ['soja']);
+  assert.deepEqual(ids('Hafersahne'), ['gluten']);
+  assert.deepEqual(ids('Sojajoghurt'), ['soja']);
+  assert.deepEqual(ids('Ei-Ersatz'), []);
+  // Manche pflanzliche Sahne enthaelt Buttermilch
+  assert.equal(level('pflanzliche Sahne', 'milch'), 'moeglich');
+});
+
+test('"vegan" als Ausweichmoeglichkeit aendert nichts an der ersten Wahl', () => {
+  assert.equal(level('Butter (vegan: Margarine)', 'milch'), 'ja');
+  assert.equal(level('Butter oder vegane Butter', 'milch'), 'ja');
+  assert.equal(level('vegane Butter und Sahne', 'milch'), 'ja');
+});

@@ -92,3 +92,23 @@ test('bereinige haelt Zahlen in ihren Grenzen', () => {
   assert.equal(r.ingredients[0].a, null, 'negative Menge');
   assert.equal(r.ingredients[1].a, null, 'Text als Menge');
 });
+
+test('bereinige behaelt von der Quellenangabe nur die bekannten Felder', () => {
+  const r = bereinige({
+    title: 'Abgeschrieben',
+    ingredients: [{ a: 1, u: '', n: 'Ei' }],
+    steps: ['Kochen.'],
+    quelle: { titel: '  Mein Kochbuch ', autor: 5, jahr: 2001, seite: { boese: true }, boese: '<img src=x onerror=alert(1)>' },
+  });
+
+  assert.deepEqual(r.quelle, { titel: 'Mein Kochbuch', autor: '5', jahr: '2001' });
+});
+
+test('bereinige laesst eine leere oder kaputte Quellenangabe weg', () => {
+  const basis = { title: 'Abgeschrieben', ingredients: [{ n: 'Ei' }], steps: ['Kochen.'] };
+  for (const quelle of [null, 'Buch', [], {}, { titel: '   ' }]) {
+    const r = bereinige({ ...basis, quelle });
+    assert.ok(r, JSON.stringify(quelle));
+    assert.equal('quelle' in r, false, JSON.stringify(quelle));
+  }
+});

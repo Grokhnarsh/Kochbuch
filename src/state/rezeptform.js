@@ -72,10 +72,28 @@ export function ausFormular(eingabe, id = null) {
     kcal: zahl(eingabe.kcal, 0, 0, 5000),
     tags: ['Eigenes Rezept'],
     note: String(eingabe.note || '').trim() || null,
+    ...quelleAus(eingabe),
     ingredients: zutaten.map((z) => ({ a: z.amount, u: z.unit, n: z.name })),
     steps: zeilen(eingabe.steps),
     erstellt: eingabe.erstellt || new Date().toISOString(),
     geaendert: new Date().toISOString(),
+  };
+}
+
+/**
+ * Quellenangabe eines abgeschriebenen Rezepts: Buch oder Website, Autor
+ * und Verlag, Jahr, Seite, Link. Nur, was ausgefuellt ist.
+ */
+function quelleAus(eingabe) {
+  const feld = (name, max = 160) => String(eingabe[name] ?? '').trim().slice(0, max);
+  const quelle = Object.fromEntries(
+    [['titel', feld('quelleTitel')], ['autor', feld('quelleAutor')], ['jahr', feld('quelleJahr', 12)], ['seite', feld('quelleSeite', 24)]]
+      .filter(([, wert]) => wert),
+  );
+  const link = feld('quelleLink', 500);
+  return {
+    ...(Object.keys(quelle).length ? { quelle } : {}),
+    ...(link ? { sourceUrl: link } : {}),
   };
 }
 
@@ -113,6 +131,18 @@ export function pruefe(rezept, { bestehendeIds = new Set() } = {}) {
 }
 
 const text = (x) => (typeof x === 'string' ? x.trim() : '');
+
+/** Nur die bekannten Felder einer Quellenangabe, jedes als kurzer Text */
+function quelleBereinigt(q) {
+  if (!q || typeof q !== 'object') return null;
+  const aus = {};
+  for (const [feld, max] of [['titel', 160], ['autor', 160], ['jahr', 12], ['seite', 24]]) {
+    const wert = typeof q[feld] === 'number' ? String(q[feld]) : text(q[feld]);
+    if (wert) aus[feld] = wert.slice(0, max);
+  }
+  return Object.keys(aus).length ? aus : null;
+}
+
 const ganzzahl = (x, ersatz, min, max) => {
   const n = Number(x);
   return Number.isFinite(n) ? Math.min(max, Math.max(min, Math.round(n))) : ersatz;
@@ -154,6 +184,7 @@ export function bereinige(roh, quelle = EIGENE_QUELLE.id) {
   const meals = (Array.isArray(roh.meals) ? roh.meals : []).filter((m) => MAHLZEITEN.includes(m));
   const diet = (Array.isArray(roh.diet) ? roh.diet : []).filter((d) => DIET_OPTIONS.includes(d));
   const sourceId = text(roh.sourceId) || quelle;
+  const angabe = quelleBereinigt(roh.quelle);
 
   return {
     id: text(roh.id) || `eigen-${slug(titel) || Date.now()}`,
@@ -173,6 +204,7 @@ export function bereinige(roh, quelle = EIGENE_QUELLE.id) {
     tags: (Array.isArray(roh.tags) ? roh.tags : []).map(text).filter(Boolean),
     note: text(roh.note) || null,
     sourceUrl: text(roh.sourceUrl) || null,
+    ...(angabe ? { quelle: angabe } : {}),
     ingredients: zutaten,
     steps: (Array.isArray(roh.steps) ? roh.steps : []).map(text).filter(Boolean),
     ...(roh.erstellt ? { erstellt: text(roh.erstellt) } : {}),

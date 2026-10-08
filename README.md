@@ -2,8 +2,9 @@
 
 Ein Wochen-Essensplaner in Form eines Stundenplans: sieben Tageszeilen, vier
 Mahlzeitenspalten, Gerichte in den Feldern, verschiebbar mit der Maus.
-Dazu eine Bibliothek mit rund 12.000 Rezepten aus gemeinfreien Kochbüchern und
-offen lizenzierten Wikis, eigene Rezepte zum Selbstschreiben, Allergenangaben und
+Dazu eine Bibliothek mit rund 13.100 Rezepten aus gemeinfreien Kochbüchern,
+offen lizenzierten Wikis und frei lizenzierten Kochbüchern, eigene Rezepte zum
+Selbstschreiben (auch aus eigenen Büchern, mit Quellenangabe), Allergenangaben und
 berechnete Nährwerte zu jedem Gericht, Vorschläge für eine ausgewogene Woche,
 eine Einkaufsliste, die sich aus dem Plan selbst zusammenrechnet, und der Weg
 von dort in den REWE-Onlineshop.
@@ -37,8 +38,15 @@ Fläche verschiebt, ein Doppelklick stellt den Ausschnitt wieder her.
   das Ziel belegt, tauschen die beiden den Platz.
 - **Antippen** öffnet das Rezept mit Zutaten, Zubereitung und Quellenangabe.
   Die Portionszahl dort wirkt direkt auf Plan und Einkaufsliste.
-- **Woche füllen** belegt alle leeren Frühstücks-, Mittag- und Abendslots mit
-  passenden Rezepten, ohne innerhalb einer Woche zu wiederholen.
+- **Woche füllen** plant nach Vorgaben: welche Mahlzeiten und Tage, für wie
+  viele Personen, welche Ernährungsform, wie lange die Zubereitung höchstens
+  dauert, ohne welche Allergene und wie oft Fisch. Auf Wunsch zieht der Plan
+  gut bewertete Gerichte vor oder solche, deren Zutaten im Vorrat liegen.
+  Grenzen wie Allergene und Zeit gelten immer; der Zufall bleibt, zwei Klicks
+  ergeben zwei Wochen. **Noch einmal würfeln** ersetzt nur, was eben geplant
+  wurde — von Hand Gelegtes bleibt. Die Vorgaben werden gespeichert, und
+  **Anderes Gericht** in der Rezeptansicht tauscht ein einzelnes Feld nach
+  denselben Regeln aus.
 - Der Plan liegt im `localStorage`, getrennt nach Kalenderwoche.
 
 ## Auf dem Handy
@@ -57,7 +65,10 @@ wieder weg.
 Die Bibliothek wird zum Blatt, das vom unteren Rand heraufgezogen wird — ein
 Tipp auf den Griff öffnet und schließt sie, ein Tipp auf ein leeres Feld im
 Plan öffnet sie ebenfalls. Was in der Kopfzeile keinen Platz mehr findet,
-Woche füllen, Woche leeren und Quellen, liegt unter **⋯**.
+Woche füllen, Woche leeren, Vorrat und Quellen, liegt unter **⋯** — auf
+mittleren Breiten bis 1400 Pixel auch am Rechner. Auf jeder Breite stehen
+dort Zeitplan für heute, Kalender und Rückblick sowie Einstellungen und
+Abgleich.
 
 Die Beschriftungen werden für beide Ansichten getrennt gezeichnet: hochkant ist
 Höhe reichlich vorhanden und Breite knapp, quer genau umgekehrt. Eine
@@ -80,13 +91,23 @@ Erkannt wird aus dem Zutatennamen, und zwar in zwei Stufen:
   Brühwürfel (Sellerie, Weizen), Schokolade (Sojalecithin), Butterschmalz
   (Milcheiweiß), Wein und Essig (Sulfite).
 
-Damit das trägt, gewinnt beim Suchen immer das längste passende Stichwort.
-Sonst wäre Sojamilch Milch, Muskatnuss eine Nuss, Erdnussbutter Butter und
-Hackfleisch vom Schwein ein Getränk mit Sulfiten. Umgekehrt müssen lange
+Damit das trägt, entscheidet an jeder Stelle des Namens das längste passende
+Stichwort. Sonst wäre Sojamilch Milch, Muskatnuss eine Nuss, Erdnussbutter
+Butter und Hackfleisch vom Schwein ein Getränk mit Sulfiten. Eine andere
+Stelle zählt aber für sich: „Butter oder Margarine“ enthält Milch, auch wenn
+Margarine allein sie nur enthalten *kann*, und in „Joghurt mit Kokosmilch“
+bleibt der Joghurt Milch. Umgekehrt müssen lange
 Grundwörter auch mitten im Wort gefunden werden, sonst bliebe „Ziegenkäserolle“
 unerkannt; bei kurzen Stichwörtern wäre genau das fatal, deshalb gilt es nur
-für eine ausgewählte Liste. Rund achtzig solcher Fälle stehen als Tests in
+für eine ausgewählte Liste. Rund hundert solcher Fälle stehen als Tests in
 `tests/allergene.test.js`.
+
+Steht **„vegan“** an einer Zutat — „vegane Butter“, „Joghurt (vegan)“ —, ist
+sie frei von Milch, Ei, Fisch, Krebs- und Weichtieren; was pflanzlich darin
+ist, Soja, Hafer oder Nüsse, bleibt stehen. „Pflanzlich“ allein genügt dafür
+nicht, manche pflanzliche Sahne enthält Buttermilch. Und es zählt die erste
+Wahl: „Butter (vegan: Margarine)“ und „Butter oder vegane Butter“ enthalten
+Milch.
 
 > **Wichtig:** Das Verfahren kennt nur, was im Rezept steht. Was ein
 > Fertigprodukt tatsächlich enthält, steht auf der Packung, nicht im
@@ -105,13 +126,19 @@ Tag für Tag und alle Rezepte in einer sortierbaren Tabelle.
 
 **Woher die Zahlen kommen.** Jede Zutat wird einem Lebensmittel der
 USDA-Datenbank *FoodData Central, SR Legacy* zugeordnet (gemeinfrei, CC0) —
-246 Einträge, von Weizenmehl bis Garam Masala. Die Zuordnung steht in
+267 Einträge, von Weizenmehl bis Garam Masala. Die Zuordnung steht in
 `scripts/naehrwerte/zuordnung.mjs`, und zwar nur sie: die Werte selbst zieht
 `npm run naehrwerte` aus der Datenbank und schreibt sie nach
 `src/data/naehrwerte.json`. Keine Zahl ist von Hand eingetragen; jede trägt
 ihre FDC-Nummer. Löffel- und Stückgewichte kommen ebenfalls aus der
 Datenbank, wo es passt, sonst aus deutschen Größen (ein Ei der Größe M
 wiegt ohne Schale 50 g, nicht 44 g wie ein amerikanisches „medium“).
+
+**Vegane Küche.** Tempeh, Sojaschnetzel, pflanzliche Sahne, Kokoscreme,
+Soja- und Mandeldrink haben eigene Einträge. Steht „vegan“ vor einem
+tierischen Lebensmittel, gilt sein pflanzliches Gegenstück: „vegane Butter“
+ist Margarine, „veganes Hack“ ein Fleischersatz und kein Rinderhack, das die
+Gesundheitsbewertung als rotes Fleisch zählen würde.
 
 **Was als Portion zählt.** Bei Rezepten für Personen gelten die Werte je
 Portion, bei gezählten Stücken je Stück. Ein Blech Butterkuchen, ein Glas
@@ -185,6 +212,15 @@ in den Plan legen, fließen in die Einkaufsliste ein und sind über die
 Rezeptansicht wieder zu ändern oder zu löschen. Beim Löschen verschwinden sie
 auch aus allen Wochenplänen; sonst bliebe dort ein Eintrag ohne Rezept.
 
+**Aus eigenen Kochbüchern.** Wer ein Rezept aus einem gekauften Buch
+abschreibt, trägt unter *Quelle* Buch oder Website, Autor oder Verlag, Jahr,
+Seite und einen Link ein. Die Angabe steht dann in der Rezeptansicht
+(„Quelle: *Das große Kochbuch*, Beispiel-Verlag, 1998, S. 214“), auf der
+Karte und in der Suche — ein Rezept findet sich also auch über den Titel des
+Buchs. Eine Abschrift für den eigenen Gebrauch ist erlaubt; veröffentlichen
+ließe sie sich nicht, auch nicht mit Quellenangabe. Deshalb bleiben solche
+Rezepte, wie alle eigenen, in diesem Browser.
+
 Sie liegen im `localStorage` dieses Browsers — die App hat keinen Server, der
 sie aufbewahren könnte. Ein geleerter Browser oder ein anderes Gerät heißt
 also: weg. `state/eigene.js` bringt dafür `alsDatei()` und `ausDatei()` mit.
@@ -192,7 +228,7 @@ also: weg. `state/eigene.js` bringt dafür `alsDatei()` und `ausDatei()` mit.
 ## Woher die Rezepte stammen
 
 Alle mitgelieferten Rezepte gehen auf gemeinfreie Kochbücher und offen
-lizenzierte Projekte zurück. Die Herkunft steht an jedem Rezept, mit Link auf
+lizenzierte Werke zurück. Die Herkunft steht an jedem Rezept, mit Link auf
 die Originalseite, und im Quellenverzeichnis der App.
 
 **Offene Wikis, vollständig.** Jede Rezeptseite, die Zutaten und Zubereitung
@@ -222,6 +258,34 @@ gewöhnliches Rezept.
 | [Henriette Davidis, *Praktisches Kochbuch*](https://www.deutschestextarchiv.de/davidis_kochbuch_1849), 4. Auflage, Deutsches Textarchiv | 1849 | Text gemeinfrei, Transkription CC BY-SA 4.0 | 1.054 |
 | [Viktorine Schiller, *Neuestes Süddeutsches Kochbuch*](https://www.gutenberg.org/ebooks/52879) | 1843 | gemeinfrei | 790 |
 | [Hedwig Heyl, *Volks-Kochbuch*](https://www.gutenberg.org/ebooks/13921) | 1905 | gemeinfrei | 127 |
+| [August Oetker, *Grundlehren der Kochkunst*](https://www.gutenberg.org/ebooks/31537), das erste Oetker-Kochbuch | 1895 | gemeinfrei | 10 |
+
+Das Oetker-Buch von 1895 ist gemeinfrei — August Oetker starb 1918 — und vor
+allem Hauswirtschaftslehre; Rezepte stehen nur im Kapitel „Dr. Oetker's
+Recepte": Kuchen und Gebäck mit dem damals neuen Backpulver, im Wortlaut samt
+Werbeton. Die heutigen Dr.-Oetker-Kochbücher sind geschützt und bleiben
+draußen. Ab dem Kaiserreich rechnen die Bücher metrisch; der Leser alter Texte
+versteht deshalb auch „100 g Butter" und „ein viertel Liter Milch".
+
+**Geschützt, aber frei lizenziert.** Ein urheberrechtlich geschütztes
+Kochbuch darf nur hinein, wenn sein Urheber es erlaubt — eine Quellenangabe
+allein genügt nicht. Marcus Petersen-Clausen hat seine Kochbücher auf
+Köche-Nord.de unter Creative Commons BY-SA 3.0 gestellt: nutzbar mit
+Namensnennung und unter gleichen Bedingungen. Jedes Rezept nennt Buch, Autor
+und Lizenz, verlinkt die Seite im PDF und vermerkt, dass es für die App in
+Zutaten und Arbeitsschritte gegliedert wurde. Übernommen werden nur Bücher,
+die die Lizenz selbst nennen — 16 tun das nicht und bleiben außen vor —, und
+keine, die ihr Autor als KI-erzeugt kennzeichnet. Ebenfalls nicht dabei sind
+sechs Bücher, die ihre Rezepte mit Wahlkampf oder Widmungen an Diktatoren
+verweben. Aus den übrigen fallen beim Lesen Kopf- und Fußzeilen, Hinweise auf
+unterstützte Vereine und Parteien, Spendenkonten und Länderkunde heraus;
+„Arbeitszeit: etwa 30 Minuten“ wird zur Vorbereitungszeit. Vegan heißt ein
+Rezept nur, wenn es das Buch sagt und die Zutaten es bestätigen: steht in
+einem veganen Buch schlicht „Butter“, gilt es als vegetarisch.
+
+| Quelle | Lizenz | Bücher | Rezepte |
+| --- | --- | --- | --- |
+| [Köche-Nord.de, Kochbücher von Marcus Petersen-Clausen](https://xn--kche-nord-07a.de/kochbuecher.html) | CC BY-SA 3.0 | 59 | 1.077 |
 
 **Von Hand aufbereitet** und sofort beim Start da: je 15 bis 20 Rezepte aus
 sechs historischen Büchern, behutsam modernisiert — metrische Mengen, heutige
@@ -242,6 +306,10 @@ Gartemperaturen, zeitgemäße Sprache.
   urheberrechtlich geschützt, und die Nutzungsbedingungen verbieten das
   massenhafte Kopieren. Einzelne, selbst ausgewählte Rezepte lassen sich
   importieren (siehe unten); ins Repository gelangen sie nie.
+- **Gekaufte Kochbücher** — Dr. Oetker, GU, die Thermomix-Bücher und alle
+  anderen, deren Rechte vorbehalten sind. Eine Quellenangabe ersetzt die
+  Erlaubnis nicht. Zum eigenen Gebrauch lassen sich Rezepte daraus als
+  eigenes Rezept mit Quelle abschreiben; sie bleiben dann im Browser.
 - **Kochbücher, die nur als Scan vorliegen** — ohne Transkription gibt es
   keinen Text, und eine Texterkennung alter Frakturdrucke wäre zu fehlerhaft.
 - **Frühneuhochdeutsche Bücher** wie Rumpolt (1581) oder Wecker (1598) im
@@ -253,8 +321,8 @@ Gartemperaturen, zeitgemäße Sprache.
 
 ### Wie die großen Sammlungen geladen werden
 
-Zwölftausend Rezepte im Programmbündel würden den Start um Sekunden verzögern.
-Deshalb liegen die Wikis und die Bücher im Wortlaut als statische Dateien unter
+Dreizehntausend Rezepte im Programmbündel würden den Start um Sekunden verzögern.
+Deshalb liegen die Wikis und die großen Bücher als statische Dateien unter
 `public/korpus/` — in Teilen von höchstens 2 MB, ein Rezept je Zeile — und
 kommen nach dem ersten Bild dazu. Die Bibliothek wächst dabei sichtbar, der
 Plan zeichnet Gerichte nach, die er vorher noch nicht kannte.
@@ -300,6 +368,249 @@ Dazu kommen [Gutendex](https://gutendex.com/) zum Auffinden weiterer
 gemeinfreier Kochbücher, [Open Food Facts](https://world.openfoodfacts.org/)
 (ODbL) für Produktdaten und [USDA FoodData Central](https://fdc.nal.usda.gov/)
 für Nährwerte.
+
+## Kochmodus und Timer
+
+**Kochmodus** in der Rezeptansicht zeigt einen Arbeitsschritt bildschirmfüllend
+in großer Schrift. Weiter geht es mit Wischen, den Pfeiltasten oder den großen
+Knöpfen unten; die Zutaten, auf die gewählten Portionen gerechnet, klappen
+daneben auf und lassen sich abhaken. Solange der Kochmodus offen ist, bleibt
+der Bildschirm an (Screen Wake Lock, wo der Browser es erlaubt).
+
+Zeitangaben in den Schritten werden zu Knöpfen: „15 Minuten köcheln",
+„1 Std. 30 Min. ruhen lassen", „eine halbe Stunde", auch „17 Min./100 °C"
+in Thermomix-Rezepten. Ein Tipp stellt den Timer. Bei einer Spanne wie
+„20–25 Minuten" gilt die untere Grenze — nachsehen schadet nie, zu spät schon.
+Mehrere Timer laufen nebeneinander in einer Leiste unten rechts, auch nach
+dem Schließen des Kochmodus und nach einem versehentlichen Neuladen. Ist einer
+abgelaufen, piept und vibriert es, bis jemand quittiert. Gerechnet wird mit
+dem Endzeitpunkt, nicht mit gezählten Sekunden; ein Tab im Hintergrund geht
+deshalb nicht nach.
+
+### Sprache und Vorlesen
+
+**🎤 Sprache** im Kochmodus steuert mit der Stimme: „weiter", „zurück",
+„Zutaten", „Timer zehn Minuten" (oder „Timer starten" für die Zeit im
+Schritt), „vorlesen", „Stopp" quittiert einen klingelnden Timer, „beenden"
+schließt. **🔊 Vorlesen** liest jeden Schritt beim Umblättern vor. Beides
+nutzt die Sprachdienste des Browsers und erscheint nur, wo es sie gibt. Die
+Spracherkennung schickt das Gesprochene je nach Browser an dessen Hersteller
+(in Chrome an Google); wer das nicht möchte, lässt den Knopf aus.
+
+### Zeitplan für ein Menü
+
+**Zeitplan** in der Rezeptansicht (oder „Zeitplan für heute" im Menü ⋯)
+rechnet vom Essen rückwärts: Wann muss was beginnen, damit alles zugleich
+fertig ist? Jeder Schritt bekommt die Zeit, die in ihm steht („40 Minuten
+backen"), Schritte ohne Zeitangabe teilen sich den Rest der Gesamtzeit. Wer
+Backofen und Temperatur nennt, bekommt eine Viertelstunde vorher „Backofen auf
+200 °C vorheizen". Weitere Gerichte aus dem Wochenplan kommen dazu; stehen zwei
+Arbeiten, die Hände brauchen, zur selben Zeit an, sagt der Plan es.
+„Nebenbei" heißt: Der Topf arbeitet. **Timer bis zum Start** klingelt, wenn es
+losgeht.
+
+### Ersatz, Backformen, Tassen
+
+Neben Zutaten, für die es bewährten Ersatz gibt, steht **⇄**: Buttermilch aus
+Milch und Zitronensaft, Leinsamen statt Ei, Agar-Agar statt Gelatine,
+Hefeflocken statt Parmesan — mit Menge. Jede Alternative wird gegen den
+Haushalt geprüft („Anna: nicht vegan", „Ben: enthält Milch").
+
+Nennt ein Rezept seine Form („Springform Ø 26 cm", „Kastenform 30 cm",
+„Backblech", „Form 20 × 30 cm"), lässt sich eine andere wählen; die Mengen
+folgen der Grundfläche, mit einem Hinweis zur Backzeit. Tassen und
+amerikanische Cups (die größer sind) stehen auf Wunsch in Gramm oder
+Milliliter da, über die Dichte aus der Nährwerttabelle — eine Tasse Mehl
+wiegt etwa 80 g. Auch die Einkaufsliste rechnet so und addiert dann
+„1 Tasse Mehl" und „200 g Mehl".
+
+## Vorrat
+
+Unter **Vorrat** steht, was in Küche und Kammer liegt, mit Menge („1 kg
+Mehl") oder ohne („Salz"). **Grundzutaten eintragen** füllt Salz, Pfeffer,
+Zucker, Mehl, Öl, Essig, Senf und Brühe auf einmal ein.
+
+- **Die Einkaufsliste zieht den Vorrat ab.** Ohne Menge gilt eine Zutat als
+  vorhanden; mit Menge wird gerechnet: 1 kg Mehl im Vorrat, 1,2 kg im Plan,
+  bleiben 200 g auf der Liste. Was der Vorrat deckt, steht getrennt darunter.
+  Passen die Einheiten nicht zusammen, gilt die Position als vorhanden, mit
+  dem Vermerk „Menge prüfen". **In den Vorrat** übernimmt nach dem Einkauf die
+  abgehakten Positionen.
+- **Was kann ich kochen?** sucht Rezepte, denen höchstens drei Zutaten
+  fehlen, zuerst die, für die alles da ist. Salz, Pfeffer und Wasser zählen
+  nicht.
+
+Ob ein Vorratsposten eine Zutat deckt, entscheidet das Ende des Namens, wie im
+Deutschen üblich: Weizenmehl ist Mehl, Olivenöl ist Öl, Eier decken „1 Ei".
+Tomatenmark ist aber keine Tomate, Reisnudeln sind kein Reis, und Milch
+ersetzt keine Kokosmilch. Eine Näherung bleibt es: Wer „Zucker" einträgt, dem
+gilt auch Puderzucker als vorhanden. Gekochtes zieht die App nicht selbst ab
+— der Vorrat ist eine Liste dessen, was da ist, kein Lagerbuch.
+
+**Haltbarkeit.** Zu jedem Posten lässt sich ein Datum eintragen. Was in drei
+Tagen oder früher abläuft, steht oben im Vorrat, als Zahl am Vorrat-Knopf und
+zuerst unter „Was kann ich kochen?"; die Bibliothek filtert nach **Verbraucht,
+was bald abläuft**, und Woche füllen plant es auf Wunsch zuerst ein.
+
+**📷 Scannen.** Den Strichcode einer Packung vor die Kamera halten, oder die
+Nummer darunter eintippen: Name und Menge kommen aus
+[Open Food Facts](https://world.openfoodfacts.org) (ODbL, von Freiwilligen
+gepflegt) ins Eingabefeld, eingetragen wird nach einem Blick darauf. Die
+Kamera-Erkennung (`BarcodeDetector`) gibt es in Chrome und Edge auf Android und
+dem Mac, nicht in Firefox und nicht in Safari auf dem iPhone; dort bleibt das
+Eintippen. Open Food Facts erfährt nur die Nummer.
+
+## Haushalt
+
+Unter **Haushalt** stehen die Personen, die mitessen: mit Ernährungsform,
+Allergenen und dem, was sie nicht mögen („Pilze, Koriander"). Rezepte, die für
+jemanden nicht passen, tragen in der Bibliothek ein ⚠ mit Namen, und die
+Rezeptansicht sagt, warum („Anna: enthält Nüsse"). **Woche füllen** plant auf
+Wunsch für alle am Tisch: Allergene aller zählen, Ernährungsformen gelten
+zusammen (vegan erfüllt dabei auch vegetarisch), und ohne eigene
+Personenzahl kocht der Plan für alle, die mitessen. Wer diese Woche nicht da
+ist, wird abgehakt statt gelöscht. Der Filter **Passt für den ganzen
+Haushalt** in der Bibliothek zeigt nur Rezepte ohne Konflikt.
+
+**Nährwertziele.** Je Person lassen sich Richtwerte wählen — nach Alter und
+Geschlecht aus den Referenzwerten der DGE für wenig Bewegung, gerundet — oder
+eigene Werte für Kalorien und Eiweiß eintragen. Kinder bekommen einen
+Portionsanteil: Zwei Erwachsene und ein Kindergartenkind sind zweieinhalb, Woche
+füllen kocht für drei. Die Nährwertübersicht zeigt dann je Person, wie weit
+der Plan die Tagesziele deckt; was nicht im Plan steht, fehlt darin.
+Richtwerte für Gesunde, keine Ernährungsberatung.
+
+**Rückblick.** Haushalt → Rückblick zählt je Monat: Gerichte im Plan, als
+gekocht markiert, zum ersten Mal ausprobiert, wie oft Fisch, der Anteil
+vegetarischer und saisonaler Hauptgerichte, die mittlere Ausgewogenheit, die
+geschätzten Kosten und was am häufigsten auf den Tisch kam.
+
+**Sammlungen.** Eigene Ordner wie „Weihnachten" oder „Schnell unter der
+Woche": In der Rezeptansicht legt ein Tipp das Rezept hinein, die Bibliothek
+filtert danach, und Haushalt → Sammlungen benennt um, löscht und teilt eine
+Sammlung als Link (nur mit Rezepten, die der Empfänger kennt).
+
+## Bewertungen, Notizen, Kochverlauf
+
+In jeder Rezeptansicht gibt es Sterne, eine Notiz („beim nächsten Mal weniger
+Salz") und **Heute gekocht**; wer den Kochmodus bis zum letzten Schritt
+durchgeht, trägt das Gericht ebenfalls ein. Unter Haushalt → **Gekocht** stehen
+Lieblinge und der Verlauf nach Tagen. Die Bibliothek filtert nach **Lieblingen**
+und **Schon gekocht**, und **Woche füllen** zieht auf Wunsch Gerichte mit vier
+oder fünf Sternen vor, schlecht bewertete selten und gerade Gekochtes erst nach
+zehn Tagen wieder.
+
+## Saison und Reste
+
+Ein Saisonkalender kennt rund fünfzig Obst- und Gemüsesorten aus heimischem
+Anbau, Freiland oder Lager, auf Monate gerundet. Die Rezeptansicht sagt, welche
+Zutaten gerade Saison haben und welche nicht („Erdbeeren: Mai bis Juli"); was
+haltbar gemacht ist — Marmelade, Dosentomaten, Tomatenmark — kennt keine
+Saison, und Ganzjähriges wie Kartoffeln zählt nicht mit. **Vorrat → Saison**
+zeigt, was im Monat wächst, mit passenden Gerichten; die Bibliothek filtert
+nach **Saisonal in diesem Monat**, und Woche füllen zieht Saisonales auf
+Wunsch vor.
+
+Die Einkaufsliste rechnet aus, was nach der Woche in angebrochenen Packungen
+bleibt: Braucht der Plan 120 ml Sahne, bleiben vom 200-ml-Becher 80 ml. Für
+jeden Rest stehen Rezeptideen daneben, die ihn aufbrauchen. Gerechnet wird für
+Verderbliches in üblichen Packungsgrößen (Becher, Dose, Kugel); Mehl und Reis
+halten sich und gehören in den Vorrat.
+
+## Kosten
+
+Was ein Gericht ungefähr kostet, folgt aus der Nährwertrechnung — die weiß
+schon, welches Lebensmittel hinter „2 EL Olivenöl" steht und wie viel Gramm
+das sind — und einem Richtpreis je Kilogramm oder Liter: gerundete
+Durchschnittspreise deutscher Supermärkte, Eigenmarke und Markenware gemischt,
+Stand 2026. Die Rezeptansicht nennt Gesamt- und Portionspreis, was am meisten
+kostet, und günstigere Gegenstücke, wo sie dasselbe leisten (Sonnenblumenkerne
+statt Pinienkernen, Hartkäse statt Parmesan). Die Einkaufsliste schätzt die
+Woche. Angebote, Bio und Packungsgrößen verschieben das; es ist eine
+Größenordnung, kein Kassenbon, und so steht es auch da.
+
+## Vorkochen und Einkauf bündeln
+
+**Doppelt kochen** in der Rezeptansicht eines geplanten Gerichts legt den Rest
+auf das nächste freie Feld der folgenden Tage, meist den nächsten Mittag. Die
+Einkaufsliste kauft für beide Mahlzeiten auf einmal ein und für den Rest gar
+nichts; im Plan steht er als „♻ Rest vom Vortag", die Rezeptansicht nennt die
+Herkunft. Wer den Rest entfernt, kocht wieder einfach, wer das Gericht
+entfernt, entfernt seine Reste mit — auch wenn eines davon verschoben wurde.
+
+**Woche füllen** kann das von selbst: abends doppelt, mittags der Rest
+(Fisch wird nicht aufgewärmt). **Einkauf bündeln** zieht Gerichte vor, die sich
+frische Zutaten teilen — die halbe Packung Sahne, den Lauch, den Bund
+Petersilie —, damit weniger übrig bleibt.
+
+## Sichern, Teilen, Drucken
+
+Alles liegt im Browser. Unter Haushalt → **Sichern & Teilen** entsteht eine
+Sicherungsdatei mit Plänen, eigenen Rezepten, Importen, Vorrat, Haushalt,
+Bewertungen und auf Wunsch den Fotos; eingelesen ersetzt sie die Daten im
+Browser. Was hereinkommt, wird geprüft und bereinigt. Ist die Datei **für
+andere**, bleiben Abschriften aus eigenen Kochbüchern und von Webseiten
+importierte Rezepte draußen: die eigene Kopie ist erlaubt, das Weitergeben
+nicht.
+
+**Link teilen** schickt den Wochenplan als Adresse (über das Teilen-Menü des
+Geräts oder in die Zwischenablage). Wer ihn öffnet, wird gefragt, ob der Plan
+übernommen werden soll. Der Link trägt nur Rezepte aus der gemeinsamen
+Bibliothek; eigene und importierte kennt der Empfänger nicht.
+
+**Drucken** gibt Wochenplan, Einkaufsliste mit Kästchen zum Abhaken oder ein
+Rezeptheft der Woche aus — jedes Gericht einmal, mit Zutaten für die geplanten
+Portionen und der Quellenangabe samt Lizenz. Über den Druckdialog lässt sich
+das auch als PDF speichern.
+
+**In den Kalender** lädt den Wochenplan als `.ics`-Datei für Google, Apple,
+Outlook oder Thunderbird: Jedes Gericht wird ein Termin, der so beginnt, dass
+das Essen zur üblichen Zeit fertig ist (Frühstück 7:30, Mittag 12:30, Imbiss
+15:30, Abend 18:30), mit Erinnerung. Was am Vortag beginnen muss — getrocknete
+Hülsenfrüchte einweichen, Tiefgekühltes auftauen, über Nacht gehen lassen,
+lange marinieren —, bekommt einen Termin am Vorabend um 20 Uhr.
+
+## Abgleich zwischen Geräten
+
+Unter **Einstellungen → Abgleich** (Menü ⋯) trägt man einen eigenen
+WebDAV-Speicher ein, etwa einen Ordner in der Nextcloud, dazu Benutzer und
+App-Passwort; alle Geräte tragen dieselbe Adresse ein. Dann teilen sie Plan,
+Einkaufsliste samt Haken, Vorrat, eigene und importierte Rezepte, Haushalt,
+Bewertungen und Sammlungen. Abgeglichen wird nach Änderungen, beim Öffnen und
+jede Minute, solange die App sichtbar ist.
+
+Ohne Server, der Buch führt, entscheiden Zeitstempel je Teil: Wochenpläne und
+Haken je Woche (die neuere gewinnt), Listen mit Kennung werden vereinigt, und
+was gelöscht wurde, bleibt gelöscht. Geschrieben wird mit `If-Match`, damit
+kein Gerät die Änderung eines anderen überschreibt; kommt eines dazwischen,
+wird neu geholt und gemischt. Fotos bleiben auf dem Gerät.
+
+Was die App nicht selbst schaffen kann: Der Server muss Anfragen von der
+Adresse dieser App erlauben (CORS). Nextcloud tut das von Haus aus nicht — die
+Nextcloud-App „WebAppPassword" oder eine Regel im Webserver schaltet es frei.
+Das App-Passwort liegt im Browser und geht nur an den eingetragenen Server.
+
+## Ansicht
+
+Einstellungen → Ansicht: Farbschema wie das System, hell oder dunkel —
+der Dunkelmodus hat eigene Farbstufen, auch für den Plan auf der WebGL-Bühne —,
+größere Schrift in Fenstern und Bibliothek, und ob Tassen in Gramm umgerechnet
+werden. Das gilt je Gerät und wird nicht abgeglichen.
+
+## Fotos
+
+Eigene Rezepte bekommen auf Wunsch ein Foto. Es wird auf höchstens 1200 Pixel
+verkleinert und in IndexedDB dieses Browsers gespeichert — für den
+`localStorage` wären Bilder zu groß — und steht oben in der Rezeptansicht.
+
+## Offline und als App
+
+Die App lässt sich installieren (Manifest mit Symbol) und läuft ohne Netz: ein
+Service Worker hält Startseite, Programmdateien und die großen Sammlungen
+vor. Die Startseite kommt aus dem Netz, wenn es eins gibt, sonst aus dem
+Speicher; die Programmdateien tragen ihren Inhalt im Namen und ändern sich nie;
+die Sammlungen kommen sofort aus dem Speicher und werden im Hintergrund
+erneuert. Im Entwicklungsserver ist der Service Worker aus.
 
 ## Einkaufsliste und Bestellung
 
@@ -388,13 +699,21 @@ src/
     books/         die von Hand aufbereiteten Bücher, eines je Datei
   state/           Wochenplan, Kalenderrechnung, Mengenarithmetik,
                    Einkaufsliste, Abteilungszuordnung, Allergene,
-                   Nährwerte, Gesundheitsbewertung, eigene Rezepte
+                   Nährwerte, Gesundheitsbewertung, eigene Rezepte,
+                   Zeitangaben, Vorrat, Wochenplanung nach Vorgaben,
+                   Saison, Reste, Kosten, Haushalt, Bewertungen, Sichern,
+                   Vorkochen, Kalender, Zeitplan, Sprachbefehle, Ersatz,
+                   Backformen, Rückblick, Sammlungen, Abgleich, Produkte
   webgl/           Szene, Stundenplan-Raster, Canvas-Texturen
   ui/              Bibliothek, Rezeptansicht, Rezeptformular,
-                   Einkaufsliste, Nährwerte, Vorschläge, Quellen
+                   Einkaufsliste, Nährwerte, Vorschläge, Quellen,
+                   Kochmodus, Timer, Vorrat, Woche füllen, Haushalt,
+                   Drucken, Fotos, Zeitplan, Scanner, Einstellungen,
+                   Abgleich, Ansicht
   sources/         Live-Adapter und schema.org-Importer
   shops/           Supermarkt-Anbindungen
 public/korpus/     die großen Sammlungen in Teilen, mit Verzeichnis index.json
+public/sw.js       Service Worker für den Betrieb ohne Netz, dazu Manifest und Symbole
 scripts/           Import-Werkzeug für die Kommandozeile
   korpus/          Bau des Korpus: höflicher Abruf, MediaWiki, historische
                    Texte (alte Maße und Schreibung), je Quelle ein Modul
@@ -406,7 +725,18 @@ Die Logik, die sich lohnt zu prüfen, liegt bewusst frei von App-Zustand:
 `state/shopping.js` verdichtet Einträge zu einer Liste, `state/week.js` rechnet
 Kalenderwochen, `state/allergens.js` erkennt Allergene, `state/naehrwerte.js`
 rechnet Nährwerte, `state/gesundheit.js` bewertet und schlägt vor,
-`state/rezeptform.js` macht aus Formulareingaben ein Rezept, `sources/ingredients.js` zerlegt
+`state/rezeptform.js` macht aus Formulareingaben ein Rezept,
+`state/zeiten.js` findet Zeitangaben in Schritten, `state/vorrat.js` gleicht
+Vorrat und Zutaten ab, `state/planer.js` plant nach Vorgaben,
+`state/saison.js`, `state/reste.js`, `state/kosten.js`, `state/profile.js`,
+`state/bewertung.js` und `state/teilen.js` rechnen Saison, Reste, Kosten,
+Haushalt, Bewertungen sowie Sicherung und Teilen-Link, `state/vorkochen.js`,
+`state/kalender.js`, `state/zeitplan.js`, `state/sprache.js`, `state/ersatz.js`,
+`state/formen.js`, `state/rueckblick.js`, `state/sammlungen.js`,
+`state/abgleich.js` und `state/produkt.js` Vorkochen, Kalenderdatei, Menü-Zeitplan,
+Sprachbefehle, Ersatzzutaten, Backformen und Tassen, Monatsrückblick,
+Sammlungen, das Zusammenführen beim Abgleich und Produkte aus Open Food Facts,
+`sources/ingredients.js` zerlegt
 Zutatenzeilen, `sources/schemaorg.js` liest Rezeptseiten. Der Store ruft diese
 Funktionen nur auf. `state/matcher.js` liegt darunter: die Stichwortsuche im
 Zutatennamen, die Abteilungen, Allergene und Nährwerte gemeinsam benutzen.
@@ -417,9 +747,13 @@ als Markup ausgeführt werden.
 ## Tests
 
 ```bash
-npm test               # 106 Modultests: Mengen, Einkaufsliste, Import,
+npm test               # 186 Modultests: Mengen, Einkaufsliste, Import,
                        # Korpus, Allergene, Nährwerte, Bewertung,
-                       # eigene Rezepte, Sicherheit, alte Texte, Thermomix
+                       # eigene Rezepte, Sicherheit, alte Texte, Thermomix,
+                       # Köche-Nord-Bücher, Zeitangaben, Vorrat, Planer,
+                       # Saison, Reste, Kosten, Haushalt, Sichern, Teilen,
+                       # Vorkochen, Kalender, Zeitplan, Sprache, Ersatz,
+                       # Formen, Ziele, Rückblick, Sammlungen, Abgleich
 npm run test:browser   # Rauchtest in Chromium gegen die gebaute App
 npm run test:handy     # derselbe Weg in Telefongröße, mit Berührung
 ```
@@ -433,19 +767,39 @@ leeres Formularfeld als fehlend und nicht als Null gilt, dass Nährwerte aus
 der Datenbank stammen und Frittierfett nicht als gegessen zählt, dass ein
 Linseneintopf besser abschneidet als Bratwurst in Sahne, dass Markup in
 Rezeptdaten maskiert wird, und dass kein englischer Text in Titel, Kapitel
-oder Schlagwörter zurückkehrt. Fürs Korpus prüfen sie jedes der zwölftausend
+oder Schlagwörter zurückkehrt. Fürs Korpus prüfen sie jedes der dreizehntausend
 Rezepte, dass jede vorberechnete Zusammenfassung der frischen Rechnung
 entspricht, dass kein Teil zu groß wird und nur offen lizenzierte Quellen
 darin stehen. Für die alten Bücher: dass „¼ Pfund" bei Davidis 115 g sind und
 ein bairisches Pfund bei Schiller 560 g, dass „½ Ei dick Butter" Butter meint
-und kein Ei, und dass „Aepfel" wieder „Äpfel" heißt.
+und kein Ei, und dass „Aepfel" wieder „Äpfel" heißt. Für die Köche-Nord-Bücher:
+dass Kopfzeilen, Werbung und Zwischenüberschriften nicht in die Schritte
+geraten, dass ein Titel über zwei Zeilen ganz ankommt und dass „NICHT vegan!“
+kein veganes Buch ist. Und für die vegane Küche: dass „vegane Butter“ keine
+Milch enthält und als Margarine zählt, „Butter (vegan: Margarine)“ aber
+Butter bleibt. Für die Küche: dass „1 Std. 30 Min." eine Zeitangabe ist und
+„Minutensteak" keine, dass Mehl im Vorrat Weizenmehl deckt, aber Reis keine
+Reisnudeln, und dass „zweimal Fisch" zweimal Fisch heißt und nicht viermal. Dazu: dass
+Erdbeermarmelade keine Saison hat, dass von 120 ml Sahne 80 ml im Becher
+bleiben, dass doppelt so viele Portionen doppelt so viel kosten, dass ein
+Haushalt mit Nussallergie keine Nüsse auf den Plan bekommt, und dass eine
+Sicherung für andere keine Abschriften aus Büchern enthält.
 
 Der Browsertest fährt die App hoch, wartet, bis die großen Sammlungen
 nachgeladen sind, lädt eine Import-Sammlung mit Thermomix-Rezept, plant eine
 Woche, zieht eine Karte mit der Maus in einen anderen Slot, prüft
-Einkaufsliste und Shop-Übergabe, schreibt ein eigenes Rezept, füllt die Woche
-mit gesunden Vorschlägen und prüft, dass ein eingeschleuster Titel nicht
-ausgeführt wird. Der Handytest geht denselben Weg in einem Fenster
+Einkaufsliste und Shop-Übergabe, prüft die Namensnennung eines
+Köche-Nord-Rezepts samt Lizenzlink, schreibt ein eigenes Rezept mit
+Quellenangabe und findet es über den Buchtitel wieder, füllt die Woche
+mit gesunden Vorschlägen, plant eine Woche nach Vorgaben (ohne Milch, zweimal
+Fisch, für zwei) und tauscht ein Feld aus, rechnet den Vorrat aus der
+Einkaufsliste heraus, blättert durch den Kochmodus, stellt einen Timer und
+lässt ihn nach einem Neuladen klingeln, legt eine Person mit Nussallergie an
+und plant für sie, bewertet ein Rezept und findet es unter den Lieblingen,
+prüft Saisonkalender, Reste und Kosten, druckt das Rezeptheft, sichert alles,
+leert den Browser und liest die Sicherung wieder ein, übernimmt einen geteilten
+Wochenplan, speichert ein Foto, startet die App ohne Netz und prüft, dass ein
+eingeschleuster Titel nicht ausgeführt wird. Der Handytest geht denselben Weg in einem Fenster
 von 390 × 844 Punkten, mit Berührung statt Maus.
 
 Für den Browsertest muss die gebaute App laufen:
@@ -509,6 +863,22 @@ Beim Ausbau auf das ganze Korpus kam dazu:
 - **Die Bibliothek baute bei jedem Tastendruck 260 Karten neu.** Jetzt
   entstehen sie stapelweise beim Blättern; die Suche braucht auf einem
   gedrosselten Rechner noch ein Drittel der Zeit.
+
+Mit den veganen Kochbüchern kam dazu:
+
+- **Ein langes Stichwort verdeckte den Rest des Namens.** Je Allergen
+  entschied das längste Stichwort im ganzen Zutatennamen. „Butter oder
+  Margarine“ enthielt Milch deshalb nur „vielleicht“, „Sojamilch oder
+  Kuhmilch“ gar nicht, „Walnüsse oder Erdnüsse“ keine Nüsse und
+  „Schweinebraten mit Rotwein“ keine Sulfite. 231 Zutatennamen im
+  Korpus waren betroffen; jetzt zählt jede Stelle für sich.
+- **Vegane Ersatzprodukte galten als tierisch.** „Veganes Hack“ ging als
+  Rinderhack in Nährwerte und Gesundheitsbewertung ein, „Ei-Ersatz“ als Ei,
+  „Mandeldrink“ als Mandeln (250 ml ergaben 666 statt 42 kcal), und vegane
+  Butter trug das Allergen Milch.
+- **Stärkemehl war Weizenmehl** — in den Nährwerten und als sicheres Gluten.
+  Es ist Stärke, meist aus Mais oder Kartoffeln, und steht jetzt bei „kann
+  enthalten“, weil alte Rezepte auch Weizenstärke meinen.
 
 ## Abgleich mit Git
 

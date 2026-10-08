@@ -5,7 +5,22 @@
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
   <title>Kochbuch — Wochenplaner</title>
   <meta name="description" content="WebGL-Kochbuch mit Wochen-Essensplaner und Rezepten aus offentlichen Quellen." />
-  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🍲</text></svg>" />
+  <link rel="icon" href="./icon.svg" type="image/svg+xml" />
+  <link rel="apple-touch-icon" href="./icon-180.png" />
+  <link rel="manifest" href="./manifest.webmanifest" />
+  <meta name="theme-color" content="#f0653a" />
+  <script>
+    // Farbschema vor dem ersten Bild, sonst blitzt es hell auf (siehe src/ui/ansicht.js)
+    try {
+      var a = JSON.parse(localStorage.getItem('kochbuch.ansicht.v1') || '{}') || {};
+      var h = document.documentElement;
+      var dunkel = a.thema === 'dunkel' || (a.thema !== 'hell' && window.matchMedia('(prefers-color-scheme: dark)').matches);
+      if (a.thema === 'hell') h.dataset.theme = 'light';
+      if (a.thema === 'dunkel') h.dataset.theme = 'dark';
+      h.dataset.dunkel = dunkel ? '1' : '';
+      if (a.schrift) h.style.setProperty('--schrift', String(a.schrift));
+    } catch (e) { /* ohne Speicher hell */ }
+  </script>
   <link rel="stylesheet" href="/src/style.css" />
 </head>
 <body>
@@ -29,12 +44,14 @@
     <div class="week-stats" id="week-summary" aria-live="polite"></div>
 
     <div class="topbar-actions">
-      <button class="ghost-btn" id="btn-autofill" title="Leere Felder automatisch füllen">Woche füllen</button>
+      <button class="ghost-btn" id="btn-autofill" title="Freie Felder nach Vorgaben füllen">Woche füllen</button>
       <button class="ghost-btn" id="btn-clear" title="Alle Einträge der Woche löschen">Leeren</button>
       <button class="ghost-btn" id="btn-suggest" title="Gut bewertete Gerichte für freie Felder">Gesunde Vorschläge</button>
       <button class="ghost-btn" id="btn-nutrition" title="Nährwerte der Woche und aller Rezepte">Nährwerte</button>
+      <button class="ghost-btn" id="btn-vorrat" title="Vorrat, Saison und was sich daraus kochen lässt">Vorrat</button>
+      <button class="ghost-btn" id="btn-haushalt" title="Personen, Kochverlauf, Sichern, Teilen und Drucken">Haushalt</button>
       <button class="ghost-btn" id="btn-sources">Quellen</button>
-      <button class="icon-btn only-phone" id="btn-more" aria-label="Weitere Aktionen" aria-expanded="false">&#8943;</button>
+      <button class="icon-btn" id="btn-more" aria-label="Weitere Aktionen" aria-expanded="false" title="Weitere Aktionen">&#8943;</button>
       <button class="primary-btn" id="btn-shopping">Einkaufsliste</button>
     </div>
   </header>
@@ -44,12 +61,17 @@
   <div class="armed-bar" id="armed-bar" hidden></div>
 
   <div class="phone-menu" id="phone-menu" hidden>
-    <button class="ghost-btn" data-action="autofill">Woche füllen</button>
-    <button class="ghost-btn" data-action="clear">Woche leeren</button>
-    <button class="ghost-btn" data-action="suggest">Gesunde Vorschläge</button>
-    <button class="ghost-btn" data-action="nutrition">Nährwerte</button>
+    <button class="ghost-btn dup" data-action="autofill">Woche füllen</button>
+    <button class="ghost-btn dup" data-action="clear">Woche leeren</button>
+    <button class="ghost-btn dup" data-action="suggest">Gesunde Vorschläge</button>
+    <button class="ghost-btn dup" data-action="nutrition">Nährwerte</button>
+    <button class="ghost-btn dup" data-action="vorrat">Vorrat &amp; Saison</button>
+    <button class="ghost-btn dup" data-action="haushalt">Haushalt, Teilen &amp; Drucken</button>
+    <button class="ghost-btn" data-action="zeitplan">Zeitplan für heute</button>
+    <button class="ghost-btn" data-action="kalender">Kalender &amp; Rückblick</button>
     <button class="ghost-btn" data-action="newRecipe">Eigenes Rezept schreiben</button>
-    <button class="ghost-btn" data-action="sources">Quellen &amp; Lizenzen</button>
+    <button class="ghost-btn dup" data-action="sources">Quellen &amp; Lizenzen</button>
+    <button class="ghost-btn" data-action="einstellungen">Einstellungen &amp; Abgleich</button>
   </div>
 
   <aside class="library" id="library" aria-label="Rezeptbibliothek">
@@ -74,6 +96,14 @@
         <option value="20">bis 20 Min.</option>
         <option value="40">bis 40 Min.</option>
         <option value="60">bis 60 Min.</option>
+      </select>
+      <select id="filter-mehr" aria-label="Weitere Auswahl">
+        <option value="">Alle Rezepte</option>
+        <option value="lieblinge">★ Lieblinge (4–5 Sterne)</option>
+        <option value="gekocht">Schon gekocht</option>
+        <option value="saison">Saisonal in diesem Monat</option>
+        <option value="haushalt">Passt für den ganzen Haushalt</option>
+        <option value="bald">Verbraucht, was bald abläuft</option>
       </select>
     </div>
 

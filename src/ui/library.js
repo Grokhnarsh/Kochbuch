@@ -7,6 +7,10 @@ import { filterRecipes, sources, categories, diets, recipes } from '../data/inde
 import { ALLERGENS } from '../state/allergens.js';
 import { esc } from './html.js';
 import { kcalText } from '../state/naehrwerte.js';
+import { store } from '../state/store.js';
+import { saisonFuer } from '../state/saison.js';
+import { konflikte } from '../state/profile.js';
+import { baldAblaufend, vorratsName, deckt } from '../state/vorrat.js';
 
 const els = {
   list: document.getElementById('recipe-list'),
@@ -17,6 +21,7 @@ const els = {
   diet: document.getElementById('filter-diet'),
   allergen: document.getElementById('filter-allergen'),
   time: document.getElementById('filter-time'),
+  mehr: document.getElementById('filter-mehr'),
   corpusNote: document.getElementById('corpus-note'),
   panel: document.getElementById('library'),
   toggle: document.getElementById('library-toggle'),
@@ -88,6 +93,59 @@ function readFilters() {
 }
 
 /**
+ * Die Auswahl, die am eigenen Gebrauch haengt: Bewertungen, Kochverlauf,
+ * Saison, Haushalt. Sie laeuft nach den uebrigen Filtern.
+ */
+function mehrFilter(liste) {
+  const art = els.mehr?.value;
+  if (!art) return liste;
+  if (art === 'lieblinge') return liste.filter((r) => (store.bewertung(r.id)?.sterne || 0) >= 4);
+  if (art === 'gekocht') return liste.filter((r) => store.bewertung(r.id)?.gekocht.length);
+  if (art === 'saison') {
+    const monat = new Date().getMonth() + 1;
+    return liste.filter((r) => !r.lesetext && saisonFuer(r, monat).saisonal);
+  }
+  if (art === 'haushalt') {
+    if (!store.profile.some((p) => p.aktiv)) return liste;
+    return liste.filter((r) => !konflikte(r, store.profile).length);
+  }
+  if (art === 'bald') {
+    const bald = baldAblaufend(store.vorrat).map((x) => vorratsName(x.posten.name));
+    if (!bald.length) return [];
+    return liste.filter((r) => !r.lesetext && r.ingredients.some((i) => {
+      const n = vorratsName(i.name);
+      return bald.some((k) => deckt(k, n));
+    }));
+  }
+  if (art.startsWith('sammlung:')) {
+    const s = store.sammlungen.find((x) => x.id === art.slice('sammlung:'.length));
+    const ids = new Set(s?.rezepte || []);
+    return liste.filter((r) => ids.has(r.id));
+  }
+  return liste;
+}
+
+/** Die Sammlungen als Auswahl unter "Weitere Auswahl"; neu, wenn sich Namen oder Zahl aendern */
+let sammlungsStand = '';
+function sammlungsOptionen() {
+  if (!els.mehr) return;
+  const stand = store.sammlungen.map((x) => `${x.id}=${x.name}`).join('|');
+  if (stand === sammlungsStand) return;
+  sammlungsStand = stand;
+  const wert = els.mehr.value;
+  for (const o of [...els.mehr.querySelectorAll('option[data-sammlung]')]) o.remove();
+  for (const x of store.sammlungen) {
+    const o = option(`sammlung:${x.id}`, `📁 ${x.name}`);
+    o.dataset.sammlung = '1';
+    els.mehr.append(o);
+  }
+  els.mehr.value = [...els.mehr.options].some((o) => o.value === wert) ? wert : '';
+  if (els.mehr.value !== wert) renderLibrary();
+}
+
+const gefiltert = (f) => mehrFilter(filterRecipes(f));
+
+/**
  * Ein Blatt fuer ausgewogene Gerichte. Nur ein Zeichen auf der Karte —
  * die Begruendung steht in der Rezeptansicht und in den Vorschlaegen.
  */
@@ -134,6 +192,13 @@ function cardNode(recipe) {
       }${moeglich.length ? `<span class="maybe">${moeglich.map((a) => a.icon).join('')}</span>` : ''}</span>`
     : '';
 
+  const b = store.bewertung(recipe.id);
+  const sterne = b?.sterne ? `<span class="card-sterne" title="Eigene Bewertung: ${b.sterne} von 5">★${b.sterne}</span>` : '';
+  const gegen = store.profile.some((p) => p.aktiv) ? konflikte(recipe, store.profile) : [];
+  const warnung = gegen.length
+    ? `<span class="card-konflikt" title="${esc(gegen.map((k) => `${k.name}: ${k.gruende.join(', ')}`).join(' · '))}">⚠ ${esc(gegen.map((k) => k.name).join(', '))}</span>`
+    : '';
+
   card.innerHTML = `
     <div class="swatch"></div>
     <div class="body">
@@ -143,10 +208,12 @@ function cardNode(recipe) {
         <span><b>${esc(recipe.servings)}</b> ${esc(recipe.yieldUnit || 'Port.')}</span>
         ${recipe.kcal ? `<span>${esc(kcalText(recipe))}</span>` : ''}
         ${gesundZeichen(recipe)}
+        ${sterne}
         ${allergenZeile}
+        ${warnung}
       </div>
       <div class="tag-row">
-        <span class="tag src">${esc(recipe.source?.author || recipe.source?.title || 'Quelle')}</span>
+        <span class="tag src">${esc(recipe.quelle?.titel || recipe.source?.author || recipe.source?.title || 'Quelle')}</span>
         <span class="tag">${esc(recipe.category)}</span>
         ${original}
         ${thermomix}
@@ -207,7 +274,7 @@ function beobachten() {
  *        springt die Liste nicht nach oben, waehrend jemand darin blaettert
  */
 export function renderLibrary({ behalteScroll = false } = {}) {
-  current = filterRecipes(readFilters());
+  current = gefiltert(readFilters());
 
   els.count.textContent = current.length
     ? `${zahl.format(current.length)} Rezept${current.length === 1 ? '' : 'e'}`
@@ -257,14 +324,14 @@ export function zeigeBestand({ laedt = false, fehler = false } = {}) {
  * eingetipptes "Kuchen" soll sie dagegen nicht auf Kuchen beschraenken.
  */
 export function gefilterteRezepte() {
-  return filterRecipes({ ...readFilters(), query: '' });
+  return gefiltert({ ...readFilters(), query: '' });
 }
 
 /** Die aktiven Filter in Worten, fuer Hinweise in anderen Ansichten. */
 export function filterBeschreibung() {
   const teile = [];
-  for (const sel of [els.source, els.category, els.diet, els.allergen, els.time]) {
-    if (sel.value) teile.push(sel.selectedOptions[0]?.textContent || sel.value);
+  for (const sel of [els.source, els.category, els.diet, els.allergen, els.time, els.mehr]) {
+    if (sel?.value) teile.push(sel.selectedOptions[0]?.textContent || sel.value);
   }
   return teile.join(', ');
 }
@@ -275,6 +342,12 @@ export const visibleRecipes = () => current;
 export function initLibrary(h) {
   handlers = h;
   refreshFilters();
+  sammlungsOptionen();
+  store.subscribe(() => {
+    sammlungsOptionen();
+    // Wer nach einer Sammlung filtert, sieht ein neu hineingelegtes Rezept sofort
+    if (els.mehr?.value.startsWith('sammlung:')) renderLibrary({ behalteScroll: true });
+  });
   renderLibrary();
 
   let debounce;
@@ -283,8 +356,8 @@ export function initLibrary(h) {
     debounce = setTimeout(renderLibrary, 130);
   });
 
-  for (const sel of [els.source, els.category, els.diet, els.allergen, els.time]) {
-    sel.addEventListener('change', renderLibrary);
+  for (const sel of [els.source, els.category, els.diet, els.allergen, els.time, els.mehr]) {
+    sel?.addEventListener('change', renderLibrary);
   }
 
   els.toggle.addEventListener('click', () => {

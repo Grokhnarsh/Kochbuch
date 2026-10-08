@@ -7,7 +7,9 @@ import './style.css';
 import { Stage } from './webgl/scene.js';
 import { Board, COMPACT_BREAKPOINT } from './webgl/board.js';
 import { store, isoWeekNumber, slotId } from './state/store.js';
-import { recipes, recipeById, registerRecipes, DAYS, MEALS } from './data/index.js';
+import {
+  recipes, recipeById, registerRecipes, removeRecipe, DAYS, MEALS,
+} from './data/index.js';
 import { ladeKorpus } from './data/korpus.js';
 import { ladeEigene, bereinige } from './state/eigene.js';
 import { ensureImportSource } from './sources/index.js';
@@ -22,6 +24,22 @@ import { esc } from './ui/html.js';
 import { openShoppingList } from './ui/shopping.js';
 import { openSources } from './ui/sources.js';
 import { initSummary } from './ui/summary.js';
+import { openPlaner } from './ui/planer.js';
+import { openVorrat } from './ui/vorrat.js';
+import { initTimer } from './ui/timer.js';
+import { openKochmodus } from './ui/kochmodus.js';
+import { openHaushalt } from './ui/haushalt.js';
+import { ausLink } from './state/teilen.js';
+import { sammlungAusLink } from './state/sammlungen.js';
+import { baldAblaufend } from './state/vorrat.js';
+import { openZeitplan } from './ui/zeitplan.js';
+import { openEinstellungen } from './ui/einstellungen.js';
+import { ansichtAnwenden, beiFarbwechsel, systemFolgen } from './ui/ansicht.js';
+import { initAbgleich, abgleichen } from './ui/abgleich.js';
+
+// Farbschema und Schrift, bevor etwas gezeichnet wird
+ansichtAnwenden(store.ansicht);
+systemFolgen(() => store.ansicht);
 
 const canvas = document.getElementById('stage');
 // Die Bühne braucht eine Ausdehnung, das Board die Bühne. Deshalb erst
@@ -83,6 +101,16 @@ const board = new Board(stage, {
 
 stage.setFrame(board.frame);
 
+// Hell oder dunkel: der Plan zeichnet seine Felder neu
+beiFarbwechsel(() => board.farbenNeu());
+let ansichtStand = JSON.stringify(store.ansicht);
+store.subscribe(() => {
+  const jetzt = JSON.stringify(store.ansicht);
+  if (jetzt === ansichtStand) return;
+  ansichtStand = jetzt;
+  ansichtAnwenden(store.ansicht);
+});
+
 /** Schmale Geraete bekommen die Tagesansicht und Bedienung per Tippen. */
 const isPhone = () => window.innerWidth < COMPACT_BREAKPOINT;
 
@@ -136,18 +164,70 @@ document.getElementById('week-prev').addEventListener('click', () => store.shift
 document.getElementById('week-next').addEventListener('click', () => store.shiftWeek(1));
 document.getElementById('week-today').addEventListener('click', () => store.goToday());
 
-document.getElementById('btn-shopping').addEventListener('click', openShoppingList);
+document.getElementById('btn-shopping').addEventListener('click', () => openShoppingList({ onOpen: oeffneAusUebersicht }));
 document.getElementById('btn-new-recipe').addEventListener('click', newRecipe);
 document.getElementById('btn-suggest').addEventListener('click', vorschlaegeOeffnen);
 document.getElementById('btn-nutrition').addEventListener('click', () => naehrwerteOeffnen());
 
 document.getElementById('btn-sources').addEventListener('click', () => openSources(nachQuellenAenderung));
 
-document.getElementById('btn-autofill').addEventListener('click', () => {
-  const pool = visibleRecipes().length > 12 ? visibleRecipes() : recipes;
-  store.autofill(pool);
-  fadeHint();
-});
+function planerOeffnen() {
+  openPlaner({
+    bibliothek: () => {
+      const pool = visibleRecipes();
+      return pool.length > 12 ? pool : recipes;
+    },
+    filterText: filterBeschreibung,
+    onFertig: () => fadeHint(),
+  });
+}
+
+function vorratOeffnen(ansicht) {
+  openVorrat({ onOpen: oeffneAusUebersicht, ansicht });
+}
+
+document.getElementById('btn-autofill').addEventListener('click', planerOeffnen);
+document.getElementById('btn-vorrat').addEventListener('click', () => vorratOeffnen());
+
+function haushaltOeffnen(ansicht) {
+  openHaushalt({ onOpen: oeffneAusUebersicht, ansicht });
+}
+
+document.getElementById('btn-haushalt').addEventListener('click', () => haushaltOeffnen());
+
+/** Zeitplan fuer die Gerichte von heute, sonst fuer das naechste geplante */
+function zeitplanOeffnen() {
+  const heute = (new Date().getDay() + 6) % 7;
+  const dieseWoche = store.weekStart.getTime() === startOfWeekHeute().getTime();
+  const tage = dieseWoche ? [heute, ...DAYS.map((_, i) => i).filter((i) => i > heute)] : DAYS.map((_, i) => i);
+  for (const d of tage) {
+    for (const m of ['abend', 'mittag', 'fruehstueck', 'snack']) {
+      const e = store.entry(d, m);
+      const r = e && !e.rest && recipeById.get(e.recipeId);
+      if (r && (r.steps || []).length) {
+        openZeitplan({ rezepte: [r], slot: { day: d, meal: m }, onOpen: () => openSlot({ day: d, meal: m }, afterRecipeChange) });
+        return;
+      }
+    }
+  }
+  openZeitplan({ rezepte: [] });
+}
+
+function startOfWeekHeute() {
+  const d = new Date();
+  d.setHours(0, 0, 0, 0);
+  d.setDate(d.getDate() - ((d.getDay() + 6) % 7));
+  return d;
+}
+
+/** Am Vorrat-Knopf: wie viel bald ablaeuft */
+const vorratKnopf = document.getElementById('btn-vorrat');
+function vorratZeichen() {
+  const n = baldAblaufend(store.vorrat).length;
+  vorratKnopf.innerHTML = n ? `Vorrat <span class="zaehler" title="${n} bald ablaufend">${n}</span>` : 'Vorrat';
+}
+store.subscribe(vorratZeichen);
+vorratZeichen();
 
 document.getElementById('btn-clear').addEventListener('click', () => {
   if (Object.keys(store.week).length === 0) return;
@@ -271,6 +351,7 @@ initLibrary({
 });
 
 initSummary({ onNaehrwerte: () => naehrwerteOeffnen() });
+initTimer();
 
 // ------------------------------------------------------- Grosse Sammlungen
 
@@ -300,11 +381,12 @@ const phoneMenu = document.getElementById('phone-menu');
 const moreBtn = document.getElementById('btn-more');
 
 const AKTIONEN = {
-  autofill: () => {
-    const pool = visibleRecipes().length > 12 ? visibleRecipes() : recipes;
-    store.autofill(pool);
-    fadeHint();
-  },
+  zeitplan: zeitplanOeffnen,
+  kalender: () => haushaltOeffnen('drucken'),
+  einstellungen: () => openEinstellungen(),
+  autofill: planerOeffnen,
+  vorrat: () => vorratOeffnen(),
+  haushalt: () => haushaltOeffnen(),
   clear: () => {
     if (Object.keys(store.week).length) store.clearWeek();
   },
@@ -351,10 +433,94 @@ function fadeHint() {
   hint.classList.add('faded');
 }
 
+// --------------------------------------------------- Geteilter Wochenplan
+
+/**
+ * Ein Link "#plan=…" bringt einen Plan mit. Uebernommen wird er erst
+ * nach Rueckfrage, und erst wenn die grossen Sammlungen da sind — sonst
+ * fehlten Gerichte, die aus ihnen stammen.
+ */
+function geteiltenPlanPruefen() {
+  if (geteilteSammlungPruefen()) return;
+  const geteilt = ausLink(window.location.hash);
+  if (!geteilt) return;
+  history.replaceState(null, '', window.location.pathname + window.location.search);
+  korpus.then(() => {
+    const bekannt = Object.fromEntries(Object.entries(geteilt.eintraege).filter(([, e]) => recipeById.has(e.recipeId)));
+    const n = Object.keys(bekannt).length;
+    if (!n) return;
+    const [j, m, t] = geteilt.woche.split('-').map(Number);
+    const frage = `Geteilten Wochenplan mit ${n} Gerichten für die Woche ab ${t}.${m}.${j} übernehmen? `
+      + 'Belegte Felder dieser Woche werden dabei ersetzt.';
+    if (!window.confirm(frage)) return;
+    store.weekStart = new Date(j, m - 1, t);
+    store.placeMany(bekannt);
+  });
+}
+
+/** Ein Link "#sammlung=…" bringt eine Sammlung mit; uebernommen nach Rueckfrage */
+function geteilteSammlungPruefen() {
+  const geteilt = sammlungAusLink(window.location.hash);
+  if (!geteilt) return false;
+  history.replaceState(null, '', window.location.pathname + window.location.search);
+  korpus.then(() => {
+    const bekannt = geteilt.rezepte.filter((id) => recipeById.has(id));
+    if (!bekannt.length) return;
+    if (!window.confirm(`Geteilte Sammlung „${geteilt.name}“ mit ${bekannt.length} Rezepten übernehmen?`)) return;
+    const vorhanden = store.sammlungen.find((x) => x.name === geteilt.name);
+    if (vorhanden) {
+      store.setSammlungen(store.sammlungen.map((x) => (x === vorhanden
+        ? { ...x, rezepte: [...new Set([...x.rezepte, ...bekannt])] } : x)));
+    } else {
+      store.setSammlungen([...store.sammlungen, { id: `s-${Date.now().toString(36)}`, name: geteilt.name, rezepte: bekannt }]);
+    }
+  });
+  return true;
+}
+
+geteiltenPlanPruefen();
+// Auch, wenn der Link in einem schon offenen Tab aufgeht
+window.addEventListener('hashchange', geteiltenPlanPruefen);
+
+// --------------------------------------------------------------- Offline
+
+// Nur im gebauten Stand: im Entwicklungsserver stuende der Service Worker
+// jeder Aenderung im Weg.
+if (import.meta.env.PROD && 'serviceWorker' in navigator) {
+  window.addEventListener('load', () => {
+    navigator.serviceWorker.register('./sw.js').catch(() => { /* ohne Offline-Modus geht es auch */ });
+  });
+}
+
+// ---------------------------------------------------------------- Abgleich
+
+/**
+ * Nach einem Abgleich koennen eigene und importierte Rezepte dazugekommen
+ * oder weggefallen sein; der Index muss das wissen.
+ */
+initAbgleich({
+  onNeu: ({ eigeneVorher, importeVorher }) => {
+    const eigene = new Set(ladeEigene().map((r) => r.id));
+    for (const id of eigeneVorher) if (!eigene.has(id)) removeRecipe(id);
+    ladeImporte();
+    const importe = new Set(store.loadImported().map((r) => r.id));
+    for (const id of importeVorher) if (!importe.has(id)) removeRecipe(id);
+    afterRecipeChange();
+  },
+});
+
 // "pagehide" feuert auch dort, wo "beforeunload" ausbleibt.
 window.addEventListener('pagehide', sichereImporte);
 
 // Fuer Konsole und Tests erreichbar halten
 Object.assign(window, {
-  kochbuch: { store, board, stage, recipeById, newRecipe, vorschlaegeOeffnen, naehrwerteOeffnen, korpus },
+  kochbuch: {
+    store, board, stage, recipeById, newRecipe, vorschlaegeOeffnen, naehrwerteOeffnen, planerOeffnen, vorratOeffnen, korpus,
+    kochen: (id) => openKochmodus(recipeById.get(id)),
+    haushaltOeffnen,
+    zeitplanOeffnen,
+    feldOeffnen: (day, meal) => openSlot({ day, meal }, afterRecipeChange),
+    einstellungenOeffnen: openEinstellungen,
+    abgleichen,
+  },
 });

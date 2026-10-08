@@ -9,15 +9,9 @@
 
 import * as THREE from 'three';
 import { kcalText } from '../state/naehrwerte.js';
+import { farben } from './farben.js';
 
 const FONT = '"Inter", "Segoe UI", -apple-system, system-ui, sans-serif';
-
-const INK = '#000000';
-const INK_SOFT = '#444444';
-const INK_FAINT = '#8a8a8a';
-const HEAD_FILL = '#f2f2f2';
-const TODAY_FILL = '#ffeee7';
-const TODAY_INK = '#b33b12';
 
 function makeCanvas(w, h) {
   const c = document.createElement('canvas');
@@ -71,14 +65,15 @@ function wrapLines(ctx, text, maxWidth, maxLines) {
  * Belegte Zelle: Gericht mit Kennzahlen und Herkunft.
  * Die kompakte Ansicht hat breitere, flachere Felder.
  */
-export function recipeCellTexture(recipe, servings, compact = false) {
+export function recipeCellTexture(recipe, servings, compact = false, { rest = false, extra = 0 } = {}) {
   const W = 800;
   const H = compact ? 383 : 353;
   const c = makeCanvas(W, H);
   const ctx = c.getContext('2d');
-  const accent = recipe.source?.accent || '#f0653a';
+  const f = farben();
+  const accent = rest ? f.rest : recipe.source?.accent || '#f0653a';
 
-  ctx.fillStyle = '#ffffff';
+  ctx.fillStyle = f.zelle;
   ctx.fillRect(0, 0, W, H);
 
   // Farbmarke der Quelle am linken Rand
@@ -91,12 +86,13 @@ export function recipeCellTexture(recipe, servings, compact = false) {
   ctx.font = `600 ${compact ? 30 : 34}px ${FONT}`;
   ctx.fillStyle = accent;
   ctx.letterSpacing = '1.6px';
-  ctx.fillText(recipe.category.toUpperCase(), padX, y);
+  // Ein Rest steht als solcher da: er wird aufgewaermt, nicht gekocht
+  ctx.fillText(rest ? '♻ REST VOM VORTAG' : recipe.category.toUpperCase(), padX, y);
   ctx.letterSpacing = '0px';
 
   y += compact ? 56 : 62;
   ctx.font = `700 ${compact ? 52 : 58}px ${FONT}`;
-  ctx.fillStyle = INK;
+  ctx.fillStyle = f.tinte;
   for (const line of wrapLines(ctx, recipe.title, W - padX - 34, 2)) {
     ctx.fillText(line, padX, y);
     y += compact ? 56 : 64;
@@ -104,8 +100,8 @@ export function recipeCellTexture(recipe, servings, compact = false) {
 
   // Fehlende Angaben werden weggelassen, nicht als Null gezeigt.
   const facts = [];
-  if (recipe.totalTime > 0) facts.push(`${recipe.totalTime} Min.`);
-  facts.push(`${servings} ${recipe.yieldUnit || 'Port.'}`);
+  if (recipe.totalTime > 0 && !rest) facts.push(`${recipe.totalTime} Min.`);
+  facts.push(`${servings} ${recipe.yieldUnit || 'Port.'}${extra ? ` +${extra}` : ''}`);
   // Kalorien je Portion, nicht mal der Portionszahl: wer fuer acht kocht,
   // isst nicht doppelt so viel wie fuer vier.
   if (recipe.kcal) facts.push(kcalText(recipe));
@@ -116,12 +112,12 @@ export function recipeCellTexture(recipe, servings, compact = false) {
   const srcY = compact ? y + 58 : H - 32;
 
   ctx.font = `500 ${compact ? 36 : 40}px ${FONT}`;
-  ctx.fillStyle = INK_SOFT;
+  ctx.fillStyle = f.tinteWeich;
   ctx.fillText(facts.join('   ·   '), padX, factsY);
 
   ctx.font = `500 ${compact ? 32 : 34}px ${FONT}`;
-  ctx.fillStyle = INK_FAINT;
-  const src = recipe.source?.author || recipe.source?.title || '';
+  ctx.fillStyle = f.tinteLeise;
+  const src = extra ? `davon ${extra} zum Vorkochen` : recipe.source?.author || recipe.source?.title || '';
   ctx.fillText(wrapLines(ctx, src, W - padX - 34, 1)[0] || '', padX, srcY);
 
   return toTexture(c);
@@ -133,11 +129,12 @@ export function emptyCellTexture(compact = false) {
   const H = compact ? 383 : 353;
   const c = makeCanvas(W, H);
   const ctx = c.getContext('2d');
+  const f = farben();
 
-  ctx.fillStyle = '#ffffff';
+  ctx.fillStyle = f.zelle;
   ctx.fillRect(0, 0, W, H);
 
-  ctx.strokeStyle = '#d0d0d0';
+  ctx.strokeStyle = f.plus;
   ctx.lineWidth = 5;
   ctx.lineCap = 'round';
   ctx.beginPath();
@@ -156,12 +153,13 @@ export function mealHeadTexture(meal, compact = false) {
   const H = compact ? 528 : 226;
   const c = makeCanvas(W, H);
   const ctx = c.getContext('2d');
+  const f = farben();
 
-  ctx.fillStyle = HEAD_FILL;
+  ctx.fillStyle = f.kopf;
   ctx.fillRect(0, 0, W, H);
 
   ctx.textAlign = 'center';
-  ctx.fillStyle = INK;
+  ctx.fillStyle = f.tinte;
 
   if (compact) {
     // Schmale Spalte: kein Versalsatz, notfalls zweizeilig.
@@ -190,11 +188,12 @@ export function dayHeadTexture(day, date, kcal, isToday, compact = false) {
   const c = makeCanvas(W, H);
   const ctx = c.getContext('2d');
 
+  const f = farben();
   ctx.clearRect(0, 0, W, H);
-  ctx.fillStyle = isToday ? TODAY_FILL : HEAD_FILL;
+  ctx.fillStyle = isToday ? f.heute : f.kopf;
   ctx.fillRect(0, 0, W, H);
 
-  const ink = isToday ? TODAY_INK : INK;
+  const ink = isToday ? f.heuteTinte : f.tinte;
   const datum = `${String(date.getDate()).padStart(2, '0')}.${String(date.getMonth() + 1).padStart(2, '0')}.`;
 
   if (compact) {
@@ -206,7 +205,7 @@ export function dayHeadTexture(day, date, kcal, isToday, compact = false) {
 
     ctx.textAlign = 'right';
     ctx.font = `500 46px ${FONT}`;
-    ctx.fillStyle = isToday ? TODAY_INK : INK_SOFT;
+    ctx.fillStyle = isToday ? f.heuteTinte : f.tinteWeich;
     ctx.fillText(kcal > 0 ? `${datum}   ·   ${Math.round(kcal)} kcal` : datum, W - 34, 108);
   } else {
     const right = W - 26;
@@ -217,12 +216,12 @@ export function dayHeadTexture(day, date, kcal, isToday, compact = false) {
     ctx.fillText(day.label, right, 82);
 
     ctx.font = `500 34px ${FONT}`;
-    ctx.fillStyle = isToday ? TODAY_INK : INK_FAINT;
+    ctx.fillStyle = isToday ? f.heuteTinte : f.tinteLeise;
     ctx.fillText(datum, right, 132);
 
     if (kcal > 0) {
       ctx.font = `600 30px ${FONT}`;
-      ctx.fillStyle = '#3f7d63';
+      ctx.fillStyle = f.kcal;
       ctx.fillText(`${Math.round(kcal)} kcal`, right, 184);
     }
   }
@@ -237,13 +236,14 @@ export function cornerTexture(label) {
   const H = 240;
   const c = makeCanvas(W, H);
   const ctx = c.getContext('2d');
+  const f = farben();
 
-  ctx.fillStyle = HEAD_FILL;
+  ctx.fillStyle = f.kopf;
   ctx.fillRect(0, 0, W, H);
 
   ctx.textAlign = 'center';
   ctx.font = `700 52px ${FONT}`;
-  ctx.fillStyle = INK_SOFT;
+  ctx.fillStyle = f.tinteWeich;
   ctx.fillText(label, W / 2, H / 2 + 19);
   ctx.textAlign = 'left';
 

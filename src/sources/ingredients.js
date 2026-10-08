@@ -12,7 +12,7 @@ const UNICODE_FRACTIONS = {
 /** Bekannte Einheiten und ihre kanonische Schreibweise. */
 const UNITS = new Map(Object.entries({
   g: 'g', gramm: 'g', kg: 'kg', kilogramm: 'kg', mg: 'mg',
-  ml: 'ml', milliliter: 'ml', l: 'l', liter: 'l', cl: 'cl',
+  ml: 'ml', milliliter: 'ml', l: 'l', liter: 'l', cl: 'cl', zentiliter: 'cl',
   el: 'EL', esslöffel: 'EL', essloeffel: 'EL', eßlöffel: 'EL', essl: 'EL', eßl: 'EL',
   tl: 'TL', teelöffel: 'TL', teeloeffel: 'TL', teel: 'TL', theelöffel: 'TL', theel: 'TL',
   msp: 'Msp', messerspitze: 'Msp', messersp: 'Msp',
@@ -37,7 +37,8 @@ const UNITS = new Map(Object.entries({
   // Einkaufsliste kann gleiche Zutaten nicht mehr zusammenfassen.
   tsp: 'TL', teaspoon: 'TL', teaspoons: 'TL',
   tbs: 'EL', tbsp: 'EL', tablespoon: 'EL', tablespoons: 'EL',
-  cup: 'Tasse', cups: 'Tasse',
+  // Die amerikanische Cup (236,6 ml) ist groesser als die deutsche Tasse (rund 150 ml)
+  cup: 'Cup', cups: 'Cup',
   dash: 'Prise', dashes: 'Prise', pinch: 'Prise', pinches: 'Prise',
   clove: 'Zehe', cloves: 'Zehe',
   slice: 'Scheibe', slices: 'Scheibe',

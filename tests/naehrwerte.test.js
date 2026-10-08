@@ -176,3 +176,30 @@ test('anzeige rundet und behauptet keine falsche Null', () => {
   assert.equal(anzeige(null, salz), '—');
   assert.equal(anzeige(1234.4, 'kcal'), '1.234');
 });
+
+test('"vegan" fuehrt vom tierischen Lebensmittel zum pflanzlichen', () => {
+  const id = (name) => R.zuordnen(name)?.id;
+
+  assert.equal(id('vegane Butter'), 'margarine');
+  assert.equal(id('Joghurt (vegan)'), 'sojajoghurt');
+  assert.equal(id('veganes Hack'), 'fleischersatz');
+  assert.equal(id('vegane Bratwurst'), 'fleischersatz');
+  assert.equal(id('Käse, vegan'), 'kaeseersatz');
+  // Nur die erste Wahl zaehlt, und "vegan:" nennt nur einen Ausweg
+  assert.equal(id('Butter oder vegane Butter'), 'butter');
+  assert.equal(id('Butter (vegan: Margarine)'), 'butter');
+});
+
+test('pflanzliche Erzeugnisse haben eigene Naehrwerte', () => {
+  const id = (name) => R.zuordnen(name)?.id;
+
+  assert.equal(id('Hafersahne'), 'pflanzensahne');
+  assert.equal(id('Mandeldrink'), 'mandeldrink');
+  assert.equal(id('Kokossahne'), 'kokossahne');
+  assert.equal(id('Tempeh'), 'tempeh');
+  assert.equal(id('Sojaschnetzel'), 'sojaschnetzel');
+  assert.equal(id('Ei-Ersatz'), 'staerke');
+  assert.equal(id('Aquafaba'), 'wasser');
+  // Ein Mandeldrink ist kein Beutel Mandeln
+  assert.ok(R.zuordnen('Mandeldrink').je100g.kcal < 50);
+});

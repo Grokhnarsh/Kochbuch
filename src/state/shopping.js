@@ -12,8 +12,10 @@ import { aisleFor, AISLE_ORDER } from './aisles.js';
  * @param {{recipeId:string, servings:number}[]} entries
  * @param {Map<string, object>|{get:(id:string)=>object}} lookup
  * @param {Record<string, boolean>} checked Abgehakte Positionen
+ * @param {{umrechnen?:(zutat:object)=>({amount:number, unit:string}|null)}} [opt]
+ *        rechnet etwa Tassen in Gramm, damit sie sich mit Gramm addieren
  */
-export function aggregate(entries, lookup, checked = {}) {
+export function aggregate(entries, lookup, checked = {}, { umrechnen = null } = {}) {
   const acc = new Map();
 
   for (const entry of entries) {
@@ -23,8 +25,11 @@ export function aggregate(entries, lookup, checked = {}) {
     const factor = entry.servings / (recipe.servings || 1);
 
     for (const ing of recipe.ingredients) {
-      const scaled = ing.amount == null ? null : ing.amount * factor;
-      const base = toBase(scaled, ing.unit);
+      let scaled = ing.amount == null ? null : ing.amount * factor;
+      let unit = ing.unit;
+      const metrisch = umrechnen && scaled != null ? umrechnen({ ...ing, amount: scaled }) : null;
+      if (metrisch) ({ amount: scaled, unit } = metrisch);
+      const base = toBase(scaled, unit);
       const key = `${ing.name.toLowerCase()}|${base.unit}`;
       const prev = acc.get(key);
 

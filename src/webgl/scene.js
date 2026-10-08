@@ -7,8 +7,9 @@
  */
 
 import * as THREE from 'three';
+import { farben } from './farben.js';
 
-const BG = 0xffffff;
+const BG = farben().grund;
 const CAMERA_HEIGHT = 60;
 
 /** Pan und Zoom für eine feste Draufsicht. */
@@ -90,6 +91,12 @@ export class Stage {
 
     this.clock = new THREE.Clock();
     this.renderer.setAnimationLoop(() => this.#tick());
+  }
+
+  /** Hintergrund nach dem Farbschema */
+  setHintergrund(farbe) {
+    this.renderer.setClearColor(farbe, 1);
+    this.scene.background = new THREE.Color(farbe);
   }
 
   /**

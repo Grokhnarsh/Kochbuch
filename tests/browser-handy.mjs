@@ -122,6 +122,12 @@ try {
   for (const [aktion, name, selektor] of [
     ['suggest', 'Vorschläge', '.suggest-card'],
     ['nutrition', 'Nährwerte', '.nutri-table.week'],
+    ['autofill', 'Vorgaben fürs Wochenfüllen', '.planer'],
+    ['vorrat', 'Vorrat und Kochideen', '.vorrat-form'],
+    ['haushalt', 'Haushalt, Teilen und Drucken', '.haushalt'],
+    ['zeitplan', 'Zeitplan für heute', '.zeitplan'],
+    ['kalender', 'Kalender und Rückblick', '[data-ics]'],
+    ['einstellungen', 'Einstellungen und Abgleich', '.einstellungen'],
   ]) {
     await page.locator('#btn-more').tap();
     await page.waitForTimeout(300);
@@ -134,6 +140,27 @@ try {
     await page.keyboard.press('Escape');
     await page.waitForTimeout(300);
   }
+
+  // Kochmodus auf dem Handy: ein Schritt, grosse Schrift, nichts ragt heraus
+  await page.evaluate(() => window.kochbuch.kochen('prato-wiener-schnitzel'));
+  await page.waitForTimeout(400);
+  const km = await page.evaluate(() => {
+    const k = document.querySelector('.kochmodus');
+    const text = document.querySelector('.km-text');
+    return {
+      da: Boolean(k),
+      schrift: text ? parseFloat(getComputedStyle(text).fontSize) : 0,
+      breit: document.documentElement.scrollWidth > window.innerWidth + 1,
+    };
+  });
+  check('Kochmodus füllt das Handy, große Schrift, ohne seitliches Scrollen',
+    km.da && km.schrift >= 22 && !km.breit, JSON.stringify(km));
+  await shot(page, 'handy-kochmodus');
+  await page.locator('.km-weiter').tap();
+  await page.waitForTimeout(200);
+  const stand = await page.locator('.km-stand').textContent();
+  check('Weiter blättert per Tippen', /^Schritt 2 /.test(stand), stand);
+  await page.locator('.km-zu').tap();
 
   check('keine Fehler in der Browserkonsole', errors.length === 0, errors.join(' | '));
 } finally {

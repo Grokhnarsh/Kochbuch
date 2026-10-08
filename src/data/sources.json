@@ -93,6 +93,19 @@
       "accent": "#3D6E8C"
     },
     {
+      "id": "oetker-1895",
+      "kind": "buch",
+      "title": "Dr. A. Oetkers Grundlehren der Kochkunst sowie preisgekrönte Rezepte für Haus und Küche",
+      "author": "August Oetker",
+      "year": 1895,
+      "country": "Deutschland",
+      "license": "Gemeinfrei",
+      "licenseUrl": "https://de.wikipedia.org/wiki/Gemeinfreiheit",
+      "url": "https://www.gutenberg.org/ebooks/31537",
+      "via": "Projekt Gutenberg (eBook 31537), Wortlaut; das erste Oetker-Kochbuch",
+      "accent": "#8C3D4F"
+    },
+    {
       "id": "prato-1858",
       "kind": "buch",
       "title": "Die Süddeutsche Küche",
@@ -169,6 +182,19 @@
       "url": "https://rezepte.fandom.com/de/wiki/Rezepte_Wiki",
       "via": "rezepte.fandom.com, alle Artikel mit Zutaten und Zubereitung",
       "accent": "#C0508A"
+    },
+    {
+      "id": "koeche-nord",
+      "kind": "buch",
+      "title": "Köche-Nord.de Kochbücher",
+      "author": "Marcus Petersen-Clausen",
+      "year": 2024,
+      "country": "Deutschland",
+      "license": "CC BY-SA 3.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0/de/",
+      "url": "https://xn--kche-nord-07a.de/kochbuecher.html",
+      "via": "Kostenlose PDF-Kochbücher, urheberrechtlich geschützt und unter CC BY-SA 3.0 freigegeben",
+      "accent": "#2E7D6B"
     },
     {
       "id": "themealdb",
