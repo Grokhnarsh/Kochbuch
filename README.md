@@ -38,8 +38,15 @@ Fläche verschiebt, ein Doppelklick stellt den Ausschnitt wieder her.
   das Ziel belegt, tauschen die beiden den Platz.
 - **Antippen** öffnet das Rezept mit Zutaten, Zubereitung und Quellenangabe.
   Die Portionszahl dort wirkt direkt auf Plan und Einkaufsliste.
-- **Woche füllen** belegt alle leeren Frühstücks-, Mittag- und Abendslots mit
-  passenden Rezepten, ohne innerhalb einer Woche zu wiederholen.
+- **Woche füllen** plant nach Vorgaben: welche Mahlzeiten und Tage, für wie
+  viele Personen, welche Ernährungsform, wie lange die Zubereitung höchstens
+  dauert, ohne welche Allergene und wie oft Fisch. Auf Wunsch zieht der Plan
+  gut bewertete Gerichte vor oder solche, deren Zutaten im Vorrat liegen.
+  Grenzen wie Allergene und Zeit gelten immer; der Zufall bleibt, zwei Klicks
+  ergeben zwei Wochen. **Noch einmal würfeln** ersetzt nur, was eben geplant
+  wurde — von Hand Gelegtes bleibt. Die Vorgaben werden gespeichert, und
+  **Anderes Gericht** in der Rezeptansicht tauscht ein einzelnes Feld nach
+  denselben Regeln aus.
 - Der Plan liegt im `localStorage`, getrennt nach Kalenderwoche.
 
 ## Auf dem Handy
@@ -58,7 +65,8 @@ wieder weg.
 Die Bibliothek wird zum Blatt, das vom unteren Rand heraufgezogen wird — ein
 Tipp auf den Griff öffnet und schließt sie, ein Tipp auf ein leeres Feld im
 Plan öffnet sie ebenfalls. Was in der Kopfzeile keinen Platz mehr findet,
-Woche füllen, Woche leeren und Quellen, liegt unter **⋯**.
+Woche füllen, Woche leeren, Vorrat und Quellen, liegt unter **⋯** — auf
+mittleren Breiten bis 1180 Pixel auch am Rechner.
 
 Die Beschriftungen werden für beide Ansichten getrennt gezeichnet: hochkant ist
 Höhe reichlich vorhanden und Breite knapp, quer genau umgekehrt. Eine
@@ -351,6 +359,47 @@ gemeinfreier Kochbücher, [Open Food Facts](https://world.openfoodfacts.org/)
 (ODbL) für Produktdaten und [USDA FoodData Central](https://fdc.nal.usda.gov/)
 für Nährwerte.
 
+## Kochmodus und Timer
+
+**Kochmodus** in der Rezeptansicht zeigt einen Arbeitsschritt bildschirmfüllend
+in großer Schrift. Weiter geht es mit Wischen, den Pfeiltasten oder den großen
+Knöpfen unten; die Zutaten, auf die gewählten Portionen gerechnet, klappen
+daneben auf und lassen sich abhaken. Solange der Kochmodus offen ist, bleibt
+der Bildschirm an (Screen Wake Lock, wo der Browser es erlaubt).
+
+Zeitangaben in den Schritten werden zu Knöpfen: „15 Minuten köcheln",
+„1 Std. 30 Min. ruhen lassen", „eine halbe Stunde", auch „17 Min./100 °C"
+in Thermomix-Rezepten. Ein Tipp stellt den Timer. Bei einer Spanne wie
+„20–25 Minuten" gilt die untere Grenze — nachsehen schadet nie, zu spät schon.
+Mehrere Timer laufen nebeneinander in einer Leiste unten rechts, auch nach
+dem Schließen des Kochmodus und nach einem versehentlichen Neuladen. Ist einer
+abgelaufen, piept und vibriert es, bis jemand quittiert. Gerechnet wird mit
+dem Endzeitpunkt, nicht mit gezählten Sekunden; ein Tab im Hintergrund geht
+deshalb nicht nach.
+
+## Vorrat
+
+Unter **Vorrat** steht, was in Küche und Kammer liegt, mit Menge („1 kg
+Mehl") oder ohne („Salz"). **Grundzutaten eintragen** füllt Salz, Pfeffer,
+Zucker, Mehl, Öl, Essig, Senf und Brühe auf einmal ein.
+
+- **Die Einkaufsliste zieht den Vorrat ab.** Ohne Menge gilt eine Zutat als
+  vorhanden; mit Menge wird gerechnet: 1 kg Mehl im Vorrat, 1,2 kg im Plan,
+  bleiben 200 g auf der Liste. Was der Vorrat deckt, steht getrennt darunter.
+  Passen die Einheiten nicht zusammen, gilt die Position als vorhanden, mit
+  dem Vermerk „Menge prüfen". **In den Vorrat** übernimmt nach dem Einkauf die
+  abgehakten Positionen.
+- **Was kann ich kochen?** sucht Rezepte, denen höchstens drei Zutaten
+  fehlen, zuerst die, für die alles da ist. Salz, Pfeffer und Wasser zählen
+  nicht.
+
+Ob ein Vorratsposten eine Zutat deckt, entscheidet das Ende des Namens, wie im
+Deutschen üblich: Weizenmehl ist Mehl, Olivenöl ist Öl, Eier decken „1 Ei".
+Tomatenmark ist aber keine Tomate, Reisnudeln sind kein Reis, und Milch
+ersetzt keine Kokosmilch. Eine Näherung bleibt es: Wer „Zucker" einträgt, dem
+gilt auch Puderzucker als vorhanden. Gekochtes zieht die App nicht selbst ab
+— der Vorrat ist eine Liste dessen, was da ist, kein Lagerbuch.
+
 ## Einkaufsliste und Bestellung
 
 Aus dem Wochenplan entsteht die Liste automatisch: Zutaten werden auf die
@@ -438,10 +487,12 @@ src/
     books/         die von Hand aufbereiteten Bücher, eines je Datei
   state/           Wochenplan, Kalenderrechnung, Mengenarithmetik,
                    Einkaufsliste, Abteilungszuordnung, Allergene,
-                   Nährwerte, Gesundheitsbewertung, eigene Rezepte
+                   Nährwerte, Gesundheitsbewertung, eigene Rezepte,
+                   Zeitangaben, Vorrat, Wochenplanung nach Vorgaben
   webgl/           Szene, Stundenplan-Raster, Canvas-Texturen
   ui/              Bibliothek, Rezeptansicht, Rezeptformular,
-                   Einkaufsliste, Nährwerte, Vorschläge, Quellen
+                   Einkaufsliste, Nährwerte, Vorschläge, Quellen,
+                   Kochmodus, Timer, Vorrat, Woche füllen
   sources/         Live-Adapter und schema.org-Importer
   shops/           Supermarkt-Anbindungen
 public/korpus/     die großen Sammlungen in Teilen, mit Verzeichnis index.json
@@ -456,7 +507,9 @@ Die Logik, die sich lohnt zu prüfen, liegt bewusst frei von App-Zustand:
 `state/shopping.js` verdichtet Einträge zu einer Liste, `state/week.js` rechnet
 Kalenderwochen, `state/allergens.js` erkennt Allergene, `state/naehrwerte.js`
 rechnet Nährwerte, `state/gesundheit.js` bewertet und schlägt vor,
-`state/rezeptform.js` macht aus Formulareingaben ein Rezept, `sources/ingredients.js` zerlegt
+`state/rezeptform.js` macht aus Formulareingaben ein Rezept,
+`state/zeiten.js` findet Zeitangaben in Schritten, `state/vorrat.js` gleicht
+Vorrat und Zutaten ab, `state/planer.js` plant nach Vorgaben, `sources/ingredients.js` zerlegt
 Zutatenzeilen, `sources/schemaorg.js` liest Rezeptseiten. Der Store ruft diese
 Funktionen nur auf. `state/matcher.js` liegt darunter: die Stichwortsuche im
 Zutatennamen, die Abteilungen, Allergene und Nährwerte gemeinsam benutzen.
@@ -467,10 +520,10 @@ als Markup ausgeführt werden.
 ## Tests
 
 ```bash
-npm test               # 125 Modultests: Mengen, Einkaufsliste, Import,
+npm test               # 147 Modultests: Mengen, Einkaufsliste, Import,
                        # Korpus, Allergene, Nährwerte, Bewertung,
                        # eigene Rezepte, Sicherheit, alte Texte, Thermomix,
-                       # Köche-Nord-Bücher
+                       # Köche-Nord-Bücher, Zeitangaben, Vorrat, Planer
 npm run test:browser   # Rauchtest in Chromium gegen die gebaute App
 npm run test:handy     # derselbe Weg in Telefongröße, mit Berührung
 ```
@@ -494,7 +547,9 @@ dass Kopfzeilen, Werbung und Zwischenüberschriften nicht in die Schritte
 geraten, dass ein Titel über zwei Zeilen ganz ankommt und dass „NICHT vegan!“
 kein veganes Buch ist. Und für die vegane Küche: dass „vegane Butter“ keine
 Milch enthält und als Margarine zählt, „Butter (vegan: Margarine)“ aber
-Butter bleibt.
+Butter bleibt. Für die Küche: dass „1 Std. 30 Min." eine Zeitangabe ist und
+„Minutensteak" keine, dass Mehl im Vorrat Weizenmehl deckt, aber Reis keine
+Reisnudeln, und dass „zweimal Fisch" zweimal Fisch heißt und nicht viermal.
 
 Der Browsertest fährt die App hoch, wartet, bis die großen Sammlungen
 nachgeladen sind, lädt eine Import-Sammlung mit Thermomix-Rezept, plant eine
@@ -502,8 +557,11 @@ Woche, zieht eine Karte mit der Maus in einen anderen Slot, prüft
 Einkaufsliste und Shop-Übergabe, prüft die Namensnennung eines
 Köche-Nord-Rezepts samt Lizenzlink, schreibt ein eigenes Rezept mit
 Quellenangabe und findet es über den Buchtitel wieder, füllt die Woche
-mit gesunden Vorschlägen und prüft, dass ein eingeschleuster Titel nicht
-ausgeführt wird. Der Handytest geht denselben Weg in einem Fenster
+mit gesunden Vorschlägen, plant eine Woche nach Vorgaben (ohne Milch, zweimal
+Fisch, für zwei) und tauscht ein Feld aus, rechnet den Vorrat aus der
+Einkaufsliste heraus, blättert durch den Kochmodus, stellt einen Timer und
+lässt ihn nach einem Neuladen klingeln, und prüft, dass ein eingeschleuster
+Titel nicht ausgeführt wird. Der Handytest geht denselben Weg in einem Fenster
 von 390 × 844 Punkten, mit Berührung statt Maus.
 
 Für den Browsertest muss die gebaute App laufen:

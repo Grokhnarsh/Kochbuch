@@ -5,7 +5,8 @@
 
 import { openModal, closeModal, el } from './modal.js';
 import { store, maxServingsFor } from '../state/store.js';
-import { recipeById, MEALS, DAYS, vollstaendig } from '../data/index.js';
+import { recipeById, recipes, MEALS, DAYS, vollstaendig } from '../data/index.js';
+import { wuerfleFeld } from '../state/planer.js';
 import { formatAmount } from '../state/units.js';
 import { allergensForRecipe, HINWEIS } from '../state/allergens.js';
 import { istEigenes } from '../state/eigene.js';
@@ -14,7 +15,7 @@ import { esc, safeUrl } from './html.js';
 import { NAEHRSTOFFE, REFERENZ, anzeige } from '../state/naehrwerte.js';
 import { HINWEIS_GESUNDHEIT } from '../state/gesundheit.js';
 import { naehrwertQuelle } from '../data/index.js';
-import { markiereEinstellungen } from '../sources/thermomix.js';
+import { schrittHtml, timerKnoepfe, openKochmodus } from './kochmodus.js';
 
 const liste = (namen) => namen.map((n) => esc(n)).join(', ');
 
@@ -141,6 +142,7 @@ export function openRecipe(recipe, slot = null, onPlace = null, onEdited = null)
 
   const body = el('div');
   const foot = el('div');
+  timerKnoepfe(body);
 
   const source = recipe.source;
   const subtitle = [
@@ -160,8 +162,10 @@ export function openRecipe(recipe, slot = null, onPlace = null, onEdited = null)
       })
       .join('');
 
-    // Thermomix-Einstellungen ("10 Sek./Stufe 5") hervorheben — nach dem Maskieren
-    const steps = (recipe.steps || []).map((s) => `<li>${markiereEinstellungen(esc(s))}</li>`).join('');
+    // Thermomix-Einstellungen ("10 Sek./Stufe 5") hervorgehoben, Zeitangaben als Timer-Knopf
+    const steps = (recipe.steps || [])
+      .map((s, i) => `<li>${schrittHtml(s, { name: `${recipe.title.slice(0, 24)}, Schritt ${i + 1}` })}</li>`)
+      .join('');
     const link = recipe.sourceUrl || source?.url;
 
     // Bei abgeschriebenen Rezepten die Angabe, woher sie stammen
@@ -225,6 +229,16 @@ export function openRecipe(recipe, slot = null, onPlace = null, onEdited = null)
   function renderFoot() {
     foot.replaceChildren();
 
+    if ((recipe.steps || []).length) {
+      const kochen = el('button', 'ghost-btn km-start', 'Kochmodus');
+      kochen.title = 'Schritt für Schritt, großer Text, Timer, Bildschirm bleibt an';
+      kochen.addEventListener('click', () => {
+        closeModal();
+        openKochmodus(recipe, { servings });
+      });
+      foot.append(kochen);
+    }
+
     if (istEigenes(recipe)) {
       const aendern = el('button', 'ghost-btn', 'Bearbeiten');
       aendern.addEventListener('click', () => openRecipeEditor(recipe, { onSaved: onEdited, onDeleted: onEdited }));
@@ -237,6 +251,20 @@ export function openRecipe(recipe, slot = null, onPlace = null, onEdited = null)
       where.style.color = 'var(--ink-faint)';
       where.style.fontSize = '12.5px';
 
+      // Nach denselben Vorgaben wie "Woche füllen" ein anderes Gericht ziehen
+      const anders = el('button', 'ghost-btn', 'Anderes Gericht');
+      anders.title = 'Ein anderes Rezept für dieses Feld, nach den Vorgaben von „Woche füllen“';
+      anders.addEventListener('click', () => {
+        const neu = wuerfleFeld(recipes, store.week, slot, store.vorgaben, { vorrat: store.vorrat, lookup: recipeById });
+        if (!neu) {
+          anders.textContent = 'Kein anderes passendes';
+          anders.disabled = true;
+          return;
+        }
+        store.place(slot.day, slot.meal, neu.recipeId, neu.servings);
+        openSlot(slot, onEdited);
+      });
+
       const remove = el('button', 'ghost-btn', 'Aus Plan entfernen');
       remove.addEventListener('click', () => {
         store.remove(slot.day, slot.meal);
@@ -246,7 +274,7 @@ export function openRecipe(recipe, slot = null, onPlace = null, onEdited = null)
       const done = el('button', 'primary-btn', 'Fertig');
       done.addEventListener('click', closeModal);
 
-      foot.append(where, el('span', 'spacer'), remove, done);
+      foot.append(where, el('span', 'spacer'), anders, remove, done);
     } else {
       const add = el('button', 'primary-btn', 'In den Plan legen');
       add.addEventListener('click', () => {

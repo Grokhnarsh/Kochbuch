@@ -87,9 +87,15 @@ try {
   check('Rezept erscheint als Karte auf dem Board', placed === 1, `${placed}`);
 
   await page.click('#btn-autofill');
-  await page.waitForTimeout(1100);
+  await page.waitForTimeout(400);
+  await shot(page, '02a-woche-fuellen');
+  await page.locator('.modal-foot .primary-btn').click();
+  await page.waitForTimeout(900);
   const filled = await page.evaluate(() => Object.keys(window.kochbuch.store.week).length);
   check('Woche füllen belegt 21 Slots', filled === 21, `${filled}`);
+  const meldung = await page.locator('.planer-ergebnis').textContent();
+  check('und sagt, wie viele Felder es waren', /20 Felder geplant/.test(meldung), meldung);
+  await page.keyboard.press('Escape');
   await shot(page, '02-woche');
 
   // Karte per Maus in einen freien Slot ziehen
@@ -336,6 +342,167 @@ try {
   check('und alle Mahlzeiten mit belastbaren Werten', tabellenZeilen > 200, `${tabellenZeilen} Zeilen`);
   await shot(page, '12-uebersicht');
   await page.keyboard.press('Escape');
+
+  // --------------------------------------------------- Woche nach Vorgaben
+
+  await page.click('#btn-clear');
+  await page.waitForTimeout(300);
+  await page.click('#btn-autofill');
+  await page.waitForTimeout(400);
+  // Nur Mittag und Abend, vegetarisch nicht, aber ohne Milch und zweimal Fisch, fuer zwei
+  await page.locator('.planer input[name="mahlzeiten"][value="fruehstueck"]').uncheck({ force: true });
+  await page.locator('.planer input[name="ohneAllergene"][value="milch"]').check({ force: true });
+  await page.selectOption('.planer select[name="fischProWoche"]', '2');
+  await page.selectOption('.planer select[name="personen"]', '2');
+  await page.locator('.modal-foot .primary-btn').click();
+  await page.waitForTimeout(800);
+  const plan = await page.evaluate(() => {
+    const { store, recipeById } = window.kochbuch;
+    const e = Object.entries(store.week).map(([k, v]) => ({ k, v, r: recipeById.get(v.recipeId) }));
+    return {
+      n: e.length,
+      fruehstueck: e.filter((x) => x.k.endsWith('fruehstueck')).length,
+      milch: e.filter((x) => x.r.allergens.some((a) => a.id === 'milch')).length,
+      fisch: e.filter((x) => x.r.allergens.some((a) => a.id === 'fisch' && a.level === 'ja')).length,
+      zwei: e.every((x) => x.v.servings === 2 || (x.r.yieldUnit && !/portion/i.test(x.r.yieldUnit))),
+    };
+  });
+  check('Woche nach Vorgaben: Mittag und Abend, ohne Milch, 2× Fisch, für zwei',
+    plan.n === 14 && plan.fruehstueck === 0 && plan.milch === 0 && plan.fisch === 2 && plan.zwei, JSON.stringify(plan));
+  const ersteWoche = await page.evaluate(() => JSON.stringify(window.kochbuch.store.week));
+  await page.locator('.modal-foot .primary-btn').click();
+  await page.waitForTimeout(800);
+  const zweiteWoche = await page.evaluate(() => JSON.stringify(window.kochbuch.store.week));
+  check('noch einmal würfeln ergibt eine andere Woche', ersteWoche !== zweiteWoche
+    && (await page.evaluate(() => Object.keys(window.kochbuch.store.week).length)) === 14);
+  await shot(page, '13-vorgaben');
+  await page.keyboard.press('Escape');
+
+  // Ein Feld neu wuerfeln, nach denselben Vorgaben
+  const feld = await page.evaluate(() => Object.entries(window.kochbuch.store.week)[0]);
+  await page.evaluate(([k]) => {
+    const [day, meal] = k.split(':');
+    window.kochbuch.board.handlers.onSelect({ day: Number(day), meal });
+  }, feld);
+  await page.waitForTimeout(400);
+  const andersDa = await page.locator('.modal-foot .ghost-btn', { hasText: 'Anderes Gericht' }).count();
+  if (andersDa) {
+    await page.locator('.modal-foot .ghost-btn', { hasText: 'Anderes Gericht' }).click();
+    await page.waitForTimeout(400);
+  }
+  const getauscht = await page.evaluate(([k, e]) => {
+    const neu = window.kochbuch.store.week[k];
+    const r = window.kochbuch.recipeById.get(neu.recipeId);
+    return { anders: neu.recipeId !== e.recipeId, milch: r.allergens.some((a) => a.id === 'milch') };
+  }, feld);
+  check('„Anderes Gericht“ tauscht ein Feld nach den Vorgaben', andersDa === 1 && getauscht.anders && !getauscht.milch,
+    JSON.stringify({ andersDa, ...getauscht }));
+  await page.keyboard.press('Escape');
+  await page.waitForTimeout(300);
+
+  // --------------------------------------------------- Vorrat
+
+  await page.click('#btn-vorrat');
+  await page.waitForTimeout(400);
+  for (const p of ['1 kg Mehl', 'Salz', 'Eier', 'Milch']) {
+    await page.fill('.vorrat-form input', p);
+    await page.keyboard.press('Enter');
+    await page.waitForTimeout(150);
+  }
+  const imVorrat = await page.locator('.vorrat-liste li').count();
+  check('Vorrat nimmt Zutaten mit und ohne Menge auf', imVorrat === 4, `${imVorrat}`);
+  await page.locator('.seg-btn[data-tab="kochen"]').click();
+  await page.waitForTimeout(800);
+  const kochbar = await page.locator('.vorrat-card').count();
+  const allesDa = await page.locator('.vorrat-card .passt').count();
+  check('„Was kann ich kochen?“ findet Rezepte aus dem Vorrat', kochbar > 5 && allesDa > 0, `${kochbar} Karten, ${allesDa} mit allem`);
+  await shot(page, '14-vorrat');
+  await page.keyboard.press('Escape');
+
+  await page.evaluate(() => {
+    const s = window.kochbuch.store;
+    s.clearWeek();
+    s.place(0, 'mittag', 'prato-wiener-schnitzel');
+  });
+  await page.click('#btn-shopping');
+  await page.waitForTimeout(500);
+  const gedeckt = await page.locator('.vorrat-gedeckt .shop-item').allTextContents();
+  const offen = await page.locator('.shop-item input[type=checkbox]').count();
+  check('die Einkaufsliste zieht den Vorrat ab', gedeckt.some((t) => /Ei/.test(t)) && gedeckt.some((t) => /Mehl/.test(t)),
+    `${gedeckt.length} gedeckt, ${offen} offen: ${gedeckt.join(' | ').replace(/\s+/g, ' ')}`);
+  await shot(page, '15-liste-mit-vorrat');
+  await page.keyboard.press('Escape');
+  await page.evaluate(() => window.kochbuch.store.setVorrat([]));
+
+  // --------------------------------------------------- Kochmodus
+
+  await page.fill('#search', 'Linseneintopf');
+  await page.waitForTimeout(400);
+  await page.locator('.recipe-card').first().click();
+  await page.waitForTimeout(400);
+  await page.locator('.modal-foot .km-start').click();
+  await page.waitForTimeout(400);
+  const km = await page.evaluate(() => ({
+    offen: Boolean(document.querySelector('.kochmodus')),
+    stand: document.querySelector('.km-stand')?.textContent,
+  }));
+  check('Kochmodus öffnet mit dem ersten Schritt', km.offen && /^Schritt 1 von \d+/.test(km.stand || ''), km.stand);
+  await page.keyboard.press('ArrowRight');
+  await page.waitForTimeout(200);
+  const zwei = await page.locator('.km-stand').textContent();
+  check('Pfeiltaste blättert weiter', /^Schritt 2 /.test(zwei), zwei);
+  await page.locator('.km-zutaten-btn').click();
+  const zutatenSichtbar = await page.locator('.km-zutaten li').first().isVisible();
+  check('die Zutaten lassen sich daneben aufklappen', zutatenSichtbar);
+  await shot(page, '16-kochmodus');
+  await page.keyboard.press('Escape');
+  await page.waitForTimeout(200);
+  check('Escape beendet den Kochmodus', (await page.locator('.kochmodus').count()) === 0);
+  await page.fill('#search', '');
+  await page.waitForTimeout(300);
+
+  // Ein Schritt mit Zeitangabe stellt einen Timer, der auch ohne Kochmodus weiterlaeuft
+  await page.evaluate(() => {
+    window.kochbuch.store.saveOwn({
+      id: 'eigen-timertest', sourceId: 'eigene', title: 'Timertest', category: 'Hauptgericht', meals: ['mittag'],
+      servings: 2, ingredients: [{ a: 200, u: 'g', n: 'Nudeln' }],
+      steps: ['Nudeln 10 Minuten kochen.', 'Abgießen und 1 Std. 30 Min. ziehen lassen.'],
+    });
+  });
+  await page.reload({ waitUntil: 'networkidle' });
+  await page.waitForTimeout(1500);
+  await page.fill('#search', 'Timertest');
+  await page.waitForTimeout(400);
+  await page.locator('.recipe-card').first().click();
+  await page.waitForTimeout(400);
+  const zeitKnoepfe = await page.locator('.modal .zeit-btn').allTextContents();
+  check('Zeitangaben in den Schritten sind Timer-Knöpfe', zeitKnoepfe.length === 2, zeitKnoepfe.join(' | '));
+  await page.locator('.modal-foot .km-start').click();
+  await page.waitForTimeout(300);
+  await page.locator('.kochmodus .zeit-btn').first().click();
+  await page.waitForTimeout(400);
+  const timerText = await page.locator('.timer-chip').first().textContent();
+  check('ein Tipp stellt den Timer', /9:5\d|10:00/.test(timerText), timerText.replace(/\s+/g, ' '));
+  await shot(page, '17-timer');
+  await page.keyboard.press('Escape');
+  await page.waitForTimeout(300);
+  const nochDa = await page.locator('.timer-chip').count();
+  check('der Timer läuft nach dem Kochmodus weiter', nochDa === 1);
+  // Abgelaufen: die Leiste meldet es, bis jemand quittiert
+  await page.evaluate(() => {
+    const t = JSON.parse(localStorage.getItem('kochbuch.timer.v1'))[0];
+    t.ende = Date.now() - 1000;
+    localStorage.setItem('kochbuch.timer.v1', JSON.stringify([t]));
+  });
+  await page.reload({ waitUntil: 'networkidle' });
+  await page.waitForTimeout(1200);
+  const fertig = await page.locator('.timer-chip.fertig').count();
+  check('ein abgelaufener Timer meldet sich, auch nach dem Neuladen', fertig === 1);
+  await page.locator('.timer-chip .timer-btn').last().click();
+  await page.waitForTimeout(300);
+  check('und verschwindet nach dem Quittieren', (await page.locator('.timer-chip').count()) === 0);
+  await page.fill('#search', '');
+  await page.waitForTimeout(300);
 
   // --------------------------------------------------- Sicherheit
 

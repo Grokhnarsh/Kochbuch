@@ -22,6 +22,10 @@ import { esc } from './ui/html.js';
 import { openShoppingList } from './ui/shopping.js';
 import { openSources } from './ui/sources.js';
 import { initSummary } from './ui/summary.js';
+import { openPlaner } from './ui/planer.js';
+import { openVorrat } from './ui/vorrat.js';
+import { initTimer } from './ui/timer.js';
+import { openKochmodus } from './ui/kochmodus.js';
 
 const canvas = document.getElementById('stage');
 // Die Bühne braucht eine Ausdehnung, das Board die Bühne. Deshalb erst
@@ -143,11 +147,23 @@ document.getElementById('btn-nutrition').addEventListener('click', () => naehrwe
 
 document.getElementById('btn-sources').addEventListener('click', () => openSources(nachQuellenAenderung));
 
-document.getElementById('btn-autofill').addEventListener('click', () => {
-  const pool = visibleRecipes().length > 12 ? visibleRecipes() : recipes;
-  store.autofill(pool);
-  fadeHint();
-});
+function planerOeffnen() {
+  openPlaner({
+    bibliothek: () => {
+      const pool = visibleRecipes();
+      return pool.length > 12 ? pool : recipes;
+    },
+    filterText: filterBeschreibung,
+    onFertig: () => fadeHint(),
+  });
+}
+
+function vorratOeffnen(ansicht) {
+  openVorrat({ onOpen: oeffneAusUebersicht, ansicht });
+}
+
+document.getElementById('btn-autofill').addEventListener('click', planerOeffnen);
+document.getElementById('btn-vorrat').addEventListener('click', () => vorratOeffnen());
 
 document.getElementById('btn-clear').addEventListener('click', () => {
   if (Object.keys(store.week).length === 0) return;
@@ -271,6 +287,7 @@ initLibrary({
 });
 
 initSummary({ onNaehrwerte: () => naehrwerteOeffnen() });
+initTimer();
 
 // ------------------------------------------------------- Grosse Sammlungen
 
@@ -300,11 +317,8 @@ const phoneMenu = document.getElementById('phone-menu');
 const moreBtn = document.getElementById('btn-more');
 
 const AKTIONEN = {
-  autofill: () => {
-    const pool = visibleRecipes().length > 12 ? visibleRecipes() : recipes;
-    store.autofill(pool);
-    fadeHint();
-  },
+  autofill: planerOeffnen,
+  vorrat: () => vorratOeffnen(),
   clear: () => {
     if (Object.keys(store.week).length) store.clearWeek();
   },
@@ -356,5 +370,8 @@ window.addEventListener('pagehide', sichereImporte);
 
 // Fuer Konsole und Tests erreichbar halten
 Object.assign(window, {
-  kochbuch: { store, board, stage, recipeById, newRecipe, vorschlaegeOeffnen, naehrwerteOeffnen, korpus },
+  kochbuch: {
+    store, board, stage, recipeById, newRecipe, vorschlaegeOeffnen, naehrwerteOeffnen, planerOeffnen, vorratOeffnen, korpus,
+    kochen: (id) => openKochmodus(recipeById.get(id)),
+  },
 });

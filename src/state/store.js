@@ -9,12 +9,16 @@ import { recipeById, MEALS, DAYS } from '../data/index.js';
 import { startOfWeek, weekKey, isoWeekNumber } from './week.js';
 import { aggregate } from './shopping.js';
 import { NAEHRSTOFFE } from './naehrwerte.js';
+import { vorratAbziehen, bereinigeVorrat } from './vorrat.js';
+import { bereinigeVorgaben } from './planer.js';
 
 export { startOfWeek, weekKey, isoWeekNumber };
 
 const STORAGE_KEY = 'kochbuch.plan.v1';
 const IMPORT_KEY = 'kochbuch.imported.v1';
 const OWN_KEY = 'kochbuch.eigene.v1';
+const VORRAT_KEY = 'kochbuch.vorrat.v1';
+const PLANER_KEY = 'kochbuch.planer.v1';
 
 function readStorage(key, fallback) {
   try {
@@ -45,6 +49,7 @@ export const maxServingsFor = (recipe) => Math.max(24, (recipe?.servings || 1) *
 class Store {
   constructor() {
     this.plans = readStorage(STORAGE_KEY, {});
+    this.vorrat = bereinigeVorrat(readStorage(VORRAT_KEY, []));
     this.checked = {};
     this.weekStart = startOfWeek(new Date());
     this.listeners = new Set();
@@ -108,6 +113,14 @@ class Store {
   placeMany(eintraege) {
     if (!Object.keys(eintraege).length) return;
     this.plans = { ...this.plans, [this.key]: { ...this.week, ...eintraege } };
+    this.persist();
+  }
+
+  /** Nimmt mehrere Felder auf einmal frei, etwa vor einem neuen Wuerfeln. */
+  removeMany(slotIds) {
+    const week = { ...this.week };
+    for (const id of slotIds) delete week[id];
+    this.plans = { ...this.plans, [this.key]: week };
     this.persist();
   }
 
@@ -241,9 +254,33 @@ class Store {
     };
   }
 
-  /** Aggregierte Einkaufsliste der Woche, nach Abteilung gruppiert. */
+  /**
+   * Einkaufsliste der Woche, nach Abteilung gruppiert und um den Vorrat
+   * vermindert. Was der Vorrat deckt, steht getrennt in `gedeckt`.
+   */
+  einkauf() {
+    return vorratAbziehen(aggregate(Object.values(this.week), recipeById, this.checked), this.vorrat);
+  }
+
+  /** Was noch zu kaufen ist, nach Abteilung gruppiert. */
   shoppingList() {
-    return aggregate(Object.values(this.week), recipeById, this.checked);
+    return this.einkauf().groups;
+  }
+
+  /** Vorrat in Kueche und Kammer, siehe vorrat.js. */
+  setVorrat(liste) {
+    this.vorrat = bereinigeVorrat(liste);
+    writeStorage(VORRAT_KEY, this.vorrat);
+    this.emit();
+  }
+
+  /** Die zuletzt benutzten Vorgaben fuer "Woche füllen". */
+  get vorgaben() {
+    return bereinigeVorgaben(readStorage(PLANER_KEY, {}));
+  }
+
+  set vorgaben(v) {
+    writeStorage(PLANER_KEY, bereinigeVorgaben(v));
   }
 
   toggleChecked(key) {
