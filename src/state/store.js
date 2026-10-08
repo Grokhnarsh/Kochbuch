@@ -11,6 +11,8 @@ import { aggregate } from './shopping.js';
 import { NAEHRSTOFFE } from './naehrwerte.js';
 import { vorratAbziehen, bereinigeVorrat } from './vorrat.js';
 import { bereinigeVorgaben } from './planer.js';
+import { bereinigeProfile } from './profile.js';
+import { bereinigeBewertungen, alsGekocht, mitSternen, mitNotiz } from './bewertung.js';
 
 export { startOfWeek, weekKey, isoWeekNumber };
 
@@ -19,6 +21,14 @@ const IMPORT_KEY = 'kochbuch.imported.v1';
 const OWN_KEY = 'kochbuch.eigene.v1';
 const VORRAT_KEY = 'kochbuch.vorrat.v1';
 const PLANER_KEY = 'kochbuch.planer.v1';
+const PROFILE_KEY = 'kochbuch.profile.v1';
+const BEWERTUNG_KEY = 'kochbuch.bewertungen.v1';
+
+/** Alles, was eine Sicherung umfasst, nach Schluessel im localStorage */
+export const SPEICHER = {
+  plan: STORAGE_KEY, eigene: OWN_KEY, importe: IMPORT_KEY, vorrat: VORRAT_KEY,
+  planer: PLANER_KEY, profile: PROFILE_KEY, bewertungen: BEWERTUNG_KEY,
+};
 
 function readStorage(key, fallback) {
   try {
@@ -50,6 +60,8 @@ class Store {
   constructor() {
     this.plans = readStorage(STORAGE_KEY, {});
     this.vorrat = bereinigeVorrat(readStorage(VORRAT_KEY, []));
+    this.profile = bereinigeProfile(readStorage(PROFILE_KEY, []));
+    this.bewertungen = bereinigeBewertungen(readStorage(BEWERTUNG_KEY, {}));
     this.checked = {};
     this.weekStart = startOfWeek(new Date());
     this.listeners = new Set();
@@ -280,7 +292,42 @@ class Store {
   }
 
   set vorgaben(v) {
-    writeStorage(PLANER_KEY, bereinigeVorgaben(v));
+    // Was aus den Profilen kommt, wird beim Planen jedes Mal neu bestimmt
+    const { ernaehrungen, meidet, ...rest } = bereinigeVorgaben(v);
+    writeStorage(PLANER_KEY, rest);
+  }
+
+  /** Wer im Haushalt mitisst, siehe profile.js */
+  setProfile(liste) {
+    this.profile = bereinigeProfile(liste);
+    writeStorage(PROFILE_KEY, this.profile);
+    this.emit();
+  }
+
+  /** Bewertung, Notiz und Kochverlauf eines Rezepts */
+  bewertung(id) {
+    return this.bewertungen[id] || null;
+  }
+
+  _bewertungenSetzen(neu) {
+    this.bewertungen = neu;
+    writeStorage(BEWERTUNG_KEY, neu);
+    this.emit();
+  }
+
+  bewerte(id, sterne) { this._bewertungenSetzen(mitSternen(this.bewertungen, id, sterne)); }
+
+  notiere(id, notiz) { this._bewertungenSetzen(mitNotiz(this.bewertungen, id, notiz)); }
+
+  gekocht(id) { this._bewertungenSetzen(alsGekocht(this.bewertungen, id)); }
+
+  /** Liest nach einer Wiederherstellung alles neu ein */
+  neuLaden() {
+    this.plans = readStorage(STORAGE_KEY, {});
+    this.vorrat = bereinigeVorrat(readStorage(VORRAT_KEY, []));
+    this.profile = bereinigeProfile(readStorage(PROFILE_KEY, []));
+    this.bewertungen = bereinigeBewertungen(readStorage(BEWERTUNG_KEY, {}));
+    this.emit();
   }
 
   toggleChecked(key) {

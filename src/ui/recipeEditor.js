@@ -9,6 +9,7 @@
  * erkannten Allergene.
  */
 
+import { verkleinern, fotoSpeichern, fotoLaden, fotoLoeschen } from './fotos.js';
 import { openModal, closeModal, el } from './modal.js';
 import { categories, recipeById, DIET_OPTIONS, MEALS } from '../data/index.js';
 import { ausFormular, pruefe, speichern, loeschen, istEigenes } from '../state/eigene.js';
@@ -168,6 +169,51 @@ export function openRecipeEditor(recipe = null, { onSaved, onDeleted } = {}) {
     + 'Eigene Rezepte bleiben in diesem Browser, zum eigenen Gebrauch.'));
   form.append(quelleBox);
 
+  // Ein Foto vom fertigen Gericht, nur in diesem Browser
+  const fotoBox = el('fieldset', 'source-fields foto-feld');
+  fotoBox.append(el('legend', null, 'Foto'));
+  const fotoVorschau = el('img', 'foto-vorschau');
+  fotoVorschau.alt = '';
+  fotoVorschau.hidden = true;
+  const fotoWahl = Object.assign(document.createElement('input'), { type: 'file', accept: 'image/*', name: 'fotoDatei' });
+  fotoWahl.setAttribute('aria-label', 'Foto auswählen');
+  const fotoWeg = el('button', 'ghost-btn', 'Foto entfernen');
+  fotoWeg.type = 'button';
+  fotoWeg.hidden = true;
+  /** undefined: unveraendert, null: entfernen, sonst die neue data:-Adresse */
+  let neuesFoto;
+  fotoWahl.addEventListener('change', async () => {
+    const datei = fotoWahl.files?.[0];
+    if (!datei) return;
+    try {
+      neuesFoto = await verkleinern(datei);
+      fotoVorschau.src = neuesFoto;
+      fotoVorschau.hidden = false;
+      fotoWeg.hidden = false;
+    } catch (err) {
+      fehlerFeld.hidden = false;
+      fehlerFeld.textContent = err.message;
+    }
+  });
+  fotoWeg.addEventListener('click', () => {
+    neuesFoto = null;
+    fotoVorschau.hidden = true;
+    fotoWeg.hidden = true;
+    fotoWahl.value = '';
+  });
+  if (bearbeiten) {
+    fotoLaden(recipe.id).then((url) => {
+      if (!url || neuesFoto !== undefined) return;
+      fotoVorschau.src = url;
+      fotoVorschau.hidden = false;
+      fotoWeg.hidden = false;
+    });
+  }
+  const fotoZeile = el('div', 'foto-zeile');
+  fotoZeile.append(fotoVorschau, fotoWahl, fotoWeg);
+  fotoBox.append(fotoZeile, el('p', 'field-hint', 'Wird verkleinert und nur in diesem Browser gespeichert.'));
+  form.append(fotoBox);
+
   const fehlerFeld = el('p', 'form-errors');
   fehlerFeld.hidden = true;
   form.append(fehlerFeld);
@@ -236,6 +282,7 @@ export function openRecipeEditor(recipe = null, { onSaved, onDeleted } = {}) {
     weg.addEventListener('click', () => {
       if (!window.confirm(`„${recipe.title}“ endgültig löschen?`)) return;
       loeschen(recipe.id);
+      fotoLoeschen(recipe.id);
       closeModal();
       onDeleted?.(recipe);
     });
@@ -262,6 +309,8 @@ export function openRecipeEditor(recipe = null, { onSaved, onDeleted } = {}) {
     }
 
     const gespeichert = speichern(entwurf);
+    if (neuesFoto) fotoSpeichern(gespeichert.id, neuesFoto).catch(() => {});
+    else if (neuesFoto === null) fotoLoeschen(gespeichert.id);
     closeModal();
     onSaved?.(gespeichert);
   });

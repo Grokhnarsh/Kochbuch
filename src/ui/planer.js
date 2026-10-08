@@ -11,6 +11,8 @@ import { store } from '../state/store.js';
 import { recipes, recipeById, MEALS, DAYS, DIET_OPTIONS } from '../data/index.js';
 import { ALLERGENS } from '../state/allergens.js';
 import { planeWoche } from '../state/planer.js';
+import { mitHaushalt } from '../state/profile.js';
+import { MONATE } from '../state/saison.js';
 
 const ZEITEN = [[0, 'beliebig'], [20, 'bis 20 Min.'], [30, 'bis 30 Min.'], [45, 'bis 45 Min.'], [60, 'bis 60 Min.']];
 
@@ -21,6 +23,8 @@ const ZEITEN = [[0, 'beliebig'], [20, 'bis 20 Min.'], [30, 'bis 30 Min.'], [45, 
 export function openPlaner({ bibliothek = null, filterText = () => '', onFertig = null } = {}) {
   const v = store.vorgaben;
   const filter = filterText();
+  const aktive = store.profile.filter((p) => p.aktiv);
+  const bewertet = Object.keys(store.bewertungen).length > 0;
   const body = el('form', 'planer');
   const foot = el('div');
 
@@ -66,7 +70,12 @@ export function openPlaner({ bibliothek = null, filterText = () => '', onFertig 
     </fieldset>
     <fieldset class="planer-optionen">
       <legend>Bevorzugen</legend>
+      <label><input type="checkbox" name="haushalt" ${v.haushalt ? 'checked' : ''} ${aktive.length ? '' : 'disabled'} />
+        ${aktive.length ? `passend für alle am Tisch: ${esc(aktive.map((p) => p.name).join(', '))}` : 'passend für den Haushalt — noch keine Personen angelegt'}</label>
       <label><input type="checkbox" name="gesund" ${v.gesund ? 'checked' : ''} /> gut bewertete, ausgewogene Gerichte</label>
+      <label><input type="checkbox" name="saison" ${v.saison ? 'checked' : ''} /> Obst und Gemüse der Saison (${MONATE[new Date().getMonth()]})</label>
+      <label><input type="checkbox" name="lieblinge" ${v.lieblinge ? 'checked' : ''} ${bewertet ? '' : 'disabled'} />
+        eigene Lieblinge, gerade Gekochtes erst später${bewertet ? '' : ' — noch nichts bewertet'}</label>
       <label><input type="checkbox" name="vorrat" ${v.vorrat ? 'checked' : ''} ${store.vorrat.length ? '' : 'disabled'} />
         Rezepte, deren Zutaten im Vorrat liegen${store.vorrat.length ? ` (${store.vorrat.length} Posten)` : ' — der Vorrat ist leer'}</label>
       ${filter ? `<label><input type="checkbox" name="bibliothek" /> nur aus der gefilterten Bibliothek (${esc(filter)})</label>` : ''}
@@ -87,6 +96,9 @@ export function openPlaner({ bibliothek = null, filterText = () => '', onFertig 
       fischProWoche: Number(f.get('fischProWoche')),
       gesund: f.has('gesund'),
       vorrat: f.has('vorrat'),
+      saison: f.has('saison'),
+      lieblinge: f.has('lieblinge'),
+      haushalt: f.has('haushalt'),
       ersetzen: f.has('ersetzen'),
     };
   }
@@ -103,8 +115,8 @@ export function openPlaner({ bibliothek = null, filterText = () => '', onFertig 
       return;
     }
     const pool = new FormData(body).has('bibliothek') && bibliothek ? bibliothek() : recipes;
-    const { eintraege, ohneTreffer, fisch } = planeWoche(pool, store.week, vorgaben, {
-      vorrat: store.vorrat, lookup: recipeById,
+    const { eintraege, ohneTreffer, fisch } = planeWoche(pool, store.week, mitHaushalt(vorgaben, store.profile), {
+      vorrat: store.vorrat, lookup: recipeById, bewertungen: store.bewertungen,
     });
     store.placeMany(eintraege);
     zuletzt = Object.keys(eintraege);

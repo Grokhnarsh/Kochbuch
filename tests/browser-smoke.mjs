@@ -197,6 +197,14 @@ try {
   await page.fill('#search', '');
   await page.waitForTimeout(300);
 
+  // Das erste Oetker-Kochbuch von 1895, gemeinfrei
+  await page.fill('#search', 'Topfkuchen Oetker');
+  await page.waitForTimeout(400);
+  const oetker = await page.locator('.recipe-card .tag.original').count();
+  check('das Oetker-Kochbuch von 1895 ist dabei, im Wortlaut', oetker >= 1, `${oetker}`);
+  await page.fill('#search', '');
+  await page.waitForTimeout(300);
+
   // --------------------------------------------------- Allergene
 
   await page.fill('#search', 'Käsespätzle');
@@ -503,6 +511,213 @@ try {
   check('und verschwindet nach dem Quittieren', (await page.locator('.timer-chip').count()) === 0);
   await page.fill('#search', '');
   await page.waitForTimeout(300);
+
+  // --------------------------------------------------- Haushalt und Bewertungen
+
+  await page.click('#btn-haushalt');
+  await page.waitForTimeout(400);
+  await page.fill('.haushalt form input[name="person"]', 'Anna');
+  await page.keyboard.press('Enter');
+  await page.waitForTimeout(300);
+  await page.locator('.person input[data-feld="allergene"][value="schalenfruechte"]').check({ force: true });
+  await page.waitForTimeout(300);
+  const profil = await page.evaluate(() => window.kochbuch.store.profile);
+  check('eine Person mit Nussallergie lässt sich anlegen', profil.length === 1 && profil[0].allergene.includes('schalenfruechte'),
+    JSON.stringify(profil));
+  await shot(page, '18-haushalt');
+  await page.keyboard.press('Escape');
+  await page.fill('#search', 'Walnuss');
+  await page.waitForTimeout(500);
+  const warnung = await page.locator('.recipe-card .card-konflikt').first().textContent().catch(() => '');
+  check('Rezepte mit Nüssen tragen eine Warnung für Anna', /Anna/.test(warnung), warnung);
+  await page.locator('.recipe-card', { has: page.locator('.card-konflikt') }).first().click();
+  await page.waitForTimeout(400);
+  const imRezept = await page.locator('.modal .haushalt-warnung').textContent().catch(() => '');
+  check('und die Rezeptansicht sagt, warum', /Anna.*Nüsse/.test(imRezept), imRezept);
+  await page.keyboard.press('Escape');
+  await page.fill('#search', '');
+  await page.waitForTimeout(300);
+
+  await page.click('#btn-clear');
+  await page.click('#btn-autofill');
+  await page.waitForTimeout(400);
+  await page.locator('.planer input[name="haushalt"]').check({ force: true });
+  await page.locator('.modal-foot .primary-btn').click();
+  await page.waitForTimeout(800);
+  const nussfrei = await page.evaluate(() => {
+    const { store, recipeById } = window.kochbuch;
+    return Object.values(store.week).filter((e) => recipeById.get(e.recipeId).allergens.some((a) => a.id === 'schalenfruechte')).length;
+  });
+  check('„für alle am Tisch“ plant ohne Nüsse', nussfrei === 0, `${nussfrei} mit Nüssen`);
+  await page.keyboard.press('Escape');
+
+  // Sterne, Notiz, gekocht
+  await page.fill('#search', 'Linseneintopf');
+  await page.waitForTimeout(400);
+  await page.locator('.recipe-card').first().click();
+  await page.waitForTimeout(400);
+  const linsenId = await page.evaluate(() => [...window.kochbuch.recipeById.values()].find((r) => r.title === document.querySelector('.modal-head h2').textContent).id);
+  await page.locator('.modal .stern[data-sterne="5"]').click();
+  await page.fill('.modal .notiz', 'Mit mehr Ingwer');
+  await page.locator('.modal .gekocht-btn').click();
+  await page.waitForTimeout(600);
+  const meine = await page.evaluate((id) => window.kochbuch.store.bewertung(id), linsenId);
+  check('Sterne, Notiz und „heute gekocht“ werden gespeichert',
+    meine?.sterne === 5 && meine.notiz === 'Mit mehr Ingwer' && meine.gekocht.length === 1, JSON.stringify(meine));
+  const kosten = await page.locator('.modal .kosten-zeile').textContent().catch(() => '');
+  check('die Rezeptansicht schätzt die Kosten', /ca\. \d+,\d\d €.*je Portion/.test(kosten), kosten);
+  await shot(page, '19-rezept-notizen-kosten');
+  await page.keyboard.press('Escape');
+  await page.fill('#search', '');
+  await page.selectOption('#filter-mehr', 'lieblinge');
+  await page.waitForTimeout(400);
+  const lieblinge = await page.locator('.recipe-card').count();
+  check('der Filter „Lieblinge“ zeigt das bewertete Rezept', lieblinge === 1);
+  await page.selectOption('#filter-mehr', '');
+  await page.waitForTimeout(300);
+  await page.evaluate(() => window.kochbuch.haushaltOeffnen('verlauf'));
+  await page.waitForTimeout(300);
+  const verlaufText = await page.locator('.verlauf').last().textContent();
+  check('der Kochverlauf nennt das Gericht', /Linseneintopf/.test(verlaufText));
+  await page.keyboard.press('Escape');
+
+  // Saison, Reste, Wochenkosten
+  await page.evaluate(() => window.kochbuch.vorratOeffnen('saison'));
+  await page.waitForTimeout(800);
+  const saison = await page.locator('.saison-chips .planer-chip').count();
+  const saisonGerichte = await page.locator('.vorrat-card').count();
+  check('der Saisonkalender zeigt den Monat und Gerichte dazu', saison > 5 && saisonGerichte > 5, `${saison} Zutaten, ${saisonGerichte} Gerichte`);
+  await page.keyboard.press('Escape');
+  await page.evaluate(() => {
+    const s = window.kochbuch.store;
+    s.clearWeek();
+    window.kochbuch.store.saveOwn({
+      id: 'eigen-sahnetest', sourceId: 'eigene', title: 'Sahnetest', category: 'Hauptgericht', meals: ['abend'], servings: 2,
+      ingredients: [{ a: 120, u: 'ml', n: 'Sahne' }, { a: 250, u: 'g', n: 'Nudeln' }], steps: ['Kochen.', 'Servieren.'],
+    });
+  });
+  await page.reload({ waitUntil: 'networkidle' });
+  await page.waitForTimeout(1500);
+  await page.evaluate(() => window.kochbuch.store.place(0, 'abend', 'eigen-sahnetest'));
+  await page.evaluate(() => window.kochbuch.store.place(1, 'abend', 'prato-wiener-schnitzel'));
+  await page.click('#btn-shopping');
+  await page.waitForTimeout(1500);
+  const rest = await page.locator('.reste .rest').first().textContent().catch(() => '');
+  const ideen = await page.locator('.reste .rest-ideen .link-btn').count();
+  check('die Einkaufsliste sagt, was übrig bleibt, mit Ideen', /80 ml Sahne/.test(rest) && ideen > 0, `${rest.replace(/\s+/g, ' ')} / ${ideen}`);
+  const woche = await page.locator('.modal .kosten-zeile').textContent().catch(() => '');
+  check('und schätzt die Kosten der Woche', /ca\. \d+,\d\d €/.test(woche), woche.replace(/\s+/g, ' '));
+  await shot(page, '20-reste');
+  await page.keyboard.press('Escape');
+
+  // Drucken: die Druckansicht enthaelt Rezepte mit Quellenangabe
+  await page.evaluate(() => { window.print = () => { window.__gedruckt = true; }; });
+  await page.evaluate(() => window.kochbuch.haushaltOeffnen('drucken'));
+  await page.waitForTimeout(300);
+  await page.locator('[data-druck="heft"]').click();
+  await page.waitForTimeout(300);
+  await page.emulateMedia({ media: 'print' });
+  const druck = await page.evaluate(() => ({
+    gedruckt: window.__gedruckt === true,
+    rezepte: document.querySelectorAll('#druck .druck-rezept').length,
+    quelle: document.querySelector('#druck .druck-quelle')?.textContent || '',
+    sichtbar: getComputedStyle(document.getElementById('druck')).display !== 'none',
+    stage: getComputedStyle(document.getElementById('stage')).display,
+  }));
+  check('das Rezeptheft enthält jedes Gericht mit Quelle', druck.gedruckt && druck.rezepte === 2 && /Lizenz/.test(druck.quelle)
+    && druck.sichtbar && druck.stage === 'none', JSON.stringify(druck));
+  await page.emulateMedia({ media: 'screen' });
+  await page.evaluate(() => window.dispatchEvent(new Event('afterprint')));
+  await page.keyboard.press('Escape');
+
+  // Sichern und wiederherstellen
+  await page.evaluate(() => window.kochbuch.haushaltOeffnen('sichern'));
+  await page.waitForTimeout(300);
+  const [download] = await Promise.all([page.waitForEvent('download'), page.locator('[data-sichern]').click()]);
+  const pfad = await download.path();
+  const datei = JSON.parse(await (await import('node:fs/promises')).readFile(pfad, 'utf8'));
+  check('die Sicherung enthält eigene Rezepte, Haushalt und Bewertungen',
+    datei.format === 'kochbuch-sicherung' && datei.daten.eigene.some((r) => r.id === 'eigen-sahnetest')
+    && datei.daten.profile.length === 1 && Object.keys(datei.daten.bewertungen).length === 1);
+  await page.keyboard.press('Escape');
+  await page.evaluate(() => { localStorage.clear(); });
+  await page.reload({ waitUntil: 'networkidle' });
+  await page.waitForTimeout(1200);
+  await page.evaluate(() => window.kochbuch.haushaltOeffnen('sichern'));
+  await page.waitForTimeout(300);
+  page.once('dialog', (d) => d.accept());
+  await page.locator('.sichern input[type="file"]').setInputFiles(pfad);
+  await page.waitForLoadState('networkidle');
+  await page.waitForTimeout(1800);
+  const zurueck = await page.evaluate(() => ({
+    eigen: Boolean(window.kochbuch.recipeById.get('eigen-sahnetest')),
+    profile: window.kochbuch.store.profile.length,
+  }));
+  check('nach dem Einlesen ist alles wieder da', zurueck.eigen && zurueck.profile === 1, JSON.stringify(zurueck));
+
+  // Wochenplan als Link
+  const geteilt = await page.evaluate(() => {
+    const s = window.kochbuch.store;
+    s.clearWeek();
+    s.place(2, 'mittag', 'prato-wiener-schnitzel', 3);
+    const e = Object.entries(s.week).map(([slot, x]) => [slot, x.recipeId, x.servings]);
+    const json = JSON.stringify({ w: s.key, e });
+    const b64 = btoa(unescape(encodeURIComponent(json))).replace(/\+/g, '-').replace(/\//g, '_').replace(/=+$/, '');
+    s.clearWeek();
+    return `${location.origin}${location.pathname}#plan=${b64}`;
+  });
+  page.once('dialog', (d) => d.accept());
+  await page.goto(geteilt, { waitUntil: 'networkidle' });
+  await page.waitForTimeout(2500);
+  const uebernommen = await page.evaluate(() => ({
+    eintrag: window.kochbuch.store.week['2:mittag'],
+    hash: location.hash,
+  }));
+  check('ein geteilter Wochenplan lässt sich übernehmen',
+    uebernommen.eintrag?.recipeId === 'prato-wiener-schnitzel' && uebernommen.eintrag.servings === 3 && !uebernommen.hash,
+    JSON.stringify(uebernommen));
+
+  // Foto zu einem eigenen Rezept
+  const bild = path.join(tmpdir(), `kochbuch-foto-${Date.now()}.png`);
+  await page.screenshot({ path: bild, clip: { x: 0, y: 0, width: 300, height: 200 } });
+  await page.fill('#search', 'Sahnetest');
+  await page.waitForTimeout(400);
+  await page.locator('.recipe-card').first().click();
+  await page.waitForTimeout(300);
+  await page.locator('.modal-foot .ghost-btn', { hasText: 'Bearbeiten' }).click();
+  await page.waitForTimeout(300);
+  await page.locator('input[name="fotoDatei"]').setInputFiles(bild);
+  await page.waitForTimeout(600);
+  await page.locator('.modal-foot .primary-btn').click();
+  await page.waitForTimeout(600);
+  await page.locator('.recipe-card').first().click();
+  await page.waitForTimeout(800);
+  const foto = await page.locator('.modal .rezept-foto').evaluate((n) => n.src.slice(0, 30)).catch(() => '');
+  check('ein Foto zum eigenen Rezept wird gespeichert und gezeigt', foto.startsWith('data:image/jpeg;base64,'), foto);
+  await page.keyboard.press('Escape');
+  await page.fill('#search', '');
+  await page.waitForTimeout(300);
+
+  // Offline: Manifest, Service Worker, Start ohne Netz
+  const sw = await page.evaluate(async () => {
+    const reg = await Promise.race([navigator.serviceWorker.ready, new Promise((r) => setTimeout(() => r(null), 8000))]);
+    return { aktiv: Boolean(reg?.active), manifest: document.querySelector('link[rel="manifest"]')?.getAttribute('href') };
+  });
+  check('Service Worker und Manifest sind da', sw.aktiv && sw.manifest === './manifest.webmanifest', JSON.stringify(sw));
+  // Einmal mit aktivem Service Worker laden, damit alles im Speicher liegt
+  await page.reload({ waitUntil: 'networkidle' });
+  await page.waitForTimeout(2500);
+  await page.context().setOffline(true);
+  await page.reload({ waitUntil: 'domcontentloaded' }).catch(() => {});
+  await page.waitForTimeout(3000);
+  const offline = await page.evaluate(async () => ({
+    karten: document.querySelectorAll('.recipe-card').length,
+    rezepte: window.kochbuch ? (await window.kochbuch.korpus).rezepte : 0,
+  })).catch((e) => ({ fehler: e.message }));
+  check('die App startet ohne Netz, samt großen Sammlungen', offline.karten > 20 && offline.rezepte > 5000, JSON.stringify(offline));
+  await page.context().setOffline(false);
+  await page.reload({ waitUntil: 'networkidle' });
+  await page.waitForTimeout(1500);
 
   // --------------------------------------------------- Sicherheit
 

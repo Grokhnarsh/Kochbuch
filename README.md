@@ -2,7 +2,7 @@
 
 Ein Wochen-Essensplaner in Form eines Stundenplans: sieben Tageszeilen, vier
 Mahlzeitenspalten, Gerichte in den Feldern, verschiebbar mit der Maus.
-Dazu eine Bibliothek mit rund 13.000 Rezepten aus gemeinfreien Kochbüchern,
+Dazu eine Bibliothek mit rund 13.100 Rezepten aus gemeinfreien Kochbüchern,
 offen lizenzierten Wikis und frei lizenzierten Kochbüchern, eigene Rezepte zum
 Selbstschreiben (auch aus eigenen Büchern, mit Quellenangabe), Allergenangaben und
 berechnete Nährwerte zu jedem Gericht, Vorschläge für eine ausgewogene Woche,
@@ -66,7 +66,7 @@ Die Bibliothek wird zum Blatt, das vom unteren Rand heraufgezogen wird — ein
 Tipp auf den Griff öffnet und schließt sie, ein Tipp auf ein leeres Feld im
 Plan öffnet sie ebenfalls. Was in der Kopfzeile keinen Platz mehr findet,
 Woche füllen, Woche leeren, Vorrat und Quellen, liegt unter **⋯** — auf
-mittleren Breiten bis 1180 Pixel auch am Rechner.
+mittleren Breiten bis 1400 Pixel auch am Rechner.
 
 Die Beschriftungen werden für beide Ansichten getrennt gezeichnet: hochkant ist
 Höhe reichlich vorhanden und Breite knapp, quer genau umgekehrt. Eine
@@ -256,6 +256,14 @@ gewöhnliches Rezept.
 | [Henriette Davidis, *Praktisches Kochbuch*](https://www.deutschestextarchiv.de/davidis_kochbuch_1849), 4. Auflage, Deutsches Textarchiv | 1849 | Text gemeinfrei, Transkription CC BY-SA 4.0 | 1.054 |
 | [Viktorine Schiller, *Neuestes Süddeutsches Kochbuch*](https://www.gutenberg.org/ebooks/52879) | 1843 | gemeinfrei | 790 |
 | [Hedwig Heyl, *Volks-Kochbuch*](https://www.gutenberg.org/ebooks/13921) | 1905 | gemeinfrei | 127 |
+| [August Oetker, *Grundlehren der Kochkunst*](https://www.gutenberg.org/ebooks/31537), das erste Oetker-Kochbuch | 1895 | gemeinfrei | 10 |
+
+Das Oetker-Buch von 1895 ist gemeinfrei — August Oetker starb 1918 — und vor
+allem Hauswirtschaftslehre; Rezepte stehen nur im Kapitel „Dr. Oetker's
+Recepte": Kuchen und Gebäck mit dem damals neuen Backpulver, im Wortlaut samt
+Werbeton. Die heutigen Dr.-Oetker-Kochbücher sind geschützt und bleiben
+draußen. Ab dem Kaiserreich rechnen die Bücher metrisch; der Leser alter Texte
+versteht deshalb auch „100 g Butter" und „ein viertel Liter Milch".
 
 **Geschützt, aber frei lizenziert.** Ein urheberrechtlich geschütztes
 Kochbuch darf nur hinein, wenn sein Urheber es erlaubt — eine Quellenangabe
@@ -400,6 +408,92 @@ ersetzt keine Kokosmilch. Eine Näherung bleibt es: Wer „Zucker" einträgt, de
 gilt auch Puderzucker als vorhanden. Gekochtes zieht die App nicht selbst ab
 — der Vorrat ist eine Liste dessen, was da ist, kein Lagerbuch.
 
+## Haushalt
+
+Unter **Haushalt** stehen die Personen, die mitessen: mit Ernährungsform,
+Allergenen und dem, was sie nicht mögen („Pilze, Koriander"). Rezepte, die für
+jemanden nicht passen, tragen in der Bibliothek ein ⚠ mit Namen, und die
+Rezeptansicht sagt, warum („Anna: enthält Nüsse"). **Woche füllen** plant auf
+Wunsch für alle am Tisch: Allergene aller zählen, Ernährungsformen gelten
+zusammen (vegan erfüllt dabei auch vegetarisch), und ohne eigene
+Personenzahl kocht der Plan für alle, die mitessen. Wer diese Woche nicht da
+ist, wird abgehakt statt gelöscht. Der Filter **Passt für den ganzen
+Haushalt** in der Bibliothek zeigt nur Rezepte ohne Konflikt.
+
+## Bewertungen, Notizen, Kochverlauf
+
+In jeder Rezeptansicht gibt es Sterne, eine Notiz („beim nächsten Mal weniger
+Salz") und **Heute gekocht**; wer den Kochmodus bis zum letzten Schritt
+durchgeht, trägt das Gericht ebenfalls ein. Unter Haushalt → **Gekocht** stehen
+Lieblinge und der Verlauf nach Tagen. Die Bibliothek filtert nach **Lieblingen**
+und **Schon gekocht**, und **Woche füllen** zieht auf Wunsch Gerichte mit vier
+oder fünf Sternen vor, schlecht bewertete selten und gerade Gekochtes erst nach
+zehn Tagen wieder.
+
+## Saison und Reste
+
+Ein Saisonkalender kennt rund fünfzig Obst- und Gemüsesorten aus heimischem
+Anbau, Freiland oder Lager, auf Monate gerundet. Die Rezeptansicht sagt, welche
+Zutaten gerade Saison haben und welche nicht („Erdbeeren: Mai bis Juli"); was
+haltbar gemacht ist — Marmelade, Dosentomaten, Tomatenmark — kennt keine
+Saison, und Ganzjähriges wie Kartoffeln zählt nicht mit. **Vorrat → Saison**
+zeigt, was im Monat wächst, mit passenden Gerichten; die Bibliothek filtert
+nach **Saisonal in diesem Monat**, und Woche füllen zieht Saisonales auf
+Wunsch vor.
+
+Die Einkaufsliste rechnet aus, was nach der Woche in angebrochenen Packungen
+bleibt: Braucht der Plan 120 ml Sahne, bleiben vom 200-ml-Becher 80 ml. Für
+jeden Rest stehen Rezeptideen daneben, die ihn aufbrauchen. Gerechnet wird für
+Verderbliches in üblichen Packungsgrößen (Becher, Dose, Kugel); Mehl und Reis
+halten sich und gehören in den Vorrat.
+
+## Kosten
+
+Was ein Gericht ungefähr kostet, folgt aus der Nährwertrechnung — die weiß
+schon, welches Lebensmittel hinter „2 EL Olivenöl" steht und wie viel Gramm
+das sind — und einem Richtpreis je Kilogramm oder Liter: gerundete
+Durchschnittspreise deutscher Supermärkte, Eigenmarke und Markenware gemischt,
+Stand 2026. Die Rezeptansicht nennt Gesamt- und Portionspreis, was am meisten
+kostet, und günstigere Gegenstücke, wo sie dasselbe leisten (Sonnenblumenkerne
+statt Pinienkernen, Hartkäse statt Parmesan). Die Einkaufsliste schätzt die
+Woche. Angebote, Bio und Packungsgrößen verschieben das; es ist eine
+Größenordnung, kein Kassenbon, und so steht es auch da.
+
+## Sichern, Teilen, Drucken
+
+Alles liegt im Browser. Unter Haushalt → **Sichern & Teilen** entsteht eine
+Sicherungsdatei mit Plänen, eigenen Rezepten, Importen, Vorrat, Haushalt,
+Bewertungen und auf Wunsch den Fotos; eingelesen ersetzt sie die Daten im
+Browser. Was hereinkommt, wird geprüft und bereinigt. Ist die Datei **für
+andere**, bleiben Abschriften aus eigenen Kochbüchern und von Webseiten
+importierte Rezepte draußen: die eigene Kopie ist erlaubt, das Weitergeben
+nicht.
+
+**Link teilen** schickt den Wochenplan als Adresse (über das Teilen-Menü des
+Geräts oder in die Zwischenablage). Wer ihn öffnet, wird gefragt, ob der Plan
+übernommen werden soll. Der Link trägt nur Rezepte aus der gemeinsamen
+Bibliothek; eigene und importierte kennt der Empfänger nicht.
+
+**Drucken** gibt Wochenplan, Einkaufsliste mit Kästchen zum Abhaken oder ein
+Rezeptheft der Woche aus — jedes Gericht einmal, mit Zutaten für die geplanten
+Portionen und der Quellenangabe samt Lizenz. Über den Druckdialog lässt sich
+das auch als PDF speichern.
+
+## Fotos
+
+Eigene Rezepte bekommen auf Wunsch ein Foto. Es wird auf höchstens 1200 Pixel
+verkleinert und in IndexedDB dieses Browsers gespeichert — für den
+`localStorage` wären Bilder zu groß — und steht oben in der Rezeptansicht.
+
+## Offline und als App
+
+Die App lässt sich installieren (Manifest mit Symbol) und läuft ohne Netz: ein
+Service Worker hält Startseite, Programmdateien und die großen Sammlungen
+vor. Die Startseite kommt aus dem Netz, wenn es eins gibt, sonst aus dem
+Speicher; die Programmdateien tragen ihren Inhalt im Namen und ändern sich nie;
+die Sammlungen kommen sofort aus dem Speicher und werden im Hintergrund
+erneuert. Im Entwicklungsserver ist der Service Worker aus.
+
 ## Einkaufsliste und Bestellung
 
 Aus dem Wochenplan entsteht die Liste automatisch: Zutaten werden auf die
@@ -488,14 +582,17 @@ src/
   state/           Wochenplan, Kalenderrechnung, Mengenarithmetik,
                    Einkaufsliste, Abteilungszuordnung, Allergene,
                    Nährwerte, Gesundheitsbewertung, eigene Rezepte,
-                   Zeitangaben, Vorrat, Wochenplanung nach Vorgaben
+                   Zeitangaben, Vorrat, Wochenplanung nach Vorgaben,
+                   Saison, Reste, Kosten, Haushalt, Bewertungen, Sichern
   webgl/           Szene, Stundenplan-Raster, Canvas-Texturen
   ui/              Bibliothek, Rezeptansicht, Rezeptformular,
                    Einkaufsliste, Nährwerte, Vorschläge, Quellen,
-                   Kochmodus, Timer, Vorrat, Woche füllen
+                   Kochmodus, Timer, Vorrat, Woche füllen, Haushalt,
+                   Drucken, Fotos
   sources/         Live-Adapter und schema.org-Importer
   shops/           Supermarkt-Anbindungen
 public/korpus/     die großen Sammlungen in Teilen, mit Verzeichnis index.json
+public/sw.js       Service Worker für den Betrieb ohne Netz, dazu Manifest und Symbole
 scripts/           Import-Werkzeug für die Kommandozeile
   korpus/          Bau des Korpus: höflicher Abruf, MediaWiki, historische
                    Texte (alte Maße und Schreibung), je Quelle ein Modul
@@ -509,7 +606,10 @@ Kalenderwochen, `state/allergens.js` erkennt Allergene, `state/naehrwerte.js`
 rechnet Nährwerte, `state/gesundheit.js` bewertet und schlägt vor,
 `state/rezeptform.js` macht aus Formulareingaben ein Rezept,
 `state/zeiten.js` findet Zeitangaben in Schritten, `state/vorrat.js` gleicht
-Vorrat und Zutaten ab, `state/planer.js` plant nach Vorgaben, `sources/ingredients.js` zerlegt
+Vorrat und Zutaten ab, `state/planer.js` plant nach Vorgaben,
+`state/saison.js`, `state/reste.js`, `state/kosten.js`, `state/profile.js`,
+`state/bewertung.js` und `state/teilen.js` rechnen Saison, Reste, Kosten,
+Haushalt, Bewertungen sowie Sicherung und Teilen-Link, `sources/ingredients.js` zerlegt
 Zutatenzeilen, `sources/schemaorg.js` liest Rezeptseiten. Der Store ruft diese
 Funktionen nur auf. `state/matcher.js` liegt darunter: die Stichwortsuche im
 Zutatennamen, die Abteilungen, Allergene und Nährwerte gemeinsam benutzen.
@@ -520,10 +620,11 @@ als Markup ausgeführt werden.
 ## Tests
 
 ```bash
-npm test               # 147 Modultests: Mengen, Einkaufsliste, Import,
+npm test               # 162 Modultests: Mengen, Einkaufsliste, Import,
                        # Korpus, Allergene, Nährwerte, Bewertung,
                        # eigene Rezepte, Sicherheit, alte Texte, Thermomix,
-                       # Köche-Nord-Bücher, Zeitangaben, Vorrat, Planer
+                       # Köche-Nord-Bücher, Zeitangaben, Vorrat, Planer,
+                       # Saison, Reste, Kosten, Haushalt, Sichern, Teilen
 npm run test:browser   # Rauchtest in Chromium gegen die gebaute App
 npm run test:handy     # derselbe Weg in Telefongröße, mit Berührung
 ```
@@ -549,7 +650,11 @@ kein veganes Buch ist. Und für die vegane Küche: dass „vegane Butter“ kein
 Milch enthält und als Margarine zählt, „Butter (vegan: Margarine)“ aber
 Butter bleibt. Für die Küche: dass „1 Std. 30 Min." eine Zeitangabe ist und
 „Minutensteak" keine, dass Mehl im Vorrat Weizenmehl deckt, aber Reis keine
-Reisnudeln, und dass „zweimal Fisch" zweimal Fisch heißt und nicht viermal.
+Reisnudeln, und dass „zweimal Fisch" zweimal Fisch heißt und nicht viermal. Dazu: dass
+Erdbeermarmelade keine Saison hat, dass von 120 ml Sahne 80 ml im Becher
+bleiben, dass doppelt so viele Portionen doppelt so viel kosten, dass ein
+Haushalt mit Nussallergie keine Nüsse auf den Plan bekommt, und dass eine
+Sicherung für andere keine Abschriften aus Büchern enthält.
 
 Der Browsertest fährt die App hoch, wartet, bis die großen Sammlungen
 nachgeladen sind, lädt eine Import-Sammlung mit Thermomix-Rezept, plant eine
@@ -560,8 +665,12 @@ Quellenangabe und findet es über den Buchtitel wieder, füllt die Woche
 mit gesunden Vorschlägen, plant eine Woche nach Vorgaben (ohne Milch, zweimal
 Fisch, für zwei) und tauscht ein Feld aus, rechnet den Vorrat aus der
 Einkaufsliste heraus, blättert durch den Kochmodus, stellt einen Timer und
-lässt ihn nach einem Neuladen klingeln, und prüft, dass ein eingeschleuster
-Titel nicht ausgeführt wird. Der Handytest geht denselben Weg in einem Fenster
+lässt ihn nach einem Neuladen klingeln, legt eine Person mit Nussallergie an
+und plant für sie, bewertet ein Rezept und findet es unter den Lieblingen,
+prüft Saisonkalender, Reste und Kosten, druckt das Rezeptheft, sichert alles,
+leert den Browser und liest die Sicherung wieder ein, übernimmt einen geteilten
+Wochenplan, speichert ein Foto, startet die App ohne Netz und prüft, dass ein
+eingeschleuster Titel nicht ausgeführt wird. Der Handytest geht denselben Weg in einem Fenster
 von 390 × 844 Punkten, mit Berührung statt Maus.
 
 Für den Browsertest muss die gebaute App laufen:

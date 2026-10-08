@@ -5,7 +5,10 @@
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
   <title>Kochbuch — Wochenplaner</title>
   <meta name="description" content="WebGL-Kochbuch mit Wochen-Essensplaner und Rezepten aus offentlichen Quellen." />
-  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🍲</text></svg>" />
+  <link rel="icon" href="./icon.svg" type="image/svg+xml" />
+  <link rel="apple-touch-icon" href="./icon-180.png" />
+  <link rel="manifest" href="./manifest.webmanifest" />
+  <meta name="theme-color" content="#f0653a" />
   <link rel="stylesheet" href="/src/style.css" />
 </head>
 <body>
@@ -33,7 +36,8 @@
       <button class="ghost-btn" id="btn-clear" title="Alle Einträge der Woche löschen">Leeren</button>
       <button class="ghost-btn" id="btn-suggest" title="Gut bewertete Gerichte für freie Felder">Gesunde Vorschläge</button>
       <button class="ghost-btn" id="btn-nutrition" title="Nährwerte der Woche und aller Rezepte">Nährwerte</button>
-      <button class="ghost-btn" id="btn-vorrat" title="Vorrat pflegen und sehen, was sich daraus kochen lässt">Vorrat</button>
+      <button class="ghost-btn" id="btn-vorrat" title="Vorrat, Saison und was sich daraus kochen lässt">Vorrat</button>
+      <button class="ghost-btn" id="btn-haushalt" title="Personen, Kochverlauf, Sichern, Teilen und Drucken">Haushalt</button>
       <button class="ghost-btn" id="btn-sources">Quellen</button>
       <button class="icon-btn only-phone" id="btn-more" aria-label="Weitere Aktionen" aria-expanded="false">&#8943;</button>
       <button class="primary-btn" id="btn-shopping">Einkaufsliste</button>
@@ -49,7 +53,8 @@
     <button class="ghost-btn" data-action="clear">Woche leeren</button>
     <button class="ghost-btn" data-action="suggest">Gesunde Vorschläge</button>
     <button class="ghost-btn" data-action="nutrition">Nährwerte</button>
-    <button class="ghost-btn" data-action="vorrat">Vorrat</button>
+    <button class="ghost-btn" data-action="vorrat">Vorrat &amp; Saison</button>
+    <button class="ghost-btn" data-action="haushalt">Haushalt, Teilen &amp; Drucken</button>
     <button class="ghost-btn" data-action="newRecipe">Eigenes Rezept schreiben</button>
     <button class="ghost-btn" data-action="sources">Quellen &amp; Lizenzen</button>
   </div>
@@ -76,6 +81,13 @@
         <option value="20">bis 20 Min.</option>
         <option value="40">bis 40 Min.</option>
         <option value="60">bis 60 Min.</option>
+      </select>
+      <select id="filter-mehr" aria-label="Weitere Auswahl">
+        <option value="">Alle Rezepte</option>
+        <option value="lieblinge">★ Lieblinge (4–5 Sterne)</option>
+        <option value="gekocht">Schon gekocht</option>
+        <option value="saison">Saisonal in diesem Monat</option>
+        <option value="haushalt">Passt für den ganzen Haushalt</option>
       </select>
     </div>
 

@@ -1,6 +1,6 @@
 {
   "hinweis": "Von scripts/korpus.mjs erzeugt. Rezepttexte unter der Lizenz ihrer Quelle, siehe src/data/sources.json.",
-  "rezepte": 12942,
+  "rezepte": 12952,
   "teile": [
     {
       "buch": "wikibooks",
@@ -113,6 +113,13 @@
       "datei": "schiller-1843-1.json",
       "rezepte": 790,
       "bytes": 965262
+    },
+    {
+      "buch": "oetker-1895",
+      "quelle": "oetker-1895",
+      "datei": "oetker-1895-1.json",
+      "rezepte": 10,
+      "bytes": 13184
     }
   ]
 }

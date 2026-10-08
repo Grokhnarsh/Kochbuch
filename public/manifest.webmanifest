@@ -1,0 +1,17 @@
+{
+  "name": "Kochbuch – Wochenplaner",
+  "short_name": "Kochbuch",
+  "description": "Wochen-Essensplaner mit Rezepten aus freien Kochbüchern, Einkaufsliste, Vorrat und Kochmodus.",
+  "lang": "de",
+  "start_url": "./",
+  "scope": "./",
+  "display": "standalone",
+  "background_color": "#f6f7f9",
+  "theme_color": "#f0653a",
+  "icons": [
+    { "src": "icon-192.png", "sizes": "192x192", "type": "image/png" },
+    { "src": "icon-512.png", "sizes": "512x512", "type": "image/png" },
+    { "src": "icon-512-maskable.png", "sizes": "512x512", "type": "image/png", "purpose": "maskable" },
+    { "src": "icon.svg", "sizes": "any", "type": "image/svg+xml" }
+  ]
+}

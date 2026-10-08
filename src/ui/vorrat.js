@@ -12,6 +12,7 @@ import { store } from '../state/store.js';
 import { recipes, vollstaendig } from '../data/index.js';
 import { formatAmount } from '../state/units.js';
 import { GRUNDZUTATEN, postenAus, fuegeHinzu, kochbarMitVorrat } from '../state/vorrat.js';
+import { imMonat, saisonFuer, MONATE } from '../state/saison.js';
 
 const posten = (p) => `${p.menge != null ? `${formatAmount(p.menge, p.einheit)} ` : ''}${p.name}`;
 
@@ -28,7 +29,8 @@ export function openVorrat({ onOpen, ansicht = 'vorrat' } = {}) {
     body.replaceChildren();
     const reiter = el('div', 'seg');
     reiter.setAttribute('role', 'tablist');
-    for (const [id, label] of [['vorrat', `Vorrat (${store.vorrat.length})`], ['kochen', 'Was kann ich kochen?']]) {
+    for (const [id, label] of [['vorrat', `Vorrat (${store.vorrat.length})`], ['kochen', 'Was kann ich kochen?'],
+      ['saison', `Saison im ${MONATE[new Date().getMonth()]}`]]) {
       const b = el('button', 'seg-btn', esc(label));
       b.type = 'button';
       b.dataset.tab = id;
@@ -38,7 +40,7 @@ export function openVorrat({ onOpen, ansicht = 'vorrat' } = {}) {
       reiter.append(b);
     }
     body.append(reiter);
-    body.append(tab === 'vorrat' ? vorratAnsicht() : kochenAnsicht());
+    body.append({ vorrat: vorratAnsicht, kochen: kochenAnsicht, saison: saisonAnsicht }[tab]());
     zeichneFuss();
   }
 
@@ -111,6 +113,36 @@ export function openVorrat({ onOpen, ansicht = 'vorrat' } = {}) {
         </div>
         <div class="actions"><button class="ghost-btn" type="button">Ansehen</button></div>`;
       card.querySelector('button').addEventListener('click', () => onOpen?.(vollstaendig(t.recipe)));
+      box.append(card);
+    }
+    return box;
+  }
+
+  /** Was jetzt waechst, und Gerichte, die genau das verwenden */
+  function saisonAnsicht() {
+    const box = el('div', 'vorrat-kochen');
+    const monat = new Date().getMonth() + 1;
+    const jetzt = imMonat(monat);
+    const treffer = recipes
+      .filter((r) => !r.lesetext && (r.meals || []).some((m) => m === 'mittag' || m === 'abend'))
+      .map((r) => ({ r, s: saisonFuer(r, monat) }))
+      .filter((x) => x.s.saisonal)
+      .sort((a, b) => b.s.passend.length - a.s.passend.length
+        || (b.r.gesundheit?.punkte || 0) - (a.r.gesundheit?.punkte || 0))
+      .slice(0, 24);
+    box.innerHTML = `
+      <p class="intro-copy">Aus heimischem Anbau, Freiland oder Lager, hat im ${MONATE[monat - 1]} Saison:</p>
+      <div class="planer-chips saison-chips">${jetzt.map((z) => `<span class="planer-chip"><span>${esc(z)}</span></span>`).join('')}</div>
+      <h3>Gerichte der Saison</h3>`;
+    for (const { r, s } of treffer) {
+      const card = el('article', 'suggest-card vorrat-card');
+      card.innerHTML = `
+        <span class="vorrat-quote" title="Saisonzutaten">${s.passend.length}</span>
+        <div class="body"><h3>${esc(r.title)}</h3>
+          <div class="meta"><span class="passt">${esc(s.passend.join(', '))}</span>
+          ${r.totalTime > 0 ? `<span>${r.totalTime} Min.</span>` : ''}</div></div>
+        <div class="actions"><button class="ghost-btn" type="button">Ansehen</button></div>`;
+      card.querySelector('button').addEventListener('click', () => onOpen?.(vollstaendig(r)));
       box.append(card);
     }
     return box;

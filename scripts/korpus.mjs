@@ -26,6 +26,7 @@ const QUELLEN = {
   'schiller-1843': () => import('./korpus/quellen/schiller-1843.mjs'),
   'heyl-1905': () => import('./korpus/quellen/heyl-1905.mjs'),
   'koeche-nord': () => import('./korpus/quellen/koeche-nord.mjs'),
+  'oetker-1895': () => import('./korpus/quellen/oetker-1895.mjs'),
 };
 
 const args = argv.slice(2);

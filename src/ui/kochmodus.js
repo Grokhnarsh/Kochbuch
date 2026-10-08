@@ -11,6 +11,7 @@ import { dauernIn, dauerText } from '../state/zeiten.js';
 import { formatAmount } from '../state/units.js';
 import { EINSTELLUNG } from '../sources/thermomix.js';
 import { starteTimer } from './timer.js';
+import { store } from '../state/store.js';
 
 /**
  * Ein Arbeitsschritt als HTML: maskiert, Thermomix-Einstellungen
@@ -167,6 +168,8 @@ export function openKochmodus(recipe, { servings } = {}) {
   function gehe(delta) {
     const ziel = nr + delta;
     if (ziel >= schritte.length) {
+      // Bis zum letzten Schritt gekocht: das kommt in den Kochverlauf
+      store.gekocht(recipe.id);
       schliessen();
       return;
     }

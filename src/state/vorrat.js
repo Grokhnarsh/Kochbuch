@@ -36,12 +36,22 @@ const BUCHSTABE = '[a-zäöüß]';
 const EIGENE_PRODUKTE = [
   'kokosmilch', 'sojamilch', 'mandelmilch', 'hafermilch', 'reismilch', 'buttermilch', 'dickmilch',
   'kondensmilch', 'saure sahne', 'sauerrahm', 'erdnussbutter', 'kakaobutter', 'pflanzenbutter',
-  'kokosöl', 'sesamöl', 'trüffelöl', 'süßkartoffel',
+  'kokosöl', 'sesamöl', 'trüffelöl', 'süßkartoffel', 'sojasahne', 'hafersahne', 'pflanzensahne',
+  'kokossahne', 'sojajoghurt', 'kokosjoghurt', 'hafermilch',
 ];
 
 /** Kleinbuchstaben, ohne Klammerzusatz, Zubereitungsart und Mehltyp */
+const namen = new Map();
 export function vorratsName(name) {
-  return toSearchTerm(String(name ?? '')).toLowerCase().replace(/\s+/g, ' ').trim();
+  const roh = String(name ?? '');
+  let n = namen.get(roh);
+  if (n === undefined) {
+    n = toSearchTerm(roh).toLowerCase().replace(/\s+/g, ' ').trim();
+    // Zehntausende Zutatennamen wiederholen sich; mehr als das braucht keiner
+    if (namen.size > 50000) namen.clear();
+    namen.set(roh, n);
+  }
+  return n;
 }
 
 /** "Eier" und "Ei", "Tomaten" und "Tomate" gelten als dasselbe. */

@@ -13,6 +13,9 @@ import { allergensFor, allergenById, HINWEIS } from '../state/allergens.js';
 import { defaultShop } from '../shops/index.js';
 import { esc, safeUrl } from './html.js';
 import { fuegeHinzu } from '../state/vorrat.js';
+import { resteAus, resteRezepte } from '../state/reste.js';
+import { kostenWoche, euroText, HINWEIS_KOSTEN } from '../state/kosten.js';
+import { recipes, recipeById, vollstaendig } from '../data/index.js';
 
 /**
  * Welche Allergene in der ganzen Liste stecken, und in welchen
@@ -107,6 +110,40 @@ function vorratsBlock(gedeckt) {
     </section>`;
 }
 
+/** Geschaetzte Kosten der Woche, auf die geplanten Portionen gerechnet */
+function kostenZeile() {
+  const k = kostenWoche(Object.values(store.week), (id) => vollstaendig(recipeById.get(id)));
+  if (!k.geschaetzt) return '';
+  const teil = k.geschaetzt < k.gerichte ? ` für ${k.geschaetzt} von ${k.gerichte} Gerichten` : '';
+  return `<p class="kosten-zeile" title="${esc(HINWEIS_KOSTEN)}">Geschätzt <b>ca. ${euroText(k.gesamt)}</b>${teil}
+    — ohne Vorratsabzug, Richtpreise ohne Gewähr.</p>`;
+}
+
+let resteCache = { schluessel: '', ideen: new Map() };
+
+/** Was nach der Woche in angebrochenen Packungen bleibt, mit Ideen dafuer */
+function resteBlock(groups) {
+  const reste = resteAus(groups).slice(0, 4);
+  if (!reste.length) return '';
+  // Abhaken zeichnet die Liste neu; die Suche durch alle Rezepte nur, wenn sich etwas geaendert hat
+  const ausschliessen = new Set(Object.values(store.week).map((e) => e.recipeId));
+  const schluessel = `${reste.map((r) => r.name).join('|')}#${[...ausschliessen].join('|')}#${recipes.length}`;
+  if (resteCache.schluessel !== schluessel) resteCache = { schluessel, ideen: resteRezepte(reste, recipes, { ausschliessen }) };
+  const { ideen } = resteCache;
+  return `
+    <section class="shop-group reste">
+      <h3>Bleibt voraussichtlich übrig</h3>
+      ${reste.map((r) => {
+        const liste = ideen.get(r.name) || [];
+        return `<div class="rest">
+          <span><b>${esc(formatAmount(r.rest, r.einheit))} ${esc(r.name)}</b>
+            <span class="aus">aus ${r.packungen} ${esc(r.packung.packung)} à ${r.packung.groesse} ${r.packung.einheit}</span></span>
+          ${liste.length ? `<span class="rest-ideen">Ideen: ${liste.map((x) => `<button type="button" class="link-btn" data-rezept="${esc(x.id)}">${esc(x.title)}</button>`).join(', ')}</span>` : ''}
+        </div>`;
+      }).join('')}
+    </section>`;
+}
+
 function renderList(groups, body, gedeckt = []) {
   if (!groups.length && !gedeckt.length) {
     body.innerHTML = `<p class="empty-note">
@@ -129,6 +166,7 @@ function renderList(groups, body, gedeckt = []) {
       auf die eingestellten Portionen hochgerechnet. Noch offen: <strong>${open}</strong>.
       ${gedeckt.length ? `${gedeckt.length} weitere deckt der Vorrat.` : ''}
     </p>
+    ${kostenZeile()}
     ${allergenUebersicht(groups)}
     ${groups.map((g) => `
       <section class="shop-group">
@@ -143,12 +181,19 @@ function renderList(groups, body, gedeckt = []) {
         `).join('')}
       </section>
     `).join('')}
+    ${resteBlock(groups)}
     ${vorratsBlock(gedeckt)}
   `;
 
   for (const box of body.querySelectorAll('input[type=checkbox]')) {
     box.addEventListener('change', () => {
       store.toggleChecked(box.id.slice(2));
+    });
+  }
+  for (const b of body.querySelectorAll('[data-rezept]')) {
+    b.addEventListener('click', () => {
+      const r = recipeById.get(b.dataset.rezept);
+      if (r) oeffneRezept?.(vollstaendig(r));
     });
   }
 }
@@ -206,7 +251,11 @@ function renderShop(groups, body) {
   }
 }
 
-export function openShoppingList() {
+let oeffneRezept = null;
+
+/** @param {{onOpen?:(recipe:object)=>void}} [opt] */
+export function openShoppingList({ onOpen } = {}) {
+  oeffneRezept = onOpen || null;
   view = 'liste';
   cursor = 0;
 

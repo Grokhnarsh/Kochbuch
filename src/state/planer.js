@@ -12,6 +12,9 @@
  */
 
 import { deckt, vorratsName } from './vorrat.js';
+import { erfuellt } from './profile.js';
+import { saisonFuer } from './saison.js';
+import { lieblingsGewicht } from './bewertung.js';
 
 const SLOT = (day, meal) => `${day}:${meal}`;
 const MAHLZEITEN = ['fruehstueck', 'mittag', 'abend', 'snack'];
@@ -27,6 +30,9 @@ export const VORGABEN_STANDARD = Object.freeze({
   fischProWoche: 0,
   gesund: false,
   vorrat: false,
+  saison: false,
+  lieblinge: false,
+  haushalt: false,
   ersetzen: false,
 });
 
@@ -45,7 +51,13 @@ export function bereinigeVorgaben(eingabe) {
     fischProWoche: zahl(v.fischProWoche, 7),
     gesund: Boolean(v.gesund),
     vorrat: Boolean(v.vorrat),
+    saison: Boolean(v.saison),
+    lieblinge: Boolean(v.lieblinge),
+    haushalt: Boolean(v.haushalt),
     ersetzen: Boolean(v.ersetzen),
+    // Aus den Haushaltsprofilen, nicht gespeichert: alle muessen gelten
+    ernaehrungen: liste(v.ernaehrungen, (e) => ERNAEHRUNG.includes(e)) ?? [],
+    meidet: (Array.isArray(v.meidet) ? v.meidet : []).map((m) => vorratsName(m)).filter(Boolean),
   };
 }
 
@@ -56,7 +68,13 @@ export const istFisch = (r) => (r.allergens || []).some((a) => a.id === 'fisch' 
 export function passt(r, meal, v) {
   // Historische Originaltexte liest man; ungefragt auf den Plan gehoeren sie nicht.
   if (r.lesetext || !(r.meals || []).includes(meal)) return false;
-  if (v.ernaehrung && !(r.diet || []).includes(v.ernaehrung)) return false;
+  // Vegan ist auch vegetarisch
+  if (!erfuellt(r, v.ernaehrung)) return false;
+  if (v.ernaehrungen?.length && !v.ernaehrungen.every((e) => erfuellt(r, e))) return false;
+  if (v.meidet?.length && r.ingredients.some((i) => {
+    const n = vorratsName(i.name);
+    return v.meidet.some((m) => deckt(m, n));
+  })) return false;
   // Mit Zeitgrenze nur Rezepte, deren Dauer bekannt ist
   if (v.maxZeit && !(r.totalTime > 0 && r.totalTime <= v.maxZeit)) return false;
   // "Kann enthalten" zaehlt wie beim Filter als enthalten.
@@ -79,7 +97,7 @@ const aehnlich = (woerter, r) => {
  * Baut die Gewichtung. Der Vorratsanteil wird je Rezept nur einmal
  * gerechnet, und nur, wenn er gefragt ist.
  */
-function gewichter(v, vorrat) {
+function gewichter(v, vorrat, { monat = new Date().getMonth() + 1, bewertungen = {} } = {}) {
   const keys = v.vorrat ? vorrat.map((p) => vorratsName(p.name)).filter(Boolean) : [];
   const namen = new Map();
   const imVorrat = (name) => {
@@ -105,6 +123,12 @@ function gewichter(v, vorrat) {
     let g = 1;
     if (v.gesund) g += Math.max(0, (r.gesundheit?.punkte || 0) - 40) / 10;
     if (keys.length) g += vorratsAnteil(r) * 6;
+    if (v.saison) {
+      const s = saisonFuer(r, monat);
+      g += s.passend.length * 3;
+      if (s.ausser.length) g *= 0.2;
+    }
+    if (v.lieblinge) g *= lieblingsGewicht(bewertungen[r.id]);
     return g;
   };
 }
@@ -155,7 +179,9 @@ function portionen(r, v) {
  * @param {{zufall?:()=>number, vorrat?:object[], lookup?:{get:Function}}} [opt]
  * @returns {{eintraege:Record<string,object>, ohneTreffer:string[], fisch:number}}
  */
-export function planeWoche(pool, woche, vorgaben, { zufall = Math.random, vorrat = [], lookup = null } = {}) {
+export function planeWoche(pool, woche, vorgaben, {
+  zufall = Math.random, vorrat = [], lookup = null, monat, bewertungen,
+} = {}) {
   const v = bereinigeVorgaben(vorgaben);
   const ziele = [];
   for (const day of v.tage) {
@@ -182,7 +208,7 @@ export function planeWoche(pool, woche, vorgaben, { zufall = Math.random, vorrat
     if (!kandidaten.has(meal)) kandidaten.set(meal, pool.filter((r) => passt(r, meal, v)));
     return kandidaten.get(meal);
   };
-  const gewicht = gewichter(v, vorrat);
+  const gewicht = gewichter(v, vorrat, { monat, bewertungen });
 
   // Fischtage gleichmaessig ueber die Hauptmahlzeiten verteilen
   const hauptziele = ziele.filter((z) => z.meal === 'mittag' || z.meal === 'abend');
@@ -236,7 +262,9 @@ export function planeWoche(pool, woche, vorgaben, { zufall = Math.random, vorrat
  *
  * @returns {{recipeId:string, servings:number}|null}
  */
-export function wuerfleFeld(pool, woche, slot, vorgaben, { zufall = Math.random, vorrat = [], lookup = null } = {}) {
+export function wuerfleFeld(pool, woche, slot, vorgaben, {
+  zufall = Math.random, vorrat = [], lookup = null, monat, bewertungen,
+} = {}) {
   const v = bereinigeVorgaben(vorgaben);
   const id = SLOT(slot.day, slot.meal);
   const bisher = woche[id] && lookup?.get(woche[id].recipeId);
@@ -252,7 +280,7 @@ export function wuerfleFeld(pool, woche, slot, vorgaben, { zufall = Math.random,
     const gleich = liste.filter((r) => istFisch(r) === istFisch(bisher));
     if (gleich.length > 1) liste = gleich;
   }
-  const gewicht = gewichter(v, vorrat);
+  const gewicht = gewichter(v, vorrat, { monat, bewertungen });
   const r = ziehe(liste, gewicht, zufall, (x) => !benutzt.has(x.id) && !aehnlich(woerter, x))
     || ziehe(liste, gewicht, zufall, (x) => !benutzt.has(x.id));
   if (!r) return null;

@@ -93,6 +93,19 @@
       "accent": "#3D6E8C"
     },
     {
+      "id": "oetker-1895",
+      "kind": "buch",
+      "title": "Dr. A. Oetkers Grundlehren der Kochkunst sowie preisgekrönte Rezepte für Haus und Küche",
+      "author": "August Oetker",
+      "year": 1895,
+      "country": "Deutschland",
+      "license": "Gemeinfrei",
+      "licenseUrl": "https://de.wikipedia.org/wiki/Gemeinfreiheit",
+      "url": "https://www.gutenberg.org/ebooks/31537",
+      "via": "Projekt Gutenberg (eBook 31537), Wortlaut; das erste Oetker-Kochbuch",
+      "accent": "#8C3D4F"
+    },
+    {
       "id": "prato-1858",
       "kind": "buch",
       "title": "Die Süddeutsche Küche",

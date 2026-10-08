@@ -59,6 +59,10 @@ const EINHEIT = [
   [/^tassen?$|^kaffeetassen?$|^theetassen?$/i, 'tasse'],
   [/^weingläser$|^weinglas$/i, 'weinglas'],
   [/^gläser$|^glas$/i, 'glas'],
+  // Ab dem Kaiserreich auch metrisch: "100 g Butter", "ein viertel Liter Milch"
+  [/^g$|^gr\.?$|^gramm$/i, 'g'],
+  [/^kg$|^kilo(gramm)?$/i, 'kg'],
+  [/^l$|^liter$/i, 'l'],
   [/^e(ß|ss)löffeln?$|^e(ß|ss)l\.?$|^löffeln?$/i, 'EL'],
   [/^th?eelöffeln?$|^th?eel\.?$/i, 'TL'],
   [/^messerspitzen?$|^msp\.?$/i, 'Msp'],

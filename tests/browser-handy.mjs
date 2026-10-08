@@ -124,6 +124,7 @@ try {
     ['nutrition', 'Nährwerte', '.nutri-table.week'],
     ['autofill', 'Vorgaben fürs Wochenfüllen', '.planer'],
     ['vorrat', 'Vorrat und Kochideen', '.vorrat-form'],
+    ['haushalt', 'Haushalt, Teilen und Drucken', '.haushalt'],
   ]) {
     await page.locator('#btn-more').tap();
     await page.waitForTimeout(300);

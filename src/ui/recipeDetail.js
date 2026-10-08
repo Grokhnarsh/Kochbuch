@@ -7,6 +7,11 @@ import { openModal, closeModal, el } from './modal.js';
 import { store, maxServingsFor } from '../state/store.js';
 import { recipeById, recipes, MEALS, DAYS, vollstaendig } from '../data/index.js';
 import { wuerfleFeld } from '../state/planer.js';
+import { kostenRezept, euroText, HINWEIS_KOSTEN } from '../state/kosten.js';
+import { saisonFuer, zeitraum, MONATE } from '../state/saison.js';
+import { konflikte, mitHaushalt } from '../state/profile.js';
+import { tageSeit } from '../state/bewertung.js';
+import { fotoLaden } from './fotos.js';
 import { formatAmount } from '../state/units.js';
 import { allergensForRecipe, HINWEIS } from '../state/allergens.js';
 import { istEigenes } from '../state/eigene.js';
@@ -125,6 +130,72 @@ function allergenBlock(recipe) {
   `;
 }
 
+/** Was es ungefaehr kostet, auf die gewaehlten Portionen gerechnet. */
+function kostenBlock(recipe, servings) {
+  const k = kostenRezept(recipe);
+  if (!k) return '';
+  if (k.abdeckung < 0.6) {
+    return `<h3>Kosten</h3><p class="nutri-note">Für eine Schätzung fehlen zu viele Preise. ${esc(HINWEIS_KOSTEN)}</p>`;
+  }
+  const faktor = servings / (recipe.servings || 1);
+  const gesamt = k.gesamt * faktor;
+  const teuer = k.posten.slice(0, 3).filter((p) => p.euro * faktor >= 0.3)
+    .map((p) => `${esc(p.name)} ${euroText(p.euro * faktor)}`).join(', ');
+  const sparen = k.sparen.slice(0, 2)
+    .map((x) => `<li>Statt ${esc(x.statt)}: ${esc(x.mit)} — spart etwa ${euroText(x.ersparnis * faktor)}</li>`).join('');
+  return `
+    <h3>Kosten <span class="nutri-badge">Schätzung</span></h3>
+    <p class="kosten-zeile"><b>ca. ${euroText(gesamt)}</b> für ${esc(String(servings))} ${esc(recipe.yieldUnit || 'Portionen')}${
+      k.jePortion != null ? ` · ${euroText(k.jePortion)} je ${recipe.yieldUnit && !/portion/i.test(recipe.yieldUnit) ? 'Stück' : 'Portion'}` : ''}</p>
+    ${teuer ? `<p class="nutri-note">Am meisten machen aus: ${teuer}.</p>` : ''}
+    ${sparen ? `<ul class="sparen">${sparen}</ul>` : ''}
+    <p class="nutri-note">${esc(HINWEIS_KOSTEN)}${k.ohnePreis.length ? ` Ohne Preis: ${liste(k.ohnePreis.slice(0, 5))}.` : ''}</p>
+  `;
+}
+
+/** Saisonzutaten: was jetzt passt und was gerade von weit her kommt. */
+function saisonBlock(recipe) {
+  if (recipe.lesetext) return '';
+  const monat = new Date().getMonth() + 1;
+  const s = saisonFuer(recipe, monat);
+  if (!s.passend.length && !s.ausser.length) return '';
+  return `
+    <h3>Saison im ${MONATE[monat - 1]}</h3>
+    ${s.passend.length ? `<p class="saison-gut">✓ ${s.passend.map(esc).join(', ')} ${s.passend.length === 1 ? 'hat' : 'haben'} jetzt Saison.</p>` : ''}
+    ${s.ausser.length ? `<p class="nutri-note">Außerhalb der Saison: ${s.ausser.map((z) => `${esc(z)} (${esc(zeitraum(z))})`).join(', ')}.</p>` : ''}
+  `;
+}
+
+/** Fuer wen am Tisch das Rezept nicht passt. */
+function haushaltBlock(recipe) {
+  const k = store.profile.some((p) => p.aktiv) ? konflikte(recipe, store.profile) : [];
+  if (!k.length) return '';
+  return `<div class="haushalt-warnung" role="note">⚠ Passt nicht für ${
+    k.map((x) => `<b>${esc(x.name)}</b> (${esc(x.gruende.join(', '))})`).join(', ')}</div>`;
+}
+
+/** Eigene Sterne, Notiz und Kochverlauf */
+function meinBlock(recipe) {
+  const b = store.bewertung(recipe.id);
+  const sterne = b?.sterne || 0;
+  const seit = tageSeit(b);
+  const mal = b?.gekocht.length || 0;
+  const zuletzt = mal
+    ? `${mal}× gekocht, zuletzt ${seit === 0 ? 'heute' : seit === 1 ? 'gestern' : `vor ${seit} Tagen`}`
+    : 'Noch nicht gekocht';
+  return `
+    <h3>Meine Notizen</h3>
+    <div class="sterne" role="radiogroup" aria-label="Eigene Bewertung">
+      ${[1, 2, 3, 4, 5].map((n) => `<button type="button" class="stern${n <= sterne ? ' an' : ''}" data-sterne="${n}"
+        role="radio" aria-checked="${n === sterne}" aria-label="${n} von 5 Sternen">★</button>`).join('')}
+      <span class="gekocht-info">${esc(zuletzt)}</span>
+      <button type="button" class="ghost-btn gekocht-btn">Heute gekocht</button>
+    </div>
+    <textarea class="notiz" rows="2" maxlength="1000" placeholder="z. B. beim nächsten Mal weniger Salz"
+      aria-label="Notiz zum Rezept">${esc(b?.notiz || '')}</textarea>
+  `;
+}
+
 /**
  * @param {object} recipe
  * @param {{day:number, meal:string}|null} slot Wenn gesetzt, wirkt die
@@ -192,6 +263,7 @@ export function openRecipe(recipe, slot = null, onPlace = null, onEdited = null)
       : '';
 
     body.innerHTML = `
+      ${haushaltBlock(recipe)}
       <div class="detail-grid">
         <div>
           <h3>Zutaten</h3>
@@ -203,6 +275,7 @@ export function openRecipe(recipe, slot = null, onPlace = null, onEdited = null)
           </div>
           <ul class="ing-list">${ings}</ul>
           ${allergenBlock(recipe)}
+          ${meinBlock(recipe)}
         </div>
         <div>
           <h3>Zubereitung${recipe.totalTime > 0 ? ` · ${recipe.totalTime} Minuten` : ''}</h3>
@@ -212,10 +285,35 @@ export function openRecipe(recipe, slot = null, onPlace = null, onEdited = null)
           <ol class="step-list${recipe.lesetext ? ' original' : ''}">${steps}</ol>
           ${naehrwertBlock(recipe)}
           ${gesundheitBlock(recipe)}
+          ${saisonBlock(recipe)}
+          ${kostenBlock(recipe, servings)}
           ${licence}
         </div>
       </div>
     `;
+
+    for (const btn of body.querySelectorAll('[data-sterne]')) {
+      btn.addEventListener('click', () => {
+        const n = Number(btn.dataset.sterne);
+        // Derselbe Stern noch einmal nimmt die Bewertung zurueck
+        store.bewerte(recipe.id, store.bewertung(recipe.id)?.sterne === n ? 0 : n);
+        render();
+      });
+    }
+    body.querySelector('.gekocht-btn')?.addEventListener('click', () => {
+      store.gekocht(recipe.id);
+      render();
+    });
+    const notiz = body.querySelector('.notiz');
+    let notizTakt = null;
+    notiz?.addEventListener('input', () => {
+      clearTimeout(notizTakt);
+      notizTakt = setTimeout(() => store.notiere(recipe.id, notiz.value), 400);
+    });
+    notiz?.addEventListener('blur', () => {
+      clearTimeout(notizTakt);
+      if ((store.bewertung(recipe.id)?.notiz || '') !== notiz.value) store.notiere(recipe.id, notiz.value);
+    });
 
     for (const btn of body.querySelectorAll('[data-step]')) {
       btn.addEventListener('click', () => {
@@ -255,7 +353,9 @@ export function openRecipe(recipe, slot = null, onPlace = null, onEdited = null)
       const anders = el('button', 'ghost-btn', 'Anderes Gericht');
       anders.title = 'Ein anderes Rezept für dieses Feld, nach den Vorgaben von „Woche füllen“';
       anders.addEventListener('click', () => {
-        const neu = wuerfleFeld(recipes, store.week, slot, store.vorgaben, { vorrat: store.vorrat, lookup: recipeById });
+        const neu = wuerfleFeld(recipes, store.week, slot, mitHaushalt(store.vorgaben, store.profile), {
+          vorrat: store.vorrat, lookup: recipeById, bewertungen: store.bewertungen,
+        });
         if (!neu) {
           anders.textContent = 'Kein anderes passendes';
           anders.disabled = true;
@@ -293,6 +393,15 @@ export function openRecipe(recipe, slot = null, onPlace = null, onEdited = null)
   render();
   renderFoot();
   openModal({ title: recipe.title, subtitle, body, footer: foot, wide: true });
+
+  // Eigenes Foto, falls vorhanden; es kommt aus IndexedDB und damit spaeter
+  if (istEigenes(recipe)) {
+    fotoLaden(recipe.id).then((url) => {
+      if (!url || !body.isConnected) return;
+      const bild = Object.assign(document.createElement('img'), { src: url, alt: recipe.title, className: 'rezept-foto' });
+      body.prepend(bild);
+    });
+  }
 }
 
 /** Oeffnet das Rezept, das in einem Feld liegt. */

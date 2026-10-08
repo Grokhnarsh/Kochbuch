@@ -26,6 +26,8 @@ import { openPlaner } from './ui/planer.js';
 import { openVorrat } from './ui/vorrat.js';
 import { initTimer } from './ui/timer.js';
 import { openKochmodus } from './ui/kochmodus.js';
+import { openHaushalt } from './ui/haushalt.js';
+import { ausLink } from './state/teilen.js';
 
 const canvas = document.getElementById('stage');
 // Die Bühne braucht eine Ausdehnung, das Board die Bühne. Deshalb erst
@@ -140,7 +142,7 @@ document.getElementById('week-prev').addEventListener('click', () => store.shift
 document.getElementById('week-next').addEventListener('click', () => store.shiftWeek(1));
 document.getElementById('week-today').addEventListener('click', () => store.goToday());
 
-document.getElementById('btn-shopping').addEventListener('click', openShoppingList);
+document.getElementById('btn-shopping').addEventListener('click', () => openShoppingList({ onOpen: oeffneAusUebersicht }));
 document.getElementById('btn-new-recipe').addEventListener('click', newRecipe);
 document.getElementById('btn-suggest').addEventListener('click', vorschlaegeOeffnen);
 document.getElementById('btn-nutrition').addEventListener('click', () => naehrwerteOeffnen());
@@ -164,6 +166,12 @@ function vorratOeffnen(ansicht) {
 
 document.getElementById('btn-autofill').addEventListener('click', planerOeffnen);
 document.getElementById('btn-vorrat').addEventListener('click', () => vorratOeffnen());
+
+function haushaltOeffnen(ansicht) {
+  openHaushalt({ onOpen: oeffneAusUebersicht, ansicht });
+}
+
+document.getElementById('btn-haushalt').addEventListener('click', () => haushaltOeffnen());
 
 document.getElementById('btn-clear').addEventListener('click', () => {
   if (Object.keys(store.week).length === 0) return;
@@ -319,6 +327,7 @@ const moreBtn = document.getElementById('btn-more');
 const AKTIONEN = {
   autofill: planerOeffnen,
   vorrat: () => vorratOeffnen(),
+  haushalt: () => haushaltOeffnen(),
   clear: () => {
     if (Object.keys(store.week).length) store.clearWeek();
   },
@@ -365,6 +374,44 @@ function fadeHint() {
   hint.classList.add('faded');
 }
 
+// --------------------------------------------------- Geteilter Wochenplan
+
+/**
+ * Ein Link "#plan=…" bringt einen Plan mit. Uebernommen wird er erst
+ * nach Rueckfrage, und erst wenn die grossen Sammlungen da sind — sonst
+ * fehlten Gerichte, die aus ihnen stammen.
+ */
+function geteiltenPlanPruefen() {
+  const geteilt = ausLink(window.location.hash);
+  if (!geteilt) return;
+  history.replaceState(null, '', window.location.pathname + window.location.search);
+  korpus.then(() => {
+    const bekannt = Object.fromEntries(Object.entries(geteilt.eintraege).filter(([, e]) => recipeById.has(e.recipeId)));
+    const n = Object.keys(bekannt).length;
+    if (!n) return;
+    const [j, m, t] = geteilt.woche.split('-').map(Number);
+    const frage = `Geteilten Wochenplan mit ${n} Gerichten für die Woche ab ${t}.${m}.${j} übernehmen? `
+      + 'Belegte Felder dieser Woche werden dabei ersetzt.';
+    if (!window.confirm(frage)) return;
+    store.weekStart = new Date(j, m - 1, t);
+    store.placeMany(bekannt);
+  });
+}
+
+geteiltenPlanPruefen();
+// Auch, wenn der Link in einem schon offenen Tab aufgeht
+window.addEventListener('hashchange', geteiltenPlanPruefen);
+
+// --------------------------------------------------------------- Offline
+
+// Nur im gebauten Stand: im Entwicklungsserver stuende der Service Worker
+// jeder Aenderung im Weg.
+if (import.meta.env.PROD && 'serviceWorker' in navigator) {
+  window.addEventListener('load', () => {
+    navigator.serviceWorker.register('./sw.js').catch(() => { /* ohne Offline-Modus geht es auch */ });
+  });
+}
+
 // "pagehide" feuert auch dort, wo "beforeunload" ausbleibt.
 window.addEventListener('pagehide', sichereImporte);
 
@@ -373,5 +420,6 @@ Object.assign(window, {
   kochbuch: {
     store, board, stage, recipeById, newRecipe, vorschlaegeOeffnen, naehrwerteOeffnen, planerOeffnen, vorratOeffnen, korpus,
     kochen: (id) => openKochmodus(recipeById.get(id)),
+    haushaltOeffnen,
   },
 });
